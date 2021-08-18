@@ -293,6 +293,26 @@ namespace ULTRAMAVERICK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap resumerdf {
+            get {
+                object obj = ResourceManager.GetObject("resumerdf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap resumerdf1 {
+            get {
+                object obj = ResourceManager.GetObject("resumerdf1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap satellite_dish {
             get {
                 object obj = ResourceManager.GetObject("satellite-dish", resourceCulture);

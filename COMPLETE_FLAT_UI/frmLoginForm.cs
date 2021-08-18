@@ -19,6 +19,9 @@ namespace COMPLETE_FLAT_UI
         FormMenuPrincipal mainMenu;
         DataSet dSet = new DataSet();
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+        readonly myclasses xClass = new myclasses();
+        IStoredProcedures objStorProc = null;
+        myglobal pointer_module = new myglobal();
         public frmLoginForm()
         {
             InitializeComponent();
@@ -31,7 +34,27 @@ namespace COMPLETE_FLAT_UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            LoginProcedural();
+
+            if (txtUsername.Text.Trim() == string.Empty)
+            {
+                FilltextboxErrorNotifier();
+                txtUsername.Focus();
+                return;
+
+            }
+            if (txtPassword.Text.Trim() == string.Empty)
+            {
+                FilltextboxErrorNotifier();
+                txtPassword.Focus();
+                return;
+
+            }
+
+            //User Stored Procedure Validate name & Password
+            dSet.Clear();
+            dSet = objStorProc.sp_userfile(0, txtUsername.Text.Trim(), txtPassword.Text.Trim(), "", "validate");
+
+
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -49,18 +72,24 @@ namespace COMPLETE_FLAT_UI
 
                 //System.Diagnostics.Process.Start(@"C:\Program Files (x86)\DiniTools\WeighConsole.exe");//deploy
 
+           
 
                 mainMenu = new FormMenuPrincipal();
                 mainMenu.Show();
 
 
 
-                this.Close();
 
+                
+                // Start 3 blocks of validate
+                this.Hide(); 
+                mainMenu.Closed += (s, args) => this.Close();
+                mainMenu.Show();
+                //end of form validation
             }
             else
             {
-                player.SoundLocation = @"C:\MaverickReports\windows_error_msg.wav";
+                player.SoundLocation = @"C:\MaverickReports\Fedora_Voice\windows_error_msg.wav";
                 player.Play();
                 //MessageBox.Show("Sorry! You are not allowed to use this system!", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 NotAllowToUsedTheSystem();
@@ -71,7 +100,7 @@ namespace COMPLETE_FLAT_UI
         public void NotAllowToUsedTheSystem()
         {
         
-            MetroFramework.MetroMessageBox.Show(this, "Sorry! You are not allowed to use this system! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MetroFramework.MetroMessageBox.Show(this, "Sorry! You are not allowed to use this system invalid credentials! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //Application.Exit();
             txtUsername.Text = String.Empty;
             txtPassword.Text = String.Empty;
@@ -83,7 +112,7 @@ namespace COMPLETE_FLAT_UI
 
         public void StartupFocus()
         {
-
+            txtUsername.Focus();
         }
         public void LoginProcedural()
         {
@@ -139,8 +168,20 @@ namespace COMPLETE_FLAT_UI
 
         }
 
+        private void frmLoginForm_Load(object sender, EventArgs e)
+        {
+            
+           
+            objStorProc = xClass.g_objStoredProc.GetCollections();
+            txtUsername.Select();
+        }
 
-
-
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COMPLETE_FLAT_UI.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +10,16 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.Forms.Users;
+using ULTRAMAVERICK.Models;
 
 namespace COMPLETE_FLAT_UI
 {
     public partial class FormMenuPrincipal : Form
     {
         //Constructor
+        myclasses xClass = new myclasses();
+        IStoredProcedures objStorProc = null;
         public FormMenuPrincipal()
         {
             InitializeComponent();
@@ -184,7 +189,12 @@ namespace COMPLETE_FLAT_UI
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(1300, 700); //Size of Windows
+
+            lblFirstName.Text = userinfo.emp_name.ToUpper(); // First Name Session
+            lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
             MostrarFormLogo();
+
         }
         //METODO PARA MOSTRAR FORMULARIO DE LOGO Al CERRAR OTROS FORM ----------------------------------------------------------
         private void MostrarFormLogoAlCerrarForms(object sender, FormClosedEventArgs e)
@@ -205,11 +215,87 @@ namespace COMPLETE_FLAT_UI
             frm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(frm);
         }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            lx = this.Location.X;
+            ly = this.Location.Y;
+            sw = this.Size.Width;
+            sh = this.Size.Height;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            btnMaximize.Visible = false;
+            btnNormal1.Visible = true;
+        }
+
+        private void btnNormal1_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(sw, sh);
+            this.Location = new Point(lx, ly);
+            btnNormal1.Visible = false;
+            btnMaximize.Visible = true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+   
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            frmUserRight fm = new frmUserRight();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnMinimizeFinal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaximizedFinal_Click(object sender, EventArgs e)
+        {
+            lx = this.Location.X;
+            ly = this.Location.Y;
+            sw = this.Size.Width;
+            sh = this.Size.Height;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+             btnMaximizedFinal.Visible = false;
+            btnNormalFinal.Visible = true;
+        }
+
+        private void btnNormalFinal_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(sw, sh);
+            this.Location = new Point(lx, ly);
+            btnNormalFinal.Visible = false;
+            btnMaximizedFinal.Visible = true;
+        }
+
+        private void btnCloseFinal_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------
         private void tmFechaHora_Tick(object sender, EventArgs e)
         {
-            lbFecha.Text = DateTime.Now.ToLongDateString();
-            lblHora.Text = DateTime.Now.ToString("HH:mm:ssss");
+            lblDateFinal.Text = DateTime.Now.ToLongDateString();
+            lblTimeFinal.Text = DateTime.Now.ToString("HH:mm:ssss");
         }
         
 

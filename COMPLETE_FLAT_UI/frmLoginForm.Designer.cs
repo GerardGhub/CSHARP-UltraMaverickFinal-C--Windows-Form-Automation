@@ -98,7 +98,7 @@ namespace COMPLETE_FLAT_UI
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblUsername.Location = new System.Drawing.Point(470, 223);
+            this.lblUsername.Location = new System.Drawing.Point(464, 223);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(192, 39);
@@ -134,6 +134,7 @@ namespace COMPLETE_FLAT_UI
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(519, 45);
             this.txtPassword.TabIndex = 20;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // btnLogin
             // 
@@ -168,7 +169,9 @@ namespace COMPLETE_FLAT_UI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
+            this.Load += new System.EventHandler(this.frmLoginForm_Load);
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

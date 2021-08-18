@@ -128,10 +128,16 @@
     <Compile Include="FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Login\frmLoginForm.cs">
+    <Compile Include="Forms\Users\frmUserRight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Login\frmLoginForm.Designer.cs">
+    <Compile Include="Forms\Users\frmUserRight.Designer.cs">
+      <DependentUpon>frmUserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginForm.Designer.cs">
       <DependentUpon>frmLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\IStoredProcedures.cs" />
@@ -166,7 +172,10 @@
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login\frmLoginForm.resx">
+    <EmbeddedResource Include="Forms\Users\frmUserRight.resx">
+      <DependentUpon>frmUserRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginForm.resx">
       <DependentUpon>frmLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -286,7 +295,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resumerdf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resumerdf1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

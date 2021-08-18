@@ -17,6 +17,7 @@ namespace COMPLETE_FLAT_UI.Models
     public static string user_name;
     public static string password;
     public static string emp_name;
+    public static string emp_lastname;
     public static int user_rights_id;
     //public static string item_description; //microprofile
     public static string user_section;
@@ -32,6 +33,7 @@ namespace COMPLETE_FLAT_UI.Models
     emp_name = dset_user.Tables[0].Rows[0][4].ToString();
     user_section = dset_user.Tables[0].Rows[0][5].ToString();
     receiving_status = dset_user.Tables[0].Rows[0][6].ToString();
+     emp_lastname = dset_user.Tables[0].Rows[0][7].ToString();
     USER_LOG = 1;
     }
     }
