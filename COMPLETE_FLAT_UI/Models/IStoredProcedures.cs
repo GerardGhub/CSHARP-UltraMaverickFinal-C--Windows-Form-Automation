@@ -171,47 +171,37 @@ namespace ULTRAMAVERICK.Models
                                           , int user_id
                                           , string mode);
 
-        DataSet sp_attendance_monitoring(int attendance_monitoring_id, int employee_id, string mode);
 
-        DataSet sp_tardiness(int tardiness_id, int employee_id, string time_late, string mode);
 
-        DataSet sp_userfile(int userfile_id, int user_rights_id, string username, string password, string employee_name, string user_section, string receiving_status, string mode);
+        DataSet sp_userfile(int userfile_id, 
+            int user_rights_id, 
+            string username, string password, 
+            string employee_name, 
+            string user_section, 
+            string receiving_status, 
+            string mode);
+       
         DataSet sp_userfile(int userfile_id, string username, string password, string user_section, string mode);
 
-        DataSet sp_disciplinary(int da_id,
-                    string da_number,
-                    int employee_id,
-                    int offense_id,
-                    string violation_incured,
-                    string date_of_incident,
-                    string number_of_offense,
-                    string penalty_impose,
-                    string remarks,
-                    string resolution_memo,
-                    string suspension_date,
-                    string incident_details,
-                    DateTime date_created,
-                    string mode,
-                    DateTime? dateInitialMemo,
-                    DateTime? dateInitialMemoPrepared,
-                    DateTime? dateResolutionMemo,
-                    DateTime? dateResolutionMemoPrepared,
-                    bool? is_explanation);
 
-        DataSet sp_disciplinary(int da_id, string da_number, string mode);
-        DataSet sp_disciplinary(DateTime date_created, string mode);
 
-        DataSet sp_offense(int offense_id, string offense_code, string offense_description, string mode);
 
-        DataSet sp_DTRecords1(int ID, DateTime attendance_date, string mode);
-        DataSet sp_DTRecords1(int ID, string employee_id, string mode);
-        DataSet sp_DTRecords1(int ID, DateTime attendance_date, string employee_id, string TimeIn, string LunchOut, string LunchIn, string TimeOut, string TotalHrs, string mode);
 
-        DataSet sp_phonebook(int phonebook_id, string company_name, string contact_name, string address, string phonenumber1, string phonenumber2, string cellno1, string cellno2, string faxnumber, string emailaddress, string mode);
-        DataSet sp_phonebook(int phonebook_id, string company_name, string contact_name, string mode);
-        DataSet sp_SchedShift(string mode, int ID, string SName, string STimeIn, string SLunchOut, string SLunchIn, string STimeOut, int is_active);
 
-        DataSet sp_Sched(string mode, string column, string filter, int ID, string SName, string SDate, string STimeIn, string SLunchOut, string SLunchIn, string STimeOut);
+            DataSet sp_position(
+            int position_id,
+            string position_name,
+            string department_id,
+            string created_by,
+            string created_at,
+            string modified_by,
+            string modified_date,
+            string primary_user_id,
+            string mode);
+
+
+
+
 
         DataSet sp_Sched2(string mode, int ID, string Employee_ID, string Shift_Name, string Date, string Date2);
         DataSet sp_tard(string mode, string filter, string Employee_ID, string Date, string Date2);

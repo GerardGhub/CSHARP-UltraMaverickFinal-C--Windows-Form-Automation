@@ -135,10 +135,16 @@ namespace COMPLETE_FLAT_UI
             if (panelMenu.Width == 230)
             {
                 this.tmContraerMenu.Start();
+                lblFirstName.Visible = false;
+                lblLastName.Visible = false;
+                lblPosition.Visible = false;
             }
             else if (panelMenu.Width == 55)
             {
                 this.tmExpandirMenu.Start();
+                lblFirstName.Visible = true;
+                lblLastName.Visible = true;
+                lblPosition.Visible = true;
             }
 
             //-------SIN EFECTO 
@@ -289,6 +295,20 @@ namespace COMPLETE_FLAT_UI
             {
                 Application.Exit();
             }
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            frmUserManagement fm = new frmUserManagement();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnPosition_Click(object sender, EventArgs e)
+        {
+            frmPosition fm = new frmPosition();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------

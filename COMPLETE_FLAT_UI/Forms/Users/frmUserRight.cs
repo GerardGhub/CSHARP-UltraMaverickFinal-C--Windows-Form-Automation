@@ -62,7 +62,21 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void listViewuser_rights_Click(object sender, EventArgs e)
         {
-
+            btnDelete.Visible = true;
+            btnAddMenu.Visible = true;
+            showvalue();
+            loadMenu_byUsers();
+        }
+        public void showvalue()
+        {
+            if (ready == true)
+            {
+                if (listViewuser_rights.Items.Count > 0)
+                {
+                    p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
+                    txtRights.Text = listViewuser_rights.Text;
+                }
+            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -454,7 +468,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             PopupNotifier popup = new PopupNotifier();
             popup.Image = Resources.new_logo;
-            popup.TitleText = "Fedora Notifications";
+            popup.TitleText = "Ultra Maverick Notifications";
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
@@ -465,16 +479,10 @@ namespace ULTRAMAVERICK.Forms.Users
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Red;
             popup.Popup();
-            //popup.AnimationDuration = 1000;
-            //popup.ShowOptionsButton.ToString();
             popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            //txtMainInput.Focus();
-            //txtMainInput.Select();
             popup.Delay = 500;
             popup.AnimationInterval = 10;
             popup.AnimationDuration = 1000;
-
-
             popup.ShowOptionsButton = true;
 
 
@@ -488,6 +496,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     //if (MessageBox.Show("Are you sure you want to delete this record?", lblName.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     //{
+
                     mode = "delete";
                     if (saveMode())
                     {

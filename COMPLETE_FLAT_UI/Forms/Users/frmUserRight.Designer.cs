@@ -30,11 +30,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserRight));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnMenuUpdate = new System.Windows.Forms.Button();
             this.btnRemoveMenu = new System.Windows.Forms.Button();
             this.metroButtonDelete = new MetroFramework.Controls.MetroButton();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,13 +159,13 @@ namespace ULTRAMAVERICK.Forms.Users
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewuser_rights.BackColor = System.Drawing.SystemColors.Control;
             this.listViewuser_rights.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewuser_rights.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewuser_rights.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewuser_rights.FormattingEnabled = true;
-            this.listViewuser_rights.ItemHeight = 41;
+            this.listViewuser_rights.ItemHeight = 50;
             this.listViewuser_rights.Location = new System.Drawing.Point(85, 133);
             this.listViewuser_rights.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.listViewuser_rights.Name = "listViewuser_rights";
-            this.listViewuser_rights.Size = new System.Drawing.Size(1296, 574);
+            this.listViewuser_rights.Size = new System.Drawing.Size(1296, 500);
             this.listViewuser_rights.TabIndex = 13;
             this.listViewuser_rights.Click += new System.EventHandler(this.listViewuser_rights_Click);
             this.listViewuser_rights.SelectedIndexChanged += new System.EventHandler(this.listViewuser_rights_SelectedIndexChanged);
@@ -189,7 +190,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtRights.BackColor = System.Drawing.Color.White;
             this.txtRights.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRights.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRights.Location = new System.Drawing.Point(502, 65);
+            this.txtRights.Location = new System.Drawing.Point(551, 61);
             this.txtRights.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtRights.MaxLength = 100;
             this.txtRights.Name = "txtRights";
@@ -239,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(1121, 721);
+            this.btnDelete.Location = new System.Drawing.Point(787, 721);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(200, 67);
@@ -274,7 +275,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(569, 721);
+            this.btnEdit.Location = new System.Drawing.Point(341, 721);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(200, 67);
@@ -291,7 +292,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(808, 718);
+            this.btnCancel.Location = new System.Drawing.Point(571, 721);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(200, 67);
@@ -305,51 +306,51 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.dataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.dataView.ColumnHeadersHeight = 58;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataView.ColumnHeadersVisible = false;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chkSelected});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle33;
             this.dataView.GridColor = System.Drawing.Color.Black;
             this.dataView.Location = new System.Drawing.Point(1457, 126);
             this.dataView.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dataView.Name = "dataView";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.dataView.RowHeadersVisible = false;
             this.dataView.RowHeadersWidth = 102;
             this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle35;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataView.Size = new System.Drawing.Size(1013, 1276);
             this.dataView.TabIndex = 493;
@@ -411,7 +412,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnMetroSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMetroSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMetroSave.Image")));
             this.btnMetroSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMetroSave.Location = new System.Drawing.Point(476, 815);
+            this.btnMetroSave.Location = new System.Drawing.Point(867, 811);
             this.btnMetroSave.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnMetroSave.Name = "btnMetroSave";
             this.btnMetroSave.Size = new System.Drawing.Size(200, 67);
@@ -438,6 +439,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnSelectAll.Text = "&Select All";
             this.btnSelectAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSelectAll.UseVisualStyleBackColor = false;
+            this.btnSelectAll.Visible = false;
             // 
             // btnCancelListViewMenu
             // 
@@ -465,7 +467,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUnselectAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUnselectAll.Image = ((System.Drawing.Image)(resources.GetObject("btnUnselectAll.Image")));
             this.btnUnselectAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUnselectAll.Location = new System.Drawing.Point(2288, 1418);
+            this.btnUnselectAll.Location = new System.Drawing.Point(2270, 1419);
             this.btnUnselectAll.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnUnselectAll.Name = "btnUnselectAll";
             this.btnUnselectAll.Size = new System.Drawing.Size(200, 67);
@@ -473,6 +475,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUnselectAll.Text = "&Un-Select All";
             this.btnUnselectAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUnselectAll.UseVisualStyleBackColor = false;
+            this.btnUnselectAll.Visible = false;
             // 
             // btnMenuUpdate
             // 
@@ -512,7 +515,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // metroButtonDelete
             // 
-            this.metroButtonDelete.Location = new System.Drawing.Point(2481, 659);
+            this.metroButtonDelete.Location = new System.Drawing.Point(2543, 830);
             this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(181, 48);
@@ -522,12 +525,25 @@ namespace ULTRAMAVERICK.Forms.Users
             this.metroButtonDelete.Visible = false;
             this.metroButtonDelete.Click += new System.EventHandler(this.metroButtonDelete_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(93, 846);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(435, 46);
+            this.label2.TabIndex = 557;
+            this.label2.Text = "List of Accesible Rights";
+            // 
             // frmUserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(2797, 1502);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.metroButtonDelete);
             this.Controls.Add(this.btnRemoveMenu);
             this.Controls.Add(this.btnMenuUpdate);
@@ -587,5 +603,6 @@ namespace ULTRAMAVERICK.Forms.Users
         internal System.Windows.Forms.Button btnMenuUpdate;
         internal System.Windows.Forms.Button btnRemoveMenu;
         private MetroFramework.Controls.MetroButton metroButtonDelete;
+        private System.Windows.Forms.Label label2;
     }
 }
