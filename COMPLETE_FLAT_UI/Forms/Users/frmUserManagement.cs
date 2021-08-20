@@ -44,10 +44,29 @@ namespace ULTRAMAVERICK.Forms.Users
             getAllUsers(); // all UserFile Management
             lstUsers_Click(sender, e); // Click Thge ListView
             myglobal.global_module = "Active"; // Mode for Searching
+            loadPositionDropDown(); // show Dta
             load_search(); //Bind the Information
             HideDataGrid(); // Hide the DataGrid
-        }
+            lstUsers.Enabled = true;
+            loadDepartment(); // Loading the Depeartment
 
+        }
+        public void loadDepartment()
+        {
+            ready = false;
+            myClass.fillComboBoxDepartment(cbodepartment, "department_dropdown", dSet);
+            ready = true;
+
+            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+        }
+        public void loadPositionDropDown()
+        {
+            ready = false;
+            myClass.fillComboBoxDepartment(cboPosition, "position_dropdown", dSet);
+            ready = true;
+
+           lblPositionId.Text = cboPosition.SelectedValue.ToString();
+        }
         public void HideDataGrid()
         {
             dgv_table.Visible = false;
@@ -59,7 +78,7 @@ namespace ULTRAMAVERICK.Forms.Users
             ready = true;
         }
         DataSet dset_emp = new DataSet();
-        void doSearch()
+       public void doSearch()
         {
             try
             {
@@ -73,7 +92,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     else if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "username like '%" + txtuser.Text + "%'";
+                        dv.RowFilter = "username = '" + txtuser.Text + "'";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -99,6 +118,11 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         public void load_search()
         {
+            try
+            {
+
+      
+
             dset_emp.Clear();
 
             if (myglobal.global_module == "EMPLOYEE")
@@ -123,7 +147,12 @@ namespace ULTRAMAVERICK.Forms.Users
             { dset_emp = objStorProc.sp_getMajorTables("visitors"); }
 
             doSearch();
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -166,8 +195,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnUpdate.Visible = true;
             txtname.Focus();
             txtname.Enabled = true;
-            txtname.Text = String.Empty;
-            txtname.Focus();
+        
 
             cbousertype.Enabled = true;
             cbousertype.Text = String.Empty;
@@ -176,15 +204,36 @@ namespace ULTRAMAVERICK.Forms.Users
             txtpassword.Enabled = true;
             txtpassword.Text = String.Empty;
 
-
+            btnDelete.Visible = false;
             txtuser.Enabled = true;
             txtuser.Text = String.Empty;
 
-
+            btnEdit.Visible = false;
             btnUpdate.Visible = true;
+            txtLastName.Enabled = true;
             disable_text(false);
             cmbLocation.Enabled = true;
             cmbNotif.Enabled = true;
+            bunifuCancel.Visible = true;
+            cboPosition.Enabled = true;
+            cbodepartment.Enabled = true;
+            cboRequestorType.Enabled = true;
+            EmptyTextField();
+            txtname.Text = String.Empty;
+            txtname.Focus();
+        }
+
+        private void EmptyTextField()
+        {
+            txtname.Text = String.Empty;
+             txtLastName.Text = String.Empty;
+            cbousertype.Text = String.Empty;
+            cboPosition.Text = String.Empty;
+            txtuser.Text = String.Empty;
+           txtpassword.Text = String.Empty;
+            cmbLocation.Text = String.Empty;
+            cmbNotif.Text = String.Empty;
+            cbodepartment.Text = string.Empty;
         }
 
         private void disable_text(Boolean e)
@@ -193,7 +242,8 @@ namespace ULTRAMAVERICK.Forms.Users
             txtname.ReadOnly = e;
             txtuser.ReadOnly = e;
             txtpassword.ReadOnly = e;
-
+            txtLastName.ReadOnly = e;
+            cboPosition.Enabled = false;
             cbousertype.Enabled = !e;
 
         }
@@ -216,12 +266,29 @@ namespace ULTRAMAVERICK.Forms.Users
                     txtname.Focus();
                     return;
                 }
+                if (txtLastName.Text.Trim() == "")
+                {
+
+
+                    FillRequiredTextbox();
+                    txtLastName.BackColor = Color.Yellow;
+                    txtLastName.Focus();
+                    return;
+                }
                 if (cbousertype.Text.Trim() == "")
                 {
                   
                     FillRequiredTextbox();
                     cbousertype.BackColor = Color.Yellow;
                     cbousertype.Focus();
+                    return;
+                }
+                if (cboPosition.Text.Trim() == "")
+                {
+
+                    FillRequiredTextbox();
+                    cboPosition.BackColor = Color.Yellow;
+                    cboPosition.Focus();
                     return;
                 }
                 if (txtuser.Text.Trim() == "")
@@ -254,10 +321,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
                         mode = "";
                         SaveSuccessfully();
+                        frmUserManagement_Load(sender, e);
                         visible_button(true);
                         disable_text(true);
 
                         lstUsers_Click(sender, e);
+                     
                     }
                 }
                 cmbLocation.Enabled = false;
@@ -288,7 +357,16 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(0, Convert.ToInt32(cbousertype.SelectedValue.ToString()), txtuser.Text.Trim(), txtpassword.Text.Trim(), txtname.Text, cmbLocation.Text, cmbNotif.Text, "add");
+                    dSet = g_objStoredProcCollection.sp_userfile(0, 
+                        Convert.ToInt32(cbousertype.SelectedValue.ToString()), 
+                        txtuser.Text.Trim(), 
+                        txtpassword.Text.Trim(), 
+                        txtname.Text.Trim(), 
+                        cmbLocation.Text.Trim(), 
+                        cmbNotif.Text.Trim(), 
+                        lblPositionId.Text.Trim(), 
+                        txtLastName.Text.Trim(), 
+                        lblDepartmentID.Text.Trim(), "add");
 
                     return true;
                 }
@@ -297,10 +375,13 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_userfile(temp_id, txtuser.Text.Trim(), "", cmbLocation.Text.Trim(), "getbyname");
+                dSet = g_objStoredProcCollection.sp_userfile(temp_id, 
+                    txtuser.Text.Trim(), "", 
+                    cmbLocation.Text.Trim(), "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_userfile(temp_id, txtuser.Text.Trim(), "", "", "getbyid");
+                dSet_temp = g_objStoredProcCollection.sp_userfile(temp_id, 
+                    txtuser.Text.Trim(), "", "", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -308,13 +389,22 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == temp_id)
                     {
                         dSet.Clear();
-                        dSet = g_objStoredProcCollection.sp_userfile(temp_id, Convert.ToInt32(cbousertype.SelectedValue.ToString()), txtuser.Text.Trim(), txtpassword.Text.Trim(), txtname.Text.Trim(), cmbLocation.Text.Trim(), cmbNotif.Text.Trim(), "edit");
+                        dSet = g_objStoredProcCollection.sp_userfile(temp_id, 
+                            Convert.ToInt32(cbousertype.SelectedValue.ToString()), 
+                            txtuser.Text.Trim(), 
+                            txtpassword.Text.Trim(), 
+                            txtname.Text.Trim(), 
+                            cmbLocation.Text.Trim(), 
+                            cmbNotif.Text.Trim(), 
+                            lblPositionId.Text.Trim(), 
+                            txtLastName.Text.Trim(), 
+                            lblDepartmentID.Text.Trim(), "edit");
 
                         return true;
                     }
                     else
                     {
-                        MessageBox.Show("Username already exist...", "Users", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        UserNameAlreadyTaken();
                         txtuser.Focus();
                         return false;
                     }
@@ -322,7 +412,16 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(temp_id, Convert.ToInt32(cbousertype.SelectedValue.ToString()), txtuser.Text.Trim(), txtpassword.Text.Trim(), txtname.Text.Trim(), cmbLocation.Text.Trim(), cmbNotif.Text.Trim(), "edit");
+                    dSet = g_objStoredProcCollection.sp_userfile(temp_id, 
+                        Convert.ToInt32(cbousertype.SelectedValue.ToString()), 
+                        txtuser.Text.Trim(), 
+                        txtpassword.Text.Trim(), 
+                        txtname.Text.Trim(), 
+                        cmbLocation.Text.Trim(), 
+                        cmbNotif.Text.Trim(), 
+                        lblPositionId.Text.Trim(), 
+                        txtLastName.Text.Trim(), 
+                        lblDepartmentID.Text.Trim(), "edit");
 
                     return true;
                 }
@@ -505,7 +604,11 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtpassword.ReadOnly = false;
                 button1.Visible = true;
                 btnEdit.Visible = false;
-
+                bunifuCancel.Visible = true;
+                txtLastName.Enabled = true;
+                btnUpdate.Visible = true;
+                cboPosition.Enabled = true;
+                btnDelete.Visible = false;
             }
 
             }
@@ -530,9 +633,11 @@ namespace ULTRAMAVERICK.Forms.Users
                         }
 
                         mode = "";
+                   
+                        UpdateSuccessfully();
+                        frmUserManagement_Load(sender, e);
                         visible_button(true);
                         disable_text(true);
-                        UpdateSuccessfully();
                         load_search();
                         doSearch();
                         button1.Visible = false;
@@ -606,7 +711,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dgv_table_CurrentCellChanged(object sender, EventArgs e)
         {
-            showActiveUser();
+            //showActiveUser();
         }
 
         public void showActiveUser()
@@ -621,10 +726,11 @@ namespace ULTRAMAVERICK.Forms.Users
                        
 
                         txtname.Text = dgv_table.CurrentRow.Cells["employee_name"].Value.ToString();
+                       txtLastName.Text = dgv_table.CurrentRow.Cells["employee_lastname"].Value.ToString();
                         cbousertype.Text = dgv_table.CurrentRow.Cells["user_rights_name"].Value.ToString();
                         txtuser.Text = dgv_table.CurrentRow.Cells["username"].Value.ToString();
                         txtpassword.Text = dgv_table.CurrentRow.Cells["password"].Value.ToString();
-
+                        cboPosition.Text = dgv_table.CurrentRow.Cells["Position"].Value.ToString();
                         cmbLocation.Text = dgv_table.CurrentRow.Cells["user_section"].Value.ToString();
 
                         cmbNotif.Text = dgv_table.CurrentRow.Cells["receiving_status"].Value.ToString();
@@ -668,8 +774,55 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void txtname_TextChanged(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+            //doSearch();
+            //showvalue();
+        }
+
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+            btnNew.Visible = true;
+            btnUpdate.Visible = false;
+            btnEdit.Visible = true;
+            btnDelete.Visible = true;
+            bunifuCancel.Visible = false;
+            cboPosition.Enabled = false;
+            txtLastName.Enabled = false;
+            cbodepartment.Enabled = false;
+            cboRequestorType.Enabled = false;
+            mode = "";
+        }
+
+        private void cboPosition_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            lblPositionId.Text = cboPosition.SelectedValue.ToString();
+
+            //
+        }
+
+        private void txtuser_TextChanged(object sender, EventArgs e)
+        {
+            if (mode == "add")
+            {
+                
+            
+            }
+            else
+            {
+                doSearch();
+                showActiveUser();
+            }
+        }
+
+        private void bunifuThinButton21_Click_1(object sender, EventArgs e)
+        {
+
+            showActiveUser();
+        }
+
+        private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
         }
     }
 }

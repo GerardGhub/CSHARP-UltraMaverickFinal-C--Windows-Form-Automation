@@ -97,7 +97,7 @@ namespace COMPLETE_FLAT_UI
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.Control;
             this.lblUsername.Location = new System.Drawing.Point(464, 223);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblUsername.Name = "lblUsername";
@@ -109,7 +109,7 @@ namespace COMPLETE_FLAT_UI
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPassword.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPassword.Location = new System.Drawing.Point(470, 353);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblPassword.Name = "lblPassword";
@@ -141,6 +141,7 @@ namespace COMPLETE_FLAT_UI
             this.btnLogin.BackColor = System.Drawing.SystemColors.Window;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogin.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(982, 457);
@@ -157,6 +158,7 @@ namespace COMPLETE_FLAT_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(1326, 616);
             this.ControlBox = false;
             this.Controls.Add(this.btnLogin);

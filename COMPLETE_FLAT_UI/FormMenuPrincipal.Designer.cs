@@ -37,19 +37,21 @@
             this.lblTimeFinal = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
-            this.lblPosition = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
             this.PanelBarraTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
-            this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnPosition = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.PictureBox();
@@ -79,8 +81,7 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
-            this.btnPosition = new System.Windows.Forms.Button();
+            this.btnDepartment = new System.Windows.Forms.Button();
             this.panelContenedorPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -120,12 +121,14 @@
             this.panelContenedorForm.Location = new System.Drawing.Point(613, 103);
             this.panelContenedorForm.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panelContenedorForm.Name = "panelContenedorForm";
-            this.panelContenedorForm.Size = new System.Drawing.Size(2320, 1090);
+            this.panelContenedorForm.Size = new System.Drawing.Size(2320, 1143);
             this.panelContenedorForm.TabIndex = 6;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            this.panel1.Controls.Add(this.btnDepartment);
+            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.btnPosition);
             this.panel1.Controls.Add(this.btnUser);
             this.panel1.Controls.Add(this.lblDateFinal);
@@ -134,13 +137,12 @@
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.lblTime);
             this.panel1.Controls.Add(this.lbFecha);
-            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.lblHora);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(613, 1193);
+            this.panel1.Location = new System.Drawing.Point(613, 1246);
             this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2320, 238);
+            this.panel1.Size = new System.Drawing.Size(2320, 185);
             this.panel1.TabIndex = 5;
             // 
             // lblDateFinal
@@ -148,7 +150,7 @@
             this.lblDateFinal.AutoSize = true;
             this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblDateFinal.ForeColor = System.Drawing.Color.White;
-            this.lblDateFinal.Location = new System.Drawing.Point(35, 174);
+            this.lblDateFinal.Location = new System.Drawing.Point(16, 126);
             this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblDateFinal.Name = "lblDateFinal";
             this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
@@ -158,12 +160,12 @@
             // lblTimeFinal
             // 
             this.lblTimeFinal.AutoSize = true;
-            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeFinal.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTimeFinal.Location = new System.Drawing.Point(54, 28);
+            this.lblTimeFinal.Location = new System.Drawing.Point(36, 15);
             this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblTimeFinal.Name = "lblTimeFinal";
-            this.lblTimeFinal.Size = new System.Drawing.Size(519, 134);
+            this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
             this.lblTimeFinal.TabIndex = 2;
             this.lblTimeFinal.Text = "21:49:45";
             // 
@@ -192,18 +194,6 @@
             this.lblTime.Size = new System.Drawing.Size(519, 134);
             this.lblTime.TabIndex = 2;
             this.lblTime.Text = "21:49:45";
-            // 
-            // lblPosition
-            // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.ForeColor = System.Drawing.Color.LightGray;
-            this.lblPosition.Location = new System.Drawing.Point(114, 107);
-            this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(106, 38);
-            this.lblPosition.TabIndex = 7;
-            this.lblPosition.Text = "Cargo";
             // 
             // lbFecha
             // 
@@ -265,7 +255,7 @@
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.Color.LightGray;
-            this.lblLastName.Location = new System.Drawing.Point(247, 55);
+            this.lblLastName.Location = new System.Drawing.Point(220, 24);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(125, 38);
@@ -277,12 +267,24 @@
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.Color.LightGray;
-            this.lblFirstName.Location = new System.Drawing.Point(81, 55);
+            this.lblFirstName.Location = new System.Drawing.Point(52, 24);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(119, 38);
             this.lblFirstName.TabIndex = 5;
             this.lblFirstName.Text = "Gerard";
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.Color.LightGray;
+            this.lblPosition.Location = new System.Drawing.Point(39, 78);
+            this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(92, 32);
+            this.lblPosition.TabIndex = 7;
+            this.lblPosition.Text = "Cargo";
             // 
             // PanelBarraTitulo
             // 
@@ -336,6 +338,51 @@
             this.tmFechaHora.Enabled = true;
             this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::ULTRAMAVERICK.Properties.Resources.perfil;
+            this.pictureBox7.Location = new System.Drawing.Point(1958, 50);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(275, 102);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 3;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnPosition
+            // 
+            this.btnPosition.BackColor = System.Drawing.SystemColors.Window;
+            this.btnPosition.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPosition.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPosition.Image = ((System.Drawing.Image)(resources.GetObject("btnPosition.Image")));
+            this.btnPosition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPosition.Location = new System.Drawing.Point(1486, 102);
+            this.btnPosition.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnPosition.Name = "btnPosition";
+            this.btnPosition.Size = new System.Drawing.Size(200, 67);
+            this.btnPosition.TabIndex = 489;
+            this.btnPosition.Text = "&Position";
+            this.btnPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPosition.UseVisualStyleBackColor = false;
+            this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.BackColor = System.Drawing.SystemColors.Window;
+            this.btnUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
+            this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUser.Location = new System.Drawing.Point(1717, 102);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(200, 67);
+            this.btnUser.TabIndex = 488;
+            this.btnUser.Text = "&User ";
+            this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUser.UseVisualStyleBackColor = false;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.Window;
@@ -343,7 +390,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(1357, 38);
+            this.btnLogin.Location = new System.Drawing.Point(1717, 15);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(200, 67);
@@ -353,23 +400,11 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::ULTRAMAVERICK.Properties.Resources.perfil;
-            this.pictureBox7.Location = new System.Drawing.Point(2016, 50);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(173, 155);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 3;
-            this.pictureBox7.TabStop = false;
-            // 
             // pictureBox10
             // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox10.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.pictureBox10.Location = new System.Drawing.Point(482, 107);
+            this.pictureBox10.Location = new System.Drawing.Point(463, 848);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(115, 88);
@@ -791,39 +826,22 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnUser
+            // btnDepartment
             // 
-            this.btnUser.BackColor = System.Drawing.SystemColors.Window;
-            this.btnUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
-            this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.Location = new System.Drawing.Point(1636, 50);
-            this.btnUser.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(200, 67);
-            this.btnUser.TabIndex = 488;
-            this.btnUser.Text = "&User ";
-            this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUser.UseVisualStyleBackColor = false;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
-            // 
-            // btnPosition
-            // 
-            this.btnPosition.BackColor = System.Drawing.SystemColors.Window;
-            this.btnPosition.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPosition.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPosition.Image = ((System.Drawing.Image)(resources.GetObject("btnPosition.Image")));
-            this.btnPosition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPosition.Location = new System.Drawing.Point(1060, 86);
-            this.btnPosition.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnPosition.Name = "btnPosition";
-            this.btnPosition.Size = new System.Drawing.Size(200, 67);
-            this.btnPosition.TabIndex = 489;
-            this.btnPosition.Text = "&User Rights";
-            this.btnPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPosition.UseVisualStyleBackColor = false;
-            this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
+            this.btnDepartment.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnDepartment.Image")));
+            this.btnDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDepartment.Location = new System.Drawing.Point(1060, 59);
+            this.btnDepartment.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnDepartment.Name = "btnDepartment";
+            this.btnDepartment.Size = new System.Drawing.Size(200, 67);
+            this.btnDepartment.TabIndex = 490;
+            this.btnDepartment.Text = "&Department";
+            this.btnDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDepartment.UseVisualStyleBackColor = false;
+            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
             // FormMenuPrincipal
             // 
@@ -917,6 +935,7 @@
         private System.Windows.Forms.Label lblTimeFinal;
         internal System.Windows.Forms.Button btnUser;
         internal System.Windows.Forms.Button btnPosition;
+        internal System.Windows.Forms.Button btnDepartment;
     }
 }
 

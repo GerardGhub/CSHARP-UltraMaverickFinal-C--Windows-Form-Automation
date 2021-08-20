@@ -199,6 +199,7 @@ namespace COMPLETE_FLAT_UI
 
             lblFirstName.Text = userinfo.emp_name.ToUpper(); // First Name Session
             lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
+            lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();
 
         }
@@ -291,9 +292,18 @@ namespace COMPLETE_FLAT_UI
 
         private void btnCloseFinal_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Hi Punyeta?", "Alert to¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Application.Exit();
+
+
+                // Start 3 blocks of validate
+                frmLoginForm mainLogin = new frmLoginForm();
+                this.Hide();
+                mainLogin.Closed += (s, args) => this.Close();
+                mainLogin.Show();
+                //end of form validation
+
+                //Application.Exit();
             }
         }
 
@@ -307,6 +317,13 @@ namespace COMPLETE_FLAT_UI
         private void btnPosition_Click(object sender, EventArgs e)
         {
             frmPosition fm = new frmPosition();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+            frmDepartment fm = new frmDepartment();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

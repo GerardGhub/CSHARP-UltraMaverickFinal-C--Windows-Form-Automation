@@ -210,4 +210,20 @@
         RK5CYII=
 </value>
   </data>
+  <data name="bunifuCancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAN0AAABFCAYAAADO8eM0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAJOgAACToAYJjBRwAAAJWSURBVHhe7di/S9RxHMdxx0bHRsf+BMeWJPAGdfEGaTga
+        bGnv1xK0NAhSLTVH0lVILUkUKAeJxCGYJHQVEmFyRWkpFwrvXt/vlw6OPkvet9f0fMFje3/HJ1++34GT
+        pyoBwIfoADOiA8yIDjAjOsCM6ACzv6K7eu16NFeW4vuXT8EYO/qyhtZXl2Nm9lZPY93oKuOT+cHe23rE
+        4ljE/FDE3QEAR5U19OJ0dN7cjs3WWlSnar3RZcFFo5p+GEB/FoZj++NGjIxOFNHN3rgZe+t30scASvHr
+        1aV49OBeEV3+ltNrMHUIoCRPTkR760MRXWd/N6I+mD4EUB4tjy5f6gBAuTSiA5w0ogOcNKIDnDSiA5w0
+        ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0
+        ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0
+        ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnDSiA5w0ogOcNKIDnLQ8usODTsTcsfQRgPL8iW6z
+        tRaxMJw+AlCOh8fj5067iK5+fy4OmxfShwDK0ajGy8bzIrqR0Yn4+vl9xPxQ+hhAf/T59qPdiupUrYgu
+        c3b6fHzbfhcHy+ci6oPpBwH8m+xfyeJY7Gy9jouXr+StdaPLVMYn49nTx9HZ380/+Bhj/S37SdlcWYoz
+        teluZz3RAfj/iA4wIzrAjOgAM6IDrCrxG3Tb1LcdF6uRAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

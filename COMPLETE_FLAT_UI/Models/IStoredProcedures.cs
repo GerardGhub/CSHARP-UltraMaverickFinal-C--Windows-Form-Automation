@@ -178,7 +178,10 @@ namespace ULTRAMAVERICK.Models
             string username, string password, 
             string employee_name, 
             string user_section, 
-            string receiving_status, 
+            string receiving_status,
+            string Position,
+            string employee_lastname,
+            string Department,
             string mode);
        
         DataSet sp_userfile(int userfile_id, string username, string password, string user_section, string mode);
@@ -200,11 +203,23 @@ namespace ULTRAMAVERICK.Models
             string mode);
 
 
+        DataSet sp_department(
+        int department_id,
+        string department_name,
+        string created_by,
+        string created_at,
+        string updated_at,
+        string updated_by,
+        string primary_user_id,
+        string location_id,
+        string mode);
 
 
 
-        DataSet sp_Sched2(string mode, int ID, string Employee_ID, string Shift_Name, string Date, string Date2);
-        DataSet sp_tard(string mode, string filter, string Employee_ID, string Date, string Date2);
+
+
+
+
 
         DataSet sp_available_menu(int menu_id, string menu_name, string menu_form_name, string menu_count, string mode);
 

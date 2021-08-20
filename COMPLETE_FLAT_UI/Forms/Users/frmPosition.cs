@@ -139,27 +139,28 @@ namespace ULTRAMAVERICK.Forms.Users
             ready = false;
             myClass.fillListBox(lstPosition, "position", dSet);
             ready = true;
+            lbltotalrecords.Text = lstPosition.Items.Count.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
             mode = "add";
-            btnUpdate.Visible = true;
-            btnAdd.Visible = false;
-            btnUpdate.Visible = true;
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+      
             lstPosition.Enabled = false;
 
             txtname.Enabled = true;
             txtname.Text = string.Empty;
-            btnCancel.Visible = true;
+            btnCancelTool.Visible = true;
 
 
             txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            btnUpdate.Visible = true;
-            btnEdit.Visible = false;
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
             cbodepartment.Enabled = true;
             loadDepartment();
             txtname.Focus();
@@ -169,12 +170,12 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnCancel_Click(object sender, EventArgs e)
         {
             lstPosition.Enabled = true;
-            btnCancel.Visible = false;
-            btnAdd.Visible = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
             txtname.Enabled = false;
-            btnUpdate.Visible = false;
-            btnEdit.Visible = true;
-            btnDelete.Visible = true;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
             cbodepartment.Enabled = false;
         }
 
@@ -208,12 +209,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
                         mode = "";
                         SaveSuccessfully();
-                        btnUpdate.Visible = false;
-                        btnAdd.Visible = true;
-                        btnCancel.Visible = false;
+                        btnUpdateTool.Visible = false;
+                        btnAddTool.Visible = true;
+                        btnCancelTool.Visible = false;
                         lstPosition.Enabled = true;
-                        btnEdit.Visible = true;
-                        btnDelete.Visible = true;
+                        btnEditTool.Visible = true;
+                        btnDeleteTool.Visible = true;
                         cbodepartment.Enabled = false;
                         lstPosition_Click(sender, e);
                     }
@@ -436,14 +437,14 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtname.ReadOnly = false;
             
                 txtname.Enabled = true;
-         
-             
-            
-                btnEdit.Visible = false;
-                btnAdd.Visible = false;
-                btnCancel.Visible = true;
-                btnDelete.Visible = false;
-                btnUpdate.Visible = true;
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
                 cbodepartment.Enabled = true;
                 txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
                 txtModifiedBy.Text = userinfo.emp_name.ToUpper();
@@ -474,8 +475,8 @@ namespace ULTRAMAVERICK.Forms.Users
                         DeletedSuccessfully();
                         load_search();
                         doSearch();
-                     
-                        btnEdit.Visible = true;
+
+                        btnEditTool.Visible = true;
                         lstPosition_Click(sender, e);
                     }
                 }
@@ -484,8 +485,8 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else
             {
-            
-                btnEdit.Visible = true;
+
+                btnEditTool.Visible = true;
                 return;
             }
         }
@@ -575,7 +576,77 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
         {
+            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+        }
+
+        private void btnAddTool_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+         
+            lstPosition.Enabled = false;
+
+            txtname.Enabled = true;
+            txtname.Text = string.Empty;
+            btnCancelTool.Visible = true;
+
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+            cbodepartment.Enabled = true;
             loadDepartment();
+            txtname.Focus();
+        }
+
+        private void btnCancelTool_Click(object sender, EventArgs e)
+        {
+            lstPosition.Enabled = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
+            txtname.Enabled = false;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            cbodepartment.Enabled = false;
+        }
+
+        private void btnUpdateTool_Click(object sender, EventArgs e)
+        {
+            metroButtonSave_Click(sender, e);
+        }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+            lstPosition.Enabled = false;
+
+            if (lstPosition.Items.Count > 0)
+            {
+                mode = "edit";
+                txtname.Enabled = true;
+                txtname.ReadOnly = false;
+
+                txtname.Enabled = true;
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
+                cbodepartment.Enabled = true;
+                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            }
+        }
+
+        private void btnDeleteTool_Click(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
         }
     }
 }
