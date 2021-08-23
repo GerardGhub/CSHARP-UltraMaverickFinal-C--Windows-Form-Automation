@@ -120,25 +120,7 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMUAAABICAYAAABGFjH2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAJOgAACToAYJjBRwAAAMeSURBVHhe7d3NS1RhGIbx/rQ2uclNbmxhLYYW1kICIymE
-        KDJKiYQSskLJYKIyisxIQ4z8Qm1hRhOCKVmaQ+accUQkgqfuGRqfGd/aO+e64bc7M6tzMec9Lty3/0C1
-        AdhBFEAZogDKEAVQhiiAMkQBlPlvFFUHa+xCS6sNj0zZuw/zlv4eGWN7cbp3dQ+PTc7Y5bZrVn2oNnjP
-        yz+jOH32nKXXsjaRiqxzMGdtTzesqSdjxzp+AHuO7l3dwx0vcjbyPmvpHzm7cvV68N7fFYUKGhgas3fz
-        kTV2EwEqU8OddXvzPmPTMymrqT1S0kBJFApiYSltXa+ywS8CKk1734bNLaza4bpEOAr9QhAE4kaPVTpv
-        7IpCZwg9MoU+BFS6/smM3e5O7kSht0w6VHOGQFwdv7lui8uRHU3UF6LQKyqdyEMXA3HRO5az5MMnhSj0
-        7lavqkIXAnFx/kFknz5/K0TxZWXNmpOcJxBveoT6+fNXIYrNre38e9vQhUCcaPkotNAFQNxoRAE4GlEA
-        jkYUgKMRBeBoRAE4GlEAjkYUgKMRBeBoRAE4GlEAjkYUgKMRBeBoRAE4GlEAjkYUgKMRBeBoRAE4GlEA
-        jkYUgKMRBeBoRAE4GlEAjkYUgKMRBeBoRAE4GlEAjkYUgKMRBeBoRAE4GlEAjkYUgKMRBeBoRAE4GlEA
-        jkYUgKMRBeBoRAE4GlEAjpaPQv9QW/9YO3QRECfFKNLfI2vqyQQvAuKkGMX0TMra+zaCFwFx0ZyM7MvK
-        WiGKW133rH+aKBBvXUObNjA0UojicF3CvqY3OFcg1t7ORdZ87mIhCrmbfGxPxzlXIJ46X0b2evRtvoVi
-        FFUHa2z246Jd6s0GPwRUqsbujH1dzVj1odrSKORoot4WlzP5A0fow0ClURCpxYydPHWm2EFJFHKiodEW
-        ltLWO0oYqGw3nhd+IXwQsisK0aPU/UfP/hQU5U/kqin0pcBe03Bn3ToHczaRimx8arb4yOQFo/hLBekV
-        1Xp2M/9HDcb2+ja3tm14ZMoutLQG73n5bxRAHBEFUIYogDJEAZQhCqBEtf0GC2ShyU5ruNkAAAAASUVO
-        RK5CYII=
-</value>
-  </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

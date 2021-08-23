@@ -48,6 +48,10 @@
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
+            this.btnTypeofApprove = new System.Windows.Forms.Button();
+            this.btnChildMenu = new System.Windows.Forms.Button();
+            this.btnParentMenu = new System.Windows.Forms.Button();
+            this.btnDepartment = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnPosition = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
@@ -81,7 +85,6 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnDepartment = new System.Windows.Forms.Button();
             this.panelContenedorPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -127,6 +130,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            this.panel1.Controls.Add(this.btnTypeofApprove);
+            this.panel1.Controls.Add(this.btnChildMenu);
+            this.panel1.Controls.Add(this.btnParentMenu);
             this.panel1.Controls.Add(this.btnDepartment);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.btnPosition);
@@ -337,6 +343,74 @@
             // 
             this.tmFechaHora.Enabled = true;
             this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
+            // 
+            // btnTypeofApprove
+            // 
+            this.btnTypeofApprove.BackColor = System.Drawing.SystemColors.Window;
+            this.btnTypeofApprove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTypeofApprove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTypeofApprove.Image = ((System.Drawing.Image)(resources.GetObject("btnTypeofApprove.Image")));
+            this.btnTypeofApprove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTypeofApprove.Location = new System.Drawing.Point(882, 21);
+            this.btnTypeofApprove.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnTypeofApprove.Name = "btnTypeofApprove";
+            this.btnTypeofApprove.Size = new System.Drawing.Size(276, 67);
+            this.btnTypeofApprove.TabIndex = 492;
+            this.btnTypeofApprove.Text = "Type of Approver";
+            this.btnTypeofApprove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTypeofApprove.UseVisualStyleBackColor = false;
+            this.btnTypeofApprove.Click += new System.EventHandler(this.btnTypeofApprove_Click);
+            // 
+            // btnChildMenu
+            // 
+            this.btnChildMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.btnChildMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChildMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChildMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnChildMenu.Image")));
+            this.btnChildMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChildMenu.Location = new System.Drawing.Point(1196, 111);
+            this.btnChildMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnChildMenu.Name = "btnChildMenu";
+            this.btnChildMenu.Size = new System.Drawing.Size(226, 67);
+            this.btnChildMenu.TabIndex = 492;
+            this.btnChildMenu.Text = "Child &Menu";
+            this.btnChildMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChildMenu.UseVisualStyleBackColor = false;
+            this.btnChildMenu.Click += new System.EventHandler(this.btnChildMenu_Click);
+            // 
+            // btnParentMenu
+            // 
+            this.btnParentMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.btnParentMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnParentMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnParentMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnParentMenu.Image")));
+            this.btnParentMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnParentMenu.Location = new System.Drawing.Point(1196, 21);
+            this.btnParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnParentMenu.Name = "btnParentMenu";
+            this.btnParentMenu.Size = new System.Drawing.Size(226, 67);
+            this.btnParentMenu.TabIndex = 491;
+            this.btnParentMenu.Text = "Parent &Menu";
+            this.btnParentMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnParentMenu.UseVisualStyleBackColor = false;
+            this.btnParentMenu.Click += new System.EventHandler(this.btnParentMenu_Click);
+            // 
+            // btnDepartment
+            // 
+            this.btnDepartment.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnDepartment.Image")));
+            this.btnDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDepartment.Location = new System.Drawing.Point(1473, 21);
+            this.btnDepartment.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnDepartment.Name = "btnDepartment";
+            this.btnDepartment.Size = new System.Drawing.Size(200, 67);
+            this.btnDepartment.TabIndex = 490;
+            this.btnDepartment.Text = "&Department";
+            this.btnDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDepartment.UseVisualStyleBackColor = false;
+            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
             // pictureBox7
             // 
@@ -826,23 +900,6 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnDepartment
-            // 
-            this.btnDepartment.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnDepartment.Image")));
-            this.btnDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDepartment.Location = new System.Drawing.Point(1060, 59);
-            this.btnDepartment.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnDepartment.Name = "btnDepartment";
-            this.btnDepartment.Size = new System.Drawing.Size(200, 67);
-            this.btnDepartment.TabIndex = 490;
-            this.btnDepartment.Text = "&Department";
-            this.btnDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDepartment.UseVisualStyleBackColor = false;
-            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
-            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -936,6 +993,9 @@
         internal System.Windows.Forms.Button btnUser;
         internal System.Windows.Forms.Button btnPosition;
         internal System.Windows.Forms.Button btnDepartment;
+        internal System.Windows.Forms.Button btnParentMenu;
+        internal System.Windows.Forms.Button btnChildMenu;
+        internal System.Windows.Forms.Button btnTypeofApprove;
     }
 }
 

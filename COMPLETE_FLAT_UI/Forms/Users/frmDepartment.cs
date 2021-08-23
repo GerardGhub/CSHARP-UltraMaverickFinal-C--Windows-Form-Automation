@@ -184,7 +184,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     txtModifiedAt.Text.Trim(),
                     txtModifiedBy.Text.Trim(),
                     txtCreatedByAndUserID.Text.Trim(),
-                    cboLocation.Text.Trim(),
+                    lblLocationID.Text.Trim(),
                     "add");
 
                     return true;
@@ -215,10 +215,11 @@ namespace ULTRAMAVERICK.Forms.Users
                             txtModifiedAt.Text.Trim(),
                             txtModifiedBy.Text.Trim(),
                             txtCreatedByAndUserID.Text.Trim(),
-                            cboLocation.Text.Trim(),
+                            lblLocationID.Text.Trim(),
                             "edit");
 
                         return true;
+                       
                     }
                     else
                     {
@@ -237,7 +238,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtModifiedAt.Text.Trim(),
                         txtModifiedBy.Text.Trim(),
                         txtCreatedByAndUserID.Text.Trim(),
-                        cboLocation.Text.Trim(),
+                        lblLocationID.Text.Trim(),
                         "edit");
                     return true;
                 }
@@ -282,7 +283,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void LoadLocation()
         {
-
+            ready = false;
+            myClass.fillComboBoxDepartment(cboLocation, "location_dropdown", dSet);
+            ready = true;
         }
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
@@ -371,6 +374,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                         mode = "";
                         SaveSuccessfully();
+                        frmDepartment_Load(sender, e);
                         btnUpdateTool.Visible = false;
                         btnAddTool.Visible = true;
                         btnCancelTool.Visible = false;
@@ -483,6 +487,103 @@ namespace ULTRAMAVERICK.Forms.Users
                 btnEditTool.Visible = true;
                 return;
             }
+        }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+            lstDepartment.Enabled = false;
+
+            if (lstDepartment.Items.Count > 0)
+            {
+                mode = "edit";
+                txtdepartment.Enabled = true;
+                txtdepartment.ReadOnly = false;
+
+               
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
+                cboLocation.Enabled = true;
+                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            }
+        }
+
+        private void btnCancelTool_Click(object sender, EventArgs e)
+        {
+           lstDepartment.Enabled = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
+            txtdepartment.Enabled = false;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            cboLocation.Enabled = false;
+        }
+
+        private void dgv_table_CurrentCellChanged(object sender, EventArgs e)
+        {
+            showDepartmentDetails();
+        }
+        private void showDepartmentDetails()
+        {
+            if (dgv_table.RowCount > 0)
+            {
+                if (dgv_table.CurrentRow != null)
+                {
+                    if (dgv_table.CurrentRow.Cells["department_name"].Value != null)
+                    {
+
+
+                        txtdepartment.Text = dgv_table.CurrentRow.Cells["department_name"].Value.ToString();
+                        cboLocation.Text = dgv_table.CurrentRow.Cells["location_id"].Value.ToString();
+                        txtCreatedBy.Text = dgv_table.CurrentRow.Cells["created_by"].Value.ToString();
+                        txtCreatedAt.Text = dgv_table.CurrentRow.Cells["created_at"].Value.ToString();
+
+                        txtModifiedBy.Text = dgv_table.CurrentRow.Cells["updated_by"].Value.ToString();
+
+                        txtModifiedAt.Text = dgv_table.CurrentRow.Cells["updated_at"].Value.ToString();
+
+
+
+                    }
+
+                }
+            }
+        }
+
+        private void cboLocation_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lblLocationID.Text = cboLocation.SelectedValue.ToString();
+        }
+
+        private void lstDepartment_CursorChanged(object sender, EventArgs e)
+        {
+            doSearch();
+            showvalue();
+        }
+
+        private void lstDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            doSearch();
+            showvalue();
+        }
+
+
+        private void lstDepartment_SelectedValueChanged(object sender, EventArgs e)
+        {
+            doSearch();
+            showvalue();
+        }
+
+        private void txtCreatedByAndUserID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

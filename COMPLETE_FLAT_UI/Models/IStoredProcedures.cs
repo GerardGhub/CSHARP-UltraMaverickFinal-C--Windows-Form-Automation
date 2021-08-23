@@ -182,6 +182,7 @@ namespace ULTRAMAVERICK.Models
             string Position,
             string employee_lastname,
             string Department,
+            string requestor_type,
             string mode);
        
         DataSet sp_userfile(int userfile_id, string username, string password, string user_section, string mode);
@@ -216,12 +217,40 @@ namespace ULTRAMAVERICK.Models
 
 
 
+        DataSet sp_ParentForms(
+     int parent_id,
+     string parent_form_name,
+     string created_at,
+     string created_by,
+     string updated_at,
+     string updated_by,
+     string primary_user_id,
+     string department,
+     string mode);
+
+
+
+        DataSet sp_TypeofApprover(
+     int approver_id,
+     string type_of_approver,
+     string created_at,
+     string created_by,
+     string updated_at,
+     string updated_by,
+     string mode);
 
 
 
 
-
-        DataSet sp_available_menu(int menu_id, string menu_name, string menu_form_name, string menu_count, string mode);
+        DataSet sp_available_menu(int menu_id, 
+            string menu_name, 
+            string menu_form_name, 
+            string menu_count, 
+            string created_at, 
+            string created_by, 
+            string updated_at, 
+            string updated_by, 
+            string mode);
 
         DataSet sp_user_rights(int user_rights_id, string user_rights_name, string mode);
 

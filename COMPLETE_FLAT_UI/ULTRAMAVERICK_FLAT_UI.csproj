@@ -136,17 +136,35 @@
     <Compile Include="FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\frmChildAvailableForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmChildAvailableForms.Designer.cs">
+      <DependentUpon>frmChildAvailableForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\frmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Users\frmDepartment.Designer.cs">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\frmParentAvailableForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmParentAvailableForms.Designer.cs">
+      <DependentUpon>frmParentAvailableForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\frmPosition.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Users\frmPosition.Designer.cs">
       <DependentUpon>frmPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmTypeofApprover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmTypeofApprover.Designer.cs">
+      <DependentUpon>frmTypeofApprover.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmUserManagement.cs">
       <SubType>Form</SubType>
@@ -198,11 +216,20 @@
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmChildAvailableForms.resx">
+      <DependentUpon>frmChildAvailableForms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmParentAvailableForms.resx">
+      <DependentUpon>frmParentAvailableForms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmPosition.resx">
       <DependentUpon>frmPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmTypeofApprover.resx">
+      <DependentUpon>frmTypeofApprover.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmUserManagement.resx">
       <DependentUpon>frmUserManagement.cs</DependentUpon>

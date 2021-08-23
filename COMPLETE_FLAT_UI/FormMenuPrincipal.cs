@@ -328,6 +328,27 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void btnParentMenu_Click(object sender, EventArgs e)
+        {
+            frmParentAvailableForms fm = new frmParentAvailableForms();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnChildMenu_Click(object sender, EventArgs e)
+        {
+            frmChildAvailableForms fm = new frmChildAvailableForms();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnTypeofApprove_Click(object sender, EventArgs e)
+        {
+            frmTypeofApprover fm = new frmTypeofApprover();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------
         private void tmFechaHora_Tick(object sender, EventArgs e)
         {

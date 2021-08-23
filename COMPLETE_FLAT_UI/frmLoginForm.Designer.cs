@@ -96,26 +96,26 @@ namespace COMPLETE_FLAT_UI
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.SystemColors.Control;
             this.lblUsername.Location = new System.Drawing.Point(464, 223);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(192, 39);
+            this.lblUsername.Size = new System.Drawing.Size(177, 46);
             this.lblUsername.TabIndex = 17;
-            this.lblUsername.Text = "Username :";
+            this.lblUsername.Text = "Username:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPassword.Location = new System.Drawing.Point(470, 353);
+            this.lblPassword.Location = new System.Drawing.Point(470, 345);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(185, 39);
+            this.lblPassword.Size = new System.Drawing.Size(167, 46);
             this.lblPassword.TabIndex = 18;
-            this.lblPassword.Text = "Password :";
+            this.lblPassword.Text = "Password:";
             // 
             // txtUsername
             // 

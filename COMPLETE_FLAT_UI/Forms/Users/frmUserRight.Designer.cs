@@ -30,11 +30,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserRight));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -43,16 +43,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.listViewuser_rights = new System.Windows.Forms.ListBox();
             this.ListViewmenu = new System.Windows.Forms.ListBox();
             this.txtRights = new System.Windows.Forms.TextBox();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddMenu = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.chkSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblAvailableMenu = new System.Windows.Forms.Label();
-            this.cbcategory = new System.Windows.Forms.ComboBox();
             this.btnMetroSave = new System.Windows.Forms.Button();
             this.btnSelectAll = new System.Windows.Forms.Button();
             this.btnCancelListViewMenu = new System.Windows.Forms.Button();
@@ -61,7 +55,43 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnRemoveMenu = new System.Windows.Forms.Button();
             this.metroButtonDelete = new MetroFramework.Controls.MetroButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnAddTool = new System.Windows.Forms.ToolStripButton();
+            this.btnEditTool = new System.Windows.Forms.ToolStripButton();
+            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
+            this.lblrecordDesc = new System.Windows.Forms.Label();
+            this.lbltotalrecordsrights = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.lstParentMenu = new System.Windows.Forms.ListBox();
+            this.cboParentMenu = new System.Windows.Forms.ComboBox();
+            this.lblparentmenuid = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.toolStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -72,9 +102,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label1.Location = new System.Drawing.Point(140, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(346, 46);
+            this.label1.Size = new System.Drawing.Size(219, 46);
             this.label1.TabIndex = 7;
-            this.label1.Text = "List of User Rights";
+            this.label1.Text = "User Right:";
             // 
             // btnNuevo
             // 
@@ -162,10 +192,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.listViewuser_rights.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewuser_rights.FormattingEnabled = true;
             this.listViewuser_rights.ItemHeight = 50;
-            this.listViewuser_rights.Location = new System.Drawing.Point(85, 133);
+            this.listViewuser_rights.Location = new System.Drawing.Point(28, 56);
             this.listViewuser_rights.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.listViewuser_rights.Name = "listViewuser_rights";
-            this.listViewuser_rights.Size = new System.Drawing.Size(1296, 500);
+            this.listViewuser_rights.Size = new System.Drawing.Size(1296, 450);
             this.listViewuser_rights.TabIndex = 13;
             this.listViewuser_rights.Click += new System.EventHandler(this.listViewuser_rights_Click);
             this.listViewuser_rights.SelectedIndexChanged += new System.EventHandler(this.listViewuser_rights_SelectedIndexChanged);
@@ -179,10 +209,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.ListViewmenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListViewmenu.FormattingEnabled = true;
             this.ListViewmenu.ItemHeight = 41;
-            this.ListViewmenu.Location = new System.Drawing.Point(85, 910);
+            this.ListViewmenu.Location = new System.Drawing.Point(25, 80);
             this.ListViewmenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.ListViewmenu.Name = "ListViewmenu";
-            this.ListViewmenu.Size = new System.Drawing.Size(1296, 492);
+            this.ListViewmenu.Size = new System.Drawing.Size(658, 451);
             this.ListViewmenu.TabIndex = 48;
             // 
             // txtRights
@@ -190,65 +220,13 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtRights.BackColor = System.Drawing.Color.White;
             this.txtRights.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRights.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRights.Location = new System.Drawing.Point(551, 61);
+            this.txtRights.Location = new System.Drawing.Point(384, 61);
             this.txtRights.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtRights.MaxLength = 100;
             this.txtRights.Name = "txtRights";
             this.txtRights.ReadOnly = true;
             this.txtRights.Size = new System.Drawing.Size(784, 32);
             this.txtRights.TabIndex = 116;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.SystemColors.Window;
-            this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
-            this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(101, 721);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(200, 67);
-            this.btnNew.TabIndex = 487;
-            this.btnNew.Text = "&New";
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.Window;
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(341, 721);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(200, 67);
-            this.btnUpdate.TabIndex = 488;
-            this.btnUpdate.Text = "&Update";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Visible = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(787, 721);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(200, 67);
-            this.btnDelete.TabIndex = 489;
-            this.btnDelete.Text = "&Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAddMenu
             // 
@@ -268,89 +246,55 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnAddMenu.UseVisualStyleBackColor = false;
             this.btnAddMenu.Click += new System.EventHandler(this.btnAddMenu_Click);
             // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.SystemColors.Window;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(341, 721);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(200, 67);
-            this.btnEdit.TabIndex = 491;
-            this.btnEdit.Text = "&Edit";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.Window;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(571, 721);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(200, 67);
-            this.btnCancel.TabIndex = 492;
-            this.btnCancel.Text = "&Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // dataView
             // 
             this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataView.ColumnHeadersHeight = 58;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataView.ColumnHeadersVisible = false;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chkSelected});
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataView.GridColor = System.Drawing.Color.Black;
             this.dataView.Location = new System.Drawing.Point(1457, 126);
             this.dataView.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dataView.Name = "dataView";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataView.RowHeadersVisible = false;
             this.dataView.RowHeadersWidth = 102;
             this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataView.Size = new System.Drawing.Size(1013, 1276);
             this.dataView.TabIndex = 493;
@@ -378,33 +322,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblAvailableMenu.Text = "Available Menu";
             this.lblAvailableMenu.Visible = false;
             // 
-            // cbcategory
-            // 
-            this.cbcategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbcategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbcategory.FormattingEnabled = true;
-            this.cbcategory.Items.AddRange(new object[] {
-            "1.0 INVENTORY",
-            "2.0 RECEIVING",
-            "3.0 PRODUCTION PLANNING",
-            "4.0 REPACKING",
-            "5.0 PREPARATION",
-            "6.0 MICRO MIXING",
-            "7.0 PRODUCTION",
-            "8.0 FINISHED GOOD",
-            "9.0 REPORTS",
-            "9.1 INTERNAL REPORTS",
-            "9.2 EXTERNAL REPORTS",
-            "10.0 IMPORT",
-            "11.0 USER RIGHTS",
-            "12.0 SETUP"});
-            this.cbcategory.Location = new System.Drawing.Point(1806, 54);
-            this.cbcategory.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.cbcategory.Name = "cbcategory";
-            this.cbcategory.Size = new System.Drawing.Size(425, 39);
-            this.cbcategory.TabIndex = 549;
-            this.cbcategory.Visible = false;
-            // 
             // btnMetroSave
             // 
             this.btnMetroSave.BackColor = System.Drawing.SystemColors.Window;
@@ -412,7 +329,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnMetroSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMetroSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMetroSave.Image")));
             this.btnMetroSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMetroSave.Location = new System.Drawing.Point(867, 811);
+            this.btnMetroSave.Location = new System.Drawing.Point(623, 719);
             this.btnMetroSave.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnMetroSave.Name = "btnMetroSave";
             this.btnMetroSave.Size = new System.Drawing.Size(200, 67);
@@ -527,15 +444,377 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(93, 846);
+            this.label2.Location = new System.Drawing.Point(2334, 586);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(435, 46);
             this.label2.TabIndex = 557;
             this.label2.Text = "List of Accesible Rights";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lbltotalrecordsrights);
+            this.groupBox2.Controls.Add(this.lblrecordDesc);
+            this.groupBox2.Controls.Add(this.toolStrip1);
+            this.groupBox2.Controls.Add(this.listViewuser_rights);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Location = new System.Drawing.Point(37, 126);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1359, 593);
+            this.groupBox2.TabIndex = 558;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "List of User Rights";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddTool,
+            this.btnEditTool,
+            this.btnUpdateTool,
+            this.btnDeleteTool,
+            this.btnCancelTool});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 538);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1353, 52);
+            this.toolStrip1.TabIndex = 428;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnAddTool
+            // 
+            this.btnAddTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnAddTool.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddTool.Name = "btnAddTool";
+            this.btnAddTool.Size = new System.Drawing.Size(122, 45);
+            this.btnAddTool.Text = "&New";
+            this.btnAddTool.Click += new System.EventHandler(this.btnAddTool_Click);
+            // 
+            // btnEditTool
+            // 
+            this.btnEditTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditTool.Name = "btnEditTool";
+            this.btnEditTool.Size = new System.Drawing.Size(112, 45);
+            this.btnEditTool.Text = "&Edit";
+            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
+            // 
+            // btnUpdateTool
+            // 
+            this.btnUpdateTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdateTool.Name = "btnUpdateTool";
+            this.btnUpdateTool.Size = new System.Drawing.Size(123, 45);
+            this.btnUpdateTool.Text = "&Save";
+            this.btnUpdateTool.Visible = false;
+            this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
+            // 
+            // btnDeleteTool
+            // 
+            this.btnDeleteTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteTool.Name = "btnDeleteTool";
+            this.btnDeleteTool.Size = new System.Drawing.Size(148, 45);
+            this.btnDeleteTool.Text = "&Delete";
+            this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
+            // 
+            // btnCancelTool
+            // 
+            this.btnCancelTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelTool.Name = "btnCancelTool";
+            this.btnCancelTool.Size = new System.Drawing.Size(150, 45);
+            this.btnCancelTool.Text = "&Cancel";
+            this.btnCancelTool.Visible = false;
+            this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click);
+            // 
+            // lblrecordDesc
+            // 
+            this.lblrecordDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblrecordDesc.AutoSize = true;
+            this.lblrecordDesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblrecordDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrecordDesc.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblrecordDesc.Location = new System.Drawing.Point(967, 537);
+            this.lblrecordDesc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblrecordDesc.Name = "lblrecordDesc";
+            this.lblrecordDesc.Size = new System.Drawing.Size(247, 39);
+            this.lblrecordDesc.TabIndex = 559;
+            this.lblrecordDesc.Text = "Total Records :";
+            // 
+            // lbltotalrecordsrights
+            // 
+            this.lbltotalrecordsrights.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalrecordsrights.AutoSize = true;
+            this.lbltotalrecordsrights.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecordsrights.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecordsrights.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbltotalrecordsrights.Location = new System.Drawing.Point(1232, 540);
+            this.lbltotalrecordsrights.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalrecordsrights.Name = "lbltotalrecordsrights";
+            this.lbltotalrecordsrights.Size = new System.Drawing.Size(92, 39);
+            this.lbltotalrecordsrights.TabIndex = 559;
+            this.lbltotalrecordsrights.Text = "CCC";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.toolStrip2);
+            this.groupBox1.Controls.Add(this.ListViewmenu);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(40, 796);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(729, 593);
+            this.groupBox1.TabIndex = 559;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "List of Accesible Rights";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(1214, 540);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 39);
+            this.label3.TabIndex = 559;
+            this.label3.Text = "CCC";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(951, 537);
+            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(247, 39);
+            this.label4.TabIndex = 559;
+            this.label4.Text = "Total Records :";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripButton5});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 538);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(723, 52);
+            this.toolStrip2.TabIndex = 428;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(122, 45);
+            this.toolStripButton1.Text = "&New";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(112, 45);
+            this.toolStripButton2.Text = "&Edit";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(123, 45);
+            this.toolStripButton3.Text = "&Save";
+            this.toolStripButton3.Visible = false;
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(148, 45);
+            this.toolStripButton4.Text = "&Delete";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(150, 45);
+            this.toolStripButton5.Text = "&Cancel";
+            this.toolStripButton5.Visible = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.toolStrip3);
+            this.groupBox3.Controls.Add(this.lstParentMenu);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox3.Location = new System.Drawing.Point(793, 794);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(729, 593);
+            this.groupBox3.TabIndex = 560;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "List of Accesible Rights";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(1214, 540);
+            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 39);
+            this.label5.TabIndex = 559;
+            this.label5.Text = "CCC";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(951, 537);
+            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(247, 39);
+            this.label6.TabIndex = 559;
+            this.label6.Text = "Total Records :";
+            // 
+            // toolStrip3
+            // 
+            this.toolStrip3.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip3.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton6,
+            this.toolStripButton7,
+            this.toolStripButton8,
+            this.toolStripButton9,
+            this.toolStripButton10});
+            this.toolStrip3.Location = new System.Drawing.Point(3, 538);
+            this.toolStrip3.Name = "toolStrip3";
+            this.toolStrip3.Size = new System.Drawing.Size(723, 52);
+            this.toolStrip3.TabIndex = 428;
+            this.toolStrip3.Text = "toolStrip3";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton6.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(122, 45);
+            this.toolStripButton6.Text = "&New";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(112, 45);
+            this.toolStripButton7.Text = "&Edit";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(123, 45);
+            this.toolStripButton8.Text = "&Save";
+            this.toolStripButton8.Visible = false;
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(148, 45);
+            this.toolStripButton9.Text = "&Delete";
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.Size = new System.Drawing.Size(150, 45);
+            this.toolStripButton10.Text = "&Cancel";
+            this.toolStripButton10.Visible = false;
+            // 
+            // lstParentMenu
+            // 
+            this.lstParentMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstParentMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.lstParentMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstParentMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstParentMenu.FormattingEnabled = true;
+            this.lstParentMenu.ItemHeight = 41;
+            this.lstParentMenu.Location = new System.Drawing.Point(25, 80);
+            this.lstParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.lstParentMenu.Name = "lstParentMenu";
+            this.lstParentMenu.Size = new System.Drawing.Size(658, 451);
+            this.lstParentMenu.TabIndex = 48;
+            // 
+            // cboParentMenu
+            // 
+            this.cboParentMenu.Enabled = false;
+            this.cboParentMenu.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboParentMenu.FormattingEnabled = true;
+            this.cboParentMenu.Location = new System.Drawing.Point(1869, 50);
+            this.cboParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cboParentMenu.Name = "cboParentMenu";
+            this.cboParentMenu.Size = new System.Drawing.Size(447, 45);
+            this.cboParentMenu.TabIndex = 561;
+            this.cboParentMenu.Visible = false;
+            this.cboParentMenu.SelectedValueChanged += new System.EventHandler(this.cboParentMenu_SelectedValueChanged);
+            // 
+            // lblparentmenuid
+            // 
+            this.lblparentmenuid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblparentmenuid.AutoSize = true;
+            this.lblparentmenuid.BackColor = System.Drawing.Color.Transparent;
+            this.lblparentmenuid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblparentmenuid.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblparentmenuid.Location = new System.Drawing.Point(1233, 52);
+            this.lblparentmenuid.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblparentmenuid.Name = "lblparentmenuid";
+            this.lblparentmenuid.Size = new System.Drawing.Size(92, 39);
+            this.lblparentmenuid.TabIndex = 560;
+            this.lblparentmenuid.Text = "CCC";
             // 
             // frmUserRight
             // 
@@ -543,6 +822,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(2797, 1502);
+            this.Controls.Add(this.lblparentmenuid);
+            this.Controls.Add(this.cboParentMenu);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.metroButtonDelete);
             this.Controls.Add(this.btnRemoveMenu);
@@ -551,18 +835,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.btnCancelListViewMenu);
             this.Controls.Add(this.btnSelectAll);
             this.Controls.Add(this.btnMetroSave);
-            this.Controls.Add(this.cbcategory);
             this.Controls.Add(this.lblAvailableMenu);
             this.Controls.Add(this.dataView);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAddMenu);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.txtRights);
-            this.Controls.Add(this.ListViewmenu);
-            this.Controls.Add(this.listViewuser_rights);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.button2);
@@ -572,6 +848,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Text = "User Rights Management";
             this.Load += new System.EventHandler(this.frmUserRight_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.toolStrip3.ResumeLayout(false);
+            this.toolStrip3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -586,16 +874,10 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.ListBox listViewuser_rights;
         private System.Windows.Forms.ListBox ListViewmenu;
         private System.Windows.Forms.TextBox txtRights;
-        internal System.Windows.Forms.Button btnNew;
-        internal System.Windows.Forms.Button btnUpdate;
-        internal System.Windows.Forms.Button btnDelete;
         internal System.Windows.Forms.Button btnAddMenu;
-        internal System.Windows.Forms.Button btnEdit;
-        internal System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelected;
         private System.Windows.Forms.Label lblAvailableMenu;
-        private System.Windows.Forms.ComboBox cbcategory;
         internal System.Windows.Forms.Button btnMetroSave;
         internal System.Windows.Forms.Button btnSelectAll;
         internal System.Windows.Forms.Button btnCancelListViewMenu;
@@ -604,5 +886,35 @@ namespace ULTRAMAVERICK.Forms.Users
         internal System.Windows.Forms.Button btnRemoveMenu;
         private MetroFramework.Controls.MetroButton metroButtonDelete;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btnAddTool;
+        private System.Windows.Forms.ToolStripButton btnEditTool;
+        private System.Windows.Forms.ToolStripButton btnUpdateTool;
+        private System.Windows.Forms.ToolStripButton btnDeleteTool;
+        private System.Windows.Forms.ToolStripButton btnCancelTool;
+        private System.Windows.Forms.Label lblrecordDesc;
+        private System.Windows.Forms.Label lbltotalrecordsrights;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStrip toolStrip3;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ListBox lstParentMenu;
+        private System.Windows.Forms.ComboBox cboParentMenu;
+        private System.Windows.Forms.Label lblparentmenuid;
     }
 }

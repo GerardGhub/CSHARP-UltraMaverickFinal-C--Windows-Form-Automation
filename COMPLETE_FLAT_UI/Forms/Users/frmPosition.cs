@@ -629,7 +629,6 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtname.Enabled = true;
                 txtname.ReadOnly = false;
 
-                txtname.Enabled = true;
 
 
 

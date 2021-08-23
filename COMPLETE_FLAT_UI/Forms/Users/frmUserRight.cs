@@ -21,6 +21,7 @@ namespace ULTRAMAVERICK.Forms.Users
         Boolean ready = false;
         string mode = "";
         int p_id = 0;
+        myclasses myClass = new myclasses();
         DataSet dSet_temp = new DataSet();
         public frmUserRight()
         {
@@ -38,10 +39,29 @@ namespace ULTRAMAVERICK.Forms.Users
             displayUserRights();
             listViewuser_rights_Click(sender, e);
             FalseButton();
+            getAllParentMenu();
+            loadParentMenu();
             ListViewmenu.Enabled = false;
             dataView.Enabled = false;
     
         }
+        public void loadParentMenu()
+        {
+            ready = false;
+            myClass.fillComboBoxDepartment(cboParentMenu, "parentform_dropdown", dSet);
+            ready = true;
+
+            lblparentmenuid.Text = cboParentMenu.SelectedValue.ToString();
+        }
+
+        private void getAllParentMenu()
+        {
+            ready = false;
+            myClass.fillListBox(lstParentMenu, "ParentForms", dSet);
+            ready = true;
+            //lbltotalrecords.Text = lstParentMenu.Items.Count.ToString();
+        }
+
         public void FalseButton()
 
         {
@@ -58,11 +78,12 @@ namespace ULTRAMAVERICK.Forms.Users
             ready = false;
             xClass.fillListBox(listViewuser_rights, "user_rights", dSet);
             ready = true;
+            lbltotalrecordsrights.Text = listViewuser_rights.Items.Count.ToString();
         }
 
         private void listViewuser_rights_Click(object sender, EventArgs e)
         {
-            btnDelete.Visible = true;
+            btnDeleteTool.Visible = true;
             btnAddMenu.Visible = true;
             showvalue();
             loadMenu_byUsers();
@@ -82,11 +103,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnNew_Click(object sender, EventArgs e)
         {
             mode = "add";
-            btnNew.Visible = false;
-    
-            btnUpdate.Visible = true;
+            btnAddTool.Visible = false;
+
+            btnUpdateTool.Visible = true;
             txtRights.ReadOnly = false;
-            btnDelete.Visible = false;
+            btnDeleteTool.Visible = false;
             btnAddMenu.Visible = false;
             txtRights.Text = "";
             txtRights.Focus();
@@ -263,13 +284,13 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnCancel_Click(object sender, EventArgs e)
         {
             mode = "";
-            btnNew.Visible = true;
-            btnUpdate.Visible = false;
-            btnEdit.Visible = true;
+            btnAddTool.Visible = true;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
             txtRights.ReadOnly = true;
             listViewuser_rights.Enabled = true;
             dataView.Visible = false;
-            cbcategory.Visible = false;
+            cboParentMenu.Visible = false;
             lblAvailableMenu.Visible = false;
         }
 
@@ -288,8 +309,8 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (saveMode())
                     {
                         displayUserRights();
-                        btnEdit.Visible = true;
-                        btnUpdate.Visible = false;
+                        btnEditTool.Visible = true;
+                        btnUpdateTool.Visible = false;
                         if (listViewuser_rights.Items.Count > 0)
                         {
                             int index = listViewuser_rights.FindString(txtRights.Text, 0);
@@ -297,7 +318,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             listViewuser_rights.SelectedIndex = index;
                         }
                         btnCancel_Click("", e);
-                        btnNew.Visible = true;
+                        btnAddTool.Visible = true;
                         UserRightsUpdated();
                     }
                 }
@@ -318,17 +339,19 @@ namespace ULTRAMAVERICK.Forms.Users
             dataView.Enabled = true;
             ListViewmenu.Enabled = true;
            listViewuser_rights.Enabled = false;
- 
-            cbcategory.Visible = true;
-    
 
-            btnNew.Visible = false;
-            btnUpdate.Visible = false;
-            btnDelete.Visible = false;
-            btnCancel.Visible = false;
-            btnEdit.Visible = false;
+            cboParentMenu.Visible = true;
+      
+
+            btnAddTool.Visible = false;
+            btnUpdateTool.Visible = false;
+            btnDeleteTool.Visible = false;
+            btnCancelTool.Visible = false;
+            btnEditTool.Visible = false;
+            cboParentMenu.Enabled = true;
             panel3Enabled();
             UpdateMenu();
+            loadAvailableMenu();
         }
         public void panel3Enabled()
         {
@@ -346,8 +369,8 @@ namespace ULTRAMAVERICK.Forms.Users
             txtRights.ReadOnly = false;
             txtRights.Focus();
             listViewuser_rights.Enabled = false;
-            btnUpdate.Visible = true;
-            btnEdit.Visible = false;
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
         }
 
         public void UpdateMenu()
@@ -382,19 +405,19 @@ namespace ULTRAMAVERICK.Forms.Users
             btnSelectAll.Visible = false;
             btnUnselectAll.Visible = false;
             dataView.Visible = false;
-          
-           btnCancelListViewMenu.Visible = false;
+            cboParentMenu.Enabled = false;
+            btnCancelListViewMenu.Visible = false;
     
             deselectAll();
             dataView.Enabled = false;
             ListViewmenu.Enabled = false;
             listViewuser_rights.Enabled = true;
-            cbcategory.Visible = false;
+            cboParentMenu.Visible = false;
             lblAvailableMenu.Visible = false;
-            btnNew.Visible = true;
-            btnUpdate.Visible = true;
-            btnDelete.Visible = true;
-            btnCancel.Visible = true;
+            btnAddTool.Visible = true;
+            btnUpdateTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            btnCancelTool.Visible = true;
            
         }
 
@@ -494,8 +517,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
                 if (listViewuser_rights.Items.Count > 0)
                 {
-                    //if (MessageBox.Show("Are you sure you want to delete this record?", lblName.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    //{
+           
 
                     mode = "delete";
                     if (saveMode())
@@ -520,6 +542,94 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 return;
             }
+        }
+
+        private void btnAddTool_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnAddTool.Visible = false;
+            btnCancelTool.Visible = true;
+            btnUpdateTool.Visible = true;
+            txtRights.ReadOnly = false;
+            btnDeleteTool.Visible = false;
+            btnAddMenu.Visible = false;
+            txtRights.Text = "";
+            txtRights.Focus();
+            listViewuser_rights.Enabled = false;
+        }
+
+        private void btnCancelTool_Click(object sender, EventArgs e)
+        {
+            mode = "";
+            btnAddTool.Visible = true;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            txtRights.ReadOnly = true;
+            listViewuser_rights.Enabled = true;
+            dataView.Visible = false;
+            cboParentMenu.Visible = false;
+            lblAvailableMenu.Visible = false;
+        }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtRights.ReadOnly = false;
+            txtRights.Focus();
+            listViewuser_rights.Enabled = false;
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+        }
+
+        private void btnDeleteTool_Click(object sender, EventArgs e)
+        {
+            if (txtRights.Text.Trim() == string.Empty)
+            {
+                SelectUserRights();
+                listViewuser_rights.Enabled = true;
+
+                txtRights.Focus();
+
+                return;
+
+            }
+            metroButtonDelete_Click(sender, e);
+        }
+
+        private void btnUpdateTool_Click(object sender, EventArgs e)
+        {
+            if (txtRights.Text.Trim() == string.Empty)
+            {
+                FillUserRights();
+                txtRights.Focus();
+                return;
+
+            }
+            btnMetroSave_Click(sender, e);
+        }
+
+
+        private void loadAvailableMenu()
+        {
+            //xClass.fillDataGridView(dataView, cboParentMenu.Text, dSet);
+            //dataView.Columns[2].Width = 500;
+            //dataView.Columns[1].Width = 50;
+            //dataView.Columns[0].Width = 30;
+            //dataView.Columns[2].HeaderText = "Menu Name";
+            //dataView.Columns[3].Visible = false;
+        }
+
+        private void cbcategory_DropDownClosed(object sender, EventArgs e)
+        {
+            loadAvailableMenu();
+            //btnselect.Visible = true;
+            //btndeselect.Visible = true;
+        }
+
+        private void cboParentMenu_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            lblparentmenuid.Text = cboParentMenu.SelectedValue.ToString();
         }
     }
 }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,37 +41,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ULTRAMAVERICK.Properties.Resources.new_logo4;
-            this.pictureBox1.Location = new System.Drawing.Point(1578, 685);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(600, 348);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(889, 816);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(579, 95);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ultra Maverick";
             // 
             // metroPanel1
             // 
@@ -101,9 +74,9 @@
             this.label6.Location = new System.Drawing.Point(170, 24);
             this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(449, 46);
+            this.label6.Size = new System.Drawing.Size(83, 46);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Taklang Green Manager";
+            this.label6.Text = "xxx";
             // 
             // label2
             // 
@@ -143,9 +116,9 @@
             this.label7.Location = new System.Drawing.Point(163, 13);
             this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(449, 46);
+            this.label7.Size = new System.Drawing.Size(83, 46);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Taklang Green Manager";
+            this.label7.Text = "xxx";
             // 
             // label3
             // 
@@ -185,9 +158,9 @@
             this.label8.Location = new System.Drawing.Point(163, 12);
             this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(449, 46);
+            this.label8.Size = new System.Drawing.Size(83, 46);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Taklang Green Manager";
+            this.label8.Text = "xxx";
             // 
             // label4
             // 
@@ -228,9 +201,9 @@
             this.label9.Location = new System.Drawing.Point(213, 12);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(449, 46);
+            this.label9.Size = new System.Drawing.Size(83, 46);
             this.label9.TabIndex = 11;
-            this.label9.Text = "Taklang Green Manager";
+            this.label9.Text = "xxx";
             // 
             // label5
             // 
@@ -268,12 +241,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(3007, 1407);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FormLogo";
             this.Text = "FormLogo";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
@@ -285,14 +255,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private MetroFramework.Controls.MetroPanel metroPanel3;
