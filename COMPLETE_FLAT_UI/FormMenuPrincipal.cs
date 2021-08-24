@@ -20,6 +20,8 @@ namespace COMPLETE_FLAT_UI
         //Constructor
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
+        DataSet dset_rights = new DataSet();
+        int rights_id = 0;
         public FormMenuPrincipal()
         {
             InitializeComponent();
@@ -204,8 +206,53 @@ namespace COMPLETE_FLAT_UI
             lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
             lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();
+            //rights here
+            rights_id = userinfo.user_rights_id;
+            // Calling the Stored PROC 
+            objStorProc = xClass.g_objStoredProc.GetCollections();
 
-        }
+            //get_accessible_menu
+            dset_rights.Clear();
+            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
+
+            if (dset_rights.Tables.Count > 0)
+            {
+                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
+                {
+                    string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+
+
+                    //Start of Parent Menu
+                    if (form_name == "btnUsers")
+                    {
+                        btnUsers.Enabled = true;
+                    }
+                    else if (form_name == "btnDryWarehouse")
+                    {
+                        btnDryWarehouse.Enabled = true;
+                    }
+                    else if (form_name == "btnProductionPlanner")
+                    {
+                        btnProductionPlanner.Enabled = true;
+                    }
+                    else if (form_name == "btnPreparationDepartment")
+                    {
+                        btnPreparationDepartment.Enabled = true;
+                    }
+                    else if (form_name == "btnResearchAndDevelopment")
+                    {
+                        btnResearchAndDevelopment.Enabled = true;
+                    }
+
+                }
+            }
+
+            //END
+
+
+
+
+                }
         //METODO PARA MOSTRAR FORMULARIO DE LOGO Al CERRAR OTROS FORM ----------------------------------------------------------
         private void MostrarFormLogoAlCerrarForms(object sender, FormClosedEventArgs e)
         {
@@ -350,6 +397,17 @@ namespace COMPLETE_FLAT_UI
             frmTypeofApprover fm = new frmTypeofApprover();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmDashBoardFormMenu asd = new frmDashBoardFormMenu();
+            asd.ShowDialog();
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
         }
 
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------

@@ -23,6 +23,9 @@ namespace ULTRAMAVERICK.Forms.Users
         int p_id = 0;
         myclasses myClass = new myclasses();
         DataSet dSet_temp = new DataSet();
+        myglobal pointer_module = new myglobal();
+        DataSet dsetHeader = new DataSet();
+        int pkey = 0;
         public frmUserRight()
         {
             InitializeComponent();
@@ -89,6 +92,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void getAllParentMenu()
         {
+
+            //string mcolumns = "menu_id,menu_name,department";     /* ,InitialMemoReleased,ResolutionMemoReleased*/
+            //pointer_module.populateModule(dsetHeader, dgvParentMenu, mcolumns, "ParentFormsRightsMenu");
+
             dset_emp = objStorProc.sp_getMajorTables("ParentFormsRightsMenu");
 
             if (dset_emp.Tables.Count > 0)
@@ -101,7 +108,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else if (myglobal.global_module == "Active")
                 {
 
-                    dv.RowFilter = "user_rights_name <> ('" + txtRights.Text + "')";
+                    dv.RowFilter = "is_active = '1' ";
 
                 }
                 else if (myglobal.global_module == "VISITORS")
@@ -111,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 dgvParentMenu.DataSource = dv;
                 //lblrecords.Text = dgv_table.RowCount.ToString();
             }
-          
+
 
 
         }
@@ -121,7 +128,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             btnMenuUpdate.Enabled = false;
             btnRemoveMenu.Enabled = false;
-            btnCancelListViewMenu.Enabled = false;
+            btnCancelUpdateMenu.Enabled = false;
             btnSelectAll.Enabled = false;
             btnUnselectAll.Enabled = false;
 
@@ -138,7 +145,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void listViewuser_rights_Click(object sender, EventArgs e)
         {
             btnDeleteTool.Visible = true;
-            btnAddMenu.Visible = true;
+            btnUpdateTheMenu.Visible = true;
             showvalue();
             loadMenu_byUsers();
         }
@@ -163,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnUpdateTool.Visible = true;
             txtRights.ReadOnly = false;
             btnDeleteTool.Visible = false;
-            btnAddMenu.Visible = false;
+            btnUpdateTheMenu.Visible = false;
             txtRights.Text = "";
             txtRights.Focus();
             listViewuser_rights.Enabled = false;
@@ -390,7 +397,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             dataView.Visible = true;
             lblAvailableMenu.Visible = true;
-            btnCancelListViewMenu.Visible = true;
+            btnCancelUpdateMenu.Visible = true;
             dataView.Enabled = true;
             ListViewmenu.Enabled = true;
            listViewuser_rights.Enabled = false;
@@ -441,7 +448,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             catch (SyntaxErrorException)
             {
-                MessageBox.Show("Invalid character found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
               
                 return;
             }
@@ -538,9 +545,10 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             btnMenuUpdate.Enabled = true;
             btnRemoveMenu.Enabled = true;
-            btnCancelListViewMenu.Enabled = true;
+            btnCancelUpdateMenu.Enabled = true;
             btnSelectAll.Enabled = true;
             btnUnselectAll.Enabled = true;
+            GbSelectionSide.Visible = true;
 
         }
 
@@ -587,7 +595,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnUnselectAll.Visible = false;
             dataView.Visible = false;
             cboParentMenu.Enabled = false;
-            btnCancelListViewMenu.Visible = false;
+            btnCancelUpdateMenu.Visible = false;
     
             deselectAll();
             dataView.Enabled = false;
@@ -758,7 +766,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnUpdateTool.Visible = true;
             txtRights.ReadOnly = false;
             btnDeleteTool.Visible = false;
-            btnAddMenu.Visible = false;
+            btnUpdateTheMenu.Visible = false;
             txtRights.Text = "";
             txtRights.Focus();
             listViewuser_rights.Enabled = false;
@@ -975,7 +983,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 SaveUpdateMenuNotifications();
                 btnUnselectAll_Click(sender, e);
                 btnCancelListViewMenu_Click(sender, e);
-                //panel1.Enabled = true;
+              
             }
 
 
@@ -1031,7 +1039,7 @@ namespace ULTRAMAVERICK.Forms.Users
             else
             {
                 getAllTaggedParentMenu(); //Tagged Equal ==
-
+            
                 getAllParentMenu();
             }
         
@@ -1070,6 +1078,191 @@ namespace ULTRAMAVERICK.Forms.Users
 
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+        }
+
+        private void SuccessFullyUntag()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Untagged";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        private void ToolDeleteTagMenu_Click(object sender, EventArgs e)
+        {
+
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Removed The Access on Selected Form Menu", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+                if (dgvTagParentMenu.RowCount > 0)
+                {
+                    ////showKey();
+                    //dSet.Clear();
+                    //dSet = objStorProc.sp_user_rights_details(Convert.ToInt32(this.txtparentidmenu.Text), "delete");
+
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_user_rights_details(Convert.ToInt32(this.txtparentidmenu.Text), "delete");
+
+                  
+                    SuccessFullyUntag();
+                   
+                    getAllTaggedParentMenu();
+
+                }
+
+
+            }
+            else
+            {
+
+                return;
+            }
+
+
+        }
+
+        private void dgvTagParentMenu_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvTagParentMenu.RowCount > 0)
+            {
+                if (dgvTagParentMenu.CurrentRow != null)
+                {
+                    if (dgvTagParentMenu.CurrentRow.Cells["menu_name"].Value != null)
+                    {
+
+
+                        txtparentidmenu.Text = dgvTagParentMenu.CurrentRow.Cells["user_rights_details_id"].Value.ToString();
+    
+
+
+
+                    }
+
+                }
+            }
+
+
+
+        }
+
+        private void btnUpdateTheMenu_Click(object sender, EventArgs e)
+        {
+            dataView.Visible = true;
+            lblAvailableMenu.Visible = true;
+            btnCancelUpdateMenu.Visible = true;
+            dataView.Enabled = true;
+            ListViewmenu.Enabled = true;
+            listViewuser_rights.Enabled = false;
+
+            cboParentMenu.Visible = true;
+            dgvTagParentMenu.Enabled = true;
+            toolStripTagMenu.Visible = true;
+            btnAddTool.Visible = false;
+            btnUpdateTool.Visible = false;
+            btnDeleteTool.Visible = false;
+            btnCancelTool.Visible = false;
+            btnEditTool.Visible = false;
+            cboParentMenu.Enabled = true;
+            btnMenuUpdate.Visible = true;
+            panel3Enabled();
+            UpdateMenu();
+            loadAvailableMenu();
+            load_search_ChildMenu(); //Bind the Information
+        }
+
+        private void btnCancelUpdateMenu_Click(object sender, EventArgs e)
+        {
+            btnSelectAll.Visible = false;
+            btnUnselectAll.Visible = false;
+            dataView.Visible = false;
+            cboParentMenu.Enabled = false;
+            btnCancelUpdateMenu.Visible = false;
+            dgvTagParentMenu.Enabled = false;
+            toolStripTagMenu.Visible = true;
+            deselectAll();
+            dataView.Enabled = false;
+            ListViewmenu.Enabled = false;
+            listViewuser_rights.Enabled = true;
+            cboParentMenu.Visible = false;
+            lblAvailableMenu.Visible = false;
+            btnAddTool.Visible = true;
+            btnUpdateTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            btnCancelTool.Visible = true;
+            GbSelectionSide.Visible = false;
+        }
+
+        private void dgvParentMenu_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListViewmenu_DoubleClick(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Removed The Access on Selected Form Menu", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (ListViewmenu.Items.Count > 0)
+                {
+                    showKey();
+                    dSet.Clear();
+                    dSet = objStorProc.sp_user_rights_details(pkey, "delete");
+
+
+
+                    ListViewmenu_Click(sender, e);
+                    UserRightsUpdated();
+
+                }
+
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
+        private void showKey()
+        {
+            if (ready == true)
+            {
+                if (ListViewmenu.Items.Count > 0)
+                {
+                    pkey = Convert.ToInt32(ListViewmenu.SelectedValue.ToString());
+                    loadMenu_byUsers();
+                }
+            }
+        }
+
+
+        private void ListViewmenu_Click(object sender, EventArgs e)
+        {
+          
+         btnUpdateTheMenu.Visible = true;
+            showvalue();
+            loadMenu_byUsers();
         }
     }
 }

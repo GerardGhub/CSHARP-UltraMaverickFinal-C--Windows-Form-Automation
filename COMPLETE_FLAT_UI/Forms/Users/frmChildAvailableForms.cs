@@ -495,7 +495,9 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtfname.Enabled = true;
                 txtmname.Enabled = true;
                 txtcount.Enabled = true;
+                cboParentMenu.Enabled = true;
                 mode = "edit";
+
                 btn_visible(false);
                 txt_read_only(false);
             }

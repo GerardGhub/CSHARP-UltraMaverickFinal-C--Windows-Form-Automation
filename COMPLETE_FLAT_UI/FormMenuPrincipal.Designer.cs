@@ -37,7 +37,6 @@
             this.btnChildMenu = new System.Windows.Forms.Button();
             this.btnParentMenu = new System.Windows.Forms.Button();
             this.btnDepartment = new System.Windows.Forms.Button();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnPosition = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.lblDateFinal = new System.Windows.Forms.Label();
@@ -56,15 +55,15 @@
             this.lblPosition = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnResearchAndDevelopment = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnPreparationDepartment = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnProductionPlanner = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnMembresia = new System.Windows.Forms.Button();
+            this.btnDryWarehouse = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnListaClientes = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.PanelBarraTitulo = new System.Windows.Forms.Panel();
@@ -87,7 +86,6 @@
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.panelContenedorPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -134,7 +132,6 @@
             this.panel1.Controls.Add(this.btnChildMenu);
             this.panel1.Controls.Add(this.btnParentMenu);
             this.panel1.Controls.Add(this.btnDepartment);
-            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.btnPosition);
             this.panel1.Controls.Add(this.btnUser);
             this.panel1.Controls.Add(this.lblDateFinal);
@@ -218,17 +215,6 @@
             this.btnDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDepartment.UseVisualStyleBackColor = false;
             this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::ULTRAMAVERICK.Properties.Resources.perfil;
-            this.pictureBox7.Location = new System.Drawing.Point(1958, 50);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(275, 102);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 3;
-            this.pictureBox7.TabStop = false;
             // 
             // btnPosition
             // 
@@ -368,15 +354,15 @@
             this.panelMenu.Controls.Add(this.btnSalir);
             this.panelMenu.Controls.Add(this.lblPosition);
             this.panelMenu.Controls.Add(this.pictureBox5);
-            this.panelMenu.Controls.Add(this.button5);
+            this.panelMenu.Controls.Add(this.btnResearchAndDevelopment);
             this.panelMenu.Controls.Add(this.pictureBox6);
-            this.panelMenu.Controls.Add(this.button6);
+            this.panelMenu.Controls.Add(this.btnPreparationDepartment);
             this.panelMenu.Controls.Add(this.pictureBox3);
-            this.panelMenu.Controls.Add(this.button3);
+            this.panelMenu.Controls.Add(this.btnProductionPlanner);
             this.panelMenu.Controls.Add(this.pictureBox4);
-            this.panelMenu.Controls.Add(this.btnMembresia);
+            this.panelMenu.Controls.Add(this.btnDryWarehouse);
             this.panelMenu.Controls.Add(this.pictureBox2);
-            this.panelMenu.Controls.Add(this.btnListaClientes);
+            this.panelMenu.Controls.Add(this.btnUsers);
             this.panelMenu.Controls.Add(this.pictureBox1);
             this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -484,26 +470,27 @@
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
-            // button5
+            // btnResearchAndDevelopment
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Silver;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 739);
-            this.button5.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(613, 95);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Usuarios";
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnResearchAndDevelopment.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnResearchAndDevelopment.Enabled = false;
+            this.btnResearchAndDevelopment.FlatAppearance.BorderSize = 0;
+            this.btnResearchAndDevelopment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnResearchAndDevelopment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnResearchAndDevelopment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResearchAndDevelopment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResearchAndDevelopment.ForeColor = System.Drawing.Color.Silver;
+            this.btnResearchAndDevelopment.Image = ((System.Drawing.Image)(resources.GetObject("btnResearchAndDevelopment.Image")));
+            this.btnResearchAndDevelopment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnResearchAndDevelopment.Location = new System.Drawing.Point(0, 739);
+            this.btnResearchAndDevelopment.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnResearchAndDevelopment.Name = "btnResearchAndDevelopment";
+            this.btnResearchAndDevelopment.Size = new System.Drawing.Size(613, 95);
+            this.btnResearchAndDevelopment.TabIndex = 10;
+            this.btnResearchAndDevelopment.Text = "Research & Development";
+            this.btnResearchAndDevelopment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnResearchAndDevelopment.UseVisualStyleBackColor = true;
+            this.btnResearchAndDevelopment.Click += new System.EventHandler(this.button5_Click);
             // 
             // pictureBox6
             // 
@@ -515,25 +502,27 @@
             this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
             // 
-            // button6
+            // btnPreparationDepartment
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Silver;
-            this.button6.Image = global::ULTRAMAVERICK.Properties.Resources.APs;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 630);
-            this.button6.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(613, 95);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Dispositivos";
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnPreparationDepartment.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnPreparationDepartment.Enabled = false;
+            this.btnPreparationDepartment.FlatAppearance.BorderSize = 0;
+            this.btnPreparationDepartment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnPreparationDepartment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnPreparationDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreparationDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreparationDepartment.ForeColor = System.Drawing.Color.Silver;
+            this.btnPreparationDepartment.Image = global::ULTRAMAVERICK.Properties.Resources.APs;
+            this.btnPreparationDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreparationDepartment.Location = new System.Drawing.Point(0, 630);
+            this.btnPreparationDepartment.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnPreparationDepartment.Name = "btnPreparationDepartment";
+            this.btnPreparationDepartment.Size = new System.Drawing.Size(613, 95);
+            this.btnPreparationDepartment.TabIndex = 8;
+            this.btnPreparationDepartment.Text = "Preparation Department";
+            this.btnPreparationDepartment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPreparationDepartment.UseVisualStyleBackColor = true;
+            this.btnPreparationDepartment.Click += new System.EventHandler(this.button6_Click);
             // 
             // pictureBox3
             // 
@@ -545,25 +534,26 @@
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             // 
-            // button3
+            // btnProductionPlanner
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Silver;
-            this.button3.Image = global::ULTRAMAVERICK.Properties.Resources.Planes;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 520);
-            this.button3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(613, 95);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Planes";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnProductionPlanner.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnProductionPlanner.Enabled = false;
+            this.btnProductionPlanner.FlatAppearance.BorderSize = 0;
+            this.btnProductionPlanner.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnProductionPlanner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnProductionPlanner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductionPlanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductionPlanner.ForeColor = System.Drawing.Color.Silver;
+            this.btnProductionPlanner.Image = global::ULTRAMAVERICK.Properties.Resources.Planes;
+            this.btnProductionPlanner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductionPlanner.Location = new System.Drawing.Point(0, 520);
+            this.btnProductionPlanner.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnProductionPlanner.Name = "btnProductionPlanner";
+            this.btnProductionPlanner.Size = new System.Drawing.Size(613, 95);
+            this.btnProductionPlanner.TabIndex = 6;
+            this.btnProductionPlanner.Text = "Planner";
+            this.btnProductionPlanner.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProductionPlanner.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
@@ -575,26 +565,27 @@
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             // 
-            // btnMembresia
+            // btnDryWarehouse
             // 
-            this.btnMembresia.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMembresia.FlatAppearance.BorderSize = 0;
-            this.btnMembresia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.btnMembresia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btnMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembresia.ForeColor = System.Drawing.Color.Silver;
-            this.btnMembresia.Image = global::ULTRAMAVERICK.Properties.Resources.Membresia;
-            this.btnMembresia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMembresia.Location = new System.Drawing.Point(0, 410);
-            this.btnMembresia.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnMembresia.Name = "btnMembresia";
-            this.btnMembresia.Size = new System.Drawing.Size(613, 95);
-            this.btnMembresia.TabIndex = 4;
-            this.btnMembresia.Text = "Membresia";
-            this.btnMembresia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMembresia.UseVisualStyleBackColor = true;
-            this.btnMembresia.Click += new System.EventHandler(this.btnMembresia_Click);
+            this.btnDryWarehouse.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnDryWarehouse.Enabled = false;
+            this.btnDryWarehouse.FlatAppearance.BorderSize = 0;
+            this.btnDryWarehouse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnDryWarehouse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnDryWarehouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDryWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDryWarehouse.ForeColor = System.Drawing.Color.Silver;
+            this.btnDryWarehouse.Image = global::ULTRAMAVERICK.Properties.Resources.Membresia;
+            this.btnDryWarehouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDryWarehouse.Location = new System.Drawing.Point(0, 410);
+            this.btnDryWarehouse.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnDryWarehouse.Name = "btnDryWarehouse";
+            this.btnDryWarehouse.Size = new System.Drawing.Size(613, 95);
+            this.btnDryWarehouse.TabIndex = 4;
+            this.btnDryWarehouse.Text = "Dry Warehouse";
+            this.btnDryWarehouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDryWarehouse.UseVisualStyleBackColor = true;
+            this.btnDryWarehouse.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
             // pictureBox2
             // 
@@ -606,26 +597,27 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // btnListaClientes
+            // btnUsers
             // 
-            this.btnListaClientes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnListaClientes.FlatAppearance.BorderSize = 0;
-            this.btnListaClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.btnListaClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btnListaClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListaClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListaClientes.ForeColor = System.Drawing.Color.Silver;
-            this.btnListaClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnListaClientes.Image")));
-            this.btnListaClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListaClientes.Location = new System.Drawing.Point(0, 300);
-            this.btnListaClientes.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnListaClientes.Name = "btnListaClientes";
-            this.btnListaClientes.Size = new System.Drawing.Size(613, 95);
-            this.btnListaClientes.TabIndex = 2;
-            this.btnListaClientes.Text = "Clientes";
-            this.btnListaClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnListaClientes.UseVisualStyleBackColor = true;
-            this.btnListaClientes.Click += new System.EventHandler(this.btnListaClientes_Click);
+            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnUsers.Enabled = false;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.ForeColor = System.Drawing.Color.Silver;
+            this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(0, 300);
+            this.btnUsers.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(613, 95);
+            this.btnUsers.TabIndex = 2;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnListaClientes_Click);
             // 
             // pictureBox1
             // 
@@ -919,7 +911,6 @@
             this.panelContenedorPrincipal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -948,21 +939,20 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lbFecha;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox btnSalir;
         private System.Windows.Forms.PictureBox btnMenu;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnResearchAndDevelopment;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnPreparationDepartment;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnProductionPlanner;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button btnMembresia;
+        private System.Windows.Forms.Button btnDryWarehouse;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnListaClientes;
+        private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer tmExpandirMenu;

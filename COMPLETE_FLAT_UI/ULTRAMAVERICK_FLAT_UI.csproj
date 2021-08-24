@@ -100,6 +100,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\MenuColorTable.cs" />
+    <Compile Include="Class\MenuRenderer.cs" />
+    <Compile Include="Class\RJDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +146,12 @@
     </Compile>
     <Compile Include="Forms\Users\frmChildAvailableForms.Designer.cs">
       <DependentUpon>frmChildAvailableForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmDashBoardFormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmDashBoardFormMenu.Designer.cs">
+      <DependentUpon>frmDashBoardFormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmDepartment.cs">
       <SubType>Form</SubType>
@@ -218,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmChildAvailableForms.resx">
       <DependentUpon>frmChildAvailableForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmDashBoardFormMenu.resx">
+      <DependentUpon>frmDashBoardFormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
