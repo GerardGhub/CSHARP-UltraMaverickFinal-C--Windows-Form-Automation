@@ -138,6 +138,7 @@ namespace COMPLETE_FLAT_UI
                 lblFirstName.Visible = false;
                 lblLastName.Visible = false;
                 lblPosition.Visible = false;
+       
             }
             else if (panelMenu.Width == 55)
             {
@@ -145,6 +146,7 @@ namespace COMPLETE_FLAT_UI
                 lblFirstName.Visible = true;
                 lblLastName.Visible = true;
                 lblPosition.Visible = true;
+           
             }
 
             //-------SIN EFECTO 
@@ -155,6 +157,7 @@ namespace COMPLETE_FLAT_UI
             //else
 
             //    panelMenu.Width = 55;
+         
         }
 
         private void tmExpandirMenu_Tick(object sender, EventArgs e)

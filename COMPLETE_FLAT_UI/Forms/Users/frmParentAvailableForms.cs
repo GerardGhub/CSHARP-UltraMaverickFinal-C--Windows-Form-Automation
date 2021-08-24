@@ -343,7 +343,7 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
         DataSet dset_emp = new DataSet();
-        void doSearch()
+        private void doSearch()
         {
             try
             {

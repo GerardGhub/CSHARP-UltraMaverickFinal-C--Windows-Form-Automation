@@ -91,24 +91,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
             if (myglobal.global_module == "EMPLOYEE")
             { dset_emp = objStorProc.sp_getMajorTables("employee"); }
-            else if (myglobal.global_module == "MICRO")
-            { dset_emp = objStorProc.sp_getMajorTables("micro_raw_materialsnew"); }
+     
             else if (myglobal.global_module == "Active")
             { dset_emp = objStorProc.sp_getMajorTables("departmentcurrentcellchanged"); }
             else if (myglobal.global_module == "InActive")
             { dset_emp = objStorProc.sp_getMajorTables("InactiveFeedCode"); }
-            else if (myglobal.global_module == "MACRO")
-            { dset_emp = objStorProc.sp_getMajorTables("macro_raw_materialsnew"); }
-            else if (myglobal.global_module == "RESIGNED EMPLOYEE")
-            { dset_emp = objStorProc.sp_getMajorTables("employee_B"); }
-            else if (myglobal.global_module == "PHONEBOOK")
-            { dset_emp = objStorProc.sp_getMajorTables("phonebook"); }
-            else if (myglobal.global_module == "DA")
-            { dset_emp = objStorProc.sp_getMajorTables("get_da"); }
-            else if (myglobal.global_module == "ATTENDANCE")
-            { dset_emp = objStorProc.sp_getMajorTables("attendance_monitoring"); }
-            else if (myglobal.global_module == "VISITORS")
-            { dset_emp = objStorProc.sp_getMajorTables("visitors"); }
+          
 
             doSearch();
 

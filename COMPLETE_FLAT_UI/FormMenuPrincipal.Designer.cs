@@ -33,21 +33,6 @@
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDateFinal = new System.Windows.Forms.Label();
-            this.lblTimeFinal = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lbFecha = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.btnTypeofApprove = new System.Windows.Forms.Button();
             this.btnChildMenu = new System.Windows.Forms.Button();
             this.btnParentMenu = new System.Windows.Forms.Button();
@@ -55,10 +40,20 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnPosition = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
+            this.lblDateFinal = new System.Windows.Forms.Label();
+            this.lblTimeFinal = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.PictureBox();
+            this.lblPosition = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -72,6 +67,7 @@
             this.btnListaClientes = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
             this.btnMaximizedFinal = new System.Windows.Forms.Button();
             this.btnCloseFinal = new System.Windows.Forms.Button();
             this.btnMinimizeFinal = new System.Windows.Forms.Button();
@@ -81,15 +77,18 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnNormal = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.panelContenedorPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelMenu.SuspendLayout();
-            this.PanelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
@@ -100,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PanelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,199 +150,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2320, 185);
             this.panel1.TabIndex = 5;
-            // 
-            // lblDateFinal
-            // 
-            this.lblDateFinal.AutoSize = true;
-            this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblDateFinal.ForeColor = System.Drawing.Color.White;
-            this.lblDateFinal.Location = new System.Drawing.Point(16, 126);
-            this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblDateFinal.Name = "lblDateFinal";
-            this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
-            this.lblDateFinal.TabIndex = 5;
-            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblTimeFinal
-            // 
-            this.lblTimeFinal.AutoSize = true;
-            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeFinal.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTimeFinal.Location = new System.Drawing.Point(36, 15);
-            this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblTimeFinal.Name = "lblTimeFinal";
-            this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
-            this.lblTimeFinal.TabIndex = 2;
-            this.lblTimeFinal.Text = "21:49:45";
-            // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(-30518, 0);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(555, 46);
-            this.lblDate.TabIndex = 5;
-            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblTime
-            // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTime.Location = new System.Drawing.Point(-30518, 0);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(519, 134);
-            this.lblTime.TabIndex = 2;
-            this.lblTime.Text = "21:49:45";
-            // 
-            // lbFecha
-            // 
-            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFecha.AutoSize = true;
-            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(-32155, 0);
-            this.lbFecha.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbFecha.Name = "lbFecha";
-            this.lbFecha.Size = new System.Drawing.Size(555, 46);
-            this.lbFecha.TabIndex = 4;
-            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblHora
-            // 
-            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
-            this.lblHora.Location = new System.Drawing.Point(-32155, 0);
-            this.lblHora.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(519, 134);
-            this.lblHora.TabIndex = 1;
-            this.lblHora.Text = "21:49:45";
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
-            this.panelMenu.Controls.Add(this.pictureBox10);
-            this.panelMenu.Controls.Add(this.lblLastName);
-            this.panelMenu.Controls.Add(this.lblFirstName);
-            this.panelMenu.Controls.Add(this.pictureBox9);
-            this.panelMenu.Controls.Add(this.btnSalir);
-            this.panelMenu.Controls.Add(this.lblPosition);
-            this.panelMenu.Controls.Add(this.btnMenu);
-            this.panelMenu.Controls.Add(this.pictureBox5);
-            this.panelMenu.Controls.Add(this.button5);
-            this.panelMenu.Controls.Add(this.pictureBox6);
-            this.panelMenu.Controls.Add(this.button6);
-            this.panelMenu.Controls.Add(this.pictureBox3);
-            this.panelMenu.Controls.Add(this.button3);
-            this.panelMenu.Controls.Add(this.pictureBox4);
-            this.panelMenu.Controls.Add(this.btnMembresia);
-            this.panelMenu.Controls.Add(this.pictureBox2);
-            this.panelMenu.Controls.Add(this.btnListaClientes);
-            this.panelMenu.Controls.Add(this.pictureBox1);
-            this.panelMenu.Controls.Add(this.button1);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 103);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(613, 1328);
-            this.panelMenu.TabIndex = 2;
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.ForeColor = System.Drawing.Color.LightGray;
-            this.lblLastName.Location = new System.Drawing.Point(220, 24);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(125, 38);
-            this.lblLastName.TabIndex = 6;
-            this.lblLastName.Text = "Singian";
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.ForeColor = System.Drawing.Color.LightGray;
-            this.lblFirstName.Location = new System.Drawing.Point(52, 24);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(119, 38);
-            this.lblFirstName.TabIndex = 5;
-            this.lblFirstName.Text = "Gerard";
-            // 
-            // lblPosition
-            // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.ForeColor = System.Drawing.Color.LightGray;
-            this.lblPosition.Location = new System.Drawing.Point(39, 78);
-            this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(92, 32);
-            this.lblPosition.TabIndex = 7;
-            this.lblPosition.Text = "Cargo";
-            // 
-            // PanelBarraTitulo
-            // 
-            this.PanelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.PanelBarraTitulo.Controls.Add(this.btnMaximizedFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnCloseFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnMinimizeFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnMaximize);
-            this.PanelBarraTitulo.Controls.Add(this.btnNormalFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnNormal1);
-            this.PanelBarraTitulo.Controls.Add(this.btnClose);
-            this.PanelBarraTitulo.Controls.Add(this.btnMinimize);
-            this.PanelBarraTitulo.Controls.Add(this.pictureBox8);
-            this.PanelBarraTitulo.Controls.Add(this.label1);
-            this.PanelBarraTitulo.Controls.Add(this.btnNormal);
-            this.PanelBarraTitulo.Controls.Add(this.btnMinimizar);
-            this.PanelBarraTitulo.Controls.Add(this.btnMaximizar);
-            this.PanelBarraTitulo.Controls.Add(this.btnCerrar);
-            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PanelBarraTitulo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
-            this.PanelBarraTitulo.Size = new System.Drawing.Size(2933, 103);
-            this.PanelBarraTitulo.TabIndex = 1;
-            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(93, 36);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 38);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ULTRA MAVERICK";
-            // 
-            // tmExpandirMenu
-            // 
-            this.tmExpandirMenu.Interval = 15;
-            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
-            // 
-            // tmContraerMenu
-            // 
-            this.tmContraerMenu.Interval = 15;
-            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
-            // 
-            // tmFechaHora
-            // 
-            this.tmFechaHora.Enabled = true;
-            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
             // 
             // btnTypeofApprove
             // 
@@ -457,6 +264,30 @@
             this.btnUser.UseVisualStyleBackColor = false;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
+            // lblDateFinal
+            // 
+            this.lblDateFinal.AutoSize = true;
+            this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblDateFinal.ForeColor = System.Drawing.Color.White;
+            this.lblDateFinal.Location = new System.Drawing.Point(16, 126);
+            this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDateFinal.Name = "lblDateFinal";
+            this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
+            this.lblDateFinal.TabIndex = 5;
+            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblTimeFinal
+            // 
+            this.lblTimeFinal.AutoSize = true;
+            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeFinal.ForeColor = System.Drawing.Color.LightGray;
+            this.lblTimeFinal.Location = new System.Drawing.Point(36, 15);
+            this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTimeFinal.Name = "lblTimeFinal";
+            this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
+            this.lblTimeFinal.TabIndex = 2;
+            this.lblTimeFinal.Text = "21:49:45";
+            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.Window;
@@ -474,6 +305,87 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(-30518, 0);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(555, 46);
+            this.lblDate.TabIndex = 5;
+            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
+            this.lblTime.Location = new System.Drawing.Point(-30518, 0);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(519, 134);
+            this.lblTime.TabIndex = 2;
+            this.lblTime.Text = "21:49:45";
+            // 
+            // lbFecha
+            // 
+            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFecha.AutoSize = true;
+            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbFecha.ForeColor = System.Drawing.Color.White;
+            this.lbFecha.Location = new System.Drawing.Point(-32155, 0);
+            this.lbFecha.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(555, 46);
+            this.lbFecha.TabIndex = 4;
+            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
+            this.lblHora.Location = new System.Drawing.Point(-32155, 0);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(519, 134);
+            this.lblHora.TabIndex = 1;
+            this.lblHora.Text = "21:49:45";
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.panelMenu.Controls.Add(this.btnMenu);
+            this.panelMenu.Controls.Add(this.pictureBox10);
+            this.panelMenu.Controls.Add(this.lblLastName);
+            this.panelMenu.Controls.Add(this.lblFirstName);
+            this.panelMenu.Controls.Add(this.pictureBox9);
+            this.panelMenu.Controls.Add(this.btnSalir);
+            this.panelMenu.Controls.Add(this.lblPosition);
+            this.panelMenu.Controls.Add(this.pictureBox5);
+            this.panelMenu.Controls.Add(this.button5);
+            this.panelMenu.Controls.Add(this.pictureBox6);
+            this.panelMenu.Controls.Add(this.button6);
+            this.panelMenu.Controls.Add(this.pictureBox3);
+            this.panelMenu.Controls.Add(this.button3);
+            this.panelMenu.Controls.Add(this.pictureBox4);
+            this.panelMenu.Controls.Add(this.btnMembresia);
+            this.panelMenu.Controls.Add(this.pictureBox2);
+            this.panelMenu.Controls.Add(this.btnListaClientes);
+            this.panelMenu.Controls.Add(this.pictureBox1);
+            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 103);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(613, 1328);
+            this.panelMenu.TabIndex = 2;
+            // 
             // pictureBox10
             // 
             this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -485,6 +397,30 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox10.TabIndex = 14;
             this.pictureBox10.TabStop = false;
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.ForeColor = System.Drawing.Color.LightGray;
+            this.lblLastName.Location = new System.Drawing.Point(220, 24);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(125, 38);
+            this.lblLastName.TabIndex = 6;
+            this.lblLastName.Text = "Singian";
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.ForeColor = System.Drawing.Color.LightGray;
+            this.lblFirstName.Location = new System.Drawing.Point(52, 24);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(119, 38);
+            this.lblFirstName.TabIndex = 5;
+            this.lblFirstName.Text = "Gerard";
             // 
             // pictureBox9
             // 
@@ -512,12 +448,24 @@
             this.btnSalir.TabIndex = 13;
             this.btnSalir.TabStop = false;
             // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.Color.LightGray;
+            this.lblPosition.Location = new System.Drawing.Point(39, 78);
+            this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(92, 32);
+            this.lblPosition.TabIndex = 7;
+            this.lblPosition.Text = "Cargo";
+            // 
             // btnMenu
             // 
             this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.Image = global::ULTRAMAVERICK.Properties.Resources.menu2;
-            this.btnMenu.Location = new System.Drawing.Point(483, 5);
+            this.btnMenu.Location = new System.Drawing.Point(498, -10);
             this.btnMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(115, 88);
@@ -710,6 +658,31 @@
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // PanelBarraTitulo
+            // 
+            this.PanelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.PanelBarraTitulo.Controls.Add(this.btnMaximizedFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnCloseFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnMinimizeFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnMaximize);
+            this.PanelBarraTitulo.Controls.Add(this.btnNormalFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnNormal1);
+            this.PanelBarraTitulo.Controls.Add(this.btnClose);
+            this.PanelBarraTitulo.Controls.Add(this.btnMinimize);
+            this.PanelBarraTitulo.Controls.Add(this.pictureBox8);
+            this.PanelBarraTitulo.Controls.Add(this.label1);
+            this.PanelBarraTitulo.Controls.Add(this.btnNormal);
+            this.PanelBarraTitulo.Controls.Add(this.btnMinimizar);
+            this.PanelBarraTitulo.Controls.Add(this.btnMaximizar);
+            this.PanelBarraTitulo.Controls.Add(this.btnCerrar);
+            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.PanelBarraTitulo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
+            this.PanelBarraTitulo.Size = new System.Drawing.Size(2933, 103);
+            this.PanelBarraTitulo.TabIndex = 1;
+            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
+            // 
             // btnMaximizedFinal
             // 
             this.btnMaximizedFinal.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -839,6 +812,18 @@
             this.pictureBox8.TabIndex = 5;
             this.pictureBox8.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(93, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(305, 38);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ULTRA MAVERICK";
+            // 
             // btnNormal
             // 
             this.btnNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -900,6 +885,21 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // tmExpandirMenu
+            // 
+            this.tmExpandirMenu.Interval = 15;
+            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
+            // 
+            // tmContraerMenu
+            // 
+            this.tmContraerMenu.Interval = 15;
+            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
+            // 
+            // tmFechaHora
+            // 
+            this.tmFechaHora.Enabled = true;
+            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -919,11 +919,9 @@
             this.panelContenedorPrincipal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
-            this.PanelBarraTitulo.ResumeLayout(false);
-            this.PanelBarraTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
@@ -934,6 +932,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PanelBarraTitulo.ResumeLayout(false);
+            this.PanelBarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
