@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COMPLETE_FLAT_UI.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,7 +50,9 @@ namespace ULTRAMAVERICK.Forms.Users
             myglobal.global_module = "Active"; // Mode for Searching
 
             getAllTaggedParentMenu(); //Tagged Equal ==
-
+            lblUserID.Text = userinfo.user_id.ToString(); // ID of User
+            lblFirstName.Text = userinfo.emp_name.ToUpper(); // First Name Session
+            dgvParentMenu.RowsDefaultCellStyle.ForeColor = Color.Black;
         }
         public void loadParentMenu()
         {
@@ -116,6 +119,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 }
                 dgvParentMenu.DataSource = dv;
+                lbltotalMenu.Text = dgvParentMenu.RowCount.ToString();
                 //lblrecords.Text = dgv_table.RowCount.ToString();
             }
 
@@ -126,7 +130,7 @@ namespace ULTRAMAVERICK.Forms.Users
         public void FalseButton()
 
         {
-            btnMenuUpdate.Enabled = false;
+     
             btnRemoveMenu.Enabled = false;
             btnCancelUpdateMenu.Enabled = false;
             btnSelectAll.Enabled = false;
@@ -411,23 +415,23 @@ namespace ULTRAMAVERICK.Forms.Users
             btnCancelTool.Visible = false;
             btnEditTool.Visible = false;
             cboParentMenu.Enabled = true;
-            btnMenuUpdate.Visible = true;
+        
             panel3Enabled();
             UpdateMenu();
-            loadAvailableMenu();
+            //loadAvailableMenu();
             load_search_ChildMenu(); //Bind the Information
         }
 
 
 
         DataSet dset_emp = new DataSet();
-        void doSearch()
+       private void doSearch()
         {
             try
             {
-                if (dset_emp.Tables.Count > 0)
+                if (dset_emp_parentTagging.Tables.Count > 0)
                 {
-                    DataView dv = new DataView(dset_emp.Tables[0]);
+                    DataView dv = new DataView(dset_emp_parentTagging.Tables[0]);
                     if (myglobal.global_module == "EMPLOYEE")
                     {
 
@@ -505,18 +509,18 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-       
+        DataSet dset_emp_parentTagging = new DataSet();
         public void load_search_ChildMenu()
         {
-            dset_emp.Clear();
+            dset_emp_parentTagging.Clear();
 
             if (myglobal.global_module == "EMPLOYEE")
-            { dset_emp = objStorProc.sp_getMajorTables("employee"); }
+            { dset_emp_parentTagging = objStorProc.sp_getMajorTables("employee"); }
 
             else if (myglobal.global_module == "Active")
-            { dset_emp = objStorProc.sp_getMajorTables("ParentMenuTagging"); }
+            { dset_emp_parentTagging = objStorProc.sp_getMajorTables("ParentMenuTagging"); }
             else if (myglobal.global_module == "InActive")
-            { dset_emp = objStorProc.sp_getMajorTables("InactiveFeedCode"); }
+            { dset_emp_parentTagging = objStorProc.sp_getMajorTables("InactiveFeedCode"); }
 
 
             doSearch();
@@ -543,7 +547,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         public void panel3Enabled()
         {
-            btnMenuUpdate.Enabled = true;
+   
             btnRemoveMenu.Enabled = true;
             btnCancelUpdateMenu.Enabled = true;
             btnSelectAll.Enabled = true;
@@ -626,6 +630,8 @@ namespace ULTRAMAVERICK.Forms.Users
         }
          public void loadMenu_byUsers()
         {
+
+            //GetMenuByUsers
             ready = false;
             xClass.fillListBox_Id(ListViewmenu, "filter_users", dSet, p_id, 0, 0);
             ready = true;
@@ -842,9 +848,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboParentMenu_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            load_search_ChildMenu();
             lblparentmenuid.Text = cboParentMenu.SelectedValue.ToString();
-            doSearch();
+            //doSearch();
         }
 
         private void lblparentmenuid_Click(object sender, EventArgs e)
@@ -892,7 +898,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet.Clear();
                     if (Convert.ToBoolean(dgvParentMenu.Rows[i].Cells[0].Value))
                     {
-                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(dgvParentMenu.Rows[i].Cells[1].Value), "add");
+                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(dgvParentMenu.Rows[i].Cells[1].Value),"" , lblUserID.Text.Trim(), "Parent", lblFirstName.Text.Trim(), "add");
                     }
                 }
 
@@ -900,6 +906,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 SaveUpdateMenuNotifications();
                 btnUnselectAll_Click(new object(), new System.EventArgs());
                 btnCancelListViewMenu_Click(new object(), new System.EventArgs());
+                getAllTaggedParentMenu(); //Tag Menu Refresh
                 load_search_ChildMenu(); // Select the Child
             
             }
@@ -975,7 +982,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet.Clear();
                     if (Convert.ToBoolean(dataView.Rows[i].Cells[0].Value))
                     {
-                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(dataView.Rows[i].Cells[1].Value), "add");
+                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(dataView.Rows[i].Cells[1].Value),"", lblUserID.Text.Trim(), "Child", lblFirstName.Text.Trim(), "add");
                     }
                 }
 
@@ -1175,7 +1182,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dataView.Enabled = true;
             ListViewmenu.Enabled = true;
             listViewuser_rights.Enabled = false;
-
+            dgvGrandChild.Visible = true;
             cboParentMenu.Visible = true;
             dgvTagParentMenu.Enabled = true;
             toolStripTagMenu.Visible = true;
@@ -1185,11 +1192,12 @@ namespace ULTRAMAVERICK.Forms.Users
             btnCancelTool.Visible = false;
             btnEditTool.Visible = false;
             cboParentMenu.Enabled = true;
-            btnMenuUpdate.Visible = true;
+     
             panel3Enabled();
             UpdateMenu();
-            loadAvailableMenu();
-            load_search_ChildMenu(); //Bind the Information
+          
+            getAllTaggedParentMenu(); //Tagged Equal ==
+            //load_search_ChildMenu(); //Bind the Information //8/25/2021
         }
 
         private void btnCancelUpdateMenu_Click(object sender, EventArgs e)
@@ -1212,6 +1220,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnDeleteTool.Visible = true;
             btnCancelTool.Visible = true;
             GbSelectionSide.Visible = false;
+            dgvGrandChild.Visible = false;
         }
 
         private void dgvParentMenu_CurrentCellChanged(object sender, EventArgs e)

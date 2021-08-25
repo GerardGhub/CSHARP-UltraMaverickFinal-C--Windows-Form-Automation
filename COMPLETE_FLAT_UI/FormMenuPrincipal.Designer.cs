@@ -33,27 +33,49 @@
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDateFinal = new System.Windows.Forms.Label();
+            this.lblTimeFinal = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
+            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
+            this.panelMenuSelection = new System.Windows.Forms.Panel();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.btnGrandChildForms = new System.Windows.Forms.Button();
+            this.btnUnit = new System.Windows.Forms.Button();
             this.btnTypeofApprove = new System.Windows.Forms.Button();
             this.btnChildMenu = new System.Windows.Forms.Button();
             this.btnParentMenu = new System.Windows.Forms.Button();
             this.btnDepartment = new System.Windows.Forms.Button();
             this.btnPosition = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
-            this.lblDateFinal = new System.Windows.Forms.Label();
-            this.lblTimeFinal = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lbFecha = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.panelMenu = new System.Windows.Forms.Panel();
+            this.toolDropdownUser = new System.Windows.Forms.ToolStripDropDownButton();
+            this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userRightsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.departmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeOfApproverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.positionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolDropdownMenu = new System.Windows.Forms.ToolStripDropDownButton();
+            this.parentMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.childMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grandChildMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolClosePanelSelection = new System.Windows.Forms.ToolStripButton();
+            this.btnMenu = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.PictureBox();
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnResearchAndDevelopment = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -65,8 +87,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnUsers = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
+            this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnMaximizedFinal = new System.Windows.Forms.Button();
             this.btnCloseFinal = new System.Windows.Forms.Button();
             this.btnMinimizeFinal = new System.Windows.Forms.Button();
@@ -76,28 +97,26 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnNormal = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.panelContenedorPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.PanelBarraTitulo.SuspendLayout();
+            this.panelMenuSelection.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.PanelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,6 +147,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            this.panel1.Controls.Add(this.btnGrandChildForms);
+            this.panel1.Controls.Add(this.btnUnit);
             this.panel1.Controls.Add(this.btnTypeofApprove);
             this.panel1.Controls.Add(this.btnChildMenu);
             this.panel1.Controls.Add(this.btnParentMenu);
@@ -147,6 +168,271 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2320, 185);
             this.panel1.TabIndex = 5;
+            // 
+            // lblDateFinal
+            // 
+            this.lblDateFinal.AutoSize = true;
+            this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblDateFinal.ForeColor = System.Drawing.Color.White;
+            this.lblDateFinal.Location = new System.Drawing.Point(16, 126);
+            this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDateFinal.Name = "lblDateFinal";
+            this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
+            this.lblDateFinal.TabIndex = 5;
+            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblTimeFinal
+            // 
+            this.lblTimeFinal.AutoSize = true;
+            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeFinal.ForeColor = System.Drawing.Color.LightGray;
+            this.lblTimeFinal.Location = new System.Drawing.Point(36, 15);
+            this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTimeFinal.Name = "lblTimeFinal";
+            this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
+            this.lblTimeFinal.TabIndex = 2;
+            this.lblTimeFinal.Text = "21:49:45";
+            // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(-30518, 0);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(555, 46);
+            this.lblDate.TabIndex = 5;
+            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
+            this.lblTime.Location = new System.Drawing.Point(-30518, 0);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(519, 134);
+            this.lblTime.TabIndex = 2;
+            this.lblTime.Text = "21:49:45";
+            // 
+            // lbFecha
+            // 
+            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFecha.AutoSize = true;
+            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbFecha.ForeColor = System.Drawing.Color.White;
+            this.lbFecha.Location = new System.Drawing.Point(-32155, 0);
+            this.lbFecha.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(555, 46);
+            this.lbFecha.TabIndex = 4;
+            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
+            this.lblHora.Location = new System.Drawing.Point(-32155, 0);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(519, 134);
+            this.lblHora.TabIndex = 1;
+            this.lblHora.Text = "21:49:45";
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.panelMenu.Controls.Add(this.panelMenuSelection);
+            this.panelMenu.Controls.Add(this.btnMenu);
+            this.panelMenu.Controls.Add(this.pictureBox10);
+            this.panelMenu.Controls.Add(this.lblLastName);
+            this.panelMenu.Controls.Add(this.lblFirstName);
+            this.panelMenu.Controls.Add(this.pictureBox9);
+            this.panelMenu.Controls.Add(this.btnSalir);
+            this.panelMenu.Controls.Add(this.lblPosition);
+            this.panelMenu.Controls.Add(this.pictureBox5);
+            this.panelMenu.Controls.Add(this.btnResearchAndDevelopment);
+            this.panelMenu.Controls.Add(this.pictureBox6);
+            this.panelMenu.Controls.Add(this.btnPreparationDepartment);
+            this.panelMenu.Controls.Add(this.pictureBox3);
+            this.panelMenu.Controls.Add(this.btnProductionPlanner);
+            this.panelMenu.Controls.Add(this.pictureBox4);
+            this.panelMenu.Controls.Add(this.btnDryWarehouse);
+            this.panelMenu.Controls.Add(this.pictureBox2);
+            this.panelMenu.Controls.Add(this.btnUsers);
+            this.panelMenu.Controls.Add(this.pictureBox1);
+            this.panelMenu.Controls.Add(this.btnDashBoard);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 103);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(613, 1328);
+            this.panelMenu.TabIndex = 2;
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.ForeColor = System.Drawing.Color.LightGray;
+            this.lblLastName.Location = new System.Drawing.Point(220, 24);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(125, 38);
+            this.lblLastName.TabIndex = 6;
+            this.lblLastName.Text = "Singian";
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.ForeColor = System.Drawing.Color.LightGray;
+            this.lblFirstName.Location = new System.Drawing.Point(52, 24);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(119, 38);
+            this.lblFirstName.TabIndex = 5;
+            this.lblFirstName.Text = "Gerard";
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.Color.LightGray;
+            this.lblPosition.Location = new System.Drawing.Point(39, 78);
+            this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(92, 32);
+            this.lblPosition.TabIndex = 7;
+            this.lblPosition.Text = "Cargo";
+            // 
+            // PanelBarraTitulo
+            // 
+            this.PanelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.PanelBarraTitulo.Controls.Add(this.btnMaximizedFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnCloseFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnMinimizeFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnMaximize);
+            this.PanelBarraTitulo.Controls.Add(this.btnNormalFinal);
+            this.PanelBarraTitulo.Controls.Add(this.btnNormal1);
+            this.PanelBarraTitulo.Controls.Add(this.btnClose);
+            this.PanelBarraTitulo.Controls.Add(this.btnMinimize);
+            this.PanelBarraTitulo.Controls.Add(this.pictureBox8);
+            this.PanelBarraTitulo.Controls.Add(this.label1);
+            this.PanelBarraTitulo.Controls.Add(this.btnNormal);
+            this.PanelBarraTitulo.Controls.Add(this.btnMinimizar);
+            this.PanelBarraTitulo.Controls.Add(this.btnMaximizar);
+            this.PanelBarraTitulo.Controls.Add(this.btnCerrar);
+            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.PanelBarraTitulo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
+            this.PanelBarraTitulo.Size = new System.Drawing.Size(2933, 103);
+            this.PanelBarraTitulo.TabIndex = 1;
+            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(93, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(305, 38);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ULTRA MAVERICK";
+            // 
+            // tmExpandirMenu
+            // 
+            this.tmExpandirMenu.Interval = 15;
+            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
+            // 
+            // tmContraerMenu
+            // 
+            this.tmContraerMenu.Interval = 15;
+            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
+            // 
+            // tmFechaHora
+            // 
+            this.tmFechaHora.Enabled = true;
+            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
+            // 
+            // panelMenuSelection
+            // 
+            this.panelMenuSelection.Controls.Add(this.toolStrip2);
+            this.panelMenuSelection.Location = new System.Drawing.Point(3, 300);
+            this.panelMenuSelection.Name = "panelMenuSelection";
+            this.panelMenuSelection.Size = new System.Drawing.Size(575, 1054);
+            this.panelMenuSelection.TabIndex = 0;
+            this.panelMenuSelection.Visible = false;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolDropdownUser,
+            this.toolDropdownMenu,
+            this.toolClosePanelSelection,
+            this.toolStripLabel1});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip2.Size = new System.Drawing.Size(500, 1054);
+            this.toolStrip2.TabIndex = 2;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.Silver;
+            this.toolStripLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(495, 36);
+            this.toolStripLabel1.Text = "Process Automation                           ";
+            // 
+            // btnGrandChildForms
+            // 
+            this.btnGrandChildForms.BackColor = System.Drawing.SystemColors.Window;
+            this.btnGrandChildForms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGrandChildForms.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGrandChildForms.Image = ((System.Drawing.Image)(resources.GetObject("btnGrandChildForms.Image")));
+            this.btnGrandChildForms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGrandChildForms.Location = new System.Drawing.Point(623, 102);
+            this.btnGrandChildForms.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnGrandChildForms.Name = "btnGrandChildForms";
+            this.btnGrandChildForms.Size = new System.Drawing.Size(226, 67);
+            this.btnGrandChildForms.TabIndex = 494;
+            this.btnGrandChildForms.Text = "GrandChild";
+            this.btnGrandChildForms.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGrandChildForms.UseVisualStyleBackColor = false;
+            this.btnGrandChildForms.Click += new System.EventHandler(this.btnGrandChildForms_Click);
+            // 
+            // btnUnit
+            // 
+            this.btnUnit.BackColor = System.Drawing.SystemColors.Window;
+            this.btnUnit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUnit.Image = ((System.Drawing.Image)(resources.GetObject("btnUnit.Image")));
+            this.btnUnit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnit.Location = new System.Drawing.Point(559, 7);
+            this.btnUnit.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnUnit.Name = "btnUnit";
+            this.btnUnit.Size = new System.Drawing.Size(226, 67);
+            this.btnUnit.TabIndex = 493;
+            this.btnUnit.Text = "Unit";
+            this.btnUnit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUnit.UseVisualStyleBackColor = false;
+            this.btnUnit.Click += new System.EventHandler(this.btnUnit_Click);
             // 
             // btnTypeofApprove
             // 
@@ -250,30 +536,6 @@
             this.btnUser.UseVisualStyleBackColor = false;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
-            // lblDateFinal
-            // 
-            this.lblDateFinal.AutoSize = true;
-            this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblDateFinal.ForeColor = System.Drawing.Color.White;
-            this.lblDateFinal.Location = new System.Drawing.Point(16, 126);
-            this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblDateFinal.Name = "lblDateFinal";
-            this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
-            this.lblDateFinal.TabIndex = 5;
-            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblTimeFinal
-            // 
-            this.lblTimeFinal.AutoSize = true;
-            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeFinal.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTimeFinal.Location = new System.Drawing.Point(36, 15);
-            this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblTimeFinal.Name = "lblTimeFinal";
-            this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
-            this.lblTimeFinal.TabIndex = 2;
-            this.lblTimeFinal.Text = "21:49:45";
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.Window;
@@ -291,86 +553,120 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
-            // lblDate
+            // toolDropdownUser
             // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(-30518, 0);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(555, 46);
-            this.lblDate.TabIndex = 5;
-            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
+            this.toolDropdownUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManagementToolStripMenuItem,
+            this.userRightsToolStripMenuItem,
+            this.departmentToolStripMenuItem,
+            this.unitToolStripMenuItem,
+            this.typeOfApproverToolStripMenuItem,
+            this.positionToolStripMenuItem});
+            this.toolDropdownUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolDropdownUser.ForeColor = System.Drawing.Color.Silver;
+            this.toolDropdownUser.Image = global::ULTRAMAVERICK.Properties.Resources.APs;
+            this.toolDropdownUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolDropdownUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolDropdownUser.Name = "toolDropdownUser";
+            this.toolDropdownUser.Size = new System.Drawing.Size(495, 44);
+            this.toolDropdownUser.Text = "User  Manager                  ";
+            this.toolDropdownUser.Visible = false;
             // 
-            // lblTime
+            // userManagementToolStripMenuItem
             // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTime.Location = new System.Drawing.Point(-30518, 0);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(519, 134);
-            this.lblTime.TabIndex = 2;
-            this.lblTime.Text = "21:49:45";
+            this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
+            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(461, 54);
+            this.userManagementToolStripMenuItem.Text = "User Management";
             // 
-            // lbFecha
+            // userRightsToolStripMenuItem
             // 
-            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFecha.AutoSize = true;
-            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(-32155, 0);
-            this.lbFecha.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbFecha.Name = "lbFecha";
-            this.lbFecha.Size = new System.Drawing.Size(555, 46);
-            this.lbFecha.TabIndex = 4;
-            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
+            this.userRightsToolStripMenuItem.Name = "userRightsToolStripMenuItem";
+            this.userRightsToolStripMenuItem.Size = new System.Drawing.Size(461, 54);
+            this.userRightsToolStripMenuItem.Text = "User Rights";
             // 
-            // lblHora
+            // departmentToolStripMenuItem
             // 
-            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
-            this.lblHora.Location = new System.Drawing.Point(-32155, 0);
-            this.lblHora.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(519, 134);
-            this.lblHora.TabIndex = 1;
-            this.lblHora.Text = "21:49:45";
+            this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
+            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(461, 54);
+            this.departmentToolStripMenuItem.Text = "Department";
             // 
-            // panelMenu
+            // unitToolStripMenuItem
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
-            this.panelMenu.Controls.Add(this.btnMenu);
-            this.panelMenu.Controls.Add(this.pictureBox10);
-            this.panelMenu.Controls.Add(this.lblLastName);
-            this.panelMenu.Controls.Add(this.lblFirstName);
-            this.panelMenu.Controls.Add(this.pictureBox9);
-            this.panelMenu.Controls.Add(this.btnSalir);
-            this.panelMenu.Controls.Add(this.lblPosition);
-            this.panelMenu.Controls.Add(this.pictureBox5);
-            this.panelMenu.Controls.Add(this.btnResearchAndDevelopment);
-            this.panelMenu.Controls.Add(this.pictureBox6);
-            this.panelMenu.Controls.Add(this.btnPreparationDepartment);
-            this.panelMenu.Controls.Add(this.pictureBox3);
-            this.panelMenu.Controls.Add(this.btnProductionPlanner);
-            this.panelMenu.Controls.Add(this.pictureBox4);
-            this.panelMenu.Controls.Add(this.btnDryWarehouse);
-            this.panelMenu.Controls.Add(this.pictureBox2);
-            this.panelMenu.Controls.Add(this.btnUsers);
-            this.panelMenu.Controls.Add(this.pictureBox1);
-            this.panelMenu.Controls.Add(this.button1);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 103);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(613, 1328);
-            this.panelMenu.TabIndex = 2;
+            this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(461, 54);
+            this.unitToolStripMenuItem.Text = "Unit";
+            // 
+            // typeOfApproverToolStripMenuItem
+            // 
+            this.typeOfApproverToolStripMenuItem.Name = "typeOfApproverToolStripMenuItem";
+            this.typeOfApproverToolStripMenuItem.Size = new System.Drawing.Size(461, 54);
+            this.typeOfApproverToolStripMenuItem.Text = "Type of Approver";
+            // 
+            // positionToolStripMenuItem
+            // 
+            this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
+            this.positionToolStripMenuItem.Size = new System.Drawing.Size(461, 54);
+            this.positionToolStripMenuItem.Text = "Position";
+            // 
+            // toolDropdownMenu
+            // 
+            this.toolDropdownMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parentMenuToolStripMenuItem,
+            this.childMenuToolStripMenuItem,
+            this.grandChildMenuToolStripMenuItem});
+            this.toolDropdownMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolDropdownMenu.ForeColor = System.Drawing.Color.Silver;
+            this.toolDropdownMenu.Image = global::ULTRAMAVERICK.Properties.Resources.APs;
+            this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolDropdownMenu.Name = "toolDropdownMenu";
+            this.toolDropdownMenu.Size = new System.Drawing.Size(495, 44);
+            this.toolDropdownMenu.Text = "Menu";
+            this.toolDropdownMenu.Visible = false;
+            // 
+            // parentMenuToolStripMenuItem
+            // 
+            this.parentMenuToolStripMenuItem.Name = "parentMenuToolStripMenuItem";
+            this.parentMenuToolStripMenuItem.Size = new System.Drawing.Size(449, 54);
+            this.parentMenuToolStripMenuItem.Text = "Parent Menu";
+            // 
+            // childMenuToolStripMenuItem
+            // 
+            this.childMenuToolStripMenuItem.Name = "childMenuToolStripMenuItem";
+            this.childMenuToolStripMenuItem.Size = new System.Drawing.Size(449, 54);
+            this.childMenuToolStripMenuItem.Text = "Child Menu";
+            // 
+            // grandChildMenuToolStripMenuItem
+            // 
+            this.grandChildMenuToolStripMenuItem.Name = "grandChildMenuToolStripMenuItem";
+            this.grandChildMenuToolStripMenuItem.Size = new System.Drawing.Size(449, 54);
+            this.grandChildMenuToolStripMenuItem.Text = "GrandChild Menu";
+            // 
+            // toolClosePanelSelection
+            // 
+            this.toolClosePanelSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F);
+            this.toolClosePanelSelection.ForeColor = System.Drawing.Color.Silver;
+            this.toolClosePanelSelection.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
+            this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolClosePanelSelection.Name = "toolClosePanelSelection";
+            this.toolClosePanelSelection.Size = new System.Drawing.Size(495, 44);
+            this.toolClosePanelSelection.Text = "Close";
+            this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Image = global::ULTRAMAVERICK.Properties.Resources.menu2;
+            this.btnMenu.Location = new System.Drawing.Point(498, -10);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(115, 88);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnMenu.TabIndex = 12;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // pictureBox10
             // 
@@ -383,30 +679,6 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox10.TabIndex = 14;
             this.pictureBox10.TabStop = false;
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.ForeColor = System.Drawing.Color.LightGray;
-            this.lblLastName.Location = new System.Drawing.Point(220, 24);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(125, 38);
-            this.lblLastName.TabIndex = 6;
-            this.lblLastName.Text = "Singian";
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.ForeColor = System.Drawing.Color.LightGray;
-            this.lblFirstName.Location = new System.Drawing.Point(52, 24);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(119, 38);
-            this.lblFirstName.TabIndex = 5;
-            this.lblFirstName.Text = "Gerard";
             // 
             // pictureBox9
             // 
@@ -433,32 +705,6 @@
             this.btnSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnSalir.TabIndex = 13;
             this.btnSalir.TabStop = false;
-            // 
-            // lblPosition
-            // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.ForeColor = System.Drawing.Color.LightGray;
-            this.lblPosition.Location = new System.Drawing.Point(39, 78);
-            this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(92, 32);
-            this.lblPosition.TabIndex = 7;
-            this.lblPosition.Text = "Cargo";
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.Image = global::ULTRAMAVERICK.Properties.Resources.menu2;
-            this.btnMenu.Location = new System.Drawing.Point(498, -10);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(115, 88);
-            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnMenu.TabIndex = 12;
-            this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // pictureBox5
             // 
@@ -629,51 +875,26 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnDashBoard
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Silver;
-            this.button1.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 191);
-            this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(613, 95);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dashboard";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // PanelBarraTitulo
-            // 
-            this.PanelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.PanelBarraTitulo.Controls.Add(this.btnMaximizedFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnCloseFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnMinimizeFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnMaximize);
-            this.PanelBarraTitulo.Controls.Add(this.btnNormalFinal);
-            this.PanelBarraTitulo.Controls.Add(this.btnNormal1);
-            this.PanelBarraTitulo.Controls.Add(this.btnClose);
-            this.PanelBarraTitulo.Controls.Add(this.btnMinimize);
-            this.PanelBarraTitulo.Controls.Add(this.pictureBox8);
-            this.PanelBarraTitulo.Controls.Add(this.label1);
-            this.PanelBarraTitulo.Controls.Add(this.btnNormal);
-            this.PanelBarraTitulo.Controls.Add(this.btnMinimizar);
-            this.PanelBarraTitulo.Controls.Add(this.btnMaximizar);
-            this.PanelBarraTitulo.Controls.Add(this.btnCerrar);
-            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PanelBarraTitulo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
-            this.PanelBarraTitulo.Size = new System.Drawing.Size(2933, 103);
-            this.PanelBarraTitulo.TabIndex = 1;
-            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
+            this.btnDashBoard.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnDashBoard.FlatAppearance.BorderSize = 0;
+            this.btnDashBoard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnDashBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashBoard.ForeColor = System.Drawing.Color.Silver;
+            this.btnDashBoard.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashBoard.Location = new System.Drawing.Point(0, 191);
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnDashBoard.Name = "btnDashBoard";
+            this.btnDashBoard.Size = new System.Drawing.Size(613, 95);
+            this.btnDashBoard.TabIndex = 0;
+            this.btnDashBoard.Text = "Dashboard";
+            this.btnDashBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDashBoard.UseVisualStyleBackColor = true;
             // 
             // btnMaximizedFinal
             // 
@@ -804,18 +1025,6 @@
             this.pictureBox8.TabIndex = 5;
             this.pictureBox8.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(93, 36);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 38);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ULTRA MAVERICK";
-            // 
             // btnNormal
             // 
             this.btnNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -877,21 +1086,6 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // tmExpandirMenu
-            // 
-            this.tmExpandirMenu.Interval = 15;
-            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
-            // 
-            // tmContraerMenu
-            // 
-            this.tmContraerMenu.Interval = 15;
-            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
-            // 
-            // tmFechaHora
-            // 
-            this.tmFechaHora.Enabled = true;
-            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
-            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -913,18 +1107,22 @@
             this.panel1.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
+            this.PanelBarraTitulo.ResumeLayout(false);
+            this.PanelBarraTitulo.PerformLayout();
+            this.panelMenuSelection.ResumeLayout(false);
+            this.panelMenuSelection.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.PanelBarraTitulo.ResumeLayout(false);
-            this.PanelBarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
@@ -954,7 +1152,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Timer tmExpandirMenu;
         private System.Windows.Forms.Timer tmContraerMenu;
         private System.Windows.Forms.Timer tmFechaHora;
@@ -986,6 +1184,23 @@
         internal System.Windows.Forms.Button btnParentMenu;
         internal System.Windows.Forms.Button btnChildMenu;
         internal System.Windows.Forms.Button btnTypeofApprove;
+        private System.Windows.Forms.Panel panelMenuSelection;
+        internal System.Windows.Forms.Button btnUnit;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripDropDownButton toolDropdownUser;
+        private System.Windows.Forms.ToolStripDropDownButton toolDropdownMenu;
+        private System.Windows.Forms.ToolStripButton toolClosePanelSelection;
+        private System.Windows.Forms.ToolStripMenuItem parentMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem childMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem grandChildMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userRightsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem typeOfApproverToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem positionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        internal System.Windows.Forms.Button btnGrandChildForms;
     }
 }
 

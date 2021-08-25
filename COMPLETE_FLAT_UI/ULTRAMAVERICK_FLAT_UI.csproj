@@ -159,6 +159,18 @@
     <Compile Include="Forms\Users\frmDepartment.Designer.cs">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\frmDepartmentUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmDepartmentUnit.Designer.cs">
+      <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmGrandChildAvailableForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmGrandChildAvailableForms.Designer.cs">
+      <DependentUpon>frmGrandChildAvailableForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\frmParentAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmDepartmentUnit.resx">
+      <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmGrandChildAvailableForms.resx">
+      <DependentUpon>frmGrandChildAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmParentAvailableForms.resx">
       <DependentUpon>frmParentAvailableForms.cs</DependentUpon>
@@ -373,6 +391,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Login\" />
+    <Folder Include="Forms\MasterList SetUP\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resumerdf.jpg" />

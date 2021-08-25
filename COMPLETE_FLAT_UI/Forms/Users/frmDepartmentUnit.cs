@@ -14,7 +14,7 @@ using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmChildAvailableForms : Form
+    public partial class frmDepartmentUnit : Form
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -28,67 +28,39 @@ namespace ULTRAMAVERICK.Forms.Users
         DateTime dNow = DateTime.Now;
         Boolean ready = false;
 
-
+        IStoredProcedures g_objStoredProcCollection = null;
         DataSet dSet_temp = new DataSet();
 
-        public frmChildAvailableForms()
+        public frmDepartmentUnit()
         {
             InitializeComponent();
         }
 
-        private void BtnModuleClose_Click(object sender, EventArgs e)
+        private void frmDepartmentUnit_Load(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void frmChildAvailableForms_Load(object sender, EventArgs e)
-        {
-            objStorProc = xClass.g_objStoredProc.GetCollections();
-            displayChildFormsData();
-            loadParentMenu();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            loadDepartment();
+            displayDepartmentUnits();
         }
 
 
-        public void loadParentMenu()
+        private void displayDepartmentUnits()      //method for loading available_menus
         {
             ready = false;
-            myClass.fillComboBoxDepartment(cboParentMenu, "parentform_dropdown", dSet);
+            xClass.fillDataGridView(dgvUnits, "DepartmentUnit", dSet);
             ready = true;
-
-            txtcount.Text = cboParentMenu.SelectedValue.ToString();
+            lbltotalrecords.Text = dgvUnits.RowCount.ToString();
         }
 
-        private void displayChildFormsData()      //method for loading available_menus
+
+        public void loadDepartment()
         {
             ready = false;
-            xClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
+            myClass.fillComboBoxDepartment(cbodepartment, "department_dropdown", dSet);
             ready = true;
-            lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
-        }
 
-
-
-        private void txt_read_only(Boolean val)
-        {
-            txtfname.ReadOnly = val;
-            txtmname.ReadOnly = val;
-            txtcount.ReadOnly = val;
-
-            if (val == false)
-            {
-                if (mode == "add")
-                {
-                    txtmname.Text = "";
-                    txtfname.Text = "";
-                    txtcount.Text = "";
-                    txtmname.Focus();
-                }
-                else
-                {
-                    txtmname.Focus();
-                }
-            }
-
+            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString();
         }
 
         private void btnAddTool_Click(object sender, EventArgs e)
@@ -96,30 +68,50 @@ namespace ULTRAMAVERICK.Forms.Users
             mode = "add";
             btn_visible(false);
             txt_read_only(false);
-            txtmname.Enabled = true;
-            txtfname.Enabled = true;
-            txtcount.Enabled = true;
-            cboParentMenu.Text = String.Empty;
+
+            txtsection.Enabled = true;
+            cbodepartment.Text = String.Empty;
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
-            cboParentMenu.Enabled = true;
-            txtcount.Text = cboParentMenu.SelectedValue.ToString(); //Binding First Meet
+            cbodepartment.Enabled = true;
+            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString(); //Binding First Meet
             txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            txtmname.Select();
-            txtmname.Focus();
-
+            cbodepartment.Select();
+            cbodepartment.Focus();
         }
         private void btn_visible(Boolean val)
         {
             btnAddTool.Visible = val;
             btnEditTool.Visible = val;
             btnDeleteTool.Visible = val;
-    
+
 
             btnUpdateTool.Visible = !val;
             btnCancelTool.Visible = !val;
+        }
+        private void txt_read_only(Boolean val)
+        {
+    
+            txtsection.ReadOnly = val;
+        
+
+            if (val == false)
+            {
+                if (mode == "add")
+                {
+                    txtsection.Text = String.Empty;
+               
+                  
+                    txtsection.Focus();
+                }
+                else
+                {
+                    txtsection.Focus();
+                }
+            }
+
         }
 
         private void btnCancelTool_Click(object sender, EventArgs e)
@@ -127,62 +119,39 @@ namespace ULTRAMAVERICK.Forms.Users
             mode = "";
             txt_read_only(true);
             btn_visible(true);
-            dgvChildForms_CurrentCellChanged(sender, e);
-            txtmname.Enabled = false;
-            txtfname.Enabled = false;
-            cboParentMenu.Enabled = false;
+            dgvUnits_CurrentCellChanged(sender, e);
+            txtsection.Enabled = false;
+         
+            cbodepartment.Enabled = false;
         }
 
-        private void dgvChildForms_CurrentCellChanged(object sender, EventArgs e)
+        private void dgvUnits_CurrentCellChanged(object sender, EventArgs e)
         {
             showValue();
         }
 
         private void showValue()
         {
-            if (dgvChildForms.Rows.Count > 0)
+            if (dgvUnits.Rows.Count > 0)
             {
-                if (dgvChildForms.CurrentRow != null)
+                if (dgvUnits.CurrentRow != null)
                 {
-                    if (dgvChildForms.CurrentRow.Cells["menu_id"].Value != null)
+                    if (dgvUnits.CurrentRow.Cells["unit_description"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
-                        txtfname.Text = dgvChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
-                        txtmname.Text = dgvChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
-                        cboParentMenu.Text = dgvChildForms.CurrentRow.Cells["count"].Value.ToString();
-                        txtCreatedAt.Text = dgvChildForms.CurrentRow.Cells["created_at"].Value.ToString();
-                        txtCreatedBy.Text = dgvChildForms.CurrentRow.Cells["created_by"].Value.ToString();
-                        txtCreatedAt.Text = dgvChildForms.CurrentRow.Cells["updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvChildForms.CurrentRow.Cells["updated_by"].Value.ToString();
+                        p_id = Convert.ToInt32(dgvUnits.CurrentRow.Cells["unit_id"].Value);
+                        txtsection.Text = dgvUnits.CurrentRow.Cells["unit_description"].Value.ToString();
+                        cbodepartment.Text = dgvUnits.CurrentRow.Cells["department"].Value.ToString();
+                        txtModifiedAt.Text = dgvUnits.CurrentRow.Cells["updated_at"].Value.ToString();
+                        txtModifiedBy.Text = dgvUnits.CurrentRow.Cells["updated_by"].Value.ToString();
+                        txtCreatedAt.Text = dgvUnits.CurrentRow.Cells["created_at"].Value.ToString();
+                        txtCreatedBy.Text = dgvUnits.CurrentRow.Cells["created_by"].Value.ToString();
+  
                     }
                 }
             }
         }
 
-
-        private void cboParentMenu_SelectedValueChanged(object sender, EventArgs e)
-        {
-            txtcount.Text = cboParentMenu.SelectedValue.ToString();
-        }
-
-        private void dgvChildForms_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var grid = sender as DataGridView;
-            var rowIdx = (e.RowIndex + 1).ToString();
-
-            var centerFormat = new StringFormat()
-            {
-                // right alignment might actually make more sense for numbers
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
-
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
-        }
-
-
-        public void FillRequiredFields()
+        public void SectionAlreadyExist()
         {
 
             PopupNotifier popup = new PopupNotifier();
@@ -191,7 +160,7 @@ namespace ULTRAMAVERICK.Forms.Users
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Fill up the required fields!";
+            popup.ContentText = "Child Menu Already Exist!";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -209,7 +178,30 @@ namespace ULTRAMAVERICK.Forms.Users
 
         }
 
-        public void ChildMenuAlreadyExist()
+        private void btnUpdateTool_Click(object sender, EventArgs e)
+        {
+
+            dSet.Clear();
+            dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                SectionAlreadyExist();
+
+
+                txtsection.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+
+
+        }
+
+
+        public void FillRequiredFields()
         {
 
             PopupNotifier popup = new PopupNotifier();
@@ -218,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Users
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Child Menu Already Exist!";
+            popup.ContentText = "Fill up the required fields!";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -263,62 +255,47 @@ namespace ULTRAMAVERICK.Forms.Users
 
         }
 
-
         private void metroSave_Click(object sender, EventArgs e)
         {
-            //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Child Form Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Department Section", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
-                if (cboParentMenu.Text.Trim() == string.Empty)
+                if (cbodepartment.Text.Trim() == string.Empty)
                 {
                     FillRequiredFields();
-                    cboParentMenu.Focus();
+                    cbodepartment.Focus();
 
 
                     return;
                 }
 
 
-                if (txtmname.Text.Trim() == string.Empty)
+                if (txtsection.Text.Trim() == string.Empty)
                 {
                     FillRequiredFields();
-                    txtmname.Focus();
+                    txtsection.Focus();
 
 
                     return;
                 }
 
-                if (txtfname.Text.Trim() == string.Empty)
-                {
-                    FillRequiredFields();
-                    txtfname.Focus();
-                    return;
-                }
-
-                if (txtcount.Text.Trim() == string.Empty)
-                {
-
-                    FillRequiredFields();
-                    txtcount.Focus();
-                    return;
-                }
+      
 
                 else
                 {
                     if (saveMode())
                     {
-                        displayChildFormsData();
+                        displayDepartmentUnits();
                         string tmode = mode;
 
                         if (tmode == "add")
                         {
-                            dgvChildForms.CurrentCell = dgvChildForms[0, dgvChildForms.Rows.Count - 1];
+                            dgvUnits.CurrentCell = dgvUnits[0, dgvUnits.Rows.Count - 1];
                             UpdateNotifications();
                         }
                         else
                         {
-                            dgvChildForms.CurrentCell = dgvChildForms[0, temp_hid];
+                            dgvUnits.CurrentCell = dgvUnits[0, temp_hid];
 
                         }
                         btnCancelTool_Click(sender, e);
@@ -336,10 +313,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 return;
             }
 
-
-            //End
-
         }
+
 
         public bool saveMode()      //method for saving of data base on mode (add,edit,delete)
         {
@@ -347,37 +322,38 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "","","","","", "getbyname");
+                dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    ChildMenuAlreadyExist();
+                    SectionAlreadyExist();
 
-                    txtmname.Text = string.Empty;
-                    txtmname.Focus();
+                    txtsection.Text = string.Empty;
+                    txtsection.Focus();
                     return false;
                 }
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu(0, txtmname.Text.Trim(), 
-                        txtfname.Text.Trim(), 
-                        txtcount.Text.Trim(), 
-                        txtCreatedAt.Text.Trim(), 
-                        txtCreatedBy.Text.Trim(), 
-                        txtModifiedAt.Text.Trim(), 
-                        txtModifiedBy.Text.Trim(), "add");
-          
+                    dSet = objStorProc.sp_DepartmentUnit(0, 
+                        txtsection.Text.Trim(),
+                        lbldepartmentid.Text.Trim(),             
+                        txtModifiedAt.Text.Trim(),
+                        txtModifiedBy.Text.Trim(),
+                        txtCreatedAt.Text.Trim(),
+                        txtCreatedBy.Text.Trim(),
+                        "add");
+
                     return true;
                 }
             }
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "","","","","", "getbyname");
+                dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu(p_id, txtmname.Text, "", "","","","","", "getbyid");
+                dSet_temp = objStorProc.sp_DepartmentUnit(p_id, txtsection.Text, "", "", "", "", "", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -385,44 +361,46 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_available_menu(p_id, txtmname.Text.Trim(), 
-                            txtfname.Text.Trim(), 
-                            txtcount.Text.Trim(), 
-                            txtCreatedAt.Text.Trim(), 
-                            txtCreatedBy.Text.Trim(), 
-                            txtModifiedAt.Text.Trim(), 
-                            txtModifiedBy.Text.Trim(), "edit");
+                        dSet = objStorProc.sp_DepartmentUnit(p_id, 
+                            txtsection.Text.Trim(),
+                            lbldepartmentid.Text.Trim(),
+                            txtModifiedAt.Text.Trim(),
+                            txtModifiedBy.Text.Trim(),
+                            txtCreatedAt.Text.Trim(),
+                            txtCreatedBy.Text.Trim(),
+                             "edit");
                         UpdateNotifications();
-               
+
                         return true;
                     }
                     else
                     {
-                        ChildMenuAlreadyExist();
-                        txtmname.Text = String.Empty;
-                        txtmname.Focus();
+                        SectionAlreadyExist();
+                        txtsection.Text = String.Empty;
+                        txtsection.Focus();
                         return false;
                     }
                 }
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu(p_id, txtmname.Text.Trim(), 
-                        txtfname.Text.Trim(), 
-                        txtcount.Text.Trim(), 
-                        txtCreatedAt.Text.Trim(), 
-                        txtCreatedBy.Text.Trim(), 
-                        txtModifiedAt.Text.Trim(), 
-                        txtModifiedBy.Text.Trim(), "edit");
+                    dSet = objStorProc.sp_DepartmentUnit(p_id,
+                        txtsection.Text.Trim(),
+                        lbldepartmentid.Text.Trim(),
+                        txtModifiedAt.Text.Trim(),
+                        txtModifiedBy.Text.Trim(),
+                        txtCreatedAt.Text.Trim(),
+                        txtCreatedBy.Text.Trim(),
+                         "edit");
 
-       
+
                 }
             }
             else if (mode == "delete")
             {
-         
+
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu(p_id, txtmname.Text, "", "","","","","", "delete");
+                dSet_temp = objStorProc.sp_DepartmentUnit(p_id, txtsection.Text, "", "", "", "", "", "delete");
 
                 return true;
             }
@@ -430,80 +408,72 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-        private void btnUpdateTool_Click(object sender, EventArgs e)
-        {
-            dSet.Clear();
-            dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                ChildMenuAlreadyExist();
-
-            
-                txtmname.Focus();
-                return;
-            }
-            else
-            {
-                metroSave_Click(sender, e);
-            }
-
-
-        }
-
         private void metroFinalSaving_Click(object sender, EventArgs e)
         {
-            if (txtmname.Text.Trim() == string.Empty)
+            if (cbodepartment.Text.Trim() == string.Empty)
             {
                 FillRequiredFields();
-                txtfname.Focus();
+                cbodepartment.Focus();
                 return;
             }
 
-            if (txtfname.Text.Trim() == string.Empty)
+            if (txtsection.Text.Trim() == string.Empty)
             {
                 FillRequiredFields();
-                txtfname.Focus();
+                txtsection.Focus();
             }
             else
             {
                 if (saveMode())
                 {
-                    displayChildFormsData();
+                    displayDepartmentUnits();
                     string tmode = mode;
 
                     if (tmode == "add")
                     {
-                        dgvChildForms.CurrentCell = dgvChildForms[0, dgvChildForms.Rows.Count - 1];
+                        dgvUnits.CurrentCell = dgvUnits[0, dgvUnits.Rows.Count - 1];
                     }
                     else
                     {
-                        dgvChildForms.CurrentCell = dgvChildForms[0, temp_hid];
+                        dgvUnits.CurrentCell = dgvUnits[0, temp_hid];
                     }
                     btnCancelTool_Click(sender, e);
                 }
                 else
-          
+
                     return;
             }
+        }
+
+        private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString();
+        }
+
+        private void BtnModuleClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnEditTool_Click(object sender, EventArgs e)
         {
             txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
             txtModifiedBy.Text = userinfo.emp_name.ToUpper();
-            if (dgvChildForms.RowCount > 0)
+            if (dgvUnits.RowCount > 0)
             {
-                temp_hid = dgvChildForms.CurrentRow.Index;
-                txtfname.Enabled = true;
-                txtmname.Enabled = true;
-                txtcount.Enabled = true;
-                cboParentMenu.Enabled = true;
+                temp_hid = dgvUnits.CurrentRow.Index;
+                cbodepartment.Enabled = true;
+                txtsection.Enabled = true;
+               
+            
                 mode = "edit";
 
                 btn_visible(false);
                 txt_read_only(false);
             }
+
+
 
         }
 
@@ -536,9 +506,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         }
 
+
+
         private void btnDeleteTool_Click(object sender, EventArgs e)
         {
-            if (dgvChildForms.Rows.Count > 0)
+            //START
+            if (dgvUnits.Rows.Count > 0)
             {
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to delete the ChildForm Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -547,13 +520,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
 
-               
+
                     mode = "delete";
 
                     if (saveMode())
                     {
                         DeletedSuccessfully();
-                        displayChildFormsData();
+                        displayDepartmentUnits();
 
                         btnCancelTool_Click("", e);
                     }
@@ -573,6 +546,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
 
+            //END
         }
     }
 }

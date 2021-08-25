@@ -205,13 +205,15 @@ namespace COMPLETE_FLAT_UI
             lblFirstName.Text = userinfo.emp_name.ToUpper(); // First Name Session
             lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
             lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
-            MostrarFormLogo();
+            MostrarFormLogo();// loading logo
             //rights here
             rights_id = userinfo.user_rights_id;
             // Calling the Stored PROC 
             objStorProc = xClass.g_objStoredProc.GetCollections();
 
             //get_accessible_menu
+
+            //Start of Parent Menu
             dset_rights.Clear();
             dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
 
@@ -222,11 +224,18 @@ namespace COMPLETE_FLAT_UI
                     string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
 
 
-                    //Start of Parent Menu
+              
                     if (form_name == "btnUsers")
                     {
                         btnUsers.Enabled = true;
                     }
+                    else if (form_name == "btnDashBoard")
+                    {
+                        btnDashBoard.Enabled = true;
+                      /*  MostrarFormLogo()*/;
+                    }
+
+
                     else if (form_name == "btnDryWarehouse")
                     {
                         btnDryWarehouse.Enabled = true;
@@ -252,7 +261,56 @@ namespace COMPLETE_FLAT_UI
 
 
 
+            //Start of Child Menu
+            dset_rights.Clear();
+            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu", "", rights_id);
+
+            if (dset_rights.Tables.Count > 0)
+            {
+                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
+                {
+                    string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+
+
+
+                    if (form_name == "toolDropdownMenu")
+                    {
+                        toolDropdownMenu.Visible = true;
+                    }
+                    else if (form_name == "toolDropdownUser")
+                    {
+                        toolDropdownUser.Visible = true;
+                        /*  MostrarFormLogo()*/
+                        ;
+                    }
+
+
+                    else if (form_name == "btnDryWarehouse")
+                    {
+                        btnDryWarehouse.Enabled = true;
+                    }
+                    else if (form_name == "btnProductionPlanner")
+                    {
+                        btnProductionPlanner.Enabled = true;
+                    }
+                    else if (form_name == "btnPreparationDepartment")
+                    {
+                        btnPreparationDepartment.Enabled = true;
+                    }
+                    else if (form_name == "btnResearchAndDevelopment")
+                    {
+                        btnResearchAndDevelopment.Enabled = true;
+                    }
+
                 }
+            }
+
+            //END
+
+
+
+
+        }
         //METODO PARA MOSTRAR FORMULARIO DE LOGO Al CERRAR OTROS FORM ----------------------------------------------------------
         private void MostrarFormLogoAlCerrarForms(object sender, FormClosedEventArgs e)
         {
@@ -261,9 +319,11 @@ namespace COMPLETE_FLAT_UI
         //METODOS PARA ABRIR OTROS FORMULARIOS Y MOSTRAR FORM DE LOGO Al CERRAR ----------------------------------------------------------
         private void btnListaClientes_Click(object sender, EventArgs e)
         {
-            FormListaClientes fm = new FormListaClientes();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
+            panelMenuSelection.Visible = true;
+
+            //FormListaClientes fm = new FormListaClientes();
+            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            //AbrirFormEnPanel(fm);
         }
 
         private void btnMembresia_Click(object sender, EventArgs e)
@@ -408,6 +468,35 @@ namespace COMPLETE_FLAT_UI
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUnit_Click(object sender, EventArgs e)
+        {
+            frmDepartmentUnit fm = new frmDepartmentUnit();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolClosePanelSelection_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void toolClosePanelSelection_Click_1(object sender, EventArgs e)
+        {
+            panelMenuSelection.Visible = false;
+        }
+
+        private void btnGrandChildForms_Click(object sender, EventArgs e)
+        {
+            frmGrandChildAvailableForms fm = new frmGrandChildAvailableForms();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------

@@ -252,31 +252,49 @@ namespace ULTRAMAVERICK.Models
             string updated_by, 
             string mode);
 
+
+        DataSet sp_available_menu_grandChild(int menu_id,
+      string menu_name,
+      string menu_form_name,
+      string parent_menu,
+      string created_at,
+      string created_by,
+      string updated_at,
+      string updated_by,
+      string mode);
+
+
+
+        DataSet sp_DepartmentUnit(int unit_id,
+        string unit_description,
+        string department,
+        string updated_at,
+        string updated_by,
+        string created_at,
+        string created_by,
+        string mode);
+
         DataSet sp_user_rights(int user_rights_id, string user_rights_name, string mode);
 
-        DataSet sp_user_rights_details(int user_rights_details_id, int user_rights_id, int menu_id, string mode);
+        DataSet sp_user_rights_details(int user_rights_details_id, 
+            int user_rights_id, 
+            int menu_id, 
+            string updated_at,
+            string updated_by,
+            string Tagging_Relationship,
+            string FirstName,
+            string mode);
+
+
+
+
+
         DataSet sp_user_rights_details(int user_rights_details_id, string mode);
 
         //show accessible menu for selected user
         DataSet sp_getMenu_by_user(string eTablename, int user_id, int userRightsId, int menuId);
 
-        DataSet sp_visitors(int visitors_id, string visitors_lastname, string visitors_firstname, DateTime date_visit, string time_in, string time_out, string contact_number, string company, string person_visited, string purpose, string mode);
 
-
-
-        DataSet sp_LoanHistory(string ID, string mode, string filter, string search, string Loan_ID, string date_paid, decimal amount_paid, decimal remaining_balance);
-
-        DataSet sp_Loan(string ID, string mode, string filter, string search, string Employee_ID,
-            string Loan_from,
-            string Loan_Type,
-            string Loan_Granted,
-            string Amortization,
-            string Payment_Terms,
-            string Start_Payment,
-            string End_Payment,
-            string Payroll_list,
-            string Payroll_Payments,
-            string Payroll_Amount, int active);
 
 
         DataSet sp_IDGenerator(int ID, string mode, string filter, string search, int selected);
