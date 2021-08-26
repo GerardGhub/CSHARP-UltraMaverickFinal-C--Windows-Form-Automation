@@ -74,7 +74,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbltotalGrandChildActive = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.listBoxGrandChildTag = new System.Windows.Forms.ListBox();
+            this.dgvTagParentMenu = new System.Windows.Forms.DataGridView();
+            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_details_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalChildActive = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnUpdateTheMenu = new System.Windows.Forms.ToolStripButton();
@@ -83,12 +93,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.btnCancelUpdateMenu = new System.Windows.Forms.ToolStripButton();
             this.GBTagMenu = new System.Windows.Forms.GroupBox();
+            this.listBoxParentTag = new System.Windows.Forms.ListBox();
             this.txtparentidmenu = new System.Windows.Forms.TextBox();
-            this.dgvTagParentMenu = new System.Windows.Forms.DataGridView();
-            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_details_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.toolStripTagMenu = new System.Windows.Forms.ToolStrip();
@@ -100,6 +106,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.cboParentMenu = new System.Windows.Forms.ComboBox();
             this.lblparentmenuid = new System.Windows.Forms.Label();
             this.GbSelectionSide = new System.Windows.Forms.GroupBox();
+            this.btnUnSelectAlGrandChild = new System.Windows.Forms.Button();
+            this.btnSelectAlGrandChild = new System.Windows.Forms.Button();
+            this.txtchildid = new System.Windows.Forms.TextBox();
+            this.btnTaggingGchild = new System.Windows.Forms.Button();
             this.dgvGrandChild = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
@@ -114,9 +124,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.GBTagMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).BeginInit();
             this.toolStripTagMenu.SuspendLayout();
             this.GbSelectionSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrandChild)).BeginInit();
@@ -173,10 +183,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.ListViewmenu.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListViewmenu.FormattingEnabled = true;
             this.ListViewmenu.ItemHeight = 50;
-            this.ListViewmenu.Location = new System.Drawing.Point(28, 80);
+            this.ListViewmenu.Location = new System.Drawing.Point(28, 111);
             this.ListViewmenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.ListViewmenu.Name = "ListViewmenu";
-            this.ListViewmenu.Size = new System.Drawing.Size(1578, 450);
+            this.ListViewmenu.Size = new System.Drawing.Size(713, 450);
             this.ListViewmenu.TabIndex = 48;
             this.ListViewmenu.Click += new System.EventHandler(this.ListViewmenu_Click);
             this.ListViewmenu.DoubleClick += new System.EventHandler(this.ListViewmenu_DoubleClick);
@@ -202,6 +212,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -227,7 +238,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataView.GridColor = System.Drawing.Color.Black;
-            this.dataView.Location = new System.Drawing.Point(44, 509);
+            this.dataView.Location = new System.Drawing.Point(28, 509);
             this.dataView.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dataView.Name = "dataView";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -247,6 +258,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dataView.Size = new System.Drawing.Size(957, 352);
             this.dataView.TabIndex = 493;
             this.dataView.Visible = false;
+            this.dataView.CurrentCellChanged += new System.EventHandler(this.dataView_CurrentCellChanged);
+            this.dataView.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataView_CurrentCellDirtyStateChanged);
+            this.dataView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataView_RowPostPaint);
             this.dataView.DoubleClick += new System.EventHandler(this.dataView_DoubleClick);
             // 
             // chkSelected
@@ -291,13 +305,14 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // btnSelectAll
             // 
-            this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectAll.BackColor = System.Drawing.SystemColors.Window;
             this.btnSelectAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSelectAll.ForeColor = System.Drawing.Color.Black;
             this.btnSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectAll.Image")));
             this.btnSelectAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSelectAll.Location = new System.Drawing.Point(1194, 741);
+            this.btnSelectAll.Location = new System.Drawing.Point(775, 875);
             this.btnSelectAll.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(200, 67);
@@ -305,21 +320,21 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnSelectAll.Text = "&Select All";
             this.btnSelectAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSelectAll.UseVisualStyleBackColor = false;
-            this.btnSelectAll.Visible = false;
             this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
             // 
             // btnUnselectAll
             // 
-            this.btnUnselectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUnselectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUnselectAll.BackColor = System.Drawing.SystemColors.Window;
             this.btnUnselectAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUnselectAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUnselectAll.ForeColor = System.Drawing.Color.Black;
             this.btnUnselectAll.Image = ((System.Drawing.Image)(resources.GetObject("btnUnselectAll.Image")));
             this.btnUnselectAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUnselectAll.Location = new System.Drawing.Point(418, 729);
+            this.btnUnselectAll.Location = new System.Drawing.Point(718, 875);
             this.btnUnselectAll.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnUnselectAll.Name = "btnUnselectAll";
-            this.btnUnselectAll.Size = new System.Drawing.Size(200, 67);
+            this.btnUnselectAll.Size = new System.Drawing.Size(266, 67);
             this.btnUnselectAll.TabIndex = 553;
             this.btnUnselectAll.Text = "&Un-Select All";
             this.btnUnselectAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -366,7 +381,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // metroButtonDelete
             // 
-            this.metroButtonDelete.Location = new System.Drawing.Point(2458, 29);
+            this.metroButtonDelete.Location = new System.Drawing.Point(1443, 54);
             this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(181, 48);
@@ -417,9 +432,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblrecordDesc.Location = new System.Drawing.Point(386, 34);
             this.lblrecordDesc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblrecordDesc.Name = "lblrecordDesc";
-            this.lblrecordDesc.Size = new System.Drawing.Size(247, 39);
+            this.lblrecordDesc.Size = new System.Drawing.Size(238, 39);
             this.lblrecordDesc.TabIndex = 559;
-            this.lblrecordDesc.Text = "Total Records :";
+            this.lblrecordDesc.Text = "Total Records:";
             // 
             // toolStrip1
             // 
@@ -488,8 +503,13 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.lbltotalGrandChildActive);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.listBoxGrandChildTag);
+            this.groupBox1.Controls.Add(this.dgvTagParentMenu);
+            this.groupBox1.Controls.Add(this.lbltotalChildActive);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.toolStrip2);
             this.groupBox1.Controls.Add(this.ListViewmenu);
@@ -500,7 +520,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox1.Size = new System.Drawing.Size(1650, 668);
             this.groupBox1.TabIndex = 559;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "List of Tag Child";
+            this.groupBox1.Text = "List of Accessible Rights Active";
+            // 
+            // lbltotalGrandChildActive
+            // 
+            this.lbltotalGrandChildActive.AutoSize = true;
+            this.lbltotalGrandChildActive.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalGrandChildActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalGrandChildActive.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbltotalGrandChildActive.Location = new System.Drawing.Point(1469, 65);
+            this.lbltotalGrandChildActive.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalGrandChildActive.Name = "lbltotalGrandChildActive";
+            this.lbltotalGrandChildActive.Size = new System.Drawing.Size(92, 39);
+            this.lbltotalGrandChildActive.TabIndex = 565;
+            this.lbltotalGrandChildActive.Text = "CCC";
             // 
             // label3
             // 
@@ -508,12 +541,160 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(1144, 34);
+            this.label3.Location = new System.Drawing.Point(1219, 65);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 39);
-            this.label3.TabIndex = 559;
-            this.label3.Text = "CCC";
+            this.label3.Size = new System.Drawing.Size(238, 39);
+            this.label3.TabIndex = 564;
+            this.label3.Text = "Total Records:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(392, 65);
+            this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(238, 39);
+            this.label8.TabIndex = 563;
+            this.label8.Text = "Total Records:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(868, 65);
+            this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(295, 39);
+            this.label7.TabIndex = 562;
+            this.label7.Text = "GrandChild Forms";
+            // 
+            // listBoxGrandChildTag
+            // 
+            this.listBoxGrandChildTag.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxGrandChildTag.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxGrandChildTag.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxGrandChildTag.FormattingEnabled = true;
+            this.listBoxGrandChildTag.ItemHeight = 50;
+            this.listBoxGrandChildTag.Location = new System.Drawing.Point(875, 111);
+            this.listBoxGrandChildTag.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.listBoxGrandChildTag.Name = "listBoxGrandChildTag";
+            this.listBoxGrandChildTag.Size = new System.Drawing.Size(713, 450);
+            this.listBoxGrandChildTag.TabIndex = 560;
+            // 
+            // dgvTagParentMenu
+            // 
+            this.dgvTagParentMenu.AllowUserToAddRows = false;
+            this.dgvTagParentMenu.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            this.dgvTagParentMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvTagParentMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTagParentMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvTagParentMenu.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvTagParentMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTagParentMenu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTagParentMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvTagParentMenu.ColumnHeadersHeight = 25;
+            this.dgvTagParentMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTagParentMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.menu_id,
+            this.menu_name,
+            this.user_rights_name,
+            this.user_rights_details_id});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTagParentMenu.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvTagParentMenu.Enabled = false;
+            this.dgvTagParentMenu.GridColor = System.Drawing.Color.Black;
+            this.dgvTagParentMenu.Location = new System.Drawing.Point(460, 199);
+            this.dgvTagParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvTagParentMenu.Name = "dgvTagParentMenu";
+            this.dgvTagParentMenu.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTagParentMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvTagParentMenu.RowHeadersWidth = 50;
+            this.dgvTagParentMenu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.dgvTagParentMenu.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvTagParentMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTagParentMenu.Size = new System.Drawing.Size(689, 417);
+            this.dgvTagParentMenu.TabIndex = 561;
+            this.dgvTagParentMenu.Visible = false;
+            this.dgvTagParentMenu.CurrentCellChanged += new System.EventHandler(this.dgvTagParentMenu_CurrentCellChanged);
+            this.dgvTagParentMenu.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvTagParentMenu_RowPostPaint);
+            // 
+            // menu_id
+            // 
+            this.menu_id.DataPropertyName = "menu_id";
+            this.menu_id.HeaderText = "ID";
+            this.menu_id.MinimumWidth = 12;
+            this.menu_id.Name = "menu_id";
+            this.menu_id.Visible = false;
+            this.menu_id.Width = 113;
+            // 
+            // menu_name
+            // 
+            this.menu_name.DataPropertyName = "menu_name";
+            this.menu_name.HeaderText = "MENU";
+            this.menu_name.MinimumWidth = 12;
+            this.menu_name.Name = "menu_name";
+            this.menu_name.Width = 192;
+            // 
+            // user_rights_name
+            // 
+            this.user_rights_name.DataPropertyName = "user_rights_name";
+            this.user_rights_name.HeaderText = "RIGHTS";
+            this.user_rights_name.MinimumWidth = 12;
+            this.user_rights_name.Name = "user_rights_name";
+            this.user_rights_name.Visible = false;
+            this.user_rights_name.Width = 224;
+            // 
+            // user_rights_details_id
+            // 
+            this.user_rights_details_id.DataPropertyName = "user_rights_details_id";
+            this.user_rights_details_id.HeaderText = "USER RIGHTS ID";
+            this.user_rights_details_id.MinimumWidth = 12;
+            this.user_rights_details_id.Name = "user_rights_details_id";
+            this.user_rights_details_id.Visible = false;
+            this.user_rights_details_id.Width = 397;
+            // 
+            // lbltotalChildActive
+            // 
+            this.lbltotalChildActive.AutoSize = true;
+            this.lbltotalChildActive.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalChildActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalChildActive.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbltotalChildActive.Location = new System.Drawing.Point(654, 65);
+            this.lbltotalChildActive.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalChildActive.Name = "lbltotalChildActive";
+            this.lbltotalChildActive.Size = new System.Drawing.Size(92, 39);
+            this.lbltotalChildActive.TabIndex = 559;
+            this.lbltotalChildActive.Text = "CCC";
             // 
             // label4
             // 
@@ -521,12 +702,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(881, 34);
+            this.label4.Location = new System.Drawing.Point(21, 65);
             this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(247, 39);
+            this.label4.Size = new System.Drawing.Size(201, 39);
             this.label4.TabIndex = 559;
-            this.label4.Text = "Total Records :";
+            this.label4.Text = "Child Forms";
             // 
             // toolStrip2
             // 
@@ -592,8 +773,8 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // GBTagMenu
             // 
+            this.GBTagMenu.Controls.Add(this.listBoxParentTag);
             this.GBTagMenu.Controls.Add(this.txtparentidmenu);
-            this.GBTagMenu.Controls.Add(this.dgvTagParentMenu);
             this.GBTagMenu.Controls.Add(this.label5);
             this.GBTagMenu.Controls.Add(this.label6);
             this.GBTagMenu.Controls.Add(this.toolStripTagMenu);
@@ -605,6 +786,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.GBTagMenu.TabIndex = 560;
             this.GBTagMenu.TabStop = false;
             this.GBTagMenu.Text = "List of Tagged Menu";
+            // 
+            // listBoxParentTag
+            // 
+            this.listBoxParentTag.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxParentTag.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxParentTag.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxParentTag.FormattingEnabled = true;
+            this.listBoxParentTag.ItemHeight = 50;
+            this.listBoxParentTag.Location = new System.Drawing.Point(49, 103);
+            this.listBoxParentTag.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.listBoxParentTag.Name = "listBoxParentTag";
+            this.listBoxParentTag.Size = new System.Drawing.Size(713, 450);
+            this.listBoxParentTag.TabIndex = 561;
+            this.listBoxParentTag.DoubleClick += new System.EventHandler(this.listBoxParentTag_DoubleClick);
             // 
             // txtparentidmenu
             // 
@@ -618,101 +813,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtparentidmenu.ReadOnly = true;
             this.txtparentidmenu.Size = new System.Drawing.Size(243, 32);
             this.txtparentidmenu.TabIndex = 563;
-            // 
-            // dgvTagParentMenu
-            // 
-            this.dgvTagParentMenu.AllowUserToAddRows = false;
-            this.dgvTagParentMenu.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            this.dgvTagParentMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvTagParentMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTagParentMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvTagParentMenu.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvTagParentMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvTagParentMenu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTagParentMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvTagParentMenu.ColumnHeadersHeight = 25;
-            this.dgvTagParentMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvTagParentMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.menu_id,
-            this.menu_name,
-            this.user_rights_name,
-            this.user_rights_details_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTagParentMenu.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvTagParentMenu.Enabled = false;
-            this.dgvTagParentMenu.GridColor = System.Drawing.Color.Black;
-            this.dgvTagParentMenu.Location = new System.Drawing.Point(45, 79);
-            this.dgvTagParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.dgvTagParentMenu.Name = "dgvTagParentMenu";
-            this.dgvTagParentMenu.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTagParentMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvTagParentMenu.RowHeadersWidth = 50;
-            this.dgvTagParentMenu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dgvTagParentMenu.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvTagParentMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTagParentMenu.Size = new System.Drawing.Size(689, 417);
-            this.dgvTagParentMenu.TabIndex = 561;
-            this.dgvTagParentMenu.CurrentCellChanged += new System.EventHandler(this.dgvTagParentMenu_CurrentCellChanged);
-            this.dgvTagParentMenu.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvTagParentMenu_RowPostPaint);
-            // 
-            // menu_id
-            // 
-            this.menu_id.DataPropertyName = "menu_id";
-            this.menu_id.HeaderText = "ID";
-            this.menu_id.MinimumWidth = 12;
-            this.menu_id.Name = "menu_id";
-            this.menu_id.Visible = false;
-            this.menu_id.Width = 113;
-            // 
-            // menu_name
-            // 
-            this.menu_name.DataPropertyName = "menu_name";
-            this.menu_name.HeaderText = "MENU";
-            this.menu_name.MinimumWidth = 12;
-            this.menu_name.Name = "menu_name";
-            this.menu_name.Width = 192;
-            // 
-            // user_rights_name
-            // 
-            this.user_rights_name.DataPropertyName = "user_rights_name";
-            this.user_rights_name.HeaderText = "RIGHTS";
-            this.user_rights_name.MinimumWidth = 12;
-            this.user_rights_name.Name = "user_rights_name";
-            this.user_rights_name.Visible = false;
-            this.user_rights_name.Width = 224;
-            // 
-            // user_rights_details_id
-            // 
-            this.user_rights_details_id.DataPropertyName = "user_rights_details_id";
-            this.user_rights_details_id.HeaderText = "USER RIGHTS ID";
-            this.user_rights_details_id.MinimumWidth = 12;
-            this.user_rights_details_id.Name = "user_rights_details_id";
-            this.user_rights_details_id.Visible = false;
-            this.user_rights_details_id.Width = 397;
             // 
             // label5
             // 
@@ -813,6 +913,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.cboParentMenu.Size = new System.Drawing.Size(667, 45);
             this.cboParentMenu.TabIndex = 561;
             this.cboParentMenu.Visible = false;
+            this.cboParentMenu.SelectionChangeCommitted += new System.EventHandler(this.cboParentMenu_SelectionChangeCommitted);
             this.cboParentMenu.SelectedValueChanged += new System.EventHandler(this.cboParentMenu_SelectedValueChanged);
             // 
             // lblparentmenuid
@@ -833,26 +934,103 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // GbSelectionSide
             // 
-            this.GbSelectionSide.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GbSelectionSide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.GbSelectionSide.Controls.Add(this.btnUnSelectAlGrandChild);
+            this.GbSelectionSide.Controls.Add(this.btnSelectAlGrandChild);
+            this.GbSelectionSide.Controls.Add(this.txtchildid);
+            this.GbSelectionSide.Controls.Add(this.btnTaggingGchild);
             this.GbSelectionSide.Controls.Add(this.dgvGrandChild);
             this.GbSelectionSide.Controls.Add(this.label2);
             this.GbSelectionSide.Controls.Add(this.lbltotalMenu);
             this.GbSelectionSide.Controls.Add(this.dgvParentMenu);
             this.GbSelectionSide.Controls.Add(this.label10);
             this.GbSelectionSide.Controls.Add(this.dataView);
+            this.GbSelectionSide.Controls.Add(this.btnUnselectAll);
             this.GbSelectionSide.Controls.Add(this.label11);
+            this.GbSelectionSide.Controls.Add(this.btnSelectAll);
             this.GbSelectionSide.Controls.Add(this.cboParentMenu);
             this.GbSelectionSide.Controls.Add(this.lblAvailableMenu);
             this.GbSelectionSide.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbSelectionSide.ForeColor = System.Drawing.SystemColors.Control;
-            this.GbSelectionSide.Location = new System.Drawing.Point(1755, 127);
+            this.GbSelectionSide.Location = new System.Drawing.Point(1752, 18);
             this.GbSelectionSide.Name = "GbSelectionSide";
-            this.GbSelectionSide.Size = new System.Drawing.Size(1030, 1334);
+            this.GbSelectionSide.Size = new System.Drawing.Size(1030, 1446);
             this.GbSelectionSide.TabIndex = 562;
             this.GbSelectionSide.TabStop = false;
             this.GbSelectionSide.Text = "List of Available Menu";
             this.GbSelectionSide.Visible = false;
+            // 
+            // btnUnSelectAlGrandChild
+            // 
+            this.btnUnSelectAlGrandChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUnSelectAlGrandChild.BackColor = System.Drawing.SystemColors.Window;
+            this.btnUnSelectAlGrandChild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnSelectAlGrandChild.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUnSelectAlGrandChild.ForeColor = System.Drawing.Color.Black;
+            this.btnUnSelectAlGrandChild.Image = ((System.Drawing.Image)(resources.GetObject("btnUnSelectAlGrandChild.Image")));
+            this.btnUnSelectAlGrandChild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnSelectAlGrandChild.Location = new System.Drawing.Point(691, 1369);
+            this.btnUnSelectAlGrandChild.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnUnSelectAlGrandChild.Name = "btnUnSelectAlGrandChild";
+            this.btnUnSelectAlGrandChild.Size = new System.Drawing.Size(298, 67);
+            this.btnUnSelectAlGrandChild.TabIndex = 566;
+            this.btnUnSelectAlGrandChild.Text = "&Un-Select All";
+            this.btnUnSelectAlGrandChild.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUnSelectAlGrandChild.UseVisualStyleBackColor = false;
+            this.btnUnSelectAlGrandChild.Visible = false;
+            this.btnUnSelectAlGrandChild.Click += new System.EventHandler(this.btnUnSelectAlGrandChild_Click);
+            // 
+            // btnSelectAlGrandChild
+            // 
+            this.btnSelectAlGrandChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectAlGrandChild.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSelectAlGrandChild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelectAlGrandChild.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSelectAlGrandChild.ForeColor = System.Drawing.Color.Black;
+            this.btnSelectAlGrandChild.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectAlGrandChild.Image")));
+            this.btnSelectAlGrandChild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSelectAlGrandChild.Location = new System.Drawing.Point(791, 1369);
+            this.btnSelectAlGrandChild.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnSelectAlGrandChild.Name = "btnSelectAlGrandChild";
+            this.btnSelectAlGrandChild.Size = new System.Drawing.Size(200, 67);
+            this.btnSelectAlGrandChild.TabIndex = 565;
+            this.btnSelectAlGrandChild.Text = "&Select All";
+            this.btnSelectAlGrandChild.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSelectAlGrandChild.UseVisualStyleBackColor = false;
+            this.btnSelectAlGrandChild.Click += new System.EventHandler(this.btnSelectAlGrandChild_Click);
+            // 
+            // txtchildid
+            // 
+            this.txtchildid.BackColor = System.Drawing.Color.White;
+            this.txtchildid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtchildid.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtchildid.Location = new System.Drawing.Point(126, 393);
+            this.txtchildid.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtchildid.MaxLength = 100;
+            this.txtchildid.Name = "txtchildid";
+            this.txtchildid.ReadOnly = true;
+            this.txtchildid.Size = new System.Drawing.Size(243, 32);
+            this.txtchildid.TabIndex = 564;
+            this.txtchildid.TextChanged += new System.EventHandler(this.txtchildid_TextChanged);
+            // 
+            // btnTaggingGchild
+            // 
+            this.btnTaggingGchild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTaggingGchild.BackColor = System.Drawing.SystemColors.Window;
+            this.btnTaggingGchild.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTaggingGchild.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTaggingGchild.Image = ((System.Drawing.Image)(resources.GetObject("btnTaggingGchild.Image")));
+            this.btnTaggingGchild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTaggingGchild.Location = new System.Drawing.Point(126, 815);
+            this.btnTaggingGchild.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnTaggingGchild.Name = "btnTaggingGchild";
+            this.btnTaggingGchild.Size = new System.Drawing.Size(200, 67);
+            this.btnTaggingGchild.TabIndex = 565;
+            this.btnTaggingGchild.Text = "&Remove";
+            this.btnTaggingGchild.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTaggingGchild.UseVisualStyleBackColor = false;
+            this.btnTaggingGchild.Visible = false;
+            this.btnTaggingGchild.Click += new System.EventHandler(this.btnTaggingGchild_Click);
             // 
             // dgvGrandChild
             // 
@@ -861,6 +1039,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
             this.dgvGrandChild.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvGrandChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvGrandChild.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGrandChild.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvGrandChild.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGrandChild.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -886,7 +1065,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGrandChild.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvGrandChild.GridColor = System.Drawing.Color.Black;
-            this.dgvGrandChild.Location = new System.Drawing.Point(44, 962);
+            this.dgvGrandChild.Location = new System.Drawing.Point(32, 1010);
             this.dgvGrandChild.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvGrandChild.Name = "dgvGrandChild";
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -906,6 +1085,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChild.Size = new System.Drawing.Size(957, 352);
             this.dgvGrandChild.TabIndex = 563;
             this.dgvGrandChild.Visible = false;
+            this.dgvGrandChild.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvGrandChild_CurrentCellDirtyStateChanged);
+            this.dgvGrandChild.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvGrandChild_RowPostPaint);
+            this.dgvGrandChild.DoubleClick += new System.EventHandler(this.dgvGrandChild_DoubleClick);
             // 
             // dataGridViewCheckBoxColumn2
             // 
@@ -921,13 +1103,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(47, 909);
+            this.label2.Location = new System.Drawing.Point(38, 957);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(331, 46);
             this.label2.TabIndex = 562;
             this.label2.Text = "GrandChild Menu";
-            this.label2.Visible = false;
             // 
             // lbltotalMenu
             // 
@@ -998,6 +1179,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvParentMenu.Size = new System.Drawing.Size(969, 300);
             this.dgvParentMenu.TabIndex = 560;
             this.dgvParentMenu.CurrentCellChanged += new System.EventHandler(this.dgvParentMenu_CurrentCellChanged);
+            this.dgvParentMenu.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvParentMenu_CurrentCellDirtyStateChanged);
             this.dgvParentMenu.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvParentMenu_RowPostPaint);
             this.dgvParentMenu.DoubleClick += new System.EventHandler(this.dgvParentMenu_DoubleClick);
             // 
@@ -1058,12 +1240,13 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFirstName.Location = new System.Drawing.Point(1803, 38);
+            this.lblFirstName.Location = new System.Drawing.Point(1436, -1);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(133, 39);
+            this.lblFirstName.Size = new System.Drawing.Size(183, 39);
             this.lblFirstName.TabIndex = 564;
-            this.lblFirstName.Text = "User ID";
+            this.lblFirstName.Text = "First Name";
+            this.lblFirstName.Visible = false;
             // 
             // frmUserRight
             // 
@@ -1081,8 +1264,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.metroButtonDelete);
             this.Controls.Add(this.btnRemoveMenu);
             this.Controls.Add(this.btnMenuUpdate);
-            this.Controls.Add(this.btnUnselectAll);
-            this.Controls.Add(this.btnSelectAll);
             this.Controls.Add(this.btnMetroSave);
             this.Controls.Add(this.txtRights);
             this.Controls.Add(this.label1);
@@ -1097,11 +1278,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.GBTagMenu.ResumeLayout(false);
             this.GBTagMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).EndInit();
             this.toolStripTagMenu.ResumeLayout(false);
             this.toolStripTagMenu.PerformLayout();
             this.GbSelectionSide.ResumeLayout(false);
@@ -1138,7 +1319,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label lblrecordDesc;
         private System.Windows.Forms.Label lbltotalrecordsrights;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbltotalChildActive;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btnUpdateTheMenu;
@@ -1174,5 +1355,15 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Label lblFirstName;
+        internal System.Windows.Forms.Button btnTaggingGchild;
+        private System.Windows.Forms.TextBox txtchildid;
+        private System.Windows.Forms.ListBox listBoxGrandChildTag;
+        private System.Windows.Forms.ListBox listBoxParentTag;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbltotalGrandChildActive;
+        private System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.Button btnSelectAlGrandChild;
+        internal System.Windows.Forms.Button btnUnSelectAlGrandChild;
     }
 }

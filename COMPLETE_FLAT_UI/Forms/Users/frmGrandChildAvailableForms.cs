@@ -43,10 +43,32 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void frmGrandChildAvailableForms_Load(object sender, EventArgs e)
         {
+
             objStorProc = xClass.g_objStoredProc.GetCollections();
             displayGrandChildFormsData();
 
             loadChildMenu();
+        
+        }
+
+
+        DataSet dset_emp = new DataSet();
+        private void SearchGrandChildData()
+        {
+            dset_emp = objStorProc.sp_getMajorTables("SearchGrandChildForms");
+
+            if (dset_emp.Tables.Count > 0)
+            {
+                DataView dv = new DataView(dset_emp.Tables[0]);
+              
+
+                    dv.RowFilter = "search = '" + txtcountChildId.Text + "' ";
+
+              
+            
+                dgvGrandChildForms.DataSource = dv;
+                lbltotalrecords.Text = dgvGrandChildForms.RowCount.ToString();
+            }
         }
 
         public void loadChildMenu()
@@ -168,21 +190,21 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
-            dSet.Clear();
-            dSet = objStorProc.sp_available_menu_grandChild(0, txtgchild.Text, "", "", "", "", "", "", "getbyname");
+            //dSet.Clear();
+            //dSet = objStorProc.sp_available_menu_grandChild(0, txtgchild.Text, "", "", "", "", "", "", "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                GrandChildMenuAlreadyExist();
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
+            //    GrandChildMenuAlreadyExist();
 
 
-                txtgchild.Focus();
-                return;
-            }
-            else
-            {
+            //    txtgchild.Focus();
+            //    return;
+            //}
+            //else
+            //{
                 metroSave_Click(sender, e);
-            }
+            //}
 
         }
 
@@ -332,7 +354,29 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dgvGrandChildForms_CurrentCellChanged(object sender, EventArgs e)
         {
+            showValue();
+        }
+        private void showValue()
+        {
+            if (dgvGrandChildForms.Rows.Count > 0)
+            {
+                if (dgvGrandChildForms.CurrentRow != null)
+                {
+                    if (dgvGrandChildForms.CurrentRow.Cells["menu_id"].Value != null)
+                    {
+                        p_id = Convert.ToInt32(dgvGrandChildForms.CurrentRow.Cells["menu_id"].Value);
+                        txtfname.Text = dgvGrandChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
+                        txtgchild.Text = dgvGrandChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
+                       txtParentName.Text = dgvGrandChildForms.CurrentRow.Cells["count"].Value.ToString();
+                        cboChildMenu.Text = dgvGrandChildForms.CurrentRow.Cells["ChildForm"].Value.ToString();
 
+                        txtCreatedAt.Text = dgvGrandChildForms.CurrentRow.Cells["created_at"].Value.ToString();
+                        txtCreatedBy.Text = dgvGrandChildForms.CurrentRow.Cells["created_by"].Value.ToString();
+                        txtCreatedAt.Text = dgvGrandChildForms.CurrentRow.Cells["updated_at"].Value.ToString();
+                        txtModifiedBy.Text = dgvGrandChildForms.CurrentRow.Cells["updated_by"].Value.ToString();
+                    }
+                }
+            }
         }
 
 
@@ -342,7 +386,7 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu_grandChild(0, txtgchild.Text, "", "", "", "", "", "", "getbyname");
+                dSet = objStorProc.sp_available_menu_grandChild(0, txtgchild.Text, txtcountChildId.Text, "", "", "", "", "", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -480,7 +524,101 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboChildMenu_SelectedValueChanged(object sender, EventArgs e)
         {
+            
+
+        }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            if (dgvGrandChildForms.RowCount > 0)
+            {
+                temp_hid = dgvGrandChildForms.CurrentRow.Index;
+                txtfname.Enabled = true;
+                txtgchild.Enabled = true;
+              
+                cboChildMenu.Enabled = true;
+                mode = "edit";
+
+                btn_visible(false);
+                txt_read_only(false);
+            }
+        }
+
+        public void DeletedSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Deleted Successfully";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        private void btnDeleteTool_Click(object sender, EventArgs e)
+        {
+            //Start
+            if (dgvGrandChildForms.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to delete the GrandChildForm Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        displayGrandChildFormsData();
+
+                        btnCancelTool_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+            }
+
+
+
+
+            //End
+        }
+
+     
+
+        private void cboChildMenu_SelectionChangeCommitted(object sender, EventArgs e)
+        {
             txtcountChildId.Text = cboChildMenu.SelectedValue.ToString();
+
+            SearchGrandChildData();
+            txtgchild.Text = String.Empty;
+            txtfname.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            txtParentName.Text = String.Empty;
         }
     }
 }

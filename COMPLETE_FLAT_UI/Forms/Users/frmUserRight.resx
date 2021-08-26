@@ -179,9 +179,6 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>233, 17</value>
-  </metadata>
   <metadata name="menu_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -194,9 +191,45 @@
   <metadata name="user_rights_details_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>233, 17</value>
+  </metadata>
   <metadata name="toolStripTagMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>449, 17</value>
   </metadata>
+  <data name="btnUnSelectAlGrandChild.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAVBJREFUOE9j
+        IAdcDgvLuBIePvNMaCg/VIh4sLxn+p4tM5b8/trX9/96dPQMhvKOmXIVPbON8eEVOw/77DpxOebg5vqd
+        i9dv/XTx3pt/m2cs/nMxPDyTYeHGvatuPXn9Hxe+9/zd/7fffv+/e2nl/w/3pvy/d2nW/yUbtn1a3j1t
+        P9hJS7ccXPLp1///+PDdi8v+f3ow7f//d4v/v78z9f+hba2rwZpBgJAB6Jrv39j6H+QdqHb8BoA0f3ww
+        FaL57tT/D29s+//u25//oDCBasdtwOVD/UiapwA1bwWL33/x/j8oYKHasRtw8eji//ePV4E1f7w37f/9
+        K2vhcqCAJWjAqY3N/x/sL/z/4Hjl//N72lDkCBqw/8De/8mJEf9PbGr6f+HIYhTNIEzQgC1b1/3fvmMT
+        iiZkTJQX8OFBaMCMZVtyQYYQi0F5B5QBIboZGACfcK18sxzPlAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSelectAlGrandChild.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAVBJREFUOE9j
+        IAdcDgvLuBIePvNMaCg/VIh4sLxn+p4tM5b8/trX9/96dPQMhvKOmXIVPbON8eEVOw/77DpxOebg5vqd
+        i9dv/XTx3pt/m2cs/nMxPDyTYeHGvatuPXn9Hxe+9/zd/7fffv+/e2nl/w/3pvy/d2nW/yUbtn1a3j1t
+        P9hJS7ccXPLp1///+PDdi8v+f3ow7f//d4v/v78z9f+hba2rwZpBgJAB6Jrv39j6H+QdqHb8BoA0f3ww
+        FaL57tT/D29s+//u25//oDCBasdtwOVD/UiapwA1bwWL33/x/j8oYKHasRtw8eji//ePV4E1f7w37f/9
+        K2vhcqCAJWjAqY3N/x/sL/z/4Hjl//N72lDkCBqw/8De/8mJEf9PbGr6f+HIYhTNIEzQgC1b1/3fvmMT
+        iiZkTJQX8OFBaMCMZVtyQYYQi0F5B5QBIboZGACfcK18sxzPlAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnTaggingGchild.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAVBJREFUOE9j
+        IAdcDgvLuBIePvNMaCg/VIh4sLxn+p4tM5b8/trX9/96dPQMhvKOmXIVPbON8eEVOw/77DpxOebg5vqd
+        i9dv/XTx3pt/m2cs/nMxPDyTYeHGvatuPXn9Hxe+9/zd/7fffv+/e2nl/w/3pvy/d2nW/yUbtn1a3j1t
+        P9hJS7ccXPLp1///+PDdi8v+f3ow7f//d4v/v78z9f+hba2rwZpBgJAB6Jrv39j6H+QdqHb8BoA0f3ww
+        FaL57tT/D29s+//u25//oDCBasdtwOVD/UiapwA1bwWL33/x/j8oYKHasRtw8eji//ePV4E1f7w37f/9
+        K2vhcqCAJWjAqY3N/x/sL/z/4Hjl//N72lDkCBqw/8De/8mJEf9PbGr6f+HIYhTNIEzQgC1b1/3fvmMT
+        iiZkTJQX8OFBaMCMZVtyQYYQi0F5B5QBIboZGACfcK18sxzPlAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="dataGridViewCheckBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

@@ -183,6 +183,12 @@
     <Compile Include="Forms\Users\frmPosition.Designer.cs">
       <DependentUpon>frmPosition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\frmTaggingofApprover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmTaggingofApprover.Designer.cs">
+      <DependentUpon>frmTaggingofApprover.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\frmTypeofApprover.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmPosition.resx">
       <DependentUpon>frmPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmTaggingofApprover.resx">
+      <DependentUpon>frmTaggingofApprover.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmTypeofApprover.resx">
       <DependentUpon>frmTypeofApprover.cs</DependentUpon>

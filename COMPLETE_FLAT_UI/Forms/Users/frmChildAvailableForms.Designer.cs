@@ -38,6 +38,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtfname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnAddTool = new System.Windows.Forms.ToolStripButton();
+            this.btnEditTool = new System.Windows.Forms.ToolStripButton();
+            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.txtCreatedAt = new System.Windows.Forms.TextBox();
             this.txtCreatedBy = new System.Windows.Forms.TextBox();
             this.txtModifiedBy = new System.Windows.Forms.TextBox();
@@ -55,24 +60,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.lblrecordDesc = new System.Windows.Forms.Label();
             this.dgvChildForms = new System.Windows.Forms.DataGridView();
-            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtcount = new System.Windows.Forms.TextBox();
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.txtCreatedByAndUserID = new System.Windows.Forms.TextBox();
             this.BtnModuleClose = new System.Windows.Forms.Button();
-            this.btnAddTool = new System.Windows.Forms.ToolStripButton();
-            this.btnEditTool = new System.Windows.Forms.ToolStripButton();
-            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
-            this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
+            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tagging_Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -149,6 +150,54 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStrip1.Size = new System.Drawing.Size(1556, 52);
             this.toolStrip1.TabIndex = 428;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnAddTool
+            // 
+            this.btnAddTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnAddTool.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddTool.Name = "btnAddTool";
+            this.btnAddTool.Size = new System.Drawing.Size(122, 45);
+            this.btnAddTool.Text = "&New";
+            this.btnAddTool.Click += new System.EventHandler(this.btnAddTool_Click);
+            // 
+            // btnEditTool
+            // 
+            this.btnEditTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditTool.Name = "btnEditTool";
+            this.btnEditTool.Size = new System.Drawing.Size(112, 45);
+            this.btnEditTool.Text = "&Edit";
+            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
+            // 
+            // btnUpdateTool
+            // 
+            this.btnUpdateTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdateTool.Name = "btnUpdateTool";
+            this.btnUpdateTool.Size = new System.Drawing.Size(123, 45);
+            this.btnUpdateTool.Text = "&Save";
+            this.btnUpdateTool.Visible = false;
+            this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
+            // 
+            // btnDeleteTool
+            // 
+            this.btnDeleteTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteTool.Name = "btnDeleteTool";
+            this.btnDeleteTool.Size = new System.Drawing.Size(148, 45);
+            this.btnDeleteTool.Text = "&Delete";
+            this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
+            // 
+            // btnCancelTool
+            // 
+            this.btnCancelTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelTool.Name = "btnCancelTool";
+            this.btnCancelTool.Size = new System.Drawing.Size(150, 45);
+            this.btnCancelTool.Text = "&Cancel";
+            this.btnCancelTool.Visible = false;
+            this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click);
             // 
             // txtCreatedAt
             // 
@@ -385,6 +434,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_name,
             this.menu_form_name,
             this.count,
+            this.Tagging_Relationship,
             this.created_at,
             this.created_by,
             this.updated_at,
@@ -420,78 +470,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvChildForms.TabIndex = 448;
             this.dgvChildForms.CurrentCellChanged += new System.EventHandler(this.dgvChildForms_CurrentCellChanged);
             this.dgvChildForms.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvChildForms_RowPostPaint);
-            // 
-            // menu_id
-            // 
-            this.menu_id.DataPropertyName = "menu_id";
-            this.menu_id.HeaderText = "ID";
-            this.menu_id.MinimumWidth = 12;
-            this.menu_id.Name = "menu_id";
-            this.menu_id.ReadOnly = true;
-            this.menu_id.Width = 112;
-            // 
-            // menu_name
-            // 
-            this.menu_name.DataPropertyName = "menu_name";
-            this.menu_name.HeaderText = "CHILD MENU";
-            this.menu_name.MinimumWidth = 12;
-            this.menu_name.Name = "menu_name";
-            this.menu_name.ReadOnly = true;
-            this.menu_name.Width = 294;
-            // 
-            // menu_form_name
-            // 
-            this.menu_form_name.DataPropertyName = "menu_form_name";
-            this.menu_form_name.HeaderText = "FORM NAME";
-            this.menu_form_name.MinimumWidth = 12;
-            this.menu_form_name.Name = "menu_form_name";
-            this.menu_form_name.ReadOnly = true;
-            this.menu_form_name.Width = 290;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "count";
-            this.count.HeaderText = "PARENT MENU";
-            this.count.MinimumWidth = 12;
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 333;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED AT";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Width = 299;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Width = 301;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED AT";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Width = 299;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Width = 301;
             // 
             // txtcount
             // 
@@ -561,53 +539,86 @@ namespace ULTRAMAVERICK.Forms.Users
             this.BtnModuleClose.UseVisualStyleBackColor = true;
             this.BtnModuleClose.Click += new System.EventHandler(this.BtnModuleClose_Click);
             // 
-            // btnAddTool
+            // menu_id
             // 
-            this.btnAddTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnAddTool.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(122, 45);
-            this.btnAddTool.Text = "&New";
-            this.btnAddTool.Click += new System.EventHandler(this.btnAddTool_Click);
+            this.menu_id.DataPropertyName = "menu_id";
+            this.menu_id.HeaderText = "ID";
+            this.menu_id.MinimumWidth = 12;
+            this.menu_id.Name = "menu_id";
+            this.menu_id.ReadOnly = true;
+            this.menu_id.Width = 112;
             // 
-            // btnEditTool
+            // menu_name
             // 
-            this.btnEditTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(112, 45);
-            this.btnEditTool.Text = "&Edit";
-            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
+            this.menu_name.DataPropertyName = "menu_name";
+            this.menu_name.HeaderText = "CHILD MENU";
+            this.menu_name.MinimumWidth = 12;
+            this.menu_name.Name = "menu_name";
+            this.menu_name.ReadOnly = true;
+            this.menu_name.Width = 321;
             // 
-            // btnUpdateTool
+            // menu_form_name
             // 
-            this.btnUpdateTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(123, 45);
-            this.btnUpdateTool.Text = "&Save";
-            this.btnUpdateTool.Visible = false;
-            this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
+            this.menu_form_name.DataPropertyName = "menu_form_name";
+            this.menu_form_name.HeaderText = "FORM NAME";
+            this.menu_form_name.MinimumWidth = 12;
+            this.menu_form_name.Name = "menu_form_name";
+            this.menu_form_name.ReadOnly = true;
+            this.menu_form_name.Width = 317;
             // 
-            // btnDeleteTool
+            // count
             // 
-            this.btnDeleteTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(148, 45);
-            this.btnDeleteTool.Text = "&Delete";
-            this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
+            this.count.DataPropertyName = "count";
+            this.count.HeaderText = "PARENT MENU";
+            this.count.MinimumWidth = 12;
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 333;
             // 
-            // btnCancelTool
+            // Tagging_Relationship
             // 
-            this.btnCancelTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(150, 45);
-            this.btnCancelTool.Text = "&Cancel";
-            this.btnCancelTool.Visible = false;
-            this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click);
+            this.Tagging_Relationship.DataPropertyName = "Tagging_Relationship";
+            this.Tagging_Relationship.HeaderText = "RELATIONSHIP";
+            this.Tagging_Relationship.MinimumWidth = 12;
+            this.Tagging_Relationship.Name = "Tagging_Relationship";
+            this.Tagging_Relationship.ReadOnly = true;
+            this.Tagging_Relationship.Width = 365;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED AT";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 299;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 301;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED AT";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Width = 299;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Width = 301;
             // 
             // frmChildAvailableForms
             // 
@@ -675,6 +686,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.DataGridViewTextBoxColumn menu_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn menu_form_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tagging_Relationship;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;

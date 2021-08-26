@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogo));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,17 +42,26 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
             this.metroPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(54)))), ((int)(((byte)(226)))));
+            this.metroPanel1.Controls.Add(this.pictureBox1);
             this.metroPanel1.Controls.Add(this.label6);
             this.metroPanel1.Controls.Add(this.label2);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
@@ -59,7 +69,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(60, 68);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(640, 230);
+            this.metroPanel1.Size = new System.Drawing.Size(630, 230);
             this.metroPanel1.TabIndex = 2;
             this.metroPanel1.UseCustomBackColor = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
@@ -71,12 +81,12 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label6.Location = new System.Drawing.Point(170, 24);
+            this.label6.Location = new System.Drawing.Point(202, 12);
             this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 46);
+            this.label6.Size = new System.Drawing.Size(377, 46);
             this.label6.TabIndex = 8;
-            this.label6.Text = "xxx";
+            this.label6.Text = "FullStack Developer";
             // 
             // label2
             // 
@@ -94,14 +104,15 @@
             // 
             this.metroPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.metroPanel2.Controls.Add(this.pictureBox2);
             this.metroPanel2.Controls.Add(this.label7);
             this.metroPanel2.Controls.Add(this.label3);
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(785, 67);
+            this.metroPanel2.Location = new System.Drawing.Point(769, 67);
             this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(640, 230);
+            this.metroPanel2.Size = new System.Drawing.Size(630, 230);
             this.metroPanel2.TabIndex = 3;
             this.metroPanel2.UseCustomBackColor = true;
             this.metroPanel2.VerticalScrollbarBarColor = true;
@@ -113,12 +124,12 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label7.Location = new System.Drawing.Point(163, 13);
+            this.label7.Location = new System.Drawing.Point(236, 6);
             this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 46);
+            this.label7.Size = new System.Drawing.Size(368, 46);
             this.label7.TabIndex = 9;
-            this.label7.Text = "xxx";
+            this.label7.Text = "Backend Developer";
             // 
             // label3
             // 
@@ -136,14 +147,15 @@
             // 
             this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.metroPanel3.Controls.Add(this.pictureBox3);
             this.metroPanel3.Controls.Add(this.label8);
             this.metroPanel3.Controls.Add(this.label4);
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(1506, 68);
+            this.metroPanel3.Location = new System.Drawing.Point(1481, 68);
             this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(640, 230);
+            this.metroPanel3.Size = new System.Drawing.Size(630, 230);
             this.metroPanel3.TabIndex = 4;
             this.metroPanel3.UseCustomBackColor = true;
             this.metroPanel3.VerticalScrollbarBarColor = true;
@@ -155,12 +167,12 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Location = new System.Drawing.Point(163, 12);
+            this.label8.Location = new System.Drawing.Point(230, 12);
             this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 46);
+            this.label8.Size = new System.Drawing.Size(345, 46);
             this.label8.TabIndex = 10;
-            this.label8.Text = "xxx";
+            this.label8.Text = "System Developer";
             // 
             // label4
             // 
@@ -179,14 +191,15 @@
             this.metroPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroPanel4.AutoSize = true;
             this.metroPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(169)))), ((int)(((byte)(248)))));
+            this.metroPanel4.Controls.Add(this.pictureBox4);
             this.metroPanel4.Controls.Add(this.label9);
             this.metroPanel4.Controls.Add(this.label5);
             this.metroPanel4.HorizontalScrollbarBarColor = true;
             this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(2220, 68);
+            this.metroPanel4.Location = new System.Drawing.Point(2201, 68);
             this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(670, 230);
+            this.metroPanel4.Size = new System.Drawing.Size(630, 230);
             this.metroPanel4.TabIndex = 5;
             this.metroPanel4.UseCustomBackColor = true;
             this.metroPanel4.VerticalScrollbarBarColor = true;
@@ -198,12 +211,12 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(213, 12);
+            this.label9.Location = new System.Drawing.Point(222, 12);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 46);
+            this.label9.Size = new System.Drawing.Size(380, 46);
             this.label9.TabIndex = 11;
-            this.label9.Text = "xxx";
+            this.label9.Text = "Process Automation";
             // 
             // label5
             // 
@@ -234,6 +247,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dashboard";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(34, 70);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(154, 157);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(22, 70);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(154, 157);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(28, 61);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(154, 157);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(26, 61);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(154, 157);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 12;
+            this.pictureBox4.TabStop = false;
+            // 
             // FormLogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -244,6 +297,7 @@
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FormLogo";
             this.Text = "FormLogo";
+            this.Load += new System.EventHandler(this.FormLogo_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
@@ -254,6 +308,10 @@
             this.metroPanel4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +330,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

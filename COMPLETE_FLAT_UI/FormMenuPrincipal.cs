@@ -285,27 +285,91 @@ namespace COMPLETE_FLAT_UI
                     }
 
 
-                    else if (form_name == "btnDryWarehouse")
-                    {
-                        btnDryWarehouse.Enabled = true;
-                    }
-                    else if (form_name == "btnProductionPlanner")
-                    {
-                        btnProductionPlanner.Enabled = true;
-                    }
-                    else if (form_name == "btnPreparationDepartment")
-                    {
-                        btnPreparationDepartment.Enabled = true;
-                    }
-                    else if (form_name == "btnResearchAndDevelopment")
-                    {
-                        btnResearchAndDevelopment.Enabled = true;
-                    }
+      
+
+
+            
+
 
                 }
             }
 
             //END
+            dset_rights.Clear();
+            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu_grandChild", "", rights_id);
+
+            if (dset_rights.Tables.Count > 0)
+            {
+                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
+                {
+                    string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+
+
+                    //User Manager
+                    if (form_name == "frmUserManagement.cs")
+                    {
+                        toolUserManagement.Enabled = true;
+                    }
+
+                    else if (form_name == "frmUserRight.cs")
+                    {
+                        toolUserRights.Enabled = true;
+                        
+                    }
+
+                    else if (form_name == "frmDepartment.cs")
+                    {
+                        toolDepartment.Enabled = true;
+
+                    }
+
+                    else if (form_name == "frmDepartmentUnit.cs")
+                    {
+                        toolDepartmentUnit.Enabled = true;
+
+                    }
+
+                    else if (form_name == "frmTypeofApprover.cs")
+                    {
+                        toolTypeofApprover.Enabled = true;
+
+                    }
+
+
+                    else if (form_name == "frmPosition.cs")
+                    {
+                        toolPosition.Enabled = true;
+
+                    }
+
+                    //End User Manager
+
+                    //Start Menu
+                    else if (form_name == "frmParentAvailableForms.cs")
+                    {
+                        toolParentMenu.Enabled = true;
+
+
+                    }
+
+                    else if (form_name == "frmChildAvailableForms.cs")
+                    {
+                        toolChildMenu.Enabled = true;
+
+
+                    }
+
+                    else if (form_name == "frmGrandChildAvailableForms.cs")
+                    {
+                        toolGrandChildMenu.Enabled = true;
+
+
+                    }
+
+                }
+            }
+
+
 
 
 
@@ -465,22 +529,7 @@ namespace COMPLETE_FLAT_UI
             asd.ShowDialog();
         }
 
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUnit_Click(object sender, EventArgs e)
-        {
-            frmDepartmentUnit fm = new frmDepartmentUnit();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
-
-        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+ 
 
         private void toolClosePanelSelection_Click(object sender, EventArgs e)
         {
@@ -495,6 +544,76 @@ namespace COMPLETE_FLAT_UI
         private void btnGrandChildForms_Click(object sender, EventArgs e)
         {
             frmGrandChildAvailableForms fm = new frmGrandChildAvailableForms();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolDepartment_Click(object sender, EventArgs e)
+        {
+            frmDepartment fm = new frmDepartment();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolUserManagement_Click(object sender, EventArgs e)
+        {
+            frmUserManagement fm = new frmUserManagement();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolUserRights_Click(object sender, EventArgs e)
+        {
+            frmUserRight fm = new frmUserRight();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolDepartmentUnit_Click(object sender, EventArgs e)
+        {
+            frmDepartmentUnit fm = new frmDepartmentUnit();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolTypeofApprover_Click(object sender, EventArgs e)
+        {
+            frmTypeofApprover fm = new frmTypeofApprover();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolPosition_Click(object sender, EventArgs e)
+        {
+            frmPosition fm = new frmPosition();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolGrandChildMenu_Click(object sender, EventArgs e)
+        {
+            frmGrandChildAvailableForms fm = new frmGrandChildAvailableForms();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolParentMenu_Click(object sender, EventArgs e)
+        {
+            frmParentAvailableForms fm = new frmParentAvailableForms();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolChildMenu_Click(object sender, EventArgs e)
+        {
+            frmChildAvailableForms fm = new frmChildAvailableForms();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnApproverTagging_Click(object sender, EventArgs e)
+        {
+            frmTaggingofApprover fm = new frmTaggingofApprover();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

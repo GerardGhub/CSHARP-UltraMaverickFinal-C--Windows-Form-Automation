@@ -21,5 +21,10 @@ namespace COMPLETE_FLAT_UI
         {
 
         }
+
+        private void FormLogo_Load(object sender, EventArgs e)
+        {
+            pictureBox1.Padding = new Padding(0);
+        }
     }
 }

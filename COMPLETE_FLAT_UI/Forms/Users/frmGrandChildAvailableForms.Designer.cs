@@ -29,21 +29,13 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCreatedByAndUserID = new System.Windows.Forms.TextBox();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.metroSave = new MetroFramework.Controls.MetroButton();
@@ -55,6 +47,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.lblrecordDesc = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtParentName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtfname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -73,8 +67,16 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvGrandChildForms = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtParentName = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChildForm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,69 +96,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords.TabIndex = 550;
             this.lbltotalrecords.Text = "CCC";
             // 
-            // menu_id
-            // 
-            this.menu_id.DataPropertyName = "menu_id";
-            this.menu_id.HeaderText = "ID";
-            this.menu_id.MinimumWidth = 12;
-            this.menu_id.Name = "menu_id";
-            this.menu_id.ReadOnly = true;
-            this.menu_id.Width = 112;
-            // 
-            // menu_name
-            // 
-            this.menu_name.DataPropertyName = "menu_name";
-            this.menu_name.HeaderText = "CHILD MENU";
-            this.menu_name.MinimumWidth = 12;
-            this.menu_name.Name = "menu_name";
-            this.menu_name.ReadOnly = true;
-            this.menu_name.Width = 294;
-            // 
-            // menu_form_name
-            // 
-            this.menu_form_name.DataPropertyName = "menu_form_name";
-            this.menu_form_name.HeaderText = "FORM NAME";
-            this.menu_form_name.MinimumWidth = 12;
-            this.menu_form_name.Name = "menu_form_name";
-            this.menu_form_name.ReadOnly = true;
-            this.menu_form_name.Width = 290;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "count";
-            this.count.HeaderText = "PARENT MENU";
-            this.count.MinimumWidth = 12;
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 333;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED AT";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Width = 299;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Width = 301;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED AT";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Width = 299;
-            // 
             // btnDeleteTool
             // 
             this.btnDeleteTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
@@ -164,15 +103,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool.Name = "btnDeleteTool";
             this.btnDeleteTool.Size = new System.Drawing.Size(148, 45);
             this.btnDeleteTool.Text = "&Delete";
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Width = 301;
+            this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
             // 
             // txtCreatedByAndUserID
             // 
@@ -191,7 +122,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // metroFinalSaving
             // 
-            this.metroFinalSaving.Location = new System.Drawing.Point(1654, 717);
+            this.metroFinalSaving.Location = new System.Drawing.Point(1216, 616);
             this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroFinalSaving.Name = "metroFinalSaving";
             this.metroFinalSaving.Size = new System.Drawing.Size(181, 48);
@@ -244,6 +175,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnEditTool.Name = "btnEditTool";
             this.btnEditTool.Size = new System.Drawing.Size(112, 45);
             this.btnEditTool.Text = "&Edit";
+            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
             // btnUpdateTool
             // 
@@ -268,6 +200,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtcountChildId.ReadOnly = true;
             this.txtcountChildId.Size = new System.Drawing.Size(176, 32);
             this.txtcountChildId.TabIndex = 557;
+            this.txtcountChildId.Visible = false;
             // 
             // btnCancelTool
             // 
@@ -322,17 +255,43 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Information";
             // 
+            // txtParentName
+            // 
+            this.txtParentName.BackColor = System.Drawing.Color.White;
+            this.txtParentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtParentName.Enabled = false;
+            this.txtParentName.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtParentName.Location = new System.Drawing.Point(1233, 145);
+            this.txtParentName.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtParentName.MaxLength = 100;
+            this.txtParentName.Name = "txtParentName";
+            this.txtParentName.Size = new System.Drawing.Size(444, 36);
+            this.txtParentName.TabIndex = 432;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(957, 136);
+            this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(221, 46);
+            this.label8.TabIndex = 431;
+            this.label8.Text = "Parent Name:";
+            // 
             // txtfname
             // 
             this.txtfname.BackColor = System.Drawing.Color.White;
             this.txtfname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtfname.Enabled = false;
             this.txtfname.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfname.Location = new System.Drawing.Point(289, 142);
+            this.txtfname.Location = new System.Drawing.Point(311, 142);
             this.txtfname.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtfname.MaxLength = 100;
             this.txtfname.Name = "txtfname";
-            this.txtfname.Size = new System.Drawing.Size(447, 36);
+            this.txtfname.Size = new System.Drawing.Size(482, 36);
             this.txtfname.TabIndex = 430;
             // 
             // label7
@@ -371,11 +330,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCreatedAt.Enabled = false;
             this.txtCreatedAt.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreatedAt.Location = new System.Drawing.Point(289, 208);
+            this.txtCreatedAt.Location = new System.Drawing.Point(311, 208);
             this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtCreatedAt.MaxLength = 100;
             this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(447, 36);
+            this.txtCreatedAt.Size = new System.Drawing.Size(482, 36);
             this.txtCreatedAt.TabIndex = 180;
             // 
             // txtCreatedBy
@@ -384,7 +343,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCreatedBy.Enabled = false;
             this.txtCreatedBy.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreatedBy.Location = new System.Drawing.Point(1153, 208);
+            this.txtCreatedBy.Location = new System.Drawing.Point(1233, 211);
             this.txtCreatedBy.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtCreatedBy.MaxLength = 100;
             this.txtCreatedBy.Name = "txtCreatedBy";
@@ -397,7 +356,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtModifiedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModifiedBy.Enabled = false;
             this.txtModifiedBy.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModifiedBy.Location = new System.Drawing.Point(1153, 289);
+            this.txtModifiedBy.Location = new System.Drawing.Point(1233, 292);
             this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtModifiedBy.MaxLength = 100;
             this.txtModifiedBy.Name = "txtModifiedBy";
@@ -409,11 +368,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.cboChildMenu.Enabled = false;
             this.cboChildMenu.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboChildMenu.FormattingEnabled = true;
-            this.cboChildMenu.Location = new System.Drawing.Point(292, 70);
+            this.cboChildMenu.Location = new System.Drawing.Point(311, 70);
             this.cboChildMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cboChildMenu.Name = "cboChildMenu";
-            this.cboChildMenu.Size = new System.Drawing.Size(447, 45);
+            this.cboChildMenu.Size = new System.Drawing.Size(485, 45);
             this.cboChildMenu.TabIndex = 427;
+            this.cboChildMenu.SelectionChangeCommitted += new System.EventHandler(this.cboChildMenu_SelectionChangeCommitted);
             this.cboChildMenu.SelectedValueChanged += new System.EventHandler(this.cboChildMenu_SelectedValueChanged);
             // 
             // label6
@@ -422,7 +382,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(891, 286);
+            this.label6.Location = new System.Drawing.Point(971, 289);
             this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(207, 46);
@@ -435,11 +395,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtModifiedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModifiedAt.Enabled = false;
             this.txtModifiedAt.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModifiedAt.Location = new System.Drawing.Point(289, 286);
+            this.txtModifiedAt.Location = new System.Drawing.Point(311, 286);
             this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtModifiedAt.MaxLength = 100;
             this.txtModifiedAt.Name = "txtModifiedAt";
-            this.txtModifiedAt.Size = new System.Drawing.Size(447, 36);
+            this.txtModifiedAt.Size = new System.Drawing.Size(482, 36);
             this.txtModifiedAt.TabIndex = 176;
             // 
             // label5
@@ -461,7 +421,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(907, 205);
+            this.label4.Location = new System.Drawing.Point(987, 208);
             this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(189, 46);
@@ -474,7 +434,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(796, 64);
+            this.label3.Location = new System.Drawing.Point(876, 67);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(301, 46);
@@ -487,7 +447,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtgchild.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtgchild.Enabled = false;
             this.txtgchild.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtgchild.Location = new System.Drawing.Point(1153, 70);
+            this.txtgchild.Location = new System.Drawing.Point(1233, 73);
             this.txtgchild.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtgchild.MaxLength = 100;
             this.txtgchild.Name = "txtgchild";
@@ -531,7 +491,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Location = new System.Drawing.Point(68, 669);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1562, 805);
+            this.groupBox1.Size = new System.Drawing.Size(1787, 805);
             this.groupBox1.TabIndex = 556;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
@@ -540,60 +500,61 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.dgvGrandChildForms.AllowUserToAddRows = false;
             this.dgvGrandChildForms.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            this.dgvGrandChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            this.dgvGrandChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGrandChildForms.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGrandChildForms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGrandChildForms.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvGrandChildForms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGrandChildForms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGrandChildForms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGrandChildForms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.menu_id,
+            this.count,
+            this.ChildForm,
             this.menu_name,
             this.menu_form_name,
-            this.count,
             this.created_at,
             this.created_by,
             this.updated_at,
             this.updated_by});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGrandChildForms.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrandChildForms.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGrandChildForms.EnableHeadersVisualStyles = false;
             this.dgvGrandChildForms.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvGrandChildForms.Location = new System.Drawing.Point(31, 89);
             this.dgvGrandChildForms.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvGrandChildForms.Name = "dgvGrandChildForms";
             this.dgvGrandChildForms.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGrandChildForms.RowHeadersWidth = 50;
             this.dgvGrandChildForms.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            this.dgvGrandChildForms.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.dgvGrandChildForms.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvGrandChildForms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGrandChildForms.Size = new System.Drawing.Size(1475, 642);
+            this.dgvGrandChildForms.Size = new System.Drawing.Size(1700, 642);
             this.dgvGrandChildForms.TabIndex = 448;
             this.dgvGrandChildForms.CurrentCellChanged += new System.EventHandler(this.dgvGrandChildForms_CurrentCellChanged);
             this.dgvGrandChildForms.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvGrandChildForms_RowPostPaint);
@@ -610,31 +571,86 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label1.TabIndex = 555;
             this.label1.Text = "List of  GrandChild Forms Available";
             // 
-            // label8
+            // menu_id
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(877, 133);
-            this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(221, 46);
-            this.label8.TabIndex = 431;
-            this.label8.Text = "Parent Name:";
+            this.menu_id.DataPropertyName = "menu_id";
+            this.menu_id.HeaderText = "ID";
+            this.menu_id.MinimumWidth = 12;
+            this.menu_id.Name = "menu_id";
+            this.menu_id.ReadOnly = true;
+            this.menu_id.Width = 112;
             // 
-            // txtParentName
+            // count
             // 
-            this.txtParentName.BackColor = System.Drawing.Color.White;
-            this.txtParentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtParentName.Enabled = false;
-            this.txtParentName.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtParentName.Location = new System.Drawing.Point(1153, 142);
-            this.txtParentName.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtParentName.MaxLength = 100;
-            this.txtParentName.Name = "txtParentName";
-            this.txtParentName.Size = new System.Drawing.Size(444, 36);
-            this.txtParentName.TabIndex = 432;
+            this.count.DataPropertyName = "count";
+            this.count.HeaderText = "PARENT MENU";
+            this.count.MinimumWidth = 12;
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 333;
+            // 
+            // ChildForm
+            // 
+            this.ChildForm.DataPropertyName = "ChildForm";
+            this.ChildForm.HeaderText = "CHILD";
+            this.ChildForm.MinimumWidth = 12;
+            this.ChildForm.Name = "ChildForm";
+            this.ChildForm.ReadOnly = true;
+            this.ChildForm.Width = 192;
+            // 
+            // menu_name
+            // 
+            this.menu_name.DataPropertyName = "menu_name";
+            this.menu_name.HeaderText = "GRAND CHILD";
+            this.menu_name.MinimumWidth = 12;
+            this.menu_name.Name = "menu_name";
+            this.menu_name.ReadOnly = true;
+            this.menu_name.Width = 318;
+            // 
+            // menu_form_name
+            // 
+            this.menu_form_name.DataPropertyName = "menu_form_name";
+            this.menu_form_name.HeaderText = "FORM NAME";
+            this.menu_form_name.MinimumWidth = 12;
+            this.menu_form_name.Name = "menu_form_name";
+            this.menu_form_name.ReadOnly = true;
+            this.menu_form_name.Width = 290;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED AT";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 299;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 301;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED AT";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Width = 299;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Width = 301;
             // 
             // frmGrandChildAvailableForms
             // 
@@ -668,15 +684,7 @@ namespace ULTRAMAVERICK.Forms.Users
         #endregion
 
         private System.Windows.Forms.Label lbltotalrecords;
-        private System.Windows.Forms.DataGridViewTextBoxColumn menu_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn menu_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn menu_form_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn count;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.ToolStripButton btnDeleteTool;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
         private System.Windows.Forms.TextBox txtCreatedByAndUserID;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         private MetroFramework.Controls.MetroButton metroSave;
@@ -708,5 +716,15 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtParentName;
         private System.Windows.Forms.Label label8;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menu_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChildForm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menu_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menu_form_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
     }
 }

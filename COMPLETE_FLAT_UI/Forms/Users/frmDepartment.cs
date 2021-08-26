@@ -547,7 +547,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboLocation_SelectedValueChanged(object sender, EventArgs e)
         {
-            lblLocationID.Text = cboLocation.SelectedValue.ToString();
+            //lblLocationID.Text = cboLocation.SelectedValue.ToString();
         }
 
         private void lstDepartment_CursorChanged(object sender, EventArgs e)
@@ -572,6 +572,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void txtCreatedByAndUserID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboLocation_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblLocationID.Text = cboLocation.SelectedValue.ToString();
         }
     }
 }
