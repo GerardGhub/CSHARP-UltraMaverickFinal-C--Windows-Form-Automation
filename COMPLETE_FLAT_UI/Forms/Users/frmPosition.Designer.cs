@@ -34,8 +34,16 @@ namespace ULTRAMAVERICK.Forms.Users
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.lblrecordDesc = new System.Windows.Forms.Label();
             this.lstPosition = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnAddTool = new System.Windows.Forms.ToolStripButton();
+            this.btnEditTool = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
+            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.txtCreatedAt = new System.Windows.Forms.TextBox();
             this.txtCreatedBy = new System.Windows.Forms.TextBox();
             this.txtModifiedBy = new System.Windows.Forms.TextBox();
@@ -54,18 +62,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.metroButtonDelete = new MetroFramework.Controls.MetroButton();
             this.lblDepartmentID = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.lblrecordDesc = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnAddTool = new System.Windows.Forms.ToolStripButton();
-            this.btnEditTool = new System.Windows.Forms.ToolStripButton();
-            this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
-            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_table)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_table)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,8 +82,6 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lbltotalrecords);
             this.groupBox1.Controls.Add(this.lblrecordDesc);
             this.groupBox1.Controls.Add(this.lstPosition);
@@ -95,6 +93,32 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox1.TabIndex = 154;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbltotalrecords.Location = new System.Drawing.Point(318, 550);
+            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(92, 39);
+            this.lbltotalrecords.TabIndex = 431;
+            this.lbltotalrecords.Text = "CCC";
+            // 
+            // lblrecordDesc
+            // 
+            this.lblrecordDesc.AutoSize = true;
+            this.lblrecordDesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblrecordDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrecordDesc.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblrecordDesc.Location = new System.Drawing.Point(55, 550);
+            this.lblrecordDesc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblrecordDesc.Name = "lblrecordDesc";
+            this.lblrecordDesc.Size = new System.Drawing.Size(247, 39);
+            this.lblrecordDesc.TabIndex = 432;
+            this.lblrecordDesc.Text = "Total Records :";
             // 
             // lstPosition
             // 
@@ -117,8 +141,6 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.toolStrip1);
             this.groupBox2.Controls.Add(this.txtCreatedAt);
             this.groupBox2.Controls.Add(this.txtCreatedBy);
@@ -140,6 +162,71 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox2.TabIndex = 155;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Information";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddTool,
+            this.btnEditTool,
+            this.btnDeleteTool,
+            this.btnUpdateTool,
+            this.btnCancelTool});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 359);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1526, 52);
+            this.toolStrip1.TabIndex = 428;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnAddTool
+            // 
+            this.btnAddTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnAddTool.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddTool.Name = "btnAddTool";
+            this.btnAddTool.Size = new System.Drawing.Size(122, 45);
+            this.btnAddTool.Text = "&New";
+            this.btnAddTool.Click += new System.EventHandler(this.btnAddTool_Click);
+            // 
+            // btnEditTool
+            // 
+            this.btnEditTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditTool.Name = "btnEditTool";
+            this.btnEditTool.Size = new System.Drawing.Size(112, 45);
+            this.btnEditTool.Text = "&Edit";
+            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
+            // 
+            // btnDeleteTool
+            // 
+            this.btnDeleteTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteTool.Name = "btnDeleteTool";
+            this.btnDeleteTool.Size = new System.Drawing.Size(148, 45);
+            this.btnDeleteTool.Text = "&Delete";
+            this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
+            // 
+            // btnUpdateTool
+            // 
+            this.btnUpdateTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdateTool.Name = "btnUpdateTool";
+            this.btnUpdateTool.Size = new System.Drawing.Size(123, 45);
+            this.btnUpdateTool.Text = "&Save";
+            this.btnUpdateTool.Visible = false;
+            this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
+            // 
+            // btnCancelTool
+            // 
+            this.btnCancelTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
+            this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelTool.Name = "btnCancelTool";
+            this.btnCancelTool.Size = new System.Drawing.Size(150, 45);
+            this.btnCancelTool.Text = "&Cancel";
+            this.btnCancelTool.Visible = false;
+            this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click);
             // 
             // txtCreatedAt
             // 
@@ -400,97 +487,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalrecords.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbltotalrecords.Location = new System.Drawing.Point(318, 550);
-            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(92, 39);
-            this.lbltotalrecords.TabIndex = 431;
-            this.lbltotalrecords.Text = "CCC";
-            // 
-            // lblrecordDesc
-            // 
-            this.lblrecordDesc.AutoSize = true;
-            this.lblrecordDesc.BackColor = System.Drawing.Color.Transparent;
-            this.lblrecordDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrecordDesc.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblrecordDesc.Location = new System.Drawing.Point(55, 550);
-            this.lblrecordDesc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblrecordDesc.Name = "lblrecordDesc";
-            this.lblrecordDesc.Size = new System.Drawing.Size(247, 39);
-            this.lblrecordDesc.TabIndex = 432;
-            this.lblrecordDesc.Text = "Total Records :";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddTool,
-            this.btnEditTool,
-            this.btnDeleteTool,
-            this.btnUpdateTool,
-            this.btnCancelTool});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 359);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1526, 52);
-            this.toolStrip1.TabIndex = 428;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnAddTool
-            // 
-            this.btnAddTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnAddTool.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(122, 45);
-            this.btnAddTool.Text = "&New";
-            this.btnAddTool.Click += new System.EventHandler(this.btnAddTool_Click);
-            // 
-            // btnEditTool
-            // 
-            this.btnEditTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(112, 45);
-            this.btnEditTool.Text = "&Edit";
-            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
-            // 
-            // btnDeleteTool
-            // 
-            this.btnDeleteTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(148, 45);
-            this.btnDeleteTool.Text = "&Delete";
-            this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
-            // 
-            // btnCancelTool
-            // 
-            this.btnCancelTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(150, 45);
-            this.btnCancelTool.Text = "&Cancel";
-            this.btnCancelTool.Visible = false;
-            this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click);
-            // 
-            // btnUpdateTool
-            // 
-            this.btnUpdateTool.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(123, 45);
-            this.btnUpdateTool.Text = "&Save";
-            this.btnUpdateTool.Visible = false;
-            this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
-            // 
             // frmPosition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -513,9 +509,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_table)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

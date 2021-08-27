@@ -66,8 +66,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvGrandChildForms = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChildForm = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +75,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -227,8 +227,6 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtParentName);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtfname);
@@ -482,8 +480,6 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lbltotalrecords);
             this.groupBox1.Controls.Add(this.lblrecordDesc);
             this.groupBox1.Controls.Add(this.dgvGrandChildForms);
@@ -558,18 +554,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.TabIndex = 448;
             this.dgvGrandChildForms.CurrentCellChanged += new System.EventHandler(this.dgvGrandChildForms_CurrentCellChanged);
             this.dgvGrandChildForms.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvGrandChildForms_RowPostPaint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(206, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(641, 54);
-            this.label1.TabIndex = 555;
-            this.label1.Text = "List of  GrandChild Forms Available";
             // 
             // menu_id
             // 
@@ -651,6 +635,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_by.Name = "updated_by";
             this.updated_by.ReadOnly = true;
             this.updated_by.Width = 301;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(206, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(641, 54);
+            this.label1.TabIndex = 555;
+            this.label1.Text = "List of  GrandChild Forms Available";
             // 
             // frmGrandChildAvailableForms
             // 

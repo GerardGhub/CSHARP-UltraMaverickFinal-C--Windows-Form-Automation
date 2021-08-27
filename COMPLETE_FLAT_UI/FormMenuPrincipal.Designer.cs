@@ -33,6 +33,7 @@
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnApproverTagging = new System.Windows.Forms.Button();
             this.lblDateFinal = new System.Windows.Forms.Label();
             this.lblTimeFinal = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -75,6 +76,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.PanelBarraTitulo = new System.Windows.Forms.Panel();
+            this.btnNotificationsBell = new System.Windows.Forms.Button();
             this.btnMaximizedFinal = new System.Windows.Forms.Button();
             this.btnCloseFinal = new System.Windows.Forms.Button();
             this.btnMinimizeFinal = new System.Windows.Forms.Button();
@@ -92,7 +94,6 @@
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
-            this.btnApproverTagging = new System.Windows.Forms.Button();
             this.panelContenedorPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -152,6 +153,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2320, 185);
             this.panel1.TabIndex = 5;
+            // 
+            // btnApproverTagging
+            // 
+            this.btnApproverTagging.BackColor = System.Drawing.SystemColors.Window;
+            this.btnApproverTagging.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnApproverTagging.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApproverTagging.Image = ((System.Drawing.Image)(resources.GetObject("btnApproverTagging.Image")));
+            this.btnApproverTagging.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApproverTagging.Location = new System.Drawing.Point(1618, 53);
+            this.btnApproverTagging.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnApproverTagging.Name = "btnApproverTagging";
+            this.btnApproverTagging.Size = new System.Drawing.Size(376, 67);
+            this.btnApproverTagging.TabIndex = 495;
+            this.btnApproverTagging.Text = "Approver Tagging";
+            this.btnApproverTagging.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnApproverTagging.UseVisualStyleBackColor = false;
+            this.btnApproverTagging.Click += new System.EventHandler(this.btnApproverTagging_Click);
             // 
             // lblDateFinal
             // 
@@ -231,7 +249,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(88)))), ((int)(((byte)(152)))));
             this.panelMenu.Controls.Add(this.panelMenuSelection);
             this.panelMenu.Controls.Add(this.btnMenu);
             this.panelMenu.Controls.Add(this.pictureBox10);
@@ -303,7 +321,6 @@
             this.toolDropdownUser.Name = "toolDropdownUser";
             this.toolDropdownUser.Size = new System.Drawing.Size(495, 44);
             this.toolDropdownUser.Text = "User  Manager                  ";
-            this.toolDropdownUser.Visible = false;
             // 
             // toolUserManagement
             // 
@@ -315,7 +332,6 @@
             // 
             // toolUserRights
             // 
-            this.toolUserRights.Enabled = false;
             this.toolUserRights.Name = "toolUserRights";
             this.toolUserRights.Size = new System.Drawing.Size(461, 54);
             this.toolUserRights.Text = "User Rights";
@@ -440,6 +456,7 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox10.TabIndex = 14;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Visible = false;
             // 
             // lblLastName
             // 
@@ -452,6 +469,7 @@
             this.lblLastName.Size = new System.Drawing.Size(125, 38);
             this.lblLastName.TabIndex = 6;
             this.lblLastName.Text = "Singian";
+            this.lblLastName.Visible = false;
             // 
             // lblFirstName
             // 
@@ -695,7 +713,9 @@
             // 
             // PanelBarraTitulo
             // 
-            this.PanelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.PanelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(88)))), ((int)(((byte)(152)))));
+            this.PanelBarraTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelBarraTitulo.Controls.Add(this.btnNotificationsBell);
             this.PanelBarraTitulo.Controls.Add(this.btnMaximizedFinal);
             this.PanelBarraTitulo.Controls.Add(this.btnCloseFinal);
             this.PanelBarraTitulo.Controls.Add(this.btnMinimizeFinal);
@@ -718,6 +738,19 @@
             this.PanelBarraTitulo.TabIndex = 1;
             this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
             // 
+            // btnNotificationsBell
+            // 
+            this.btnNotificationsBell.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotificationsBell.FlatAppearance.BorderSize = 0;
+            this.btnNotificationsBell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificationsBell.Image = ((System.Drawing.Image)(resources.GetObject("btnNotificationsBell.Image")));
+            this.btnNotificationsBell.Location = new System.Drawing.Point(863, 7);
+            this.btnNotificationsBell.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnNotificationsBell.Name = "btnNotificationsBell";
+            this.btnNotificationsBell.Size = new System.Drawing.Size(104, 93);
+            this.btnNotificationsBell.TabIndex = 1;
+            this.btnNotificationsBell.UseVisualStyleBackColor = true;
+            // 
             // btnMaximizedFinal
             // 
             this.btnMaximizedFinal.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -738,7 +771,7 @@
             this.btnCloseFinal.FlatAppearance.BorderSize = 0;
             this.btnCloseFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseFinal.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.btnCloseFinal.Location = new System.Drawing.Point(856, 4);
+            this.btnCloseFinal.Location = new System.Drawing.Point(984, 6);
             this.btnCloseFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnCloseFinal.Name = "btnCloseFinal";
             this.btnCloseFinal.Size = new System.Drawing.Size(104, 93);
@@ -767,7 +800,7 @@
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnMaximize.Location = new System.Drawing.Point(-29905, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(-29907, 0);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(115, 103);
@@ -797,7 +830,7 @@
             this.btnNormal1.FlatAppearance.BorderSize = 0;
             this.btnNormal1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNormal1.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnNormal1.Location = new System.Drawing.Point(-29905, 2);
+            this.btnNormal1.Location = new System.Drawing.Point(-29907, 2);
             this.btnNormal1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnNormal1.Name = "btnNormal1";
             this.btnNormal1.Size = new System.Drawing.Size(115, 103);
@@ -813,7 +846,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.btnClose.Location = new System.Drawing.Point(-29905, 7);
+            this.btnClose.Location = new System.Drawing.Point(-29907, 7);
             this.btnClose.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(104, 93);
@@ -828,7 +861,7 @@
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
-            this.btnMinimize.Location = new System.Drawing.Point(-29905, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(-29907, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(115, 103);
@@ -934,23 +967,6 @@
             // 
             this.tmFechaHora.Enabled = true;
             this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
-            // 
-            // btnApproverTagging
-            // 
-            this.btnApproverTagging.BackColor = System.Drawing.SystemColors.Window;
-            this.btnApproverTagging.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnApproverTagging.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApproverTagging.Image = ((System.Drawing.Image)(resources.GetObject("btnApproverTagging.Image")));
-            this.btnApproverTagging.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApproverTagging.Location = new System.Drawing.Point(1618, 53);
-            this.btnApproverTagging.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnApproverTagging.Name = "btnApproverTagging";
-            this.btnApproverTagging.Size = new System.Drawing.Size(376, 67);
-            this.btnApproverTagging.TabIndex = 495;
-            this.btnApproverTagging.Text = "Approver Tagging";
-            this.btnApproverTagging.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnApproverTagging.UseVisualStyleBackColor = false;
-            this.btnApproverTagging.Click += new System.EventHandler(this.btnApproverTagging_Click);
             // 
             // FormMenuPrincipal
             // 
@@ -1059,6 +1075,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolPosition;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         internal System.Windows.Forms.Button btnApproverTagging;
+        private System.Windows.Forms.Button btnNotificationsBell;
     }
 }
 

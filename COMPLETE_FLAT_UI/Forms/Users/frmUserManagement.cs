@@ -50,8 +50,19 @@ namespace ULTRAMAVERICK.Forms.Users
             lstUsers.Enabled = true;
             loadDepartment(); // Loading the Depeartment
             loadRequestorType(); //Load Requestor Types
-
+            loadUnit();
         }
+
+
+        public void loadUnit()
+        {
+            ready = false;
+            myClass.fillComboBoxDepartment(cboUnit, "DepartmentUnit_dropdown", dSet);
+            ready = true;
+
+            lblUnitID.Text = cboUnit.SelectedValue.ToString();
+        }
+
 
         public void loadRequestorType()
         {
@@ -353,7 +364,8 @@ namespace ULTRAMAVERICK.Forms.Users
                         lblPositionId.Text.Trim(), 
                         txtLastName.Text.Trim(), 
                         lblDepartmentID.Text.Trim(), 
-                        lblRequestorTypeID.Text.Trim(), "add");
+                        lblRequestorTypeID.Text.Trim(), 
+                        lblUnitID.Text.Trim(), "add");
 
                     return true;
                 }
@@ -386,7 +398,8 @@ namespace ULTRAMAVERICK.Forms.Users
                             lblPositionId.Text.Trim(), 
                             txtLastName.Text.Trim(), 
                             lblDepartmentID.Text.Trim(),
-                            lblRequestorTypeID.Text.Trim(), "edit");
+                            lblRequestorTypeID.Text.Trim(), 
+                            lblUnitID.Text.Trim(), "edit");
 
                         return true;
                     }
@@ -410,7 +423,8 @@ namespace ULTRAMAVERICK.Forms.Users
                         lblPositionId.Text.Trim(), 
                         txtLastName.Text.Trim(), 
                         lblDepartmentID.Text.Trim(), 
-                        lblRequestorTypeID.Text.Trim(), "edit");
+                        lblRequestorTypeID.Text.Trim(), 
+                        lblUnitID.Text.Trim(), "edit");
 
                     return true;
                 }
@@ -784,7 +798,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void cboPosition_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            lblPositionId.Text = cboPosition.SelectedValue.ToString();
+            //lblPositionId.Text = cboPosition.SelectedValue.ToString();
 
             //
         }
@@ -811,13 +825,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
         {
-            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+  
         }
 
         private void cboRequestorType_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            lblRequestorTypeID.Text = cboRequestorType.SelectedValue.ToString();
+      
         }
 
         private void btnAddTool_Click(object sender, EventArgs e)
@@ -833,7 +847,7 @@ namespace ULTRAMAVERICK.Forms.Users
             cbousertype.Enabled = true;
             cbousertype.Text = String.Empty;
 
-
+            cboUnit.Enabled = true;
             txtpassword.Enabled = true;
             txtpassword.Text = String.Empty;
 
@@ -899,12 +913,29 @@ namespace ULTRAMAVERICK.Forms.Users
             txtLastName.Enabled = false;
             cbodepartment.Enabled = false;
             cboRequestorType.Enabled = false;
+            cboUnit.Enabled = false;
             mode = "";
         }
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
             metroButtonSave_Click(sender, e);
+        }
+
+        private void cboPosition_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblPositionId.Text = cboPosition.SelectedValue.ToString();
+
+        }
+
+        private void cboRequestorType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblRequestorTypeID.Text = cboRequestorType.SelectedValue.ToString();
+        }
+
+        private void cbodepartment_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
         }
     }
 }

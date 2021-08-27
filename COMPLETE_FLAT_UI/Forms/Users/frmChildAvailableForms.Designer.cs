@@ -60,11 +60,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.lblrecordDesc = new System.Windows.Forms.Label();
             this.dgvChildForms = new System.Windows.Forms.DataGridView();
-            this.txtcount = new System.Windows.Forms.TextBox();
-            this.metroSave = new MetroFramework.Controls.MetroButton();
-            this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
-            this.txtCreatedByAndUserID = new System.Windows.Forms.TextBox();
-            this.BtnModuleClose = new System.Windows.Forms.Button();
             this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +69,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtcount = new System.Windows.Forms.TextBox();
+            this.metroSave = new MetroFramework.Controls.MetroButton();
+            this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
+            this.txtCreatedByAndUserID = new System.Windows.Forms.TextBox();
+            this.BtnModuleClose = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,8 +82,6 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtfname);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.toolStrip1);
@@ -368,8 +366,6 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lbltotalrecords);
             this.groupBox1.Controls.Add(this.lblrecordDesc);
             this.groupBox1.Controls.Add(this.dgvChildForms);
@@ -471,6 +467,87 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvChildForms.CurrentCellChanged += new System.EventHandler(this.dgvChildForms_CurrentCellChanged);
             this.dgvChildForms.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvChildForms_RowPostPaint);
             // 
+            // menu_id
+            // 
+            this.menu_id.DataPropertyName = "menu_id";
+            this.menu_id.HeaderText = "ID";
+            this.menu_id.MinimumWidth = 12;
+            this.menu_id.Name = "menu_id";
+            this.menu_id.ReadOnly = true;
+            this.menu_id.Width = 112;
+            // 
+            // menu_name
+            // 
+            this.menu_name.DataPropertyName = "menu_name";
+            this.menu_name.HeaderText = "CHILD MENU";
+            this.menu_name.MinimumWidth = 12;
+            this.menu_name.Name = "menu_name";
+            this.menu_name.ReadOnly = true;
+            this.menu_name.Width = 294;
+            // 
+            // menu_form_name
+            // 
+            this.menu_form_name.DataPropertyName = "menu_form_name";
+            this.menu_form_name.HeaderText = "FORM NAME";
+            this.menu_form_name.MinimumWidth = 12;
+            this.menu_form_name.Name = "menu_form_name";
+            this.menu_form_name.ReadOnly = true;
+            this.menu_form_name.Width = 290;
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "count";
+            this.count.HeaderText = "PARENT MENU";
+            this.count.MinimumWidth = 12;
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 333;
+            // 
+            // Tagging_Relationship
+            // 
+            this.Tagging_Relationship.DataPropertyName = "Tagging_Relationship";
+            this.Tagging_Relationship.HeaderText = "RELATIONSHIP";
+            this.Tagging_Relationship.MinimumWidth = 12;
+            this.Tagging_Relationship.Name = "Tagging_Relationship";
+            this.Tagging_Relationship.ReadOnly = true;
+            this.Tagging_Relationship.Width = 365;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED AT";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 299;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 301;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED AT";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Width = 299;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Width = 301;
+            // 
             // txtcount
             // 
             this.txtcount.BackColor = System.Drawing.Color.White;
@@ -538,87 +615,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.BtnModuleClose.TabIndex = 445;
             this.BtnModuleClose.UseVisualStyleBackColor = true;
             this.BtnModuleClose.Click += new System.EventHandler(this.BtnModuleClose_Click);
-            // 
-            // menu_id
-            // 
-            this.menu_id.DataPropertyName = "menu_id";
-            this.menu_id.HeaderText = "ID";
-            this.menu_id.MinimumWidth = 12;
-            this.menu_id.Name = "menu_id";
-            this.menu_id.ReadOnly = true;
-            this.menu_id.Width = 112;
-            // 
-            // menu_name
-            // 
-            this.menu_name.DataPropertyName = "menu_name";
-            this.menu_name.HeaderText = "CHILD MENU";
-            this.menu_name.MinimumWidth = 12;
-            this.menu_name.Name = "menu_name";
-            this.menu_name.ReadOnly = true;
-            this.menu_name.Width = 321;
-            // 
-            // menu_form_name
-            // 
-            this.menu_form_name.DataPropertyName = "menu_form_name";
-            this.menu_form_name.HeaderText = "FORM NAME";
-            this.menu_form_name.MinimumWidth = 12;
-            this.menu_form_name.Name = "menu_form_name";
-            this.menu_form_name.ReadOnly = true;
-            this.menu_form_name.Width = 317;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "count";
-            this.count.HeaderText = "PARENT MENU";
-            this.count.MinimumWidth = 12;
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 333;
-            // 
-            // Tagging_Relationship
-            // 
-            this.Tagging_Relationship.DataPropertyName = "Tagging_Relationship";
-            this.Tagging_Relationship.HeaderText = "RELATIONSHIP";
-            this.Tagging_Relationship.MinimumWidth = 12;
-            this.Tagging_Relationship.Name = "Tagging_Relationship";
-            this.Tagging_Relationship.ReadOnly = true;
-            this.Tagging_Relationship.Width = 365;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED AT";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Width = 299;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Width = 301;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED AT";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Width = 299;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Width = 301;
             // 
             // frmChildAvailableForms
             // 

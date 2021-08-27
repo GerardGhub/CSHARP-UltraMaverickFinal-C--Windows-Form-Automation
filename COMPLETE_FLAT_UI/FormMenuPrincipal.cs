@@ -202,8 +202,8 @@ namespace COMPLETE_FLAT_UI
         {
             this.Size = new Size(1300, 700); //Size of Windows
 
-            lblFirstName.Text = userinfo.emp_name.ToUpper(); // First Name Session
-            lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
+            lblFirstName.Text = userinfo.emp_name.ToString() + userinfo.emp_lastname.ToString();// First Name Session
+            //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
             lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();// loading logo
             //rights here
@@ -221,34 +221,34 @@ namespace COMPLETE_FLAT_UI
             {
                 for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
                 {
-                    string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+                    string parent_form_name = dset_rights.Tables[0].Rows[x][1].ToString();
 
 
               
-                    if (form_name == "btnUsers")
+                    if (parent_form_name == "User")
                     {
                         btnUsers.Enabled = true;
                     }
-                    else if (form_name == "btnDashBoard")
+                    else if (parent_form_name == "bt")
                     {
                         btnDashBoard.Enabled = true;
                       /*  MostrarFormLogo()*/;
                     }
 
 
-                    else if (form_name == "btnDryWarehouse")
+                    else if (parent_form_name == "Dry Warehouse")
                     {
                         btnDryWarehouse.Enabled = true;
                     }
-                    else if (form_name == "btnProductionPlanner")
+                    else if (parent_form_name == "Production Planner")
                     {
                         btnProductionPlanner.Enabled = true;
                     }
-                    else if (form_name == "btnPreparationDepartment")
+                    else if (parent_form_name == "Preparation Department")
                     {
                         btnPreparationDepartment.Enabled = true;
                     }
-                    else if (form_name == "btnResearchAndDevelopment")
+                    else if (parent_form_name == "Research & Development")
                     {
                         btnResearchAndDevelopment.Enabled = true;
                     }

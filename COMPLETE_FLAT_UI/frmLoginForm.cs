@@ -49,6 +49,12 @@ namespace COMPLETE_FLAT_UI
                 return;
 
             }
+            dSet.Clear();
+            dSet = objStorProc.sp_userfile(0, txtUsername.Text.Trim(), txtPassword.Text.Trim(), "", "dispossal");
+
+
+
+
 
             //User Stored Procedure Validate name & Password
             dSet.Clear();

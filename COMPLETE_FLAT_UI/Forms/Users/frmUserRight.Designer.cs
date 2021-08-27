@@ -29,27 +29,27 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserRight));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.listViewuser_rights = new System.Windows.Forms.ListBox();
@@ -65,6 +65,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnRemoveMenu = new System.Windows.Forms.Button();
             this.metroButtonDelete = new MetroFramework.Controls.MetroButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnUpdateRequest = new System.Windows.Forms.Button();
+            this.listBoxParentTag = new System.Windows.Forms.ListBox();
             this.lbltotalrecordsrights = new System.Windows.Forms.Label();
             this.lblrecordDesc = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -73,7 +75,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupRightsAvailable = new System.Windows.Forms.GroupBox();
             this.lbltotalGrandChildActive = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -92,20 +94,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.btnCancelUpdateMenu = new System.Windows.Forms.ToolStripButton();
-            this.GBTagMenu = new System.Windows.Forms.GroupBox();
-            this.listBoxParentTag = new System.Windows.Forms.ListBox();
             this.txtparentidmenu = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.toolStripTagMenu = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.ToolDeleteTagMenu = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.cboParentMenu = new System.Windows.Forms.ComboBox();
             this.lblparentmenuid = new System.Windows.Forms.Label();
-            this.GbSelectionSide = new System.Windows.Forms.GroupBox();
+            this.btnCancelParentMenuUpdate = new System.Windows.Forms.GroupBox();
             this.btnUnSelectAlGrandChild = new System.Windows.Forms.Button();
             this.btnSelectAlGrandChild = new System.Windows.Forms.Button();
             this.txtchildid = new System.Windows.Forms.TextBox();
@@ -115,20 +107,23 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label2 = new System.Windows.Forms.Label();
             this.lbltotalMenu = new System.Windows.Forms.Label();
             this.dgvParentMenu = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtIDParent = new System.Windows.Forms.TextBox();
+            this.txtParentName = new System.Windows.Forms.TextBox();
+            this.txtmenuid = new System.Windows.Forms.TextBox();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtChildName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupRightsAvailable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).BeginInit();
             this.toolStrip2.SuspendLayout();
-            this.GBTagMenu.SuspendLayout();
-            this.toolStripTagMenu.SuspendLayout();
-            this.GbSelectionSide.SuspendLayout();
+            this.btnCancelParentMenuUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrandChild)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParentMenu)).BeginInit();
             this.SuspendLayout();
@@ -171,7 +166,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.listViewuser_rights.Location = new System.Drawing.Point(31, 80);
             this.listViewuser_rights.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.listViewuser_rights.Name = "listViewuser_rights";
-            this.listViewuser_rights.Size = new System.Drawing.Size(713, 450);
+            this.listViewuser_rights.Size = new System.Drawing.Size(651, 450);
             this.listViewuser_rights.TabIndex = 13;
             this.listViewuser_rights.Click += new System.EventHandler(this.listViewuser_rights_Click);
             this.listViewuser_rights.SelectedIndexChanged += new System.EventHandler(this.listViewuser_rights_SelectedIndexChanged);
@@ -188,7 +183,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.ListViewmenu.Name = "ListViewmenu";
             this.ListViewmenu.Size = new System.Drawing.Size(713, 450);
             this.ListViewmenu.TabIndex = 48;
-            this.ListViewmenu.Click += new System.EventHandler(this.ListViewmenu_Click);
+            this.ListViewmenu.Click += new System.EventHandler(this.ListViewmenu_Click_1);
+            this.ListViewmenu.SelectedIndexChanged += new System.EventHandler(this.ListViewmenu_SelectedIndexChanged);
             this.ListViewmenu.DoubleClick += new System.EventHandler(this.ListViewmenu_DoubleClick);
             // 
             // txtRights
@@ -209,51 +205,51 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Control;
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle61;
             this.dataView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
             this.dataView.ColumnHeadersHeight = 58;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataView.ColumnHeadersVisible = false;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chkSelected});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle63;
             this.dataView.GridColor = System.Drawing.Color.Black;
             this.dataView.Location = new System.Drawing.Point(28, 509);
             this.dataView.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dataView.Name = "dataView";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle64;
             this.dataView.RowHeadersWidth = 50;
             this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle65;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataView.Size = new System.Drawing.Size(957, 352);
             this.dataView.TabIndex = 493;
@@ -381,7 +377,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // metroButtonDelete
             // 
-            this.metroButtonDelete.Location = new System.Drawing.Point(1443, 54);
+            this.metroButtonDelete.Location = new System.Drawing.Point(982, 0);
             this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(181, 48);
@@ -393,6 +389,10 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtParentName);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnUpdateRequest);
+            this.groupBox2.Controls.Add(this.listBoxParentTag);
             this.groupBox2.Controls.Add(this.lbltotalrecordsrights);
             this.groupBox2.Controls.Add(this.lblrecordDesc);
             this.groupBox2.Controls.Add(this.toolStrip1);
@@ -401,10 +401,46 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Location = new System.Drawing.Point(37, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(786, 593);
+            this.groupBox2.Size = new System.Drawing.Size(1653, 614);
             this.groupBox2.TabIndex = 558;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "List of User Rights";
+            // 
+            // btnUpdateRequest
+            // 
+            this.btnUpdateRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUpdateRequest.BackColor = System.Drawing.SystemColors.Window;
+            this.btnUpdateRequest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateRequest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdateRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateRequest.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdateRequest.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateRequest.Image")));
+            this.btnUpdateRequest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateRequest.Location = new System.Drawing.Point(1287, 533);
+            this.btnUpdateRequest.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnUpdateRequest.Name = "btnUpdateRequest";
+            this.btnUpdateRequest.Size = new System.Drawing.Size(304, 67);
+            this.btnUpdateRequest.TabIndex = 565;
+            this.btnUpdateRequest.Text = "&Update Menu";
+            this.btnUpdateRequest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateRequest.UseVisualStyleBackColor = false;
+            this.btnUpdateRequest.Click += new System.EventHandler(this.btnUpdateRequest_Click);
+            // 
+            // listBoxParentTag
+            // 
+            this.listBoxParentTag.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxParentTag.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxParentTag.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxParentTag.FormattingEnabled = true;
+            this.listBoxParentTag.ItemHeight = 50;
+            this.listBoxParentTag.Location = new System.Drawing.Point(878, 72);
+            this.listBoxParentTag.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.listBoxParentTag.Name = "listBoxParentTag";
+            this.listBoxParentTag.Size = new System.Drawing.Size(713, 450);
+            this.listBoxParentTag.TabIndex = 561;
+            this.listBoxParentTag.Click += new System.EventHandler(this.listBoxParentTag_Click);
+            this.listBoxParentTag.SelectedIndexChanged += new System.EventHandler(this.listBoxParentTag_SelectedIndexChanged);
+            this.listBoxParentTag.DoubleClick += new System.EventHandler(this.listBoxParentTag_DoubleClick);
             // 
             // lbltotalrecordsrights
             // 
@@ -447,9 +483,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUpdateTool,
             this.btnDeleteTool,
             this.btnCancelTool});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 538);
+            this.toolStrip1.Location = new System.Drawing.Point(3, 559);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(780, 52);
+            this.toolStrip1.Size = new System.Drawing.Size(1647, 52);
             this.toolStrip1.TabIndex = 428;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -501,26 +537,28 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool.Visible = false;
             this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click);
             // 
-            // groupBox1
+            // groupRightsAvailable
             // 
-            this.groupBox1.Controls.Add(this.lbltotalGrandChildActive);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.listBoxGrandChildTag);
-            this.groupBox1.Controls.Add(this.dgvTagParentMenu);
-            this.groupBox1.Controls.Add(this.lbltotalChildActive);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.toolStrip2);
-            this.groupBox1.Controls.Add(this.ListViewmenu);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(40, 796);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1650, 668);
-            this.groupBox1.TabIndex = 559;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "List of Accessible Rights Active";
+            this.groupRightsAvailable.Controls.Add(this.txtChildName);
+            this.groupRightsAvailable.Controls.Add(this.lbltotalGrandChildActive);
+            this.groupRightsAvailable.Controls.Add(this.label3);
+            this.groupRightsAvailable.Controls.Add(this.label8);
+            this.groupRightsAvailable.Controls.Add(this.label7);
+            this.groupRightsAvailable.Controls.Add(this.listBoxGrandChildTag);
+            this.groupRightsAvailable.Controls.Add(this.dgvTagParentMenu);
+            this.groupRightsAvailable.Controls.Add(this.lbltotalChildActive);
+            this.groupRightsAvailable.Controls.Add(this.label4);
+            this.groupRightsAvailable.Controls.Add(this.toolStrip2);
+            this.groupRightsAvailable.Controls.Add(this.ListViewmenu);
+            this.groupRightsAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupRightsAvailable.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupRightsAvailable.Location = new System.Drawing.Point(40, 796);
+            this.groupRightsAvailable.Name = "groupRightsAvailable";
+            this.groupRightsAvailable.Size = new System.Drawing.Size(1650, 668);
+            this.groupRightsAvailable.TabIndex = 559;
+            this.groupRightsAvailable.TabStop = false;
+            this.groupRightsAvailable.Text = "List of Accessible Rights Active";
+            this.groupRightsAvailable.Visible = false;
             // 
             // lbltotalGrandChildActive
             // 
@@ -586,27 +624,28 @@ namespace ULTRAMAVERICK.Forms.Users
             this.listBoxGrandChildTag.Name = "listBoxGrandChildTag";
             this.listBoxGrandChildTag.Size = new System.Drawing.Size(713, 450);
             this.listBoxGrandChildTag.TabIndex = 560;
+            this.listBoxGrandChildTag.DoubleClick += new System.EventHandler(this.listBoxGrandChildTag_DoubleClick);
             // 
             // dgvTagParentMenu
             // 
             this.dgvTagParentMenu.AllowUserToAddRows = false;
             this.dgvTagParentMenu.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            this.dgvTagParentMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle66.BackColor = System.Drawing.SystemColors.Control;
+            this.dgvTagParentMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle66;
             this.dgvTagParentMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTagParentMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTagParentMenu.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTagParentMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTagParentMenu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTagParentMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTagParentMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
             this.dgvTagParentMenu.ColumnHeadersHeight = 25;
             this.dgvTagParentMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTagParentMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -614,33 +653,33 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_name,
             this.user_rights_name,
             this.user_rights_details_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTagParentMenu.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTagParentMenu.DefaultCellStyle = dataGridViewCellStyle68;
             this.dgvTagParentMenu.Enabled = false;
             this.dgvTagParentMenu.GridColor = System.Drawing.Color.Black;
             this.dgvTagParentMenu.Location = new System.Drawing.Point(460, 199);
             this.dgvTagParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvTagParentMenu.Name = "dgvTagParentMenu";
             this.dgvTagParentMenu.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTagParentMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle69.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTagParentMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle69;
             this.dgvTagParentMenu.RowHeadersWidth = 50;
             this.dgvTagParentMenu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dgvTagParentMenu.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle70.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle70.ForeColor = System.Drawing.Color.Black;
+            this.dgvTagParentMenu.RowsDefaultCellStyle = dataGridViewCellStyle70;
             this.dgvTagParentMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTagParentMenu.Size = new System.Drawing.Size(689, 417);
             this.dgvTagParentMenu.TabIndex = 561;
@@ -725,6 +764,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStrip2.Size = new System.Drawing.Size(1644, 52);
             this.toolStrip2.TabIndex = 428;
             this.toolStrip2.Text = "toolStrip2";
+            this.toolStrip2.Visible = false;
             // 
             // btnUpdateTheMenu
             // 
@@ -771,136 +811,19 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelUpdateMenu.Visible = false;
             this.btnCancelUpdateMenu.Click += new System.EventHandler(this.btnCancelUpdateMenu_Click);
             // 
-            // GBTagMenu
-            // 
-            this.GBTagMenu.Controls.Add(this.listBoxParentTag);
-            this.GBTagMenu.Controls.Add(this.txtparentidmenu);
-            this.GBTagMenu.Controls.Add(this.label5);
-            this.GBTagMenu.Controls.Add(this.label6);
-            this.GBTagMenu.Controls.Add(this.toolStripTagMenu);
-            this.GBTagMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBTagMenu.ForeColor = System.Drawing.SystemColors.Control;
-            this.GBTagMenu.Location = new System.Drawing.Point(894, 127);
-            this.GBTagMenu.Name = "GBTagMenu";
-            this.GBTagMenu.Size = new System.Drawing.Size(796, 593);
-            this.GBTagMenu.TabIndex = 560;
-            this.GBTagMenu.TabStop = false;
-            this.GBTagMenu.Text = "List of Tagged Menu";
-            // 
-            // listBoxParentTag
-            // 
-            this.listBoxParentTag.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxParentTag.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxParentTag.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxParentTag.FormattingEnabled = true;
-            this.listBoxParentTag.ItemHeight = 50;
-            this.listBoxParentTag.Location = new System.Drawing.Point(49, 103);
-            this.listBoxParentTag.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.listBoxParentTag.Name = "listBoxParentTag";
-            this.listBoxParentTag.Size = new System.Drawing.Size(713, 450);
-            this.listBoxParentTag.TabIndex = 561;
-            this.listBoxParentTag.DoubleClick += new System.EventHandler(this.listBoxParentTag_DoubleClick);
-            // 
             // txtparentidmenu
             // 
             this.txtparentidmenu.BackColor = System.Drawing.Color.White;
             this.txtparentidmenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtparentidmenu.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtparentidmenu.Location = new System.Drawing.Point(489, 33);
+            this.txtparentidmenu.Location = new System.Drawing.Point(1292, 14);
             this.txtparentidmenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtparentidmenu.MaxLength = 100;
             this.txtparentidmenu.Name = "txtparentidmenu";
             this.txtparentidmenu.ReadOnly = true;
             this.txtparentidmenu.Size = new System.Drawing.Size(243, 32);
             this.txtparentidmenu.TabIndex = 563;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(1214, 540);
-            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 39);
-            this.label5.TabIndex = 559;
-            this.label5.Text = "CCC";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(951, 537);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(247, 39);
-            this.label6.TabIndex = 559;
-            this.label6.Text = "Total Records :";
-            // 
-            // toolStripTagMenu
-            // 
-            this.toolStripTagMenu.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripTagMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStripTagMenu.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStripTagMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton6,
-            this.toolStripButton7,
-            this.toolStripButton8,
-            this.ToolDeleteTagMenu,
-            this.toolStripButton10});
-            this.toolStripTagMenu.Location = new System.Drawing.Point(3, 538);
-            this.toolStripTagMenu.Name = "toolStripTagMenu";
-            this.toolStripTagMenu.Size = new System.Drawing.Size(790, 52);
-            this.toolStripTagMenu.TabIndex = 428;
-            this.toolStripTagMenu.Text = "toolStrip3";
-            this.toolStripTagMenu.Visible = false;
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.toolStripButton6.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(122, 45);
-            this.toolStripButton6.Text = "&New";
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(112, 45);
-            this.toolStripButton7.Text = "&Edit";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(123, 45);
-            this.toolStripButton8.Text = "&Save";
-            this.toolStripButton8.Visible = false;
-            // 
-            // ToolDeleteTagMenu
-            // 
-            this.ToolDeleteTagMenu.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.ToolDeleteTagMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolDeleteTagMenu.Name = "ToolDeleteTagMenu";
-            this.ToolDeleteTagMenu.Size = new System.Drawing.Size(148, 45);
-            this.ToolDeleteTagMenu.Text = "&Delete";
-            this.ToolDeleteTagMenu.Click += new System.EventHandler(this.ToolDeleteTagMenu_Click);
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.Image = global::ULTRAMAVERICK.Properties.Resources.Dashboard;
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(150, 45);
-            this.toolStripButton10.Text = "&Cancel";
-            this.toolStripButton10.Visible = false;
+            this.txtparentidmenu.Visible = false;
             // 
             // cboParentMenu
             // 
@@ -924,41 +847,44 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblparentmenuid.BackColor = System.Drawing.Color.Transparent;
             this.lblparentmenuid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblparentmenuid.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblparentmenuid.Location = new System.Drawing.Point(1233, 52);
+            this.lblparentmenuid.Location = new System.Drawing.Point(616, 9);
             this.lblparentmenuid.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblparentmenuid.Name = "lblparentmenuid";
             this.lblparentmenuid.Size = new System.Drawing.Size(161, 39);
             this.lblparentmenuid.TabIndex = 560;
             this.lblparentmenuid.Text = "Parent ID";
+            this.lblparentmenuid.Visible = false;
             this.lblparentmenuid.Click += new System.EventHandler(this.lblparentmenuid_Click);
             // 
-            // GbSelectionSide
+            // btnCancelParentMenuUpdate
             // 
-            this.GbSelectionSide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.GbSelectionSide.Controls.Add(this.btnUnSelectAlGrandChild);
-            this.GbSelectionSide.Controls.Add(this.btnSelectAlGrandChild);
-            this.GbSelectionSide.Controls.Add(this.txtchildid);
-            this.GbSelectionSide.Controls.Add(this.btnTaggingGchild);
-            this.GbSelectionSide.Controls.Add(this.dgvGrandChild);
-            this.GbSelectionSide.Controls.Add(this.label2);
-            this.GbSelectionSide.Controls.Add(this.lbltotalMenu);
-            this.GbSelectionSide.Controls.Add(this.dgvParentMenu);
-            this.GbSelectionSide.Controls.Add(this.label10);
-            this.GbSelectionSide.Controls.Add(this.dataView);
-            this.GbSelectionSide.Controls.Add(this.btnUnselectAll);
-            this.GbSelectionSide.Controls.Add(this.label11);
-            this.GbSelectionSide.Controls.Add(this.btnSelectAll);
-            this.GbSelectionSide.Controls.Add(this.cboParentMenu);
-            this.GbSelectionSide.Controls.Add(this.lblAvailableMenu);
-            this.GbSelectionSide.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbSelectionSide.ForeColor = System.Drawing.SystemColors.Control;
-            this.GbSelectionSide.Location = new System.Drawing.Point(1752, 18);
-            this.GbSelectionSide.Name = "GbSelectionSide";
-            this.GbSelectionSide.Size = new System.Drawing.Size(1030, 1446);
-            this.GbSelectionSide.TabIndex = 562;
-            this.GbSelectionSide.TabStop = false;
-            this.GbSelectionSide.Text = "List of Available Menu";
-            this.GbSelectionSide.Visible = false;
+            this.btnCancelParentMenuUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelParentMenuUpdate.Controls.Add(this.txtmenuid);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.txtIDParent);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.btnUnSelectAlGrandChild);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.btnSelectAlGrandChild);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.txtchildid);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.btnTaggingGchild);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.dgvGrandChild);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.label2);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.lbltotalMenu);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.dgvParentMenu);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.label10);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.dataView);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.btnUnselectAll);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.label11);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.btnSelectAll);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.cboParentMenu);
+            this.btnCancelParentMenuUpdate.Controls.Add(this.lblAvailableMenu);
+            this.btnCancelParentMenuUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelParentMenuUpdate.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancelParentMenuUpdate.Location = new System.Drawing.Point(1752, 18);
+            this.btnCancelParentMenuUpdate.Name = "btnCancelParentMenuUpdate";
+            this.btnCancelParentMenuUpdate.Size = new System.Drawing.Size(1030, 1446);
+            this.btnCancelParentMenuUpdate.TabIndex = 562;
+            this.btnCancelParentMenuUpdate.TabStop = false;
+            this.btnCancelParentMenuUpdate.Text = "List of Available Menu";
+            this.btnCancelParentMenuUpdate.Visible = false;
             // 
             // btnUnSelectAlGrandChild
             // 
@@ -1011,6 +937,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtchildid.ReadOnly = true;
             this.txtchildid.Size = new System.Drawing.Size(243, 32);
             this.txtchildid.TabIndex = 564;
+            this.txtchildid.Visible = false;
             this.txtchildid.TextChanged += new System.EventHandler(this.txtchildid_TextChanged);
             // 
             // btnTaggingGchild
@@ -1036,51 +963,51 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.dgvGrandChild.AllowUserToAddRows = false;
             this.dgvGrandChild.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            this.dgvGrandChild.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Control;
+            this.dgvGrandChild.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle71;
             this.dgvGrandChild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGrandChild.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGrandChild.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvGrandChild.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGrandChild.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChild.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle72.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle72.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChild.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle72;
             this.dgvGrandChild.ColumnHeadersHeight = 58;
             this.dgvGrandChild.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvGrandChild.ColumnHeadersVisible = false;
             this.dgvGrandChild.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn2});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGrandChild.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle73.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle73.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle73.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle73.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrandChild.DefaultCellStyle = dataGridViewCellStyle73;
             this.dgvGrandChild.GridColor = System.Drawing.Color.Black;
             this.dgvGrandChild.Location = new System.Drawing.Point(32, 1010);
             this.dgvGrandChild.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvGrandChild.Name = "dgvGrandChild";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChild.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle74.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle74.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle74.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChild.RowHeadersDefaultCellStyle = dataGridViewCellStyle74;
             this.dgvGrandChild.RowHeadersWidth = 50;
             this.dgvGrandChild.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvGrandChild.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle75.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle75.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvGrandChild.RowsDefaultCellStyle = dataGridViewCellStyle75;
             this.dgvGrandChild.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGrandChild.Size = new System.Drawing.Size(957, 352);
             this.dgvGrandChild.TabIndex = 563;
@@ -1129,52 +1056,53 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.dgvParentMenu.AllowUserToAddRows = false;
             this.dgvParentMenu.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            this.dgvParentMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle76.BackColor = System.Drawing.SystemColors.Control;
+            this.dgvParentMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle76;
             this.dgvParentMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvParentMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvParentMenu.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvParentMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvParentMenu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParentMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle77.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle77.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParentMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
             this.dgvParentMenu.ColumnHeadersHeight = 58;
             this.dgvParentMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParentMenu.ColumnHeadersVisible = false;
             this.dgvParentMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParentMenu.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle78.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle78.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle78.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParentMenu.DefaultCellStyle = dataGridViewCellStyle78;
             this.dgvParentMenu.GridColor = System.Drawing.Color.Black;
             this.dgvParentMenu.Location = new System.Drawing.Point(32, 79);
             this.dgvParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvParentMenu.Name = "dgvParentMenu";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParentMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dgvParentMenu.ReadOnly = true;
+            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle79.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle79.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParentMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle79;
             this.dgvParentMenu.RowHeadersWidth = 50;
             this.dgvParentMenu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvParentMenu.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle80.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle80.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvParentMenu.RowsDefaultCellStyle = dataGridViewCellStyle80;
             this.dgvParentMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvParentMenu.Size = new System.Drawing.Size(969, 300);
             this.dgvParentMenu.TabIndex = 560;
@@ -1182,14 +1110,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvParentMenu.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvParentMenu_CurrentCellDirtyStateChanged);
             this.dgvParentMenu.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvParentMenu_RowPostPaint);
             this.dgvParentMenu.DoubleClick += new System.EventHandler(this.dgvParentMenu_DoubleClick);
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Checklist";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 12;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Width = 12;
             // 
             // label10
             // 
@@ -1231,6 +1151,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblUserID.Size = new System.Drawing.Size(133, 39);
             this.lblUserID.TabIndex = 563;
             this.lblUserID.Text = "User ID";
+            this.lblUserID.Visible = false;
             // 
             // lblFirstName
             // 
@@ -1240,7 +1161,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFirstName.Location = new System.Drawing.Point(1436, -1);
+            this.lblFirstName.Location = new System.Drawing.Point(788, 9);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(183, 39);
@@ -1248,18 +1169,100 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblFirstName.Text = "First Name";
             this.lblFirstName.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(945, 534);
+            this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(304, 67);
+            this.button1.TabIndex = 566;
+            this.button1.Text = "&Cancel Menu";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtIDParent
+            // 
+            this.txtIDParent.BackColor = System.Drawing.Color.White;
+            this.txtIDParent.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIDParent.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDParent.Location = new System.Drawing.Point(267, 43);
+            this.txtIDParent.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtIDParent.MaxLength = 100;
+            this.txtIDParent.Name = "txtIDParent";
+            this.txtIDParent.ReadOnly = true;
+            this.txtIDParent.Size = new System.Drawing.Size(243, 32);
+            this.txtIDParent.TabIndex = 567;
+            // 
+            // txtParentName
+            // 
+            this.txtParentName.BackColor = System.Drawing.Color.White;
+            this.txtParentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtParentName.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtParentName.Location = new System.Drawing.Point(1040, 26);
+            this.txtParentName.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtParentName.MaxLength = 100;
+            this.txtParentName.Name = "txtParentName";
+            this.txtParentName.ReadOnly = true;
+            this.txtParentName.Size = new System.Drawing.Size(243, 32);
+            this.txtParentName.TabIndex = 565;
+            // 
+            // txtmenuid
+            // 
+            this.txtmenuid.BackColor = System.Drawing.Color.White;
+            this.txtmenuid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmenuid.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmenuid.Location = new System.Drawing.Point(11, 37);
+            this.txtmenuid.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtmenuid.MaxLength = 100;
+            this.txtmenuid.Name = "txtmenuid";
+            this.txtmenuid.ReadOnly = true;
+            this.txtmenuid.Size = new System.Drawing.Size(243, 32);
+            this.txtmenuid.TabIndex = 568;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Checklist";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 12;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
+            this.dataGridViewCheckBoxColumn1.Width = 12;
+            // 
+            // txtChildName
+            // 
+            this.txtChildName.BackColor = System.Drawing.Color.White;
+            this.txtChildName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtChildName.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChildName.Location = new System.Drawing.Point(144, 58);
+            this.txtChildName.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtChildName.MaxLength = 100;
+            this.txtChildName.Name = "txtChildName";
+            this.txtChildName.ReadOnly = true;
+            this.txtChildName.Size = new System.Drawing.Size(243, 32);
+            this.txtChildName.TabIndex = 567;
+            // 
             // frmUserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(2797, 1502);
+            this.Controls.Add(this.txtparentidmenu);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblUserID);
-            this.Controls.Add(this.GbSelectionSide);
+            this.Controls.Add(this.btnCancelParentMenuUpdate);
             this.Controls.Add(this.lblparentmenuid);
-            this.Controls.Add(this.GBTagMenu);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupRightsAvailable);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.metroButtonDelete);
             this.Controls.Add(this.btnRemoveMenu);
@@ -1276,17 +1279,13 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupBox2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupRightsAvailable.ResumeLayout(false);
+            this.groupRightsAvailable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.GBTagMenu.ResumeLayout(false);
-            this.GBTagMenu.PerformLayout();
-            this.toolStripTagMenu.ResumeLayout(false);
-            this.toolStripTagMenu.PerformLayout();
-            this.GbSelectionSide.ResumeLayout(false);
-            this.GbSelectionSide.PerformLayout();
+            this.btnCancelParentMenuUpdate.ResumeLayout(false);
+            this.btnCancelParentMenuUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrandChild)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParentMenu)).EndInit();
             this.ResumeLayout(false);
@@ -1318,7 +1317,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.ToolStripButton btnCancelTool;
         private System.Windows.Forms.Label lblrecordDesc;
         private System.Windows.Forms.Label lbltotalrecordsrights;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupRightsAvailable;
         private System.Windows.Forms.Label lbltotalChildActive;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStrip toolStrip2;
@@ -1327,20 +1326,10 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton btnCancelUpdateMenu;
-        private System.Windows.Forms.GroupBox GBTagMenu;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ToolStrip toolStripTagMenu;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton ToolDeleteTagMenu;
-        private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ComboBox cboParentMenu;
         private System.Windows.Forms.Label lblparentmenuid;
-        private System.Windows.Forms.GroupBox GbSelectionSide;
+        private System.Windows.Forms.GroupBox btnCancelParentMenuUpdate;
         private System.Windows.Forms.DataGridView dgvParentMenu;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvTagParentMenu;
@@ -1365,5 +1354,12 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Button btnSelectAlGrandChild;
         internal System.Windows.Forms.Button btnUnSelectAlGrandChild;
+        internal System.Windows.Forms.Button btnUpdateRequest;
+        internal System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtIDParent;
+        private System.Windows.Forms.TextBox txtParentName;
+        private System.Windows.Forms.TextBox txtmenuid;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.TextBox txtChildName;
     }
 }
