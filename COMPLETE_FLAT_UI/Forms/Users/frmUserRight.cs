@@ -80,7 +80,7 @@ namespace ULTRAMAVERICK.Forms.Users
         public void loadMenu_byUsers_GChildTagged()
         {
 
-            //GetMenuByUsers
+            //KIKI
             ready = false;
             xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, 0);
             ready = true;
@@ -493,17 +493,19 @@ namespace ULTRAMAVERICK.Forms.Users
                     {
 
 
-                      
-                            //p_id = Convert.ToInt32(listBoxParentTag.SelectedValue.ToString());
+
+                        //p_id = Convert.ToInt32(listBoxParentTag.SelectedValue.ToString());
+                        if (listBoxParentTag.Items.Count > 0)
+                        {
                             var SelectedDataRowParent = (listBoxParentTag.SelectedItem as DataRowView)["parent_id"].ToString();
 
 
 
 
 
-                        dv.RowFilter = "count = " + SelectedDataRowParent + "";
-                        //dv.RowFilter = "count = '" + lblparentmenuid.Text + "'";
-
+                            dv.RowFilter = "count = " + SelectedDataRowParent + "";
+                            //dv.RowFilter = "count = '" + lblparentmenuid.Text + "'";
+                        }
                     }
                     else if (myglobal.global_module == "VISITORS")
                     {
@@ -535,6 +537,8 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             try
             {
+
+
                 if (dset_emp_grandchildTagging.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_grandchildTagging.Tables[0]);
@@ -545,7 +549,16 @@ namespace ULTRAMAVERICK.Forms.Users
                     else if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "parent_menu = '" + txtchildid.Text + "'";
+                        if (ListViewmenu.Items.Count > 0)
+                        {
+
+                            var SelectedDataRowParent = (ListViewmenu.SelectedItem as DataRowView)["menu_id"].ToString();
+
+
+                            dv.RowFilter = "parent_menu = " + SelectedDataRowParent + "";
+
+                        }
+                        //dv.RowFilter = "parent_menu = '" + txtchildid.Text + "'";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -1544,56 +1557,56 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnTaggingGchild_Click(object sender, EventArgs e)
         {
-            int x = 0;
-            for (int i = 0; i < dgvGrandChild.RowCount; i++)
-            {
-                if (Convert.ToBoolean(dgvGrandChild.Rows[i].Cells[0].Value))
-                    x++;
-            }
+            //int x = 0;
+            //for (int i = 0; i < dgvGrandChild.RowCount; i++)
+            //{
+            //    if (Convert.ToBoolean(dgvGrandChild.Rows[i].Cells[0].Value))
+            //        x++;
+            //}
 
-            if (x <= 0)
-            {
-                MessageBox.Show("Please select a menu before updating.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //if (x <= 0)
+            //{
+            //    MessageBox.Show("Please select a menu before updating.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
                 showvalue();
-                for (int n = 0; n < dgvGrandChild.RowCount; n++)
-                {
-                    if (Convert.ToBoolean(dgvGrandChild.Rows[n].Cells[0].Value))
-                    {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms_grandChild", 0, p_id, Convert.ToInt32(dgvGrandChild.Rows[n].Cells[1].Value));
-                        if (dSet.Tables[0].Rows.Count > 0)
-                        {
-                            string temp = dSet.Tables[0].Rows[0][2].ToString();
-                            //MessageBox.Show("This menu is already added on your rights: " + temp);
-                            AlreadyAddedOnYourParentMenu();
-                            //deselectAll();
-                            btnUnSelectAlGrandChild_Click(sender , e);
-                            return;
-                        }
-                    }
-                }
+                //for (int n = 0; n < dgvGrandChild.RowCount; n++)
+                //{
+                //    if (Convert.ToBoolean(dgvGrandChild.Rows[n].Cells[0].Value))
+                //    {
+                //        dSet.Clear();
+                //        dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms_grandChild", 0, p_id, Convert.ToInt32(dgvGrandChild.Rows[n].Cells[1].Value));
+                //        if (dSet.Tables[0].Rows.Count > 0)
+                //        {
+                //            string temp = dSet.Tables[0].Rows[0][2].ToString();
+                //            //MessageBox.Show("This menu is already added on your rights: " + temp);
+                //            AlreadyAddedOnYourParentMenu();
+                //            //deselectAll();
+                //            btnUnSelectAlGrandChild_Click(sender , e);
+                //            return;
+                //        }
+                //    }
+                //}
 
-                for (int i = 0; i < dgvGrandChild.RowCount; i++)
-                {
+                //for (int i = 0; i < dgvGrandChild.RowCount; i++)
+                //{
                     dSet.Clear();
-                    if (Convert.ToBoolean(dgvGrandChild.Rows[i].Cells[0].Value))
-                    {
-                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(dgvGrandChild.Rows[i].Cells[1].Value), "", lblUserID.Text.Trim(), "GrandChild", lblFirstName.Text.Trim(),"", "add");
-                    }
-                }
+                    //if (Convert.ToBoolean(dgvGrandChild.Rows[i].Cells[0].Value))
+                    //{
+                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(txtchildprimarymenuid.Text), "", lblUserID.Text.Trim(), "GrandChild", lblFirstName.Text.Trim(), Convert.ToString(txtchildprimarymenuid.Text), "add");
+                //    }
+                //}
 
                 //loadMenu_byUsers();
                 loadMenu_byUsers_GChildTagged();
                 SaveUpdateMenuNotifications();
                 btnUnSelectAlGrandChild_Click(sender, e);
                 btnCancelListViewMenu_Click(sender, e);
-
-            }
+            ListViewmenu_Click_1(sender, e);
+            //}
         }
 
         private void dataView_CurrentCellChanged(object sender, EventArgs e)
@@ -1754,17 +1767,24 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     showKeyGrandChild();
 
-
+                    if (listViewuser_rights.Items.Count > 0)
+                    {
+                        p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
+                    }
 
                     dSet_temp.Clear();
                     dSet_temp = objStorProc.sp_user_rights_details(pkey, "delete");
+
+
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtGChildName.Text.Trim(), "delete_LogsGChild");
 
 
                     SuccessFullyUntag();
 
                     getAllTaggedParentMenu();
                     loadMenu_byUsers_GChildTagged();
-
+                    ListViewmenu_Click_1(sender, e);
                 }
 
 
@@ -1830,6 +1850,41 @@ namespace ULTRAMAVERICK.Forms.Users
             btnUpdateTheMenu.Visible = true;
             showvalue();
             txtChildName.Text = ListViewmenu.Text;
+            load_search_GrandChildMenu();
+            ListViewmenu.Enabled = true;
+            Sample();
+        }
+
+        public void Sample()
+        {
+            ready = false;
+            var SelectedDataRowParent = (ListViewmenu.SelectedItem as DataRowView)["menu_id"].ToString();
+            xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, Convert.ToInt32(SelectedDataRowParent));
+            ready = true;
+            lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
+        }
+
+        private void dgvGrandChild_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+            if (dgvGrandChild.Rows.Count > 0)
+            {
+                if (dgvGrandChild.CurrentRow != null)
+                {
+                    if (dgvGrandChild.CurrentRow.Cells["primary_menu_id"].Value != null)
+                    {
+
+                        txtchildprimarymenuid.Text = dgvGrandChild.CurrentRow.Cells["primary_menu_id"].Value.ToString();
+
+                    }
+                }
+            }
+
+        }
+
+        private void listBoxGrandChildTag_Click(object sender, EventArgs e)
+        {
+            txtGChildName.Text = listBoxGrandChildTag.Text;
         }
     }
 }

@@ -201,7 +201,7 @@ namespace COMPLETE_FLAT_UI
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1300, 700); //Size of Windows
-
+            //btnUsers.Enabled = true;
             lblFirstName.Text = userinfo.emp_name.ToString() + userinfo.emp_lastname.ToString();// First Name Session
             //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
             lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
