@@ -30,7 +30,17 @@ namespace COMPLETE_FLAT_UI
             //Estas lineas eliminan los parpadeos del formulario o controles en la interfaz grafica (Pero no en un 100%)
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
+
+            //Material Themes
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+
         }
+
+        MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
+
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
         private const int WM_NCHITTEST = 132;
@@ -623,6 +633,20 @@ namespace COMPLETE_FLAT_UI
             frmTaggingofApprover fm = new frmTaggingofApprover();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+        } 
+
+        private void themeToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            //PanelHeader.BackColor = MaterialSkinManager.Themes.DARK;
+
+            if (themeToggle.Checked)
+            {
+                ThemeManager.Theme = MaterialSkinManager.Themes.DARK;
+            }
+            else
+            {
+                ThemeManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            }
         }
 
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------

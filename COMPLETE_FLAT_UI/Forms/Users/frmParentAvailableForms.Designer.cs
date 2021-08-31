@@ -29,9 +29,9 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lstParentMenu = new System.Windows.Forms.ListBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.lblrecordDesc = new System.Windows.Forms.Label();
@@ -49,10 +49,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedByAndUserID = new System.Windows.Forms.TextBox();
             this.lblDepartmentID = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.cboDepartmentMaterial = new System.Windows.Forms.ComboBox();
             this.txtMaterialDepartment = new MaterialSkin.Controls.MaterialTextBox();
             this.txtMaterialMenu = new MaterialSkin.Controls.MaterialTextBox();
             this.materialBtnNew = new MaterialSkin.Controls.MaterialButton();
-            this.cboDepartmentMaterial = new System.Windows.Forms.ComboBox();
             this.matBtnEDit = new MaterialSkin.Controls.MaterialButton();
             this.matBtnDelete = new MaterialSkin.Controls.MaterialButton();
             this.matBtnCancel = new MaterialSkin.Controls.MaterialButton();
@@ -242,18 +242,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgv_table.AllowUserToDeleteRows = false;
             this.dgv_table.AllowUserToResizeColumns = false;
             this.dgv_table.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_table.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_table.ColumnHeadersHeight = 45;
             this.dgv_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_table.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -266,8 +266,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgv_table.ReadOnly = true;
             this.dgv_table.RowHeadersVisible = false;
             this.dgv_table.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_table.Size = new System.Drawing.Size(267, 469);
             this.dgv_table.TabIndex = 446;
@@ -332,8 +332,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard1.Size = new System.Drawing.Size(1157, 249);
             this.materialCard1.TabIndex = 450;
             // 
+            // cboDepartmentMaterial
+            // 
+            this.cboDepartmentMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboDepartmentMaterial.FormattingEnabled = true;
+            this.cboDepartmentMaterial.Location = new System.Drawing.Point(602, 86);
+            this.cboDepartmentMaterial.Name = "cboDepartmentMaterial";
+            this.cboDepartmentMaterial.Size = new System.Drawing.Size(527, 39);
+            this.cboDepartmentMaterial.TabIndex = 587;
+            this.cboDepartmentMaterial.Visible = false;
+            this.cboDepartmentMaterial.SelectionChangeCommitted += new System.EventHandler(this.cboDepartmentMaterial_SelectionChangeCommitted_1);
+            // 
             // txtMaterialDepartment
             // 
+            this.txtMaterialDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaterialDepartment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMaterialDepartment.Depth = 0;
             this.txtMaterialDepartment.Enabled = false;
@@ -385,16 +397,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialBtnNew.UseAccentColor = false;
             this.materialBtnNew.UseVisualStyleBackColor = true;
             this.materialBtnNew.Click += new System.EventHandler(this.materialBtnNew_Click);
-            // 
-            // cboDepartmentMaterial
-            // 
-            this.cboDepartmentMaterial.FormattingEnabled = true;
-            this.cboDepartmentMaterial.Location = new System.Drawing.Point(602, 88);
-            this.cboDepartmentMaterial.Name = "cboDepartmentMaterial";
-            this.cboDepartmentMaterial.Size = new System.Drawing.Size(527, 39);
-            this.cboDepartmentMaterial.TabIndex = 587;
-            this.cboDepartmentMaterial.Visible = false;
-            this.cboDepartmentMaterial.SelectionChangeCommitted += new System.EventHandler(this.cboDepartmentMaterial_SelectionChangeCommitted_1);
             // 
             // matBtnEDit
             // 
