@@ -64,7 +64,7 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(100, 148);
+            this.metroPanel1.Location = new System.Drawing.Point(88, 202);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(630, 230);
             this.metroPanel1.TabIndex = 2;
@@ -116,7 +116,7 @@
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(809, 147);
+            this.metroPanel2.Location = new System.Drawing.Point(797, 201);
             this.metroPanel2.Name = "metroPanel2";
             this.metroPanel2.Size = new System.Drawing.Size(630, 230);
             this.metroPanel2.TabIndex = 3;
@@ -168,7 +168,7 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(1521, 148);
+            this.metroPanel3.Location = new System.Drawing.Point(1509, 202);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(630, 230);
             this.metroPanel3.TabIndex = 4;
@@ -221,7 +221,7 @@
             this.metroPanel4.HorizontalScrollbarBarColor = true;
             this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(2241, 148);
+            this.metroPanel4.Location = new System.Drawing.Point(2229, 202);
             this.metroPanel4.Name = "metroPanel4";
             this.metroPanel4.Size = new System.Drawing.Size(630, 230);
             this.metroPanel4.TabIndex = 5;
@@ -268,15 +268,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(3007, 1407);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(2926, 1368);
+            this.ControlBox = false;
             this.Controls.Add(this.metroPanel4);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.metroPanel3);
             this.Controls.Add(this.metroPanel2);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.MinimizeBox = false;
             this.Name = "FormLogo";
-            this.Text = "FormLogo";
+            this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.FormLogo_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

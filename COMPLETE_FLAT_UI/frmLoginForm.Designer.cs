@@ -30,62 +30,22 @@ namespace COMPLETE_FLAT_UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginForm));
-            this.BarraTitulo = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.BtnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.BarraTitulo.SuspendLayout();
+            this.txtMaterialUsername = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.txtMaterialPassword = new MaterialSkin.Controls.MaterialTextBox();
+            this.MaterialLogin = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.materialCard3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BarraTitulo
-            // 
-            this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.BarraTitulo.Controls.Add(this.label6);
-            this.BarraTitulo.Controls.Add(this.BtnClose);
-            this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1326, 91);
-            this.BarraTitulo.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(17, 19);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(234, 39);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Ultra Maverick";
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnClose.FlatAppearance.BorderSize = 0;
-            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClose.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.BtnClose.Location = new System.Drawing.Point(1224, 0);
-            this.BtnClose.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(101, 91);
-            this.BtnClose.TabIndex = 4;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ULTRAMAVERICK.Properties.Resources.icono_cliente;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 145);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(45, 51);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(368, 365);
@@ -117,25 +77,6 @@ namespace COMPLETE_FLAT_UI
             this.lblPassword.TabIndex = 18;
             this.lblPassword.Text = "Password:";
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(666, 221);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(519, 45);
-            this.txtUsername.TabIndex = 19;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(663, 348);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(519, 45);
-            this.txtPassword.TabIndex = 20;
-            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.Window;
@@ -144,7 +85,7 @@ namespace COMPLETE_FLAT_UI
             this.btnLogin.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(982, 457);
+            this.btnLogin.Location = new System.Drawing.Point(136, 683);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(200, 67);
@@ -152,46 +93,110 @@ namespace COMPLETE_FLAT_UI
             this.btnLogin.Text = "&Login";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Visible = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // txtMaterialUsername
+            // 
+            this.txtMaterialUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaterialUsername.Depth = 0;
+            this.txtMaterialUsername.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtMaterialUsername.Hint = "Username";
+            this.txtMaterialUsername.Location = new System.Drawing.Point(541, 115);
+            this.txtMaterialUsername.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtMaterialUsername.MaxLength = 50;
+            this.txtMaterialUsername.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtMaterialUsername.Multiline = false;
+            this.txtMaterialUsername.Name = "txtMaterialUsername";
+            this.txtMaterialUsername.Size = new System.Drawing.Size(656, 50);
+            this.txtMaterialUsername.TabIndex = 487;
+            this.txtMaterialUsername.Text = "";
+            // 
+            // materialCard3
+            // 
+            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.txtMaterialPassword);
+            this.materialCard3.Controls.Add(this.MaterialLogin);
+            this.materialCard3.Controls.Add(this.txtMaterialUsername);
+            this.materialCard3.Controls.Add(this.pictureBox1);
+            this.materialCard3.Depth = 0;
+            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard3.Location = new System.Drawing.Point(27, 213);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(37, 33, 37, 33);
+            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard3.Name = "materialCard3";
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(37, 33, 37, 33);
+            this.materialCard3.Size = new System.Drawing.Size(1295, 574);
+            this.materialCard3.TabIndex = 488;
+            // 
+            // txtMaterialPassword
+            // 
+            this.txtMaterialPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaterialPassword.Depth = 0;
+            this.txtMaterialPassword.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtMaterialPassword.Hint = "Password";
+            this.txtMaterialPassword.Location = new System.Drawing.Point(541, 286);
+            this.txtMaterialPassword.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtMaterialPassword.MaxLength = 50;
+            this.txtMaterialPassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtMaterialPassword.Multiline = false;
+            this.txtMaterialPassword.Name = "txtMaterialPassword";
+            this.txtMaterialPassword.Size = new System.Drawing.Size(656, 50);
+            this.txtMaterialPassword.TabIndex = 488;
+            this.txtMaterialPassword.Text = "";
+            this.txtMaterialPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaterialPassword_KeyDown);
+            // 
+            // MaterialLogin
+            // 
+            this.MaterialLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MaterialLogin.Depth = 0;
+            this.MaterialLogin.DrawShadows = true;
+            this.MaterialLogin.HighEmphasis = true;
+            this.MaterialLogin.Icon = null;
+            this.MaterialLogin.Location = new System.Drawing.Point(1034, 470);
+            this.MaterialLogin.Margin = new System.Windows.Forms.Padding(11, 14, 11, 14);
+            this.MaterialLogin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MaterialLogin.Name = "MaterialLogin";
+            this.MaterialLogin.Size = new System.Drawing.Size(68, 36);
+            this.MaterialLogin.TabIndex = 2;
+            this.MaterialLogin.Text = "LOG IN";
+            this.MaterialLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MaterialLogin.UseAccentColor = false;
+            this.MaterialLogin.UseVisualStyleBackColor = true;
+            this.MaterialLogin.Click += new System.EventHandler(this.MaterialLogin_Click);
             // 
             // frmLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1326, 616);
-            this.ControlBox = false;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1371, 828);
+            this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.BarraTitulo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
             this.Load += new System.EventHandler(this.frmLoginForm_Load);
-            this.BarraTitulo.ResumeLayout(false);
-            this.BarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.materialCard3.ResumeLayout(false);
+            this.materialCard3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel BarraTitulo;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
-        public System.Windows.Forms.TextBox txtUsername;
-        public System.Windows.Forms.TextBox txtPassword;
         internal System.Windows.Forms.Button btnLogin;
+        private MaterialSkin.Controls.MaterialTextBox txtMaterialUsername;
+        private MaterialSkin.Controls.MaterialCard materialCard3;
+        private MaterialSkin.Controls.MaterialButton MaterialLogin;
+        private MaterialSkin.Controls.MaterialTextBox txtMaterialPassword;
     }
 }

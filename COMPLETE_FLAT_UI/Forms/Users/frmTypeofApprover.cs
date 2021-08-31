@@ -11,10 +11,12 @@ using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmTypeofApprover : Form
+    public partial class frmTypeofApprover : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -53,29 +55,6 @@ namespace ULTRAMAVERICK.Forms.Users
             lbltotalrecords.Text = lstTypeofApprovers.Items.Count.ToString();
         }
 
-        private void btnAddTool_Click(object sender, EventArgs e)
-        {
-            mode = "add";
-            btnUpdateTool.Visible = true;
-            btnAddTool.Visible = false;
-
-           lstTypeofApprovers.Enabled = false;
-
-            txtnewusertype.Enabled = true;
-            txtnewusertype.Text = string.Empty;
-            btnCancelTool.Visible = true;
-
-
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            btnUpdateTool.Visible = true;
-            btnEditTool.Visible = false;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
-       
-            txtnewusertype.Focus();
-        }
 
         private void btnCancelTool_Click(object sender, EventArgs e)
         {
@@ -567,6 +546,77 @@ namespace ULTRAMAVERICK.Forms.Users
         private void BtnModuleClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAddTool_Click_1(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+            btnDeleteTool.Visible = false;
+            lstTypeofApprovers.Enabled = false;
+
+            txtnewusertype.Enabled = true;
+            txtnewusertype.Text = string.Empty;
+            btnCancelTool.Visible = true;
+
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+
+            txtnewusertype.Focus();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            lstTypeofApprovers.Enabled = false;
+
+            if (lstTypeofApprovers.Items.Count > 0)
+            {
+                mode = "edit";
+                txtnewusertype.Enabled = true;
+                txtnewusertype.ReadOnly = false;
+
+
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
+
+                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            }
+        }
+
+        private void materialButton1_Click_1(object sender, EventArgs e)
+        {
+            metroButtonSave_Click(sender, e);
+        }
+
+        private void materialButton1_Click_2(object sender, EventArgs e)
+        {
+            lstTypeofApprovers.Enabled = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
+            txtnewusertype.Enabled = false;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            btnDeleteTool.Visible = true;
+        }
+
+        private void materialButton1_Click_3(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
         }
     }
 }

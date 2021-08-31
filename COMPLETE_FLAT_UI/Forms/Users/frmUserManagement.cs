@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmUserManagement : Form
+    public partial class frmUserManagement : MaterialForm
     {
         //Main Constructor Bugok
         myclasses xClass = new myclasses();
@@ -193,8 +195,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void lstUsers_Click(object sender, EventArgs e)
         {
-            doSearch();
+        
             showvalue();
+            doSearch();
+            showActiveUser();
         }
 
         private void showvalue()
@@ -214,11 +218,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void EmptyTextField()
         {
             txtname.Text = String.Empty;
-             txtLastName.Text = String.Empty;
+            txtLastName.Text = String.Empty;
             cbousertype.Text = String.Empty;
             cboPosition.Text = String.Empty;
             txtuser.Text = String.Empty;
-           txtpassword.Text = String.Empty;
+            txtpassword.Text = String.Empty;
             cmbLocation.Text = String.Empty;
             cmbNotif.Text = String.Empty;
             cbodepartment.Text = string.Empty;
@@ -355,7 +359,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_userfile(0, 
-                        Convert.ToInt32(cbousertype.SelectedValue.ToString()), 
+                        Convert.ToInt32(lblrightsID.Text), 
                         txtuser.Text.Trim(), 
                         txtpassword.Text.Trim(), 
                         txtname.Text.Trim(), 
@@ -754,20 +758,49 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void lstUsers_CursorChanged(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+
+            if(mode == "add")
+            {
+
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
+        
         }
 
         private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+
+            if (mode == "add")
+            {
+
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
+
         }
 
         private void lstUsers_SelectedValueChanged(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+
+            if (mode == "add")
+            {
+
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
+
+
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -830,8 +863,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboRequestorType_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (cboRequestorType.Text == "Requestor")
+            {
+                materialCard3RequestorSetup.Visible = true;
+            }
+            else
+            {
+                materialCard3RequestorSetup.Visible = false;
+            }
 
-      
         }
 
         private void btnAddTool_Click(object sender, EventArgs e)
@@ -931,11 +971,165 @@ namespace ULTRAMAVERICK.Forms.Users
         private void cboRequestorType_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblRequestorTypeID.Text = cboRequestorType.SelectedValue.ToString();
+       
         }
 
         private void cbodepartment_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+
+            txtname.Focus();
+            txtname.Enabled = true;
+
+
+            cbousertype.Enabled = true;
+            cbousertype.Text = String.Empty;
+
+            cboUnit.Enabled = true;
+            txtpassword.Enabled = true;
+            txtpassword.Text = String.Empty;
+
+            btnDeleteTool.Visible = false;
+            txtuser.Enabled = true;
+            txtuser.Text = String.Empty;
+
+            btnEditTool.Visible = false;
+            btnUpdateTool.Visible = true;
+            txtLastName.Enabled = true;
+            disable_text(false);
+            cmbLocation.Enabled = true;
+            cmbNotif.Enabled = true;
+            btnCancelTool.Visible = true;
+            cboPosition.Enabled = true;
+            cbodepartment.Enabled = true;
+            cboRequestorType.Enabled = true;
+            EmptyTextField();
+            txtname.Text = String.Empty;
+            txtname.Focus();
+        }
+
+        private void materialButton1_Click_1(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+            lstUsers.Enabled = false;
+            txtname.Focus();
+            txtname.Enabled = true;
+            cboUnit.Text = String.Empty;
+
+            cbousertype.Enabled = true;
+            cbousertype.Text = String.Empty;
+
+            cboUnit.Enabled = true;
+            txtpassword.Enabled = true;
+            txtpassword.Text = String.Empty;
+
+            btnDeleteTool.Visible = false;
+            txtuser.Enabled = true;
+            txtuser.Text = String.Empty;
+
+            btnEditTool.Visible = false;
+            btnUpdateTool.Visible = true;
+            txtLastName.Enabled = true;
+            disable_text(false);
+            cmbLocation.Enabled = true;
+            cmbNotif.Enabled = true;
+            btnCancelTool.Visible = true;
+            cboPosition.Enabled = true;
+            cbodepartment.Enabled = true;
+            cboRequestorType.Enabled = true;
+            EmptyTextField();
+            txtname.Text = String.Empty;
+            txtname.Focus();
+        }
+
+        private void materialButton1_Click_2(object sender, EventArgs e)
+        {
+            lstUsers.Enabled = false;
+            cmbLocation.Enabled = true;
+            cmbNotif.Enabled = true;
+            if (lstUsers.Items.Count > 0)
+            {
+                mode = "edit";
+                txtname.Enabled = true;
+                txtname.ReadOnly = false;
+                cbousertype.Enabled = true;
+                txtuser.Enabled = true;
+                txtuser.ReadOnly = false;
+                txtpassword.Enabled = true;
+                txtpassword.ReadOnly = false;
+                button1.Visible = true;
+                btnEditTool.Visible = false;
+                btnCancelTool.Visible = true;
+                txtLastName.Enabled = true;
+                btnUpdateTool.Visible = true;
+                cboPosition.Enabled = true;
+                btnDeleteTool.Visible = false;
+                cboRequestorType.Enabled = true;
+            }
+        }
+
+   
+        private void materialButton1_Click_4(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
+        }
+
+        private void materialButton1_Click_3(object sender, EventArgs e)
+        {
+            metroButtonSave_Click(sender, e);
+        }
+
+        private void materialButton1_Click_5(object sender, EventArgs e)
+        {
+            btnAddTool.Visible = true;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            btnCancelTool.Visible = false;
+            cboPosition.Enabled = false;
+            txtLastName.Enabled = false;
+            cbodepartment.Enabled = false;
+            cboRequestorType.Enabled = false;
+            cboUnit.Enabled = false;
+            lstUsers.Enabled = true;
+            materialCard3RequestorSetup.Visible = false;
+            mode = "";
+        }
+
+        private void lblRequestorTypeID_Click(object sender, EventArgs e)
+        {
+  
+        }
+
+        private void lblRequestorTypeID_TextChanged(object sender, EventArgs e)
+        {
+            if (cboRequestorType.Text == "Requestor")
+            {
+                materialCard3RequestorSetup.Visible = true;
+            }
+            else
+            {
+                materialCard3RequestorSetup.Visible = false;
+            }
+        }
+
+        private void txtuser_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbousertype_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblrightsID.Text =  cbousertype.SelectedValue.ToString();
         }
     }
 }

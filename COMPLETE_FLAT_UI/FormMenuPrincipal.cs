@@ -12,10 +12,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Forms.Users;
 using ULTRAMAVERICK.Models;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace COMPLETE_FLAT_UI
 {
-    public partial class FormMenuPrincipal : Form
+    public partial class FormMenuPrincipal : MaterialForm
     {
         //Constructor
         myclasses xClass = new myclasses();
@@ -187,15 +189,20 @@ namespace COMPLETE_FLAT_UI
             Form fh = formHijo as Form;
             fh.TopLevel = false;
             fh.FormBorderStyle = FormBorderStyle.None;
-            fh.Dock = DockStyle.Fill;            
+            fh.Dock = DockStyle.Fill;
             this.panelContenedorForm.Controls.Add(fh);
             this.panelContenedorForm.Tag = fh;
             fh.Show();
         }
+
         //METODO PARA MOSTRAR FORMULARIO DE LOGO Al INICIAR ----------------------------------------------------------
         private void MostrarFormLogo()
         {
             AbrirFormEnPanel(new FormLogo());
+            //FormLogo logo = new FormLogo();
+            //logo.ShowDialog();
+
+
         }
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)

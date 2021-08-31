@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace COMPLETE_FLAT_UI
 {
-    public partial class FormLogo : Form
+    public partial class FormLogo : MaterialForm
     {
         public FormLogo()
         {

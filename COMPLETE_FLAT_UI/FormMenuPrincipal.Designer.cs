@@ -134,12 +134,12 @@
             this.panelContenedorForm.Location = new System.Drawing.Point(613, 103);
             this.panelContenedorForm.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panelContenedorForm.Name = "panelContenedorForm";
-            this.panelContenedorForm.Size = new System.Drawing.Size(2320, 1143);
+            this.panelContenedorForm.Size = new System.Drawing.Size(2320, 1202);
             this.panelContenedorForm.TabIndex = 6;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.btnApproverTagging);
             this.panel1.Controls.Add(this.lblDateFinal);
             this.panel1.Controls.Add(this.lblTimeFinal);
@@ -148,10 +148,10 @@
             this.panel1.Controls.Add(this.lbFecha);
             this.panel1.Controls.Add(this.lblHora);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(613, 1246);
+            this.panel1.Location = new System.Drawing.Point(613, 1305);
             this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2320, 185);
+            this.panel1.Size = new System.Drawing.Size(2320, 126);
             this.panel1.TabIndex = 5;
             // 
             // btnApproverTagging
@@ -161,7 +161,7 @@
             this.btnApproverTagging.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnApproverTagging.Image = ((System.Drawing.Image)(resources.GetObject("btnApproverTagging.Image")));
             this.btnApproverTagging.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApproverTagging.Location = new System.Drawing.Point(1618, 53);
+            this.btnApproverTagging.Location = new System.Drawing.Point(1568, 43);
             this.btnApproverTagging.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnApproverTagging.Name = "btnApproverTagging";
             this.btnApproverTagging.Size = new System.Drawing.Size(376, 67);
@@ -169,14 +169,15 @@
             this.btnApproverTagging.Text = "Approver Tagging";
             this.btnApproverTagging.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnApproverTagging.UseVisualStyleBackColor = false;
+            this.btnApproverTagging.Visible = false;
             this.btnApproverTagging.Click += new System.EventHandler(this.btnApproverTagging_Click);
             // 
             // lblDateFinal
             // 
             this.lblDateFinal.AutoSize = true;
             this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblDateFinal.ForeColor = System.Drawing.Color.White;
-            this.lblDateFinal.Location = new System.Drawing.Point(16, 126);
+            this.lblDateFinal.ForeColor = System.Drawing.Color.Black;
+            this.lblDateFinal.Location = new System.Drawing.Point(447, 64);
             this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblDateFinal.Name = "lblDateFinal";
             this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
@@ -187,8 +188,8 @@
             // 
             this.lblTimeFinal.AutoSize = true;
             this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeFinal.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTimeFinal.Location = new System.Drawing.Point(36, 15);
+            this.lblTimeFinal.ForeColor = System.Drawing.Color.Black;
+            this.lblTimeFinal.Location = new System.Drawing.Point(22, 23);
             this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblTimeFinal.Name = "lblTimeFinal";
             this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
@@ -389,24 +390,24 @@
             // 
             this.toolParentMenu.Enabled = false;
             this.toolParentMenu.Name = "toolParentMenu";
-            this.toolParentMenu.Size = new System.Drawing.Size(449, 54);
-            this.toolParentMenu.Text = "Parent Menu";
+            this.toolParentMenu.Size = new System.Drawing.Size(448, 54);
+            this.toolParentMenu.Text = "Major Menu";
             this.toolParentMenu.Click += new System.EventHandler(this.toolParentMenu_Click);
             // 
             // toolChildMenu
             // 
             this.toolChildMenu.Enabled = false;
             this.toolChildMenu.Name = "toolChildMenu";
-            this.toolChildMenu.Size = new System.Drawing.Size(449, 54);
-            this.toolChildMenu.Text = "Child Menu";
+            this.toolChildMenu.Size = new System.Drawing.Size(448, 54);
+            this.toolChildMenu.Text = "Sub Menu";
             this.toolChildMenu.Click += new System.EventHandler(this.toolChildMenu_Click);
             // 
             // toolGrandChildMenu
             // 
             this.toolGrandChildMenu.Enabled = false;
             this.toolGrandChildMenu.Name = "toolGrandChildMenu";
-            this.toolGrandChildMenu.Size = new System.Drawing.Size(449, 54);
-            this.toolGrandChildMenu.Text = "GrandChild Menu";
+            this.toolGrandChildMenu.Size = new System.Drawing.Size(448, 54);
+            this.toolGrandChildMenu.Text = "Modules";
             this.toolGrandChildMenu.Click += new System.EventHandler(this.toolGrandChildMenu_Click);
             // 
             // toolClosePanelSelection
@@ -713,7 +714,7 @@
             // 
             // PanelBarraTitulo
             // 
-            this.PanelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(88)))), ((int)(((byte)(152)))));
+            this.PanelBarraTitulo.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.PanelBarraTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelBarraTitulo.Controls.Add(this.btnNotificationsBell);
             this.PanelBarraTitulo.Controls.Add(this.btnMaximizedFinal);
@@ -974,8 +975,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2933, 1431);
             this.Controls.Add(this.panelContenedorPrincipal);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.MinimumSize = new System.Drawing.Size(1813, 1192);
@@ -983,6 +982,7 @@
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMenuPrincipal_Load);
             this.panelContenedorPrincipal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

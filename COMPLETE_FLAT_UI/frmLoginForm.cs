@@ -11,10 +11,12 @@ using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace COMPLETE_FLAT_UI
 {
-    public partial class frmLoginForm : Form
+    public partial class frmLoginForm : MaterialForm
     {
         FormMenuPrincipal mainMenu;
         DataSet dSet = new DataSet();
@@ -25,8 +27,14 @@ namespace COMPLETE_FLAT_UI
         public frmLoginForm()
         {
             InitializeComponent();
-        }
 
+            //var materialSkinManager = MaterialSkinManager.Instance;
+            //materialSkinManager.AddFormToManage(this);
+            //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+      
+        }
+        MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -35,22 +43,22 @@ namespace COMPLETE_FLAT_UI
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            if (txtUsername.Text.Trim() == string.Empty)
+            if (txtMaterialUsername.Text.Trim() == string.Empty)
             {
                 FilltextboxErrorNotifier();
-                txtUsername.Focus();
+                txtMaterialUsername.Focus();
                 return;
 
             }
-            if (txtPassword.Text.Trim() == string.Empty)
+            if (txtMaterialPassword.Text.Trim() == string.Empty)
             {
                 FilltextboxErrorNotifier();
-                txtPassword.Focus();
+                txtMaterialPassword.Focus();
                 return;
 
             }
             dSet.Clear();
-            dSet = objStorProc.sp_userfile(0, txtUsername.Text.Trim(), txtPassword.Text.Trim(), "", "dispossal");
+            dSet = objStorProc.sp_userfile(0, txtMaterialUsername.Text.Trim(), txtMaterialPassword.Text.Trim(), "", "dispossal");
 
 
 
@@ -58,14 +66,14 @@ namespace COMPLETE_FLAT_UI
 
             //User Stored Procedure Validate name & Password
             dSet.Clear();
-            dSet = objStorProc.sp_userfile(0, txtUsername.Text.Trim(), txtPassword.Text.Trim(), "", "validate");
+            dSet = objStorProc.sp_userfile(0, txtMaterialUsername.Text.Trim(), txtMaterialPassword.Text.Trim(), "", "validate");
 
 
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 userinfo.set_user_parameters(dSet);
-                myglobal.user_password = txtPassword.Text;
+                myglobal.user_password = txtMaterialPassword.Text;
 
                 player.SoundLocation = @"C:\MaverickReports\Fedora_Voice\Fresh-morning-Welcome-po-sa-Fe1608971554.wav";
                 player.Play();
@@ -108,31 +116,31 @@ namespace COMPLETE_FLAT_UI
         
             MetroFramework.MetroMessageBox.Show(this, "Sorry! You are not allowed to use this system invalid credentials! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //Application.Exit();
-            txtUsername.Text = String.Empty;
-            txtPassword.Text = String.Empty;
-            
-            txtUsername.Focus();
+            txtMaterialUsername.Text = String.Empty;
+            txtMaterialPassword.Text = String.Empty;
+
+            txtMaterialUsername.Focus();
 
 
         }
 
         public void StartupFocus()
         {
-            txtUsername.Focus();
+            txtMaterialUsername.Focus();
         }
         public void LoginProcedural()
         {
-            if (txtUsername.Text.Trim() == string.Empty)
+            if (txtMaterialUsername.Text.Trim() == string.Empty)
             {
                 FilltextboxErrorNotifier();
-                txtUsername.Focus();
+                txtMaterialUsername.Focus();
                 return;
 
             }
-            if (txtPassword.Text.Trim() == string.Empty)
+            if (txtMaterialPassword.Text.Trim() == string.Empty)
             {
                 FilltextboxErrorNotifier();
-                txtPassword.Focus();
+                txtMaterialPassword.Focus();
                 return;
 
             }
@@ -179,7 +187,7 @@ namespace COMPLETE_FLAT_UI
             
            
             objStorProc = xClass.g_objStoredProc.GetCollections();
-            txtUsername.Select();
+            txtMaterialUsername.Select();
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
@@ -188,6 +196,19 @@ namespace COMPLETE_FLAT_UI
             {
                 btnLogin_Click(sender, e);
             }
+        }
+
+        private void txtMaterialPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        private void MaterialLogin_Click(object sender, EventArgs e)
+        {
+            btnLogin_Click( sender,  e);
         }
     }
 }
