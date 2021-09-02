@@ -39,7 +39,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedByAndUserID = new System.Windows.Forms.TextBox();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.metroSave = new MetroFramework.Controls.MetroButton();
-            this.BtnModuleClose = new System.Windows.Forms.Button();
             this.btnAddTool = new System.Windows.Forms.ToolStripButton();
             this.btnEditTool = new System.Windows.Forms.ToolStripButton();
             this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
@@ -75,7 +74,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -111,6 +109,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedByAndUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCreatedByAndUserID.Enabled = false;
             this.txtCreatedByAndUserID.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCreatedByAndUserID.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtCreatedByAndUserID.Location = new System.Drawing.Point(1454, 68);
             this.txtCreatedByAndUserID.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtCreatedByAndUserID.MaxLength = 100;
@@ -143,20 +142,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.metroSave.UseSelectable = true;
             this.metroSave.Visible = false;
             this.metroSave.Click += new System.EventHandler(this.metroSave_Click);
-            // 
-            // BtnModuleClose
-            // 
-            this.BtnModuleClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnModuleClose.FlatAppearance.BorderSize = 0;
-            this.BtnModuleClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModuleClose.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.BtnModuleClose.Location = new System.Drawing.Point(67, 19);
-            this.BtnModuleClose.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.BtnModuleClose.Name = "BtnModuleClose";
-            this.BtnModuleClose.Size = new System.Drawing.Size(115, 103);
-            this.BtnModuleClose.TabIndex = 554;
-            this.BtnModuleClose.UseVisualStyleBackColor = true;
-            this.BtnModuleClose.Click += new System.EventHandler(this.BtnModuleClose_Click);
             // 
             // btnAddTool
             // 
@@ -193,6 +178,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtcountChildId.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcountChildId.Enabled = false;
             this.txtcountChildId.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcountChildId.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtcountChildId.Location = new System.Drawing.Point(1113, 38);
             this.txtcountChildId.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtcountChildId.MaxLength = 100;
@@ -636,18 +622,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_by.ReadOnly = true;
             this.updated_by.Width = 301;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(206, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(641, 54);
-            this.label1.TabIndex = 555;
-            this.label1.Text = "List of  GrandChild Forms Available";
-            // 
             // frmGrandChildAvailableForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -657,11 +631,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.txtCreatedByAndUserID);
             this.Controls.Add(this.metroFinalSaving);
             this.Controls.Add(this.metroSave);
-            this.Controls.Add(this.BtnModuleClose);
             this.Controls.Add(this.txtcountChildId);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Name = "frmGrandChildAvailableForms";
             this.Text = "GrandChild Available Forms";
             this.Load += new System.EventHandler(this.frmGrandChildAvailableForms_Load);
@@ -684,7 +656,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.TextBox txtCreatedByAndUserID;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         private MetroFramework.Controls.MetroButton metroSave;
-        private System.Windows.Forms.Button BtnModuleClose;
         private System.Windows.Forms.ToolStripButton btnAddTool;
         private System.Windows.Forms.ToolStripButton btnEditTool;
         private System.Windows.Forms.ToolStripButton btnUpdateTool;
@@ -709,7 +680,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvGrandChildForms;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtParentName;
         private System.Windows.Forms.Label label8;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

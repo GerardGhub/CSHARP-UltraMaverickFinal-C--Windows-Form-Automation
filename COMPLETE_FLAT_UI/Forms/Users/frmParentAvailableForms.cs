@@ -51,8 +51,17 @@ namespace ULTRAMAVERICK.Forms.Users
             getAllParentMenu(); // all Parent Menu Forms
 
             loadDepartment();  //Call the Department
+            displayUserRightsData();
         }
 
+
+        private void displayUserRightsData()      //method for loading available_menus
+        {
+   
+            xClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
+      
+
+        }
         public void loadDepartment()
         {
             ready = false;
@@ -274,6 +283,8 @@ namespace ULTRAMAVERICK.Forms.Users
                     lblDepartmentID.Text.Trim(),
                     "add");
 
+                    getAllParentMenu();
+                    matBtnNext_Click(new object(), new System.EventArgs());
                     return true;
                 }
 
@@ -672,6 +683,108 @@ namespace ULTRAMAVERICK.Forms.Users
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             metroButtonSave_Click(sender, e);
+        }
+
+        private void LastLine()
+        {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Fedora Notifications";
+            popup.ContentText = "YOU ARE ALREADY IN THE LAST LINE";
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            //popup.AnimationDuration = 1000;
+            //popup.ShowOptionsButton.ToString();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        private void InsertMajorMenuasPartial()
+        {
+
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0,
+                Convert.ToInt32(txtRightsID.Text),
+                "s",
+                "s",
+               "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
+        }
+
+        private void matBtnNext_Click(object sender, EventArgs e)
+        {
+            showvalue();
+
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0,
+                Convert.ToInt32(txtRightsID.Text),
+                "s",
+                "s",
+               "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
+
+            if (dgvUserRights.Rows.Count >= 1)
+            {
+                int i = dgvUserRights.CurrentRow.Index + 1;
+                if (i >= -1 && i < dgvUserRights.Rows.Count)
+                    dgvUserRights.CurrentCell = dgvUserRights.Rows[i].Cells[0];
+                else
+                {
+                    //LastLine();
+                    displayUserRightsData();
+                    //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
+                    //timer1_Tick(sender, e);
+                    //txtweighingscale.Focus();
+                    return;
+                }
+
+            }
+            matBtnNext_Click(sender, e);
+
+        }
+
+        private void dgvUserRights_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvUserRights.Rows.Count > 0)
+            {
+                if (dgvUserRights.CurrentRow != null)
+                {
+                    if (dgvUserRights.CurrentRow.Cells["user_rights_name"].Value != null)
+                    {
+                        //p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
+                        txtRightsID.Text = dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
+  
+                    }
+                }
+            }
         }
     }
 }

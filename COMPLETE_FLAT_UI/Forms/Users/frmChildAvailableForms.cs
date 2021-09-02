@@ -20,7 +20,7 @@ namespace ULTRAMAVERICK.Forms.Users
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
-
+        IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
@@ -45,27 +45,48 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void frmChildAvailableForms_Load(object sender, EventArgs e)
         {
-            objStorProc = xClass.g_objStoredProc.GetCollections();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             displayChildFormsData();
             loadParentMenu();
+            displayUserRightsData();
         }
+        private void displayUserRightsData()      //method for loading available_menus
+        {
 
+            xClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
+
+
+        }
 
         public void loadParentMenu()
         {
-            ready = false;
+          
+          
+            //ready = false;
             myClass.fillComboBoxDepartment(cboParentMenu, "parentform_dropdown", dSet);
-            ready = true;
+            //ready = true;
 
             txtcount.Text = cboParentMenu.SelectedValue.ToString();
+
         }
 
         private void displayChildFormsData()      //method for loading available_menus
         {
-            ready = false;
-            xClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
-            ready = true;
-            lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
+            try
+            {
+                ready = false;
+                xClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
+                ready = true;
+                lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
 
@@ -310,7 +331,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     if (saveMode())
                     {
-                        displayChildFormsData();
+                        //displayChildFormsData();
                         string tmode = mode;
 
                         if (tmode == "add")
@@ -361,6 +382,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
                 else
                 {
+
                     dSet.Clear();
                     dSet = objStorProc.sp_available_menu(0, txtmname.Text.Trim(), 
                         txtfname.Text.Trim(), 
@@ -369,7 +391,11 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtCreatedBy.Text.Trim(), 
                         txtModifiedAt.Text.Trim(), 
                         txtModifiedBy.Text.Trim(), "add");
-          
+
+                    displayChildFormsData();
+                    matBtnNext_Click(new object(), new System.EventArgs());
+                    displayUserRightsData();
+                    displayChildFormsData();
                     return true;
                 }
             }
@@ -680,6 +706,74 @@ namespace ULTRAMAVERICK.Forms.Users
             txtmname.Enabled = false;
             txtfname.Enabled = false;
             cboParentMenu.Enabled = false;
+        }
+
+        private void dgvChildForms_CurrentCellChanged_1(object sender, EventArgs e)
+        {
+            showValue();
+        }
+
+        private void metroComboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txtcount.Text = cboParentMenu.SelectedValue.ToString();
+        }
+
+        private void dgvUserRights_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvUserRights.Rows.Count > 0)
+            {
+                if (dgvUserRights.CurrentRow != null)
+                {
+                    if (dgvUserRights.CurrentRow.Cells["user_rights_name"].Value != null)
+                    {
+                        //p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
+                        txtRightsID.Text = dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
+
+                    }
+                }
+            }
+        }
+
+        private void matBtnNext_Click(object sender, EventArgs e)
+        {
+            //showValue();
+
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0,
+                Convert.ToInt32(txtRightsID.Text),
+                "s",
+                "s",
+               "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                Convert.ToInt32(p_id).ToString(), "addModuleRightsSubMenuPartial");
+
+            if (dgvUserRights.Rows.Count >= 1)
+            {
+                int i = dgvUserRights.CurrentRow.Index + 1;
+                if (i >= -1 && i < dgvUserRights.Rows.Count)
+                    dgvUserRights.CurrentCell = dgvUserRights.Rows[i].Cells[0];
+                else
+                {
+                    //LastLine();
+                    //displayUserRightsData();
+                    //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
+                    //timer1_Tick(sender, e);
+                    //txtweighingscale.Focus();
+                    return;
+                }
+
+            }
+            matBtnNext_Click(sender, e);
+        }
+
+        private void materialButton1_Click_3(object sender, EventArgs e)
+        {
+           
         }
     }
 }

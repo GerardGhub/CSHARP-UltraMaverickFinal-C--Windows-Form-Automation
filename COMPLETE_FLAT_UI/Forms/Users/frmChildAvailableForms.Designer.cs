@@ -29,15 +29,17 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCreatedAt = new System.Windows.Forms.TextBox();
             this.txtCreatedBy = new System.Windows.Forms.TextBox();
             this.txtModifiedBy = new System.Windows.Forms.TextBox();
-            this.cboParentMenu = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtModifiedAt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,16 +47,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label19 = new System.Windows.Forms.Label();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.lblrecordDesc = new System.Windows.Forms.Label();
-            this.dgvChildForms = new System.Windows.Forms.DataGridView();
-            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tagging_Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtcount = new System.Windows.Forms.TextBox();
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
@@ -69,9 +61,27 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool = new MaterialSkin.Controls.MaterialButton();
             this.btnCancelTool = new MaterialSkin.Controls.MaterialButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChildForms)).BeginInit();
+            this.dgvChildForms = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvUserRights = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboParentMenu = new MetroFramework.Controls.MetroComboBox();
+            this.txtRightsID = new System.Windows.Forms.TextBox();
+            this.matBtnNext = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tagging_Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChildForms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserRights)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCreatedAt
@@ -81,7 +91,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedAt.Enabled = false;
             this.txtCreatedAt.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCreatedAt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtCreatedAt.Location = new System.Drawing.Point(1929, 811);
+            this.txtCreatedAt.Location = new System.Drawing.Point(2395, 578);
             this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtCreatedAt.MaxLength = 100;
             this.txtCreatedAt.Name = "txtCreatedAt";
@@ -119,18 +129,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtModifiedBy.TabIndex = 178;
             this.txtModifiedBy.Visible = false;
             // 
-            // cboParentMenu
-            // 
-            this.cboParentMenu.Enabled = false;
-            this.cboParentMenu.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboParentMenu.FormattingEnabled = true;
-            this.cboParentMenu.Location = new System.Drawing.Point(119, 99);
-            this.cboParentMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.cboParentMenu.Name = "cboParentMenu";
-            this.cboParentMenu.Size = new System.Drawing.Size(503, 45);
-            this.cboParentMenu.TabIndex = 427;
-            this.cboParentMenu.SelectedValueChanged += new System.EventHandler(this.cboParentMenu_SelectedValueChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -152,7 +150,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtModifiedAt.Enabled = false;
             this.txtModifiedAt.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModifiedAt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtModifiedAt.Location = new System.Drawing.Point(1929, 889);
+            this.txtModifiedAt.Location = new System.Drawing.Point(2395, 656);
             this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtModifiedAt.MaxLength = 100;
             this.txtModifiedAt.Name = "txtModifiedAt";
@@ -166,7 +164,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(1699, 889);
+            this.label5.Location = new System.Drawing.Point(2165, 656);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(211, 46);
@@ -194,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(1722, 804);
+            this.label19.Location = new System.Drawing.Point(2188, 571);
             this.label19.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(188, 46);
@@ -208,7 +206,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbltotalrecords.Location = new System.Drawing.Point(303, 690);
+            this.lbltotalrecords.Location = new System.Drawing.Point(322, 567);
             this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(92, 39);
@@ -221,156 +219,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblrecordDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblrecordDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblrecordDesc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblrecordDesc.Location = new System.Drawing.Point(30, 690);
+            this.lblrecordDesc.Location = new System.Drawing.Point(49, 567);
             this.lblrecordDesc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblrecordDesc.Name = "lblrecordDesc";
             this.lblrecordDesc.Size = new System.Drawing.Size(247, 39);
             this.lblrecordDesc.TabIndex = 550;
             this.lblrecordDesc.Text = "Total Records :";
-            // 
-            // dgvChildForms
-            // 
-            this.dgvChildForms.AllowUserToAddRows = false;
-            this.dgvChildForms.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            this.dgvChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvChildForms.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvChildForms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvChildForms.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvChildForms.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvChildForms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvChildForms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChildForms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.menu_id,
-            this.menu_name,
-            this.menu_form_name,
-            this.count,
-            this.Tagging_Relationship,
-            this.created_at,
-            this.created_by,
-            this.updated_at,
-            this.updated_by});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChildForms.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvChildForms.EnableHeadersVisualStyles = false;
-            this.dgvChildForms.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvChildForms.Location = new System.Drawing.Point(30, 21);
-            this.dgvChildForms.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.dgvChildForms.Name = "dgvChildForms";
-            this.dgvChildForms.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvChildForms.RowHeadersWidth = 50;
-            this.dgvChildForms.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dgvChildForms.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvChildForms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChildForms.Size = new System.Drawing.Size(1475, 642);
-            this.dgvChildForms.TabIndex = 448;
-            this.dgvChildForms.CurrentCellChanged += new System.EventHandler(this.dgvChildForms_CurrentCellChanged);
-            this.dgvChildForms.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvChildForms_RowPostPaint);
-            // 
-            // menu_id
-            // 
-            this.menu_id.DataPropertyName = "menu_id";
-            this.menu_id.HeaderText = "ID";
-            this.menu_id.MinimumWidth = 12;
-            this.menu_id.Name = "menu_id";
-            this.menu_id.ReadOnly = true;
-            this.menu_id.Width = 95;
-            // 
-            // menu_name
-            // 
-            this.menu_name.DataPropertyName = "menu_name";
-            this.menu_name.HeaderText = "CHILD MENU";
-            this.menu_name.MinimumWidth = 12;
-            this.menu_name.Name = "menu_name";
-            this.menu_name.ReadOnly = true;
-            this.menu_name.Width = 221;
-            // 
-            // menu_form_name
-            // 
-            this.menu_form_name.DataPropertyName = "menu_form_name";
-            this.menu_form_name.HeaderText = "FORM NAME";
-            this.menu_form_name.MinimumWidth = 12;
-            this.menu_form_name.Name = "menu_form_name";
-            this.menu_form_name.ReadOnly = true;
-            this.menu_form_name.Width = 219;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "count";
-            this.count.HeaderText = "PARENT MENU";
-            this.count.MinimumWidth = 12;
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 249;
-            // 
-            // Tagging_Relationship
-            // 
-            this.Tagging_Relationship.DataPropertyName = "Tagging_Relationship";
-            this.Tagging_Relationship.HeaderText = "RELATIONSHIP";
-            this.Tagging_Relationship.MinimumWidth = 12;
-            this.Tagging_Relationship.Name = "Tagging_Relationship";
-            this.Tagging_Relationship.ReadOnly = true;
-            this.Tagging_Relationship.Width = 273;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED AT";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Width = 225;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Width = 227;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED AT";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Width = 225;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Width = 227;
             // 
             // txtcount
             // 
@@ -428,19 +282,21 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // materialCard1
             // 
+            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.cboParentMenu);
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.txtfname);
             this.materialCard1.Controls.Add(this.txtmname);
-            this.materialCard1.Controls.Add(this.cboParentMenu);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(54, 195);
+            this.materialCard1.Location = new System.Drawing.Point(54, 153);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1549, 398);
+            this.materialCard1.Size = new System.Drawing.Size(1968, 304);
             this.materialCard1.TabIndex = 553;
             // 
             // materialLabel1
@@ -463,12 +319,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtfname.Depth = 0;
             this.txtfname.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtfname.Hint = "Developer Form Name";
-            this.txtfname.Location = new System.Drawing.Point(119, 236);
+            this.txtfname.Location = new System.Drawing.Point(119, 201);
             this.txtfname.MaxLength = 50;
             this.txtfname.MouseState = MaterialSkin.MouseState.OUT;
             this.txtfname.Multiline = false;
             this.txtfname.Name = "txtfname";
-            this.txtfname.Size = new System.Drawing.Size(1328, 50);
+            this.txtfname.Size = new System.Drawing.Size(1747, 50);
             this.txtfname.TabIndex = 2;
             this.txtfname.Text = "";
             // 
@@ -479,7 +335,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtmname.Depth = 0;
             this.txtmname.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmname.Hint = "Sub Menu";
-            this.txtmname.Location = new System.Drawing.Point(887, 68);
+            this.txtmname.Location = new System.Drawing.Point(1306, 68);
             this.txtmname.MaxLength = 50;
             this.txtmname.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmname.Multiline = false;
@@ -495,7 +351,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnAddTool.DrawShadows = true;
             this.btnAddTool.HighEmphasis = true;
             this.btnAddTool.Icon = null;
-            this.btnAddTool.Location = new System.Drawing.Point(118, 620);
+            this.btnAddTool.Location = new System.Drawing.Point(109, 505);
             this.btnAddTool.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddTool.Name = "btnAddTool";
@@ -514,7 +370,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnEditTool.DrawShadows = true;
             this.btnEditTool.HighEmphasis = true;
             this.btnEditTool.Icon = null;
-            this.btnEditTool.Location = new System.Drawing.Point(300, 620);
+            this.btnEditTool.Location = new System.Drawing.Point(291, 505);
             this.btnEditTool.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEditTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEditTool.Name = "btnEditTool";
@@ -533,7 +389,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUpdateTool.DrawShadows = true;
             this.btnUpdateTool.HighEmphasis = true;
             this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(300, 620);
+            this.btnUpdateTool.Location = new System.Drawing.Point(291, 505);
             this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateTool.Name = "btnUpdateTool";
@@ -553,7 +409,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool.DrawShadows = true;
             this.btnDeleteTool.HighEmphasis = true;
             this.btnDeleteTool.Icon = null;
-            this.btnDeleteTool.Location = new System.Drawing.Point(618, 620);
+            this.btnDeleteTool.Location = new System.Drawing.Point(609, 505);
             this.btnDeleteTool.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDeleteTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDeleteTool.Name = "btnDeleteTool";
@@ -572,7 +428,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool.DrawShadows = true;
             this.btnCancelTool.HighEmphasis = true;
             this.btnCancelTool.Icon = null;
-            this.btnCancelTool.Location = new System.Drawing.Point(814, 620);
+            this.btnCancelTool.Location = new System.Drawing.Point(805, 505);
             this.btnCancelTool.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancelTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelTool.Name = "btnCancelTool";
@@ -587,26 +443,363 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // materialCard2
             // 
+            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard2.Controls.Add(this.dgvChildForms);
             this.materialCard2.Controls.Add(this.lbltotalrecords);
             this.materialCard2.Controls.Add(this.lblrecordDesc);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(54, 804);
+            this.materialCard2.Location = new System.Drawing.Point(54, 646);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1549, 743);
+            this.materialCard2.Size = new System.Drawing.Size(1968, 662);
             this.materialCard2.TabIndex = 554;
+            // 
+            // dgvChildForms
+            // 
+            this.dgvChildForms.AllowUserToAddRows = false;
+            this.dgvChildForms.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvChildForms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvChildForms.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvChildForms.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvChildForms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvChildForms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvChildForms.ColumnHeadersHeight = 35;
+            this.dgvChildForms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.menu_id,
+            this.menu_name,
+            this.menu_form_name,
+            this.count,
+            this.created_at,
+            this.created_by,
+            this.updated_at,
+            this.updated_by,
+            this.Tagging_Relationship});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChildForms.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvChildForms.EnableHeadersVisualStyles = false;
+            this.dgvChildForms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvChildForms.Location = new System.Drawing.Point(22, 47);
+            this.dgvChildForms.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvChildForms.Name = "dgvChildForms";
+            this.dgvChildForms.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvChildForms.RowHeadersVisible = false;
+            this.dgvChildForms.RowHeadersWidth = 102;
+            this.dgvChildForms.RowTemplate.DividerHeight = 5;
+            this.dgvChildForms.RowTemplate.Height = 40;
+            this.dgvChildForms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvChildForms.Size = new System.Drawing.Size(1884, 476);
+            this.dgvChildForms.TabIndex = 577;
+            this.dgvChildForms.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvChildForms.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvChildForms.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvChildForms.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvChildForms.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvChildForms.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvChildForms.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvChildForms.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvChildForms.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvChildForms.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvChildForms.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.dgvChildForms.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvChildForms.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvChildForms.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvChildForms.ThemeStyle.ReadOnly = true;
+            this.dgvChildForms.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvChildForms.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvChildForms.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvChildForms.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvChildForms.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvChildForms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.dgvChildForms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvChildForms.CurrentCellChanged += new System.EventHandler(this.dgvChildForms_CurrentCellChanged_1);
+            // 
+            // dgvUserRights
+            // 
+            this.dgvUserRights.AllowUserToAddRows = false;
+            this.dgvUserRights.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvUserRights.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvUserRights.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvUserRights.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvUserRights.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUserRights.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvUserRights.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserRights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvUserRights.ColumnHeadersHeight = 35;
+            this.dgvUserRights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.user_rights_id,
+            this.user_rights_name});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserRights.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvUserRights.EnableHeadersVisualStyles = false;
+            this.dgvUserRights.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvUserRights.Location = new System.Drawing.Point(1550, 461);
+            this.dgvUserRights.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvUserRights.Name = "dgvUserRights";
+            this.dgvUserRights.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserRights.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvUserRights.RowHeadersVisible = false;
+            this.dgvUserRights.RowHeadersWidth = 102;
+            this.dgvUserRights.RowTemplate.DividerHeight = 5;
+            this.dgvUserRights.RowTemplate.Height = 40;
+            this.dgvUserRights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUserRights.Size = new System.Drawing.Size(472, 476);
+            this.dgvUserRights.TabIndex = 579;
+            this.dgvUserRights.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvUserRights.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvUserRights.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvUserRights.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvUserRights.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUserRights.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.dgvUserRights.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvUserRights.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvUserRights.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvUserRights.ThemeStyle.ReadOnly = true;
+            this.dgvUserRights.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUserRights.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvUserRights.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvUserRights.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvUserRights.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvUserRights.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.dgvUserRights.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvUserRights.CurrentCellChanged += new System.EventHandler(this.dgvUserRights_CurrentCellChanged);
+            // 
+            // user_rights_id
+            // 
+            this.user_rights_id.DataPropertyName = "user_rights_id";
+            this.user_rights_id.FillWeight = 99.49239F;
+            this.user_rights_id.HeaderText = "ID";
+            this.user_rights_id.MinimumWidth = 12;
+            this.user_rights_id.Name = "user_rights_id";
+            this.user_rights_id.ReadOnly = true;
+            this.user_rights_id.Width = 95;
+            // 
+            // user_rights_name
+            // 
+            this.user_rights_name.DataPropertyName = "user_rights_name";
+            this.user_rights_name.FillWeight = 99.49239F;
+            this.user_rights_name.HeaderText = "User Rights";
+            this.user_rights_name.MinimumWidth = 12;
+            this.user_rights_name.Name = "user_rights_name";
+            this.user_rights_name.ReadOnly = true;
+            this.user_rights_name.Width = 203;
+            // 
+            // cboParentMenu
+            // 
+            this.cboParentMenu.Enabled = false;
+            this.cboParentMenu.FormattingEnabled = true;
+            this.cboParentMenu.ItemHeight = 24;
+            this.cboParentMenu.Location = new System.Drawing.Point(126, 88);
+            this.cboParentMenu.Name = "cboParentMenu";
+            this.cboParentMenu.Size = new System.Drawing.Size(367, 30);
+            this.cboParentMenu.TabIndex = 429;
+            this.cboParentMenu.UseSelectable = true;
+            this.cboParentMenu.SelectedValueChanged += new System.EventHandler(this.metroComboBox1_SelectedValueChanged);
+            // 
+            // txtRightsID
+            // 
+            this.txtRightsID.BackColor = System.Drawing.Color.White;
+            this.txtRightsID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRightsID.Enabled = false;
+            this.txtRightsID.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRightsID.Location = new System.Drawing.Point(938, 109);
+            this.txtRightsID.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtRightsID.MaxLength = 100;
+            this.txtRightsID.Name = "txtRightsID";
+            this.txtRightsID.Size = new System.Drawing.Size(445, 36);
+            this.txtRightsID.TabIndex = 582;
+            // 
+            // matBtnNext
+            // 
+            this.matBtnNext.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnNext.Depth = 0;
+            this.matBtnNext.DrawShadows = true;
+            this.matBtnNext.HighEmphasis = true;
+            this.matBtnNext.Icon = null;
+            this.matBtnNext.Location = new System.Drawing.Point(1560, 110);
+            this.matBtnNext.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnNext.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnNext.Name = "matBtnNext";
+            this.matBtnNext.Size = new System.Drawing.Size(58, 36);
+            this.matBtnNext.TabIndex = 581;
+            this.matBtnNext.Text = "NEXT";
+            this.matBtnNext.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnNext.UseAccentColor = false;
+            this.matBtnNext.UseVisualStyleBackColor = true;
+            this.matBtnNext.Visible = false;
+            this.matBtnNext.Click += new System.EventHandler(this.matBtnNext_Click);
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.DrawShadows = true;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(1214, 505);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.Size = new System.Drawing.Size(77, 36);
+            this.materialButton1.TabIndex = 583;
+            this.materialButton1.Text = "CANCEL";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click_3);
+            // 
+            // menu_id
+            // 
+            this.menu_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.menu_id.DataPropertyName = "menu_id";
+            this.menu_id.FillWeight = 40.60914F;
+            this.menu_id.HeaderText = "ID";
+            this.menu_id.MinimumWidth = 12;
+            this.menu_id.Name = "menu_id";
+            this.menu_id.ReadOnly = true;
+            this.menu_id.Width = 12;
+            // 
+            // menu_name
+            // 
+            this.menu_name.DataPropertyName = "menu_name";
+            this.menu_name.FillWeight = 99.49239F;
+            this.menu_name.HeaderText = "Sub Menu";
+            this.menu_name.MinimumWidth = 12;
+            this.menu_name.Name = "menu_name";
+            this.menu_name.ReadOnly = true;
+            this.menu_name.Width = 189;
+            // 
+            // menu_form_name
+            // 
+            this.menu_form_name.DataPropertyName = "menu_form_name";
+            this.menu_form_name.FillWeight = 99.49239F;
+            this.menu_form_name.HeaderText = "Form Name";
+            this.menu_form_name.MinimumWidth = 12;
+            this.menu_form_name.Name = "menu_form_name";
+            this.menu_form_name.ReadOnly = true;
+            this.menu_form_name.Width = 208;
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "count";
+            this.count.FillWeight = 99.49239F;
+            this.count.HeaderText = "Major Menu";
+            this.count.MinimumWidth = 12;
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 214;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.FillWeight = 99.49239F;
+            this.created_at.HeaderText = "Created Date";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 225;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.FillWeight = 99.49239F;
+            this.created_by.HeaderText = "Created By";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 197;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.FillWeight = 99.49239F;
+            this.updated_at.HeaderText = "Updated Date";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Width = 236;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "Updated By";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Width = 208;
+            // 
+            // Tagging_Relationship
+            // 
+            this.Tagging_Relationship.DataPropertyName = "Tagging_Relationship";
+            this.Tagging_Relationship.HeaderText = "RelationShip";
+            this.Tagging_Relationship.MinimumWidth = 12;
+            this.Tagging_Relationship.Name = "Tagging_Relationship";
+            this.Tagging_Relationship.ReadOnly = true;
+            this.Tagging_Relationship.Width = 218;
             // 
             // frmChildAvailableForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(2913, 1570);
+            this.ClientSize = new System.Drawing.Size(2051, 1428);
+            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.txtRightsID);
+            this.Controls.Add(this.matBtnNext);
+            this.Controls.Add(this.dgvUserRights);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.btnCancelTool);
             this.Controls.Add(this.btnDeleteTool);
@@ -629,11 +822,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Name = "frmChildAvailableForms";
             this.Text = "Sub Menu";
             this.Load += new System.EventHandler(this.frmChildAvailableForms_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChildForms)).EndInit();
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChildForms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserRights)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -643,28 +837,17 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.TextBox txtCreatedAt;
         private System.Windows.Forms.TextBox txtCreatedBy;
         private System.Windows.Forms.TextBox txtModifiedBy;
-        private System.Windows.Forms.ComboBox cboParentMenu;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtModifiedAt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DataGridView dgvChildForms;
         private System.Windows.Forms.TextBox txtcount;
         private System.Windows.Forms.Label lblrecordDesc;
         private System.Windows.Forms.Label lbltotalrecords;
         private MetroFramework.Controls.MetroButton metroSave;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         private System.Windows.Forms.TextBox txtCreatedByAndUserID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn menu_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn menu_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn menu_form_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn count;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tagging_Relationship;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialTextBox txtmname;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
@@ -675,5 +858,22 @@ namespace ULTRAMAVERICK.Forms.Users
         private MaterialSkin.Controls.MaterialButton btnDeleteTool;
         private MaterialSkin.Controls.MaterialButton btnCancelTool;
         private MaterialSkin.Controls.MaterialCard materialCard2;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvChildForms;
+        private MetroFramework.Controls.MetroComboBox cboParentMenu;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvUserRights;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_name;
+        private System.Windows.Forms.TextBox txtRightsID;
+        private MaterialSkin.Controls.MaterialButton matBtnNext;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menu_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menu_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menu_form_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tagging_Relationship;
     }
 }

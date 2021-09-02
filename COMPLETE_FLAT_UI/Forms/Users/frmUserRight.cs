@@ -19,6 +19,7 @@ namespace ULTRAMAVERICK.Forms.Users
     public partial class frmUserRight : MaterialForm
     {
         myclasses xClass = new myclasses();
+        IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
         DataSet dSet = new DataSet();
         Boolean ready = false;
@@ -84,7 +85,10 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         private void frmUserRight_Load(object sender, EventArgs e)
         {
-            objStorProc = xClass.g_objStoredProc.GetCollections();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
+      
             displayUserRights();
             listViewuser_rights_Click(sender, e);
             FalseButton();
@@ -103,6 +107,8 @@ namespace ULTRAMAVERICK.Forms.Users
             materialTxtModuelAvail.RowsDefaultCellStyle.ForeColor = Color.Black;
             loadMenu_byUsers_GChildTagged();
             loadMenu_byUsers_ParentTagged();
+
+            showvalue();
         }
 
         private void checkTheDataofParentMenu()
@@ -227,6 +233,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
         }
+
         public void displayUserRights()
         {
             ready = false;
@@ -271,7 +278,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
                     txtMaterialRights.Text = listViewuser_rights.Text;
-                  
+                    //p_id = int.Parse(lbl.Text);
                 }
             }
         }
@@ -355,7 +362,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     dSet.Clear();
                     dSet = objStorProc.sp_user_rights(0, txtMaterialRights.Text, "add");
-
+                    displayUserRights();
+                    SaveMenus();
 
                     return true;
                 }
@@ -565,13 +573,15 @@ namespace ULTRAMAVERICK.Forms.Users
                         //p_id = Convert.ToInt32(listBoxParentTag.SelectedValue.ToString());
                         if (listBoxParentTag.Items.Count > 0)
                         {
-                            var SelectedDataRowParent = (listBoxParentTag.SelectedItem as DataRowView)["parent_id"].ToString();
+                            //var SelectedDataRowParent = (listBoxParentTag.SelectedItem as DataRowView)["parent_id"].ToString();
+
+
+                            var SelectedDataRowParent = (listBoxParentTag.SelectedItem as DataRowView)["user_rights_id"].ToString();
 
 
 
 
-
-                            dv.RowFilter = "count = " + SelectedDataRowParent + "";
+                            dv.RowFilter = "user_rights_id = " + SelectedDataRowParent + "";
                             //dv.RowFilter = "count = '" + lblparentmenuid.Text + "'";
                         }
                     }
@@ -1949,10 +1959,15 @@ namespace ULTRAMAVERICK.Forms.Users
         public void Sample()
         {
             ready = false;
-            var SelectedDataRowParent = (ListViewmenu.SelectedItem as DataRowView)["menu_id"].ToString();
-            xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, Convert.ToInt32(SelectedDataRowParent));
-            ready = true;
-            lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
+            if(ListViewmenu.Items.Count > 0)
+            {
+                var SelectedDataRowParent = (ListViewmenu.SelectedItem as DataRowView)["menu_id"].ToString();
+
+                xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, Convert.ToInt32(SelectedDataRowParent));
+                ready = true;
+                lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
+            }
+         
         }
 
         private void dgvGrandChild_CurrentCellChanged(object sender, EventArgs e)
@@ -2099,6 +2114,14 @@ namespace ULTRAMAVERICK.Forms.Users
             MenuDeActivate();
             materialButtonCancel.Visible = false;
             matBtnMenu.Visible = true;
+
+
+            //Rights Button
+            materialBtnNew.Visible = true;
+            btnEditTool.Visible = true;
+            listViewuser_rights.Enabled = true;
+            btnDeleteTool.Visible = true;
+
         }
 
         private void materialButtonUpdateSubMenu_Click(object sender, EventArgs e)
@@ -2264,6 +2287,51 @@ namespace ULTRAMAVERICK.Forms.Users
             MenuActivate();
             matBtnMenu.Visible = false;
 
+            //Rights Hide
+            materialBtnNew.Visible = false;
+            btnEditTool.Visible = false;
+            btnUpdateTool.Visible = false;
+            btnDeleteTool.Visible = false;
+            btnCancelTool.Visible = false;
+        }
+
+
+
+        private void SaveMenus()
+        {
+            p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
+
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0,
+                p_id,
+                "s",
+                "s",
+               "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s", "addModuleRights");
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
+
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0,
+                p_id,
+                "s",
+                "s",
+               "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s", "addModuleRights");
         }
     }
 }

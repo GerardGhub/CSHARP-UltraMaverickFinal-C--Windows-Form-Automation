@@ -25,7 +25,13 @@ namespace COMPLETE_FLAT_UI
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmLoginForm());
+                //Application.Run(new frmLoginForm());
+
+
+                frmLoginForm login = new frmLoginForm();
+                login.Show();
+
+                Application.Run();
             }
             catch (Exception ex)
             {

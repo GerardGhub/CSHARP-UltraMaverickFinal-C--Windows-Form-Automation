@@ -25,6 +25,7 @@ namespace ULTRAMAVERICK.Forms.Users
         IStoredProcedures objStorProc = null;
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
+        int s_id = 0;
         Boolean ready = false;
         DataSet dSet = new DataSet();
         string mode = "";
@@ -46,23 +47,44 @@ namespace ULTRAMAVERICK.Forms.Users
             getAllUsers(); // all UserFile Management
             lstUsers_Click(sender, e); // Click Thge ListView
             myglobal.global_module = "Active"; // Mode for Searching
-            loadPositionDropDown(); // show Dta
+            //loadPositionDropDown(); // show Dta
             load_search(); //Bind the Information
             HideDataGrid(); // Hide the DataGrid
             lstUsers.Enabled = true;
             loadDepartment(); // Loading the Depeartment
             loadRequestorType(); //Load Requestor Types
-            loadUnit();
+            //loadUnit();
         }
 
 
         public void loadUnit()
         {
-            ready = false;
-            myClass.fillComboBoxDepartment(cboUnit, "DepartmentUnit_dropdown", dSet);
-            ready = true;
 
-            lblUnitID.Text = cboUnit.SelectedValue.ToString();
+
+            ready = false;
+            xClass.fillComboBoxFilter(cboUnit, "filter_section_dropdown", dSet, lblDepartmentID.Text, 0);
+            ready = true;
+            s_id = showValue(cboUnit);
+
+
+            //ready = false;
+            //myClass.fillComboBoxSearch(cboUnit, "DepartmentUnit_dropdown", dSet, 1);
+            //ready = true;
+
+            //lblUnitID.Text = cboUnit.SelectedValue.ToString();
+        }
+
+        public int showValue(ComboBox cbo)
+        {
+            int ids = 0;
+            if (ready == true)
+            {
+                if (cbo.Items.Count > 0)
+                {
+                    ids = Convert.ToInt32(cbo.SelectedValue.ToString());
+                }
+            }
+            return ids;
         }
 
 
@@ -85,11 +107,18 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         public void loadPositionDropDown()
         {
-            ready = false;
-            myClass.fillComboBoxDepartment(cboPosition, "position_dropdown", dSet);
-            ready = true;
+            // ready = false;
+            // myClass.fillComboBoxDepartment(cboPosition, "position_dropdown", dSet);
+            // ready = true;
 
-           lblPositionId.Text = cboPosition.SelectedValue.ToString();
+            //lblPositionId.Text = cboPosition.SelectedValue.ToString();
+
+            ready = false;
+            xClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, lblDepartmentID.Text, 0);
+            ready = true;
+            s_id = showValue(cboPosition);
+
+
         }
         public void HideDataGrid()
         {
@@ -858,7 +887,21 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
         {
-  
+            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+            //loadUnit();
+
+            if (cbodepartment.Text.Trim() != "")
+            {
+                loadUnit();
+                cboUnit.Text = String.Empty;
+            }
+
+
+            if (cbodepartment.Text.Trim() != "")
+            {
+                loadPositionDropDown();
+                cboPosition.Text = String.Empty;
+            }
         }
 
         private void cboRequestorType_SelectedValueChanged(object sender, EventArgs e)
@@ -976,7 +1019,21 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cbodepartment_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+            //lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+            ////loadUnit();
+
+            //if (cbodepartment.Text.Trim() != "")
+            //{
+            //    loadUnit();
+            //    cboUnit.Text = String.Empty;
+            //}
+
+
+            //if (cbodepartment.Text.Trim() != "")
+            //{
+            //    loadPositionDropDown();
+            //    cboPosition.Text = String.Empty;
+            //}
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
@@ -1130,6 +1187,16 @@ namespace ULTRAMAVERICK.Forms.Users
         private void cbousertype_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblrightsID.Text =  cbousertype.SelectedValue.ToString();
+        }
+
+        private void cboUnit_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblUnitID.Text = cboUnit.SelectedValue.ToString();
+        }
+
+        private void cboLocation_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblrightsID.Text = cbousertype.SelectedValue.ToString();
         }
     }
 }

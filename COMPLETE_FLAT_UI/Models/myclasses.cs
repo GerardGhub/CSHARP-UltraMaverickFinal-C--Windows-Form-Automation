@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -132,6 +133,40 @@ namespace ULTRAMAVERICK.Models
             g_objStoredProcFill = null;
         }
 
+        public void fillComboBoxSearch(ComboBox eComboBox, string eTablename, DataSet dSet, int pkId)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+
+            eComboBox.DataSource = dSet.Tables[0].DefaultView;
+            eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
+            eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+
+
+
+
+
+            g_objStoredProcFill = null;
+        }
+
+
+        public void fillComboBoxMaterial(MaterialComboBox eComboBox, string eTablename, DataSet dSet)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+
+            eComboBox.DataSource = dSet.Tables[0].DefaultView;
+            eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
+            eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+
+
+
+
+
+            g_objStoredProcFill = null;
+        }
 
 
         public void fillComboBoxRepacking(ComboBox eComboBox, string eTablename, DataSet dSet)

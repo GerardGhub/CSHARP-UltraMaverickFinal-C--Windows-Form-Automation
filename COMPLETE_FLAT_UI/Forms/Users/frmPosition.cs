@@ -11,12 +11,14 @@ using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmPosition : Form
+    public partial class frmPosition : MaterialForm
     {
-     
+
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
 
@@ -43,7 +45,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-         
+
             getAllPosition(); // all UserFile Management
             lstPosition_Click(sender, e); // Click Thge ListView
             myglobal.global_module = "Active"; // Mode for Searching
@@ -59,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Users
             ready = false;
             myClass.fillComboBoxDepartment(cbodepartment, "department_dropdown", dSet);
             ready = true;
-     
+
             lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
         }
         DataSet dset_emp = new DataSet();
@@ -148,7 +150,7 @@ namespace ULTRAMAVERICK.Forms.Users
             mode = "add";
             btnUpdateTool.Visible = true;
             btnAddTool.Visible = false;
-      
+
             lstPosition.Enabled = false;
 
             txtname.Enabled = true;
@@ -192,9 +194,9 @@ namespace ULTRAMAVERICK.Forms.Users
                     txtname.Focus();
                     return;
                 }
-      
 
-          
+
+
                 else
                 {
                     if (saveMode())
@@ -219,7 +221,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         lstPosition_Click(sender, e);
                     }
                 }
-      
+
                 txtname.Enabled = false;
 
             }
@@ -288,8 +290,8 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_position(0, 
-                    txtname.Text.Trim(), "", "","","","","", "validate");
+                dSet = g_objStoredProcCollection.sp_position(0,
+                    txtname.Text.Trim(), "", "", "", "", "", "", "validate");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -299,16 +301,16 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
                 else
                 {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_position(0, 
-                txtname.Text.Trim(), 
-                lblDepartmentID.Text.Trim(), 
-                txtCreatedBy.Text.Trim(), 
-                txtCreatedAt.Text.Trim(), 
-                txtModifiedBy.Text.Trim(), 
-                txtModifiedAt.Text.Trim(), 
-                txtCreatedByAndUserID.Text.Trim(), 
-                "add");
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection.sp_position(0,
+                    txtname.Text.Trim(),
+                    lblDepartmentID.Text.Trim(),
+                    txtCreatedBy.Text.Trim(),
+                    txtCreatedAt.Text.Trim(),
+                    txtModifiedBy.Text.Trim(),
+                    txtModifiedAt.Text.Trim(),
+                    txtCreatedByAndUserID.Text.Trim(),
+                    "add");
 
                     return true;
                 }
@@ -318,12 +320,12 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_position(temp_id, 
-                    txtname.Text.Trim(), "", 
-                    txtCreatedByAndUserID.Text.Trim(),"","","","", "getbyname");
+                dSet = g_objStoredProcCollection.sp_position(temp_id,
+                    txtname.Text.Trim(), "",
+                    txtCreatedByAndUserID.Text.Trim(), "", "", "", "", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_position(temp_id, txtname.Text.Trim(), "", "","","","","", "getbyid");
+                dSet_temp = g_objStoredProcCollection.sp_position(temp_id, txtname.Text.Trim(), "", "", "", "", "", "", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -331,12 +333,12 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == temp_id)
                     {
                         dSet.Clear();
-                        dSet = g_objStoredProcCollection.sp_position(temp_id, 
-                            txtname.Text.Trim(), lblDepartmentID.Text.Trim(), 
-                            txtCreatedBy.Text.Trim(), 
-                            txtCreatedAt.Text.Trim(), 
-                            txtModifiedBy.Text.Trim(), 
-                            txtModifiedAt.Text.Trim(), 
+                        dSet = g_objStoredProcCollection.sp_position(temp_id,
+                            txtname.Text.Trim(), lblDepartmentID.Text.Trim(),
+                            txtCreatedBy.Text.Trim(),
+                            txtCreatedAt.Text.Trim(),
+                            txtModifiedBy.Text.Trim(),
+                            txtModifiedAt.Text.Trim(),
                             txtCreatedByAndUserID.Text.Trim(), "edit");
 
                         return true;
@@ -367,7 +369,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                 dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_position(temp_id, "", "", "","","","","", "delete");
+                dSet_temp = g_objStoredProcCollection.sp_position(temp_id, "", "", "", "", "", "", "", "delete");
 
                 return true;
             }
@@ -375,8 +377,8 @@ namespace ULTRAMAVERICK.Forms.Users
             return false;
         }
 
-      
-            public void FillRequiredTextbox()
+
+        public void FillRequiredTextbox()
         {
 
             PopupNotifier popup = new PopupNotifier();
@@ -429,13 +431,13 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnEdit_Click(object sender, EventArgs e)
         {
             lstPosition.Enabled = false;
-          
+
             if (lstPosition.Items.Count > 0)
             {
                 mode = "edit";
                 txtname.Enabled = true;
                 txtname.ReadOnly = false;
-            
+
                 txtname.Enabled = true;
 
 
@@ -458,7 +460,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
                 if (lstPosition.Items.Count > 0)
                 {
-                 
+
                     mode = "delete";
                     if (saveMode())
                     {
@@ -584,7 +586,7 @@ namespace ULTRAMAVERICK.Forms.Users
             mode = "add";
             btnUpdateTool.Visible = true;
             btnAddTool.Visible = false;
-         
+
             lstPosition.Enabled = false;
 
             txtname.Enabled = true;
@@ -646,6 +648,61 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnDeleteTool_Click(object sender, EventArgs e)
         {
             metroButtonDelete_Click(sender, e);
+        }
+
+        private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+
+            lstPosition.Enabled = false;
+
+            txtname.Enabled = true;
+            txtname.Text = string.Empty;
+            btnCancelTool.Visible = true;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+            cbodepartment.Enabled = true;
+            loadDepartment();
+            txtname.Focus();
+
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            lstPosition.Enabled = false;
+
+            if (lstPosition.Items.Count > 0)
+            {
+                mode = "edit";
+                txtname.Enabled = true;
+                txtname.ReadOnly = false;
+
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
+                cbodepartment.Enabled = true;
+                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            }
         }
     }
 }

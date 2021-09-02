@@ -11,10 +11,12 @@ using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmDepartment : Form
+    public partial class frmDepartment : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -257,6 +259,8 @@ namespace ULTRAMAVERICK.Forms.Users
             txtdepartment.Enabled = true;
             txtdepartment.Text = string.Empty;
             btnCancelTool.Visible = true;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
 
 
             txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
@@ -271,6 +275,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void LoadLocation()
         {
+            //ready = false;
+            //myClass.fillComboBoxDepartment(cboLocation, "location_dropdown", dSet);
+            //ready = true;
+
             ready = false;
             myClass.fillComboBoxDepartment(cboLocation, "location_dropdown", dSet);
             ready = true;
@@ -386,8 +394,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void lstDepartment_Click(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+            if (mode == "add")
+            {
+              
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
         }
 
         private void showvalue()
@@ -552,21 +567,42 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void lstDepartment_CursorChanged(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+            if (mode == "add")
+            {
+
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
         }
 
         private void lstDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+            if (mode == "add")
+            {
+
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
         }
 
 
         private void lstDepartment_SelectedValueChanged(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+            if (mode == "add")
+            {
+
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
         }
 
         private void txtCreatedByAndUserID_TextChanged(object sender, EventArgs e)
@@ -577,6 +613,83 @@ namespace ULTRAMAVERICK.Forms.Users
         private void cboLocation_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblLocationID.Text = cboLocation.SelectedValue.ToString();
+        }
+
+        private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblLocationID.Text = cboLocation.SelectedValue.ToString();
+        }
+
+        private void matBtnNew_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+            btnDeleteTool.Visible = false;
+            lstDepartment.Enabled = false;
+
+            txtdepartment.Enabled = true;
+            txtdepartment.Text = string.Empty;
+            btnCancelTool.Visible = true;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+            cboLocation.Enabled = true;
+            LoadLocation();
+            txtdepartment.Focus();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            lstDepartment.Enabled = false;
+
+            if (lstDepartment.Items.Count > 0)
+            {
+                mode = "edit";
+                txtdepartment.Enabled = true;
+                txtdepartment.ReadOnly = false;
+
+
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
+                cboLocation.Enabled = true;
+                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            }
+        }
+
+        private void materialButton1_Click_1(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
+        }
+
+        private void materialButton1_Click_2(object sender, EventArgs e)
+        {
+            lstDepartment.Enabled = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
+            txtdepartment.Enabled = false;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            cboLocation.Enabled = false;
+        }
+
+        private void materialButton1_Click_3(object sender, EventArgs e)
+        {
+            metroButtonSave_Click(sender, e);
         }
     }
 }

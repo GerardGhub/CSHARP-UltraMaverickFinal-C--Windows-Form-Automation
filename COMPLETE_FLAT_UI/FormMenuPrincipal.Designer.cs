@@ -323,7 +323,7 @@
             this.btnMinimizeFinal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizeFinal.FlatAppearance.BorderSize = 0;
             this.btnMinimizeFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizeFinal.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
+            this.btnMinimizeFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizeFinal.Image")));
             this.btnMinimizeFinal.Location = new System.Drawing.Point(613, 0);
             this.btnMinimizeFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnMinimizeFinal.Name = "btnMinimizeFinal";
@@ -337,7 +337,7 @@
             this.btnCloseFinal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCloseFinal.FlatAppearance.BorderSize = 0;
             this.btnCloseFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseFinal.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
+            this.btnCloseFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseFinal.Image")));
             this.btnCloseFinal.Location = new System.Drawing.Point(984, 6);
             this.btnCloseFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnCloseFinal.Name = "btnCloseFinal";
@@ -351,7 +351,7 @@
             this.btnMaximizedFinal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizedFinal.FlatAppearance.BorderSize = 0;
             this.btnMaximizedFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizedFinal.Image = global::ULTRAMAVERICK.Properties.Resources.maximize3;
+            this.btnMaximizedFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizedFinal.Image")));
             this.btnMaximizedFinal.Location = new System.Drawing.Point(732, 0);
             this.btnMaximizedFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnMaximizedFinal.Name = "btnMaximizedFinal";
