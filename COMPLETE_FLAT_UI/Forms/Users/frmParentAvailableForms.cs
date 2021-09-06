@@ -730,6 +730,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
+                "s",
                 Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
         }
 
@@ -743,6 +744,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                "s",
+                "s",
                 "s",
                 "s",
                 "s",

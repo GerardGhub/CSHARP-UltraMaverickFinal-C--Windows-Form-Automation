@@ -750,6 +750,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
+                "s",
                 Convert.ToInt32(p_id).ToString(), "addModuleRightsSubMenuPartial");
 
             if (dgvUserRights.Rows.Count >= 1)
@@ -760,10 +761,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     //LastLine();
-                    //displayUserRightsData();
-                    //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
-                    //timer1_Tick(sender, e);
-                    //txtweighingscale.Focus();
+        
                     return;
                 }
 
@@ -774,6 +772,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void materialButton1_Click_3(object sender, EventArgs e)
         {
            
+        }
+
+        private void cboParentMenu_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
         }
     }
 }

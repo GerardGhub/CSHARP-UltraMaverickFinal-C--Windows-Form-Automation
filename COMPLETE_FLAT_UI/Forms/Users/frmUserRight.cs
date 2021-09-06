@@ -270,6 +270,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 materialTextBoxMenuAvailable.Text = String.Empty;
             }
         }
+
         public void showvalue()
         {
             if (ready == true)
@@ -637,10 +638,12 @@ namespace ULTRAMAVERICK.Forms.Users
                         if (ListViewmenu.Items.Count > 0)
                         {
 
+                            showvalue();
+                            //Gerard Singian Developer Man
                             var SelectedDataRowParent = (ListViewmenu.SelectedItem as DataRowView)["menu_id"].ToString();
 
 
-                            dv.RowFilter = "parent_menu = " + SelectedDataRowParent + "";
+                            dv.RowFilter = "parent_menu = " + SelectedDataRowParent + " and user_rights_id = " + p_id + " ";
 
                         }
                         //dv.RowFilter = "parent_menu = '" + txtchildid.Text + "'";
@@ -674,7 +677,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChild.Columns["primary_menu_id"].Visible = false;
             this.dgvGrandChild.Columns["primary_menu_id1"].Visible = false;
             this.dgvGrandChild.Columns["menu_name"].HeaderText = "MENU";
-
+            this.dgvGrandChild.Columns["user_rights_id"].Visible = false;
+            this.dgvGrandChild.Columns["is_active"].Visible = false;
 
         }
 
@@ -1231,22 +1235,22 @@ namespace ULTRAMAVERICK.Forms.Users
             {
 
                 showvalue();
-                for (int n = 0; n < dataView.RowCount; n++)
-                {
-                    if (Convert.ToBoolean(dataView.Rows[n].Cells[0].Value))
-                    {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms", 0, p_id, Convert.ToInt32(dataView.Rows[n].Cells[1].Value));
-                        if (dSet.Tables[0].Rows.Count > 0)
-                        {
-                            string temp = dSet.Tables[0].Rows[0][2].ToString();
-                            //MessageBox.Show("This menu is already added on your rights: " + temp);
-                            AlreadyAddedOnYourParentMenu();
-                            deselectAll();
-                            return;
-                        }
-                    }
-                }
+                //for (int n = 0; n < dataView.RowCount; n++)
+                //{
+                //    if (Convert.ToBoolean(dataView.Rows[n].Cells[0].Value))
+                //    {
+                //        dSet.Clear();
+                //        dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms", 0, p_id, Convert.ToInt32(dataView.Rows[n].Cells[1].Value));
+                //        if (dSet.Tables[0].Rows.Count > 0)
+                //        {
+                //            string temp = dSet.Tables[0].Rows[0][2].ToString();
+                //            //MessageBox.Show("This menu is already added on your rights: " + temp);
+                //            AlreadyAddedOnYourParentMenu();
+                //            deselectAll();
+                //            return;
+                //        }
+                //    }
+                //}
 
                 for (int i = 0; i < dataView.RowCount; i++)
                 {
@@ -1258,11 +1262,11 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
 
                 loadMenu_byUsers();
-                loadMenu_byUsers_ParentTagged();
+                //loadMenu_byUsers_ParentTagged();
                 SaveUpdateMenuNotifications();
                 btnUnselectAll_Click(sender, e);
                 load_search_ChildMenu();
-                btnCancelListViewMenu_Click(sender, e);
+                //btnCancelListViewMenu_Click(sender, e);
               
             }
 
@@ -1281,7 +1285,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dataView_DoubleClick(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to the Child Menu ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to the update the Sub Menu ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 btnMenuUpdate_Click(sender, e);
                 //this.ParentForm.Refresh();
@@ -1549,9 +1553,11 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet_temp = objStorProc.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
 
 
+                   
+                    loadMenu_byUsers();
                     ListViewmenu_Click(sender, e);
                     load_search_ChildMenu();
-                    loadMenu_byUsers();
+            
                     UserRightsUpdated();
 
                 }
@@ -1747,26 +1753,24 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnSelectAlGrandChild_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dgvGrandChild.RowCount; i++) { dgvGrandChild.Rows[i].Cells[0].Value = true; }
-            btnSelectAlGrandChild.Visible = false;
-            btnUnSelectAlGrandChild.Visible = true;
+       
         }
 
         private void btnUnSelectAlGrandChild_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dgvGrandChild.RowCount; i++) { dgvGrandChild.Rows[i].Cells[0].Value = false; }
-            btnUnSelectAlGrandChild.Visible = false;
-            btnSelectAlGrandChild.Visible = true;
+     
         }
 
         private void dataView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (dataView.CurrentCell.OwningColumn == dataView.Columns["chkSelected"] && dataView.IsCurrentCellDirty)
-            {
-                dataView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            //if (dataView.CurrentCell.OwningColumn == dataView.Columns["chkSelected"] && dataView.IsCurrentCellDirty)
+            //{
+            //    dataView.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
-                //your code goes here
-                CheckChildTagging();
-            }
+            //    //your code goes here
+            //    CheckChildTagging();
+            //}
         }
 
         private void dgvGrandChild_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -2172,6 +2176,8 @@ namespace ULTRAMAVERICK.Forms.Users
             //
             materialBtnShowModule.Visible = true;
             materialBtnShowModuleCancel.Visible = true;
+            //dataView
+            dataView.Enabled = true;
         }
 
         private void materialSubMenuCancel_Click(object sender, EventArgs e)
@@ -2192,6 +2198,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             CancelSubMenuAvailableHide();
             showSubMenuTagged();
+            ListViewmenu.Enabled = true;
         }
 
         private void showSubMenuTagged()
@@ -2313,7 +2320,9 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
-                "s", "addModuleRights");
+                "s",
+                "s",
+                "addModuleRights");
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -2325,6 +2334,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                "s",
+                "s",
                 "s",
                 "s",
                 "s",

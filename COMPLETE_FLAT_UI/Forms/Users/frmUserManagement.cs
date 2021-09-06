@@ -54,9 +54,17 @@ namespace ULTRAMAVERICK.Forms.Users
             loadDepartment(); // Loading the Depeartment
             loadRequestorType(); //Load Requestor Types
             //loadUnit();
+            RefresherOnLoadingThePage();
+         
         }
 
-
+        private void RefresherOnLoadingThePage()
+        {
+            lblgenderLabel.BackColor = Color.Transparent;
+            matRadioMale.Enabled = false;
+            matRadioFemale.Enabled = false;
+        }
+      
         public void loadUnit()
         {
 
@@ -337,6 +345,12 @@ namespace ULTRAMAVERICK.Forms.Users
                     txtpassword.Focus();
                     return;
                 }
+                if(lblGenderSelected.Text.Trim() == "")
+                {
+                    FillRequiredTextbox();
+                    lblgenderLabel.BackColor = Color.Yellow;
+                    return;
+                }
                 else
                 {
                     if (saveMode())
@@ -398,7 +412,9 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtLastName.Text.Trim(), 
                         lblDepartmentID.Text.Trim(), 
                         lblRequestorTypeID.Text.Trim(), 
-                        lblUnitID.Text.Trim(), "add");
+                        lblUnitID.Text.Trim(),
+                        lblGenderSelected.Text.Trim(),
+                        "add");
 
                     return true;
                 }
@@ -432,8 +448,11 @@ namespace ULTRAMAVERICK.Forms.Users
                             txtLastName.Text.Trim(), 
                             lblDepartmentID.Text.Trim(),
                             lblRequestorTypeID.Text.Trim(), 
-                            lblUnitID.Text.Trim(), "edit");
-
+                            lblUnitID.Text.Trim(),
+                            lblGenderSelected.Text.Trim(),
+                            "edit");
+                        matRadioMale.Enabled = false;
+                        matRadioFemale.Enabled = false;
                         return true;
                     }
                     else
@@ -457,8 +476,12 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtLastName.Text.Trim(), 
                         lblDepartmentID.Text.Trim(), 
                         lblRequestorTypeID.Text.Trim(), 
-                        lblUnitID.Text.Trim(), "edit");
+                        lblUnitID.Text.Trim(),
+                        lblGenderSelected.Text.Trim(),
+                        "edit");
 
+                    matRadioMale.Enabled = false;
+                    matRadioFemale.Enabled = false;
                     return true;
                 }
             }
@@ -638,7 +661,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtuser.ReadOnly = false;
                 txtpassword.Enabled = true;
                 txtpassword.ReadOnly = false;
-                button1.Visible = true;
+         
                 btnEditTool.Visible = false;
                 btnCancelTool.Visible = true;
                 txtLastName.Enabled = true;
@@ -676,7 +699,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         disable_text(true);
                         load_search();
                         doSearch();
-                        button1.Visible = false;
+                
                         btnEditTool.Visible = true;
                         lstUsers_Click(sender, e);
                         lstUsers.Enabled = false;
@@ -688,7 +711,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else
             {
-                button1.Visible = false;
+          
                 btnEditTool.Visible = true;
                 lstUsers.Enabled = true;
                 return;
@@ -729,7 +752,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         DeletedSuccessfully();
                         load_search();
                         doSearch();
-                        button1.Visible = false;
+                   
                         btnEditTool.Visible = true;
                         lstUsers_Click(sender, e);
                     }
@@ -739,7 +762,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else
             {
-                button1.Visible = false;
+              
                 btnEditTool.Visible = true;
                 return;
             }
@@ -768,10 +791,24 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtpassword.Text = dgv_table.CurrentRow.Cells["password"].Value.ToString();
                         cboPosition.Text = dgv_table.CurrentRow.Cells["Position"].Value.ToString();
                         cmbLocation.Text = dgv_table.CurrentRow.Cells["user_section"].Value.ToString();
-
+                        cboUnit.Text = dgv_table.CurrentRow.Cells["Unit"].Value.ToString();
                         cmbNotif.Text = dgv_table.CurrentRow.Cells["receiving_status"].Value.ToString();
                         cboRequestorType.Text = dgv_table.CurrentRow.Cells["type_of_approver"].Value.ToString();
 
+                        lblGenderSelected.Text = dgv_table.CurrentRow.Cells["gender"].Value.ToString();
+                        if(lblGenderSelected.Text == "Male")
+                        {
+                            matRadioMale.Checked = true;
+                        }
+                        else if(lblGenderSelected.Text =="Female")
+                        {
+                            matRadioFemale.Checked = true;
+                        }
+                        else
+                        {
+                            matRadioFemale.Checked = false;
+                            matRadioMale.Checked = false;
+                        }
 
                     }
 
@@ -968,7 +1005,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtuser.ReadOnly = false;
                 txtpassword.Enabled = true;
                 txtpassword.ReadOnly = false;
-                button1.Visible = true;
+              
                 btnEditTool.Visible = false;
                 btnCancelTool.Visible = true;
                 txtLastName.Enabled = true;
@@ -1110,6 +1147,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialButton1_Click_2(object sender, EventArgs e)
         {
+            lstUsers_Click(sender, e);
+
+            //Bind Start to eliminate the error in converting using Left Joins
+            lblPositionId.Text = cboPosition.SelectedValue.ToString();
+            lblUnitID.Text = cboUnit.SelectedValue.ToString();
+            //End animal ka1
             lstUsers.Enabled = false;
             cmbLocation.Enabled = true;
             cmbNotif.Enabled = true;
@@ -1123,7 +1166,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtuser.ReadOnly = false;
                 txtpassword.Enabled = true;
                 txtpassword.ReadOnly = false;
-                button1.Visible = true;
+                matRadioMale.Enabled = true;
+                matRadioFemale.Enabled = true;
                 btnEditTool.Visible = false;
                 btnCancelTool.Visible = true;
                 txtLastName.Enabled = true;
@@ -1131,6 +1175,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 cboPosition.Enabled = true;
                 btnDeleteTool.Visible = false;
                 cboRequestorType.Enabled = true;
+                btnAddTool.Visible = false;
+                txtLastName.ReadOnly = false;
             }
         }
 
@@ -1142,24 +1188,108 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialButton1_Click_3(object sender, EventArgs e)
         {
+            if (txtname.Text.Trim() == "")
+            {
+
+
+                FillRequiredTextbox();
+                txtname.BackColor = Color.Yellow;
+                txtname.Focus();
+                return;
+            }
+            if (txtLastName.Text.Trim() == "")
+            {
+
+
+                FillRequiredTextbox();
+                txtLastName.BackColor = Color.Yellow;
+                txtLastName.Focus();
+                return;
+            }
+            if (cbousertype.Text.Trim() == "")
+            {
+
+                FillRequiredTextbox();
+                cbousertype.BackColor = Color.Yellow;
+                cbousertype.Focus();
+                return;
+            }
+            if (cboPosition.Text.Trim() == "")
+            {
+
+                FillRequiredTextbox();
+                cboPosition.BackColor = Color.Yellow;
+                cboPosition.Focus();
+                return;
+            }
+            if (cboRequestorType.Text.Trim() == "")
+            {
+
+                FillRequiredTextbox();
+                cboRequestorType.BackColor = Color.Yellow;
+                cboRequestorType.Focus();
+                return;
+            }
+            if (txtuser.Text.Trim() == "")
+            {
+
+                FillRequiredTextbox();
+                txtuser.BackColor = Color.Yellow;
+                txtuser.Focus();
+                return;
+            }
+            if (txtpassword.Text.Trim() == "")
+            {
+
+                FillRequiredTextbox();
+                txtpassword.BackColor = Color.Yellow;
+                txtpassword.Focus();
+                return;
+            }
+            if (lblGenderSelected.Text.Trim() == "")
+            {
+                FillRequiredTextbox();
+                lblgenderLabel.BackColor = Color.Yellow;
+                return;
+            }
+
             metroButtonSave_Click(sender, e);
         }
 
         private void materialButton1_Click_5(object sender, EventArgs e)
         {
+        EnableTrueExtrover();
+        
+        EnabledFalseByCancelling();
+        mode = "";
+        }
+
+        private void EnableTrueExtrover()
+        {
             btnAddTool.Visible = true;
-            btnUpdateTool.Visible = false;
+
             btnEditTool.Visible = true;
             btnDeleteTool.Visible = true;
+            lstUsers.Enabled = true;
+        }
+        private void EnabledFalseByCancelling()
+        {
             btnCancelTool.Visible = false;
             cboPosition.Enabled = false;
             txtLastName.Enabled = false;
+            txtname.Enabled = false;
+            cbousertype.Enabled = false;
+            txtuser.Enabled = false;
+            txtpassword.Enabled = false;
+            cmbLocation.Enabled = false;
+            cmbNotif.Enabled = false;
+            btnUpdateTool.Visible = false;
+            matRadioMale.Enabled = false;
+            matRadioFemale.Enabled = false;
+            materialCard3RequestorSetup.Visible = false;
             cbodepartment.Enabled = false;
             cboRequestorType.Enabled = false;
             cboUnit.Enabled = false;
-            lstUsers.Enabled = true;
-            materialCard3RequestorSetup.Visible = false;
-            mode = "";
         }
 
         private void lblRequestorTypeID_Click(object sender, EventArgs e)
@@ -1197,6 +1327,90 @@ namespace ULTRAMAVERICK.Forms.Users
         private void cboLocation_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblrightsID.Text = cbousertype.SelectedValue.ToString();
+        }
+
+        private void matRadioMale_CheckedChanged(object sender, EventArgs e)
+        {
+            if(matRadioMale.Checked == true)
+            {
+                lblGenderSelected.Text = "Male";
+                lblgenderLabel.BackColor = Color.Transparent;
+            }
+            else if(matRadioFemale.Checked == true)
+            {
+                lblGenderSelected.Text = "Female";
+                lblgenderLabel.BackColor = Color.Transparent;
+            }
+            else
+            {
+                lblGenderSelected.Text = String.Empty;
+            }
+        }
+
+        private void matRadioFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioMale.Checked == true)
+            {
+                lblGenderSelected.Text = "Male";
+            }
+            else if (matRadioFemale.Checked == true)
+            {
+                lblGenderSelected.Text = "Female";
+            }
+            else
+            {
+                lblGenderSelected.Text = String.Empty;
+            }
+        }
+
+        private void metroComboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(mode =="add")
+            {
+
+            if (cboRequestorType.Text == "Requestor")
+            {
+                materialCard3RequestorSetup.Visible = true;
+            }
+            else
+            {
+                materialCard3RequestorSetup.Visible = false;
+            }
+            }
+        }
+
+        private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lblRequestorTypeID.Text = cboRequestorType.SelectedValue.ToString();
+        }
+
+        private void metroComboBox1_SelectionChangeCommitted_1(object sender, EventArgs e)
+        {
+            lblPositionId.Text = cboPosition.SelectedValue.ToString();
+        }
+
+        private void metroComboBox1_SelectionChangeCommitted_2(object sender, EventArgs e)
+        {
+            lblUnitID.Text = cboUnit.SelectedValue.ToString();
+        }
+
+        private void metroComboBox1_SelectedValueChanged_1(object sender, EventArgs e)
+        {
+            lblDepartmentID.Text = cbodepartment.SelectedValue.ToString();
+            //loadUnit();
+
+            if (cbodepartment.Text.Trim() != "")
+            {
+                loadUnit();
+                cboUnit.Text = String.Empty;
+            }
+
+
+            if (cbodepartment.Text.Trim() != "")
+            {
+                loadPositionDropDown();
+                cboPosition.Text = String.Empty;
+            }
         }
     }
 }

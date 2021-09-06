@@ -20,6 +20,7 @@ namespace ULTRAMAVERICK.Forms.Users
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
+        IStoredProcedures g_objStoredProcCollection = null;
 
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -46,13 +47,20 @@ namespace ULTRAMAVERICK.Forms.Users
         private void frmGrandChildAvailableForms_Load(object sender, EventArgs e)
         {
 
-            objStorProc = xClass.g_objStoredProc.GetCollections();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             displayGrandChildFormsData();
 
             loadChildMenu();
-        
+            displayUserRightsData();
         }
+        private void displayUserRightsData()      //method for loading available_menus
+        {
 
+            xClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
+
+
+        }
 
         DataSet dset_emp = new DataSet();
         private void SearchGrandChildData()
@@ -311,7 +319,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     if (saveMode())
                     {
-                        displayGrandChildFormsData();
+                        //displayGrandChildFormsData();
                         string tmode = mode;
 
                         if (tmode == "add")
@@ -409,6 +417,12 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtCreatedBy.Text.Trim(),
                         txtModifiedAt.Text.Trim(),
                         txtModifiedBy.Text.Trim(), "add");
+
+
+                    displayGrandChildFormsData();
+                    matBtnNext_Click(new object(), new System.EventArgs());
+                    displayUserRightsData();
+                    displayGrandChildFormsData();
 
                     return true;
                 }
@@ -621,6 +635,155 @@ namespace ULTRAMAVERICK.Forms.Users
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
             txtParentName.Text = String.Empty;
+        }
+
+        private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtcountChildId.Text = cboChildMenu.SelectedValue.ToString();
+
+            SearchGrandChildData();
+            txtgchild.Text = String.Empty;
+            txtfname.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            txtParentName.Text = String.Empty;
+        }
+
+        private void dgvChildForms_CurrentCellChanged(object sender, EventArgs e)
+        {
+            showValue();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btn_visible(false);
+            txt_read_only(false);
+            txtgchild.Enabled = true;
+            txtfname.Enabled = true;
+            txtcountChildId.Enabled = true;
+            cboChildMenu.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            cboChildMenu.Enabled = true;
+            txtcountChildId.Text = cboChildMenu.SelectedValue.ToString(); //Binding First Meet
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            txtgchild.Select();
+            txtgchild.Focus();
+        }
+
+        private void materialButton1_Click_1(object sender, EventArgs e)
+        {
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            if (dgvGrandChildForms.RowCount > 0)
+            {
+                temp_hid = dgvGrandChildForms.CurrentRow.Index;
+                txtfname.Enabled = true;
+                txtgchild.Enabled = true;
+
+                cboChildMenu.Enabled = true;
+                mode = "edit";
+
+                btn_visible(false);
+                txt_read_only(false);
+            }
+        }
+
+        private void materialButton1_Click_2(object sender, EventArgs e)
+        {
+            if (dgvGrandChildForms.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to delete the GrandChildForm Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        displayGrandChildFormsData();
+
+                        btnCancelTool_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+            }
+
+        }
+
+        private void materialButton1_Click_3(object sender, EventArgs e)
+        {
+            mode = "";
+            txt_read_only(true);
+            btn_visible(true);
+            dgvGrandChildForms_CurrentCellChanged(sender, e);
+            txtgchild.Enabled = false;
+            txtfname.Enabled = false;
+            cboChildMenu.Enabled = false;
+        }
+
+        private void materialButton1_Click_4(object sender, EventArgs e)
+        {
+            metroSave_Click(sender, e);
+        }
+
+        private void dgvUserRights_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvUserRights.Rows.Count > 0)
+            {
+                if (dgvUserRights.CurrentRow != null)
+                {
+                    if (dgvUserRights.CurrentRow.Cells["user_rights_name"].Value != null)
+                    {
+                        //p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
+                        txtRightsID.Text = dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
+
+                    }
+                }
+            }
+        }
+
+        private void matBtnNext_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0,
+                Convert.ToInt32(txtRightsID.Text),
+                "s",
+                "s",
+               "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                "s",
+                Convert.ToInt32(p_id).ToString(), "addModuleRightsModulePartial");
+
+            if (dgvUserRights.Rows.Count >= 1)
+            {
+                int i = dgvUserRights.CurrentRow.Index + 1;
+                if (i >= -1 && i < dgvUserRights.Rows.Count)
+                    dgvUserRights.CurrentCell = dgvUserRights.Rows[i].Cells[0];
+                else
+                {
+                    //LastLine();
+
+                    return;
+                }
+
+            }
+            matBtnNext_Click(sender, e);
         }
     }
 }

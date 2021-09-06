@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Adorner.cs" />
     <Compile Include="Class\MenuColorTable.cs" />
     <Compile Include="Class\MenuRenderer.cs" />
     <Compile Include="Class\RJDropdownMenu.cs">
@@ -148,6 +149,54 @@
     <Compile Include="FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmAddNewItemModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmAddNewItemModal.Designer.cs">
+      <DependentUpon>frmAddNewItemModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmDryRawMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmDryRawMaterials.Designer.cs">
+      <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmEditItemModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmEditItemModal.Designer.cs">
+      <DependentUpon>frmEditItemModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmItemClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmItemClass.Designer.cs">
+      <DependentUpon>frmItemClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmItemType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmItemType.Designer.cs">
+      <DependentUpon>frmItemType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmMajorCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmMajorCategory.Designer.cs">
+      <DependentUpon>frmMajorCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmPrimaryUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmPrimaryUnit.Designer.cs">
+      <DependentUpon>frmPrimaryUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmSubCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Research And Development\frmSubCategory.Designer.cs">
+      <DependentUpon>frmSubCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\frmChildAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +226,12 @@
     </Compile>
     <Compile Include="Forms\Users\frmGrandChildAvailableForms.Designer.cs">
       <DependentUpon>frmGrandChildAvailableForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmLocation.Designer.cs">
+      <DependentUpon>frmLocation.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmParentAvailableForms.cs">
       <SubType>Form</SubType>
@@ -252,6 +307,30 @@
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmAddNewItemModal.resx">
+      <DependentUpon>frmAddNewItemModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmDryRawMaterials.resx">
+      <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmEditItemModal.resx">
+      <DependentUpon>frmEditItemModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Research And Development\frmItemClass.resx">
+      <DependentUpon>frmItemClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Research And Development\frmItemType.resx">
+      <DependentUpon>frmItemType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Research And Development\frmMajorCategory.resx">
+      <DependentUpon>frmMajorCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Research And Development\frmPrimaryUnit.resx">
+      <DependentUpon>frmPrimaryUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Research And Development\frmSubCategory.resx">
+      <DependentUpon>frmSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmChildAvailableForms.resx">
       <DependentUpon>frmChildAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmGrandChildAvailableForms.resx">
       <DependentUpon>frmGrandChildAvailableForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmLocation.resx">
+      <DependentUpon>frmLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmParentAvailableForms.resx">
       <DependentUpon>frmParentAvailableForms.cs</DependentUpon>
@@ -417,6 +499,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ULTRA MAVERICK.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

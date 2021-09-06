@@ -89,6 +89,7 @@ namespace COMPLETE_FLAT_UI
            
 
                 mainMenu = new FormMenuPrincipal();
+                mainMenu.StartPosition = FormStartPosition.CenterScreen;
                 mainMenu.Show();
 
 

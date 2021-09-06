@@ -14,6 +14,9 @@ using ULTRAMAVERICK.Forms.Users;
 using ULTRAMAVERICK.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using ULTRAMAVERICK.Forms.Research_And_Development;
+using ULTRAMAVERICK.Class;
+using ULTRAMAVERICK.Forms.Dry_Warehouse;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -215,9 +218,23 @@ namespace COMPLETE_FLAT_UI
 
         }
 
+
+        private void BadgeNotification()
+        {
+            //Header
+            Adorner.AddBadgeTo(btnNotificationsBell, "123");
+            //end Header
+            //Major Menu Notifications
+            Adorner.AddBadgeTo(btnUsers, "123");
+            Adorner.AddBadgeTo(btnDryWarehouse, "123");
+            Adorner.AddBadgeTo(btnProductionPlanner, "123");
+            Adorner.AddBadgeTo(btnPreparationDepartment, "123");
+            Adorner.AddBadgeTo(btnResearchAndDevelopment, "123");
+        }
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1300, 700); //Size of Windows
+            BadgeNotification();
             //btnUsers.Enabled = true;
             lblFirstName.Text = userinfo.emp_name.ToString() + userinfo.emp_lastname.ToString();// First Name Session
             //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
@@ -279,37 +296,7 @@ namespace COMPLETE_FLAT_UI
 
 
             //Start of Child Menu
-            dset_rights.Clear();
-            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu", "", rights_id);
-
-            if (dset_rights.Tables.Count > 0)
-            {
-                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
-                {
-                    string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
-
-
-
-                    if (form_name == "toolDropdownMenu")
-                    {
-                        toolDropdownMenu.Visible = true;
-                    }
-                    else if (form_name == "toolDropdownUser")
-                    {
-                        toolDropdownUser.Visible = true;
-                        /*  MostrarFormLogo()*/
-                        ;
-                    }
-
-
-      
-
-
-            
-
-
-                }
-            }
+            SubMenu();
 
             //END
             dset_rights.Clear();
@@ -392,6 +379,44 @@ namespace COMPLETE_FLAT_UI
 
 
         }
+        private void SubMenu()
+        {
+            dset_rights.Clear();
+            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu", "", rights_id);
+
+            if (dset_rights.Tables.Count > 0)
+            {
+                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
+                {
+                    string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+
+
+
+                    if (form_name == "toolDropdownMenu")
+                    {
+                        toolDropdownMenu.Visible = true;
+                    }
+                    else if (form_name == "toolDropdownUser")
+                    {
+                        toolDropdownUser.Visible = true;
+                        /*  MostrarFormLogo()*/
+
+                    }
+
+                    else if (form_name == "toolStripRawMaterials")
+                    {
+                        toolStripRawMaterials.Visible = true;
+                    }
+
+
+
+
+
+
+                }
+            }
+        }
+
         //METODO PARA MOSTRAR FORMULARIO DE LOGO Al CERRAR OTROS FORM ----------------------------------------------------------
         private void MostrarFormLogoAlCerrarForms(object sender, FormClosedEventArgs e)
         {
@@ -401,6 +426,14 @@ namespace COMPLETE_FLAT_UI
         private void btnListaClientes_Click(object sender, EventArgs e)
         {
             panelMenuSelection.Visible = true;
+
+            SubMenu();
+
+            //Research And Development
+            toolStripRawMaterials.Visible = false;
+
+
+
 
             //FormListaClientes fm = new FormListaClientes();
             //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
@@ -491,7 +524,10 @@ namespace COMPLETE_FLAT_UI
                 frmLoginForm mainLogin = new frmLoginForm();
                 this.Hide();
                 mainLogin.Closed += (s, args) => this.Close();
-                mainLogin.Show();
+                mainLogin.StartPosition = FormStartPosition.CenterScreen;
+                mainLogin.ShowDialog();
+
+          
                 //end of form validation
 
                 //Application.Exit();
@@ -639,14 +675,29 @@ namespace COMPLETE_FLAT_UI
         {
             //PanelHeader.BackColor = MaterialSkinManager.Themes.DARK;
 
-            if (themeToggle.Checked)
-            {
-                ThemeManager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            else
-            {
-                ThemeManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
+            //if (themeToggle.Checked)
+            //{
+            //    ThemeManager.Theme = MaterialSkinManager.Themes.DARK;
+            //}
+            //else
+            //{
+            //    ThemeManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            //}
+        }
+
+        private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+            panelMenuSelection.Visible = false;
+        }
+
+        private void toolDropdownUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripRawMaterials_Click(object sender, EventArgs e)
+        {
+
         }
 
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------
@@ -655,14 +706,75 @@ namespace COMPLETE_FLAT_UI
             lblDateFinal.Text = DateTime.Now.ToLongDateString();
             lblTimeFinal.Text = DateTime.Now.ToString("HH:mm:ssss");
         }
-        
+
+        private void toolStripModuleItemClass_Click_1(object sender, EventArgs e)
+        {
+            frmItemClass fm = new frmItemClass();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStripModuleMajorCategory_Click(object sender, EventArgs e)
+        {
+            frmMajorCategory fm = new frmMajorCategory();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStripModuleSubCategory_Click(object sender, EventArgs e)
+        {
+            frmSubCategory fm = new frmSubCategory();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStripModulePrimaryUnit_Click(object sender, EventArgs e)
+        {
+            frmPrimaryUnit fm = new frmPrimaryUnit();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStripModuleItemType_Click(object sender, EventArgs e)
+        {
+            frmItemType fm = new frmItemType();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolDropdownLocation_Click(object sender, EventArgs e)
+        {
+            frmLocation fm = new frmLocation();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolModuleRawMaterialsDry_Click(object sender, EventArgs e)
+        {
+            frmDryRawMaterials fm = new frmDryRawMaterials();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Form1());
+            //AbrirFormEnPanel(new Form1());
+            panelMenuSelection.Visible = true;
+            SubMenu();
+            //User major Menu
+            toolDropdownUser.Visible = false;
+            toolDropdownMenu.Visible = false;
         }
 
-        
+
+        private void toolStripModuleItemClass_Click(object sender, EventArgs e)
+        {
+            //frmItemClass fm = new frmItemClass();
+            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            //AbrirFormEnPanel(fm);
+        }
+
+
 
     }
 }

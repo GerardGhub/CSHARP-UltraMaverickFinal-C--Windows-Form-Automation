@@ -184,6 +184,7 @@ namespace ULTRAMAVERICK.Models
             string Department,
             string requestor_type,
             string Unit,
+            string gender,
             string mode);
        
         DataSet sp_userfile(int userfile_id, string username, string password, string user_section, string mode);
@@ -253,6 +254,72 @@ namespace ULTRAMAVERICK.Models
             string updated_by, 
             string mode);
 
+
+        DataSet sp_Item_Class(int item_class_id,
+    string item_class_desc,
+    string item_added_by,
+    string item_added_at,
+    string item_updated_at,
+    string item_updated_by,
+    string mode);
+
+        DataSet sp_Major_Category(int major_category_id,
+        string major_category_desc,
+        string mc_added_by,
+        string mc_added_at,
+        string mc_updated_at,
+        string mc_updated_by,
+        string mode);
+
+
+        DataSet sp_Sub_Category(int sub_category_id,
+      string sub_category_desc,
+      string sc_added_by,
+      string sc_added_at,
+      string sc_updated_at,
+      string sc_updated_by,
+      string mode);
+
+        DataSet sp_Primary_Unit(int unit_id,
+  string unit_desc,
+  string pm_added_by,
+  string pm_added_at,
+  string pm_updated_at,
+  string pm_updated_by,
+  string mode);
+
+            DataSet sp_Item_Type(int item_type_id,
+            string item_type_desc,
+            string it_added_by,
+            string it_added_at,
+            string it_updated_at,
+            string it_updated_by,
+            string mode);
+
+                DataSet sp_Raw_Materials_Dry(
+                int item_id,
+                string item_code,
+                string item_description,
+                string item_class,
+                string major_category,
+                string sub_category,
+                string primary_unit,
+                string conversion,
+                string item_type,
+                string created_at,
+                string created_by,
+                string updated_at,
+                string updated_by,
+                string mode);
+
+
+        DataSet sp_Location(int location_id,
+string location_name,
+string created_at,
+string created_by,
+string updated_at,
+string updated_by,
+string mode);
 
         DataSet sp_available_menu_grandChild(int menu_id,
       string menu_name,

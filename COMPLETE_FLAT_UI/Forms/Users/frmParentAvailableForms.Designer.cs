@@ -536,7 +536,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUserRights.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUserRights.EnableHeadersVisualStyles = false;
             this.dgvUserRights.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvUserRights.Location = new System.Drawing.Point(1426, 229);
+            this.dgvUserRights.Location = new System.Drawing.Point(1466, 365);
             this.dgvUserRights.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvUserRights.Name = "dgvUserRights";
             this.dgvUserRights.ReadOnly = true;

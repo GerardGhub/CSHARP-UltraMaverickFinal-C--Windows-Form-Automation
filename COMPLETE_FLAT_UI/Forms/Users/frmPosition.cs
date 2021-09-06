@@ -661,7 +661,7 @@ namespace ULTRAMAVERICK.Forms.Users
             mode = "add";
             btnUpdateTool.Visible = true;
             btnAddTool.Visible = false;
-
+            txtname.BackColor = Color.Yellow;
             lstPosition.Enabled = false;
 
             txtname.Enabled = true;
@@ -703,6 +703,34 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
                 txtModifiedBy.Text = userinfo.emp_name.ToUpper();
             }
+        }
+
+        private void materialButton3_Click(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
+        }
+
+        private void matbtnCancel_Click(object sender, EventArgs e)
+        {
+            lstPosition.Enabled = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
+            txtname.Enabled = false;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            cbodepartment.Enabled = false;
+            txtname.BackColor = Color.White;
+        }
+
+        private void materialButton1_Click_1(object sender, EventArgs e)
+        {
+            metroButtonSave_Click(sender, e);
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
