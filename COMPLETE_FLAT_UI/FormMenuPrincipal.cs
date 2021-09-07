@@ -42,7 +42,7 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
+        //MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
 
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
@@ -578,8 +578,12 @@ namespace COMPLETE_FLAT_UI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            frmDashBoardFormMenu asd = new frmDashBoardFormMenu();
-            asd.ShowDialog();
+            //frmDashBoardFormMenu asd = new frmDashBoardFormMenu();
+            //asd.ShowDialog();
+
+
+            frmDashBoardFormMenu addNew = new frmDashBoardFormMenu(this);
+            addNew.ShowDialog();
         }
 
  
@@ -754,6 +758,49 @@ namespace COMPLETE_FLAT_UI
             frmDryRawMaterials fm = new frmDryRawMaterials();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+        }
+        public string sidecolor { get; set; }
+        private void txtMatSideBarColor_TextChanged(object sender, EventArgs e)
+        {
+
+            if (txtMatSideBarColor.Text == "Light Gray")
+            {
+                panelMenu.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnDashBoard.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnUsers.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnDryWarehouse.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnProductionPlanner.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnPreparationDepartment.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnResearchAndDevelopment.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+            }
+            else if (txtMatSideBarColor.Text == "Matte Black")
+            {
+                panelMenu.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                //Button
+                btnDashBoard.ForeColor = Color.White;
+                btnUsers.ForeColor = Color.White;
+                btnDryWarehouse.ForeColor = Color.White;
+                btnProductionPlanner.ForeColor = Color.White;
+                btnPreparationDepartment.ForeColor = Color.White;
+                btnResearchAndDevelopment.ForeColor = Color.White;
+
+                panelMenu.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnDashBoard.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnUsers.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnDryWarehouse.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnProductionPlanner.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnPreparationDepartment.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnResearchAndDevelopment.BackColor = ColorTranslator.FromHtml("#4F4F51");
+            }
+            else
+            {
+
+            }
+
+            //panelMenu.BackColor = System.Drawing.Color.MidnightBlue;
+
+
+
         }
 
         private void button5_Click(object sender, EventArgs e)

@@ -778,5 +778,114 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btn_visible(false);
+            txt_read_only(false);
+            txtmname.Enabled = true;
+            txtfname.Enabled = true;
+            txtcount.Enabled = true;
+            cboParentMenu.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            cboParentMenu.Enabled = true;
+            txtcount.Text = cboParentMenu.SelectedValue.ToString(); //Binding First Meet
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            txtmname.Select();
+            txtmname.Focus();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                ChildMenuAlreadyExist();
+
+
+                txtmname.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            if (dgvChildForms.RowCount > 0)
+            {
+                temp_hid = dgvChildForms.CurrentRow.Index;
+                txtfname.Enabled = true;
+                txtmname.Enabled = true;
+                txtcount.Enabled = true;
+                cboParentMenu.Enabled = true;
+                mode = "edit";
+
+                btn_visible(false);
+                txt_read_only(false);
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            if (dgvChildForms.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to delete the ChildForm Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        displayChildFormsData();
+
+                        btnCancelTool_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            mode = "";
+            txt_read_only(true);
+            btn_visible(true);
+            dgvChildForms_CurrentCellChanged(sender, e);
+            txtmname.Enabled = false;
+            txtfname.Enabled = false;
+            cboParentMenu.Enabled = false;
+        }
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

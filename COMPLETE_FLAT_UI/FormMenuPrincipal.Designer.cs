@@ -103,6 +103,7 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.txtMatSideBarColor = new MaterialSkin.Controls.MaterialTextBox();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -139,8 +140,9 @@
             // 
             // PanelHeader
             // 
-            this.PanelHeader.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.PanelHeader.BackColor = System.Drawing.SystemColors.Control;
             this.PanelHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelHeader.Controls.Add(this.txtMatSideBarColor);
             this.PanelHeader.Controls.Add(this.btnNotificationsBell);
             this.PanelHeader.Controls.Add(this.btnMaximizedFinal);
             this.PanelHeader.Controls.Add(this.btnCloseFinal);
@@ -313,7 +315,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(93, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
@@ -384,7 +386,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(88)))), ((int)(((byte)(152)))));
+            this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
             this.panelMenu.Controls.Add(this.panelMenuSelection);
             this.panelMenu.Controls.Add(this.btnMenu);
             this.panelMenu.Controls.Add(this.pictureBox10);
@@ -537,42 +539,42 @@
             // toolStripModuleItemClass
             // 
             this.toolStripModuleItemClass.Name = "toolStripModuleItemClass";
-            this.toolStripModuleItemClass.Size = new System.Drawing.Size(448, 54);
+            this.toolStripModuleItemClass.Size = new System.Drawing.Size(414, 54);
             this.toolStripModuleItemClass.Text = "Item Class";
             this.toolStripModuleItemClass.Click += new System.EventHandler(this.toolStripModuleItemClass_Click_1);
             // 
             // toolStripModuleMajorCategory
             // 
             this.toolStripModuleMajorCategory.Name = "toolStripModuleMajorCategory";
-            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(448, 54);
+            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(414, 54);
             this.toolStripModuleMajorCategory.Text = "Major Category";
             this.toolStripModuleMajorCategory.Click += new System.EventHandler(this.toolStripModuleMajorCategory_Click);
             // 
             // toolStripModuleSubCategory
             // 
             this.toolStripModuleSubCategory.Name = "toolStripModuleSubCategory";
-            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(448, 54);
+            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(414, 54);
             this.toolStripModuleSubCategory.Text = "Sub Category";
             this.toolStripModuleSubCategory.Click += new System.EventHandler(this.toolStripModuleSubCategory_Click);
             // 
             // toolStripModulePrimaryUnit
             // 
             this.toolStripModulePrimaryUnit.Name = "toolStripModulePrimaryUnit";
-            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(448, 54);
+            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(414, 54);
             this.toolStripModulePrimaryUnit.Text = "Primary Unit";
             this.toolStripModulePrimaryUnit.Click += new System.EventHandler(this.toolStripModulePrimaryUnit_Click);
             // 
             // toolStripModuleItemType
             // 
             this.toolStripModuleItemType.Name = "toolStripModuleItemType";
-            this.toolStripModuleItemType.Size = new System.Drawing.Size(448, 54);
+            this.toolStripModuleItemType.Size = new System.Drawing.Size(414, 54);
             this.toolStripModuleItemType.Text = "Item Type";
             this.toolStripModuleItemType.Click += new System.EventHandler(this.toolStripModuleItemType_Click);
             // 
             // toolModuleRawMaterialsDry
             // 
             this.toolModuleRawMaterialsDry.Name = "toolModuleRawMaterialsDry";
-            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(448, 54);
+            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(414, 54);
             this.toolModuleRawMaterialsDry.Text = "Raw Material";
             this.toolModuleRawMaterialsDry.Click += new System.EventHandler(this.toolModuleRawMaterialsDry_Click);
             // 
@@ -641,6 +643,7 @@
             // btnMenu
             // 
             this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.Location = new System.Drawing.Point(498, -10);
@@ -668,6 +671,7 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
+            this.lblLastName.BackColor = System.Drawing.Color.Transparent;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.Color.LightGray;
             this.lblLastName.Location = new System.Drawing.Point(220, 24);
@@ -681,6 +685,7 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.Color.LightGray;
             this.lblFirstName.Location = new System.Drawing.Point(52, 24);
@@ -975,7 +980,7 @@
             this.lblDateFinal.AutoSize = true;
             this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblDateFinal.ForeColor = System.Drawing.Color.Black;
-            this.lblDateFinal.Location = new System.Drawing.Point(447, 64);
+            this.lblDateFinal.Location = new System.Drawing.Point(459, 43);
             this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblDateFinal.Name = "lblDateFinal";
             this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
@@ -985,12 +990,12 @@
             // lblTimeFinal
             // 
             this.lblTimeFinal.AutoSize = true;
-            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeFinal.ForeColor = System.Drawing.Color.Black;
-            this.lblTimeFinal.Location = new System.Drawing.Point(22, 23);
+            this.lblTimeFinal.Location = new System.Drawing.Point(16, 7);
             this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblTimeFinal.Name = "lblTimeFinal";
-            this.lblTimeFinal.Size = new System.Drawing.Size(525, 135);
+            this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
             this.lblTimeFinal.TabIndex = 2;
             this.lblTimeFinal.Text = "21:49:45";
             // 
@@ -1069,6 +1074,24 @@
             this.panelContenedorPrincipal.Name = "panelContenedorPrincipal";
             this.panelContenedorPrincipal.Size = new System.Drawing.Size(2933, 1431);
             this.panelContenedorPrincipal.TabIndex = 0;
+            // 
+            // txtMatSideBarColor
+            // 
+            this.txtMatSideBarColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatSideBarColor.Depth = 0;
+            this.txtMatSideBarColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtMatSideBarColor.Hint = "SideBar Color";
+            this.txtMatSideBarColor.Location = new System.Drawing.Point(1396, 28);
+            this.txtMatSideBarColor.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtMatSideBarColor.MaxLength = 50;
+            this.txtMatSideBarColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtMatSideBarColor.Multiline = false;
+            this.txtMatSideBarColor.Name = "txtMatSideBarColor";
+            this.txtMatSideBarColor.Size = new System.Drawing.Size(257, 50);
+            this.txtMatSideBarColor.TabIndex = 12;
+            this.txtMatSideBarColor.Text = "";
+            this.txtMatSideBarColor.Visible = false;
+            this.txtMatSideBarColor.TextChanged += new System.EventHandler(this.txtMatSideBarColor_TextChanged);
             // 
             // FormMenuPrincipal
             // 
@@ -1183,6 +1206,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripModuleItemType;
         private System.Windows.Forms.ToolStripMenuItem toolDropdownLocation;
         private System.Windows.Forms.ToolStripMenuItem toolModuleRawMaterialsDry;
+        public MaterialSkin.Controls.MaterialTextBox txtMatSideBarColor;
     }
 }
 

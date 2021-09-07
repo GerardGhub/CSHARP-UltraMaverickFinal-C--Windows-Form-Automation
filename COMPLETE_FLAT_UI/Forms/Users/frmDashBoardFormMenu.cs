@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using COMPLETE_FLAT_UI;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -14,9 +15,12 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmDashBoardFormMenu : MaterialForm
     {
-        public frmDashBoardFormMenu()
+        FormMenuPrincipal ths;
+        public frmDashBoardFormMenu(FormMenuPrincipal frm)
         {
             InitializeComponent();
+            ths = frm;
+            txtMatSideBarColor.TextChanged += new EventHandler(txtMatSideBarColor_TextChanged);
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -58,6 +62,29 @@ namespace ULTRAMAVERICK.Forms.Users
         private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
         {
             ThemeManager.ColorScheme = new ColorScheme(Primary.Green700, Primary.Green900, Primary.Green500, Accent.Green400, TextShade.WHITE);
+
+        }
+
+        private void txtMatSideBarColor_TextChanged(object sender, EventArgs e)
+        {
+            ths.txtMatSideBarColor.Text = txtMatSideBarColor.Text;
+        }
+
+        private void matChkMatteBlack_CheckedChanged(object sender, EventArgs e)
+        {
+            if(matChkMatteBlack.Checked ==true)
+            {
+                txtMatSideBarColor.Text = "Matte Black";
+            }
+            else if(matChkLightGray.Checked ==true)
+            {
+                txtMatSideBarColor.Text = "Light Gray";
+            }
+            else
+            {
+
+            }
+
 
         }
     }

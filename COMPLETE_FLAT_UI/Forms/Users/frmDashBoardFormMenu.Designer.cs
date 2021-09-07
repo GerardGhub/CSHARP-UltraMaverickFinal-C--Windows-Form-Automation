@@ -56,11 +56,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label3 = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtMatSideBarColor = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            this.matChkMatteBlack = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matChkLightGray = new MaterialSkin.Controls.MaterialRadioButton();
+            this.materialRadioButton5 = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialCard4.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.materialCard2.SuspendLayout();
             this.materialCard5.SuspendLayout();
             this.materialCard1.SuspendLayout();
+            this.materialCard6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -194,7 +200,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 12F);
             this.materialTextBox2.Hint = "Your Texe Here";
             this.materialTextBox2.Location = new System.Drawing.Point(56, 181);
             this.materialTextBox2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -443,11 +449,95 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialLabel4.TabIndex = 13;
             this.materialLabel4.Text = "Select Theme Color";
             // 
+            // txtMatSideBarColor
+            // 
+            this.txtMatSideBarColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatSideBarColor.Depth = 0;
+            this.txtMatSideBarColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtMatSideBarColor.Hint = "SideBar Color";
+            this.txtMatSideBarColor.Location = new System.Drawing.Point(1675, 245);
+            this.txtMatSideBarColor.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtMatSideBarColor.MaxLength = 50;
+            this.txtMatSideBarColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtMatSideBarColor.Multiline = false;
+            this.txtMatSideBarColor.Name = "txtMatSideBarColor";
+            this.txtMatSideBarColor.Size = new System.Drawing.Size(311, 50);
+            this.txtMatSideBarColor.TabIndex = 11;
+            this.txtMatSideBarColor.Text = "";
+            this.txtMatSideBarColor.TextChanged += new System.EventHandler(this.txtMatSideBarColor_TextChanged);
+            // 
+            // materialCard6
+            // 
+            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard6.Controls.Add(this.materialRadioButton5);
+            this.materialCard6.Controls.Add(this.matChkLightGray);
+            this.materialCard6.Controls.Add(this.matChkMatteBlack);
+            this.materialCard6.Depth = 0;
+            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard6.Location = new System.Drawing.Point(1668, 435);
+            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard6.Name = "materialCard6";
+            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard6.Size = new System.Drawing.Size(357, 747);
+            this.materialCard6.TabIndex = 17;
+            // 
+            // matChkMatteBlack
+            // 
+            this.matChkMatteBlack.AutoSize = true;
+            this.matChkMatteBlack.Depth = 0;
+            this.matChkMatteBlack.Location = new System.Drawing.Point(50, 64);
+            this.matChkMatteBlack.Margin = new System.Windows.Forms.Padding(0);
+            this.matChkMatteBlack.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matChkMatteBlack.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matChkMatteBlack.Name = "matChkMatteBlack";
+            this.matChkMatteBlack.Ripple = true;
+            this.matChkMatteBlack.Size = new System.Drawing.Size(119, 37);
+            this.matChkMatteBlack.TabIndex = 14;
+            this.matChkMatteBlack.TabStop = true;
+            this.matChkMatteBlack.Text = "Matte Black";
+            this.matChkMatteBlack.UseVisualStyleBackColor = true;
+            this.matChkMatteBlack.CheckedChanged += new System.EventHandler(this.matChkMatteBlack_CheckedChanged);
+            // 
+            // matChkLightGray
+            // 
+            this.matChkLightGray.AutoSize = true;
+            this.matChkLightGray.Depth = 0;
+            this.matChkLightGray.Location = new System.Drawing.Point(50, 147);
+            this.matChkLightGray.Margin = new System.Windows.Forms.Padding(0);
+            this.matChkLightGray.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matChkLightGray.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matChkLightGray.Name = "matChkLightGray";
+            this.matChkLightGray.Ripple = true;
+            this.matChkLightGray.Size = new System.Drawing.Size(108, 37);
+            this.matChkLightGray.TabIndex = 15;
+            this.matChkLightGray.TabStop = true;
+            this.matChkLightGray.Text = "Light Gray";
+            this.matChkLightGray.UseVisualStyleBackColor = true;
+            // 
+            // materialRadioButton5
+            // 
+            this.materialRadioButton5.AutoSize = true;
+            this.materialRadioButton5.Depth = 0;
+            this.materialRadioButton5.Location = new System.Drawing.Point(50, 232);
+            this.materialRadioButton5.Margin = new System.Windows.Forms.Padding(0);
+            this.materialRadioButton5.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialRadioButton5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRadioButton5.Name = "materialRadioButton5";
+            this.materialRadioButton5.Ripple = true;
+            this.materialRadioButton5.Size = new System.Drawing.Size(76, 37);
+            this.materialRadioButton5.TabIndex = 16;
+            this.materialRadioButton5.TabStop = true;
+            this.materialRadioButton5.Text = "Green";
+            this.materialRadioButton5.UseVisualStyleBackColor = true;
+            // 
             // frmDashBoardFormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1671, 1647);
+            this.ClientSize = new System.Drawing.Size(2043, 1647);
+            this.Controls.Add(this.materialCard6);
+            this.Controls.Add(this.txtMatSideBarColor);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialCard4);
@@ -473,6 +563,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard5.PerformLayout();
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.materialCard6.ResumeLayout(false);
+            this.materialCard6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,5 +598,10 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        public MaterialSkin.Controls.MaterialTextBox txtMatSideBarColor;
+        private MaterialSkin.Controls.MaterialCard materialCard6;
+        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton5;
+        private MaterialSkin.Controls.MaterialRadioButton matChkLightGray;
+        private MaterialSkin.Controls.MaterialRadioButton matChkMatteBlack;
     }
 }

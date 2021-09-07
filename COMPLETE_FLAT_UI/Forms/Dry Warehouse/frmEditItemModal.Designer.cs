@@ -36,21 +36,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblMajorCatId = new System.Windows.Forms.Label();
             this.lblItemClassID = new System.Windows.Forms.Label();
             this.txtmatConversion = new MaterialSkin.Controls.MaterialTextBox();
-            this.cboPrimaryUnit = new MetroFramework.Controls.MetroComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
-            this.cboItemType = new MetroFramework.Controls.MetroComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboMajorCategory = new MetroFramework.Controls.MetroComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboItemClass = new MetroFramework.Controls.MetroComboBox();
             this.txtMatItemDesc = new MaterialSkin.Controls.MaterialTextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtMatItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.txtcreatedBy = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cboSubCat = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboMajorCategory = new System.Windows.Forms.ComboBox();
+            this.cboPrimaryUnit = new System.Windows.Forms.ComboBox();
+            this.cboItemType = new System.Windows.Forms.ComboBox();
+            this.cboItemClass = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,12 +74,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblPrimaryUnitID.BackColor = System.Drawing.Color.Transparent;
             this.lblPrimaryUnitID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrimaryUnitID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPrimaryUnitID.Location = new System.Drawing.Point(305, 382);
+            this.lblPrimaryUnitID.Location = new System.Drawing.Point(305, 385);
             this.lblPrimaryUnitID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblPrimaryUnitID.Name = "lblPrimaryUnitID";
-            this.lblPrimaryUnitID.Size = new System.Drawing.Size(178, 32);
+            this.lblPrimaryUnitID.Size = new System.Drawing.Size(87, 32);
             this.lblPrimaryUnitID.TabIndex = 591;
-            this.lblPrimaryUnitID.Text = "Primary Unit:";
+            this.lblPrimaryUnitID.Text = "NULL";
             this.lblPrimaryUnitID.Visible = false;
             // 
             // lblItemTypeID
@@ -87,12 +88,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblItemTypeID.BackColor = System.Drawing.Color.Transparent;
             this.lblItemTypeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemTypeID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblItemTypeID.Location = new System.Drawing.Point(1582, 221);
+            this.lblItemTypeID.Location = new System.Drawing.Point(1582, 216);
             this.lblItemTypeID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblItemTypeID.Name = "lblItemTypeID";
-            this.lblItemTypeID.Size = new System.Drawing.Size(147, 32);
+            this.lblItemTypeID.Size = new System.Drawing.Size(87, 32);
             this.lblItemTypeID.TabIndex = 590;
-            this.lblItemTypeID.Text = "Item Type:";
+            this.lblItemTypeID.Text = "NULL";
             this.lblItemTypeID.Visible = false;
             // 
             // lblIDSubCat
@@ -104,9 +105,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblIDSubCat.Location = new System.Drawing.Point(940, 221);
             this.lblIDSubCat.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblIDSubCat.Name = "lblIDSubCat";
-            this.lblIDSubCat.Size = new System.Drawing.Size(196, 32);
+            this.lblIDSubCat.Size = new System.Drawing.Size(87, 32);
             this.lblIDSubCat.TabIndex = 589;
-            this.lblIDSubCat.Text = "Sub Category:";
+            this.lblIDSubCat.Text = "NULL";
             this.lblIDSubCat.Visible = false;
             // 
             // lblMajorCatId
@@ -115,12 +116,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblMajorCatId.BackColor = System.Drawing.Color.Transparent;
             this.lblMajorCatId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMajorCatId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblMajorCatId.Location = new System.Drawing.Point(320, 221);
+            this.lblMajorCatId.Location = new System.Drawing.Point(320, 215);
             this.lblMajorCatId.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblMajorCatId.Name = "lblMajorCatId";
-            this.lblMajorCatId.Size = new System.Drawing.Size(216, 32);
+            this.lblMajorCatId.Size = new System.Drawing.Size(87, 32);
             this.lblMajorCatId.TabIndex = 588;
-            this.lblMajorCatId.Text = "Major Category:";
+            this.lblMajorCatId.Text = "NULL";
             this.lblMajorCatId.Visible = false;
             // 
             // lblItemClassID
@@ -129,19 +130,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblItemClassID.BackColor = System.Drawing.Color.Transparent;
             this.lblItemClassID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemClassID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblItemClassID.Location = new System.Drawing.Point(1534, 71);
+            this.lblItemClassID.Location = new System.Drawing.Point(1539, 49);
             this.lblItemClassID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblItemClassID.Name = "lblItemClassID";
-            this.lblItemClassID.Size = new System.Drawing.Size(155, 32);
+            this.lblItemClassID.Size = new System.Drawing.Size(87, 32);
             this.lblItemClassID.TabIndex = 587;
-            this.lblItemClassID.Text = "Item Class:";
+            this.lblItemClassID.Text = "NULL";
             this.lblItemClassID.Visible = false;
             // 
             // txtmatConversion
             // 
             this.txtmatConversion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtmatConversion.Depth = 0;
-            this.txtmatConversion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtmatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatConversion.Hint = "Conversion";
             this.txtmatConversion.Location = new System.Drawing.Point(693, 371);
             this.txtmatConversion.MaxLength = 50;
@@ -151,16 +152,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Size = new System.Drawing.Size(414, 50);
             this.txtmatConversion.TabIndex = 586;
             this.txtmatConversion.Text = "";
-            // 
-            // cboPrimaryUnit
-            // 
-            this.cboPrimaryUnit.FormattingEnabled = true;
-            this.cboPrimaryUnit.ItemHeight = 24;
-            this.cboPrimaryUnit.Location = new System.Drawing.Point(59, 424);
-            this.cboPrimaryUnit.Name = "cboPrimaryUnit";
-            this.cboPrimaryUnit.Size = new System.Drawing.Size(419, 30);
-            this.cboPrimaryUnit.TabIndex = 585;
-            this.cboPrimaryUnit.UseSelectable = true;
             // 
             // label4
             // 
@@ -192,69 +183,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matBtnSave.UseAccentColor = false;
             this.matBtnSave.UseVisualStyleBackColor = true;
-            // 
-            // cboItemType
-            // 
-            this.cboItemType.FormattingEnabled = true;
-            this.cboItemType.ItemHeight = 24;
-            this.cboItemType.Location = new System.Drawing.Point(1338, 256);
-            this.cboItemType.Name = "cboItemType";
-            this.cboItemType.Size = new System.Drawing.Size(414, 30);
-            this.cboItemType.TabIndex = 583;
-            this.cboItemType.UseSelectable = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(1332, 221);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 32);
-            this.label3.TabIndex = 582;
-            this.label3.Text = "Item Type:";
-            // 
-            // cboMajorCategory
-            // 
-            this.cboMajorCategory.FormattingEnabled = true;
-            this.cboMajorCategory.ItemHeight = 24;
-            this.cboMajorCategory.Location = new System.Drawing.Point(64, 258);
-            this.cboMajorCategory.Name = "cboMajorCategory";
-            this.cboMajorCategory.Size = new System.Drawing.Size(419, 30);
-            this.cboMajorCategory.TabIndex = 579;
-            this.cboMajorCategory.UseSelectable = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(63, 221);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 32);
-            this.label1.TabIndex = 578;
-            this.label1.Text = "Major Category:";
-            // 
-            // cboItemClass
-            // 
-            this.cboItemClass.FormattingEnabled = true;
-            this.cboItemClass.ItemHeight = 24;
-            this.cboItemClass.Location = new System.Drawing.Point(1338, 108);
-            this.cboItemClass.Name = "cboItemClass";
-            this.cboItemClass.Size = new System.Drawing.Size(414, 30);
-            this.cboItemClass.TabIndex = 577;
-            this.cboItemClass.UseSelectable = true;
+            this.matBtnSave.Click += new System.EventHandler(this.matBtnSave_Click);
             // 
             // txtMatItemDesc
             // 
             this.txtMatItemDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatItemDesc.Depth = 0;
             this.txtMatItemDesc.Enabled = false;
-            this.txtMatItemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtMatItemDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemDesc.Hint = "Item Description";
             this.txtMatItemDesc.Location = new System.Drawing.Point(693, 68);
             this.txtMatItemDesc.MaxLength = 50;
@@ -265,27 +201,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemDesc.TabIndex = 1;
             this.txtMatItemDesc.Text = "";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(1337, 71);
-            this.label13.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 32);
-            this.label13.TabIndex = 576;
-            this.label13.Text = "Item Class:";
-            // 
             // txtMatItemCode
             // 
             this.txtMatItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatItemCode.Depth = 0;
             this.txtMatItemCode.Enabled = false;
-            this.txtMatItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtMatItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemCode.Hint = "Item Code";
-            this.txtMatItemCode.Location = new System.Drawing.Point(69, 68);
+            this.txtMatItemCode.Location = new System.Drawing.Point(59, 68);
             this.txtMatItemCode.MaxLength = 50;
             this.txtMatItemCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemCode.Multiline = false;
@@ -310,6 +233,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.label5);
+            this.materialCard1.Controls.Add(this.label3);
+            this.materialCard1.Controls.Add(this.label2);
+            this.materialCard1.Controls.Add(this.label1);
+            this.materialCard1.Controls.Add(this.cboItemClass);
+            this.materialCard1.Controls.Add(this.cboItemType);
+            this.materialCard1.Controls.Add(this.cboPrimaryUnit);
+            this.materialCard1.Controls.Add(this.cboMajorCategory);
             this.materialCard1.Controls.Add(this.cboSubCat);
             this.materialCard1.Controls.Add(this.lblPrimaryUnitID);
             this.materialCard1.Controls.Add(this.lblItemTypeID);
@@ -317,15 +248,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.lblMajorCatId);
             this.materialCard1.Controls.Add(this.lblItemClassID);
             this.materialCard1.Controls.Add(this.txtmatConversion);
-            this.materialCard1.Controls.Add(this.cboPrimaryUnit);
             this.materialCard1.Controls.Add(this.label4);
-            this.materialCard1.Controls.Add(this.cboItemType);
-            this.materialCard1.Controls.Add(this.label3);
-            this.materialCard1.Controls.Add(this.cboMajorCategory);
-            this.materialCard1.Controls.Add(this.label1);
-            this.materialCard1.Controls.Add(this.cboItemClass);
             this.materialCard1.Controls.Add(this.txtMatItemDesc);
-            this.materialCard1.Controls.Add(this.label13);
             this.materialCard1.Controls.Add(this.txtMatItemCode);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -336,6 +260,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(1810, 624);
             this.materialCard1.TabIndex = 477;
+            // 
+            // cboSubCat
+            // 
+            this.cboSubCat.FormattingEnabled = true;
+            this.cboSubCat.Location = new System.Drawing.Point(693, 247);
+            this.cboSubCat.Name = "cboSubCat";
+            this.cboSubCat.Size = new System.Drawing.Size(414, 39);
+            this.cboSubCat.TabIndex = 592;
+            this.cboSubCat.SelectionChangeCommitted += new System.EventHandler(this.cboSubCat_SelectionChangeCommitted);
             // 
             // textBox1
             // 
@@ -350,13 +283,93 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // cboSubCat
+            // cboMajorCategory
             // 
-            this.cboSubCat.FormattingEnabled = true;
-            this.cboSubCat.Location = new System.Drawing.Point(693, 247);
-            this.cboSubCat.Name = "cboSubCat";
-            this.cboSubCat.Size = new System.Drawing.Size(414, 39);
-            this.cboSubCat.TabIndex = 592;
+            this.cboMajorCategory.FormattingEnabled = true;
+            this.cboMajorCategory.Location = new System.Drawing.Point(59, 247);
+            this.cboMajorCategory.Name = "cboMajorCategory";
+            this.cboMajorCategory.Size = new System.Drawing.Size(414, 39);
+            this.cboMajorCategory.TabIndex = 593;
+            this.cboMajorCategory.SelectionChangeCommitted += new System.EventHandler(this.cboMajorCategory_SelectionChangeCommitted);
+            // 
+            // cboPrimaryUnit
+            // 
+            this.cboPrimaryUnit.FormattingEnabled = true;
+            this.cboPrimaryUnit.Location = new System.Drawing.Point(59, 422);
+            this.cboPrimaryUnit.Name = "cboPrimaryUnit";
+            this.cboPrimaryUnit.Size = new System.Drawing.Size(414, 39);
+            this.cboPrimaryUnit.TabIndex = 594;
+            this.cboPrimaryUnit.SelectionChangeCommitted += new System.EventHandler(this.cboPrimaryUnit_SelectionChangeCommitted);
+            // 
+            // cboItemType
+            // 
+            this.cboItemType.FormattingEnabled = true;
+            this.cboItemType.Location = new System.Drawing.Point(1338, 247);
+            this.cboItemType.Name = "cboItemType";
+            this.cboItemType.Size = new System.Drawing.Size(414, 39);
+            this.cboItemType.TabIndex = 595;
+            this.cboItemType.SelectionChangeCommitted += new System.EventHandler(this.cboItemType_SelectionChangeCommitted);
+            // 
+            // cboItemClass
+            // 
+            this.cboItemClass.FormattingEnabled = true;
+            this.cboItemClass.Location = new System.Drawing.Point(1338, 94);
+            this.cboItemClass.Name = "cboItemClass";
+            this.cboItemClass.Size = new System.Drawing.Size(414, 39);
+            this.cboItemClass.TabIndex = 596;
+            this.cboItemClass.SelectionChangeCommitted += new System.EventHandler(this.cboItemClass_SelectionChangeCommitted);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(63, 212);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 32);
+            this.label1.TabIndex = 597;
+            this.label1.Text = "Major Categgory:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(692, 213);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(212, 32);
+            this.label2.TabIndex = 598;
+            this.label2.Text = "Sub Categgory:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(1339, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 32);
+            this.label3.TabIndex = 599;
+            this.label3.Text = "Item Class:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(1338, 212);
+            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 32);
+            this.label5.TabIndex = 600;
+            this.label5.Text = "Item Type:";
             // 
             // frmEditItemModal
             // 
@@ -371,6 +384,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Name = "frmEditItemModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Raw Materials";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEditItemModal_FormClosed);
             this.Load += new System.EventHandler(this.frmEditItemModal_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
@@ -388,20 +402,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Label lblMajorCatId;
         private System.Windows.Forms.Label lblItemClassID;
         private MaterialSkin.Controls.MaterialTextBox txtmatConversion;
-        private MetroFramework.Controls.MetroComboBox cboPrimaryUnit;
         private System.Windows.Forms.Label label4;
         private MaterialSkin.Controls.MaterialButton matBtnSave;
-        private MetroFramework.Controls.MetroComboBox cboItemType;
-        private System.Windows.Forms.Label label3;
-        private MetroFramework.Controls.MetroComboBox cboMajorCategory;
-        private System.Windows.Forms.Label label1;
-        private MetroFramework.Controls.MetroComboBox cboItemClass;
         private MaterialSkin.Controls.MaterialTextBox txtMatItemDesc;
-        private System.Windows.Forms.Label label13;
         private MaterialSkin.Controls.MaterialTextBox txtMatItemCode;
         private System.Windows.Forms.TextBox txtcreatedBy;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboSubCat;
+        private System.Windows.Forms.ComboBox cboPrimaryUnit;
+        private System.Windows.Forms.ComboBox cboMajorCategory;
+        private System.Windows.Forms.ComboBox cboItemType;
+        private System.Windows.Forms.ComboBox cboItemClass;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

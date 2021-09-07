@@ -53,7 +53,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
             loadChildMenu();
             displayUserRightsData();
+
+          
         }
+
+   
+
         private void displayUserRightsData()      //method for loading available_menus
         {
 
@@ -70,12 +75,12 @@ namespace ULTRAMAVERICK.Forms.Users
             if (dset_emp.Tables.Count > 0)
             {
                 DataView dv = new DataView(dset_emp.Tables[0]);
-              
 
-                    dv.RowFilter = "search = '" + txtcountChildId.Text + "' ";
 
-              
-            
+                dv.RowFilter = "search = '" + txtcountChildId.Text + "' and menu_name like '%"+mattxtSearch.Text+ "%' ";
+
+
+
                 dgvGrandChildForms.DataSource = dv;
                 lbltotalrecords.Text = dgvGrandChildForms.RowCount.ToString();
             }
@@ -213,7 +218,7 @@ namespace ULTRAMAVERICK.Forms.Users
             //}
             //else
             //{
-                metroSave_Click(sender, e);
+            metroSave_Click(sender, e);
             //}
 
         }
@@ -278,7 +283,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void metroSave_Click(object sender, EventArgs e)
         {
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Child Form Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Module Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 if (cboChildMenu.Text.Trim() == string.Empty)
@@ -332,7 +337,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             dgvGrandChildForms.CurrentCell = dgvGrandChildForms[0, temp_hid];
 
                         }
-                        btnCancelTool_Click(sender, e);
+                        //btnCancelTool_Click(sender, e);
                         UpdateNotifications();
                     }
                     else
@@ -377,7 +382,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         p_id = Convert.ToInt32(dgvGrandChildForms.CurrentRow.Cells["menu_id"].Value);
                         txtfname.Text = dgvGrandChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
                         txtgchild.Text = dgvGrandChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
-                       txtParentName.Text = dgvGrandChildForms.CurrentRow.Cells["count"].Value.ToString();
+                        txtParentName.Text = dgvGrandChildForms.CurrentRow.Cells["count"].Value.ToString();
                         cboChildMenu.Text = dgvGrandChildForms.CurrentRow.Cells["ChildForm"].Value.ToString();
 
                         txtCreatedAt.Text = dgvGrandChildForms.CurrentRow.Cells["created_at"].Value.ToString();
@@ -409,7 +414,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu_grandChild(0, 
+                    dSet = objStorProc.sp_available_menu_grandChild(0,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -430,11 +435,11 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu_grandChild(0, 
+                dSet = objStorProc.sp_available_menu_grandChild(0,
                     txtgchild.Text, "", "", "", "", "", "", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu_grandChild(p_id, 
+                dSet_temp = objStorProc.sp_available_menu_grandChild(p_id,
                     txtgchild.Text, "", "", "", "", "", "", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
@@ -443,7 +448,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_available_menu_grandChild(p_id, 
+                        dSet = objStorProc.sp_available_menu_grandChild(p_id,
                             txtgchild.Text.Trim(),
                             txtfname.Text.Trim(),
                             txtcountChildId.Text.Trim(),
@@ -466,7 +471,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu_grandChild(p_id, 
+                    dSet = objStorProc.sp_available_menu_grandChild(p_id,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -482,7 +487,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu_grandChild(p_id, 
+                dSet_temp = objStorProc.sp_available_menu_grandChild(p_id,
                     txtgchild.Text, "", "", "", "", "", "", "delete");
 
                 return true;
@@ -496,51 +501,51 @@ namespace ULTRAMAVERICK.Forms.Users
         private void metroFinalSaving_Click(object sender, EventArgs e)
         {
 
-            if (cboChildMenu.Text.Trim() == string.Empty)
+            if (mode == "add")
             {
-                FillRequiredFields();
-                cboChildMenu.Focus();
-                return;
+                dSet.Clear();
+                dSet = objStorProc.sp_available_menu_grandChild(0,
+                    txtgchild.Text.Trim(),
+                    txtfname.Text.Trim(),
+                    txtcountChildId.Text.Trim(),
+                    txtCreatedAt.Text.Trim(),
+                    txtCreatedBy.Text.Trim(),
+                    txtModifiedAt.Text.Trim(),
+                    txtModifiedBy.Text.Trim(), "add");
             }
 
-            if (txtgchild.Text.Trim() == string.Empty)
-            {
-                FillRequiredFields();
-                txtgchild.Focus();
-                return;
-            }
+            displayGrandChildFormsData();
+            //matBtnNext_Click(new object(), new System.EventArgs());
+            //displayUserRightsData();
+            //displayGrandChildFormsData();
 
-            if (txtfname.Text.Trim() == string.Empty)
-            {
-                FillRequiredFields();
-                txtfname.Focus();
-            }
-            else
-            {
-                if (saveMode())
-                {
-                    displayGrandChildFormsData();
-                    string tmode = mode;
 
-                    if (tmode == "add")
-                    {
-                        dgvGrandChildForms.CurrentCell = dgvGrandChildForms[0, dgvGrandChildForms.Rows.Count - 1];
-                    }
-                    else
-                    {
-                        dgvGrandChildForms.CurrentCell = dgvGrandChildForms[0, temp_hid];
-                    }
-                    btnCancelTool_Click(sender, e);
-                }
-                else
 
-                    return;
-            }
+
+            //if (saveMode())
+            //{
+            //    //displayGrandChildFormsData();
+            //    string tmode = mode;
+
+            //    if (tmode == "add")
+            //    {
+            //        dgvGrandChildForms.CurrentCell = dgvGrandChildForms[0, dgvGrandChildForms.Rows.Count - 1];
+            //    }
+            //    else
+            //    {
+            //        dgvGrandChildForms.CurrentCell = dgvGrandChildForms[0, temp_hid];
+            //    }
+            //    btnCancelTool_Click(sender, e);
+            //}
+            //else
+
+            //    return;
+
         }
 
         private void cboChildMenu_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -553,7 +558,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 temp_hid = dgvGrandChildForms.CurrentRow.Index;
                 txtfname.Enabled = true;
                 txtgchild.Enabled = true;
-              
+
                 cboChildMenu.Enabled = true;
                 mode = "edit";
 
@@ -623,10 +628,12 @@ namespace ULTRAMAVERICK.Forms.Users
             //End
         }
 
-     
+
 
         private void cboChildMenu_SelectionChangeCommitted(object sender, EventArgs e)
         {
+
+
             txtcountChildId.Text = cboChildMenu.SelectedValue.ToString();
 
             SearchGrandChildData();
@@ -635,6 +642,7 @@ namespace ULTRAMAVERICK.Forms.Users
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
             txtParentName.Text = String.Empty;
+
         }
 
         private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
@@ -784,6 +792,222 @@ namespace ULTRAMAVERICK.Forms.Users
 
             }
             matBtnNext_Click(sender, e);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btn_visible(false);
+            txt_read_only(false);
+            txtgchild.Enabled = true;
+            txtfname.Enabled = true;
+            txtcountChildId.Enabled = true;
+            cboChildMenu.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            cboChildMenu.Enabled = true;
+            txtcountChildId.Text = cboChildMenu.SelectedValue.ToString(); //Binding First Meet
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            txtgchild.Text = String.Empty;
+            txtfname.Text = String.Empty;
+            cboChildMenu.Text = String.Empty;
+            txtgchild.Select();
+            txtgchild.Focus();
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            if (dgvGrandChildForms.RowCount > 0)
+            {
+                temp_hid = dgvGrandChildForms.CurrentRow.Index;
+                txtfname.Enabled = true;
+                txtgchild.Enabled = true;
+
+                cboChildMenu.Enabled = true;
+                mode = "edit";
+
+                btn_visible(false);
+                txt_read_only(false);
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (cboChildMenu.Text.Trim() == string.Empty)
+            {
+                FillRequiredFields();
+                cboChildMenu.Focus();
+
+
+                return;
+            }
+
+
+            if (txtgchild.Text.Trim() == string.Empty)
+            {
+                FillRequiredFields();
+                txtgchild.Focus();
+
+
+                return;
+            }
+
+            if (txtfname.Text.Trim() == string.Empty)
+            {
+                FillRequiredFields();
+                txtfname.Focus();
+                return;
+            }
+
+            if (txtcountChildId.Text.Trim() == string.Empty)
+            {
+
+                FillRequiredFields();
+                txtcountChildId.Focus();
+                return;
+            }
+            MessageBox.Show(mode);
+
+            if (mode == "add")
+            {
+                //Start
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add the Module Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                    dSet.Clear();
+                    dSet = objStorProc.sp_available_menu_grandChild(0,
+                        txtgchild.Text.Trim(),
+                        txtfname.Text.Trim(),
+                        txtcountChildId.Text.Trim(),
+                        txtCreatedAt.Text.Trim(),
+                        txtCreatedBy.Text.Trim(),
+                        txtModifiedAt.Text.Trim(),
+                        txtModifiedBy.Text.Trim(), "add");
+
+                    UpdateNotifications();
+
+                    displayGrandChildFormsData();
+                    btnCancelTool_Click(sender, e);
+                }
+                else
+                {
+                    btnCancelTool_Click(sender, e);
+                    return;
+                }
+            }
+
+
+
+            if (mode == "edit")
+            {
+                //   Start
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Module Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                    dSet.Clear();
+                    dSet = objStorProc.sp_available_menu_grandChild(p_id,
+                        txtgchild.Text.Trim(),
+                        txtfname.Text.Trim(),
+                        txtcountChildId.Text.Trim(),
+                        txtCreatedAt.Text.Trim(),
+                        txtCreatedBy.Text.Trim(),
+                        txtModifiedAt.Text.Trim(),
+                        txtModifiedBy.Text.Trim(), "edit");
+                    UpdateNotifications();
+
+
+                    displayGrandChildFormsData();
+                    btnCancelTool_Click(sender, e);
+                }
+                else
+                {
+                    btnCancelTool_Click(sender, e);
+                    return;
+                }
+            }
+
+
+            //metroSave_Click(sender, e);
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            if (dgvGrandChildForms.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Module Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        displayGrandChildFormsData();
+
+                        btnCancelTool_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+            }
+        }
+
+        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //mode = "";
+            //txt_read_only(true);
+            //btn_visible(true);
+            //dgvGrandChildForms_CurrentCellChanged(sender, e);
+            //txtgchild.Enabled = false;
+            //txtfname.Enabled = false;
+            //cboChildMenu.Enabled = false;
+        }
+
+        private void btnCancelTool_Click_1(object sender, EventArgs e)
+        {
+            mode = "";
+            txt_read_only(true);
+            btn_visible(true);
+            dgvGrandChildForms_CurrentCellChanged(sender, e);
+            txtgchild.Enabled = false;
+            txtfname.Enabled = false;
+            cboChildMenu.Enabled = false;
+        }
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            if (mattxtSearch.Text == "")
+            {
+                displayGrandChildFormsData();
+            }
+
+
+          if(lbltotalrecords.Text =="0")
+            {
+
+            }
+          else
+            {
+                SearchGrandChildData();
+            }
+
+
+                
+            
         }
     }
 }

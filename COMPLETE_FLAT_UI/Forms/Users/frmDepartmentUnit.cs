@@ -11,10 +11,12 @@ using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmDepartmentUnit : Form
+    public partial class frmDepartmentUnit : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -41,7 +43,122 @@ namespace ULTRAMAVERICK.Forms.Users
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             loadDepartment();
+            SearchMethodJarVarCallingSP();
             displayDepartmentUnits();
+        }
+
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DepartmentUnitMajor");
+
+        }
+
+        private void doSearchInTextBoxCmb()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "department = '" + cbodepartment.Text + "'";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvUnits.DataSource = dv;
+                    lbltotalrecords.Text = dgvUnits.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
+
+        private void doSearchInTextBox()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "unit_description like '%" + mattxtSearch.Text + "%'";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvUnits.DataSource = dv;
+                    lbltotalrecords.Text = dgvUnits.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
         }
 
 
@@ -547,6 +664,162 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
             //END
+        }
+
+        private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString();
+            if(mode =="add")
+            {
+                doSearchInTextBoxCmb();
+            }
+        
+        }
+
+        private void dgvUnits_CurrentCellChanged_1(object sender, EventArgs e)
+        {
+            showValue();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btn_visible(false);
+            txt_read_only(false);
+
+            txtsection.Enabled = true;
+            cbodepartment.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            cbodepartment.Enabled = true;
+            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString(); //Binding First Meet
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            cbodepartment.Select();
+            cbodepartment.Focus();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            if (dgvUnits.RowCount > 0)
+            {
+                temp_hid = dgvUnits.CurrentRow.Index;
+                cbodepartment.Enabled = true;
+                txtsection.Enabled = true;
+
+
+                mode = "edit";
+
+                btn_visible(false);
+                txt_read_only(false);
+            }
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            mode = "";
+            txt_read_only(true);
+            btn_visible(true);
+            dgvUnits_CurrentCellChanged(sender, e);
+            txtsection.Enabled = false;
+
+            cbodepartment.Enabled = false;
+            displayDepartmentUnits();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            //START
+            if (dgvUnits.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to delete the ChildForm Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        displayDepartmentUnits();
+
+                        btnCancelTool_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+
+
+
+            //END
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                SectionAlreadyExist();
+
+
+                txtsection.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+        }
+
+        private void txtsection_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if(mattxtSearch.Text == "")
+            {
+                displayDepartmentUnits();
+            }
+            if (lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+                if (mode == "add")
+                {
+
+                }
+                else
+                {
+                    doSearchInTextBox();
+                }
+
+            }
+
         }
     }
 }

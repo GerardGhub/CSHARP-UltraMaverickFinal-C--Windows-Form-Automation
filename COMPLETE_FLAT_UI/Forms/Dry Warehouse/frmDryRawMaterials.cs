@@ -43,13 +43,103 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string conversions { get; set; }
         public string items_type { get; set; }
         public string is_active { get; set; }
+        public string primarys_key { get; set; }
         private void frmDryRawMaterials_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             lblUserID.Text = userinfo.user_id.ToString();
             showRawMaterialsInDryWH();
+            LoadRecords();
             LoadingrefresherOrb();
+            loadMajorCategoryDropdown();
+            SearchMethodJarVarCallingSP();
+        }
+
+
+        private void LoadRecords()
+        {
+            if (lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+                matBtnEdit.Visible = true;
+            }
+        }
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Raw_Materials_Dry_Major");
+
+        }
+
+
+        private void doSearchInTextBoxCmb()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "item_description like '%" + mattxtSearch.Text + "%' and item_code like '%" + mattxtSearch.Text + "%' ";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvRawMats.DataSource = dv;
+                    lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
+
+
+
+        public void loadMajorCategoryDropdown()
+        {
+
+            //myClass.fillComboBoxDepartment(guna2cmbMajorCat, "Major_Category_dropdown", dSet);
+
+
+            //lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
         private void LoadingrefresherOrb()
         {
@@ -62,6 +152,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 textBox1.Text = string.Empty;
                 matBtnNew.Visible = true;
+                matBtnEdit.Visible = true;
             }
             else
             {
@@ -70,16 +161,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
 
-            if(lbltotalrecords.Text =="0")
-            {
+      
 
-            }
-            else
-            {
-                matBtnEdit.Visible = true;
-            }
-          
-            
+            myglobal.global_module = "Active"; // Mode for Searching
+
         }
         private void showRawMaterialsInDryWH()    //method for loading available_menus
         {
@@ -123,7 +208,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 subs_category,
                 primarys_unit,
                 conversions,
-                items_type
+                items_type,
+                primarys_key
                 );
             mywipwh.ShowDialog();
         }
@@ -142,6 +228,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     if (dgvRawMats.CurrentRow.Cells["item_description"].Value != null)
                     {
                         p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["item_id"].Value);
+                        primarys_key = dgvRawMats.CurrentRow.Cells["item_id"].Value.ToString();
                         items_code = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
                         items_description = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
                         items_class = dgvRawMats.CurrentRow.Cells["item_class"].Value.ToString();
@@ -155,7 +242,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if(lbltotalrecords.Text =="0")
+            {
+              
+            }
+            else
+            {
+                doSearchInTextBoxCmb();
+            }
+            if(mattxtSearch.Text == "")
+            {
+                doSearchInTextBoxCmb();
+            }
+        }
 
+        private void guna2cmbMajorCat_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            doSearchInTextBoxCmb();
+        }
     }
     }
 

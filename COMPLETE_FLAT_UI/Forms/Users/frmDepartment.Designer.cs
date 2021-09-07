@@ -51,9 +51,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lstDepartment = new System.Windows.Forms.ListBox();
             this.metroButtonDelete = new MetroFramework.Controls.MetroButton();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.txtdepartment = new MaterialSkin.Controls.MaterialTextBox();
-            this.cboLocation = new MetroFramework.Controls.MetroComboBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.cboLocation = new MetroFramework.Controls.MetroComboBox();
+            this.txtdepartment = new MaterialSkin.Controls.MaterialTextBox();
             this.btnAddTool = new MaterialSkin.Controls.MaterialButton();
             this.btnEditTool = new MaterialSkin.Controls.MaterialButton();
             this.btnDeleteTool = new MaterialSkin.Controls.MaterialButton();
@@ -71,7 +71,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblLocationID.BackColor = System.Drawing.Color.Transparent;
             this.lblLocationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocationID.ForeColor = System.Drawing.Color.Black;
-            this.lblLocationID.Location = new System.Drawing.Point(1282, 59);
+            this.lblLocationID.Location = new System.Drawing.Point(1497, 521);
             this.lblLocationID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblLocationID.Name = "lblLocationID";
             this.lblLocationID.Size = new System.Drawing.Size(190, 39);
@@ -361,6 +361,33 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard1.Size = new System.Drawing.Size(1473, 191);
             this.materialCard1.TabIndex = 440;
             // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(1081, 49);
+            this.label15.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(132, 32);
+            this.label15.TabIndex = 567;
+            this.label15.Text = "Location:";
+            // 
+            // cboLocation
+            // 
+            this.cboLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboLocation.Enabled = false;
+            this.cboLocation.FormattingEnabled = true;
+            this.cboLocation.ItemHeight = 24;
+            this.cboLocation.Location = new System.Drawing.Point(1087, 84);
+            this.cboLocation.Name = "cboLocation";
+            this.cboLocation.Size = new System.Drawing.Size(322, 30);
+            this.cboLocation.TabIndex = 442;
+            this.cboLocation.UseSelectable = true;
+            this.cboLocation.SelectionChangeCommitted += new System.EventHandler(this.metroComboBox1_SelectionChangeCommitted);
+            // 
             // txtdepartment
             // 
             this.txtdepartment.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -376,31 +403,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtdepartment.Size = new System.Drawing.Size(340, 50);
             this.txtdepartment.TabIndex = 0;
             this.txtdepartment.Text = "";
-            // 
-            // cboLocation
-            // 
-            this.cboLocation.Enabled = false;
-            this.cboLocation.FormattingEnabled = true;
-            this.cboLocation.ItemHeight = 24;
-            this.cboLocation.Location = new System.Drawing.Point(1087, 84);
-            this.cboLocation.Name = "cboLocation";
-            this.cboLocation.Size = new System.Drawing.Size(322, 30);
-            this.cboLocation.TabIndex = 442;
-            this.cboLocation.UseSelectable = true;
-            this.cboLocation.SelectionChangeCommitted += new System.EventHandler(this.metroComboBox1_SelectionChangeCommitted);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(1081, 49);
-            this.label15.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(132, 32);
-            this.label15.TabIndex = 567;
-            this.label15.Text = "Location:";
             // 
             // btnAddTool
             // 

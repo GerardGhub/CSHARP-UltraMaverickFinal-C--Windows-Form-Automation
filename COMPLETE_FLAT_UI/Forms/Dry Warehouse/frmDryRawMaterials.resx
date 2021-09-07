@@ -130,17 +130,6 @@
         e2vrAfeKQQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="guna2Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
-        TUUH5AYJDhgDosWt9wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADESURBVDhP
-        Y+jq6joBxP/JxMdABlShCZKCqxhAoLOzsxeLJF7c3d09FawZBP7//88IFJiHTSEOvLShoYEJqh0CZs6c
-        yQp0yRYsitHxLqBmNqg2VNDX18cJVHAITQMyPg50KTdUOXbQ0dHBD3TJOSyaLwMtEIIqww/6+/slgRpe
-        IWl+BRKDShMHgK5YjmTACqgw8QCoaQmSAUuhwsSDQWfAYqgw8QDJgF/AAHWEChMPYAYANWdAhUgDQM1T
-        gKmuHsrFARgYADXWM5WtYOd1AAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="item_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

@@ -141,6 +141,7 @@ namespace COMPLETE_FLAT_UI
             this.txtMaterialPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMaterialPassword.Multiline = false;
             this.txtMaterialPassword.Name = "txtMaterialPassword";
+            this.txtMaterialPassword.Password = true;
             this.txtMaterialPassword.Size = new System.Drawing.Size(656, 50);
             this.txtMaterialPassword.TabIndex = 488;
             this.txtMaterialPassword.Text = "";
