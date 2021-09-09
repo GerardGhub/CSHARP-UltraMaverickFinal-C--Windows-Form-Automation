@@ -12,15 +12,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Forms.Users;
 using ULTRAMAVERICK.Models;
-using MaterialSkin;
-using MaterialSkin.Controls;
+//using MaterialSkin;
+//using MaterialSkin.Controls;
 using ULTRAMAVERICK.Forms.Research_And_Development;
 using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Forms.Dry_Warehouse;
 
 namespace COMPLETE_FLAT_UI
 {
-    public partial class FormMenuPrincipal : MaterialForm
+    public partial class FormMenuPrincipal : Form
     {
         //Constructor
         myclasses xClass = new myclasses();
@@ -34,10 +34,10 @@ namespace COMPLETE_FLAT_UI
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
 
-            //Material Themes
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            ////Material Themes
+            ////var materialSkinManager = MaterialSkinManager.Instance;
+            ////materialSkinManager.AddFormToManage(this);
+            ////materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
         }
@@ -516,7 +516,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnCloseFinal_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Hi Punyeta?", "Alert to¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Hi Are you sure that you want to logout?", "Alert to¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 
 
@@ -564,7 +564,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnChildMenu_Click(object sender, EventArgs e)
         {
-            frmChildAvailableForms fm = new frmChildAvailableForms();
+            frmSubMenusAvailableForms fm = new frmSubMenusAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -600,7 +600,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnGrandChildForms_Click(object sender, EventArgs e)
         {
-            frmGrandChildAvailableForms fm = new frmGrandChildAvailableForms();
+            frmModulesAvailableForms fm = new frmModulesAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -649,7 +649,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolGrandChildMenu_Click(object sender, EventArgs e)
         {
-            frmGrandChildAvailableForms fm = new frmGrandChildAvailableForms();
+            frmModulesAvailableForms fm = new frmModulesAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -663,7 +663,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolChildMenu_Click(object sender, EventArgs e)
         {
-            frmChildAvailableForms fm = new frmChildAvailableForms();
+            frmSubMenusAvailableForms fm = new frmSubMenusAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -802,6 +802,14 @@ namespace COMPLETE_FLAT_UI
 
 
         }
+
+        private void toolModulePrimaryUnitMgmt_Click(object sender, EventArgs e)
+        {
+            frmManageActivePrimaryUnit fm = new frmManageActivePrimaryUnit();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+    
 
         private void button5_Click(object sender, EventArgs e)
         {

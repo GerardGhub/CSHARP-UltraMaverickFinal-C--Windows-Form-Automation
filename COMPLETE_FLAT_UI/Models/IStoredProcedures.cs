@@ -313,6 +313,23 @@ namespace ULTRAMAVERICK.Models
                 string mode);
 
 
+        DataSet sp_PrimaryUnitManagement(
+        int id,
+        string  active_pu_primary_id,
+        string active_pu_description,
+        string active_pu_conversion,
+        string item_primary_id,
+        string item_item_code,
+        string item_description,
+        string created_at,
+        string created_by,
+        string modified_at,
+        string modified_by,
+        string is_active,
+        string mode);
+
+
+
         DataSet sp_Location(int location_id,
 string location_name,
 string created_at,

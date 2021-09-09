@@ -16,7 +16,7 @@ using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmGrandChildAvailableForms : MaterialForm
+    public partial class frmModulesAvailableForms : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -34,7 +34,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         DataSet dSet_temp = new DataSet();
 
-        public frmGrandChildAvailableForms()
+        public frmModulesAvailableForms()
         {
             InitializeComponent();
         }

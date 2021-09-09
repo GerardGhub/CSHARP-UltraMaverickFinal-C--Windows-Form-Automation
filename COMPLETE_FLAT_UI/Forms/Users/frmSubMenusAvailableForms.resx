@@ -117,8 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>233, 17</value>
+  <metadata name="menu_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="menu_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="menu_form_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="count.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="created_at.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="created_by.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="updated_at.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="updated_by.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Tagging_Relationship.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="user_rights_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -126,35 +150,11 @@
   <metadata name="user_rights_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="updated_by.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="updated_at.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="created_by.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="created_at.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="menu_form_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="menu_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ChildForm.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="count.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="menu_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>595, 17</value>
+    <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAddTool.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -198,6 +198,27 @@
         rQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnUpdateTool.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAJOgAACToAYJjBRwAAAN2SURBVFhHzZbJT1NRGMWJ0X/EnWsTty5QIXGBCEQXGFGx
+        BkFRTBRQgiKhxWgpLhSZUYwQQSbLaCwObbFUplKGjlDQQhCRQUWhPd7v0Yd5aaH4oOpJzuLm9n7nd793
+        73sN+i+0T6bddUDaIfHprI5H+2Wa2n1ZWjUbd/i1TPuK1pBDpdq49HRs88SsLbZQkllvRfX7KS+HyLQ4
+        JO9EdqsTue1TG3ZssRHJFUNfI3P1VX4hCOChZgL2L24vE8DZR0NotLj/yFeqrGg3z6NUPTYXkdPZtDdd
+        td0T5y1/APEbALhUaeV+y495AKrBQSh0zWtCBBqAXKIamwvP0bXsfqDf4Yn9rb8BQCaICPm7Vi+IvwVA
+        zm8fnY9QdLYJILYC4PrzMRzL61sd+wIwT7sgVdpxVKFzh+XonQdlmj1+AUKztThTOigI24gvVVrwxrqw
+        Wsc8vcwAu3GiwMDNV/R+x2F5h8UvwLUqE8LkepwsMiK2ZMCvJQw2oXwYZ4r7uVCqYfq0jMRyI/JU47j6
+        1ISUKhuUDCIi9/2EXwDbjBsa+1c0D8xuyC+G5qBzfIfJE2757GIwBpwq6IPNUy+5chjRBV2u8Dv6Ir8A
+        mzF14OLjQdxum0BqjR03aiwcxH3WiXC57rOEP4iBAKCdp7B2ZzV9WD0XKdV2xBb2ISa/B8HsO8GFk7Ya
+        gMIvszbTzvlwcnqDA2dL+lH61gnK9MQLAdS2BRy73yXa0cyRd/Vs505BeGrNCC5XDHNngLLWBKC7m9Nk
+        hRgtudguq713nvHcgdMFvVCZVt4LAQFYL1xWb+Fq8i+mLQf4seRCXHEfsps/CsPZM6dwtxviAZLK+xGT
+        17WuIxV6pNWNCsIzlePIqDFhmXWGFLAO1OknkFBmRNITM+qGl7nwm43CcFJAAKh8fKkBPc5F5L/+gAsM
+        Iq12lL31egThJNEAuc02ZNaafPp8mYH7VtA6g/Mnzj00IopdwYxnK/N3W2yeKpsAmJxdxMcZ3z7Cwo7n
+        9bAwCySFvSh748DI1LfVeVrLSzTAWjKMzXH/FQhC2TXJnfT1JBrgpXEKyu5JL99qsOBe24jPOd4qtpaX
+        aAC1aRqvBz+JMq3lJRpgq/T/A6Q9M3MTihYHEtn18vVMN2OqSbUpg7IEAMFS3c5QqSaKHCLVxoRkqeUB
+        MavN51CmJ/5fKijoF5IKdAxkYVekAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btnDeleteTool.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -225,27 +246,6 @@
         5cLaOjBhMxLAybEAeKzYV0sDWAtZADxmOI6vaNl+6Bucp6aVJU1QWdokBcChXimAObPmXV7hCeuHpXc/
         CVCR4mr2Y5+At0BMugUuTeAMk08PvNaPHJlo+9nlM13iFo1WewaiZ4buAGGNMBRxKsUVsqpM+s3CrhA/
         cWVXd/AatEqIZ96f/B+wa9e/dQdW0dmGFmIAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnUpdateTool.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAJOgAACToAYJjBRwAAAN2SURBVFhHzZbJT1NRGMWJ0X/EnWsTty5QIXGBCEQXGFGx
-        BkFRTBRQgiKhxWgpLhSZUYwQQSbLaCwObbFUplKGjlDQQhCRQUWhPd7v0Yd5aaH4oOpJzuLm9n7nd793
-        73sN+i+0T6bddUDaIfHprI5H+2Wa2n1ZWjUbd/i1TPuK1pBDpdq49HRs88SsLbZQkllvRfX7KS+HyLQ4
-        JO9EdqsTue1TG3ZssRHJFUNfI3P1VX4hCOChZgL2L24vE8DZR0NotLj/yFeqrGg3z6NUPTYXkdPZtDdd
-        td0T5y1/APEbALhUaeV+y495AKrBQSh0zWtCBBqAXKIamwvP0bXsfqDf4Yn9rb8BQCaICPm7Vi+IvwVA
-        zm8fnY9QdLYJILYC4PrzMRzL61sd+wIwT7sgVdpxVKFzh+XonQdlmj1+AUKztThTOigI24gvVVrwxrqw
-        Wsc8vcwAu3GiwMDNV/R+x2F5h8UvwLUqE8LkepwsMiK2ZMCvJQw2oXwYZ4r7uVCqYfq0jMRyI/JU47j6
-        1ISUKhuUDCIi9/2EXwDbjBsa+1c0D8xuyC+G5qBzfIfJE2757GIwBpwq6IPNUy+5chjRBV2u8Dv6Ir8A
-        mzF14OLjQdxum0BqjR03aiwcxH3WiXC57rOEP4iBAKCdp7B2ZzV9WD0XKdV2xBb2ISa/B8HsO8GFk7Ya
-        gMIvszbTzvlwcnqDA2dL+lH61gnK9MQLAdS2BRy73yXa0cyRd/Vs505BeGrNCC5XDHNngLLWBKC7m9Nk
-        hRgtudguq713nvHcgdMFvVCZVt4LAQFYL1xWb+Fq8i+mLQf4seRCXHEfsps/CsPZM6dwtxviAZLK+xGT
-        17WuIxV6pNWNCsIzlePIqDFhmXWGFLAO1OknkFBmRNITM+qGl7nwm43CcFJAAKh8fKkBPc5F5L/+gAsM
-        Iq12lL31egThJNEAuc02ZNaafPp8mYH7VtA6g/Mnzj00IopdwYxnK/N3W2yeKpsAmJxdxMcZ3z7Cwo7n
-        9bAwCySFvSh748DI1LfVeVrLSzTAWjKMzXH/FQhC2TXJnfT1JBrgpXEKyu5JL99qsOBe24jPOd4qtpaX
-        aAC1aRqvBz+JMq3lJRpgq/T/A6Q9M3MTihYHEtn18vVMN2OqSbUpg7IEAMFS3c5QqSaKHCLVxoRkqeUB
-        MavN51CmJ/5fKijoF5IKdAxkYVekAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnCancelTool.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

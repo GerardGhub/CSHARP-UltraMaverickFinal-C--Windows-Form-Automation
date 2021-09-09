@@ -16,7 +16,7 @@ using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmChildAvailableForms : MaterialForm
+    public partial class frmSubMenusAvailableForms : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -33,7 +33,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         DataSet dSet_temp = new DataSet();
 
-        public frmChildAvailableForms()
+        public frmSubMenusAvailableForms()
         {
             InitializeComponent();
         }
@@ -715,7 +715,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void metroComboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            txtcount.Text = cboParentMenu.SelectedValue.ToString();
+            //txtcount.Text = cboParentMenu.SelectedValue.ToString();
         }
 
         private void dgvUserRights_CurrentCellChanged(object sender, EventArgs e)
@@ -776,7 +776,33 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboParentMenu_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            txtcount.Text = cboParentMenu.SelectedValue.ToString();
+            SearchSubMenuData();
+            txtmname.Text = String.Empty;
+            txtfname.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+       
+        }
 
+
+        DataSet dset_emp = new DataSet();
+        private void SearchSubMenuData()
+        {
+            dset_emp = objStorProc.sp_getMajorTables("available_menu_Major");
+
+            if (dset_emp.Tables.Count > 0)
+            {
+                DataView dv = new DataView(dset_emp.Tables[0]);
+
+
+                dv.RowFilter = "parent_id = '" + txtcount.Text + "' and menu_name like '%" + mattxtSearch.Text + "%' ";
+
+
+
+                dgvChildForms.DataSource = dv;
+                lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
+            }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -884,6 +910,17 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (mattxtSearch.Text == "")
+            {
+                displayChildFormsData();
+            }
+
+            SearchSubMenuData();
+
+        }
+
+        private void txtcount_TextChanged(object sender, EventArgs e)
         {
 
         }

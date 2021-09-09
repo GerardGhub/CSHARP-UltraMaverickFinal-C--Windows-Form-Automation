@@ -101,7 +101,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                        dv.RowFilter = "item_description like '%" + mattxtSearch.Text + "%' and item_code like '%" + mattxtSearch.Text + "%' ";
+                        dv.RowFilter = "item_description like '%" + mattxtSearch.Text + "%'";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -146,7 +146,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if(textBox1.Text == "data Already Save!")
             {
-         
+                matBtnEdit.Visible = false;
             }
             else if(textBox1.Text == "Gerard Singian")
             {

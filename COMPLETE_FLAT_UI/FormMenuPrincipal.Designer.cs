@@ -34,6 +34,7 @@
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.PanelHeader = new System.Windows.Forms.Panel();
+            this.txtMatSideBarColor = new MaterialSkin.Controls.MaterialTextBox();
             this.btnNotificationsBell = new System.Windows.Forms.Button();
             this.btnMaximizedFinal = new System.Windows.Forms.Button();
             this.btnCloseFinal = new System.Windows.Forms.Button();
@@ -67,6 +68,7 @@
             this.toolStripModulePrimaryUnit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripModuleItemType = new System.Windows.Forms.ToolStripMenuItem();
             this.toolModuleRawMaterialsDry = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolModulePrimaryUnitMgmt = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDropdownMenu = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolParentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolChildMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +105,6 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.txtMatSideBarColor = new MaterialSkin.Controls.MaterialTextBox();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -140,7 +141,7 @@
             // 
             // PanelHeader
             // 
-            this.PanelHeader.BackColor = System.Drawing.SystemColors.Control;
+            this.PanelHeader.BackColor = System.Drawing.Color.DarkSlateGray;
             this.PanelHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelHeader.Controls.Add(this.txtMatSideBarColor);
             this.PanelHeader.Controls.Add(this.btnNotificationsBell);
@@ -165,6 +166,24 @@
             this.PanelHeader.Size = new System.Drawing.Size(2933, 103);
             this.PanelHeader.TabIndex = 1;
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
+            // 
+            // txtMatSideBarColor
+            // 
+            this.txtMatSideBarColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatSideBarColor.Depth = 0;
+            this.txtMatSideBarColor.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtMatSideBarColor.Hint = "SideBar Color";
+            this.txtMatSideBarColor.Location = new System.Drawing.Point(1396, 28);
+            this.txtMatSideBarColor.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtMatSideBarColor.MaxLength = 50;
+            this.txtMatSideBarColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtMatSideBarColor.Multiline = false;
+            this.txtMatSideBarColor.Name = "txtMatSideBarColor";
+            this.txtMatSideBarColor.Size = new System.Drawing.Size(257, 50);
+            this.txtMatSideBarColor.TabIndex = 12;
+            this.txtMatSideBarColor.Text = "";
+            this.txtMatSideBarColor.Visible = false;
+            this.txtMatSideBarColor.TextChanged += new System.EventHandler(this.txtMatSideBarColor_TextChanged);
             // 
             // btnNotificationsBell
             // 
@@ -315,7 +334,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ForeColor = System.Drawing.SystemColors.Window;
             this.label1.Location = new System.Drawing.Point(93, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
@@ -386,7 +405,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMenu.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panelMenu.Controls.Add(this.panelMenuSelection);
             this.panelMenu.Controls.Add(this.btnMenu);
             this.panelMenu.Controls.Add(this.pictureBox10);
@@ -524,7 +543,8 @@
             this.toolStripModuleSubCategory,
             this.toolStripModulePrimaryUnit,
             this.toolStripModuleItemType,
-            this.toolModuleRawMaterialsDry});
+            this.toolModuleRawMaterialsDry,
+            this.toolModulePrimaryUnitMgmt});
             this.toolStripRawMaterials.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripRawMaterials.ForeColor = System.Drawing.Color.Silver;
             this.toolStripRawMaterials.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRawMaterials.Image")));
@@ -539,44 +559,51 @@
             // toolStripModuleItemClass
             // 
             this.toolStripModuleItemClass.Name = "toolStripModuleItemClass";
-            this.toolStripModuleItemClass.Size = new System.Drawing.Size(414, 54);
+            this.toolStripModuleItemClass.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleItemClass.Text = "Item Class";
             this.toolStripModuleItemClass.Click += new System.EventHandler(this.toolStripModuleItemClass_Click_1);
             // 
             // toolStripModuleMajorCategory
             // 
             this.toolStripModuleMajorCategory.Name = "toolStripModuleMajorCategory";
-            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(414, 54);
+            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleMajorCategory.Text = "Major Category";
             this.toolStripModuleMajorCategory.Click += new System.EventHandler(this.toolStripModuleMajorCategory_Click);
             // 
             // toolStripModuleSubCategory
             // 
             this.toolStripModuleSubCategory.Name = "toolStripModuleSubCategory";
-            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(414, 54);
+            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleSubCategory.Text = "Sub Category";
             this.toolStripModuleSubCategory.Click += new System.EventHandler(this.toolStripModuleSubCategory_Click);
             // 
             // toolStripModulePrimaryUnit
             // 
             this.toolStripModulePrimaryUnit.Name = "toolStripModulePrimaryUnit";
-            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(414, 54);
+            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(603, 54);
             this.toolStripModulePrimaryUnit.Text = "Primary Unit";
             this.toolStripModulePrimaryUnit.Click += new System.EventHandler(this.toolStripModulePrimaryUnit_Click);
             // 
             // toolStripModuleItemType
             // 
             this.toolStripModuleItemType.Name = "toolStripModuleItemType";
-            this.toolStripModuleItemType.Size = new System.Drawing.Size(414, 54);
+            this.toolStripModuleItemType.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleItemType.Text = "Item Type";
             this.toolStripModuleItemType.Click += new System.EventHandler(this.toolStripModuleItemType_Click);
             // 
             // toolModuleRawMaterialsDry
             // 
             this.toolModuleRawMaterialsDry.Name = "toolModuleRawMaterialsDry";
-            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(414, 54);
+            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(603, 54);
             this.toolModuleRawMaterialsDry.Text = "Raw Material";
             this.toolModuleRawMaterialsDry.Click += new System.EventHandler(this.toolModuleRawMaterialsDry_Click);
+            // 
+            // toolModulePrimaryUnitMgmt
+            // 
+            this.toolModulePrimaryUnitMgmt.Name = "toolModulePrimaryUnitMgmt";
+            this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(603, 54);
+            this.toolModulePrimaryUnitMgmt.Text = "Manage Active Primary Unit";
+            this.toolModulePrimaryUnitMgmt.Click += new System.EventHandler(this.toolModulePrimaryUnitMgmt_Click);
             // 
             // toolDropdownMenu
             // 
@@ -1075,30 +1102,14 @@
             this.panelContenedorPrincipal.Size = new System.Drawing.Size(2933, 1431);
             this.panelContenedorPrincipal.TabIndex = 0;
             // 
-            // txtMatSideBarColor
-            // 
-            this.txtMatSideBarColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatSideBarColor.Depth = 0;
-            this.txtMatSideBarColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtMatSideBarColor.Hint = "SideBar Color";
-            this.txtMatSideBarColor.Location = new System.Drawing.Point(1396, 28);
-            this.txtMatSideBarColor.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtMatSideBarColor.MaxLength = 50;
-            this.txtMatSideBarColor.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtMatSideBarColor.Multiline = false;
-            this.txtMatSideBarColor.Name = "txtMatSideBarColor";
-            this.txtMatSideBarColor.Size = new System.Drawing.Size(257, 50);
-            this.txtMatSideBarColor.TabIndex = 12;
-            this.txtMatSideBarColor.Text = "";
-            this.txtMatSideBarColor.Visible = false;
-            this.txtMatSideBarColor.TextChanged += new System.EventHandler(this.txtMatSideBarColor_TextChanged);
-            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2933, 1431);
+            this.ControlBox = false;
             this.Controls.Add(this.panelContenedorPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.MinimumSize = new System.Drawing.Size(1813, 1192);
@@ -1207,6 +1218,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolDropdownLocation;
         private System.Windows.Forms.ToolStripMenuItem toolModuleRawMaterialsDry;
         public MaterialSkin.Controls.MaterialTextBox txtMatSideBarColor;
+        private System.Windows.Forms.ToolStripMenuItem toolModulePrimaryUnitMgmt;
     }
 }
 

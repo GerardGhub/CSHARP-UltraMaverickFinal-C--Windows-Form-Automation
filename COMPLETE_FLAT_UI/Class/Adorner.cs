@@ -80,9 +80,9 @@ namespace ULTRAMAVERICK.Class
         class Badge : Label
         {
             //Color BackColor = Color.SkyBlue;
-            Color BackColor = Color.DarkSlateBlue;
-            Color ForeColor = Color.White;
-            Font font = new Font("Sans Serif", 8f);
+            Color BackColor = Color.SkyBlue;
+            Color ForeColor = Color.Black;
+            Font font = new Font("Sans Serif", 8f, FontStyle.Bold);
 
             public Action<Control> ClickEvent;
 

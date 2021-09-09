@@ -24,7 +24,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
-        string mode = "";
+ 
    
         public frmAddNewItemModal(frmDryRawMaterials frm, string created_by)
         {

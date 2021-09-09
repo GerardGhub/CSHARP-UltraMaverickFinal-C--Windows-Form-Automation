@@ -149,11 +149,23 @@
     <Compile Include="FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmActivationofPrimaryUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmActivationofPrimaryUnit.Designer.cs">
+      <DependentUpon>frmActivationofPrimaryUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\frmAddNewItemModal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\frmAddNewItemModal.Designer.cs">
       <DependentUpon>frmAddNewItemModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmAddNewUomConversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmAddNewUomConversion.Designer.cs">
+      <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\frmDryRawMaterials.cs">
       <SubType>Form</SubType>
@@ -166,6 +178,12 @@
     </Compile>
     <Compile Include="Forms\Dry Warehouse\frmEditItemModal.Designer.cs">
       <DependentUpon>frmEditItemModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmManageActivePrimaryUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmManageActivePrimaryUnit.Designer.cs">
+      <DependentUpon>frmManageActivePrimaryUnit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Research And Development\frmItemClass.cs">
       <SubType>Form</SubType>
@@ -197,11 +215,11 @@
     <Compile Include="Forms\Research And Development\frmSubCategory.Designer.cs">
       <DependentUpon>frmSubCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmChildAvailableForms.cs">
+    <Compile Include="Forms\Users\frmSubMenusAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmChildAvailableForms.Designer.cs">
-      <DependentUpon>frmChildAvailableForms.cs</DependentUpon>
+    <Compile Include="Forms\Users\frmSubMenusAvailableForms.Designer.cs">
+      <DependentUpon>frmSubMenusAvailableForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmDashBoardFormMenu.cs">
       <SubType>Form</SubType>
@@ -221,11 +239,11 @@
     <Compile Include="Forms\Users\frmDepartmentUnit.Designer.cs">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmGrandChildAvailableForms.cs">
+    <Compile Include="Forms\Users\frmModulesAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmGrandChildAvailableForms.Designer.cs">
-      <DependentUpon>frmGrandChildAvailableForms.cs</DependentUpon>
+    <Compile Include="Forms\Users\frmModulesAvailableForms.Designer.cs">
+      <DependentUpon>frmModulesAvailableForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmLocation.cs">
       <SubType>Form</SubType>
@@ -307,14 +325,23 @@
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmActivationofPrimaryUnit.resx">
+      <DependentUpon>frmActivationofPrimaryUnit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmAddNewItemModal.resx">
       <DependentUpon>frmAddNewItemModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmAddNewUomConversion.resx">
+      <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmDryRawMaterials.resx">
       <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmEditItemModal.resx">
       <DependentUpon>frmEditItemModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmManageActivePrimaryUnit.resx">
+      <DependentUpon>frmManageActivePrimaryUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Research And Development\frmItemClass.resx">
       <DependentUpon>frmItemClass.cs</DependentUpon>
@@ -331,8 +358,8 @@
     <EmbeddedResource Include="Forms\Research And Development\frmSubCategory.resx">
       <DependentUpon>frmSubCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmChildAvailableForms.resx">
-      <DependentUpon>frmChildAvailableForms.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\frmSubMenusAvailableForms.resx">
+      <DependentUpon>frmSubMenusAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmDashBoardFormMenu.resx">
       <DependentUpon>frmDashBoardFormMenu.cs</DependentUpon>
@@ -343,8 +370,8 @@
     <EmbeddedResource Include="Forms\Users\frmDepartmentUnit.resx">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmGrandChildAvailableForms.resx">
-      <DependentUpon>frmGrandChildAvailableForms.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\frmModulesAvailableForms.resx">
+      <DependentUpon>frmModulesAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmLocation.resx">
       <DependentUpon>frmLocation.cs</DependentUpon>
