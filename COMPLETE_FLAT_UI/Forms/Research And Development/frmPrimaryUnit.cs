@@ -72,7 +72,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatPrimaryUnit.Text = String.Empty;
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
-
+            matBtnDelete.Visible = false;
             txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
@@ -474,6 +474,103 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
         }
 
+        private void neww_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            matBtnEdit.Visible = false;
+            matBtnCancel.Visible = true;
+            txtmatPrimaryUnit.Enabled = true;
+            matBtnNew.Visible = false;
+            txtmatPrimaryUnit.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            matBtnDelete.Visible = false;
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            matBtnSave.Visible = true;
+            txtmatPrimaryUnit.Select();
+            txtmatPrimaryUnit.Focus();
+        }
 
+        private void editt_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            matBtnDelete.Visible = false;
+            matBtnCancel.Visible = true;
+            matBtnNew.Visible = false;
+            matBtnEdit.Visible = false;
+            matBtnSave.Visible = true;
+            txtmatPrimaryUnit.Enabled = true;
+            txtmatPrimaryUnit.Focus();
+        }
+
+        private void removee_Click(object sender, EventArgs e)
+        {
+            if (dgvPrimaryUnit.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Primary Unit", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        showPrimaryUnitData();
+
+                        matBtnCancel_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void canceel_Click(object sender, EventArgs e)
+        {
+            matBtnCancel.Visible = false;
+            mode = "";
+            txtCreatedAt.Text = String.Empty;
+            txtCreatedBy.Text = String.Empty;
+            matBtnEdit.Visible = true;
+            matBtnSave.Visible = false;
+            matBtnNew.Visible = true;
+            matBtnDelete.Visible = true;
+            txtmatPrimaryUnit.Enabled = false;
+        }
+
+        private void savee_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_Primary_Unit(0,
+                txtmatPrimaryUnit.Text, "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                PrimaryUnitAlreadyExist();
+
+
+                txtmatPrimaryUnit.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+        }
     }
 }

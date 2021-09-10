@@ -17,6 +17,7 @@ using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Forms.Research_And_Development;
 using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Forms.Dry_Warehouse;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Import;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -231,6 +232,7 @@ namespace COMPLETE_FLAT_UI
             Adorner.AddBadgeTo(btnPreparationDepartment, "123");
             Adorner.AddBadgeTo(btnResearchAndDevelopment, "123");
         }
+        public string user_section_controlBox { get; set; }
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1300, 700); //Size of Windows
@@ -244,6 +246,18 @@ namespace COMPLETE_FLAT_UI
             rights_id = userinfo.user_rights_id;
             // Calling the Stored PROC 
             objStorProc = xClass.g_objStoredProc.GetCollections();
+
+
+            user_section_controlBox = userinfo.user_section;
+          
+            if (user_section_controlBox == "Office")
+            {
+                ControlBox = true;
+            }
+            else
+            {
+                ControlBox = false;
+            }
 
             //get_accessible_menu
 
@@ -809,7 +823,18 @@ namespace COMPLETE_FLAT_UI
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
-    
+
+        private void toolImportDry_Click(object sender, EventArgs e)
+        {
+           frmImportRawMatsExcel fm = new frmImportRawMatsExcel();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {

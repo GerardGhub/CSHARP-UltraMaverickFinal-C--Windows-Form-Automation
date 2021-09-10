@@ -185,8 +185,9 @@ namespace COMPLETE_FLAT_UI
 
         private void frmLoginForm_Load(object sender, EventArgs e)
         {
-            
-           
+
+            //ThemeManager.ColorScheme = new ColorScheme(Primary.Black700, Primary.Blue900, Primary.Blue500, Accent.Blue400, TextShade.WHITE);
+
             objStorProc = xClass.g_objStoredProc.GetCollections();
             txtMaterialUsername.Select();
         }

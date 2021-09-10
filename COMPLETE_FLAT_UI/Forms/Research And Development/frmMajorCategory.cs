@@ -471,5 +471,104 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             }
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            matBtnEdit.Visible = false;
+            matBtnCancel.Visible = true;
+            txtmajorCategory.Enabled = true;
+            matBtnNew.Visible = false;
+            txtmajorCategory.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            matBtnDelete.Visible = false;
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            matBtnSave.Visible = true;
+            txtmajorCategory.Select();
+            txtmajorCategory.Focus();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            matBtnCancel.Visible = false;
+            mode = "";
+            txtCreatedAt.Text = String.Empty;
+            txtCreatedBy.Text = String.Empty;
+            matBtnEdit.Visible = true;
+            matBtnSave.Visible = false;
+            matBtnNew.Visible = true;
+            matBtnDelete.Visible = true;
+            txtmajorCategory.Enabled = false;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (dgvMajorCategory.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Major Category", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        showMajorCategoryData();
+
+                        matBtnCancel_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            matBtnDelete.Visible = false;
+            matBtnCancel.Visible = true;
+            matBtnNew.Visible = false;
+            matBtnEdit.Visible = false;
+            matBtnSave.Visible = true;
+            txtmajorCategory.Enabled = true;
+            txtmajorCategory.Focus();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_Major_Category(0,
+                txtmajorCategory.Text, "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                MajorCategoryAlreadyExist();
+
+
+                txtmajorCategory.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+        }
     }
 }

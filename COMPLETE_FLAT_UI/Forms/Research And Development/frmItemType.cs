@@ -475,5 +475,104 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
         }
 
+        private void New_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            matBtnEdit.Visible = false;
+            matBtnCancel.Visible = true;
+            txtmatItemType.Enabled = true;
+            matBtnNew.Visible = false;
+            txtmatItemType.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            matBtnSave.Visible = true;
+            txtmatItemType.Select();
+            txtmatItemType.Focus();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            matBtnCancel.Visible = false;
+            mode = "";
+            txtCreatedAt.Text = String.Empty;
+            txtCreatedBy.Text = String.Empty;
+            matBtnEdit.Visible = true;
+            matBtnSave.Visible = false;
+            matBtnNew.Visible = true;
+            matBtnDelete.Visible = true;
+            txtmatItemType.Enabled = false;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            matBtnDelete.Visible = false;
+            matBtnCancel.Visible = true;
+            matBtnNew.Visible = false;
+            matBtnEdit.Visible = false;
+            matBtnSave.Visible = true;
+            txtmatItemType.Enabled = true;
+            txtmatItemType.Focus();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (dgvItemType.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Type", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        showItemTypeData();
+
+                        matBtnCancel_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_Item_Type(0,
+                txtmatItemType.Text, "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                ItemTypeAlreadyExist();
+
+
+
+                txtmatItemType.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+        }
     }
 }

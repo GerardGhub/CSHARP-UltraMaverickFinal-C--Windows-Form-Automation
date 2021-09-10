@@ -500,5 +500,106 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             }
         }
+
+        private void btnAddTool_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            matBtnEdit.Visible = false;
+            matBtnCancel.Visible = true;
+            txtmatItemClass.Enabled = true;
+            matBtnNew.Visible = false;
+            txtmatItemClass.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            matBtnDelete.Visible = false;
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            matBtnSave.Visible = true;
+            txtmatItemClass.Select();
+            txtmatItemClass.Focus();
+        }
+
+        private void btnCancelTool_Click(object sender, EventArgs e)
+        {
+            matBtnCancel.Visible = false;
+            mode = "";
+            txtCreatedAt.Text = String.Empty;
+            txtCreatedBy.Text = String.Empty;
+            matBtnEdit.Visible = true;
+            matBtnSave.Visible = false;
+            matBtnNew.Visible = true;
+            matBtnDelete.Visible = true;
+            txtmatItemClass.Enabled = false;
+        }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            matBtnDelete.Visible = false;
+            matBtnCancel.Visible = true;
+            matBtnNew.Visible = false;
+            matBtnEdit.Visible = false;
+            matBtnSave.Visible = true;
+            txtmatItemClass.Enabled = true;
+            txtmatItemClass.Focus();
+        }
+
+        private void btnDeleteTool_Click(object sender, EventArgs e)
+        {
+            if (dgvitemClass.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        showItemClassData();
+
+                        matBtnCancel_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void btnUpdateTool_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                ItemClassAlreadyExist();
+
+
+                txtmatItemClass.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+        }
     }
 }

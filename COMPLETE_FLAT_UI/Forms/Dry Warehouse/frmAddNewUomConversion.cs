@@ -100,9 +100,51 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         }
-        private void btnUpdateTool_Click(object sender, EventArgs e)
+
+        public void ConversionAlreadyExist()
         {
-            if(txtMatConversion.Text == String.Empty)
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Conversion Already Exist!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+        }
+
+            private void btnUpdateTool_Click(object sender, EventArgs e)
+        {
+
+            dSet.Clear();
+            dSet = objStorProc.sp_PrimaryUnitManagement(0, txtMatConversion.Text, "", "", "", "", "","","","","","", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                ConversionAlreadyExist();
+
+
+                txtMatConversion.Text = String.Empty;
+                txtMatConversion.Focus();
+                return;
+            }
+
+
+
+            if (txtMatConversion.Text == String.Empty)
             {
                 FillRequiredTextbox();
                 txtMatConversion.Focus();

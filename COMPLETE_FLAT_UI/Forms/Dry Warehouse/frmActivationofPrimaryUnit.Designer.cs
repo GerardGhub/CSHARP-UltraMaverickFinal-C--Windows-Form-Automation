@@ -30,12 +30,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.label1 = new System.Windows.Forms.Label();
+            this.metroStatus = new MetroFramework.Controls.MetroComboBox();
             this.txtMatConversion = new MaterialSkin.Controls.MaterialTextBox();
             this.txtMatPrimaryUnit = new MaterialSkin.Controls.MaterialTextBox();
             this.txtMatItemDesc = new MaterialSkin.Controls.MaterialTextBox();
             this.txtMatItemCode = new MaterialSkin.Controls.MaterialTextBox();
-            this.metroStatus = new MetroFramework.Controls.MetroComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,11 +58,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Size = new System.Drawing.Size(1810, 425);
             this.materialCard1.TabIndex = 474;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(83, 279);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 32);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Status";
+            // 
+            // metroStatus
+            // 
+            this.metroStatus.FormattingEnabled = true;
+            this.metroStatus.ItemHeight = 24;
+            this.metroStatus.Location = new System.Drawing.Point(79, 310);
+            this.metroStatus.Name = "metroStatus";
+            this.metroStatus.Size = new System.Drawing.Size(423, 30);
+            this.metroStatus.TabIndex = 4;
+            this.metroStatus.UseSelectable = true;
+            // 
             // txtMatConversion
             // 
             this.txtMatConversion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatConversion.Depth = 0;
-            this.txtMatConversion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtMatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatConversion.Hint = "Conversion";
             this.txtMatConversion.Location = new System.Drawing.Point(1262, 188);
             this.txtMatConversion.MaxLength = 50;
@@ -78,7 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatPrimaryUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatPrimaryUnit.Depth = 0;
             this.txtMatPrimaryUnit.Enabled = false;
-            this.txtMatPrimaryUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtMatPrimaryUnit.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatPrimaryUnit.Hint = "Primary Unit";
             this.txtMatPrimaryUnit.Location = new System.Drawing.Point(88, 188);
             this.txtMatPrimaryUnit.MaxLength = 50;
@@ -95,7 +114,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatItemDesc.Depth = 0;
             this.txtMatItemDesc.Enabled = false;
-            this.txtMatItemDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtMatItemDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemDesc.Hint = "Item Description";
             this.txtMatItemDesc.Location = new System.Drawing.Point(1262, 57);
             this.txtMatItemDesc.MaxLength = 50;
@@ -121,25 +140,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode.Size = new System.Drawing.Size(414, 50);
             this.txtMatItemCode.TabIndex = 0;
             this.txtMatItemCode.Text = "";
-            // 
-            // metroStatus
-            // 
-            this.metroStatus.FormattingEnabled = true;
-            this.metroStatus.ItemHeight = 24;
-            this.metroStatus.Location = new System.Drawing.Point(79, 310);
-            this.metroStatus.Name = "metroStatus";
-            this.metroStatus.Size = new System.Drawing.Size(423, 30);
-            this.metroStatus.TabIndex = 4;
-            this.metroStatus.UseSelectable = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 279);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 32);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Status";
             // 
             // frmActivationofPrimaryUnit
             // 

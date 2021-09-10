@@ -40,6 +40,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_item_primary_unit { get; set; }
         public string Unit_id { get; set; }
 
+        public string sp_item_primary_id { get; set; }
+
         private void frmManageActivePrimaryUnit_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -66,6 +68,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
+
+        //DataSet dset_emp_SearchingUnit = new DataSet();
+        //private void SearchUnitsSP()
+        //{
+        //    dset_emp_SearchingUnit.Clear();
+
+
+        //    dset_emp_SearchingUnit = objStorProc.sp_getMajorTables("Raw_Materials_Dry_IngredientsOnly_Major");
+
+        //}
+
         private void doSearchInTextBoxPrimaryUnit()
         {
             try
@@ -88,7 +101,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                        dv.RowFilter = "item_primary_id = '" + txtmatid.Text + "'";
+                        dv.RowFilter = "item_item_code = '" + MyItemCode + "' AND active_pu_conversion like '%" +txtmatSearchUnit.Text+"%' ";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -138,7 +151,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                xClass.fillDataGridView(dgvRawMats, "Raw_Materials_Dry", dSet);
+                xClass.fillDataGridView(dgvRawMats, "Raw_Materials_Dry_IngredientsOnly", dSet);
                 DataGridColumnHide();
                 lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
             }
@@ -283,7 +296,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void txtmatSearchUnit_TextChanged(object sender, EventArgs e)
         {
+            if (lbltotalrecords.Text == "0")
+            {
 
+            }
+            else
+            {
+                doSearchInTextBoxPrimaryUnit();
+            }
+                
         }
 
         private void dgvActiveUnits_CurrentCellChanged(object sender, EventArgs e)
@@ -302,7 +323,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         //Unit_id = dgvActiveUnits.CurrentRow.Cells["id"].Value.ToString();
 
                         sp_active_pu_primary_id = dgvActiveUnits.CurrentRow.Cells["active_pu_primary_id"].Value.ToString();
-
+                        sp_item_primary_id = dgvActiveUnits.CurrentRow.Cells["item_primary_id"].Value.ToString();
                     }
                 }
             }
@@ -333,7 +354,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             }
         }
-        public void DeletedSuccessfully()
+        public void InactiveSuccessfully()
         {
 
             PopupNotifier popup = new PopupNotifier();
@@ -374,7 +395,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     dSet_temp.Clear();
                     dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "delete");
 
-                    DeletedSuccessfully();
+                    InactiveSuccessfully();
 
                     SearchMethodJarVarCallingSPUnits();
 
@@ -389,10 +410,112 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
+        public void ActivateSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Activate Successfully";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        public void AlreadyHaveActivateConverions()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "You already have a active Primary Unit Conversion!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+        }
+
+
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-            frmActivationofPrimaryUnit addNew = new frmActivationofPrimaryUnit(this);
-            addNew.ShowDialog();
+
+            dSet.Clear();
+            dSet = objStorProc.sp_PrimaryUnitManagement(0, sp_item_primary_id, "", "", "", "", "", "", "", "", "", "", "checkthedataActivate");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //dSet_temp.Clear();
+                //dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "delete");
+                
+                //AlreadyHaveActivateConverions();
+
+                //return;
+            }
+
+            //Puke
+
+
+            if (dgvActiveUnits.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the primary unit conversion Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_PrimaryUnitManagement(Convert.ToInt32(txtmatid.Text), "", "", "", "", "", "", "", "", "", "", "", "inactiveall");
+
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "activate_conversion");
+
+
+           
+
+                    ActivateSuccessfully();
+
+                    SearchMethodJarVarCallingSPUnits();
+
+                    doSearchInTextBoxPrimaryUnit();
+                }
+                else
+                {
+                    return;
+                }
+
+
+            }
+
+
+            //frmActivationofPrimaryUnit addNew = new frmActivationofPrimaryUnit(this);
+            //addNew.ShowDialog();
         }
     }
 }

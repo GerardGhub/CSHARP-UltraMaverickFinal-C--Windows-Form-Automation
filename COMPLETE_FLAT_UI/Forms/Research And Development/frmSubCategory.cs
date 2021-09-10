@@ -269,7 +269,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void metroSave_Click(object sender, EventArgs e)
         {
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the  Major Category Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the  Sub Category Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
 
@@ -468,6 +468,105 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         txtModifiedBy.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_by"].Value.ToString();
                     }
                 }
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            matBtnEdit.Visible = false;
+            matBtnCancel.Visible = true;
+            txtSubCategory.Enabled = true;
+            matBtnNew.Visible = false;
+            txtSubCategory.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+            matBtnDelete.Visible = false;
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            matBtnSave.Visible = true;
+            txtSubCategory.Select();
+            txtSubCategory.Focus();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            matBtnCancel.Visible = false;
+            mode = "";
+            txtCreatedAt.Text = String.Empty;
+            txtCreatedBy.Text = String.Empty;
+            matBtnEdit.Visible = true;
+            matBtnSave.Visible = false;
+            matBtnNew.Visible = true;
+            matBtnDelete.Visible = true;
+            txtSubCategory.Enabled = false;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (dgvSubCategory.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Sub Category", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        showSubCategoryData();
+
+                        matBtnCancel_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            matBtnDelete.Visible = false;
+            matBtnCancel.Visible = true;
+            matBtnNew.Visible = false;
+            matBtnEdit.Visible = false;
+            matBtnSave.Visible = true;
+            txtSubCategory.Enabled = true;
+            txtSubCategory.Focus();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_Sub_Category(0,
+                txtSubCategory.Text, "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                SubCategoryAlreadyExist();
+
+
+                txtSubCategory.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
             }
         }
 

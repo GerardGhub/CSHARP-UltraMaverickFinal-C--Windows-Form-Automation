@@ -152,12 +152,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void cboItemType_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
+
+            if(cboItemType.Text =="Product")
+            {
+                txtmatConversion.Enabled = false;
+                txtmatConversion.Text = "0";
+            }
+            else if(cboItemType.Text =="Ingredients")
+            {
+                txtmatConversion.Enabled = true;
+                txtmatConversion.Text = String.Empty;
+                txtmatConversion.Focus();
+            
+            }
+            else
+            {
+
+            }
         }
 
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
             lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
+
+            if (cboPrimaryUnit.Text == "Kilogram")
+            {
+                txtmatConversion.Enabled = false;
+                txtmatConversion.Text = "1";
+            }
+    
+            else
+            {
+                txtmatConversion.Text = String.Empty;
+                txtmatConversion.Focus();
+            }
         }
         public void FillRequiredTextbox()
         {
@@ -371,5 +400,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
 
+        private void txtMatItemCode_Validated(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void txtMatItemCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        private void txtMatItemDesc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        private void cboItemClass_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
