@@ -44,7 +44,70 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
             showMajorCategoryData();
+            SearchMethodJarVarCallingSP();
         }
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Major_CategoryMajor");
+
+        }
+
+        private void doSearchInTextBoxCmb()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "major_category_desc like '%" + mattxtSearch.Text + "%'";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvMajorCategory.DataSource = dv;
+                    lbltotalrecords.Text = dgvMajorCategory.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
 
         private void showMajorCategoryData()      //method for loading available_menus
         {
@@ -568,6 +631,30 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             else
             {
                 metroSave_Click(sender, e);
+            }
+        }
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (mattxtSearch.Text == String.Empty)
+            {
+                showMajorCategoryData();
+            }
+            if (lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+                if (mode == "add")
+                {
+
+                }
+                else
+                {
+                    doSearchInTextBoxCmb();
+                }
+
             }
         }
     }

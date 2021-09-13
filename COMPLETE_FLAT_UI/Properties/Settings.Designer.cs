@@ -74,5 +74,16 @@ namespace ULTRAMAVERICK.Properties {
                 return ((string)(this["hr_application_conn"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FM-MMERCADO-L;Initial Catalog=UltraMaverickDB;Integrated Security=Tru" +
+            "e")]
+        public string UltraMaverickDBConnectionString {
+            get {
+                return ((string)(this["UltraMaverickDBConnectionString"]));
+            }
+        }
     }
 }

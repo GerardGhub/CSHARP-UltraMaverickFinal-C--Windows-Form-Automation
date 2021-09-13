@@ -42,9 +42,73 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
+            myglobal.global_module = "Active"; // Mode for Searching
             showItemTypeData();
+            SearchMethodJarVarCallingSP();
         }
+
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+        
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_TypeMajor");
+
+        }
+
+        private void doSearchInTextBox()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+                        dv.RowFilter = "item_type_desc like '%" + mattxtSearch.Text + "%'";
+               
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvItemType.DataSource = dv;
+                    lbltotalrecords.Text = dgvItemType.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
         private void showItemTypeData()     //method for loading available_menus
         {
             try
@@ -292,10 +356,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 ItemTypeAlreadyExist();
-        
 
 
-                    txtmatItemType.Focus();
+
+                txtmatItemType.Focus();
                 return;
             }
             else
@@ -573,6 +637,31 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             {
                 metroSave_Click(sender, e);
             }
+        }
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //if (mattxtSearch.Text == "")
+            //{
+            //    showItemTypeData();
+            //}
+            //if (lbltotalrecords.Text == "0")
+            //{
+
+            //}
+            //else
+            //{
+            //    if (mode == "add")
+            //    {
+
+            //    }
+            //    else
+            //    {
+            //        doSearchInTextBox();
+            //    }
+
+            //}
+            doSearchInTextBox();
         }
     }
 }

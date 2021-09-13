@@ -185,6 +185,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 txtmatConversion.Text = String.Empty;
+                txtmatConversion.Enabled = true;
                 txtmatConversion.Focus();
             }
         }
@@ -348,12 +349,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 dSet = objStorProc.sp_Raw_Materials_Dry(0,
                     txtMatItemCode.Text.Trim(),
                     txtMatItemDesc.Text.Trim(),
-                    lblItemClassID.Text.Trim(),
-                    lblMajorCatId.Text.Trim(),
-                    lblIDSubCat.Text.Trim(),
-                    lblPrimaryUnitID.Text.Trim(),
+                    cboItemClass.Text.Trim(),
+                    cboMajorCategory.Text.Trim(),
+                    cboSubCat.Text.Trim(),
+                    cboPrimaryUnit.Text.Trim(),
                     txtmatConversion.Text.Trim(),
-                    lblItemTypeID.Text.Trim(),
+                    cboItemType.Text.Trim(),
                     txtcreatedAt.Text.Trim(),
                     txtcreatedBy.Text.Trim(),
                     "","",

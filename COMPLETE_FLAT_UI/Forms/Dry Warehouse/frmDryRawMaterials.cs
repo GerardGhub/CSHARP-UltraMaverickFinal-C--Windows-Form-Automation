@@ -52,7 +52,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             showRawMaterialsInDryWH();
             LoadRecords();
             LoadingrefresherOrb();
-            loadMajorCategoryDropdown();
+        
             SearchMethodJarVarCallingSP();
         }
 

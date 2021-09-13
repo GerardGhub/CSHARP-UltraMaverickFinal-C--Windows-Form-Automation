@@ -42,8 +42,69 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
+            myglobal.global_module = "Active"; // Mode for Searching
             showItemClassData();
+            SearchMethodJarVarCallingSP();
+        }
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_Class_Major");
+
+        }
+
+        private void doSearchInTextBox()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "item_class_desc like '%" + mattxtSearch.Text + "%'";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvitemClass.DataSource = dv;
+                    lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
 
         }
 
@@ -599,6 +660,30 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             else
             {
                 metroSave_Click(sender, e);
+            }
+        }
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (mattxtSearch.Text == "")
+            {
+                showItemClassData();
+            }
+            if (lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+                if (mode == "add")
+                {
+
+                }
+                else
+                {
+                    doSearchInTextBox();
+                }
+
             }
         }
     }

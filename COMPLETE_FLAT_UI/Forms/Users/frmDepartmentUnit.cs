@@ -45,6 +45,7 @@ namespace ULTRAMAVERICK.Forms.Users
             loadDepartment();
             SearchMethodJarVarCallingSP();
             displayDepartmentUnits();
+            
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();

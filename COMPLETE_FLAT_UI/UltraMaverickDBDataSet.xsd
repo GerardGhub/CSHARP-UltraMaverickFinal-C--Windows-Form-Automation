@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="UltraMaverickDBDataSet" targetNamespace="http://tempuri.org/UltraMaverickDBDataSet.xsd" xmlns:mstns="http://tempuri.org/UltraMaverickDBDataSet.xsd" xmlns="http://tempuri.org/UltraMaverickDBDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="UltraMaverickDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="UltraMaverickDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ULTRAMAVERICK.Properties.Settings.GlobalReference.Default.UltraMaverickDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Raw_Materials_DryTableAdapter" GeneratorDataComponentClassName="Raw_Materials_DryTableAdapter" Name="Raw_Materials_Dry" UserDataComponentName="Raw_Materials_DryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="UltraMaverickDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>			SELECT 
+		rw.item_id,
+		rw.item_code,
+		rw.item_description,
+		icF.item_class_desc as item_class,
+		mcF.major_category_desc as major_category,
+		scF.sub_category_desc as sub_category,
+		puF.unit_desc as primary_unit,
+		ISNULL(conversions.active_pu_conversion,rw.conversion) as conversion,
+		itF.item_type_desc as item_type
+
+	FROM Raw_Materials_Dry rw
+
+
+
+
+
+
+			LEFT JOIN ( select it.item_type_id, item_type_desc
+from Item_Type it where it.is_active='1'
+group by item_type_id, item_type_desc) itF
+on rw.item_type = itF.item_type_desc
+
+	
+		LEFT JOIN ( select pu.unit_id, pu.unit_desc
+from Primary_Unit pu where pu.is_active='1'
+group by pu.unit_id, pu.unit_desc) puF
+on rw.primary_unit = puF.unit_desc
+
+
+
+	LEFT JOIN ( select sc.sub_category_id, sc.sub_category_desc
+from Sub_Category sc where sc.is_active='1'
+group by sc.sub_category_id, sc.sub_category_desc) scF
+on rw.sub_category = scF.sub_category_desc
+
+
+
+
+
+	LEFT JOIN ( select mc.major_category_id, mc.major_category_desc
+from Major_Category mc where mc.is_active='1'
+group by mc.major_category_id, mc.major_category_desc) mcF
+on rw.major_category = mcF.major_category_desc
+
+
+
+LEFT JOIN ( select ic.item_class_id, ic.item_class_desc
+from Item_Class ic where ic.is_active='1'
+group by ic.item_class_id, ic.item_class_desc) icF
+on rw.item_class = icF.item_class_desc
+
+
+LEFT JOIN ( select uf.employee_name as emp, uf.userfile_id
+from userfile uf where uf.is_active='1'
+group by uf.employee_name,userfile_id) emp
+on rw.created_by = emp.userfile_id
+
+LEFT JOIN ( select uf.employee_name as emp2, uf.userfile_id
+from userfile uf where uf.is_active='1'
+group by uf.employee_name,userfile_id) emp_updated_by
+on rw.updated_by =  emp_updated_by.userfile_id
+
+
+LEFT JOIN ( select pum.active_pu_conversion, pum.item_primary_id
+from PrimaryUnitManagement pum where pum.is_active='1'
+group by pum.active_pu_conversion,item_primary_id) conversions
+on rw.item_id =  conversions.item_primary_id
+
+		WHERE rw.is_active = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="item_id" DataSetColumn="item_id" />
+              <Mapping SourceColumn="item_code" DataSetColumn="item_code" />
+              <Mapping SourceColumn="item_description" DataSetColumn="item_description" />
+              <Mapping SourceColumn="item_class" DataSetColumn="item_class" />
+              <Mapping SourceColumn="major_category" DataSetColumn="major_category" />
+              <Mapping SourceColumn="sub_category" DataSetColumn="sub_category" />
+              <Mapping SourceColumn="primary_unit" DataSetColumn="primary_unit" />
+              <Mapping SourceColumn="conversion" DataSetColumn="conversion" />
+              <Mapping SourceColumn="item_type" DataSetColumn="item_type" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="UltraMaverickDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="UltraMaverickDBDataSet" msprop:Generator_UserDSName="UltraMaverickDBDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Raw_Materials_Dry" msprop:Generator_TableClassName="Raw_Materials_DryDataTable" msprop:Generator_TableVarName="tableRaw_Materials_Dry" msprop:Generator_TablePropName="Raw_Materials_Dry" msprop:Generator_RowDeletingName="Raw_Materials_DryRowDeleting" msprop:Generator_RowChangingName="Raw_Materials_DryRowChanging" msprop:Generator_RowEvHandlerName="Raw_Materials_DryRowChangeEventHandler" msprop:Generator_RowDeletedName="Raw_Materials_DryRowDeleted" msprop:Generator_UserTableName="Raw_Materials_Dry" msprop:Generator_RowChangedName="Raw_Materials_DryRowChanged" msprop:Generator_RowEvArgName="Raw_Materials_DryRowChangeEvent" msprop:Generator_RowClassName="Raw_Materials_DryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="item_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
+              <xs:element name="item_code" msprop:Generator_ColumnVarNameInTable="columnitem_code" msprop:Generator_ColumnPropNameInRow="item_code" msprop:Generator_ColumnPropNameInTable="item_codeColumn" msprop:Generator_UserColumnName="item_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_description" msprop:Generator_ColumnVarNameInTable="columnitem_description" msprop:Generator_ColumnPropNameInRow="item_description" msprop:Generator_ColumnPropNameInTable="item_descriptionColumn" msprop:Generator_UserColumnName="item_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_class" msprop:Generator_ColumnVarNameInTable="columnitem_class" msprop:Generator_ColumnPropNameInRow="item_class" msprop:Generator_ColumnPropNameInTable="item_classColumn" msprop:Generator_UserColumnName="item_class" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="major_category" msprop:Generator_ColumnVarNameInTable="columnmajor_category" msprop:Generator_ColumnPropNameInRow="major_category" msprop:Generator_ColumnPropNameInTable="major_categoryColumn" msprop:Generator_UserColumnName="major_category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sub_category" msprop:Generator_ColumnVarNameInTable="columnsub_category" msprop:Generator_ColumnPropNameInRow="sub_category" msprop:Generator_ColumnPropNameInTable="sub_categoryColumn" msprop:Generator_UserColumnName="sub_category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_unit" msprop:Generator_ColumnVarNameInTable="columnprimary_unit" msprop:Generator_ColumnPropNameInRow="primary_unit" msprop:Generator_ColumnPropNameInTable="primary_unitColumn" msprop:Generator_UserColumnName="primary_unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="conversion" msprop:Generator_ColumnVarNameInTable="columnconversion" msprop:Generator_ColumnPropNameInRow="conversion" msprop:Generator_ColumnPropNameInTable="conversionColumn" msprop:Generator_UserColumnName="conversion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_type" msprop:Generator_ColumnVarNameInTable="columnitem_type" msprop:Generator_ColumnPropNameInRow="item_type" msprop:Generator_ColumnPropNameInTable="item_typeColumn" msprop:Generator_UserColumnName="item_type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Raw_Materials_Dry" />
+      <xs:field xpath="mstns:item_id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

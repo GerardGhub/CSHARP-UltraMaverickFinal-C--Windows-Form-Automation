@@ -281,12 +281,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 dSet = objStorProc.sp_Raw_Materials_Dry(Convert.ToInt32(primary_key),
                     txtMatItemCode.Text.Trim(),
                     txtMatItemDesc.Text.Trim(),
-                    lblItemClassID.Text.Trim(),
-                    lblMajorCatId.Text.Trim(),
-                    lblIDSubCat.Text.Trim(),
-                    lblPrimaryUnitID.Text.Trim(),
+                    cboItemClass.Text.Trim(),
+                    cboMajorCategory.Text.Trim(),
+                    cboSubCat.Text.Trim(),
+                    cboPrimaryUnit.Text.Trim(),
                     txtmatConversion.Text.Trim(),
-                    lblItemTypeID.Text.Trim(),
+                    cboItemType.Text.Trim(),
                     txtcreatedAt.Text.Trim(),
                     txtcreatedBy.Text.Trim(),
                     "", txtcreatedBy.Text.Trim(),
@@ -294,8 +294,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 textBox1.Text = "data Already Save!";
                 SaveSuccessfully();
                 this.Close();
-                //frm_Load(new object(), new System.EventArgs());
-                //splashCreen();
+        
 
             }
 
