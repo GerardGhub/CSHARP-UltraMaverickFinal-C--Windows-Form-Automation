@@ -193,6 +193,12 @@
     <Compile Include="Forms\Dry Warehouse\frmManageActivePrimaryUnit.Designer.cs">
       <DependentUpon>frmManageActivePrimaryUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Import\frmImportPoSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Import\frmImportPoSummary.Designer.cs">
+      <DependentUpon>frmImportPoSummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Import\frmImportRawMatsExcel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     <Compile Include="test\FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="UltraMaverickDBDataSet.cs">
+      <DependentUpon>UltraMaverickDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UltraMaverickDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -361,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmManageActivePrimaryUnit.resx">
       <DependentUpon>frmManageActivePrimaryUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportPoSummary.resx">
+      <DependentUpon>frmImportPoSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportRawMatsExcel.resx">
       <DependentUpon>frmImportRawMatsExcel.cs</DependentUpon>

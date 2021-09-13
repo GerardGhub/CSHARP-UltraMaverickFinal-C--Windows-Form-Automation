@@ -845,6 +845,13 @@ namespace COMPLETE_FLAT_UI
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmImportPoSummary fm = new frmImportPoSummary();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());

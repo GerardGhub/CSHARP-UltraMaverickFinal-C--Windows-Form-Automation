@@ -54,7 +54,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_TypeMajor");
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("ItemTypeMajor");
 
         }
 

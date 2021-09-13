@@ -196,7 +196,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     if (saveMode())
                     {
-                        getAllParentMenu();
+                        //getAllParentMenu();
                         if (lstParentMenu.Items.Count > 0)
                         {
                             int index = lstParentMenu.FindString(txtModifiedAt.Text, 0);
@@ -260,18 +260,18 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             if (mode == "add")
             {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_ParentForms(0,
-                    txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "validate");
+                //dSet.Clear();
+                //dSet = g_objStoredProcCollection.sp_ParentForms(0,
+                //    txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "validate");
 
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    ParentMenuAlreadyTaken();
-                    txtMaterialMenu.Focus();
-                    return false;
-                }
-                else
-                {
+                //if (dSet.Tables[0].Rows.Count > 0)
+                //{
+                //    ParentMenuAlreadyTaken();
+                //    txtMaterialMenu.Focus();
+                //    return false;
+                //}
+                //else
+                //{
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_ParentForms(0,
                     txtMaterialMenu.Text.Trim(),                
@@ -286,7 +286,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     getAllParentMenu();
                     matBtnNext_Click(new object(), new System.EventArgs());
                     return true;
-                }
+                //}
 
             }
 
@@ -358,8 +358,16 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void lstParentMenu_Click(object sender, EventArgs e)
         {
-            doSearch();
-            showvalue();
+            if(mode=="add")
+            {
+           
+            }
+            else
+            {
+                doSearch();
+                showvalue();
+            }
+   
         }
 
         DataSet dset_emp = new DataSet();
@@ -579,19 +587,40 @@ namespace ULTRAMAVERICK.Forms.Users
         private void lstParentMenu_CursorChanged(object sender, EventArgs e)
         {
             //doSearch();
-            showvalue();
+            if (mode == "add")
+            {
+          
+            }
+            else
+            {
+                showvalue();
+            }
         }
 
         private void lstParentMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             //doSearch();
-            showvalue();
+            if (mode == "add")
+            {
+            
+            }
+            else
+            {
+                showvalue();
+            }
         }
 
         private void lstParentMenu_SelectedValueChanged(object sender, EventArgs e)
         {
             //doSearch();
-            showvalue();
+            if (mode == "add")
+            {
+            
+            }
+            else
+            {
+                showvalue();
+            }
         }
 
         private void cboDepartmentMaterial_SelectedValueChanged(object sender, EventArgs e)
@@ -741,16 +770,16 @@ namespace ULTRAMAVERICK.Forms.Users
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_userfile(0,
                 Convert.ToInt32(txtRightsID.Text),
-                "s",
-                "s",
-               "s",
-                "s",
-                "s",
-                "s",
-                "s",
-                "s",
-                "s",
-                "s",
+                "s10",
+                "s9",
+               "s8",
+                "7",
+                "s6",
+                "s5",
+                "s4",
+                "s3",
+                "s2",
+                Convert.ToInt32(temp_id).ToString(),
                 Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
 
             if (dgvUserRights.Rows.Count >= 1)
@@ -788,5 +817,95 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
             }
         }
+
+        private void btnAddTool_Click_1(object sender, EventArgs e)
+        {
+            mode = "add";
+            cboDepartmentMaterial.Visible = true;
+            txtMaterialDepartment.Visible = false;
+            matBtnDelete.Visible = false;
+            materialBtnNew.Visible = false;
+
+            lstParentMenu.Enabled = false;
+
+            txtMaterialMenu.Enabled = true;
+            txtMaterialMenu.Text = string.Empty;
+            matBtnCancel.Visible = true;
+
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            matBtnSave.Visible = true;
+            matBtnEDit.Visible = false;
+            cboDepartmentMaterial.Enabled = true;
+            loadDepartment();
+            txtMaterialMenu.Focus();
+        }
+
+        private void btnCancelTool_Click_1(object sender, EventArgs e)
+        {
+            lstParentMenu.Enabled = true;
+            matBtnCancel.Visible = false;
+            materialBtnNew.Visible = true;
+            txtMaterialMenu.Enabled = false;
+            matBtnDelete.Visible = true;
+            matBtnSave.Visible = false;
+            matBtnEDit.Visible = true;
+            matBtnDelete.Visible = true;
+            cboDepartmentMaterial.Enabled = false;
+            cboDepartmentMaterial.Visible = false;
+            txtMaterialDepartment.Visible = true;
+        }
+
+        private void btnDeleteTool_Click_1(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
+        }
+
+        private void btnUpdateTool_Click_1(object sender, EventArgs e)
+        {
+
+            if(mode =="add")
+            {
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_ParentForms(0,
+                    txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "validate");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    ParentMenuAlreadyTaken();
+                    txtMaterialMenu.Focus();
+                    return;
+                }
+            }
+            metroButtonSave_Click(sender, e);
+        }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+            
+                lstParentMenu.Enabled = false;
+
+                if (lstParentMenu.Items.Count > 0)
+                {
+                    mode = "edit";
+                    txtMaterialMenu.Enabled = true;
+                    txtMaterialMenu.ReadOnly = false;
+
+
+
+
+
+                    matBtnEDit.Visible = false;
+                    materialBtnNew.Visible = false;
+                    matBtnCancel.Visible = true;
+                    matBtnDelete.Visible = false;
+                    matBtnSave.Visible = true;
+                    cboDepartmentMaterial.Enabled = true;
+                    txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                    txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+                }
+            }
     }
 }

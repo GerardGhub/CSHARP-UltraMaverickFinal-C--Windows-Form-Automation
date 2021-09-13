@@ -18,4 +18,21 @@ namespace ULTRAMAVERICK.Class
         public string primary_unit { get; set; }
         public string conversion { get; set; }
     }
+
+    public class approve_po_summary
+    {
+        public int ProjectID { get; set; }
+        public string pr_number { get; set; }
+        public string pr_date { get; set; }
+        public string po_number { get; set; }
+        public string po_date { get; set; }
+        public string item_code { get; set; }
+        public string item_description { get; set; }
+        public string qty_order { get; set; }
+        public string qty_delivered { get; set; }
+        public string qty_billed { get; set; }
+        public string qty_uom { get; set; }
+        public string unit_price { get; set; }
+        public string Supplier { get; set; }
+    }
 }

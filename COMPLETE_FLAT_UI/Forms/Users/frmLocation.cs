@@ -41,9 +41,72 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
+            myglobal.global_module = "Active"; // Mode for Searching
             showLocationData();
+            SearchMethodJarVarCallingSP();
         }
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+     
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("LocationMajor");
+
+        }
+
+        private void doSearchInTextBoxCmb()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "location_name like '%" + mattxtSearch.Text + "%'";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvLocation.DataSource = dv;
+                    lbltotalrecords.Text = dgvLocation.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
         private void showLocationData()     //method for loading available_menus
         {
             try
@@ -478,5 +541,128 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
 
+        private void neww_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            matBtnEdit.Visible = false;
+            matBtnCancel.Visible = true;
+            txtmatLocation.Enabled = true;
+            matBtnNew.Visible = false;
+            txtmatLocation.Text = String.Empty;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            matBtnSave.Visible = true;
+            txtmatLocation.Select();
+            txtmatLocation.Focus();
+        }
+
+        private void editt_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            matBtnDelete.Visible = false;
+            matBtnCancel.Visible = true;
+            matBtnNew.Visible = false;
+            matBtnEdit.Visible = false;
+            matBtnSave.Visible = true;
+            txtmatLocation.Enabled = true;
+            txtmatLocation.Focus();
+        }
+
+        private void removee_Click(object sender, EventArgs e)
+        {
+            if (dgvLocation.Rows.Count > 0)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Location", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                    mode = "delete";
+
+                    if (saveMode())
+                    {
+                        DeletedSuccessfully();
+                        showLocationData();
+
+                        matBtnCancel_Click("", e);
+                    }
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void cancells_Click(object sender, EventArgs e)
+        {
+            matBtnCancel.Visible = false;
+            mode = "";
+            txtCreatedAt.Text = String.Empty;
+            txtCreatedBy.Text = String.Empty;
+            matBtnEdit.Visible = true;
+            matBtnSave.Visible = false;
+            matBtnNew.Visible = true;
+            matBtnDelete.Visible = true;
+            txtmatLocation.Enabled = false;
+        }
+
+        private void savee_Click(object sender, EventArgs e)
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_Location(0,
+                txtmatLocation.Text, "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                LocationAlreadyExist();
+
+
+                txtmatLocation.Focus();
+                return;
+            }
+            else
+            {
+                metroSave_Click(sender, e);
+            }
+        }
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            if (mattxtSearch.Text == "")
+            {
+                showLocationData();
+            }
+            if (lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+                if (mode == "add")
+                {
+
+                }
+                else
+                {
+                    doSearchInTextBoxCmb();
+                }
+
+            }
+        }
     }
 }

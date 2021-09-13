@@ -106,6 +106,7 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -990,6 +991,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnApproverTagging);
             this.panel1.Controls.Add(this.lblDateFinal);
             this.panel1.Controls.Add(this.lblTimeFinal);
@@ -1122,6 +1124,23 @@
             this.panelContenedorPrincipal.Size = new System.Drawing.Size(2933, 1431);
             this.panelContenedorPrincipal.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(1176, 36);
+            this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(376, 67);
+            this.button1.TabIndex = 496;
+            this.button1.Text = "Approver Tagging";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -1240,6 +1259,7 @@
         public MaterialSkin.Controls.MaterialTextBox txtMatSideBarColor;
         private System.Windows.Forms.ToolStripMenuItem toolModulePrimaryUnitMgmt;
         private System.Windows.Forms.ToolStripDropDownButton toolImportDry;
+        internal System.Windows.Forms.Button button1;
     }
 }
 

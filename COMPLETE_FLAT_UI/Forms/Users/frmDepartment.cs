@@ -46,6 +46,7 @@ namespace ULTRAMAVERICK.Forms.Users
             load_search(); //Bind the Information
             HideDataGrid(); // Hide the DataGrid
             LoadLocation(); // Loading the Depeartment
+            cboLocation.Visible = false;
         }
 
         DataSet dset_emp = new DataSet();
@@ -688,6 +689,78 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
         private void materialButton1_Click_3(object sender, EventArgs e)
+        {
+            metroButtonSave_Click(sender, e);
+        }
+
+        private void neww_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+            btnDeleteTool.Visible = false;
+            lstDepartment.Enabled = false;
+
+            txtdepartment.Enabled = true;
+            txtdepartment.Text = string.Empty;
+            btnCancelTool.Visible = true;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+            cboLocation.Enabled = true;
+            LoadLocation();
+            txtdepartment.Focus();
+        }
+
+        private void editt_Click(object sender, EventArgs e)
+        {
+            lstDepartment.Enabled = false;
+
+            if (lstDepartment.Items.Count > 0)
+            {
+                mode = "edit";
+                txtdepartment.Enabled = true;
+                txtdepartment.ReadOnly = false;
+
+
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
+                cboLocation.Enabled = true;
+                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            }
+        }
+
+        private void cancels_Click(object sender, EventArgs e)
+        {
+            lstDepartment.Enabled = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
+            txtdepartment.Enabled = false;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            cboLocation.Enabled = false;
+        }
+
+        private void removee_Click(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
+        }
+
+        private void savee_Click(object sender, EventArgs e)
         {
             metroButtonSave_Click(sender, e);
         }

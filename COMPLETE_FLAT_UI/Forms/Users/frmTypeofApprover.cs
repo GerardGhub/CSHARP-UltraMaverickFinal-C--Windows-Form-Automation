@@ -618,5 +618,97 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             metroButtonDelete_Click(sender, e);
         }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            btnUpdateTool.Visible = true;
+            btnAddTool.Visible = false;
+            btnDeleteTool.Visible = false;
+            lstTypeofApprovers.Enabled = false;
+
+            txtnewusertype.Enabled = true;
+            txtnewusertype.Text = string.Empty;
+            btnCancelTool.Visible = true;
+
+
+            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+            txtModifiedAt.Text = String.Empty;
+            txtModifiedBy.Text = String.Empty;
+
+            txtnewusertype.Focus();
+        }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            lstTypeofApprovers.Enabled = false;
+
+            if (lstTypeofApprovers.Items.Count > 0)
+            {
+                mode = "edit";
+                txtnewusertype.Enabled = true;
+                txtnewusertype.ReadOnly = false;
+
+
+
+
+
+                btnEditTool.Visible = false;
+                btnAddTool.Visible = false;
+                btnCancelTool.Visible = true;
+                btnDeleteTool.Visible = false;
+                btnUpdateTool.Visible = true;
+
+                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            }
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            metroButtonSave_Click(sender, e);
+        }
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+            metroButtonDelete_Click(sender, e);
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            lstTypeofApprovers.Enabled = true;
+            btnCancelTool.Visible = false;
+            btnAddTool.Visible = true;
+            txtnewusertype.Enabled = false;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            btnDeleteTool.Visible = true;
+            btnDeleteTool.Visible = true;
+        }
+
+        private void lstTypeofApprovers_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+            //if the item state is selected them change the back color 
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e = new DrawItemEventArgs(e.Graphics,
+                                          e.Font,
+                                          e.Bounds,
+                                          e.Index,
+                                          e.State ^ DrawItemState.Selected,
+                                          e.ForeColor,
+                                          Color.Yellow);//Choose the color
+           
+            // Draw the background of the ListBox control for each item.
+            e.DrawBackground();
+            // Draw the current item text
+            e.Graphics.DrawString(lstTypeofApprovers.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            // If the ListBox has focus, draw a focus rectangle around the selected item.
+            e.DrawFocusRectangle();
+        }
     }
 }

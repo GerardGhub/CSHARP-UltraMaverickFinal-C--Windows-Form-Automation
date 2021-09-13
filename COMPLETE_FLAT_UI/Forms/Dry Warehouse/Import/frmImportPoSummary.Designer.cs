@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 {
-    partial class frmImportRawMatsExcel
+    partial class frmImportPoSummary
     {
         /// <summary>
         /// Required designer variable.
@@ -36,41 +36,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primary_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.major_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
-            this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
-            this.txtFileName = new MaterialSkin.Controls.MaterialTextBox();
-            this.cbosheet = new MetroFramework.Controls.MetroComboBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.label4 = new System.Windows.Forms.Label();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
-            this.raw_Materials_DryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
-            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemclassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.majorcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conversionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFileName = new MaterialSkin.Controls.MaterialTextBox();
+            this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
+            this.cbosheet = new MetroFramework.Controls.MetroComboBox();
+            this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
+            this.project_Po_SummaryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Project_Po_SummaryTableAdapter();
+            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pr_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtyorderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_delivered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_billed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
+            this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSet)).BeginInit();
-            this.materialCard2.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -81,13 +76,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard1.Controls.Add(this.dgvRawMats);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(58, 237);
+            this.materialCard1.Location = new System.Drawing.Point(66, 320);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(2664, 861);
-            this.materialCard1.TabIndex = 0;
+            this.materialCard1.TabIndex = 1;
             // 
             // dgvRawMats
             // 
@@ -114,24 +109,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NO,
-            this.item_id,
+            this.ProjectID,
+            this.po_number,
+            this.po_date,
+            this.pr_number,
+            this.pr_date,
             this.item_code,
-            this.Item_description,
-            this.primary_unit,
-            this.item_type,
-            this.item_class,
-            this.major_category,
-            this.sub_category,
-            this.conversion,
-            this.itemidDataGridViewTextBoxColumn,
-            this.itemcodeDataGridViewTextBoxColumn,
-            this.itemdescriptionDataGridViewTextBoxColumn,
-            this.itemclassDataGridViewTextBoxColumn,
-            this.majorcategoryDataGridViewTextBoxColumn,
-            this.subcategoryDataGridViewTextBoxColumn,
-            this.primaryunitDataGridViewTextBoxColumn,
-            this.conversionDataGridViewTextBoxColumn,
-            this.itemtypeDataGridViewTextBoxColumn});
+            this.item_description,
+            this.qtyorderDataGridViewTextBoxColumn,
+            this.qty_delivered,
+            this.qty_billed,
+            this.qty_uom,
+            this.unit_price,
+            this.Supplier});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -190,158 +180,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             this.dgvRawMats.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvRawMats_RowPostPaint);
             // 
-            // NO
-            // 
-            this.NO.DataPropertyName = "NO";
-            this.NO.HeaderText = "NO";
-            this.NO.MinimumWidth = 12;
-            this.NO.Name = "NO";
-            this.NO.ReadOnly = true;
-            // 
-            // item_id
-            // 
-            this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.item_id.DataPropertyName = "item_id";
-            this.item_id.FillWeight = 40.60914F;
-            this.item_id.HeaderText = "Item ID";
-            this.item_id.MinimumWidth = 12;
-            this.item_id.Name = "item_id";
-            this.item_id.ReadOnly = true;
-            this.item_id.Visible = false;
-            this.item_id.Width = 12;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.HeaderText = "Item Code";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            // 
-            // Item_description
-            // 
-            this.Item_description.DataPropertyName = "Item_description";
-            this.Item_description.FillWeight = 99.49239F;
-            this.Item_description.HeaderText = "Item Description";
-            this.Item_description.MinimumWidth = 12;
-            this.Item_description.Name = "Item_description";
-            this.Item_description.ReadOnly = true;
-            // 
-            // primary_unit
-            // 
-            this.primary_unit.DataPropertyName = "primary_unit";
-            this.primary_unit.FillWeight = 99.49239F;
-            this.primary_unit.HeaderText = "Primary Unit";
-            this.primary_unit.MinimumWidth = 12;
-            this.primary_unit.Name = "primary_unit";
-            this.primary_unit.ReadOnly = true;
-            // 
-            // item_type
-            // 
-            this.item_type.DataPropertyName = "item_type";
-            this.item_type.HeaderText = "Item Type";
-            this.item_type.MinimumWidth = 12;
-            this.item_type.Name = "item_type";
-            this.item_type.ReadOnly = true;
-            // 
-            // item_class
-            // 
-            this.item_class.DataPropertyName = "item_class";
-            this.item_class.FillWeight = 99.49239F;
-            this.item_class.HeaderText = "Item Class";
-            this.item_class.MinimumWidth = 12;
-            this.item_class.Name = "item_class";
-            this.item_class.ReadOnly = true;
-            // 
-            // major_category
-            // 
-            this.major_category.DataPropertyName = "major_category";
-            this.major_category.FillWeight = 99.49239F;
-            this.major_category.HeaderText = "Major Category";
-            this.major_category.MinimumWidth = 12;
-            this.major_category.Name = "major_category";
-            this.major_category.ReadOnly = true;
-            // 
-            // sub_category
-            // 
-            this.sub_category.DataPropertyName = "sub_category";
-            this.sub_category.FillWeight = 99.49239F;
-            this.sub_category.HeaderText = "Sub Category";
-            this.sub_category.MinimumWidth = 12;
-            this.sub_category.Name = "sub_category";
-            this.sub_category.ReadOnly = true;
-            // 
-            // conversion
-            // 
-            this.conversion.DataPropertyName = "conversion";
-            this.conversion.FillWeight = 99.49239F;
-            this.conversion.HeaderText = "Conversion";
-            this.conversion.MinimumWidth = 12;
-            this.conversion.Name = "conversion";
-            this.conversion.ReadOnly = true;
-            // 
-            // drymaterialsBindingSource
-            // 
-            this.drymaterialsBindingSource.AllowNew = true;
-            this.drymaterialsBindingSource.DataMember = "Raw_Materials_Dry";
-            this.drymaterialsBindingSource.DataSource = this.ultraMaverickDBDataSet;
-            this.drymaterialsBindingSource.CurrentChanged += new System.EventHandler(this.drymaterialsBindingSource_CurrentChanged);
-            // 
-            // ultraMaverickDBDataSet
-            // 
-            this.ultraMaverickDBDataSet.DataSetName = "UltraMaverickDBDataSet";
-            this.ultraMaverickDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // matBtnBrowse
-            // 
-            this.matBtnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.matBtnBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnBrowse.Depth = 0;
-            this.matBtnBrowse.DrawShadows = true;
-            this.matBtnBrowse.HighEmphasis = true;
-            this.matBtnBrowse.Icon = null;
-            this.matBtnBrowse.Location = new System.Drawing.Point(2308, 53);
-            this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.matBtnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnBrowse.Name = "matBtnBrowse";
-            this.matBtnBrowse.Size = new System.Drawing.Size(80, 36);
-            this.matBtnBrowse.TabIndex = 1;
-            this.matBtnBrowse.Text = "BROWSE";
-            this.matBtnBrowse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnBrowse.UseAccentColor = false;
-            this.matBtnBrowse.UseVisualStyleBackColor = true;
-            this.matBtnBrowse.Click += new System.EventHandler(this.matBtnBrowse_Click);
-            // 
-            // txtFileName
-            // 
-            this.txtFileName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFileName.Depth = 0;
-            this.txtFileName.Enabled = false;
-            this.txtFileName.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtFileName.Hint = "File Name";
-            this.txtFileName.Location = new System.Drawing.Point(69, 68);
-            this.txtFileName.MaxLength = 50;
-            this.txtFileName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtFileName.Multiline = false;
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(990, 50);
-            this.txtFileName.TabIndex = 2;
-            this.txtFileName.Text = "";
-            // 
-            // cbosheet
-            // 
-            this.cbosheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbosheet.FormattingEnabled = true;
-            this.cbosheet.ItemHeight = 24;
-            this.cbosheet.Location = new System.Drawing.Point(1509, 92);
-            this.cbosheet.Name = "cbosheet";
-            this.cbosheet.PromptText = "Sheet";
-            this.cbosheet.Size = new System.Drawing.Size(575, 30);
-            this.cbosheet.TabIndex = 3;
-            this.cbosheet.UseSelectable = true;
-            this.cbosheet.SelectedIndexChanged += new System.EventHandler(this.cbosheet_SelectedIndexChanged);
-            this.cbosheet.SelectionChangeCommitted += new System.EventHandler(this.cbosheet_SelectionChangeCommitted);
-            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -356,13 +194,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard2.Controls.Add(this.cbosheet);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(58, 1162);
+            this.materialCard2.Location = new System.Drawing.Point(66, 1188);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard2.Size = new System.Drawing.Size(2664, 276);
-            this.materialCard2.TabIndex = 4;
+            this.materialCard2.TabIndex = 5;
             // 
             // label4
             // 
@@ -427,98 +265,202 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.matbtnUpload.Visible = false;
             this.matbtnUpload.Click += new System.EventHandler(this.matbtnUpload_Click);
             // 
-            // raw_Materials_DryTableAdapter
+            // txtFileName
             // 
-            this.raw_Materials_DryTableAdapter.ClearBeforeFill = true;
+            this.txtFileName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFileName.Depth = 0;
+            this.txtFileName.Enabled = false;
+            this.txtFileName.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtFileName.Hint = "File Name";
+            this.txtFileName.Location = new System.Drawing.Point(69, 68);
+            this.txtFileName.MaxLength = 50;
+            this.txtFileName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtFileName.Multiline = false;
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(990, 50);
+            this.txtFileName.TabIndex = 2;
+            this.txtFileName.Text = "";
+            this.txtFileName.TextChanged += new System.EventHandler(this.txtFileName_TextChanged);
             // 
-            // itemidDataGridViewTextBoxColumn
+            // matBtnBrowse
             // 
-            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn.HeaderText = "item_id";
-            this.itemidDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
-            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.matBtnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.matBtnBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnBrowse.Depth = 0;
+            this.matBtnBrowse.DrawShadows = true;
+            this.matBtnBrowse.HighEmphasis = true;
+            this.matBtnBrowse.Icon = null;
+            this.matBtnBrowse.Location = new System.Drawing.Point(2308, 53);
+            this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnBrowse.Name = "matBtnBrowse";
+            this.matBtnBrowse.Size = new System.Drawing.Size(80, 36);
+            this.matBtnBrowse.TabIndex = 1;
+            this.matBtnBrowse.Text = "BROWSE";
+            this.matBtnBrowse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnBrowse.UseAccentColor = false;
+            this.matBtnBrowse.UseVisualStyleBackColor = true;
+            this.matBtnBrowse.Click += new System.EventHandler(this.matBtnBrowse_Click);
             // 
-            // itemcodeDataGridViewTextBoxColumn
+            // cbosheet
             // 
-            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
-            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cbosheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbosheet.Enabled = false;
+            this.cbosheet.FormattingEnabled = true;
+            this.cbosheet.ItemHeight = 24;
+            this.cbosheet.Location = new System.Drawing.Point(1509, 92);
+            this.cbosheet.Name = "cbosheet";
+            this.cbosheet.PromptText = "Sheet";
+            this.cbosheet.Size = new System.Drawing.Size(575, 30);
+            this.cbosheet.TabIndex = 3;
+            this.cbosheet.UseSelectable = true;
+            this.cbosheet.SelectedIndexChanged += new System.EventHandler(this.cbosheet_SelectedIndexChanged);
+            this.cbosheet.SelectionChangeCommitted += new System.EventHandler(this.cbosheet_SelectionChangeCommitted);
             // 
-            // itemdescriptionDataGridViewTextBoxColumn
+            // drymaterialsBindingSource
             // 
-            this.itemdescriptionDataGridViewTextBoxColumn.DataPropertyName = "item_description";
-            this.itemdescriptionDataGridViewTextBoxColumn.HeaderText = "item_description";
-            this.itemdescriptionDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemdescriptionDataGridViewTextBoxColumn.Name = "itemdescriptionDataGridViewTextBoxColumn";
-            this.itemdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.drymaterialsBindingSource.AllowNew = true;
+            this.drymaterialsBindingSource.DataMember = "Project_Po_Summary";
+            this.drymaterialsBindingSource.DataSource = this.ultraMaverickDBDataSet;
             // 
-            // itemclassDataGridViewTextBoxColumn
+            // ultraMaverickDBDataSet
             // 
-            this.itemclassDataGridViewTextBoxColumn.DataPropertyName = "item_class";
-            this.itemclassDataGridViewTextBoxColumn.HeaderText = "item_class";
-            this.itemclassDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemclassDataGridViewTextBoxColumn.Name = "itemclassDataGridViewTextBoxColumn";
-            this.itemclassDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ultraMaverickDBDataSet.DataSetName = "UltraMaverickDBDataSet";
+            this.ultraMaverickDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // majorcategoryDataGridViewTextBoxColumn
+            // project_Po_SummaryTableAdapter
             // 
-            this.majorcategoryDataGridViewTextBoxColumn.DataPropertyName = "major_category";
-            this.majorcategoryDataGridViewTextBoxColumn.HeaderText = "major_category";
-            this.majorcategoryDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.majorcategoryDataGridViewTextBoxColumn.Name = "majorcategoryDataGridViewTextBoxColumn";
-            this.majorcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.project_Po_SummaryTableAdapter.ClearBeforeFill = true;
             // 
-            // subcategoryDataGridViewTextBoxColumn
+            // NO
             // 
-            this.subcategoryDataGridViewTextBoxColumn.DataPropertyName = "sub_category";
-            this.subcategoryDataGridViewTextBoxColumn.HeaderText = "sub_category";
-            this.subcategoryDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
-            this.subcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.NO.DataPropertyName = "NO";
+            this.NO.HeaderText = "NO";
+            this.NO.MinimumWidth = 12;
+            this.NO.Name = "NO";
+            this.NO.ReadOnly = true;
             // 
-            // primaryunitDataGridViewTextBoxColumn
+            // ProjectID
             // 
-            this.primaryunitDataGridViewTextBoxColumn.DataPropertyName = "primary_unit";
-            this.primaryunitDataGridViewTextBoxColumn.HeaderText = "primary_unit";
-            this.primaryunitDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.primaryunitDataGridViewTextBoxColumn.Name = "primaryunitDataGridViewTextBoxColumn";
-            this.primaryunitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ProjectID.DataPropertyName = "ProjectID";
+            this.ProjectID.HeaderText = "ProjectID";
+            this.ProjectID.MinimumWidth = 12;
+            this.ProjectID.Name = "ProjectID";
+            this.ProjectID.ReadOnly = true;
+            this.ProjectID.Visible = false;
             // 
-            // conversionDataGridViewTextBoxColumn
+            // po_number
             // 
-            this.conversionDataGridViewTextBoxColumn.DataPropertyName = "conversion";
-            this.conversionDataGridViewTextBoxColumn.HeaderText = "conversion";
-            this.conversionDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.conversionDataGridViewTextBoxColumn.Name = "conversionDataGridViewTextBoxColumn";
-            this.conversionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.po_number.DataPropertyName = "po_number";
+            this.po_number.HeaderText = "PO NUMBER";
+            this.po_number.MinimumWidth = 12;
+            this.po_number.Name = "po_number";
+            this.po_number.ReadOnly = true;
             // 
-            // itemtypeDataGridViewTextBoxColumn
+            // po_date
             // 
-            this.itemtypeDataGridViewTextBoxColumn.DataPropertyName = "item_type";
-            this.itemtypeDataGridViewTextBoxColumn.HeaderText = "item_type";
-            this.itemtypeDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemtypeDataGridViewTextBoxColumn.Name = "itemtypeDataGridViewTextBoxColumn";
-            this.itemtypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.po_date.DataPropertyName = "po_date";
+            this.po_date.HeaderText = "PO DATE";
+            this.po_date.MinimumWidth = 12;
+            this.po_date.Name = "po_date";
+            this.po_date.ReadOnly = true;
             // 
-            // frmImportRawMatsExcel
+            // pr_number
+            // 
+            this.pr_number.DataPropertyName = "pr_number";
+            this.pr_number.HeaderText = "PR NUMBER";
+            this.pr_number.MinimumWidth = 12;
+            this.pr_number.Name = "pr_number";
+            this.pr_number.ReadOnly = true;
+            // 
+            // pr_date
+            // 
+            this.pr_date.DataPropertyName = "pr_date";
+            this.pr_date.HeaderText = "PR DATE";
+            this.pr_date.MinimumWidth = 12;
+            this.pr_date.Name = "pr_date";
+            this.pr_date.ReadOnly = true;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.HeaderText = "ITEM DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            this.item_description.ReadOnly = true;
+            // 
+            // qtyorderDataGridViewTextBoxColumn
+            // 
+            this.qtyorderDataGridViewTextBoxColumn.DataPropertyName = "qty_order";
+            this.qtyorderDataGridViewTextBoxColumn.HeaderText = "QTY ORDERED";
+            this.qtyorderDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.qtyorderDataGridViewTextBoxColumn.Name = "qtyorderDataGridViewTextBoxColumn";
+            this.qtyorderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // qty_delivered
+            // 
+            this.qty_delivered.DataPropertyName = "qty_delivered";
+            this.qty_delivered.HeaderText = "QTY DELIVERED";
+            this.qty_delivered.MinimumWidth = 12;
+            this.qty_delivered.Name = "qty_delivered";
+            this.qty_delivered.ReadOnly = true;
+            // 
+            // qty_billed
+            // 
+            this.qty_billed.DataPropertyName = "qty_billed";
+            this.qty_billed.HeaderText = "QTY BILLED";
+            this.qty_billed.MinimumWidth = 12;
+            this.qty_billed.Name = "qty_billed";
+            this.qty_billed.ReadOnly = true;
+            // 
+            // qty_uom
+            // 
+            this.qty_uom.DataPropertyName = "qty_uom";
+            this.qty_uom.HeaderText = "UOM";
+            this.qty_uom.MinimumWidth = 12;
+            this.qty_uom.Name = "qty_uom";
+            this.qty_uom.ReadOnly = true;
+            // 
+            // unit_price
+            // 
+            this.unit_price.DataPropertyName = "unit_price";
+            this.unit_price.HeaderText = "UNIT PRICE";
+            this.unit_price.MinimumWidth = 12;
+            this.unit_price.Name = "unit_price";
+            this.unit_price.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.DataPropertyName = "Supplier";
+            this.Supplier.HeaderText = "VENDOR NAME";
+            this.Supplier.MinimumWidth = 12;
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
+            // frmImportPoSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2796, 1500);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
-            this.Name = "frmImportRawMatsExcel";
-            this.Text = "Import Raw Material";
-            this.Load += new System.EventHandler(this.frmImportRawMatsExcel_Load);
+            this.Name = "frmImportPoSummary";
+            this.Text = "PO Summary";
+            this.Load += new System.EventHandler(this.frmImportPoSummary_Load);
             this.materialCard1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSet)).EndInit();
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -527,35 +469,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvRawMats;
-        private MaterialSkin.Controls.MaterialButton matBtnBrowse;
-        private MaterialSkin.Controls.MaterialTextBox txtFileName;
-        private MetroFramework.Controls.MetroComboBox cbosheet;
         private MaterialSkin.Controls.MaterialCard materialCard2;
-        private System.Windows.Forms.BindingSource drymaterialsBindingSource;
-        private UltraMaverickDBDataSet ultraMaverickDBDataSet;
-        private UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter raw_Materials_DryTableAdapter;
-        private MaterialSkin.Controls.MaterialButton matbtnUpload;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
+        private MaterialSkin.Controls.MaterialButton matbtnUpload;
+        private MaterialSkin.Controls.MaterialTextBox txtFileName;
+        private MaterialSkin.Controls.MaterialButton matBtnBrowse;
+        private MetroFramework.Controls.MetroComboBox cbosheet;
+        private System.Windows.Forms.BindingSource drymaterialsBindingSource;
+        private UltraMaverickDBDataSet ultraMaverickDBDataSet;
+        private UltraMaverickDBDataSetTableAdapters.Project_Po_SummaryTableAdapter project_Po_SummaryTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn NO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn po_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn po_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pr_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pr_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn primary_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_class;
-        private System.Windows.Forms.DataGridViewTextBoxColumn major_category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemdescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemclassDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn majorcategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn primaryunitDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conversionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemtypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtyorderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_delivered;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_billed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_uom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
     }
 }
