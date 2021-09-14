@@ -39,14 +39,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_item_ide { get; set; }
         public string sp_item_primary_unit { get; set; }
         public string Unit_id { get; set; }
-
+        public string sp_user_id { get; set; }
+             
         public string sp_item_primary_id { get; set; }
 
         private void frmManageActivePrimaryUnit_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            lblUserID.Text = userinfo.user_id.ToString();
+            sp_user_id = userinfo.user_id.ToString();
             showRawMaterialsInDryWH();
             SearchMethodJarVarCallingSP();
             SearchMethodJarVarCallingSPUnits();

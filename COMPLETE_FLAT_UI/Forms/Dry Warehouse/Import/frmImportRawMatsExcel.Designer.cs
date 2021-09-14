@@ -30,10 +30,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
             this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +46,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.major_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemclassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.majorcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primaryunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conversionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
             this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
@@ -57,15 +66,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.label2 = new System.Windows.Forms.Label();
             this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
             this.raw_Materials_DryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
-            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemclassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.majorcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conversionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
@@ -94,22 +94,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.AllowUserToAddRows = false;
             this.dgvRawMats.AllowUserToDeleteRows = false;
             this.dgvRawMats.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRawMats.AutoGenerateColumns = false;
             this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvRawMats.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRawMats.ColumnHeadersHeight = 40;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -134,14 +134,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.itemtypeDataGridViewTextBoxColumn});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -150,14 +150,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 102;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
@@ -280,6 +280,78 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
             // 
+            // itemidDataGridViewTextBoxColumn
+            // 
+            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn.HeaderText = "item_id";
+            this.itemidDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemcodeDataGridViewTextBoxColumn
+            // 
+            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
+            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemdescriptionDataGridViewTextBoxColumn
+            // 
+            this.itemdescriptionDataGridViewTextBoxColumn.DataPropertyName = "item_description";
+            this.itemdescriptionDataGridViewTextBoxColumn.HeaderText = "item_description";
+            this.itemdescriptionDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.itemdescriptionDataGridViewTextBoxColumn.Name = "itemdescriptionDataGridViewTextBoxColumn";
+            this.itemdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemclassDataGridViewTextBoxColumn
+            // 
+            this.itemclassDataGridViewTextBoxColumn.DataPropertyName = "item_class";
+            this.itemclassDataGridViewTextBoxColumn.HeaderText = "item_class";
+            this.itemclassDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.itemclassDataGridViewTextBoxColumn.Name = "itemclassDataGridViewTextBoxColumn";
+            this.itemclassDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // majorcategoryDataGridViewTextBoxColumn
+            // 
+            this.majorcategoryDataGridViewTextBoxColumn.DataPropertyName = "major_category";
+            this.majorcategoryDataGridViewTextBoxColumn.HeaderText = "major_category";
+            this.majorcategoryDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.majorcategoryDataGridViewTextBoxColumn.Name = "majorcategoryDataGridViewTextBoxColumn";
+            this.majorcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subcategoryDataGridViewTextBoxColumn
+            // 
+            this.subcategoryDataGridViewTextBoxColumn.DataPropertyName = "sub_category";
+            this.subcategoryDataGridViewTextBoxColumn.HeaderText = "sub_category";
+            this.subcategoryDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
+            this.subcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // primaryunitDataGridViewTextBoxColumn
+            // 
+            this.primaryunitDataGridViewTextBoxColumn.DataPropertyName = "primary_unit";
+            this.primaryunitDataGridViewTextBoxColumn.HeaderText = "primary_unit";
+            this.primaryunitDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.primaryunitDataGridViewTextBoxColumn.Name = "primaryunitDataGridViewTextBoxColumn";
+            this.primaryunitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // conversionDataGridViewTextBoxColumn
+            // 
+            this.conversionDataGridViewTextBoxColumn.DataPropertyName = "conversion";
+            this.conversionDataGridViewTextBoxColumn.HeaderText = "conversion";
+            this.conversionDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.conversionDataGridViewTextBoxColumn.Name = "conversionDataGridViewTextBoxColumn";
+            this.conversionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemtypeDataGridViewTextBoxColumn
+            // 
+            this.itemtypeDataGridViewTextBoxColumn.DataPropertyName = "item_type";
+            this.itemtypeDataGridViewTextBoxColumn.HeaderText = "item_type";
+            this.itemtypeDataGridViewTextBoxColumn.MinimumWidth = 12;
+            this.itemtypeDataGridViewTextBoxColumn.Name = "itemtypeDataGridViewTextBoxColumn";
+            this.itemtypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // drymaterialsBindingSource
             // 
             this.drymaterialsBindingSource.AllowNew = true;
@@ -327,10 +399,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.txtFileName.Size = new System.Drawing.Size(990, 50);
             this.txtFileName.TabIndex = 2;
             this.txtFileName.Text = "";
+            this.txtFileName.TextChanged += new System.EventHandler(this.txtFileName_TextChanged);
             // 
             // cbosheet
             // 
             this.cbosheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbosheet.Enabled = false;
             this.cbosheet.FormattingEnabled = true;
             this.cbosheet.ItemHeight = 24;
             this.cbosheet.Location = new System.Drawing.Point(1509, 92);
@@ -430,78 +504,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // raw_Materials_DryTableAdapter
             // 
             this.raw_Materials_DryTableAdapter.ClearBeforeFill = true;
-            // 
-            // itemidDataGridViewTextBoxColumn
-            // 
-            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn.HeaderText = "item_id";
-            this.itemidDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
-            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemcodeDataGridViewTextBoxColumn
-            // 
-            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
-            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemdescriptionDataGridViewTextBoxColumn
-            // 
-            this.itemdescriptionDataGridViewTextBoxColumn.DataPropertyName = "item_description";
-            this.itemdescriptionDataGridViewTextBoxColumn.HeaderText = "item_description";
-            this.itemdescriptionDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemdescriptionDataGridViewTextBoxColumn.Name = "itemdescriptionDataGridViewTextBoxColumn";
-            this.itemdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemclassDataGridViewTextBoxColumn
-            // 
-            this.itemclassDataGridViewTextBoxColumn.DataPropertyName = "item_class";
-            this.itemclassDataGridViewTextBoxColumn.HeaderText = "item_class";
-            this.itemclassDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemclassDataGridViewTextBoxColumn.Name = "itemclassDataGridViewTextBoxColumn";
-            this.itemclassDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // majorcategoryDataGridViewTextBoxColumn
-            // 
-            this.majorcategoryDataGridViewTextBoxColumn.DataPropertyName = "major_category";
-            this.majorcategoryDataGridViewTextBoxColumn.HeaderText = "major_category";
-            this.majorcategoryDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.majorcategoryDataGridViewTextBoxColumn.Name = "majorcategoryDataGridViewTextBoxColumn";
-            this.majorcategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // subcategoryDataGridViewTextBoxColumn
-            // 
-            this.subcategoryDataGridViewTextBoxColumn.DataPropertyName = "sub_category";
-            this.subcategoryDataGridViewTextBoxColumn.HeaderText = "sub_category";
-            this.subcategoryDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
-            this.subcategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // primaryunitDataGridViewTextBoxColumn
-            // 
-            this.primaryunitDataGridViewTextBoxColumn.DataPropertyName = "primary_unit";
-            this.primaryunitDataGridViewTextBoxColumn.HeaderText = "primary_unit";
-            this.primaryunitDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.primaryunitDataGridViewTextBoxColumn.Name = "primaryunitDataGridViewTextBoxColumn";
-            this.primaryunitDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // conversionDataGridViewTextBoxColumn
-            // 
-            this.conversionDataGridViewTextBoxColumn.DataPropertyName = "conversion";
-            this.conversionDataGridViewTextBoxColumn.HeaderText = "conversion";
-            this.conversionDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.conversionDataGridViewTextBoxColumn.Name = "conversionDataGridViewTextBoxColumn";
-            this.conversionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemtypeDataGridViewTextBoxColumn
-            // 
-            this.itemtypeDataGridViewTextBoxColumn.DataPropertyName = "item_type";
-            this.itemtypeDataGridViewTextBoxColumn.HeaderText = "item_type";
-            this.itemtypeDataGridViewTextBoxColumn.MinimumWidth = 12;
-            this.itemtypeDataGridViewTextBoxColumn.Name = "itemtypeDataGridViewTextBoxColumn";
-            this.itemtypeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmImportRawMatsExcel
             // 

@@ -58,6 +58,45 @@ namespace ULTRAMAVERICK.Forms.Users
          
         }
 
+        public void doSearchOnMaterialTextBox()
+        {
+            //try
+            //{
+            //    if (dset_emp.Tables.Count > 0)
+            //    {
+            //        DataView dv = new DataView(dset_emp.Tables[0]);
+            //        if (myglobal.global_module == "EMPLOYEE")
+            //        {
+
+            //        }
+            //        else if (myglobal.global_module == "Active")
+            //        {
+
+            //            dv.RowFilter = "employee_name = '" + mattxtSearch.Text + "'";
+
+            //        }
+            //        else if (myglobal.global_module == "VISITORS")
+            //        {
+
+            //        }
+            //        dgvChildForms.DataSource = dv;
+            //        lblrecords.Text = dgv_table.RowCount.ToString();
+            //    }
+            //}
+            //catch (SyntaxErrorException)
+            //{
+            //    MessageBox.Show("Invalid character found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    txtuser.Focus();
+            //    return;
+            //}
+            //catch (EvaluateException)
+            //{
+            //    MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    txtuser.Focus();
+            //    return;
+            //}
+        }
+
         private void RefresherOnLoadingThePage()
         {
             lblgenderLabel.BackColor = Color.Transparent;
@@ -115,11 +154,7 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         public void loadPositionDropDown()
         {
-            // ready = false;
-            // myClass.fillComboBoxDepartment(cboPosition, "position_dropdown", dSet);
-            // ready = true;
 
-            //lblPositionId.Text = cboPosition.SelectedValue.ToString();
 
             ready = false;
             xClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, lblDepartmentID.Text, 0);

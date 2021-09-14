@@ -252,7 +252,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void listViewuser_rights_Click(object sender, EventArgs e)
         {
-            btnDeleteTool.Visible = true;
+            if(materialCard1.Visible ==true)
+            {
+                btnDeleteTool.Visible = false;
+            }
+            else
+            {
+                btnDeleteTool.Visible = true;
+            }
+        
             btnUpdateTheMenu.Visible = true;
             showvalue();
             loadMenu_byUsers();
@@ -598,6 +606,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.dataView.Columns["count"].Visible = false;
                 this.dataView.Columns["is_active"].Visible = false;
                 this.dataView.Columns["menu_id1"].Visible = false;
+                this.dataView.Columns["user_rights_id"].Visible = false;
                 this.dataView.Columns["menu_name"].HeaderText = "MENU";
 
             }
@@ -2090,7 +2099,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialBtnUpdateMenu_Click(object sender, EventArgs e)
         {
-
+            
             getAllTaggedParentMenu(); //Tagged Equal ==
 
             getAllParentMenu();
@@ -2131,6 +2140,8 @@ namespace ULTRAMAVERICK.Forms.Users
         private void materialButtonUpdateSubMenu_Click(object sender, EventArgs e)
         {
             showSubMenu();
+            listBoxParentTag.Enabled = false;
+            materialTxtModuelAvail.Enabled = false;
 
         }
 
@@ -2188,7 +2199,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
             materialBtnShowAvailSubMenu.Visible = false;
 
-
+            listBoxParentTag.Enabled = true;
+            materialTxtModuelAvail.Enabled = true;
             //true
             materialButtonUpdateSubMenu.Visible = true;
             materialBtnMenuAVlCancel.Visible = true;
@@ -2293,7 +2305,8 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             MenuActivate();
             matBtnMenu.Visible = false;
-
+            listBoxParentTag.Enabled = true;
+            materialTxtModuelAvail.Enabled = true;
             //Rights Hide
             materialBtnNew.Visible = false;
             btnEditTool.Visible = false;

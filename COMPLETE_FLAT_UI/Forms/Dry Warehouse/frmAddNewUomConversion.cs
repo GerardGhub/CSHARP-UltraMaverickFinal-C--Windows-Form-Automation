@@ -130,7 +130,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             dSet.Clear();
-            dSet = objStorProc.sp_PrimaryUnitManagement(0, txtMatConversion.Text, "", "", "", "", "","","","","","", "getbyname");
+            dSet = objStorProc.sp_PrimaryUnitManagement(0, txtMatConversion.Text, txtMatItemDesc.Text, "", "", "", "","","","","","", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {

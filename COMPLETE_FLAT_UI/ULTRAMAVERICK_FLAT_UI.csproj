@@ -301,11 +301,29 @@
     <Compile Include="Forms\Users\frmUserManagement.Designer.cs">
       <DependentUpon>frmUserManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\frmUserManagement2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmUserManagement2.Designer.cs">
+      <DependentUpon>frmUserManagement2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\frmUserRight.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Users\frmUserRight.Designer.cs">
       <DependentUpon>frmUserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Modal\frmAddnewUserModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Modal\frmAddnewUserModal.Designer.cs">
+      <DependentUpon>frmAddnewUserModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Modal\frmEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Modal\frmEditUser.Designer.cs">
+      <DependentUpon>frmEditUser.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoginForm.cs">
       <SubType>Form</SubType>
@@ -425,8 +443,17 @@
     <EmbeddedResource Include="Forms\Users\frmUserManagement.resx">
       <DependentUpon>frmUserManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmUserManagement2.resx">
+      <DependentUpon>frmUserManagement2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmUserRight.resx">
       <DependentUpon>frmUserRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Modal\frmAddnewUserModal.resx">
+      <DependentUpon>frmAddnewUserModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Modal\frmEditUser.resx">
+      <DependentUpon>frmEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoginForm.resx">
       <DependentUpon>frmLoginForm.cs</DependentUpon>

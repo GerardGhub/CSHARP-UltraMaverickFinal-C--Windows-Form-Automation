@@ -42,6 +42,15 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             this.Close();
         }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | 0x2000000;
+                return cp;
+            }
+        }
 
         private void frmChildAvailableForms_Load(object sender, EventArgs e)
         {
@@ -96,7 +105,7 @@ namespace ULTRAMAVERICK.Forms.Users
             txtfname.ReadOnly = val;
             txtmname.ReadOnly = val;
             txtcount.ReadOnly = val;
-
+            dgvChildForms.Enabled = true;
             if (val == false)
             {
                 if (mode == "add")
@@ -290,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void metroSave_Click(object sender, EventArgs e)
         {
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Child Form Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Sub Menu Form Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 if (cboParentMenu.Text.Trim() == string.Empty)
@@ -665,7 +674,7 @@ namespace ULTRAMAVERICK.Forms.Users
             if (dgvChildForms.Rows.Count > 0)
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to delete the ChildForm Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Sub Menu Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
@@ -710,6 +719,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dgvChildForms_CurrentCellChanged_1(object sender, EventArgs e)
         {
+            if (mode == "add")
+            {
+                dgvChildForms.Enabled = false;
+            }
+            else
+            {
+                dgvChildForms.Enabled = true;
+               
+            }
             showValue();
         }
 
@@ -750,7 +768,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
-                "s",
+                 Convert.ToInt32(p_id).ToString(),
                 Convert.ToInt32(p_id).ToString(), "addModuleRightsSubMenuPartial");
 
             if (dgvUserRights.Rows.Count >= 1)
@@ -808,6 +826,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             mode = "add";
+            dgvChildForms.Enabled = false;
             btn_visible(false);
             txt_read_only(false);
             txtmname.Enabled = true;

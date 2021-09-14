@@ -270,7 +270,7 @@ namespace COMPLETE_FLAT_UI
 
             //get_accessible_menu
 
-            //Start of Parent Menu
+            //Start of Major Menu
             dset_rights.Clear();
             dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
 
@@ -318,7 +318,7 @@ namespace COMPLETE_FLAT_UI
 
 
 
-            //Start of Child Menu
+            //Start of Sub Menu
             SubMenu();
 
             //END
@@ -431,7 +431,10 @@ namespace COMPLETE_FLAT_UI
                         toolStripRawMaterials.Visible = true;
                     }
 
-
+                    else if (form_name == "toolImportDry")
+                    {
+                        toolImportDry.Visible = true;
+                    }
 
 
 
@@ -835,9 +838,9 @@ namespace COMPLETE_FLAT_UI
 
         private void toolImportDry_Click(object sender, EventArgs e)
         {
-           frmImportRawMatsExcel fm = new frmImportRawMatsExcel();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
+           //frmImportRawMatsExcel fm = new frmImportRawMatsExcel();
+           // fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+           // AbrirFormEnPanel(fm);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -846,6 +849,20 @@ namespace COMPLETE_FLAT_UI
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+          frmUserManagement2 fm = new frmUserManagement2();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void dryRawMaterialsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImportRawMatsExcel fm = new frmImportRawMatsExcel();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void poSummaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmImportPoSummary fm = new frmImportPoSummary();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);

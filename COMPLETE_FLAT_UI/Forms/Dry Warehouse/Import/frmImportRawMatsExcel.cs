@@ -525,5 +525,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
+
+        private void txtFileName_TextChanged(object sender, EventArgs e)
+        {
+            cbosheet.Enabled = true;
+        }
     }
 }
