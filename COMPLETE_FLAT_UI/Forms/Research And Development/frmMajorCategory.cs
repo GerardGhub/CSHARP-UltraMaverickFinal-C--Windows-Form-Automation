@@ -46,6 +46,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             showMajorCategoryData();
             SearchMethodJarVarCallingSP();
         }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | 0x2000000;
+                return cp;
+            }
+        }
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {

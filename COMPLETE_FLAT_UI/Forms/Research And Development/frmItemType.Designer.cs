@@ -35,12 +35,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemType));
             this.dgvItemType = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.item_type_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_type_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.it_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.it_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.it_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.it_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.txtmatItemType = new MaterialSkin.Controls.MaterialTextBox();
             this.txtCreatedAt = new MaterialSkin.Controls.MaterialTextBox();
@@ -60,6 +54,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.item_type_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_type_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.it_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.it_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.it_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.it_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemType)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -126,7 +126,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvItemType.RowTemplate.DividerHeight = 5;
             this.dgvItemType.RowTemplate.Height = 40;
             this.dgvItemType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItemType.Size = new System.Drawing.Size(1741, 641);
+            this.dgvItemType.Size = new System.Drawing.Size(1741, 697);
             this.dgvItemType.TabIndex = 593;
             this.dgvItemType.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvItemType.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -151,61 +151,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvItemType.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvItemType.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvItemType.CurrentCellChanged += new System.EventHandler(this.dgvItemType_CurrentCellChanged);
-            // 
-            // item_type_id
-            // 
-            this.item_type_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.item_type_id.DataPropertyName = "item_type_id";
-            this.item_type_id.FillWeight = 40.60914F;
-            this.item_type_id.HeaderText = "ID";
-            this.item_type_id.MinimumWidth = 12;
-            this.item_type_id.Name = "item_type_id";
-            this.item_type_id.ReadOnly = true;
-            this.item_type_id.Width = 12;
-            // 
-            // item_type_desc
-            // 
-            this.item_type_desc.DataPropertyName = "item_type_desc";
-            this.item_type_desc.FillWeight = 99.49239F;
-            this.item_type_desc.HeaderText = "Item Class";
-            this.item_type_desc.MinimumWidth = 12;
-            this.item_type_desc.Name = "item_type_desc";
-            this.item_type_desc.ReadOnly = true;
-            // 
-            // it_added_at
-            // 
-            this.it_added_at.DataPropertyName = "it_added_at";
-            this.it_added_at.FillWeight = 99.49239F;
-            this.it_added_at.HeaderText = "Created Date";
-            this.it_added_at.MinimumWidth = 12;
-            this.it_added_at.Name = "it_added_at";
-            this.it_added_at.ReadOnly = true;
-            // 
-            // it_added_by
-            // 
-            this.it_added_by.DataPropertyName = "it_added_by";
-            this.it_added_by.FillWeight = 99.49239F;
-            this.it_added_by.HeaderText = "Created By";
-            this.it_added_by.MinimumWidth = 12;
-            this.it_added_by.Name = "it_added_by";
-            this.it_added_by.ReadOnly = true;
-            // 
-            // it_updated_at
-            // 
-            this.it_updated_at.DataPropertyName = "it_updated_at";
-            this.it_updated_at.FillWeight = 99.49239F;
-            this.it_updated_at.HeaderText = "Updated Date";
-            this.it_updated_at.MinimumWidth = 12;
-            this.it_updated_at.Name = "it_updated_at";
-            this.it_updated_at.ReadOnly = true;
-            // 
-            // it_updated_by
-            // 
-            this.it_updated_by.DataPropertyName = "it_updated_by";
-            this.it_updated_by.HeaderText = "Updated By";
-            this.it_updated_by.MinimumWidth = 12;
-            this.it_updated_by.Name = "it_updated_by";
-            this.it_updated_by.ReadOnly = true;
             // 
             // materialCard1
             // 
@@ -300,7 +245,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1769, 669);
+            this.materialCard2.Size = new System.Drawing.Size(1769, 725);
             this.materialCard2.TabIndex = 633;
             // 
             // metroFinalSaving
@@ -356,7 +301,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1684, 1221);
+            this.lbltotalrecords.Location = new System.Drawing.Point(1579, 1265);
             this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
@@ -370,7 +315,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1692, 1306);
+            this.label2.Location = new System.Drawing.Point(1691, 1301);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 39);
@@ -381,7 +326,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(36, 394);
+            this.panel1.Location = new System.Drawing.Point(36, 440);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(857, 85);
             this.panel1.TabIndex = 647;
@@ -468,6 +413,61 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
+            // item_type_id
+            // 
+            this.item_type_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.item_type_id.DataPropertyName = "item_type_id";
+            this.item_type_id.FillWeight = 40.60914F;
+            this.item_type_id.HeaderText = "ID";
+            this.item_type_id.MinimumWidth = 12;
+            this.item_type_id.Name = "item_type_id";
+            this.item_type_id.ReadOnly = true;
+            this.item_type_id.Width = 12;
+            // 
+            // item_type_desc
+            // 
+            this.item_type_desc.DataPropertyName = "item_type_desc";
+            this.item_type_desc.FillWeight = 99.49239F;
+            this.item_type_desc.HeaderText = "ITEM CLASS";
+            this.item_type_desc.MinimumWidth = 12;
+            this.item_type_desc.Name = "item_type_desc";
+            this.item_type_desc.ReadOnly = true;
+            // 
+            // it_added_at
+            // 
+            this.it_added_at.DataPropertyName = "it_added_at";
+            this.it_added_at.FillWeight = 99.49239F;
+            this.it_added_at.HeaderText = "CREATED DATE";
+            this.it_added_at.MinimumWidth = 12;
+            this.it_added_at.Name = "it_added_at";
+            this.it_added_at.ReadOnly = true;
+            // 
+            // it_added_by
+            // 
+            this.it_added_by.DataPropertyName = "it_added_by";
+            this.it_added_by.FillWeight = 99.49239F;
+            this.it_added_by.HeaderText = "CREATED BY";
+            this.it_added_by.MinimumWidth = 12;
+            this.it_added_by.Name = "it_added_by";
+            this.it_added_by.ReadOnly = true;
+            // 
+            // it_updated_at
+            // 
+            this.it_updated_at.DataPropertyName = "it_updated_at";
+            this.it_updated_at.FillWeight = 99.49239F;
+            this.it_updated_at.HeaderText = "UPDATED DATE";
+            this.it_updated_at.MinimumWidth = 12;
+            this.it_updated_at.Name = "it_updated_at";
+            this.it_updated_at.ReadOnly = true;
+            // 
+            // it_updated_by
+            // 
+            this.it_updated_by.DataPropertyName = "it_updated_by";
+            this.it_updated_by.HeaderText = "UPDATED BY";
+            this.it_updated_by.MinimumWidth = 12;
+            this.it_updated_by.Name = "it_updated_by";
+            this.it_updated_by.ReadOnly = true;
+            // 
             // frmItemType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -511,12 +511,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         private MaterialSkin.Controls.MaterialTextBox txtCreatedBy;
         private MaterialSkin.Controls.MaterialTextBox txtModifiedBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_type_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_type_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn it_added_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn it_added_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn it_updated_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn it_updated_by;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
@@ -527,5 +521,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private System.Windows.Forms.ToolStripButton matBtnSave;
         private System.Windows.Forms.ToolStripButton matBtnCancel;
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_type_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_type_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn it_added_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn it_added_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn it_updated_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn it_updated_by;
     }
 }

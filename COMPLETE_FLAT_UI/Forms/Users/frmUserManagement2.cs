@@ -44,12 +44,14 @@ namespace ULTRAMAVERICK.Forms.Users
         public string sp_unit { get; set; }
         public string sp_user_layout { get; set; }
         public string sp_requestor_type { get; set; }
+        public string sp_receiving_status { get; set; }
+        public string sp_gender { get; set; }
         private void frmUserManagement2_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-
+            textBox1.Text = String.Empty;
             displayUsers();
             hiDeDatagridColumn();
             load_search();
@@ -150,10 +152,10 @@ namespace ULTRAMAVERICK.Forms.Users
                        sp_position = dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
                         sp_user_layout = dgvUsers.CurrentRow.Cells["user_section"].Value.ToString();
                         sp_unit = dgvUsers.CurrentRow.Cells["Unit"].Value.ToString();
-                        cmbNotif.Text = dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();
+                        sp_receiving_status = dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();
                        sp_requestor_type = dgvUsers.CurrentRow.Cells["type_of_approver"].Value.ToString();
                        sp_department = dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
-                        lblGenderSelected.Text = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
+                        sp_gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
                         if (lblGenderSelected.Text == "Male")
                         {
                             matRadioMale.Checked = true;
@@ -293,7 +295,8 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             toolStrip2.Visible = false;
            frmEditUser addNew = new frmEditUser(this, sp_first_name , sp_last_name, sp_user_rights , sp_username
-               ,sp_password , sp_department, sp_position, sp_unit, sp_user_layout, sp_requestor_type);
+               ,sp_password , sp_department, sp_position, sp_unit, sp_user_layout, sp_requestor_type, sp_receiving_status,
+               sp_gender, temp_id);
             addNew.ShowDialog();
         }
     }

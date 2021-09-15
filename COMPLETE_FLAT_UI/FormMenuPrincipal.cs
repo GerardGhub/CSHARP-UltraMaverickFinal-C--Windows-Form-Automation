@@ -165,7 +165,10 @@ namespace COMPLETE_FLAT_UI
                 lblFirstName.Visible = false;
                 lblLastName.Visible = false;
                 lblPosition.Visible = false;
-       
+                PcUser.Visible = false;
+                ClearDashboardtext();
+
+
             }
             else if (panelMenu.Width == 55)
             {
@@ -173,7 +176,8 @@ namespace COMPLETE_FLAT_UI
                 lblFirstName.Visible = true;
                 lblLastName.Visible = true;
                 lblPosition.Visible = true;
-           
+                PcUser.Visible = true;
+                DashboardEpicComebackofText();
             }
 
             //-------SIN EFECTO 
@@ -187,6 +191,25 @@ namespace COMPLETE_FLAT_UI
          
         }
 
+    private void DashboardEpicComebackofText()
+        {
+            btnDashBoard.Text = "Dashboard";
+            btnUsers.Text = "Users";
+            btnPreparationDepartment.Text = "Preparation Dept";
+            btnDryWarehouse.Text = "Dry Warehouse";
+            btnResearchAndDevelopment.Text = "Research & Dev";
+            btnProductionPlanner.Text = "Planner";
+        }
+
+        private void ClearDashboardtext()
+        {
+            btnDashBoard.Text = String.Empty;
+            btnUsers.Text = String.Empty;
+            btnPreparationDepartment.Text = String.Empty;
+            btnDryWarehouse.Text = String.Empty;
+            btnResearchAndDevelopment.Text = String.Empty;
+            btnProductionPlanner.Text = String.Empty;
+        }
         private void tmExpandirMenu_Tick(object sender, EventArgs e)
         {
             if (panelMenu.Width >= 230)
@@ -242,10 +265,19 @@ namespace COMPLETE_FLAT_UI
             Adorner.AddBadgeTo(btnResearchAndDevelopment, "123");
         }
         public string user_section_controlBox { get; set; }
+
+        private void RoundPictureAss()
+        {
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, PcUser.Width - 3, PcUser.Height - 3);
+            Region rg = new Region(gp);
+            PcUser.Region = rg;
+        }
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1300, 700); //Size of Windows
+            //this.Size = new Size(1300, 700); //Size of Windows
             BadgeNotification();
+            RoundPictureAss();
             //btnUsers.Enabled = true;
             lblFirstName.Text = userinfo.emp_name.ToString() + userinfo.emp_lastname.ToString();// First Name Session
             //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
@@ -542,22 +574,8 @@ namespace COMPLETE_FLAT_UI
 
         private void btnCloseFinal_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Hi Are you sure that you want to logout?", "Alert to¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-
-
-                // Start 3 blocks of validate
-                frmLoginForm mainLogin = new frmLoginForm();
-                this.Hide();
-                mainLogin.Closed += (s, args) => this.Close();
-                mainLogin.StartPosition = FormStartPosition.CenterScreen;
-                mainLogin.ShowDialog();
-
-          
-                //end of form validation
-
-                //Application.Exit();
-            }
+            UpdateUserPasswordModal uptsetting = new UpdateUserPasswordModal();
+            uptsetting.ShowDialog();
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -583,7 +601,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnParentMenu_Click(object sender, EventArgs e)
         {
-            frmParentAvailableForms fm = new frmParentAvailableForms();
+            frmMajorAvailableForms fm = new frmMajorAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -640,7 +658,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolUserManagement_Click(object sender, EventArgs e)
         {
-            frmUserManagement fm = new frmUserManagement();
+            frmUserManagement2 fm = new frmUserManagement2();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -682,7 +700,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolParentMenu_Click(object sender, EventArgs e)
         {
-            frmParentAvailableForms fm = new frmParentAvailableForms();
+            frmMajorAvailableForms fm = new frmMajorAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -867,6 +885,17 @@ namespace COMPLETE_FLAT_UI
             frmImportPoSummary fm = new frmImportPoSummary();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox10_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
 
         private void button5_Click(object sender, EventArgs e)

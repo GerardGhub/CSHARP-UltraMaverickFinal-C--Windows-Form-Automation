@@ -271,11 +271,11 @@
     <Compile Include="Forms\Users\frmLocation.Designer.cs">
       <DependentUpon>frmLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmParentAvailableForms.cs">
+    <Compile Include="Forms\Users\frmMajorAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmParentAvailableForms.Designer.cs">
-      <DependentUpon>frmParentAvailableForms.cs</DependentUpon>
+    <Compile Include="Forms\Users\frmMajorAvailableForms.Designer.cs">
+      <DependentUpon>frmMajorAvailableForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmPosition.cs">
       <SubType>Form</SubType>
@@ -324,6 +324,12 @@
     </Compile>
     <Compile Include="Forms\Users\Modal\frmEditUser.Designer.cs">
       <DependentUpon>frmEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\UpdateUserPasswordModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\UpdateUserPasswordModal.Designer.cs">
+      <DependentUpon>UpdateUserPasswordModal.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoginForm.cs">
       <SubType>Form</SubType>
@@ -428,8 +434,8 @@
     <EmbeddedResource Include="Forms\Users\frmLocation.resx">
       <DependentUpon>frmLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmParentAvailableForms.resx">
-      <DependentUpon>frmParentAvailableForms.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\frmMajorAvailableForms.resx">
+      <DependentUpon>frmMajorAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmPosition.resx">
       <DependentUpon>frmPosition.cs</DependentUpon>
@@ -454,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Modal\frmEditUser.resx">
       <DependentUpon>frmEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\UpdateUserPasswordModal.resx">
+      <DependentUpon>UpdateUserPasswordModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoginForm.resx">
       <DependentUpon>frmLoginForm.cs</DependentUpon>

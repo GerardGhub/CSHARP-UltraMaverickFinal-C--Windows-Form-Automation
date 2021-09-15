@@ -54,33 +54,29 @@ namespace ULTRAMAVERICK.Forms.Users
             txtMaterialMenuName.Visible = false;
             materialCard2.Visible = false;
             materialButtonUpdateSubMenu.Visible = false;
-            materialBtnMenuAVlCancel.Visible = false;
+
             //3rd Material Card
-            txtMaterialChildName.Visible = false;
-            materialCard4SubMenu.Visible = false;
+           
             materialBtnShowAvailSubMenu.Visible = false;
-            materialSubMenuCancel.Visible = false;
+
             //4th  Material Card
-            materialTextBoxSubMenuAvail.Visible = false;
-            materialCard5SubMenuAvailable.Visible = false;
-            materialBtnShowModule.Visible = false;
-            materialBtnShowModuleCancel.Visible = false;
+  
+  
+     
+  
             //5th Material Card
             txtGChildName.Visible = false;
-            materialCard6Module.Visible = false;
-            materialBtnShowModuleAvail.Visible = false;
-            matCancelmaterialBtnShowModuleAvail.Visible = false;
+            
+
             //6th Material Card
 
-            materialTextBoxModuleAvail.Visible = false;
-            materialCard7ModuleAvail.Visible = false;
-            materialBtnReset.Visible = false;
-            materialBtnCancelModule.Visible = false;
+         
+  
 
             //
             materialBtnNew.Visible = true;
             //MatMenu
-            matBtnMenu.Visible = true;
+       
 
         }
         private void frmUserRight_Load(object sender, EventArgs e)
@@ -2118,7 +2114,7 @@ namespace ULTRAMAVERICK.Forms.Users
             materialBtnUpdateMenu.Visible = false;
             txtMaterialMenuName.Visible = true;
 
-            materialBtnMenuAVlCancel.Visible = true;
+
             materialButtonUpdateSubMenu.Visible = true;
         }
 
@@ -2126,7 +2122,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             MenuDeActivate();
             materialButtonCancel.Visible = false;
-            matBtnMenu.Visible = true;
+        
 
 
             //Rights Button
@@ -2147,18 +2143,18 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void showSubMenu()
         {
-            txtMaterialChildName.Visible = false;
-            materialCard4SubMenu.Visible = false;
+            
+        
             materialButtonUpdateSubMenu.Visible = false;
-            materialBtnMenuAVlCancel.Visible = false;
+          
 
 
             materialBtnShowAvailSubMenu.Visible = true;
-            materialSubMenuCancel.Visible = true;
+  
 
             ListViewmenu_Click_1(new object(), new System.EventArgs());
-            materialCard4SubMenu.Visible = true;
-            txtMaterialChildName.Visible = true;
+   
+      
         }
 
         private void materialBtnMenuAVlCancel_Click(object sender, EventArgs e)
@@ -2173,29 +2169,26 @@ namespace ULTRAMAVERICK.Forms.Users
             materialBtnUpdateMenu.Visible = true;
             txtMaterialMenuName.Visible = false;
 
-            materialBtnMenuAVlCancel.Visible = false;
+
             materialButtonUpdateSubMenu.Visible = false;
         }
 
         private void materialBtnShowAvailSubMenu_Click(object sender, EventArgs e)
         {
             materialBtnShowAvailSubMenu.Visible = false;
-            materialSubMenuCancel.Visible = false;
-            //
-            materialCard5SubMenuAvailable.Visible = true;
+      
+         
             materialTextBoxSubMenuAvail.Visible = true;
             //
-            materialBtnShowModule.Visible = true;
-            materialBtnShowModuleCancel.Visible = true;
+  
             //dataView
             dataView.Enabled = true;
         }
 
         private void materialSubMenuCancel_Click(object sender, EventArgs e)
         {
-            materialCard4SubMenu.Visible = false;
+   
 
-            materialSubMenuCancel.Visible = false;
 
             materialBtnShowAvailSubMenu.Visible = false;
 
@@ -2203,89 +2196,69 @@ namespace ULTRAMAVERICK.Forms.Users
             materialTxtModuelAvail.Enabled = true;
             //true
             materialButtonUpdateSubMenu.Visible = true;
-            materialBtnMenuAVlCancel.Visible = true;
+        
         }
 
         private void materialBtnShowModuleCancel_Click(object sender, EventArgs e)
         {
-            CancelSubMenuAvailableHide();
+    
             showSubMenuTagged();
             ListViewmenu.Enabled = true;
         }
 
         private void showSubMenuTagged()
         {
-            materialCard4SubMenu.Visible = true;
-            txtMaterialChildName.Visible = true;
+      
+           
             materialBtnShowAvailSubMenu.Visible = true;
-            materialSubMenuCancel.Visible = true;
+  
         }
-        private void CancelSubMenuAvailableHide()
-        {
-            materialBtnShowModuleCancel.Visible = false;
-            materialBtnShowModule.Visible = false;
-            materialCard5SubMenuAvailable.Visible = false;
-            materialTextBoxSubMenuAvail.Visible = false;
-        }
+
 
         private void materialBtnShowModule_Click(object sender, EventArgs e)
         {
             ShowModule();
-            materialBtnShowModule.Visible = false;
-            materialBtnShowModuleCancel.Visible = false;
+
         }
         private void ShowModule()
         {
-            materialCard6Module.Visible = true;
+      
             txtGChildName.Visible = true;
-            materialBtnShowModuleAvail.Visible = true;
-            matCancelmaterialBtnShowModuleAvail.Visible = true;
+
         }
 
         private void matCancelmaterialBtnShowModuleAvail_Click(object sender, EventArgs e)
         {
-                materialBtnShowModuleCancel.Visible = true;
-                materialBtnShowModule.Visible = true;
+     
             CancelModuleSelection();
         }
 
         private void CancelModuleSelection()
         {
-            materialCard6Module.Visible = false;
+          
             txtGChildName.Visible = false;
-            materialBtnShowModuleAvail.Visible = false;
-            matCancelmaterialBtnShowModuleAvail.Visible = false;
+       
         }
 
         private void materialBtnShowModuleAvail_Click(object sender, EventArgs e)
         {
-            materialCard7ModuleAvail.Visible = true;
-            materialTextBoxModuleAvail.Visible = true;
+         
+      
             //Buttons
-            materialBtnReset.Visible = true;
-            materialBtnCancelModule.Visible = true;
+       
 
-            //Exisiting Buttons
-            materialBtnShowModuleAvail.Visible = false;
-            matCancelmaterialBtnShowModuleAvail.Visible = false;
+  
         }
 
         private void materialBtnCancelModule_Click(object sender, EventArgs e)
         {
-            HideModuleAvailable();
+            
 
-            matCancelmaterialBtnShowModuleAvail.Visible = true;
-            materialBtnShowModuleAvail.Visible = true;
+
 
         }
 
-        private void HideModuleAvailable()
-        {
-            materialBtnCancelModule.Visible = false;
-            materialBtnReset.Visible = false;
-            materialCard7ModuleAvail.Visible = false;
-            materialTextBoxModuleAvail.Visible = false;
-        }
+ 
 
         private void materialBtnReset_Click(object sender, EventArgs e)
         {
@@ -2304,7 +2277,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void matBtnMenu_Click(object sender, EventArgs e)
         {
             MenuActivate();
-            matBtnMenu.Visible = false;
+        
             listBoxParentTag.Enabled = true;
             materialTxtModuelAvail.Enabled = true;
             //Rights Hide
@@ -2355,6 +2328,34 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s", "addModuleRights");
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage1"])//your specific tabname
+            {
+                // your stuff
+                materialButtonCancel_Click(sender, e);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
+            {
+                matBtnMenu_Click(sender, e);
+                materialBtnMenuAVlCancel_Click(sender, e);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])//your specific tabname
+            {
+                materialBtnUpdateMenu_Click(sender, e);
+                materialSubMenuCancel_Click(sender, e);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage4"])//your specific tabname
+            {
+                materialBtnShowModule_Click(sender, e);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage5"])//your specific tabname
+            {
+                materialButtonUpdateSubMenu_Click(sender, e);
+            }
+
         }
     }
 }

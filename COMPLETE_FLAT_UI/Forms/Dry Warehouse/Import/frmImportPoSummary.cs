@@ -44,6 +44,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public string mat_row_number { get; set; }
         public int user_id { get; set; }
         public string sp_po_number { get; set; }
+        public string sp_qty_order { get; set; }
+        public string sp_unit_price { get; set; }
 
         private void frmImportPoSummary_Load(object sender, EventArgs e)
         {
@@ -107,9 +109,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 {
                     item_id_main = dgvRawMats.CurrentRow.Cells["ProjectID"].Value.ToString();
                     item_code_main = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
-               
+                   sp_qty_order = dgvRawMats.CurrentRow.Cells["qty_order"].Value.ToString();
                     primary_unit_main = dgvRawMats.CurrentRow.Cells["qty_uom"].Value.ToString();
                    sp_po_number = dgvRawMats.CurrentRow.Cells["po_number"].Value.ToString();
+                    sp_unit_price = dgvRawMats.CurrentRow.Cells["unit_price"].Value.ToString();
                     if (lbltotalrecords.Text == "0")
                     {
 
@@ -233,7 +236,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             }
 
+            //Validate Qty Order if String or Not "[^0-9]"))]
+            decimal d;
+            if (decimal.TryParse(sp_qty_order, out d))
+            {
+      
+               
+            }
+            else
+            {
+             
+                mode = "error";
 
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+
+            //Validate Unit Price if Number Gago!
+            decimal d2;
+            if (decimal.TryParse(sp_unit_price, out d2))
+            {
+
+
+            }
+            else
+            {
+
+                mode = "error";
+
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
 
 
             //Primary Unit
@@ -418,9 +449,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
                 matbtnUpload.Visible = false;
+                this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to import a new  raw materials ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to import a new approved po summary ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     SaveMethod1();
                 }

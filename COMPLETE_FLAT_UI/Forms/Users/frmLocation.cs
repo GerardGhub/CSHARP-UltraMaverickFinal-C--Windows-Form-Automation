@@ -36,7 +36,8 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             InitializeComponent();
         }
-
+      public string sp_created_at { get; set; }
+        public string sp_modified_at { get; set; }
         private void frmLocation_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -138,10 +139,10 @@ namespace ULTRAMAVERICK.Forms.Users
             txtmatLocation.Enabled = true;
             matBtnNew.Visible = false;
             txtmatLocation.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
+            sp_modified_at = String.Empty;
             txtModifiedBy.Text = String.Empty;
 
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
@@ -153,7 +154,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             matBtnCancel.Visible = false;
             mode = "";
-            txtCreatedAt.Text = String.Empty;
+            sp_created_at = String.Empty;
             txtCreatedBy.Text = String.Empty;
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
@@ -266,9 +267,9 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet = objStorProc.sp_Location(0,
                         txtmatLocation.Text.Trim(),
 
-                        txtCreatedAt.Text.Trim(),
+                        sp_created_at,
                         txtCreatedBy.Text.Trim(),
-                        txtModifiedAt.Text.Trim(),
+                        sp_modified_at,
                         txtModifiedBy.Text.Trim(), "add");
 
                     showLocationData();
@@ -297,9 +298,9 @@ namespace ULTRAMAVERICK.Forms.Users
                         dSet = objStorProc.sp_Location(p_id,
                             txtmatLocation.Text.Trim(),
 
-                            txtCreatedAt.Text.Trim(),
+                            sp_created_at,
                             txtCreatedBy.Text.Trim(),
-                            txtModifiedAt.Text.Trim(),
+                          sp_modified_at,
                             txtModifiedBy.Text.Trim(), "edit");
                         UpdateNotifications();
                         showLocationData();
@@ -321,9 +322,9 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet = objStorProc.sp_Location(p_id,
                         txtmatLocation.Text.Trim(),
 
-                          txtCreatedAt.Text.Trim(),
+                          sp_created_at,
                           txtCreatedBy.Text.Trim(),
-                          txtModifiedAt.Text.Trim(),
+                        sp_modified_at,
                           txtModifiedBy.Text.Trim(), "edit");
                     UpdateNotifications();
                     showLocationData();
@@ -380,7 +381,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+           sp_modified_at = (dNow.ToString("M/d/yyyy"));
             txtModifiedBy.Text = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
@@ -533,8 +534,8 @@ namespace ULTRAMAVERICK.Forms.Users
                         p_id = Convert.ToInt32(dgvLocation.CurrentRow.Cells["location_id"].Value);
                         txtmatLocation.Text = dgvLocation.CurrentRow.Cells["location_name"].Value.ToString();
                         txtCreatedBy.Text = dgvLocation.CurrentRow.Cells["created_by"].Value.ToString();
-                        txtCreatedAt.Text = dgvLocation.CurrentRow.Cells["created_at"].Value.ToString();
-                        txtModifiedAt.Text = dgvLocation.CurrentRow.Cells["updated_at"].Value.ToString();
+                        sp_created_at = dgvLocation.CurrentRow.Cells["created_at"].Value.ToString();
+                        sp_modified_at = dgvLocation.CurrentRow.Cells["updated_at"].Value.ToString();
                         txtModifiedBy.Text = dgvLocation.CurrentRow.Cells["updated_by"].Value.ToString();
                     }
                 }
@@ -549,10 +550,10 @@ namespace ULTRAMAVERICK.Forms.Users
             txtmatLocation.Enabled = true;
             matBtnNew.Visible = false;
             txtmatLocation.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
+            sp_modified_at = String.Empty;
             txtModifiedBy.Text = String.Empty;
 
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
@@ -563,7 +564,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void editt_Click(object sender, EventArgs e)
         {
             mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            sp_modified_at = (dNow.ToString("M/d/yyyy"));
             txtModifiedBy.Text = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
@@ -611,7 +612,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             matBtnCancel.Visible = false;
             mode = "";
-            txtCreatedAt.Text = String.Empty;
+            sp_created_at = String.Empty;
             txtCreatedBy.Text = String.Empty;
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;

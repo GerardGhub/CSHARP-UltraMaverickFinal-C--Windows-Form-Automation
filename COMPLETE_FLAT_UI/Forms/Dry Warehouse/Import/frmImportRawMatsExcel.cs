@@ -307,9 +307,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
             }
 
+            //Validate Unit Price if Number Gago!
+            decimal d2;
+            if (decimal.TryParse(conversion_main, out d2))
+            {
+
+
+            }
+            else
+            {
+
+                mode = "error";
+
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+
+
+
             //KG COMPARISON BUGOK KA
 
-            if(primary_unit_main =="KILOGRAM")
+            if (primary_unit_main =="KILOGRAM")
             {
                 if(conversion_main =="1")
                 {
@@ -425,7 +442,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
                 matbtnUpload.Visible = false;
-
+                this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to import a new  raw materials ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {

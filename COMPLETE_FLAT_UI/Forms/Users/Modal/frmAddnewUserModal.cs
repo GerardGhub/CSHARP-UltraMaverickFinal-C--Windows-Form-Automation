@@ -633,5 +633,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 lblGenderSelected.Text = String.Empty;
             }
         }
+
+        private void materialCard1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

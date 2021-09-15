@@ -36,7 +36,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             InitializeComponent();
         }
-
+        public string sp_created_at { get; set; }
+        public string sp_created_by { get; set; }
         private void frmSubCategory_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -73,8 +74,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
 
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+           sp_created_at = (dNow.ToString("M/d/yyyy"));
+           sp_created_by = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
             txtSubCategory.Select();
@@ -85,8 +86,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             matBtnCancel.Visible = false;
             mode = "";
-            txtCreatedAt.Text = String.Empty;
-            txtCreatedBy.Text = String.Empty;
+            sp_created_by = String.Empty;
+           sp_created_at = String.Empty;
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
             matBtnNew.Visible = true;
@@ -338,8 +339,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     dSet = objStorProc.sp_Sub_Category(0, 
                         txtSubCategory.Text.Trim(),
 
-                        txtCreatedBy.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
+                        sp_created_at,
+                        sp_created_by,
                         txtModifiedAt.Text.Trim(),
                         txtModifiedBy.Text.Trim(), "add");
 
@@ -369,8 +370,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         dSet = objStorProc.sp_Sub_Category(p_id,
                             txtSubCategory.Text.Trim(),
 
-                            txtCreatedBy.Text.Trim(),
-                            txtCreatedAt.Text.Trim(),
+                            sp_created_by,
+                            sp_created_at,
                             txtModifiedAt.Text.Trim(),
                             txtModifiedBy.Text.Trim(), "edit");
                         UpdateNotifications();
@@ -393,8 +394,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     dSet = objStorProc.sp_Sub_Category(p_id,
                         txtSubCategory.Text.Trim(),
 
-                          txtCreatedBy.Text.Trim(),
-                          txtCreatedAt.Text.Trim(),
+                          sp_created_by,
+                         sp_created_at,
                           txtModifiedAt.Text.Trim(),
                           txtModifiedBy.Text.Trim(), "edit");
                     UpdateNotifications();
@@ -462,8 +463,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     {
                         p_id = Convert.ToInt32(dgvSubCategory.CurrentRow.Cells["sub_category_id"].Value);
                         txtSubCategory.Text = dgvSubCategory.CurrentRow.Cells["sub_category_desc"].Value.ToString();
-                        txtCreatedBy.Text = dgvSubCategory.CurrentRow.Cells["sc_added_by"].Value.ToString();
-                        txtCreatedAt.Text = dgvSubCategory.CurrentRow.Cells["sc_added_at"].Value.ToString();
+                       sp_created_by = dgvSubCategory.CurrentRow.Cells["sc_added_by"].Value.ToString();
+                        sp_created_at = dgvSubCategory.CurrentRow.Cells["sc_added_at"].Value.ToString();
                         txtModifiedAt.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_at"].Value.ToString();
                         txtModifiedBy.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_by"].Value.ToString();
                     }
@@ -482,8 +483,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
             matBtnDelete.Visible = false;
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+           sp_created_at = (dNow.ToString("M/d/yyyy"));
+            sp_created_by = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
             txtSubCategory.Select();
@@ -494,8 +495,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             matBtnCancel.Visible = false;
             mode = "";
-            txtCreatedAt.Text = String.Empty;
-            txtCreatedBy.Text = String.Empty;
+            sp_created_at = String.Empty;
+            sp_created_by = String.Empty;
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
             matBtnNew.Visible = true;

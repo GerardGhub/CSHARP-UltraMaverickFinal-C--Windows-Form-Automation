@@ -44,11 +44,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string items_type { get; set; }
         public string is_active { get; set; }
         public string primarys_key { get; set; }
+        public string sp_user_id { get; set; }
         private void frmDryRawMaterials_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            lblUserID.Text = userinfo.user_id.ToString();
+            sp_user_id = userinfo.user_id.ToString();
             showRawMaterialsInDryWH();
             LoadRecords();
             LoadingrefresherOrb();
@@ -188,7 +189,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
-            frmAddNewItemModal addNew = new frmAddNewItemModal(this, lblUserID.Text);
+            frmAddNewItemModal addNew = new frmAddNewItemModal(this, sp_user_id);
             addNew.ShowDialog();
         }
 
@@ -201,7 +202,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             matBtnEdit.Visible = false;
             matBtnNew.Visible = false;
-            frmEditItemModal mywipwh = new frmEditItemModal(this, lblUserID.Text,items_code, 
+            frmEditItemModal mywipwh = new frmEditItemModal(this, sp_user_id,items_code, 
                 items_description,
                 items_class,
                 majors_category,

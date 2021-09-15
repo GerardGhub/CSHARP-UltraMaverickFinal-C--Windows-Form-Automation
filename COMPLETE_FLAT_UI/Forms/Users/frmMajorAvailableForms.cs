@@ -16,7 +16,7 @@ using MaterialSkin.Controls;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmParentAvailableForms : MaterialForm
+    public partial class frmMajorAvailableForms : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -32,12 +32,16 @@ namespace ULTRAMAVERICK.Forms.Users
         DataSet dSet_temp = new DataSet();
 
 
-        public frmParentAvailableForms()
+        public frmMajorAvailableForms()
         {
             InitializeComponent();
         }
         MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
 
+        public string sp_department_id { get; set; }
+
+        public string sp_user_rights_id { get; set; }
+        public string sp_created_at { get; set; }
         private void frmParentAvailableForms_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -68,7 +72,7 @@ namespace ULTRAMAVERICK.Forms.Users
             myClass.fillComboBoxDepartment(cboDepartmentMaterial, "department_dropdown", dSet);
             ready = true;
 
-            lblDepartmentID.Text = cboDepartmentMaterial.SelectedValue.ToString();
+            sp_department_id = cboDepartmentMaterial.SelectedValue.ToString();
         }
 
         private void  getAllParentMenu()
@@ -94,7 +98,7 @@ namespace ULTRAMAVERICK.Forms.Users
            matBtnCancel.Visible = true;
 
 
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+           sp_created_at = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
@@ -274,13 +278,13 @@ namespace ULTRAMAVERICK.Forms.Users
                 //{
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_ParentForms(0,
-                    txtMaterialMenu.Text.Trim(),                
-                    txtCreatedAt.Text.Trim(),
+                    txtMaterialMenu.Text.Trim(),
+                        sp_created_at,
                     txtCreatedBy.Text.Trim(),
                     txtModifiedAt.Text.Trim(),
                     txtModifiedBy.Text.Trim(),
                     txtCreatedByAndUserID.Text.Trim(),
-                    lblDepartmentID.Text.Trim(),
+                    sp_department_id,
                     "add");
 
                     getAllParentMenu();
@@ -308,12 +312,12 @@ namespace ULTRAMAVERICK.Forms.Users
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_ParentForms(temp_id,
                             txtMaterialMenu.Text.Trim(),
-                            txtCreatedAt.Text.Trim(),
+                                 sp_created_at,
                             txtCreatedBy.Text.Trim(),                      
                             txtModifiedAt.Text.Trim(),
                             txtModifiedBy.Text.Trim(),
                             txtCreatedByAndUserID.Text.Trim(),
-                            lblDepartmentID.Text.Trim(),
+                            sp_department_id,
                             "edit");
 
                         return true;
@@ -330,12 +334,12 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_ParentForms(temp_id,
                         txtMaterialMenu.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
+                            sp_created_at,
                         txtCreatedBy.Text.Trim(),
                         txtModifiedAt.Text.Trim(),
                         txtModifiedBy.Text.Trim(),
                         txtCreatedByAndUserID.Text.Trim(),
-                        lblDepartmentID.Text.Trim(),
+                       sp_department_id,
                         "edit");
 
                     return true;
@@ -568,7 +572,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtMaterialMenu.Text = dgv_table.CurrentRow.Cells["parent_form_name"].Value.ToString();
                 
                         txtCreatedBy.Text = dgv_table.CurrentRow.Cells["created_by"].Value.ToString();
-                        txtCreatedAt.Text = dgv_table.CurrentRow.Cells["created_at"].Value.ToString();
+                        sp_created_at = dgv_table.CurrentRow.Cells["created_at"].Value.ToString();
 
 
                         txtMaterialDepartment.Text = dgv_table.CurrentRow.Cells["department"].Value.ToString();
@@ -625,7 +629,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboDepartmentMaterial_SelectedValueChanged(object sender, EventArgs e)
         {
-           lblDepartmentID.Text = cboDepartmentMaterial.SelectedValue.ToString();
+          sp_department_id = cboDepartmentMaterial.SelectedValue.ToString();
         }
 
         private void BtnModuleClose_Click(object sender, EventArgs e)
@@ -635,7 +639,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboDepartmentMaterial_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lblDepartmentID.Text = cboDepartmentMaterial.SelectedValue.ToString();
+           sp_department_id = cboDepartmentMaterial.SelectedValue.ToString();
         }
 
         private void txtMaterialMenu_TextChanged(object sender, EventArgs e)
@@ -666,9 +670,9 @@ namespace ULTRAMAVERICK.Forms.Users
             txtMaterialMenu.Enabled = true;
             txtMaterialMenu.Text = string.Empty;
             matBtnCancel.Visible = true;
-     
 
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
@@ -686,7 +690,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboDepartmentMaterial_SelectionChangeCommitted_1(object sender, EventArgs e)
         {
-            lblDepartmentID.Text = cboDepartmentMaterial.SelectedValue.ToString();
+           sp_department_id = cboDepartmentMaterial.SelectedValue.ToString();
         }
 
         private void matBtnDelete_Click(object sender, EventArgs e)
@@ -749,7 +753,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_userfile(0,
-                Convert.ToInt32(txtRightsID.Text),
+                Convert.ToInt32(sp_user_rights_id),
                 "s",
                 "s",
                "s",
@@ -769,7 +773,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_userfile(0,
-                Convert.ToInt32(txtRightsID.Text),
+                Convert.ToInt32(sp_user_rights_id),
                 "s10",
                 "s9",
                "s8",
@@ -811,7 +815,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (dgvUserRights.CurrentRow.Cells["user_rights_name"].Value != null)
                     {
                         //p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
-                        txtRightsID.Text = dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
+                        sp_user_rights_id = dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
   
                     }
                 }
@@ -833,7 +837,7 @@ namespace ULTRAMAVERICK.Forms.Users
             matBtnCancel.Visible = true;
 
 
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;

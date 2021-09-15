@@ -57,9 +57,18 @@ namespace ULTRAMAVERICK.Forms.Users
           
         }
 
-   
+    
+    protected override CreateParams CreateParams
+    {
+        get
+        {
+            CreateParams cp = base.CreateParams;
+            cp.ExStyle = cp.ExStyle | 0x2000000;
+            return cp;
+        }
+    }
 
-        private void displayUserRightsData()      //method for loading available_menus
+    private void displayUserRightsData()      //method for loading available_menus
         {
 
             xClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
@@ -871,7 +880,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtcountChildId.Focus();
                 return;
             }
-            MessageBox.Show(mode);
+            //MessageBox.Show(mode);
 
             if (mode == "add")
             {

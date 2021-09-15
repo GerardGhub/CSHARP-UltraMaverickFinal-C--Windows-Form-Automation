@@ -90,8 +90,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1415, 554);
+            this.materialCard1.Size = new System.Drawing.Size(1624, 554);
             this.materialCard1.TabIndex = 560;
+            this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
             // 
             // cbodepartment
             // 
@@ -116,9 +117,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cboUnit.Items.AddRange(new object[] {
             "Office",
             "Production"});
-            this.cboUnit.Location = new System.Drawing.Point(501, 197);
+            this.cboUnit.Location = new System.Drawing.Point(572, 197);
             this.cboUnit.Name = "cboUnit";
-            this.cboUnit.Size = new System.Drawing.Size(353, 30);
+            this.cboUnit.Size = new System.Drawing.Size(387, 30);
             this.cboUnit.TabIndex = 584;
             this.cboUnit.UseSelectable = true;
             this.cboUnit.SelectionChangeCommitted += new System.EventHandler(this.cboUnit_SelectionChangeCommitted);
@@ -131,9 +132,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cboPosition.Items.AddRange(new object[] {
             "Office",
             "Production"});
-            this.cboPosition.Location = new System.Drawing.Point(938, 197);
+            this.cboPosition.Location = new System.Drawing.Point(1093, 195);
             this.cboPosition.Name = "cboPosition";
-            this.cboPosition.Size = new System.Drawing.Size(353, 30);
+            this.cboPosition.Size = new System.Drawing.Size(420, 30);
             this.cboPosition.TabIndex = 583;
             this.cboPosition.UseSelectable = true;
             this.cboPosition.SelectionChangeCommitted += new System.EventHandler(this.cboPosition_SelectionChangeCommitted);
@@ -146,9 +147,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cmbLocation.Items.AddRange(new object[] {
             "Office",
             "Production"});
-            this.cmbLocation.Location = new System.Drawing.Point(938, 304);
+            this.cmbLocation.Location = new System.Drawing.Point(1093, 302);
             this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(353, 30);
+            this.cmbLocation.Size = new System.Drawing.Size(420, 30);
             this.cmbLocation.TabIndex = 582;
             this.cmbLocation.UseSelectable = true;
             // 
@@ -175,9 +176,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cmbNotif.Items.AddRange(new object[] {
             "On",
             "Off"});
-            this.cmbNotif.Location = new System.Drawing.Point(488, 438);
+            this.cmbNotif.Location = new System.Drawing.Point(572, 438);
             this.cmbNotif.Name = "cmbNotif";
-            this.cmbNotif.Size = new System.Drawing.Size(353, 30);
+            this.cmbNotif.Size = new System.Drawing.Size(387, 30);
             this.cmbNotif.TabIndex = 580;
             this.cmbNotif.UseSelectable = true;
             // 
@@ -187,7 +188,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.lblGenderSelected.BackColor = System.Drawing.Color.Transparent;
             this.lblGenderSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenderSelected.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblGenderSelected.Location = new System.Drawing.Point(1170, 395);
+            this.lblGenderSelected.Location = new System.Drawing.Point(1325, 393);
             this.lblGenderSelected.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblGenderSelected.Name = "lblGenderSelected";
             this.lblGenderSelected.Size = new System.Drawing.Size(118, 32);
@@ -201,7 +202,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.lblgenderLabel.BackColor = System.Drawing.Color.Transparent;
             this.lblgenderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblgenderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblgenderLabel.Location = new System.Drawing.Point(932, 395);
+            this.lblgenderLabel.Location = new System.Drawing.Point(1087, 393);
             this.lblgenderLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblgenderLabel.Name = "lblgenderLabel";
             this.lblgenderLabel.Size = new System.Drawing.Size(118, 32);
@@ -213,7 +214,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.matRadioFemale.AutoSize = true;
             this.matRadioFemale.Depth = 0;
             this.matRadioFemale.Enabled = false;
-            this.matRadioFemale.Location = new System.Drawing.Point(1144, 433);
+            this.matRadioFemale.Location = new System.Drawing.Point(1299, 431);
             this.matRadioFemale.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioFemale.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioFemale.MouseState = MaterialSkin.MouseState.HOVER;
@@ -231,7 +232,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.matRadioMale.AutoSize = true;
             this.matRadioMale.Depth = 0;
             this.matRadioMale.Enabled = false;
-            this.matRadioMale.Location = new System.Drawing.Point(941, 436);
+            this.matRadioMale.Location = new System.Drawing.Point(1096, 434);
             this.matRadioMale.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioMale.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioMale.MouseState = MaterialSkin.MouseState.HOVER;
@@ -249,9 +250,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cbousertype.Enabled = false;
             this.cbousertype.FormattingEnabled = true;
             this.cbousertype.ItemHeight = 24;
-            this.cbousertype.Location = new System.Drawing.Point(938, 67);
+            this.cbousertype.Location = new System.Drawing.Point(1093, 65);
             this.cbousertype.Name = "cbousertype";
-            this.cbousertype.Size = new System.Drawing.Size(353, 30);
+            this.cbousertype.Size = new System.Drawing.Size(420, 30);
             this.cbousertype.TabIndex = 575;
             this.cbousertype.UseSelectable = true;
             this.cbousertype.SelectionChangeCommitted += new System.EventHandler(this.cbousertype_SelectionChangeCommitted);
@@ -275,7 +276,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(937, 269);
+            this.label15.Location = new System.Drawing.Point(1092, 267);
             this.label15.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(187, 32);
@@ -288,7 +289,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(495, 396);
+            this.label14.Location = new System.Drawing.Point(566, 396);
             this.label14.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(166, 32);
@@ -302,12 +303,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.Enabled = false;
             this.txtpassword.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtpassword.Hint = "Password";
-            this.txtpassword.Location = new System.Drawing.Point(501, 275);
+            this.txtpassword.Location = new System.Drawing.Point(572, 275);
             this.txtpassword.MaxLength = 50;
             this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtpassword.Multiline = false;
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(349, 50);
+            this.txtpassword.Size = new System.Drawing.Size(387, 50);
             this.txtpassword.TabIndex = 564;
             this.txtpassword.Text = "";
             // 
@@ -316,7 +317,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Depth = 0;
             this.txtuser.Enabled = false;
-            this.txtuser.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtuser.Hint = "UserName";
             this.txtuser.Location = new System.Drawing.Point(77, 277);
             this.txtuser.MaxLength = 50;
@@ -333,7 +334,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(937, 30);
+            this.label13.Location = new System.Drawing.Point(1092, 28);
             this.label13.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(170, 32);
@@ -346,7 +347,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(937, 159);
+            this.label12.Location = new System.Drawing.Point(1092, 157);
             this.label12.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 32);
@@ -359,7 +360,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(495, 159);
+            this.label1.Location = new System.Drawing.Point(566, 159);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 32);
@@ -373,12 +374,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtLastName.Enabled = false;
             this.txtLastName.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtLastName.Hint = "Last Name";
-            this.txtLastName.Location = new System.Drawing.Point(501, 32);
+            this.txtLastName.Location = new System.Drawing.Point(572, 32);
             this.txtLastName.MaxLength = 50;
             this.txtLastName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtLastName.Multiline = false;
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(349, 50);
+            this.txtLastName.Size = new System.Drawing.Size(387, 50);
             this.txtLastName.TabIndex = 1;
             this.txtLastName.Text = "";
             // 
@@ -387,7 +388,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtname.Depth = 0;
             this.txtname.Enabled = false;
-            this.txtname.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtname.Hint = "First Name";
             this.txtname.Location = new System.Drawing.Point(78, 31);
             this.txtname.MaxLength = 50;
@@ -459,7 +460,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1581, 917);
+            this.ClientSize = new System.Drawing.Size(1734, 933);
             this.Controls.Add(this.metroButtonSave);
             this.Controls.Add(this.btnUpdateTool);
             this.Controls.Add(this.textBox1);
