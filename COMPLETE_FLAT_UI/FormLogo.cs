@@ -28,5 +28,13 @@ namespace COMPLETE_FLAT_UI
         {
             pictureBox1.Padding = new Padding(0);
         }
+
+        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+
     }
 }

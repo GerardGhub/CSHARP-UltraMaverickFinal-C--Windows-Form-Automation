@@ -43,6 +43,10 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             this.Close();
         }
+        public string sp_created_at { get; set; }
+        public string sp_created_by { get; set; }
+        public string sp_modified_at { get; set; }
+        public string sp_modified_by { get; set; }
 
         private void frmGrandChildAvailableForms_Load(object sender, EventArgs e)
         {
@@ -173,12 +177,12 @@ namespace ULTRAMAVERICK.Forms.Users
             txtfname.Enabled = true;
             txtcountChildId.Enabled = true;
             cboChildMenu.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            sp_modified_at = String.Empty;
+            sp_modified_by = String.Empty;
             cboChildMenu.Enabled = true;
             txtcountChildId.Text = cboChildMenu.SelectedValue.ToString(); //Binding First Meet
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
+            sp_created_by = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             txtgchild.Select();
             txtgchild.Focus();
@@ -394,10 +398,10 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtParentName.Text = dgvGrandChildForms.CurrentRow.Cells["count"].Value.ToString();
                         cboChildMenu.Text = dgvGrandChildForms.CurrentRow.Cells["ChildForm"].Value.ToString();
 
-                        txtCreatedAt.Text = dgvGrandChildForms.CurrentRow.Cells["created_at"].Value.ToString();
-                        txtCreatedBy.Text = dgvGrandChildForms.CurrentRow.Cells["created_by"].Value.ToString();
-                        txtCreatedAt.Text = dgvGrandChildForms.CurrentRow.Cells["updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvGrandChildForms.CurrentRow.Cells["updated_by"].Value.ToString();
+                        sp_created_at = dgvGrandChildForms.CurrentRow.Cells["created_at"].Value.ToString();
+                        sp_created_by = dgvGrandChildForms.CurrentRow.Cells["created_by"].Value.ToString();
+                       sp_modified_at = dgvGrandChildForms.CurrentRow.Cells["updated_at"].Value.ToString();
+                       sp_modified_by = dgvGrandChildForms.CurrentRow.Cells["updated_by"].Value.ToString();
                     }
                 }
             }
@@ -427,10 +431,10 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
-                        txtCreatedBy.Text.Trim(),
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "add");
+                        sp_created_at,
+                        sp_created_by,
+                       sp_modified_at,
+                       sp_modified_by, "add");
 
 
                     displayGrandChildFormsData();
@@ -461,10 +465,10 @@ namespace ULTRAMAVERICK.Forms.Users
                             txtgchild.Text.Trim(),
                             txtfname.Text.Trim(),
                             txtcountChildId.Text.Trim(),
-                            txtCreatedAt.Text.Trim(),
-                            txtCreatedBy.Text.Trim(),
-                            txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(), "edit");
+                            sp_created_at,
+                            sp_created_by,
+                            sp_modified_at,
+                            sp_modified_by, "edit");
                         UpdateNotifications();
 
                         return true;
@@ -484,10 +488,10 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
-                        txtCreatedBy.Text.Trim(),
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "edit");
+                        sp_created_at,
+                        sp_created_by,
+                       sp_modified_at,
+                        sp_modified_by, "edit");
 
 
                 }
@@ -517,10 +521,10 @@ namespace ULTRAMAVERICK.Forms.Users
                     txtgchild.Text.Trim(),
                     txtfname.Text.Trim(),
                     txtcountChildId.Text.Trim(),
-                    txtCreatedAt.Text.Trim(),
-                    txtCreatedBy.Text.Trim(),
-                    txtModifiedAt.Text.Trim(),
-                    txtModifiedBy.Text.Trim(), "add");
+                   sp_created_at,
+                   sp_created_by,
+                    sp_modified_at,
+                    sp_modified_by, "add");
             }
 
             displayGrandChildFormsData();
@@ -560,8 +564,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            sp_modified_at = (dNow.ToString("M/d/yyyy"));
+            sp_modified_by = userinfo.emp_name.ToUpper();
             if (dgvGrandChildForms.RowCount > 0)
             {
                 temp_hid = dgvGrandChildForms.CurrentRow.Index;
@@ -648,8 +652,8 @@ namespace ULTRAMAVERICK.Forms.Users
             SearchGrandChildData();
             txtgchild.Text = String.Empty;
             txtfname.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            sp_modified_at = String.Empty;
+            sp_modified_by = String.Empty;
             txtParentName.Text = String.Empty;
 
         }
@@ -661,8 +665,8 @@ namespace ULTRAMAVERICK.Forms.Users
             SearchGrandChildData();
             txtgchild.Text = String.Empty;
             txtfname.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            sp_modified_at = String.Empty;
+            sp_modified_by = String.Empty;
             txtParentName.Text = String.Empty;
         }
 
@@ -680,12 +684,12 @@ namespace ULTRAMAVERICK.Forms.Users
             txtfname.Enabled = true;
             txtcountChildId.Enabled = true;
             cboChildMenu.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            sp_modified_at = String.Empty;
+            sp_modified_by = String.Empty;
             cboChildMenu.Enabled = true;
             txtcountChildId.Text = cboChildMenu.SelectedValue.ToString(); //Binding First Meet
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+           sp_created_at = (dNow.ToString("M/d/yyyy"));
+           sp_created_by = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             txtgchild.Select();
             txtgchild.Focus();
@@ -693,8 +697,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialButton1_Click_1(object sender, EventArgs e)
         {
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            sp_modified_at= (dNow.ToString("M/d/yyyy"));
+            sp_modified_by = userinfo.emp_name.ToUpper();
             if (dgvGrandChildForms.RowCount > 0)
             {
                 temp_hid = dgvGrandChildForms.CurrentRow.Index;
@@ -784,7 +788,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
-                "s",
+                Convert.ToInt32(p_id).ToString(),
                 Convert.ToInt32(p_id).ToString(), "addModuleRightsModulePartial");
 
             if (dgvUserRights.Rows.Count >= 1)
@@ -812,12 +816,12 @@ namespace ULTRAMAVERICK.Forms.Users
             txtfname.Enabled = true;
             txtcountChildId.Enabled = true;
             cboChildMenu.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            sp_modified_at = String.Empty;
+            sp_modified_by = String.Empty;
             cboChildMenu.Enabled = true;
             txtcountChildId.Text = cboChildMenu.SelectedValue.ToString(); //Binding First Meet
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
+            sp_created_by = userinfo.emp_name.ToUpper();
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             txtgchild.Text = String.Empty;
             txtfname.Text = String.Empty;
@@ -829,8 +833,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            sp_modified_at = (dNow.ToString("M/d/yyyy"));
+           sp_modified_by = userinfo.emp_name.ToUpper();
             if (dgvGrandChildForms.RowCount > 0)
             {
                 temp_hid = dgvGrandChildForms.CurrentRow.Index;
@@ -847,6 +851,18 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+            dSet.Clear();
+            dSet = objStorProc.sp_available_menu_grandChild(0, txtgchild.Text, txtcountChildId.Text, "", "", "", "", "", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                GrandChildMenuAlreadyExist();
+
+                txtgchild.Text = string.Empty;
+                txtgchild.Focus();
+                return ;
+            }
+
             if (cboChildMenu.Text.Trim() == string.Empty)
             {
                 FillRequiredFields();
@@ -894,14 +910,22 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
-                        txtCreatedBy.Text.Trim(),
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "add");
+                       sp_created_at,
+                       sp_created_by,
+                        sp_modified_at,
+                        sp_modified_by, "add");
 
                     UpdateNotifications();
 
                     displayGrandChildFormsData();
+                    //add
+
+
+                    matBtnNext_Click(new object(), new System.EventArgs());
+                    displayUserRightsData();
+                    displayGrandChildFormsData();
+                    //End Additional Data
+
                     btnCancelTool_Click(sender, e);
                 }
                 else
@@ -925,10 +949,10 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
-                        txtCreatedBy.Text.Trim(),
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "edit");
+                       sp_created_at,
+                       sp_created_by,
+                        sp_modified_at,
+                        sp_modified_by, "edit");
                     UpdateNotifications();
 
 

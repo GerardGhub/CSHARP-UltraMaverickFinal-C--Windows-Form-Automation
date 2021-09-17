@@ -33,6 +33,8 @@
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
+            this.miniToolStrip = new System.Windows.Forms.ToolStrip();
+            this.timerSubMenuOut = new System.Windows.Forms.Timer(this.components);
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.btnMaximizedFinal = new System.Windows.Forms.Button();
             this.btnMinimizeFinal = new System.Windows.Forms.Button();
@@ -51,7 +53,6 @@
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.PcUser = new System.Windows.Forms.PictureBox();
             this.panelMenuSelection = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolDropdownUser = new System.Windows.Forms.ToolStripDropDownButton();
@@ -79,8 +80,9 @@
             this.poSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolClosePanelSelection = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.PcUser = new System.Windows.Forms.PictureBox();
             this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -94,11 +96,8 @@
             this.btnProductionPlanner = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnDryWarehouse = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnUsers = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDashBoard = new System.Windows.Forms.Button();
-            this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnApproverTagging = new System.Windows.Forms.Button();
@@ -110,24 +109,24 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcUser)).BeginInit();
             this.panelMenuSelection.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelContenedorPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tmExpandirMenu
@@ -144,6 +143,27 @@
             // 
             this.tmFechaHora.Enabled = true;
             this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
+            // 
+            // miniToolStrip
+            // 
+            this.miniToolStrip.AccessibleName = "New item selection";
+            this.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDown;
+            this.miniToolStrip.AutoSize = false;
+            this.miniToolStrip.BackColor = System.Drawing.Color.Transparent;
+            this.miniToolStrip.CanOverflow = false;
+            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.miniToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.miniToolStrip.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.miniToolStrip.Location = new System.Drawing.Point(208, 196);
+            this.miniToolStrip.Name = "miniToolStrip";
+            this.miniToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.miniToolStrip.Size = new System.Drawing.Size(500, 1054);
+            this.miniToolStrip.TabIndex = 2;
+            // 
+            // timerSubMenuOut
+            // 
+            this.timerSubMenuOut.Interval = 15;
+            this.timerSubMenuOut.Tick += new System.EventHandler(this.timerSubMenuOut_Tick);
             // 
             // PanelHeader
             // 
@@ -418,15 +438,15 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.panelMenu.Controls.Add(this.lblPosition);
+            this.panelMenu.Controls.Add(this.lblFirstName);
             this.panelMenu.Controls.Add(this.PcUser);
             this.panelMenu.Controls.Add(this.panelMenuSelection);
+            this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.btnMenu);
-            this.panelMenu.Controls.Add(this.pictureBox10);
             this.panelMenu.Controls.Add(this.lblLastName);
-            this.panelMenu.Controls.Add(this.lblFirstName);
             this.panelMenu.Controls.Add(this.pictureBox9);
             this.panelMenu.Controls.Add(this.btnSalir);
-            this.panelMenu.Controls.Add(this.lblPosition);
             this.panelMenu.Controls.Add(this.pictureBox5);
             this.panelMenu.Controls.Add(this.btnResearchAndDevelopment);
             this.panelMenu.Controls.Add(this.pictureBox6);
@@ -437,7 +457,6 @@
             this.panelMenu.Controls.Add(this.btnDryWarehouse);
             this.panelMenu.Controls.Add(this.pictureBox2);
             this.panelMenu.Controls.Add(this.btnUsers);
-            this.panelMenu.Controls.Add(this.pictureBox1);
             this.panelMenu.Controls.Add(this.btnDashBoard);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 103);
@@ -446,24 +465,13 @@
             this.panelMenu.Size = new System.Drawing.Size(613, 1328);
             this.panelMenu.TabIndex = 2;
             // 
-            // PcUser
-            // 
-            this.PcUser.BackColor = System.Drawing.Color.Transparent;
-            this.PcUser.Image = ((System.Drawing.Image)(resources.GetObject("PcUser.Image")));
-            this.PcUser.Location = new System.Drawing.Point(99, 21);
-            this.PcUser.Name = "PcUser";
-            this.PcUser.Size = new System.Drawing.Size(388, 234);
-            this.PcUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcUser.TabIndex = 15;
-            this.PcUser.TabStop = false;
-            // 
             // panelMenuSelection
             // 
             this.panelMenuSelection.Controls.Add(this.toolStrip2);
             this.panelMenuSelection.Location = new System.Drawing.Point(12, 402);
             this.panelMenuSelection.Name = "panelMenuSelection";
-            this.panelMenuSelection.Size = new System.Drawing.Size(570, 833);
-            this.panelMenuSelection.TabIndex = 0;
+            this.panelMenuSelection.Size = new System.Drawing.Size(535, 833);
+            this.panelMenuSelection.TabIndex = 2;
             this.panelMenuSelection.Visible = false;
             // 
             // toolStrip2
@@ -504,6 +512,7 @@
             this.toolDropdownUser.Name = "toolDropdownUser";
             this.toolDropdownUser.Size = new System.Drawing.Size(495, 44);
             this.toolDropdownUser.Text = "User  Manager                  ";
+            this.toolDropdownUser.Visible = false;
             this.toolDropdownUser.Click += new System.EventHandler(this.toolDropdownUser_Click);
             // 
             // toolUserManagement
@@ -519,6 +528,7 @@
             // toolUserRights
             // 
             this.toolUserRights.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.toolUserRights.Enabled = false;
             this.toolUserRights.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolUserRights.Name = "toolUserRights";
             this.toolUserRights.Size = new System.Drawing.Size(461, 54);
@@ -563,6 +573,7 @@
             // 
             // toolDropdownLocation
             // 
+            this.toolDropdownLocation.Enabled = false;
             this.toolDropdownLocation.Name = "toolDropdownLocation";
             this.toolDropdownLocation.Size = new System.Drawing.Size(461, 54);
             this.toolDropdownLocation.Text = "Location";
@@ -591,6 +602,7 @@
             // 
             // toolStripModuleItemClass
             // 
+            this.toolStripModuleItemClass.Enabled = false;
             this.toolStripModuleItemClass.Name = "toolStripModuleItemClass";
             this.toolStripModuleItemClass.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleItemClass.Text = "Item Class";
@@ -598,6 +610,7 @@
             // 
             // toolStripModuleMajorCategory
             // 
+            this.toolStripModuleMajorCategory.Enabled = false;
             this.toolStripModuleMajorCategory.Name = "toolStripModuleMajorCategory";
             this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleMajorCategory.Text = "Major Category";
@@ -605,6 +618,7 @@
             // 
             // toolStripModuleSubCategory
             // 
+            this.toolStripModuleSubCategory.Enabled = false;
             this.toolStripModuleSubCategory.Name = "toolStripModuleSubCategory";
             this.toolStripModuleSubCategory.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleSubCategory.Text = "Sub Category";
@@ -612,6 +626,7 @@
             // 
             // toolStripModulePrimaryUnit
             // 
+            this.toolStripModulePrimaryUnit.Enabled = false;
             this.toolStripModulePrimaryUnit.Name = "toolStripModulePrimaryUnit";
             this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(603, 54);
             this.toolStripModulePrimaryUnit.Text = "Primary Unit";
@@ -619,6 +634,7 @@
             // 
             // toolStripModuleItemType
             // 
+            this.toolStripModuleItemType.Enabled = false;
             this.toolStripModuleItemType.Name = "toolStripModuleItemType";
             this.toolStripModuleItemType.Size = new System.Drawing.Size(603, 54);
             this.toolStripModuleItemType.Text = "Item Type";
@@ -626,6 +642,7 @@
             // 
             // toolModuleRawMaterialsDry
             // 
+            this.toolModuleRawMaterialsDry.Enabled = false;
             this.toolModuleRawMaterialsDry.Name = "toolModuleRawMaterialsDry";
             this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(603, 54);
             this.toolModuleRawMaterialsDry.Text = "Raw Material";
@@ -633,6 +650,7 @@
             // 
             // toolModulePrimaryUnitMgmt
             // 
+            this.toolModulePrimaryUnitMgmt.Enabled = false;
             this.toolModulePrimaryUnitMgmt.Name = "toolModulePrimaryUnitMgmt";
             this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(603, 54);
             this.toolModulePrimaryUnitMgmt.Text = "Manage Active Primary Unit";
@@ -696,6 +714,7 @@
             // 
             // dryRawMaterialsToolStripMenuItem
             // 
+            this.dryRawMaterialsToolStripMenuItem.Enabled = false;
             this.dryRawMaterialsToolStripMenuItem.Name = "dryRawMaterialsToolStripMenuItem";
             this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(460, 54);
             this.dryRawMaterialsToolStripMenuItem.Text = "Dry Raw Materials";
@@ -703,6 +722,7 @@
             // 
             // poSummaryToolStripMenuItem
             // 
+            this.poSummaryToolStripMenuItem.Enabled = false;
             this.poSummaryToolStripMenuItem.Name = "poSummaryToolStripMenuItem";
             this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(460, 54);
             this.poSummaryToolStripMenuItem.Text = "Po Summary";
@@ -730,6 +750,38 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(495, 36);
             this.toolStripLabel1.Text = "Process Automation                           ";
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 980);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(613, 95);
+            this.btnLogout.TabIndex = 16;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // PcUser
+            // 
+            this.PcUser.BackColor = System.Drawing.Color.Transparent;
+            this.PcUser.Image = ((System.Drawing.Image)(resources.GetObject("PcUser.Image")));
+            this.PcUser.Location = new System.Drawing.Point(99, 21);
+            this.PcUser.Name = "PcUser";
+            this.PcUser.Size = new System.Drawing.Size(388, 234);
+            this.PcUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcUser.TabIndex = 15;
+            this.PcUser.TabStop = false;
+            // 
             // btnMenu
             // 
             this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -744,19 +796,6 @@
             this.btnMenu.TabIndex = 12;
             this.btnMenu.TabStop = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox10.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.pictureBox10.Location = new System.Drawing.Point(463, 980);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(115, 88);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox10.TabIndex = 14;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click_1);
             // 
             // lblLastName
             // 
@@ -776,12 +815,12 @@
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.1F);
             this.lblFirstName.ForeColor = System.Drawing.SystemColors.Window;
             this.lblFirstName.Location = new System.Drawing.Point(203, 258);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(119, 38);
+            this.lblFirstName.Size = new System.Drawing.Size(107, 36);
             this.lblFirstName.TabIndex = 5;
             this.lblFirstName.Text = "Gerard";
             // 
@@ -814,14 +853,15 @@
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.ForeColor = System.Drawing.SystemColors.Window;
             this.lblPosition.Location = new System.Drawing.Point(117, 296);
             this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(92, 32);
+            this.lblPosition.Size = new System.Drawing.Size(122, 36);
             this.lblPosition.TabIndex = 7;
-            this.lblPosition.Text = "Cargo";
+            this.lblPosition.Text = "Position";
+            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox5
             // 
@@ -832,6 +872,7 @@
             this.pictureBox5.Size = new System.Drawing.Size(5, 95);
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Visible = false;
             // 
             // btnResearchAndDevelopment
             // 
@@ -864,6 +905,7 @@
             this.pictureBox6.Size = new System.Drawing.Size(5, 95);
             this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Visible = false;
             // 
             // btnPreparationDepartment
             // 
@@ -896,6 +938,7 @@
             this.pictureBox3.Size = new System.Drawing.Size(5, 95);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
             // 
             // btnProductionPlanner
             // 
@@ -927,6 +970,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(5, 95);
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
             // 
             // btnDryWarehouse
             // 
@@ -950,16 +994,6 @@
             this.btnDryWarehouse.UseVisualStyleBackColor = true;
             this.btnDryWarehouse.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 300);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(5, 95);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // btnUsers
             // 
             this.btnUsers.Cursor = System.Windows.Forms.Cursors.Default;
@@ -982,16 +1016,6 @@
             this.btnUsers.UseVisualStyleBackColor = true;
             this.btnUsers.Click += new System.EventHandler(this.btnListaClientes_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 191);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(5, 95);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnDashBoard
             // 
             this.btnDashBoard.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1013,22 +1037,6 @@
             this.btnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashBoard.UseVisualStyleBackColor = true;
             this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
-            // 
-            // miniToolStrip
-            // 
-            this.miniToolStrip.AccessibleName = "New item selection";
-            this.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDown;
-            this.miniToolStrip.AutoSize = false;
-            this.miniToolStrip.BackColor = System.Drawing.Color.Transparent;
-            this.miniToolStrip.CanOverflow = false;
-            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.miniToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.miniToolStrip.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.miniToolStrip.Location = new System.Drawing.Point(208, 196);
-            this.miniToolStrip.Name = "miniToolStrip";
-            this.miniToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.miniToolStrip.Size = new System.Drawing.Size(500, 1054);
-            this.miniToolStrip.TabIndex = 2;
             // 
             // panel1
             // 
@@ -1184,6 +1192,22 @@
             this.panelContenedorPrincipal.Size = new System.Drawing.Size(2933, 1431);
             this.panelContenedorPrincipal.TabIndex = 0;
             // 
+            // timeSubMenuIn
+            // 
+            this.timeSubMenuIn.Interval = 15;
+            this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 300);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(5, 95);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -1205,24 +1229,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcUser)).EndInit();
             this.panelMenuSelection.ResumeLayout(false);
             this.panelMenuSelection.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelContenedorPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1231,11 +1253,14 @@
         private System.Windows.Forms.Timer tmExpandirMenu;
         private System.Windows.Forms.Timer tmContraerMenu;
         private System.Windows.Forms.Timer tmFechaHora;
+        private System.Windows.Forms.ToolStrip miniToolStrip;
+        private System.Windows.Forms.Timer timerSubMenuOut;
         private System.Windows.Forms.Panel PanelHeader;
-        private System.Windows.Forms.Button btnNotificationsBell;
         private System.Windows.Forms.Button btnMaximizedFinal;
-        private System.Windows.Forms.Button btnCloseFinal;
         private System.Windows.Forms.Button btnMinimizeFinal;
+        public MaterialSkin.Controls.MaterialTextBox txtMatSideBarColor;
+        private System.Windows.Forms.Button btnNotificationsBell;
+        private System.Windows.Forms.Button btnCloseFinal;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnNormalFinal;
         private System.Windows.Forms.Button btnNormal1;
@@ -1248,6 +1273,7 @@
         private System.Windows.Forms.Button btnMaximizar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.PictureBox PcUser;
         private System.Windows.Forms.Panel panelMenuSelection;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripDropDownButton toolDropdownUser;
@@ -1257,14 +1283,25 @@
         private System.Windows.Forms.ToolStripMenuItem toolDepartmentUnit;
         private System.Windows.Forms.ToolStripMenuItem toolTypeofApprover;
         private System.Windows.Forms.ToolStripMenuItem toolPosition;
+        private System.Windows.Forms.ToolStripMenuItem toolDropdownLocation;
+        private System.Windows.Forms.ToolStripButton toolClosePanelSelection;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripRawMaterials;
+        private System.Windows.Forms.ToolStripMenuItem toolStripModuleItemClass;
+        private System.Windows.Forms.ToolStripMenuItem toolStripModuleMajorCategory;
+        private System.Windows.Forms.ToolStripMenuItem toolStripModuleSubCategory;
+        private System.Windows.Forms.ToolStripMenuItem toolStripModulePrimaryUnit;
+        private System.Windows.Forms.ToolStripMenuItem toolStripModuleItemType;
+        private System.Windows.Forms.ToolStripMenuItem toolModuleRawMaterialsDry;
+        private System.Windows.Forms.ToolStripMenuItem toolModulePrimaryUnitMgmt;
         private System.Windows.Forms.ToolStripDropDownButton toolDropdownMenu;
         private System.Windows.Forms.ToolStripMenuItem toolParentMenu;
         private System.Windows.Forms.ToolStripMenuItem toolChildMenu;
         private System.Windows.Forms.ToolStripMenuItem toolGrandChildMenu;
-        private System.Windows.Forms.ToolStripButton toolClosePanelSelection;
+        private System.Windows.Forms.ToolStripDropDownButton toolImportDry;
+        private System.Windows.Forms.ToolStripMenuItem dryRawMaterialsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem poSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.PictureBox btnMenu;
-        private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.PictureBox pictureBox9;
@@ -1278,11 +1315,10 @@
         private System.Windows.Forms.Button btnProductionPlanner;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnDryWarehouse;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnDashBoard;
-        private System.Windows.Forms.ToolStrip miniToolStrip;
         private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.Button button1;
         internal System.Windows.Forms.Button btnApproverTagging;
         private System.Windows.Forms.Label lblDateFinal;
         private System.Windows.Forms.Label lblTimeFinal;
@@ -1292,22 +1328,9 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Panel panelContenedorForm;
         private System.Windows.Forms.Panel panelContenedorPrincipal;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripRawMaterials;
-        private System.Windows.Forms.ToolStripMenuItem toolStripModuleItemClass;
-        private System.Windows.Forms.ToolStripMenuItem toolStripModuleMajorCategory;
-        private System.Windows.Forms.ToolStripMenuItem toolStripModuleSubCategory;
-        private System.Windows.Forms.ToolStripMenuItem toolStripModulePrimaryUnit;
-        private System.Windows.Forms.ToolStripMenuItem toolStripModuleItemType;
-        private System.Windows.Forms.ToolStripMenuItem toolDropdownLocation;
-        private System.Windows.Forms.ToolStripMenuItem toolModuleRawMaterialsDry;
-        public MaterialSkin.Controls.MaterialTextBox txtMatSideBarColor;
-        private System.Windows.Forms.ToolStripMenuItem toolModulePrimaryUnitMgmt;
-        private System.Windows.Forms.ToolStripDropDownButton toolImportDry;
-        private System.Windows.Forms.ToolStripMenuItem dryRawMaterialsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem poSummaryToolStripMenuItem;
-        internal System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox PcUser;
+        private System.Windows.Forms.Timer timeSubMenuIn;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

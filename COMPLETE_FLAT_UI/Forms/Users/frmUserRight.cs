@@ -79,6 +79,8 @@ namespace ULTRAMAVERICK.Forms.Users
        
 
         }
+
+
         private void frmUserRight_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -224,8 +226,7 @@ namespace ULTRAMAVERICK.Forms.Users
      
             btnRemoveMenu.Enabled = false;
             btnCancelUpdateMenu.Enabled = false;
-            btnSelectAll.Enabled = false;
-            btnUnselectAll.Enabled = false;
+ 
 
 
         }
@@ -792,8 +793,7 @@ namespace ULTRAMAVERICK.Forms.Users
    
             btnRemoveMenu.Enabled = true;
             btnCancelUpdateMenu.Enabled = true;
-            btnSelectAll.Enabled = true;
-            btnUnselectAll.Enabled = true;
+   
 
 
         }
@@ -838,7 +838,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnCancelListViewMenu_Click(object sender, EventArgs e)
         {
             btnSelectAll.Visible = false;
-            btnUnselectAll.Visible = false;
+     
     
        
             btnCancelUpdateMenu.Visible = false;
@@ -861,13 +861,13 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             for (int i = 0; i < dataView.RowCount; i++) { dataView.Rows[i].Cells[0].Value = true; }
             btnSelectAll.Visible = false;
-            btnUnselectAll.Visible = true;
+    
         }
         public void deselectAll()
         {
             for (int i = 0; i < dataView.RowCount; i++) { dataView.Rows[i].Cells[0].Value = false; }
-            btnSelectAll.Visible = true;
-            btnUnselectAll.Visible = false;
+    
+        
         }
 
         private void listViewuser_rights_SelectedIndexChanged(object sender, EventArgs e)
@@ -1053,29 +1053,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnDeleteTool_Click(object sender, EventArgs e)
         {
-            if (txtMaterialRights.Text.Trim() == string.Empty)
-            {
-                SelectUserRights();
-                listViewuser_rights.Enabled = true;
 
-                txtMaterialRights.Focus();
-
-                return;
-
-            }
-            metroButtonDelete_Click(sender, e);
         }
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
-            if (txtMaterialRights.Text.Trim() == string.Empty)
-            {
-                FillUserRights();
-                txtMaterialRights.Focus();
-                return;
 
-            }
-            btnMetroSave_Click(sender, e);
         }
 
 
@@ -1262,6 +1245,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet.Clear();
                     if (Convert.ToBoolean(dataView.Rows[i].Cells[0].Value))
                     {
+                        p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
                         dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(dataView.Rows[i].Cells[1].Value),"", lblUserID.Text.Trim(), "Child", lblFirstName.Text.Trim(), Convert.ToString(dataView.Rows[i].Cells[6].Value), "add");
                     }
                 }
@@ -1494,8 +1478,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnCancelUpdateMenu_Click(object sender, EventArgs e)
         {
-            btnSelectAll.Visible = false;
-            btnUnselectAll.Visible = false;
+      
        
    
             btnCancelUpdateMenu.Visible = false;
@@ -1615,18 +1598,18 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dataView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var grid = sender as DataGridView;
-            var rowIdx = (e.RowIndex + 1).ToString();
+            //var grid = sender as DataGridView;
+            //var rowIdx = (e.RowIndex + 1).ToString();
 
-            var centerFormat = new StringFormat()
-            {
-                // right alignment might actually make more sense for numbers
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
+            //var centerFormat = new StringFormat()
+            //{
+            //    // right alignment might actually make more sense for numbers
+            //    Alignment = StringAlignment.Center,
+            //    LineAlignment = StringAlignment.Center
+            //};
 
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+            //var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            //e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
 
         private void dgvGrandChild_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -1647,7 +1630,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dgvGrandChild_DoubleClick(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to the GrandChild Menu ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the Modules ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 btnTaggingGchild_Click(sender, e);
 
@@ -2356,6 +2339,103 @@ namespace ULTRAMAVERICK.Forms.Users
                 materialButtonUpdateSubMenu_Click(sender, e);
             }
 
+        }
+
+        private void matBtnNew_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            materialBtnNew.Visible = false;
+            btnCancelTool.Visible = true;
+            btnUpdateTool.Visible = true;
+            txtMaterialRights.ReadOnly = false;
+            txtMaterialRights.Enabled = true;
+            btnDeleteTool.Visible = false;
+            btnUpdateTheMenu.Visible = false;
+            btnEditTool.Visible = false;
+            txtMaterialRights.Text = "";
+            txtMaterialRights.Focus();
+            listViewuser_rights.Enabled = false;
+        }
+
+        private void matBtnCancel_Click(object sender, EventArgs e)
+        {
+            mode = "";
+            materialBtnNew.Visible = true;
+            btnUpdateTool.Visible = false;
+            btnEditTool.Visible = true;
+            txtMaterialRights.ReadOnly = true;
+            listViewuser_rights.Enabled = true;
+            dataView.Visible = false;
+            btnCancelTool.Visible = false;
+
+            materialButtonCancel.Visible = false;
+            MenuDeActivate();
+        }
+
+        private void listViewuser_rights_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //if (e.Index < 0) return;
+            ////if the item state is selected them change the back color 
+            //if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            //    e = new DrawItemEventArgs(e.Graphics,
+            //                              e.Font,
+            //                              e.Bounds,
+            //                              e.Index,
+            //                              e.State ^ DrawItemState.Selected,
+            //                              e.ForeColor,
+            //                              Color.Yellow);//Choose the color
+
+            //// Draw the background of the ListBox control for each item.
+            //e.DrawBackground();
+            //// Draw the current item text
+            //e.Graphics.DrawString(listViewuser_rights.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            //// If the ListBox has focus, draw a focus rectangle around the selected item.
+            //e.DrawFocusRectangle();
+        }
+
+        private void matBtnSave_Click(object sender, EventArgs e)
+        {
+            if (txtMaterialRights.Text.Trim() == string.Empty)
+            {
+                FillUserRights();
+                txtMaterialRights.Focus();
+                return;
+
+            }
+            btnMetroSave_Click(sender, e);
+        }
+
+        private void matBtnEdit_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            txtMaterialRights.ReadOnly = false;
+            txtMaterialRights.Focus();
+            listViewuser_rights.Enabled = false;
+            btnUpdateTool.Visible = true;
+            btnEditTool.Visible = false;
+            materialBtnNew.Visible = false;
+            btnCancelTool.Visible = true;
+            btnDeleteTool.Visible = false;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void matBtnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtMaterialRights.Text.Trim() == string.Empty)
+            {
+                SelectUserRights();
+                listViewuser_rights.Enabled = true;
+
+                txtMaterialRights.Focus();
+
+                return;
+
+            }
+            metroButtonDelete_Click(sender, e);
         }
     }
 }

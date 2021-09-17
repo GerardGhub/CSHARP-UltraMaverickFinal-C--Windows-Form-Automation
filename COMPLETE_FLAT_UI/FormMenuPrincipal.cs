@@ -199,6 +199,7 @@ namespace COMPLETE_FLAT_UI
             btnDryWarehouse.Text = "Dry Warehouse";
             btnResearchAndDevelopment.Text = "Research & Dev";
             btnProductionPlanner.Text = "Planner";
+            btnLogout.Text = "Logout";
         }
 
         private void ClearDashboardtext()
@@ -209,6 +210,7 @@ namespace COMPLETE_FLAT_UI
             btnDryWarehouse.Text = String.Empty;
             btnResearchAndDevelopment.Text = String.Empty;
             btnProductionPlanner.Text = String.Empty;
+            btnLogout.Text = String.Empty;
         }
         private void tmExpandirMenu_Tick(object sender, EventArgs e)
         {
@@ -258,11 +260,14 @@ namespace COMPLETE_FLAT_UI
             Adorner.AddBadgeTo(btnNotificationsBell, "123");
             //end Header
             //Major Menu Notifications
-            Adorner.AddBadgeTo(btnUsers, "123");
-            Adorner.AddBadgeTo(btnDryWarehouse, "123");
-            Adorner.AddBadgeTo(btnProductionPlanner, "123");
-            Adorner.AddBadgeTo(btnPreparationDepartment, "123");
-            Adorner.AddBadgeTo(btnResearchAndDevelopment, "123");
+            if (userinfo.receiving_status == "On")
+            {
+                //Adorner.AddBadgeTo(btnUsers, "123");
+                //Adorner.AddBadgeTo(btnDryWarehouse, "123");
+                //Adorner.AddBadgeTo(btnProductionPlanner, "123");
+                //Adorner.AddBadgeTo(btnPreparationDepartment, "123");
+                //Adorner.AddBadgeTo(btnResearchAndDevelopment, "123");
+            }
         }
         public string user_section_controlBox { get; set; }
 
@@ -373,7 +378,7 @@ namespace COMPLETE_FLAT_UI
                     else if (form_name == "frmUserRight.cs")
                     {
                         toolUserRights.Enabled = true;
-                        
+
                     }
 
                     else if (form_name == "frmDepartment.cs")
@@ -401,6 +406,10 @@ namespace COMPLETE_FLAT_UI
 
                     }
 
+                    else if (form_name == "frmLocation.cs")
+                    {
+                        toolDropdownLocation.Enabled = true;
+                    }
                     //End User Manager
 
                     //Start Menu
@@ -424,6 +433,49 @@ namespace COMPLETE_FLAT_UI
 
 
                     }
+
+                    //Import Dry
+
+                    else if (form_name == "frmImportRawMatsExcel.cs")
+                    {
+                        dryRawMaterialsToolStripMenuItem.Enabled = true;
+                    }
+                    else if (form_name == "frmImportPoSummary.cs")
+                    {
+                        poSummaryToolStripMenuItem.Enabled = true;
+                    }
+
+                    // Raw Materials
+
+                    else if (form_name == "frmItemClass.cs")
+                    {
+                        toolStripModuleItemClass.Enabled = true;
+                    }
+                    else if (form_name == "frmMajorCategory.cs")
+                    {
+                        toolStripModuleMajorCategory.Enabled = true;
+                    }
+                    else if (form_name == "frmSubCategory.cs")
+                    {
+                        toolStripModuleSubCategory.Enabled = true;
+                    }
+                    else if (form_name == "frmPrimaryUnit.cs")
+                    {
+                        toolStripModulePrimaryUnit.Enabled = true;
+                    }
+                    else if (form_name == "frmItemType.cs")
+                    {
+                        toolStripModuleItemType.Enabled = true;
+                    }
+                    else if (form_name == "frmDryRawMaterials")
+                    {
+                        toolModuleRawMaterialsDry.Enabled = true;
+                    }
+                    else if (form_name == "frmManageActivePrimaryUnit.cs")
+                    {
+                        toolModulePrimaryUnitMgmt.Enabled = true;
+                    }
+
 
                 }
             }
@@ -457,18 +509,17 @@ namespace COMPLETE_FLAT_UI
                         /*  MostrarFormLogo()*/
 
                     }
-
+                    //Raw Mats //Dry
                     else if (form_name == "toolStripRawMaterials")
                     {
                         toolStripRawMaterials.Visible = true;
                     }
-
+                    //Import Dry
                     else if (form_name == "toolImportDry")
                     {
                         toolImportDry.Visible = true;
                     }
-
-
+              
 
 
                 }
@@ -489,8 +540,8 @@ namespace COMPLETE_FLAT_UI
 
             //Research And Development
             toolStripRawMaterials.Visible = false;
-
-
+            toolImportDry.Visible = false;
+            this.timeSubMenuIn.Start();
 
 
             //FormListaClientes fm = new FormListaClientes();
@@ -500,9 +551,20 @@ namespace COMPLETE_FLAT_UI
 
         private void btnMembresia_Click(object sender, EventArgs e)
         {
-            FormMembresia frm = new FormMembresia();
-            frm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(frm);
+            //FormMembresia frm = new FormMembresia();
+            //frm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            //AbrirFormEnPanel(frm);
+            panelMenuSelection.Visible = true;
+       
+            toolStripRawMaterials.Visible = false;
+            SubMenu();
+            toolDropdownMenu.Visible = false;
+            toolDropdownUser.Visible = false;
+            //Research And Development
+            toolStripRawMaterials.Visible = false;
+
+            this.timeSubMenuIn.Start();
+
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -639,8 +701,15 @@ namespace COMPLETE_FLAT_UI
 
         private void toolClosePanelSelection_Click_1(object sender, EventArgs e)
         {
+
+            ////this.timerSubMenuOut.Start();
+
+            //timerSubMenuOut_Tick(sender, e);
+
+
             panelMenuSelection.Visible = false;
         }
+    
 
         private void btnGrandChildForms_Click(object sender, EventArgs e)
         {
@@ -898,11 +967,47 @@ namespace COMPLETE_FLAT_UI
 
         }
 
+        private void timerSubMenuOut_Tick(object sender, EventArgs e)
+        {
+            if (panelMenuSelection.Width <= 0)
+                this.timeSubMenuIn.Stop();
+            else
+                panelMenuSelection.Width = panelMenuSelection.Width - 5;
+        }
+
+        private void timeSubMenuIn_Tick(object sender, EventArgs e)
+        {
+            if (panelMenuSelection.Width >= 230)
+                this.timerSubMenuOut.Stop();
+            else
+                panelMenuSelection.Width = panelMenuSelection.Width + 5;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                frmLoginForm mainLogin = new frmLoginForm();
+                this.Hide();
+                //mainLogin.Closed += (s, args) => this.Close();
+
+                //mainLogin.ShowDialog();
+                Application.Exit();
+
+            }
+
+            else
+            {
+                return;
+            }
+            }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());
             panelMenuSelection.Visible = true;
             SubMenu();
+            toolImportDry.Visible = false;
             //User major Menu
             toolDropdownUser.Visible = false;
             toolDropdownMenu.Visible = false;

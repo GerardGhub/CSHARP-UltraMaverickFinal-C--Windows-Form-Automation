@@ -308,6 +308,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtpassword.Multiline = false;
             this.txtpassword.Name = "txtpassword";
+            this.txtpassword.Password = true;
             this.txtpassword.Size = new System.Drawing.Size(387, 50);
             this.txtpassword.TabIndex = 564;
             this.txtpassword.Text = "";
@@ -317,7 +318,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Depth = 0;
             this.txtuser.Enabled = false;
-            this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtuser.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtuser.Hint = "UserName";
             this.txtuser.Location = new System.Drawing.Point(77, 277);
             this.txtuser.MaxLength = 50;
@@ -388,7 +389,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtname.Depth = 0;
             this.txtname.Enabled = false;
-            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtname.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtname.Hint = "First Name";
             this.txtname.Location = new System.Drawing.Point(78, 31);
             this.txtname.MaxLength = 50;

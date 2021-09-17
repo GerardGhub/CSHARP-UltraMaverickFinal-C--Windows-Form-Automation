@@ -34,7 +34,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             InitializeComponent();
         }
-
+        public string sp_location_id { get; set; }
         private void frmDepartment_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -175,7 +175,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     txtModifiedAt.Text.Trim(),
                     txtModifiedBy.Text.Trim(),
                     txtCreatedByAndUserID.Text.Trim(),
-                    lblLocationID.Text.Trim(),
+                   sp_location_id,
                     "add");
 
                     return true;
@@ -206,7 +206,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             txtModifiedAt.Text.Trim(),
                             txtModifiedBy.Text.Trim(),
                             txtCreatedByAndUserID.Text.Trim(),
-                            lblLocationID.Text.Trim(),
+                            sp_location_id,
                             "edit");
 
                         return true;
@@ -229,7 +229,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         txtModifiedAt.Text.Trim(),
                         txtModifiedBy.Text.Trim(),
                         txtCreatedByAndUserID.Text.Trim(),
-                        lblLocationID.Text.Trim(),
+                        sp_location_id,
                         "edit");
                     return true;
                 }
@@ -613,12 +613,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void cboLocation_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lblLocationID.Text = cboLocation.SelectedValue.ToString();
+            sp_location_id = cboLocation.SelectedValue.ToString();
         }
 
         private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lblLocationID.Text = cboLocation.SelectedValue.ToString();
+            sp_location_id = cboLocation.SelectedValue.ToString();
         }
 
         private void matBtnNew_Click(object sender, EventArgs e)
