@@ -21,9 +21,10 @@ namespace ULTRAMAVERICK.Class
 
     public class approve_po_summary
     {
-     
+
         public int PrimaryID { get; set; }
         public string ProjectID { get; set; }
+        public string actual_remaining_receiving {get; set;}
         public string pr_number { get; set; }
         public string pr_date { get; set; }
         public string po_number { get; set; }
