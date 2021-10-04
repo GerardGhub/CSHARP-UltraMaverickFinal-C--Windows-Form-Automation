@@ -338,7 +338,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.item_id.DataPropertyName = "item_id";
             this.item_id.FillWeight = 40.60914F;
-            this.item_id.HeaderText = "Item ID";
+            this.item_id.HeaderText = "ITEM ID";
             this.item_id.MinimumWidth = 12;
             this.item_id.Name = "item_id";
             this.item_id.ReadOnly = true;
@@ -348,7 +348,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // item_code
             // 
             this.item_code.DataPropertyName = "item_code";
-            this.item_code.HeaderText = "Item Code";
+            this.item_code.HeaderText = "ITEM CODE";
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
@@ -357,7 +357,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.Item_description.DataPropertyName = "Item_description";
             this.Item_description.FillWeight = 99.49239F;
-            this.Item_description.HeaderText = "Item Description";
+            this.Item_description.HeaderText = "DESCRIPTION";
             this.Item_description.MinimumWidth = 12;
             this.Item_description.Name = "Item_description";
             this.Item_description.ReadOnly = true;
@@ -366,7 +366,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.primary_unit.DataPropertyName = "primary_unit";
             this.primary_unit.FillWeight = 99.49239F;
-            this.primary_unit.HeaderText = "Primary Unit";
+            this.primary_unit.HeaderText = "PRIMARY UNIT";
             this.primary_unit.MinimumWidth = 12;
             this.primary_unit.Name = "primary_unit";
             this.primary_unit.ReadOnly = true;
@@ -374,7 +374,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // item_type
             // 
             this.item_type.DataPropertyName = "item_type";
-            this.item_type.HeaderText = "Item Type";
+            this.item_type.HeaderText = "ITEM TYPE";
             this.item_type.MinimumWidth = 12;
             this.item_type.Name = "item_type";
             this.item_type.ReadOnly = true;
@@ -383,7 +383,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.item_class.DataPropertyName = "item_class";
             this.item_class.FillWeight = 99.49239F;
-            this.item_class.HeaderText = "Item Class";
+            this.item_class.HeaderText = "ITEM CLASS";
             this.item_class.MinimumWidth = 12;
             this.item_class.Name = "item_class";
             this.item_class.ReadOnly = true;
@@ -392,7 +392,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.major_category.DataPropertyName = "major_category";
             this.major_category.FillWeight = 99.49239F;
-            this.major_category.HeaderText = "Major Category";
+            this.major_category.HeaderText = "MAJOR CATEGORY";
             this.major_category.MinimumWidth = 12;
             this.major_category.Name = "major_category";
             this.major_category.ReadOnly = true;
@@ -401,7 +401,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.sub_category.DataPropertyName = "sub_category";
             this.sub_category.FillWeight = 99.49239F;
-            this.sub_category.HeaderText = "Sub Category";
+            this.sub_category.HeaderText = "SUB CATEGORY";
             this.sub_category.MinimumWidth = 12;
             this.sub_category.Name = "sub_category";
             this.sub_category.ReadOnly = true;
@@ -410,7 +410,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.conversion.DataPropertyName = "conversion";
             this.conversion.FillWeight = 99.49239F;
-            this.conversion.HeaderText = "Conversion";
+            this.conversion.HeaderText = "CONVERSION";
             this.conversion.MinimumWidth = 12;
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;

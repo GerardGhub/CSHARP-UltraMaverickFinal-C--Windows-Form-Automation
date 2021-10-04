@@ -181,7 +181,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                 MessageBox.Show(ex.Message);
             }
-
+            this.dgvRawMats.Columns["item_id"].Visible = false;
 
         }
 

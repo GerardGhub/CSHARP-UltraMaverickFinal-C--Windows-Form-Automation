@@ -19,6 +19,7 @@ namespace ULTRAMAVERICK.Forms.Users
     {
         //Main Constructor Bugok
         myclasses xClass = new myclasses();
+        public Byte[] imageByte = null;
 
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -449,6 +450,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         lblRequestorTypeID.Text.Trim(), 
                         lblUnitID.Text.Trim(),
                         lblGenderSelected.Text.Trim(),
+                        imageByte,
                         "add");
 
                     return true;
@@ -485,6 +487,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             lblRequestorTypeID.Text.Trim(), 
                             lblUnitID.Text.Trim(),
                             lblGenderSelected.Text.Trim(),
+                            imageByte,
                             "edit");
                         matRadioMale.Enabled = false;
                         matRadioFemale.Enabled = false;
@@ -513,6 +516,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         lblRequestorTypeID.Text.Trim(), 
                         lblUnitID.Text.Trim(),
                         lblGenderSelected.Text.Trim(),
+                        imageByte,
                         "edit");
 
                     matRadioMale.Enabled = false;

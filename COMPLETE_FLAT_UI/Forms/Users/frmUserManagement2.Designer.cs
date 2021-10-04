@@ -64,7 +64,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,7 +106,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -124,7 +123,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userfile_id,
-            this.Column1,
             this.username,
             this.employee_name,
             this.employee_lastname,
@@ -610,13 +608,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.userfile_id.Visible = false;
             this.userfile_id.Width = 12;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "NO";
-            this.Column1.MinimumWidth = 12;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // username
             // 
             this.username.DataPropertyName = "username";
@@ -625,6 +616,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.username.MinimumWidth = 12;
             this.username.Name = "username";
             this.username.ReadOnly = true;
+            this.username.Width = 207;
             // 
             // employee_name
             // 
@@ -634,6 +626,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.employee_name.MinimumWidth = 12;
             this.employee_name.Name = "employee_name";
             this.employee_name.ReadOnly = true;
+            this.employee_name.Width = 215;
             // 
             // employee_lastname
             // 
@@ -643,6 +636,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.employee_lastname.MinimumWidth = 12;
             this.employee_lastname.Name = "employee_lastname";
             this.employee_lastname.ReadOnly = true;
+            this.employee_lastname.Width = 210;
             // 
             // gender
             // 
@@ -651,6 +645,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.gender.MinimumWidth = 12;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
+            this.gender.Width = 171;
             // 
             // department_name
             // 
@@ -659,6 +654,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.department_name.MinimumWidth = 12;
             this.department_name.Name = "department_name";
             this.department_name.ReadOnly = true;
+            this.department_name.Width = 233;
             // 
             // Unit
             // 
@@ -667,6 +663,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Unit.MinimumWidth = 12;
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
+            this.Unit.Width = 129;
             // 
             // Position
             // 
@@ -675,6 +672,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Position.MinimumWidth = 12;
             this.Position.Name = "Position";
             this.Position.ReadOnly = true;
+            this.Position.Width = 186;
             // 
             // type_of_approver
             // 
@@ -683,6 +681,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.type_of_approver.MinimumWidth = 12;
             this.type_of_approver.Name = "type_of_approver";
             this.type_of_approver.ReadOnly = true;
+            this.type_of_approver.Width = 281;
             // 
             // password
             // 
@@ -691,6 +690,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.password.MinimumWidth = 12;
             this.password.Name = "password";
             this.password.ReadOnly = true;
+            this.password.Width = 207;
             // 
             // user_rights_name
             // 
@@ -699,6 +699,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.user_rights_name.MinimumWidth = 12;
             this.user_rights_name.Name = "user_rights_name";
             this.user_rights_name.ReadOnly = true;
+            this.user_rights_name.Width = 227;
             // 
             // receiving_status
             // 
@@ -707,6 +708,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.receiving_status.MinimumWidth = 12;
             this.receiving_status.Name = "receiving_status";
             this.receiving_status.ReadOnly = true;
+            this.receiving_status.Width = 242;
             // 
             // user_section
             // 
@@ -715,6 +717,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.user_section.MinimumWidth = 12;
             this.user_section.Name = "user_section";
             this.user_section.ReadOnly = true;
+            this.user_section.Width = 165;
             // 
             // frmUserManagement2
             // 
@@ -776,7 +779,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private MaterialSkin.Controls.MaterialTextBox cmbNotif;
         public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn userfile_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn employee_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn employee_lastname;

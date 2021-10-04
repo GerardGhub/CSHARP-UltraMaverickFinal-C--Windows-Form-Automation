@@ -80,7 +80,7 @@ namespace ULTRAMAVERICK.Class
         class Badge : Label
         {
             //Color BackColor = Color.SkyBlue;
-            Color BackColor =  ColorTranslator.FromHtml("#FF0DB0C1");
+            Color BackColor =  ColorTranslator.FromHtml("#FF0000");
             Color ForeColor = Color.White;
             Font font = new Font("Sans Serif", 8f, FontStyle.Bold);
 

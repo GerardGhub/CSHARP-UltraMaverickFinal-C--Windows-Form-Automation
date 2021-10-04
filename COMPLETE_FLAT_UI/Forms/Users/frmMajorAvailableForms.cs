@@ -20,7 +20,7 @@ namespace ULTRAMAVERICK.Forms.Users
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
-
+        public Byte[] imageByte = null;
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         myglobal pointer_module = new myglobal();
@@ -764,7 +764,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
-                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
+                Convert.ToInt32(temp_id).ToString(),imageByte, "addModuleRightsMajorPartial");
         }
 
         private void matBtnNext_Click(object sender, EventArgs e)
@@ -784,7 +784,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s3",
                 "s2",
                 Convert.ToInt32(temp_id).ToString(),
-                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
+                Convert.ToInt32(temp_id).ToString(), imageByte, "addModuleRightsMajorPartial");
 
             if (dgvUserRights.Rows.Count >= 1)
             {

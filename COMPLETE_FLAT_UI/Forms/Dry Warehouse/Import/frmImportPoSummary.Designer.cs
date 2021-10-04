@@ -46,26 +46,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.txtFileName = new MaterialSkin.Controls.MaterialTextBox();
             this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
             this.cbosheet = new MetroFramework.Controls.MetroComboBox();
-            this.project_Po_SummaryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Project_Po_SummaryTableAdapter();
-            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.project_Po_SummaryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
+            this.ultraMaverickDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.po_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.po_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pr_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty_delivered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty_billed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrimaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSet)).BeginInit();
             this.materialCard2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -92,7 +96,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRawMats.AutoGenerateColumns = false;
-            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -108,20 +112,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ColumnHeadersHeight = 40;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NO,
-            this.ProjectID,
+            this.item_code,
+            this.item_description,
             this.po_number,
             this.po_date,
             this.pr_number,
             this.pr_date,
-            this.item_code,
-            this.item_description,
             this.qty_order,
             this.qty_delivered,
             this.qty_billed,
             this.qty_uom,
             this.unit_price,
-            this.Supplier});
+            this.Supplier,
+            this.Active,
+            this.created_at,
+            this.created_by,
+            this.PrimaryID});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -332,54 +338,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.project_Po_SummaryTableAdapter.ClearBeforeFill = true;
             // 
-            // NO
+            // ultraMaverickDBDataSetBindingSource
             // 
-            this.NO.DataPropertyName = "NO";
-            this.NO.HeaderText = "NO";
-            this.NO.MinimumWidth = 12;
-            this.NO.Name = "NO";
-            this.NO.ReadOnly = true;
-            // 
-            // ProjectID
-            // 
-            this.ProjectID.DataPropertyName = "ProjectID";
-            this.ProjectID.HeaderText = "ProjectID";
-            this.ProjectID.MinimumWidth = 12;
-            this.ProjectID.Name = "ProjectID";
-            this.ProjectID.ReadOnly = true;
-            this.ProjectID.Visible = false;
-            // 
-            // po_number
-            // 
-            this.po_number.DataPropertyName = "po_number";
-            this.po_number.HeaderText = "PO NUMBER";
-            this.po_number.MinimumWidth = 12;
-            this.po_number.Name = "po_number";
-            this.po_number.ReadOnly = true;
-            // 
-            // po_date
-            // 
-            this.po_date.DataPropertyName = "po_date";
-            this.po_date.HeaderText = "PO DATE";
-            this.po_date.MinimumWidth = 12;
-            this.po_date.Name = "po_date";
-            this.po_date.ReadOnly = true;
-            // 
-            // pr_number
-            // 
-            this.pr_number.DataPropertyName = "pr_number";
-            this.pr_number.HeaderText = "PR NUMBER";
-            this.pr_number.MinimumWidth = 12;
-            this.pr_number.Name = "pr_number";
-            this.pr_number.ReadOnly = true;
-            // 
-            // pr_date
-            // 
-            this.pr_date.DataPropertyName = "pr_date";
-            this.pr_date.HeaderText = "PR DATE";
-            this.pr_date.MinimumWidth = 12;
-            this.pr_date.Name = "pr_date";
-            this.pr_date.ReadOnly = true;
+            this.ultraMaverickDBDataSetBindingSource.DataSource = this.ultraMaverickDBDataSet;
+            this.ultraMaverickDBDataSetBindingSource.Position = 0;
             // 
             // item_code
             // 
@@ -388,6 +350,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
+            this.item_code.Width = 204;
             // 
             // item_description
             // 
@@ -396,14 +359,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_description.MinimumWidth = 12;
             this.item_description.Name = "item_description";
             this.item_description.ReadOnly = true;
+            this.item_description.Width = 298;
+            // 
+            // po_number
+            // 
+            this.po_number.DataPropertyName = "po_number";
+            this.po_number.HeaderText = "PO NUMBER";
+            this.po_number.MinimumWidth = 12;
+            this.po_number.Name = "po_number";
+            this.po_number.ReadOnly = true;
+            this.po_number.Width = 219;
+            // 
+            // po_date
+            // 
+            this.po_date.DataPropertyName = "po_date";
+            this.po_date.HeaderText = "PO DATE";
+            this.po_date.MinimumWidth = 12;
+            this.po_date.Name = "po_date";
+            this.po_date.ReadOnly = true;
+            this.po_date.Width = 172;
+            // 
+            // pr_number
+            // 
+            this.pr_number.DataPropertyName = "pr_number";
+            this.pr_number.HeaderText = "PR NUMBER";
+            this.pr_number.MinimumWidth = 12;
+            this.pr_number.Name = "pr_number";
+            this.pr_number.ReadOnly = true;
+            this.pr_number.Width = 215;
+            // 
+            // pr_date
+            // 
+            this.pr_date.DataPropertyName = "pr_date";
+            this.pr_date.HeaderText = "PR DATE";
+            this.pr_date.MinimumWidth = 12;
+            this.pr_date.Name = "pr_date";
+            this.pr_date.ReadOnly = true;
+            this.pr_date.Width = 168;
             // 
             // qty_order
             // 
             this.qty_order.DataPropertyName = "qty_order";
-            this.qty_order.HeaderText = "QTY ORDERED";
+            this.qty_order.HeaderText = "QTY ORDER";
             this.qty_order.MinimumWidth = 12;
             this.qty_order.Name = "qty_order";
             this.qty_order.ReadOnly = true;
+            this.qty_order.Width = 210;
             // 
             // qty_delivered
             // 
@@ -412,6 +413,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.qty_delivered.MinimumWidth = 12;
             this.qty_delivered.Name = "qty_delivered";
             this.qty_delivered.ReadOnly = true;
+            this.qty_delivered.Width = 258;
             // 
             // qty_billed
             // 
@@ -420,14 +422,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.qty_billed.MinimumWidth = 12;
             this.qty_billed.Name = "qty_billed";
             this.qty_billed.ReadOnly = true;
+            this.qty_billed.Width = 206;
             // 
             // qty_uom
             // 
             this.qty_uom.DataPropertyName = "qty_uom";
-            this.qty_uom.HeaderText = "UOM";
+            this.qty_uom.HeaderText = "QTY UOM";
             this.qty_uom.MinimumWidth = 12;
             this.qty_uom.Name = "qty_uom";
             this.qty_uom.ReadOnly = true;
+            this.qty_uom.Width = 188;
             // 
             // unit_price
             // 
@@ -436,14 +440,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.unit_price.MinimumWidth = 12;
             this.unit_price.Name = "unit_price";
             this.unit_price.ReadOnly = true;
+            this.unit_price.Width = 205;
             // 
             // Supplier
             // 
             this.Supplier.DataPropertyName = "Supplier";
-            this.Supplier.HeaderText = "VENDOR NAME";
+            this.Supplier.HeaderText = "SUPPLIER";
             this.Supplier.MinimumWidth = 12;
             this.Supplier.Name = "Supplier";
             this.Supplier.ReadOnly = true;
+            this.Supplier.Width = 182;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.MinimumWidth = 12;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            this.Active.Width = 93;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "created_at";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 191;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "created_by";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 197;
+            // 
+            // PrimaryID
+            // 
+            this.PrimaryID.DataPropertyName = "PrimaryID";
+            this.PrimaryID.HeaderText = "PrimaryID";
+            this.PrimaryID.MinimumWidth = 12;
+            this.PrimaryID.Name = "PrimaryID";
+            this.PrimaryID.ReadOnly = true;
+            this.PrimaryID.Width = 185;
             // 
             // frmImportPoSummary
             // 
@@ -461,6 +503,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSet)).EndInit();
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -479,20 +522,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private MetroFramework.Controls.MetroComboBox cbosheet;
         private System.Windows.Forms.BindingSource drymaterialsBindingSource;
         private UltraMaverickDBDataSet ultraMaverickDBDataSet;
-        private UltraMaverickDBDataSetTableAdapters.Project_Po_SummaryTableAdapter project_Po_SummaryTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
+        private UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter project_Po_SummaryTableAdapter;
+        private System.Windows.Forms.BindingSource ultraMaverickDBDataSetBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
         private System.Windows.Forms.DataGridViewTextBoxColumn po_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn po_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn pr_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn pr_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty_order;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty_delivered;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty_billed;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty_uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryID;
     }
 }

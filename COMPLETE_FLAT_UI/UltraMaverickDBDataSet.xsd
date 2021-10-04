@@ -100,6 +100,55 @@ on rw.item_id =  conversions.item_primary_id
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Project_Po_SummaryTableAdapter" GeneratorDataComponentClassName="Project_Po_SummaryTableAdapter" Name="Project_Po_Summary" UserDataComponentName="Project_Po_SummaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="UltraMaverickDBConnectionString (Settings)" DbObjectName="UltraMaverickDB.dbo.Projects" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+SELECT
+[po_number] ,
+	[po_date] ,
+	[pr_number] ,
+	[pr_date],
+	[item_code] ,
+	[item_description],
+	[qty_order] ,
+	[qty_delivered],
+	[qty_billed] ,
+	[qty_uom] ,
+	[unit_price] ,
+	[Supplier] ,
+	[Active] ,
+	[created_at], 
+	[created_by],
+	[PrimaryID]
+	FROM Projects</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="item_code" DataSetColumn="item_code" />
+              <Mapping SourceColumn="item_description" DataSetColumn="item_description" />
+              <Mapping SourceColumn="po_number" DataSetColumn="po_number" />
+              <Mapping SourceColumn="po_date" DataSetColumn="po_date" />
+              <Mapping SourceColumn="pr_number" DataSetColumn="pr_number" />
+              <Mapping SourceColumn="pr_date" DataSetColumn="pr_date" />
+              <Mapping SourceColumn="qty_order" DataSetColumn="qty_order" />
+              <Mapping SourceColumn="qty_delivered" DataSetColumn="qty_delivered" />
+              <Mapping SourceColumn="qty_billed" DataSetColumn="qty_billed" />
+              <Mapping SourceColumn="qty_uom" DataSetColumn="qty_uom" />
+              <Mapping SourceColumn="unit_price" DataSetColumn="unit_price" />
+              <Mapping SourceColumn="Supplier" DataSetColumn="Supplier" />
+              <Mapping SourceColumn="Active" DataSetColumn="Active" />
+              <Mapping SourceColumn="created_at" DataSetColumn="created_at" />
+              <Mapping SourceColumn="created_by" DataSetColumn="created_by" />
+              <Mapping SourceColumn="PrimaryID" DataSetColumn="PrimaryID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -108,7 +157,7 @@ on rw.item_id =  conversions.item_primary_id
   <xs:element name="UltraMaverickDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="UltraMaverickDBDataSet" msprop:Generator_UserDSName="UltraMaverickDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Raw_Materials_Dry" msprop:Generator_TableClassName="Raw_Materials_DryDataTable" msprop:Generator_TableVarName="tableRaw_Materials_Dry" msprop:Generator_TablePropName="Raw_Materials_Dry" msprop:Generator_RowDeletingName="Raw_Materials_DryRowDeleting" msprop:Generator_RowChangingName="Raw_Materials_DryRowChanging" msprop:Generator_RowEvHandlerName="Raw_Materials_DryRowChangeEventHandler" msprop:Generator_RowDeletedName="Raw_Materials_DryRowDeleted" msprop:Generator_UserTableName="Raw_Materials_Dry" msprop:Generator_RowChangedName="Raw_Materials_DryRowChanged" msprop:Generator_RowEvArgName="Raw_Materials_DryRowChangeEvent" msprop:Generator_RowClassName="Raw_Materials_DryRow">
+        <xs:element name="Raw_Materials_Dry" msprop:Generator_TableClassName="Raw_Materials_DryDataTable" msprop:Generator_TableVarName="tableRaw_Materials_Dry" msprop:Generator_RowChangedName="Raw_Materials_DryRowChanged" msprop:Generator_TablePropName="Raw_Materials_Dry" msprop:Generator_RowDeletingName="Raw_Materials_DryRowDeleting" msprop:Generator_RowChangingName="Raw_Materials_DryRowChanging" msprop:Generator_RowEvHandlerName="Raw_Materials_DryRowChangeEventHandler" msprop:Generator_RowDeletedName="Raw_Materials_DryRowDeleted" msprop:Generator_RowClassName="Raw_Materials_DryRow" msprop:Generator_UserTableName="Raw_Materials_Dry" msprop:Generator_RowEvArgName="Raw_Materials_DryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
@@ -171,11 +220,121 @@ on rw.item_id =  conversions.item_primary_id
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Project_Po_Summary" msprop:Generator_TableClassName="Project_Po_SummaryDataTable" msprop:Generator_TableVarName="tableProject_Po_Summary" msprop:Generator_TablePropName="Project_Po_Summary" msprop:Generator_RowDeletingName="Project_Po_SummaryRowDeleting" msprop:Generator_RowChangingName="Project_Po_SummaryRowChanging" msprop:Generator_RowEvHandlerName="Project_Po_SummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="Project_Po_SummaryRowDeleted" msprop:Generator_UserTableName="Project_Po_Summary" msprop:Generator_RowChangedName="Project_Po_SummaryRowChanged" msprop:Generator_RowEvArgName="Project_Po_SummaryRowChangeEvent" msprop:Generator_RowClassName="Project_Po_SummaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="item_code" msprop:Generator_ColumnVarNameInTable="columnitem_code" msprop:Generator_ColumnPropNameInRow="item_code" msprop:Generator_ColumnPropNameInTable="item_codeColumn" msprop:Generator_UserColumnName="item_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_description" msprop:Generator_ColumnVarNameInTable="columnitem_description" msprop:Generator_ColumnPropNameInRow="item_description" msprop:Generator_ColumnPropNameInTable="item_descriptionColumn" msprop:Generator_UserColumnName="item_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="po_number" msprop:Generator_ColumnVarNameInTable="columnpo_number" msprop:Generator_ColumnPropNameInRow="po_number" msprop:Generator_ColumnPropNameInTable="po_numberColumn" msprop:Generator_UserColumnName="po_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="po_date" msprop:Generator_ColumnVarNameInTable="columnpo_date" msprop:Generator_ColumnPropNameInRow="po_date" msprop:Generator_ColumnPropNameInTable="po_dateColumn" msprop:Generator_UserColumnName="po_date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pr_number" msprop:Generator_ColumnVarNameInTable="columnpr_number" msprop:Generator_ColumnPropNameInRow="pr_number" msprop:Generator_ColumnPropNameInTable="pr_numberColumn" msprop:Generator_UserColumnName="pr_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pr_date" msprop:Generator_ColumnVarNameInTable="columnpr_date" msprop:Generator_ColumnPropNameInRow="pr_date" msprop:Generator_ColumnPropNameInTable="pr_dateColumn" msprop:Generator_UserColumnName="pr_date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qty_order" msprop:Generator_ColumnVarNameInTable="columnqty_order" msprop:Generator_ColumnPropNameInRow="qty_order" msprop:Generator_ColumnPropNameInTable="qty_orderColumn" msprop:Generator_UserColumnName="qty_order" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qty_delivered" msprop:Generator_ColumnVarNameInTable="columnqty_delivered" msprop:Generator_ColumnPropNameInRow="qty_delivered" msprop:Generator_ColumnPropNameInTable="qty_deliveredColumn" msprop:Generator_UserColumnName="qty_delivered" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qty_billed" msprop:Generator_ColumnVarNameInTable="columnqty_billed" msprop:Generator_ColumnPropNameInRow="qty_billed" msprop:Generator_ColumnPropNameInTable="qty_billedColumn" msprop:Generator_UserColumnName="qty_billed" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qty_uom" msprop:Generator_ColumnVarNameInTable="columnqty_uom" msprop:Generator_ColumnPropNameInRow="qty_uom" msprop:Generator_ColumnPropNameInTable="qty_uomColumn" msprop:Generator_UserColumnName="qty_uom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="unit_price" msprop:Generator_ColumnVarNameInTable="columnunit_price" msprop:Generator_ColumnPropNameInRow="unit_price" msprop:Generator_ColumnPropNameInTable="unit_priceColumn" msprop:Generator_UserColumnName="unit_price" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier" msprop:Generator_ColumnVarNameInTable="columnSupplier" msprop:Generator_ColumnPropNameInRow="Supplier" msprop:Generator_ColumnPropNameInTable="SupplierColumn" msprop:Generator_UserColumnName="Supplier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Active" msprop:Generator_ColumnVarNameInTable="columnActive" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_ColumnPropNameInTable="ActiveColumn" msprop:Generator_UserColumnName="Active" type="xs:boolean" minOccurs="0" />
+              <xs:element name="created_at" msprop:Generator_ColumnVarNameInTable="columncreated_at" msprop:Generator_ColumnPropNameInRow="created_at" msprop:Generator_ColumnPropNameInTable="created_atColumn" msprop:Generator_UserColumnName="created_at" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="created_by" msprop:Generator_ColumnVarNameInTable="columncreated_by" msprop:Generator_ColumnPropNameInRow="created_by" msprop:Generator_ColumnPropNameInTable="created_byColumn" msprop:Generator_UserColumnName="created_by" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrimaryID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPrimaryID" msprop:Generator_ColumnPropNameInRow="PrimaryID" msprop:Generator_ColumnPropNameInTable="PrimaryIDColumn" msprop:Generator_UserColumnName="PrimaryID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Raw_Materials_Dry" />
       <xs:field xpath="mstns:item_id" />
+    </xs:unique>
+    <xs:unique name="Project_Po_Summary_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Project_Po_Summary" />
+      <xs:field xpath="mstns:PrimaryID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

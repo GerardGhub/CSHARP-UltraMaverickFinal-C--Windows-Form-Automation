@@ -70,15 +70,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
 
-        //DataSet dset_emp_SearchingUnit = new DataSet();
-        //private void SearchUnitsSP()
-        //{
-        //    dset_emp_SearchingUnit.Clear();
-
-
-        //    dset_emp_SearchingUnit = objStorProc.sp_getMajorTables("Raw_Materials_Dry_IngredientsOnly_Major");
-
-        //}
 
         private void doSearchInTextBoxPrimaryUnit()
         {

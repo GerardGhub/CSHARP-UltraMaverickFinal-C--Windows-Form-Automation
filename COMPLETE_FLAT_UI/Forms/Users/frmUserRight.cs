@@ -32,6 +32,7 @@ namespace ULTRAMAVERICK.Forms.Users
         DataSet dsetHeader = new DataSet();
         int pkey = 0;
         int pkey2 = 0;
+        public Byte[] imageByte = null;
         public frmUserRight()
         {
             InitializeComponent();
@@ -2291,6 +2292,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
+                imageByte,
                 "addModuleRights");
         }
         private void button2_Click(object sender, EventArgs e)
@@ -2310,7 +2312,9 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
-                "s", "addModuleRights");
+                "s",
+                imageByte,
+                "addModuleRights");
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

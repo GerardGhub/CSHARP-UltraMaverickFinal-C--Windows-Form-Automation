@@ -700,8 +700,6 @@ namespace ULTRAMAVERICK {
             
             private global::System.Data.DataColumn columnitem_description;
             
-            private global::System.Data.DataColumn columnProjectID;
-            
             private global::System.Data.DataColumn columnpo_number;
             
             private global::System.Data.DataColumn columnpo_date;
@@ -721,6 +719,14 @@ namespace ULTRAMAVERICK {
             private global::System.Data.DataColumn columnunit_price;
             
             private global::System.Data.DataColumn columnSupplier;
+            
+            private global::System.Data.DataColumn columnActive;
+            
+            private global::System.Data.DataColumn columncreated_at;
+            
+            private global::System.Data.DataColumn columncreated_by;
+            
+            private global::System.Data.DataColumn columnPrimaryID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -768,14 +774,6 @@ namespace ULTRAMAVERICK {
             public global::System.Data.DataColumn item_descriptionColumn {
                 get {
                     return this.columnitem_description;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ProjectIDColumn {
-                get {
-                    return this.columnProjectID;
                 }
             }
             
@@ -861,6 +859,38 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ActiveColumn {
+                get {
+                    return this.columnActive;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn created_atColumn {
+                get {
+                    return this.columncreated_at;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn created_byColumn {
+                get {
+                    return this.columncreated_by;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PrimaryIDColumn {
+                get {
+                    return this.columnPrimaryID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -896,12 +926,11 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Project_Po_SummaryRow AddProject_Po_SummaryRow(string item_code, string item_description, string po_number, string po_date, string pr_number, string pr_date, string qty_order, string qty_delivered, string qty_billed, string qty_uom, string unit_price, string Supplier) {
+            public Project_Po_SummaryRow AddProject_Po_SummaryRow(string item_code, string item_description, string po_number, string po_date, string pr_number, string pr_date, string qty_order, string qty_delivered, string qty_billed, string qty_uom, string unit_price, string Supplier, bool Active, string created_at, string created_by) {
                 Project_Po_SummaryRow rowProject_Po_SummaryRow = ((Project_Po_SummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         item_code,
                         item_description,
-                        null,
                         po_number,
                         po_date,
                         pr_number,
@@ -911,7 +940,11 @@ namespace ULTRAMAVERICK {
                         qty_billed,
                         qty_uom,
                         unit_price,
-                        Supplier};
+                        Supplier,
+                        Active,
+                        created_at,
+                        created_by,
+                        null};
                 rowProject_Po_SummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProject_Po_SummaryRow);
                 return rowProject_Po_SummaryRow;
@@ -919,9 +952,9 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Project_Po_SummaryRow FindByProjectID(int ProjectID) {
+            public Project_Po_SummaryRow FindByPrimaryID(int PrimaryID) {
                 return ((Project_Po_SummaryRow)(this.Rows.Find(new object[] {
-                            ProjectID})));
+                            PrimaryID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -943,7 +976,6 @@ namespace ULTRAMAVERICK {
             internal void InitVars() {
                 this.columnitem_code = base.Columns["item_code"];
                 this.columnitem_description = base.Columns["item_description"];
-                this.columnProjectID = base.Columns["ProjectID"];
                 this.columnpo_number = base.Columns["po_number"];
                 this.columnpo_date = base.Columns["po_date"];
                 this.columnpr_number = base.Columns["pr_number"];
@@ -954,6 +986,10 @@ namespace ULTRAMAVERICK {
                 this.columnqty_uom = base.Columns["qty_uom"];
                 this.columnunit_price = base.Columns["unit_price"];
                 this.columnSupplier = base.Columns["Supplier"];
+                this.columnActive = base.Columns["Active"];
+                this.columncreated_at = base.Columns["created_at"];
+                this.columncreated_by = base.Columns["created_by"];
+                this.columnPrimaryID = base.Columns["PrimaryID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -963,8 +999,6 @@ namespace ULTRAMAVERICK {
                 base.Columns.Add(this.columnitem_code);
                 this.columnitem_description = new global::System.Data.DataColumn("item_description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_description);
-                this.columnProjectID = new global::System.Data.DataColumn("ProjectID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProjectID);
                 this.columnpo_number = new global::System.Data.DataColumn("po_number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpo_number);
                 this.columnpo_date = new global::System.Data.DataColumn("po_date", typeof(string), null, global::System.Data.MappingType.Element);
@@ -985,16 +1019,18 @@ namespace ULTRAMAVERICK {
                 base.Columns.Add(this.columnunit_price);
                 this.columnSupplier = new global::System.Data.DataColumn("Supplier", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSupplier);
+                this.columnActive = new global::System.Data.DataColumn("Active", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActive);
+                this.columncreated_at = new global::System.Data.DataColumn("created_at", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncreated_at);
+                this.columncreated_by = new global::System.Data.DataColumn("created_by", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncreated_by);
+                this.columnPrimaryID = new global::System.Data.DataColumn("PrimaryID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrimaryID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnProjectID}, true));
+                                this.columnPrimaryID}, true));
                 this.columnitem_code.MaxLength = 250;
                 this.columnitem_description.MaxLength = 250;
-                this.columnProjectID.AutoIncrement = true;
-                this.columnProjectID.AutoIncrementSeed = -1;
-                this.columnProjectID.AutoIncrementStep = -1;
-                this.columnProjectID.AllowDBNull = false;
-                this.columnProjectID.ReadOnly = true;
-                this.columnProjectID.Unique = true;
                 this.columnpo_number.MaxLength = 250;
                 this.columnpo_date.MaxLength = 250;
                 this.columnpr_number.MaxLength = 250;
@@ -1005,6 +1041,14 @@ namespace ULTRAMAVERICK {
                 this.columnqty_uom.MaxLength = 250;
                 this.columnunit_price.MaxLength = 250;
                 this.columnSupplier.MaxLength = 250;
+                this.columncreated_at.MaxLength = 250;
+                this.columncreated_by.MaxLength = 250;
+                this.columnPrimaryID.AutoIncrement = true;
+                this.columnPrimaryID.AutoIncrementSeed = -1;
+                this.columnPrimaryID.AutoIncrementStep = -1;
+                this.columnPrimaryID.AllowDBNull = false;
+                this.columnPrimaryID.ReadOnly = true;
+                this.columnPrimaryID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1429,17 +1473,6 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ProjectID {
-                get {
-                    return ((int)(this[this.tableProject_Po_Summary.ProjectIDColumn]));
-                }
-                set {
-                    this[this.tableProject_Po_Summary.ProjectIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string po_number {
                 get {
                     try {
@@ -1600,6 +1633,65 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Active {
+                get {
+                    try {
+                        return ((bool)(this[this.tableProject_Po_Summary.ActiveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Active\' in table \'Project_Po_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProject_Po_Summary.ActiveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string created_at {
+                get {
+                    try {
+                        return ((string)(this[this.tableProject_Po_Summary.created_atColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'created_at\' in table \'Project_Po_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProject_Po_Summary.created_atColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string created_by {
+                get {
+                    try {
+                        return ((string)(this[this.tableProject_Po_Summary.created_byColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'created_by\' in table \'Project_Po_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProject_Po_Summary.created_byColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PrimaryID {
+                get {
+                    return ((int)(this[this.tableProject_Po_Summary.PrimaryIDColumn]));
+                }
+                set {
+                    this[this.tableProject_Po_Summary.PrimaryIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isitem_codeNull() {
                 return this.IsNull(this.tableProject_Po_Summary.item_codeColumn);
             }
@@ -1740,6 +1832,42 @@ namespace ULTRAMAVERICK {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSupplierNull() {
                 this[this.tableProject_Po_Summary.SupplierColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsActiveNull() {
+                return this.IsNull(this.tableProject_Po_Summary.ActiveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetActiveNull() {
+                this[this.tableProject_Po_Summary.ActiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscreated_atNull() {
+                return this.IsNull(this.tableProject_Po_Summary.created_atColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcreated_atNull() {
+                this[this.tableProject_Po_Summary.created_atColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscreated_byNull() {
+                return this.IsNull(this.tableProject_Po_Summary.created_byColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcreated_byNull() {
+                this[this.tableProject_Po_Summary.created_byColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2138,7 +2266,6 @@ namespace ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters {
             tableMapping.DataSetTable = "Project_Po_Summary";
             tableMapping.ColumnMappings.Add("item_code", "item_code");
             tableMapping.ColumnMappings.Add("item_description", "item_description");
-            tableMapping.ColumnMappings.Add("ProjectID", "ProjectID");
             tableMapping.ColumnMappings.Add("po_number", "po_number");
             tableMapping.ColumnMappings.Add("po_date", "po_date");
             tableMapping.ColumnMappings.Add("pr_number", "pr_number");
@@ -2149,6 +2276,10 @@ namespace ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("qty_uom", "qty_uom");
             tableMapping.ColumnMappings.Add("unit_price", "unit_price");
             tableMapping.ColumnMappings.Add("Supplier", "Supplier");
+            tableMapping.ColumnMappings.Add("Active", "Active");
+            tableMapping.ColumnMappings.Add("created_at", "created_at");
+            tableMapping.ColumnMappings.Add("created_by", "created_by");
+            tableMapping.ColumnMappings.Add("PrimaryID", "PrimaryID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2165,21 +2296,25 @@ namespace ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT [ProjectID]
-      ,[po_number]
-      ,[po_date]
-      ,[pr_number]
-      ,[pr_date]
-      ,[item_code]
-      ,[item_description]
-      ,[qty_order]
-      ,[qty_delivered]
-      ,[qty_billed]
-      ,[qty_uom]
-      ,[unit_price]
-      ,[Supplier]
-  FROM [UltraMaverickDB].[dbo].[Projects]
-";
+            this._commandCollection[0].CommandText = @"
+SELECT
+[po_number] ,
+	[po_date] ,
+	[pr_number] ,
+	[pr_date],
+	[item_code] ,
+	[item_description],
+	[qty_order] ,
+	[qty_delivered],
+	[qty_billed] ,
+	[qty_uom] ,
+	[unit_price] ,
+	[Supplier] ,
+	[Active] ,
+	[created_at], 
+	[created_by],
+	[PrimaryID]
+	FROM Projects";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -549,7 +549,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatItemType.Text = String.Empty;
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
-
+            matBtnDelete.Visible = false;
             txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();

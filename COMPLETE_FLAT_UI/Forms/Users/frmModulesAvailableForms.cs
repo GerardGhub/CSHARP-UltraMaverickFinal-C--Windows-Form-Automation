@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Forms.Users
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
-
+        public Byte[] imageByte = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
@@ -789,7 +789,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 Convert.ToInt32(p_id).ToString(),
-                Convert.ToInt32(p_id).ToString(), "addModuleRightsModulePartial");
+                Convert.ToInt32(p_id).ToString(), imageByte, "addModuleRightsModulePartial");
 
             if (dgvUserRights.Rows.Count >= 1)
             {

@@ -13,6 +13,7 @@ using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.Forms.Users.Modal;
+using System.IO;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
@@ -46,6 +47,16 @@ namespace ULTRAMAVERICK.Forms.Users
         public string sp_requestor_type { get; set; }
         public string sp_receiving_status { get; set; }
         public string sp_gender { get; set; }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | 0x2000000;
+                return cp;
+            }
+        }
         private void frmUserManagement2_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -197,9 +208,42 @@ namespace ULTRAMAVERICK.Forms.Users
             addNew.ShowDialog();
         }
 
+        public void ActivitiesLogs(string logs)
+        {
+
+            try
+            {
+                const string location = @"aActivities";
+
+                if (!File.Exists(location))
+                {
+                    var createText = "New Activities Logs" + Environment.NewLine;
+                    File.WriteAllText(location, createText);
+                }
+                var appendLogs = "Activities Logs: " + logs + " " + DateTime.Now + Environment.NewLine;
+                File.AppendAllText(location, appendLogs);
+            }
+            catch (Exception ex)
+            {
+                const string location = @"aActivities";
+                if (!File.Exists(location))
+                {
+                    TextWriter file = File.CreateText(@"C:\aActivities");
+                    var createText = "New Activities Logs" + Environment.NewLine;
+
+                    File.WriteAllText(location, createText);
+
+                }
+                var appendLogs = ex.Message + logs + DateTime.Now + Environment.NewLine;
+                File.AppendAllText(location, appendLogs);
+
+            }
+
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(textBox1.Text =="Save Gerard Singian")
+            if(textBox1.Text =="SaveGerardSingian")
             {
                 if(lbltotalrecords.Text =="0")
                 {
@@ -209,8 +253,11 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     toolStrip2.Visible = true;
                 }
-             
-                frmUserManagement2_Load(sender, e);
+
+            
+                displayUsers();
+               
+                textBox1.Text = String.Empty;
             }
         }
         public void DeletedSuccessfully()
@@ -302,18 +349,18 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dgvUsers_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var grid = sender as DataGridView;
-            var rowIdx = (e.RowIndex + 1).ToString();
+            //var grid = sender as DataGridView;
+            //var rowIdx = (e.RowIndex + 1).ToString();
 
-            var centerFormat = new StringFormat()
-            {
-                // right alignment might actually make more sense for numbers
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
+            //var centerFormat = new StringFormat()
+            //{
+            //    // right alignment might actually make more sense for numbers
+            //    Alignment = StringAlignment.Center,
+            //    LineAlignment = StringAlignment.Center
+            //};
 
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+            //var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            //e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
 
 
 

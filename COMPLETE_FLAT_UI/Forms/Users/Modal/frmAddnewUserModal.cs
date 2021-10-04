@@ -30,6 +30,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         DataSet dSet = new DataSet();
         string mode = "";
         frmUserManagement2 ths;
+        public Byte[] imageByte = null;
         public frmAddnewUserModal(frmUserManagement2 frm)
         {
             InitializeComponent();
@@ -45,6 +46,16 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         public string sp_position_id { get; set; }
 
         public string sp_unit_id { get; set; }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | 0x2000000;
+                return cp;
+            }
+        }
 
         private void frmAddnewUserModal_Load(object sender, EventArgs e)
         {
@@ -340,12 +351,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         department_id,
                         requestor_id,
                         sp_unit_id,
-                        lblGenderSelected.Text.Trim(),
+                        lblGenderSelected.Text.Trim(), imageByte,
                         "add");
                     textBox1.Text = "Save Gerard Singian";
                     SaveSuccessfully();
                     this.Close();
-                    return true;
+                    //return true;
                 }
 
             }
@@ -378,7 +389,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                             department_id,
                             requestor_id,
                             sp_unit_id,
-                            lblGenderSelected.Text.Trim(),
+                            lblGenderSelected.Text.Trim(), imageByte,
                             "edit");
                         matRadioMale.Enabled = false;
                         matRadioFemale.Enabled = false;
@@ -406,7 +417,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         department_id,
                        requestor_id,
                         sp_unit_id,
-                        lblGenderSelected.Text.Trim(),
+                        lblGenderSelected.Text.Trim(), imageByte,
                         "edit");
 
                     matRadioMale.Enabled = false;
@@ -499,18 +510,40 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
                 else
                 {
-                    if (saveMode())
-                    {
-                       
-                
-                        mode = "";
-                        SaveSuccessfully();
 
-                        disable_text(true);
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection.sp_userfile(0,
+                        Convert.ToInt32(sp_user_rights_id),
+                        txtuser.Text.Trim(),
+                        txtpassword.Text.Trim(),
+                        txtname.Text.Trim(),
+                        cmbLocation.Text.Trim(),
+                        cmbNotif.Text.Trim(),
+                         sp_position_id,
+                        txtLastName.Text.Trim(),
+                        department_id,
+                        requestor_id,
+                        sp_unit_id,
+                        lblGenderSelected.Text.Trim(), imageByte,
+                        "add");
+                    textBox1.Text = "SaveGerardSingian";
+                    SaveSuccessfully();
+                    //this.Close();
 
-  
+                    frmAddnewUserModal_Load(sender, e);
+                    //saveMode();
+                    //if (saveMode())
+                    //{
 
-                    }
+
+                    //    //mode = "";
+                    //    SaveSuccessfully();
+
+                    //    //disable_text(true);
+
+
+
+                    //}
                 }
                 cmbLocation.Enabled = false;
                 cmbNotif.Enabled = false;

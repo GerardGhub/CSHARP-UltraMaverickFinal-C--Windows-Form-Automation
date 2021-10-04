@@ -147,6 +147,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void cboSubCat_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            if(cboSubCat.Text =="Packaging")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+            else if (cboSubCat.Text == "Cleaning")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+            else
+            {
+                txtmatConversion.Text = String.Empty;
+                txtmatConversion.Enabled = true;
+                txtmatConversion.Focus();
+            }
         }
 
         private void cboItemType_SelectionChangeCommitted(object sender, EventArgs e)
@@ -181,7 +197,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 txtmatConversion.Enabled = false;
                 txtmatConversion.Text = "1";
             }
-    
+
+            else if (cboSubCat.Text == "Packaging")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+            else if (cboSubCat.Text == "Cleaning")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+
             else
             {
                 txtmatConversion.Text = String.Empty;
@@ -359,12 +386,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     txtcreatedBy.Text.Trim(),
                     "","",
                     "add");
+
+                dSet.Clear();
+                dSet = objStorProc.sp_Raw_Materials_Dry(0,
+                    txtMatItemCode.Text.Trim(),
+                    txtMatItemDesc.Text.Trim(),
+                    cboItemClass.Text.Trim(),
+                    cboMajorCategory.Text.Trim(),
+                    cboSubCat.Text.Trim(),
+                    lblPrimaryUnitID.Text.Trim(),
+                    txtmatConversion.Text.Trim(),
+                    cboItemType.Text.Trim(),
+                    txtcreatedAt.Text.Trim(),
+                    txtcreatedBy.Text.Trim(),
+                    "", "",
+                    "addRMLogs");
+
                 textBox1.Text = "data Already Save!";
                 SaveSuccessfully();
                 frmAddNewItemModal_Load(new object(), new System.EventArgs());
 
             }
-
+            
             else
             {
                 return;

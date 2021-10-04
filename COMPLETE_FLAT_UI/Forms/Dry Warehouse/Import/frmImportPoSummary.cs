@@ -27,6 +27,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         IStoredProcedures objStorProc = null;
+        IStoredProcedures g_objStoredProcCollection = null;
+        myclasses myClass = new myclasses();
         string mode = "";
         public frmImportPoSummary()
         {
@@ -51,17 +53,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             objStorProc = xClass.g_objStoredProc.GetCollections();
             // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Project_Po_Summary' table. You can move, or remove it, as needed.
-            this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
-            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Raw_Materials_Dry' table. You can move, or remove it, as needed.
-            this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
+            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
+            //// TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Raw_Materials_Dry' table. You can move, or remove it, as needed.
+            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
             dgvRawMats.Columns[0].Width = 100;// The id column 
             CallOthers();
+            this.VisibilityOffInDataGrid();
+        }
+        private void VisibilityOffInDataGrid()
 
+        {
+            this.dgvRawMats.Columns["Active"].Visible = false;
+            this.dgvRawMats.Columns["PrimaryID"].Visible = false;
+            this.dgvRawMats.Columns["created_by"].Visible = false;
+            this.dgvRawMats.Columns["created_at"].Visible = false;
         }
         private void CallOthers()
         {
             lbltotalrecords.Text = dgvRawMats.Rows.Count.ToString();
             user_id = userinfo.user_id;
+           
         }
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)
@@ -107,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 if (dgvRawMats.CurrentRow.Cells["item_code"].Value != null)
                 {
-                    item_id_main = dgvRawMats.CurrentRow.Cells["ProjectID"].Value.ToString();
+                    item_id_main = dgvRawMats.CurrentRow.Cells["PrimaryID"].Value.ToString();
                     item_code_main = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
                    sp_qty_order = dgvRawMats.CurrentRow.Cells["qty_order"].Value.ToString();
                     primary_unit_main = dgvRawMats.CurrentRow.Cells["qty_uom"].Value.ToString();
@@ -143,6 +154,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     {
                         approve_po_summary Import_ApprovedPO_rawMat = new approve_po_summary();
 
+                        Import_ApprovedPO_rawMat.ProjectID = dt.Rows[i]["PO Number"].ToString();
                         Import_ApprovedPO_rawMat.pr_number = dt.Rows[i]["Pr Number"].ToString();
                         Import_ApprovedPO_rawMat.pr_date = dt.Rows[i]["PR Date"].ToString();
                         Import_ApprovedPO_rawMat.po_number = dt.Rows[i]["PO Number"].ToString();
@@ -178,18 +190,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void dgvRawMats_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
 
-            var grid = sender as DataGridView;
-            var rowIdx = (e.RowIndex + 1).ToString();
+            //var grid = sender as DataGridView;
+            //var rowIdx = (e.RowIndex + 1).ToString();
 
-            var centerFormat = new StringFormat()
-            {
-                // right alignment might actually make more sense for numbers
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
+            //var centerFormat = new StringFormat()
+            //{
+            //    // right alignment might actually make more sense for numbers
+            //    Alignment = StringAlignment.Center,
+            //    LineAlignment = StringAlignment.Center
+            //};
 
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+            //var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            //e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
 
         private void SaveMethod1()

@@ -14,20 +14,27 @@ using ULTRAMAVERICK.Forms.Users;
 using ULTRAMAVERICK.Models;
 //using MaterialSkin;
 //using MaterialSkin.Controls;
+using ULTRAMAVERICK.Properties;
 using ULTRAMAVERICK.Forms.Research_And_Development;
 using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Forms.Dry_Warehouse;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Import;
+using System.IO;
 
 namespace COMPLETE_FLAT_UI
 {
     public partial class FormMenuPrincipal : Form
     {
         //Constructor
+        public Byte[] imageByte = null;
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
         DataSet dset_rights = new DataSet();
         int rights_id = 0;
+        bool ready = false;
+        myclasses myClass = new myclasses();
+        DataSet dsImage = new DataSet();
+        IStoredProcedures g_objStoredProcCollection = null;
         public FormMenuPrincipal()
         {
             InitializeComponent();
@@ -50,6 +57,8 @@ namespace COMPLETE_FLAT_UI
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
         private Rectangle sizeGripRectangle;
+        public string ImageParse { get; set; }
+        public int sp_user_id { get; set; }
 
         protected override void WndProc(ref Message m)
         {
@@ -163,9 +172,9 @@ namespace COMPLETE_FLAT_UI
             {
                 this.tmContraerMenu.Start();
                 lblFirstName.Visible = false;
-                lblLastName.Visible = false;
+               
                 lblPosition.Visible = false;
-                PcUser.Visible = false;
+                pbImage.Visible = false;
                 ClearDashboardtext();
 
 
@@ -174,9 +183,9 @@ namespace COMPLETE_FLAT_UI
             {
                 this.tmExpandirMenu.Start();
                 lblFirstName.Visible = true;
-                lblLastName.Visible = true;
+            
                 lblPosition.Visible = true;
-                PcUser.Visible = true;
+                pbImage.Visible = true;
                 DashboardEpicComebackofText();
             }
 
@@ -274,12 +283,68 @@ namespace COMPLETE_FLAT_UI
         private void RoundPictureAss()
         {
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
-            gp.AddEllipse(0, 0, PcUser.Width - 3, PcUser.Height - 3);
+            gp.AddEllipse(0, 0, pbImage.Width - 3, pbImage.Height - 3);
             Region rg = new Region(gp);
-            PcUser.Region = rg;
+            pbImage.Region = rg;
         }
-        private void FormMenuPrincipal_Load(object sender, EventArgs e)
+
+        private void loadDefaultImage()
         {
+            try
+            {
+                ready = false;
+                pbImage.Image = null;
+                pbImage.Refresh();
+                pbImage.BackgroundImage = new Bitmap(ULTRAMAVERICK.Properties.Resources.Buddy);
+                // Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Buddy.png");
+                imageByte = new byte[Convert.ToInt32(null)];
+        
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void loadImage()
+        {
+            sp_user_id = userinfo.user_id;
+
+            dsImage = g_objStoredProcCollection.sp_employee_new(sp_user_id, "", "getImage");
+            //              imageByte = (Byte[])(dsImage.Tables[0].Rows[0]["image_employee"]);
+            try
+            {
+
+                imageByte = (Byte[])(dsImage.Tables[0].Rows[0]["image_employee"]);
+                if (imageByte.Length == 0)
+                {
+                    loadDefaultImage();
+                }
+                else
+                {
+                    try
+                    {
+
+                        pbImage.Image = Image.FromStream(new MemoryStream(imageByte));
+             
+                    }
+                    catch (Exception exception)
+                    {
+                        this.Show();
+                        loadDefaultImage();
+                        MessageBox.Show("Error  :  Image of" + lblFirstName.Text + "  Failed To Load. \n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception) { loadDefaultImage(); }
+        }
+
+        private void FormMenuPrincipal_Load(object sender, EventArgs e)
+        {            // Calling the Stored PROC 
+
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
             //this.Size = new Size(1300, 700); //Size of Windows
             BadgeNotification();
             RoundPictureAss();
@@ -288,11 +353,17 @@ namespace COMPLETE_FLAT_UI
             //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
             lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();// loading logo
-            //rights here
+                              //rights here
+         ImageParse = userinfo.image_employee;
+            if(ImageParse == String.Empty)
+            {
+                loadDefaultImage();
+            }
+            else
+            {
+                loadImage();
+            }
             rights_id = userinfo.user_rights_id;
-            // Calling the Stored PROC 
-            objStorProc = xClass.g_objStoredProc.GetCollections();
-
 
             user_section_controlBox = userinfo.user_section;
           
@@ -985,22 +1056,22 @@ namespace COMPLETE_FLAT_UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                frmLoginForm mainLogin = new frmLoginForm();
-                this.Hide();
-                //mainLogin.Closed += (s, args) => this.Close();
+                //this.Close();
 
-                //mainLogin.ShowDialog();
+                //frmLoginForm Login = new frmLoginForm();
+                //Login.ShowDialog();
                 Application.Exit();
-
             }
-
             else
             {
+
                 return;
             }
-            }
+
+      
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {

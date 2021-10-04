@@ -28,6 +28,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         IStoredProcedures objStorProc = null;
+        IStoredProcedures g_objStoredProcCollection = null;
+        myclasses myClass = new myclasses();
         string mode = "";
         public frmImportRawMatsExcel()
         {
@@ -47,8 +49,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public int user_id { get; set; }
         
         private void frmImportRawMatsExcel_Load(object sender, EventArgs e)
+
         {
-            objStorProc = xClass.g_objStoredProc.GetCollections();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
             // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Raw_Materials_Dry' table. You can move, or remove it, as needed.
             this.raw_Materials_DryTableAdapter.Fill(this.ultraMaverickDBDataSet.Raw_Materials_Dry);
             //dgvRawMats.Rows[2].DefaultCellStyle.BackColor = Color.Yellow;

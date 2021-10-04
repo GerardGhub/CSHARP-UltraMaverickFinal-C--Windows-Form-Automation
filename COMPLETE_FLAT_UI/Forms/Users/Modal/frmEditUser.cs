@@ -12,6 +12,9 @@ using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using COMPLETE_FLAT_UI.Models;
+using COMPLETE_FLAT_UI;
+using System.IO;
 
 namespace ULTRAMAVERICK.Forms.Users.Modal
 {
@@ -25,11 +28,18 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
         DataSet dSet_temp = new DataSet();
+        DataSet dsImage= new DataSet();
         int temp_id = 0;
         int s_id = 0;
         Boolean ready = false;
         DataSet dSet = new DataSet();
         string mode = "";
+
+        //
+        private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
+        private FileStream fileStream;
+        private BinaryReader binaryReader;
+        public Byte[] imageByte = null;
         public frmEditUser(frmUserManagement2 frm, string first_name, string last_name, string user_rights, 
             string username, string password, string department, string position, string unit, string user_layout,
             string requestor_type, string receiving_status, string gender, int  primary_key)
@@ -69,6 +79,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         public string sp_dept_unit_id { get; set; }
         public string sp_position_id { get; set; }
         public int primary_key { get; set; }
+        public int sp_user_id { get; set; }
 
         private void frmEditUser_Load(object sender, EventArgs e)
         {
@@ -79,7 +90,59 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             loadRequestorType();
             callDataBinding();
             textBox1.Text = String.Empty;
+            loadImage();
+            Gender();
 
+        }
+
+        public void Gender()
+        {
+            if (lblGenderSelected.Text == "Male")
+            {
+                matRadioMale.Checked = true;
+            }
+            else if (lblGenderSelected.Text == "Female")
+            {
+                matRadioFemale.Checked = true;
+            }
+            else
+            {
+                matRadioFemale.Checked = false;
+                matRadioMale.Checked = false;
+            }
+        }
+
+        private void loadImage()
+        {
+            sp_user_id = primary_key;
+
+            dsImage = g_objStoredProcCollection.sp_employee_new(sp_user_id, "", "getImage");
+            //              imageByte = (Byte[])(dsImage.Tables[0].Rows[0]["image_employee"]);
+            try
+            {
+
+                imageByte = (Byte[])(dsImage.Tables[0].Rows[0]["image_employee"]);
+                if (imageByte.Length == 0)
+                {
+                    loadDefaultImage();
+                }
+                else
+                {
+                    try
+                    {
+
+                        pbImage.Image = Image.FromStream(new MemoryStream(imageByte));
+
+                    }
+                    catch (Exception exception)
+                    {
+                        this.Show();
+                        loadDefaultImage();
+                        MessageBox.Show("Error  :  Image of" + txtname.Text + "  Failed To Load. \n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception) { loadDefaultImage(); }
         }
 
         private void CallMotherNatureExternalControlls()
@@ -139,7 +202,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void frmEditUser_FormClosing(object sender, FormClosingEventArgs e)
         {
-            textBox1.Text = "Save Gerard Singian";
+            textBox1.Text = "SaveGerardSingian";
         }
 
         private void matRadioMale_CheckedChanged(object sender, EventArgs e)
@@ -425,7 +488,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         sp_drop_department_id,
                         sp_requestor_type_id,
                         sp_dept_unit_id,
-                        lblGenderSelected.Text.Trim(),
+                        lblGenderSelected.Text.Trim(), imageByte,
                         "add");
                     textBox1.Text = "Save Gerard Singian";
                     SaveSuccessfully();
@@ -463,10 +526,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                             sp_drop_department_id,
                             sp_requestor_type_id,
                             sp_dept_unit_id,
-                            lblGenderSelected.Text.Trim(),
+                            lblGenderSelected.Text.Trim(), imageByte,
                             "edit");
                         SaveSuccessfully();
-                        textBox1.Text = "Save Gerard Singian";
+                        textBox1.Text = "SaveGerardSingian";
                         this.Close();
                         return true;
                     }
@@ -492,10 +555,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         sp_drop_department_id,
                        sp_requestor_type_id,
                         sp_dept_unit_id,
-                        lblGenderSelected.Text.Trim(),
+                        lblGenderSelected.Text.Trim(), imageByte,
                         "edit");
                     SaveSuccessfully();
-                    textBox1.Text = "Save Gerard Singian";
+                    textBox1.Text = "SaveGerardSingian";
 
                     this.Close();
                     return true;
@@ -608,6 +671,87 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
                 return;
             }
+        }
+   
+        private Boolean readImageByte(String path)
+        {
+            try
+            {
+                imageByte = new byte[Convert.ToInt32(null)];
+                fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+                binaryReader = new BinaryReader(fileStream);
+                imageByte = binaryReader.ReadBytes((Int32)fileStream.Length);
+                pbImage.Image = null;
+                pbImage.Refresh();
+                pbImage.Image = Image.FromFile(path);
+                return true;
+            }
+            catch (Exception exception)
+            {
+                loadDefaultImage();
+                MessageBox.Show("Error  :  Image failed to Read\n\nPlease Try it again!!!\n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+        }
+        private void loadDefaultImage()
+        {
+            try
+            {
+                ready = false;
+                pbImage.Image = null;
+                pbImage.Refresh();
+                pbImage.BackgroundImage = new Bitmap(Properties.Resources.Buddy);
+                // Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Buddy.png");
+                imageByte = new byte[Convert.ToInt32(null)];
+                btnRemove.Enabled = false;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void selectEmployeeImage()
+        {
+            odbEmployeeImage.Filter = "JPEG Images (.JPG)|*.jpg|GIF Images (.GIF)|*.gif|BITMAPS (.BMP)|*.bmp|PNG Images (.PNG)|*.png";
+            odbEmployeeImage.Multiselect = false;
+            ready = true;
+            if (odbEmployeeImage.ShowDialog() != DialogResult.Cancel)
+            {
+                try
+                {
+                    pbImage.Image = null;
+                    pbImage.Refresh();
+                    pbImage.Image = Image.FromFile(odbEmployeeImage.FileName);
+                    ready = true;
+                    if (readImageByte(odbEmployeeImage.FileName))
+                    {
+                        btnRemove.Enabled = true;
+                    }
+                }
+                catch (Exception exception)
+                {
+                   ready = false;
+                    MessageBox.Show("Error  : Image Failed To Load \n\n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Remove The Image of " + txtname.Text + "?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                loadDefaultImage();
+
+                frmUserManagement2 sa = new frmUserManagement2();
+
+                sa.ActivitiesLogs(userinfo.emp_name + " Remove Image");
+            }
+        }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            selectEmployeeImage();
         }
     }
 }

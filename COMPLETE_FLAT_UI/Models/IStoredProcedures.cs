@@ -185,6 +185,7 @@ namespace ULTRAMAVERICK.Models
             string requestor_type,
             string Unit,
             string gender,
+            Byte[] image_employee,
             string mode);
        
         DataSet sp_userfile(int userfile_id, string username, string password, string user_section, string mode);
