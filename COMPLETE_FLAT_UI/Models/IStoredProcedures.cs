@@ -313,6 +313,29 @@ namespace ULTRAMAVERICK.Models
                 string updated_by,
                 string mode);
 
+            DataSet sp_projects(
+            int primaryid,
+            string projectid,
+            string actual_remaining_receiving,
+            string projectname,
+            string pr_number,
+            string pr_date,
+            string po_number,
+            string po_date,
+            string item_code,
+            string item_description,
+            string qty_order,
+            string qty_delivered,
+            string qty_billed,
+            string qty_uom,
+            string unit_price,
+            string supplier,
+            string item_class,
+            string item_type,
+            string major_category,
+            string sub_category,
+            string mode);
+
 
         DataSet sp_PrimaryUnitManagement(
         int id,

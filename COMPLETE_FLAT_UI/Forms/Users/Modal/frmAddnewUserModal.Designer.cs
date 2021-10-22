@@ -55,6 +55,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnUpdateTool = new MaterialSkin.Controls.MaterialButton();
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
+            this.matChkQAUserAccount = new MaterialSkin.Controls.MaterialCheckbox();
+            this.cmbQAUserType = new MetroFramework.Controls.MetroComboBox();
+            this.lblUserType = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -417,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(797, 787);
+            this.textBox1.Location = new System.Drawing.Point(951, 84);
             this.textBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(383, 39);
@@ -433,7 +436,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool.DrawShadows = true;
             this.btnUpdateTool.HighEmphasis = true;
             this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(73, 813);
+            this.btnUpdateTool.Location = new System.Drawing.Point(73, 824);
             this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateTool.Name = "btnUpdateTool";
@@ -447,7 +450,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             // metroButtonSave
             // 
-            this.metroButtonSave.Location = new System.Drawing.Point(512, 761);
+            this.metroButtonSave.Location = new System.Drawing.Point(603, 100);
             this.metroButtonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroButtonSave.Name = "metroButtonSave";
             this.metroButtonSave.Size = new System.Drawing.Size(181, 48);
@@ -457,11 +460,59 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.metroButtonSave.Visible = false;
             this.metroButtonSave.Click += new System.EventHandler(this.metroButtonSave_Click);
             // 
+            // matChkQAUserAccount
+            // 
+            this.matChkQAUserAccount.AutoSize = true;
+            this.matChkQAUserAccount.Depth = 0;
+            this.matChkQAUserAccount.Location = new System.Drawing.Point(387, 825);
+            this.matChkQAUserAccount.Margin = new System.Windows.Forms.Padding(0);
+            this.matChkQAUserAccount.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matChkQAUserAccount.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matChkQAUserAccount.Name = "matChkQAUserAccount";
+            this.matChkQAUserAccount.Ripple = true;
+            this.matChkQAUserAccount.Size = new System.Drawing.Size(153, 37);
+            this.matChkQAUserAccount.TabIndex = 574;
+            this.matChkQAUserAccount.Text = "QA User Account";
+            this.matChkQAUserAccount.UseVisualStyleBackColor = true;
+            this.matChkQAUserAccount.CheckedChanged += new System.EventHandler(this.matChkQAUserAccount_CheckedChanged);
+            // 
+            // cmbQAUserType
+            // 
+            this.cmbQAUserType.Enabled = false;
+            this.cmbQAUserType.FormattingEnabled = true;
+            this.cmbQAUserType.ItemHeight = 24;
+            this.cmbQAUserType.Items.AddRange(new object[] {
+            "Office",
+            "Production"});
+            this.cmbQAUserType.Location = new System.Drawing.Point(810, 838);
+            this.cmbQAUserType.Name = "cmbQAUserType";
+            this.cmbQAUserType.Size = new System.Drawing.Size(627, 30);
+            this.cmbQAUserType.TabIndex = 587;
+            this.cmbQAUserType.UseSelectable = true;
+            this.cmbQAUserType.Visible = false;
+            // 
+            // lblUserType
+            // 
+            this.lblUserType.AutoSize = true;
+            this.lblUserType.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblUserType.Location = new System.Drawing.Point(809, 803);
+            this.lblUserType.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblUserType.Name = "lblUserType";
+            this.lblUserType.Size = new System.Drawing.Size(152, 32);
+            this.lblUserType.TabIndex = 586;
+            this.lblUserType.Text = "User Type:";
+            this.lblUserType.Visible = false;
+            // 
             // frmAddnewUserModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1955, 933);
+            this.ClientSize = new System.Drawing.Size(1955, 942);
+            this.Controls.Add(this.cmbQAUserType);
+            this.Controls.Add(this.matChkQAUserAccount);
+            this.Controls.Add(this.lblUserType);
             this.Controls.Add(this.metroButtonSave);
             this.Controls.Add(this.btnUpdateTool);
             this.Controls.Add(this.textBox1);
@@ -506,5 +557,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton btnUpdateTool;
         private MetroFramework.Controls.MetroButton metroButtonSave;
+        private MaterialSkin.Controls.MaterialCheckbox matChkQAUserAccount;
+        private MetroFramework.Controls.MetroComboBox cmbQAUserType;
+        private System.Windows.Forms.Label lblUserType;
     }
 }

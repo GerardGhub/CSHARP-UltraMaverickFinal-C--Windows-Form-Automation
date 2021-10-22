@@ -1062,6 +1062,11 @@ namespace COMPLETE_FLAT_UI
 
                 //frmLoginForm Login = new frmLoginForm();
                 //Login.ShowDialog();
+
+                //this.Hide();
+                //frmLoginForm sistema = new frmLoginForm();
+                //sistema.ShowDialog();
+
                 Application.Exit();
             }
             else

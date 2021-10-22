@@ -60,6 +60,9 @@
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_ingredients.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoSproc, Version=1.0.0.3, Culture=neutral, PublicKeyToken=d7e6f270c9407513">
       <SpecificVersion>False</SpecificVersion>
@@ -120,12 +123,6 @@
     <Compile Include="Class\MenuRenderer.cs" />
     <Compile Include="Class\RJDropdownMenu.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FormListaClientes.cs">
       <SubType>Form</SubType>
@@ -359,9 +356,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UltraMaverickDBDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormListaClientes.resx">
       <DependentUpon>FormListaClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -616,6 +610,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8_ingredients.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

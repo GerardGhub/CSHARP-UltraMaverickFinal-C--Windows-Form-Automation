@@ -671,5 +671,20 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
 
         }
+
+        private void matChkQAUserAccount_CheckedChanged(object sender, EventArgs e)
+        {
+            if(matChkQAUserAccount.Checked == true)
+            {
+                cmbQAUserType.Visible = true;
+                lblUserType.Visible = true;
+            }
+            else
+            {
+                cmbQAUserType.Visible = false;
+                lblUserType.Visible = false;
+
+            }
+        }
     }
 }

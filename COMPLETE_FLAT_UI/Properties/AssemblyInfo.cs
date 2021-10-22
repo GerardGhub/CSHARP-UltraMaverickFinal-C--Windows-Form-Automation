@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("ULTRA MAVERICK DEVELOP BY MASTER GERARD SINGIAN")]
+[assembly: AssemblyTitle("ULTRA MAVERICK DEVELOP BY GERARD SINGIAN")]
 [assembly: AssemblyDescription("FOOD MFTG")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("RDF BY Gerard Singian")]
-[assembly: AssemblyProduct("COMPLETE_FLAT_UI")]
+[assembly: AssemblyCompany("RDF")]
+[assembly: AssemblyProduct("Ultra Maverick Food Manufacturing Corp")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
