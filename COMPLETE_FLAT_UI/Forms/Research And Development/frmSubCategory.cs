@@ -38,6 +38,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
         public string sp_created_at { get; set; }
         public string sp_created_by { get; set; }
+        public string is_expirables { get; set; }
         private void frmSubCategory_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -65,34 +66,34 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {
-            mode = "add";
-            matBtnEdit.Visible = false;
-            matBtnCancel.Visible = true;
-            txtSubCategory.Enabled = true;
-            matBtnNew.Visible = false;
-            txtSubCategory.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            this.mode = "add";
+            this.matBtnEdit.Visible = false;
+            this.matBtnCancel.Visible = true;
+            this.txtSubCategory.Enabled = true;
+            this.matBtnNew.Visible = false;
+            this.txtSubCategory.Text = String.Empty;
+            this.txtModifiedAt.Text = String.Empty;
+            this.txtModifiedBy.Text = String.Empty;
 
-           sp_created_at = (dNow.ToString("M/d/yyyy"));
-           sp_created_by = userinfo.emp_name.ToUpper();
+            this.sp_created_at = (dNow.ToString("M/d/yyyy"));
+            this.sp_created_by = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            matBtnSave.Visible = true;
-            txtSubCategory.Select();
-            txtSubCategory.Focus();
+            this.matBtnSave.Visible = true;
+            this.txtSubCategory.Select();
+            this.txtSubCategory.Focus();
         }
 
         private void matBtnCancel_Click(object sender, EventArgs e)
         {
-            matBtnCancel.Visible = false;
-            mode = "";
-            sp_created_by = String.Empty;
-           sp_created_at = String.Empty;
-            matBtnEdit.Visible = true;
-            matBtnSave.Visible = false;
-            matBtnNew.Visible = true;
-            matBtnDelete.Visible = true;
-            txtSubCategory.Enabled = false;
+            this.matBtnCancel.Visible = false;
+            this.mode = "";
+            this.sp_created_by = String.Empty;
+            this.sp_created_at = String.Empty;
+            this.matBtnEdit.Visible = true;
+            this.matBtnSave.Visible = false;
+            this.matBtnNew.Visible = true;
+            this.matBtnDelete.Visible = true;
+            this.txtSubCategory.Enabled = false;
         }
         public void DeletedSuccessfully()
         {
@@ -135,8 +136,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                     if (saveMode())
                     {
-                        DeletedSuccessfully();
-                        showSubCategoryData();
+                        this.DeletedSuccessfully();
+                        this.showSubCategoryData();
 
                         matBtnCancel_Click("", e);
                     }
@@ -157,16 +158,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
-            matBtnDelete.Visible = false;
-            matBtnCancel.Visible = true;
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            matBtnSave.Visible = true;
-            txtSubCategory.Enabled = true;
-            txtSubCategory.Focus();
+            this.mode = "edit";
+            this.txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            this.txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            this.matBtnDelete.Visible = false;
+            this.matBtnCancel.Visible = true;
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+            this.matBtnSave.Visible = true;
+            this.txtSubCategory.Enabled = true;
+            this.txtSubCategory.Focus();
         }
 
         public void SubCategoryAlreadyExist()
@@ -200,7 +201,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             dSet.Clear();
             dSet = objStorProc.sp_Sub_Category(0,
-                txtSubCategory.Text, "", "", "", "", "getbyname");
+                txtSubCategory.Text, "", "", "","", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -238,7 +239,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
             popup.ShowOptionsButton = true;
-
+            this.matRadioExpirable.Enabled = false;
+            this.matRadioNotExpirable.Enabled = false; ;
 
         }
         public void FillRequiredFields()
@@ -322,7 +324,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             {
                 dSet.Clear();
                 dSet = objStorProc.sp_Sub_Category(0, 
-                    txtSubCategory.Text, "", "", "", "", "getbyname");
+                    txtSubCategory.Text, "", "", "", "","", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -342,7 +344,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         sp_created_at,
                         sp_created_by,
                         txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "add");
+                        txtModifiedBy.Text.Trim(), is_expirables, "add");
 
                     showSubCategoryData();
 
@@ -355,11 +357,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 dSet.Clear();
                 dSet = objStorProc.sp_Sub_Category(0,
                     txtSubCategory.Text,
-                    "", "", "", "", "getbyname");
+                    "", "", "", "","", "getbyname");
 
                 dSet_temp.Clear();
                 dSet_temp = objStorProc.sp_Sub_Category(p_id,
-                    txtSubCategory.Text, "", "", "", "", "getbyid");
+                    txtSubCategory.Text, "", "", "", "", "","getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -373,7 +375,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             sp_created_by,
                             sp_created_at,
                             txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(), "edit");
+                            txtModifiedBy.Text.Trim(), is_expirables, "edit");
                         UpdateNotifications();
                         showSubCategoryData();
                         mode = "";
@@ -397,7 +399,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                           sp_created_by,
                          sp_created_at,
                           txtModifiedAt.Text.Trim(),
-                          txtModifiedBy.Text.Trim(), "edit");
+                          txtModifiedBy.Text.Trim(), is_expirables, "edit");
                     UpdateNotifications();
                     showSubCategoryData();
                     mode = "";
@@ -409,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                 dSet_temp.Clear();
                 dSet_temp = objStorProc.sp_Sub_Category(p_id,
-                    txtSubCategory.Text, "", "", "", "", "delete");
+                    txtSubCategory.Text, "", "", "", "","", "delete");
 
                 return true;
             }
@@ -461,12 +463,26 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 {
                     if (dgvSubCategory.CurrentRow.Cells["sub_category_desc"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvSubCategory.CurrentRow.Cells["sub_category_id"].Value);
-                        txtSubCategory.Text = dgvSubCategory.CurrentRow.Cells["sub_category_desc"].Value.ToString();
-                       sp_created_by = dgvSubCategory.CurrentRow.Cells["sc_added_by"].Value.ToString();
-                        sp_created_at = dgvSubCategory.CurrentRow.Cells["sc_added_at"].Value.ToString();
-                        txtModifiedAt.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_by"].Value.ToString();
+                        this.p_id = Convert.ToInt32(dgvSubCategory.CurrentRow.Cells["sub_category_id"].Value);
+                        this.txtSubCategory.Text = dgvSubCategory.CurrentRow.Cells["sub_category_desc"].Value.ToString();
+                        this.sp_created_by = dgvSubCategory.CurrentRow.Cells["sc_added_by"].Value.ToString();
+                        this.sp_created_at = dgvSubCategory.CurrentRow.Cells["sc_added_at"].Value.ToString();
+                        this.txtModifiedAt.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_at"].Value.ToString();
+                        this.txtModifiedBy.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_by"].Value.ToString();
+                        is_expirables = dgvSubCategory.CurrentRow.Cells["is_expirable"].Value.ToString();
+
+                        if (is_expirables == "1")
+                        {
+                           matRadioExpirable.Checked = true;
+                        }
+                        else if (is_expirables == "0")
+                        {
+                            matRadioExpirable.Checked = false;
+                        }
+                        else
+                        {
+                 
+                        }
                     }
                 }
             }
@@ -474,21 +490,23 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            mode = "add";
-            matBtnEdit.Visible = false;
-            matBtnCancel.Visible = true;
-            txtSubCategory.Enabled = true;
-            matBtnNew.Visible = false;
-            txtSubCategory.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
-            matBtnDelete.Visible = false;
-           sp_created_at = (dNow.ToString("M/d/yyyy"));
-            sp_created_by = userinfo.emp_name.ToUpper();
+            this.mode = "add";
+            this.matBtnEdit.Visible = false;
+            this.matBtnCancel.Visible = true;
+            this.txtSubCategory.Enabled = true;
+            this.matBtnNew.Visible = false;
+            this.txtSubCategory.Text = String.Empty;
+            this.txtModifiedAt.Text = String.Empty;
+            this.txtModifiedBy.Text = String.Empty;
+            this.matRadioExpirable.Enabled = true;
+            this.matRadioNotExpirable.Enabled = true;
+            this.matBtnDelete.Visible = false;
+            this.sp_created_at = (dNow.ToString("M/d/yyyy"));
+            this.sp_created_by = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            matBtnSave.Visible = true;
-            txtSubCategory.Select();
-            txtSubCategory.Focus();
+            this.matBtnSave.Visible = true;
+            this.txtSubCategory.Select();
+            this.txtSubCategory.Focus();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -540,6 +558,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             mode = "edit";
+            this.matRadioExpirable.Enabled = true;
+            this.matRadioNotExpirable.Enabled = true;
             txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
             txtModifiedBy.Text = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
@@ -555,7 +575,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             dSet.Clear();
             dSet = objStorProc.sp_Sub_Category(0,
-                txtSubCategory.Text, "", "", "", "", "getbyname");
+                txtSubCategory.Text, "", "", "", "","", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -568,6 +588,38 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             else
             {
                 metroSave_Click(sender, e);
+            }
+        }
+
+        private void matRadioExpirable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioExpirable.Checked == true)
+            {
+                this.is_expirables = "1";
+            }
+            else if (matRadioNotExpirable.Checked == true)
+            {
+                this.is_expirables = "0";
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void matRadioNotExpirable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioExpirable.Checked == true)
+            {
+                this.is_expirables = "1";
+            }
+            else if (matRadioNotExpirable.Checked == true)
+            {
+                this.is_expirables = "0";
+            }
+            else
+            {
+
             }
         }
 

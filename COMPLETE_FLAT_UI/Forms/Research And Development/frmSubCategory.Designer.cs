@@ -29,12 +29,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSubCategory));
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.matRadioNotExpirable = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioExpirable = new MaterialSkin.Controls.MaterialRadioButton();
             this.txtSubCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -57,6 +59,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.sc_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sc_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sc_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_expirable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
@@ -69,6 +72,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.matRadioNotExpirable);
+            this.materialCard1.Controls.Add(this.matRadioExpirable);
             this.materialCard1.Controls.Add(this.txtSubCategory);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -80,10 +85,44 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard1.Size = new System.Drawing.Size(1769, 161);
             this.materialCard1.TabIndex = 608;
             // 
+            // matRadioNotExpirable
+            // 
+            this.matRadioNotExpirable.AutoSize = true;
+            this.matRadioNotExpirable.Depth = 0;
+            this.matRadioNotExpirable.Enabled = false;
+            this.matRadioNotExpirable.Location = new System.Drawing.Point(1375, 54);
+            this.matRadioNotExpirable.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioNotExpirable.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioNotExpirable.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioNotExpirable.Name = "matRadioNotExpirable";
+            this.matRadioNotExpirable.Ripple = true;
+            this.matRadioNotExpirable.Size = new System.Drawing.Size(137, 37);
+            this.matRadioNotExpirable.TabIndex = 580;
+            this.matRadioNotExpirable.TabStop = true;
+            this.matRadioNotExpirable.Text = "Not - Expirable";
+            this.matRadioNotExpirable.UseVisualStyleBackColor = true;
+            this.matRadioNotExpirable.CheckedChanged += new System.EventHandler(this.matRadioNotExpirable_CheckedChanged);
+            // 
+            // matRadioExpirable
+            // 
+            this.matRadioExpirable.AutoSize = true;
+            this.matRadioExpirable.Depth = 0;
+            this.matRadioExpirable.Enabled = false;
+            this.matRadioExpirable.Location = new System.Drawing.Point(1070, 54);
+            this.matRadioExpirable.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioExpirable.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioExpirable.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioExpirable.Name = "matRadioExpirable";
+            this.matRadioExpirable.Ripple = true;
+            this.matRadioExpirable.Size = new System.Drawing.Size(100, 37);
+            this.matRadioExpirable.TabIndex = 579;
+            this.matRadioExpirable.TabStop = true;
+            this.matRadioExpirable.Text = "Expirable";
+            this.matRadioExpirable.UseVisualStyleBackColor = true;
+            this.matRadioExpirable.CheckedChanged += new System.EventHandler(this.matRadioExpirable_CheckedChanged);
+            // 
             // txtSubCategory
             // 
-            this.txtSubCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSubCategory.Depth = 0;
             this.txtSubCategory.Enabled = false;
@@ -94,7 +133,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtSubCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.txtSubCategory.Multiline = false;
             this.txtSubCategory.Name = "txtSubCategory";
-            this.txtSubCategory.Size = new System.Drawing.Size(1706, 50);
+            this.txtSubCategory.Size = new System.Drawing.Size(836, 50);
             this.txtSubCategory.TabIndex = 0;
             this.txtSubCategory.Text = "";
             // 
@@ -119,21 +158,21 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvSubCategory.AllowUserToAddRows = false;
             this.dgvSubCategory.AllowUserToDeleteRows = false;
             this.dgvSubCategory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvSubCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvSubCategory.ColumnHeadersHeight = 35;
             this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -142,15 +181,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.sc_added_at,
             this.sc_added_by,
             this.sc_updated_at,
-            this.sc_updated_by});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle11;
+            this.sc_updated_by,
+            this.is_expirable});
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvSubCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubCategory.EnableHeadersVisualStyles = false;
             this.dgvSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -159,14 +199,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvSubCategory.MultiSelect = false;
             this.dgvSubCategory.Name = "dgvSubCategory";
             this.dgvSubCategory.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvSubCategory.RowHeadersVisible = false;
             this.dgvSubCategory.RowHeadersWidth = 102;
             this.dgvSubCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -414,6 +454,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.sc_updated_by.Name = "sc_updated_by";
             this.sc_updated_by.ReadOnly = true;
             // 
+            // is_expirable
+            // 
+            this.is_expirable.DataPropertyName = "is_expirable";
+            this.is_expirable.HeaderText = "EXPIRY STATUS";
+            this.is_expirable.MinimumWidth = 12;
+            this.is_expirable.Name = "is_expirable";
+            this.is_expirable.ReadOnly = true;
+            // 
             // frmSubCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -432,6 +480,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Text = "Sub Category";
             this.Load += new System.EventHandler(this.frmSubCategory_Load);
             this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -461,11 +510,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private System.Windows.Forms.ToolStripButton matBtnDelete;
         private System.Windows.Forms.ToolStripButton matBtnSave;
         private System.Windows.Forms.ToolStripButton matBtnCancel;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioNotExpirable;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioExpirable;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_category_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_category_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn sc_added_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn sc_added_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn sc_updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn sc_updated_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_expirable;
     }
 }

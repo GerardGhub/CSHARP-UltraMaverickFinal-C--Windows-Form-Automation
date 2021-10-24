@@ -279,6 +279,7 @@ namespace ULTRAMAVERICK.Models
       string sc_added_at,
       string sc_updated_at,
       string sc_updated_by,
+      string is_expirable,
       string mode);
 
         DataSet sp_Primary_Unit(int unit_id,
@@ -334,6 +335,7 @@ namespace ULTRAMAVERICK.Models
             string item_type,
             string major_category,
             string sub_category,
+            string is_expirable,
             string mode);
 
 

@@ -1453,5 +1453,10 @@ namespace ULTRAMAVERICK.Forms.Users
                 cboPosition.Text = String.Empty;
             }
         }
+
+        private void lblgenderLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
