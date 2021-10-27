@@ -1,0 +1,298 @@
+﻿
+namespace ULTRAMAVERICK.Forms.Dry_Warehouse
+{
+    partial class frmListofReceiving
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbltotaldata = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.po_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expected_delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actual_delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCard2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(2671, 1242);
+            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
+            this.lbltotalrecords.TabIndex = 628;
+            this.lbltotalrecords.Text = "76";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(2792, 1276);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 39);
+            this.label2.TabIndex = 629;
+            this.label2.Text = "Items";
+            // 
+            // lbltotaldata
+            // 
+            this.lbltotaldata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotaldata.AutoSize = true;
+            this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotaldata.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotaldata.Location = new System.Drawing.Point(1551, 1226);
+            this.lbltotaldata.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotaldata.Name = "lbltotaldata";
+            this.lbltotaldata.Size = new System.Drawing.Size(121, 85);
+            this.lbltotaldata.TabIndex = 632;
+            this.lbltotaldata.Text = "76";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label4.Location = new System.Drawing.Point(1672, 1260);
+            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 39);
+            this.label4.TabIndex = 633;
+            this.label4.Text = "Items";
+            // 
+            // materialCard2
+            // 
+            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.dgvSubCategory);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(32, 176);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Size = new System.Drawing.Size(1769, 1042);
+            this.materialCard2.TabIndex = 631;
+            // 
+            // dgvSubCategory
+            // 
+            this.dgvSubCategory.AllowUserToAddRows = false;
+            this.dgvSubCategory.AllowUserToDeleteRows = false;
+            this.dgvSubCategory.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSubCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSubCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvSubCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvSubCategory.ColumnHeadersHeight = 35;
+            this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.po_number,
+            this.item_code,
+            this.item_description,
+            this.qty_order,
+            this.expected_delivery,
+            this.actual_delivery});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvSubCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSubCategory.EnableHeadersVisualStyles = false;
+            this.dgvSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvSubCategory.Location = new System.Drawing.Point(14, 14);
+            this.dgvSubCategory.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvSubCategory.MultiSelect = false;
+            this.dgvSubCategory.Name = "dgvSubCategory";
+            this.dgvSubCategory.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvSubCategory.RowHeadersVisible = false;
+            this.dgvSubCategory.RowHeadersWidth = 102;
+            this.dgvSubCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvSubCategory.RowTemplate.DividerHeight = 5;
+            this.dgvSubCategory.RowTemplate.Height = 40;
+            this.dgvSubCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSubCategory.Size = new System.Drawing.Size(1741, 1014);
+            this.dgvSubCategory.TabIndex = 593;
+            this.dgvSubCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvSubCategory.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvSubCategory.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvSubCategory.ThemeStyle.ReadOnly = true;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvSubCategory.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvSubCategory.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            // 
+            // po_number
+            // 
+            this.po_number.DataPropertyName = "po_number";
+            this.po_number.FillWeight = 40.60914F;
+            this.po_number.HeaderText = "PO NO.";
+            this.po_number.MinimumWidth = 12;
+            this.po_number.Name = "po_number";
+            this.po_number.ReadOnly = true;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 99.49239F;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.FillWeight = 99.49239F;
+            this.item_description.HeaderText = "DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            this.item_description.ReadOnly = true;
+            // 
+            // qty_order
+            // 
+            this.qty_order.DataPropertyName = "qty_order";
+            this.qty_order.FillWeight = 99.49239F;
+            this.qty_order.HeaderText = "QTY. ORDER";
+            this.qty_order.MinimumWidth = 12;
+            this.qty_order.Name = "qty_order";
+            this.qty_order.ReadOnly = true;
+            // 
+            // expected_delivery
+            // 
+            this.expected_delivery.DataPropertyName = "expected_delivery";
+            this.expected_delivery.FillWeight = 99.49239F;
+            this.expected_delivery.HeaderText = "EXPECTED DELIVERY";
+            this.expected_delivery.MinimumWidth = 12;
+            this.expected_delivery.Name = "expected_delivery";
+            this.expected_delivery.ReadOnly = true;
+            // 
+            // actual_delivery
+            // 
+            this.actual_delivery.DataPropertyName = "actual_delivery";
+            this.actual_delivery.HeaderText = "ACTUAL DELIVERY";
+            this.actual_delivery.MinimumWidth = 12;
+            this.actual_delivery.Name = "actual_delivery";
+            this.actual_delivery.ReadOnly = true;
+            // 
+            // frmListofReceiving
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1832, 1333);
+            this.Controls.Add(this.lbltotaldata);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.materialCard2);
+            this.Controls.Add(this.lbltotalrecords);
+            this.Controls.Add(this.label2);
+            this.Name = "frmListofReceiving";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "List of for Receiving";
+            this.Load += new System.EventHandler(this.frmListofReceiving_Load);
+            this.materialCard2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lbltotalrecords;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbltotaldata;
+        private System.Windows.Forms.Label label4;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvSubCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn po_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_order;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expected_delivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actual_delivery;
+    }
+}

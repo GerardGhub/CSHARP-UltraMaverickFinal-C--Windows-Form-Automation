@@ -20,11 +20,17 @@ using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Forms.Dry_Warehouse;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Import;
 using System.IO;
+using ULTRAMAVERICK.Report;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace COMPLETE_FLAT_UI
 {
     public partial class FormMenuPrincipal : Form
     {
+
+
+        ReportDocument rpt = new ReportDocument();
+        string Rpt_Path = "";
         //Constructor
         public Byte[] imageByte = null;
         myclasses xClass = new myclasses();
@@ -1076,6 +1082,30 @@ namespace COMPLETE_FLAT_UI
             }
 
       
+        }
+
+        private void listOfReceivingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListofReceiving fm = new frmListofReceiving();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void lotManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLotManagement fm = new frmLotManagement();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void rMBarcodeModuleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myglobal.REPORT_NAME = "MicroBook";
+            //rpt.Load(Rpt_Path + "\\MicroBook.rpt");
+
+            frmReport fm = new frmReport();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         private void button5_Click(object sender, EventArgs e)

@@ -83,7 +83,8 @@
             this.dryRawMaterialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolClosePanelSelection = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.listOfReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -112,6 +113,9 @@
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
+            this.rMReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lotManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rMBarcodeModuleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -544,11 +548,11 @@
             this.toolDropdownMenu,
             this.toolImportDry,
             this.toolClosePanelSelection,
-            this.toolStripLabel1});
+            this.toolStripDropDownButton1});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(500, 833);
+            this.toolStrip2.Size = new System.Drawing.Size(471, 833);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -568,7 +572,7 @@
             this.toolDropdownUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownUser.Name = "toolDropdownUser";
-            this.toolDropdownUser.Size = new System.Drawing.Size(495, 44);
+            this.toolDropdownUser.Size = new System.Drawing.Size(466, 44);
             this.toolDropdownUser.Text = "User  Manager                  ";
             this.toolDropdownUser.Visible = false;
             this.toolDropdownUser.Click += new System.EventHandler(this.toolDropdownUser_Click);
@@ -653,7 +657,7 @@
             this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRawMaterials.Name = "toolStripRawMaterials";
-            this.toolStripRawMaterials.Size = new System.Drawing.Size(495, 44);
+            this.toolStripRawMaterials.Size = new System.Drawing.Size(466, 44);
             this.toolStripRawMaterials.Text = "Raw Material";
             this.toolStripRawMaterials.Visible = false;
             this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
@@ -726,7 +730,7 @@
             this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownMenu.Name = "toolDropdownMenu";
-            this.toolDropdownMenu.Size = new System.Drawing.Size(495, 44);
+            this.toolDropdownMenu.Size = new System.Drawing.Size(466, 44);
             this.toolDropdownMenu.Text = "Menu";
             this.toolDropdownMenu.Visible = false;
             // 
@@ -765,7 +769,7 @@
             this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolImportDry.Name = "toolImportDry";
-            this.toolImportDry.Size = new System.Drawing.Size(495, 44);
+            this.toolImportDry.Size = new System.Drawing.Size(466, 44);
             this.toolImportDry.Text = "Import Dry";
             this.toolImportDry.Visible = false;
             this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
@@ -794,19 +798,32 @@
             this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolClosePanelSelection.Name = "toolClosePanelSelection";
-            this.toolClosePanelSelection.Size = new System.Drawing.Size(495, 44);
+            this.toolClosePanelSelection.Size = new System.Drawing.Size(466, 44);
             this.toolClosePanelSelection.Text = "Back";
             this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
             // 
-            // toolStripLabel1
+            // toolStripDropDownButton1
             // 
-            this.toolStripLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.Window;
-            this.toolStripLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(495, 36);
-            this.toolStripLabel1.Text = "Process Automation                           ";
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listOfReceivingToolStripMenuItem,
+            this.rMReceivingToolStripMenuItem,
+            this.lotManagementToolStripMenuItem,
+            this.rMBarcodeModuleToolStripMenuItem});
+            this.toolStripDropDownButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F);
+            this.toolStripDropDownButton1.ForeColor = System.Drawing.SystemColors.Window;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(466, 44);
+            this.toolStripDropDownButton1.Text = "Receiving";
+            // 
+            // listOfReceivingToolStripMenuItem
+            // 
+            this.listOfReceivingToolStripMenuItem.Name = "listOfReceivingToolStripMenuItem";
+            this.listOfReceivingToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
+            this.listOfReceivingToolStripMenuItem.Click += new System.EventHandler(this.listOfReceivingToolStripMenuItem_Click);
             // 
             // btnLogout
             // 
@@ -1229,6 +1246,26 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
+            // rMReceivingToolStripMenuItem
+            // 
+            this.rMReceivingToolStripMenuItem.Name = "rMReceivingToolStripMenuItem";
+            this.rMReceivingToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.rMReceivingToolStripMenuItem.Text = "RM Receiving";
+            // 
+            // lotManagementToolStripMenuItem
+            // 
+            this.lotManagementToolStripMenuItem.Name = "lotManagementToolStripMenuItem";
+            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.lotManagementToolStripMenuItem.Text = "Lot Management";
+            this.lotManagementToolStripMenuItem.Click += new System.EventHandler(this.lotManagementToolStripMenuItem_Click);
+            // 
+            // rMBarcodeModuleToolStripMenuItem
+            // 
+            this.rMBarcodeModuleToolStripMenuItem.Name = "rMBarcodeModuleToolStripMenuItem";
+            this.rMBarcodeModuleToolStripMenuItem.Size = new System.Drawing.Size(492, 54);
+            this.rMBarcodeModuleToolStripMenuItem.Text = "RM Barcode Module";
+            this.rMBarcodeModuleToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeModuleToolStripMenuItem_Click);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -1322,7 +1359,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolImportDry;
         private System.Windows.Forms.ToolStripMenuItem dryRawMaterialsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem poSummaryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.PictureBox btnMenu;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.PictureBox pictureBox9;
@@ -1355,6 +1391,11 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem listOfReceivingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rMReceivingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lotManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rMBarcodeModuleToolStripMenuItem;
     }
 }
 
