@@ -47,14 +47,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_user_id { get; set; }
         private void frmDryRawMaterials_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            sp_user_id = userinfo.user_id.ToString();
-            showRawMaterialsInDryWH();
-            LoadRecords();
-            LoadingrefresherOrb();
-        
-            SearchMethodJarVarCallingSP();
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.sp_user_id = userinfo.user_id.ToString();
+            this.showRawMaterialsInDryWH();
+            this.LoadRecords();
+            this.LoadingrefresherOrb();
+
+            this.SearchMethodJarVarCallingSP();
         }
 
 
@@ -66,16 +66,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else
             {
-                matBtnEdit.Visible = true;
+                this.matBtnEdit.Visible = true;
             }
         }
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
-            dset_emp_SearchEngines.Clear();
+            this.dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Raw_Materials_Dry_Major");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Raw_Materials_Dry_Major");
 
         }
 
@@ -134,14 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-        public void loadMajorCategoryDropdown()
-        {
 
-            //myClass.fillComboBoxDepartment(guna2cmbMajorCat, "Major_Category_dropdown", dSet);
-
-
-            //lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
-        }
         private void LoadingrefresherOrb()
         {
 

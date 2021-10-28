@@ -100,7 +100,7 @@
             this.label6.Location = new System.Drawing.Point(55, 33);
             this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(620, 115);
+            this.label6.Size = new System.Drawing.Size(248, 46);
             this.label6.TabIndex = 8;
             this.label6.Text = "Store Orders";
             // 
@@ -114,7 +114,7 @@
             this.label2.Location = new System.Drawing.Point(47, 146);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(218, 238);
+            this.label2.Size = new System.Drawing.Size(87, 95);
             this.label2.TabIndex = 7;
             this.label2.Text = "0";
             // 
@@ -156,7 +156,7 @@
             this.label7.Location = new System.Drawing.Point(34, 29);
             this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(670, 115);
+            this.label7.Size = new System.Drawing.Size(268, 46);
             this.label7.TabIndex = 9;
             this.label7.Text = "MRS Request";
             // 
@@ -211,7 +211,7 @@
             this.label8.Location = new System.Drawing.Point(49, 33);
             this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1095, 115);
+            this.label8.Size = new System.Drawing.Size(438, 46);
             this.label8.TabIndex = 10;
             this.label8.Text = "Raw Material Receiving";
             // 
@@ -223,7 +223,7 @@
             this.label4.Location = new System.Drawing.Point(41, 156);
             this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(218, 238);
+            this.label4.Size = new System.Drawing.Size(87, 95);
             this.label4.TabIndex = 9;
             this.label4.Text = "0";
             // 
@@ -266,7 +266,7 @@
             this.label9.Location = new System.Drawing.Point(53, 22);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(833, 115);
+            this.label9.Size = new System.Drawing.Size(333, 46);
             this.label9.TabIndex = 11;
             this.label9.Text = "Alert Notifications";
             // 
@@ -278,7 +278,7 @@
             this.label5.Location = new System.Drawing.Point(50, 146);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(218, 238);
+            this.label5.Size = new System.Drawing.Size(87, 95);
             this.label5.TabIndex = 10;
             this.label5.Text = "0";
             // 

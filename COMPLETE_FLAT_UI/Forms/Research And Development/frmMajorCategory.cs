@@ -647,7 +647,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             if (mattxtSearch.Text == String.Empty)
             {
-                showMajorCategoryData();
+                this.showMajorCategoryData();
             }
             if (lbltotalrecords.Text == "0")
             {
@@ -661,7 +661,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 }
                 else
                 {
-                    doSearchInTextBoxCmb();
+                    this.doSearchInTextBoxCmb();
                 }
 
             }

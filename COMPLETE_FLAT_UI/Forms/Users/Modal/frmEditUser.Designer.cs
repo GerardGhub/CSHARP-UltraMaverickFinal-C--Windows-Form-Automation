@@ -48,27 +48,27 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool = new MaterialSkin.Controls.MaterialButton();
             this.label15 = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnImage = new System.Windows.Forms.Button();
-            this.cmbNotif = new System.Windows.Forms.ComboBox();
-            this.cboRequestorType = new System.Windows.Forms.ComboBox();
-            this.cmbLocation = new System.Windows.Forms.ComboBox();
-            this.cboPosition = new System.Windows.Forms.ComboBox();
-            this.cboUnit = new System.Windows.Forms.ComboBox();
-            this.cbodepartment = new System.Windows.Forms.ComboBox();
-            this.cbousertype = new System.Windows.Forms.ComboBox();
-            this.odbEmployeeImage = new System.Windows.Forms.OpenFileDialog();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbNotif = new System.Windows.Forms.ComboBox();
+            this.cmbLocation = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbousertype = new System.Windows.Forms.ComboBox();
+            this.cboRequestorType = new System.Windows.Forms.ComboBox();
+            this.cbodepartment = new System.Windows.Forms.ComboBox();
+            this.cboUnit = new System.Windows.Forms.ComboBox();
+            this.cboPosition = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnImage = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.odbEmployeeImage = new System.Windows.Forms.OpenFileDialog();
             this.materialCard1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroButtonSave
@@ -188,7 +188,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpassword.Depth = 0;
             this.txtpassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtpassword.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtpassword.Hint = "Password";
             this.txtpassword.Location = new System.Drawing.Point(1426, 3);
             this.txtpassword.MaxLength = 50;
@@ -204,7 +204,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Depth = 0;
             this.txtuser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtuser.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtuser.Hint = "UserName";
             this.txtuser.Location = new System.Drawing.Point(933, 3);
             this.txtuser.MaxLength = 50;
@@ -260,7 +260,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtLastName.Depth = 0;
             this.txtLastName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLastName.Enabled = false;
-            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtLastName.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtLastName.Hint = "Last Name";
             this.txtLastName.Location = new System.Drawing.Point(468, 3);
             this.txtLastName.MaxLength = 50;
@@ -277,7 +277,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtname.Depth = 0;
             this.txtname.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtname.Enabled = false;
-            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtname.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtname.Hint = "First Name";
             this.txtname.Location = new System.Drawing.Point(3, 3);
             this.txtname.MaxLength = 50;
@@ -348,151 +348,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.Size = new System.Drawing.Size(2293, 554);
             this.materialCard1.TabIndex = 574;
             // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.White;
-            this.btnRemove.Enabled = false;
-            this.btnRemove.FlatAppearance.BorderSize = 0;
-            this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
-            this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.Black;
-            this.btnRemove.Location = new System.Drawing.Point(207, 7);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(183, 64);
-            this.btnRemove.TabIndex = 594;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnImage
-            // 
-            this.btnImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.btnImage.FlatAppearance.BorderSize = 0;
-            this.btnImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
-            this.btnImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
-            this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImage.ForeColor = System.Drawing.Color.White;
-            this.btnImage.Location = new System.Drawing.Point(8, 7);
-            this.btnImage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(160, 64);
-            this.btnImage.TabIndex = 593;
-            this.btnImage.Text = "Select";
-            this.btnImage.UseVisualStyleBackColor = false;
-            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
-            // 
-            // cmbNotif
-            // 
-            this.cmbNotif.FormattingEnabled = true;
-            this.cmbNotif.Location = new System.Drawing.Point(1426, 438);
-            this.cmbNotif.Name = "cmbNotif";
-            this.cmbNotif.Size = new System.Drawing.Size(396, 39);
-            this.cmbNotif.TabIndex = 591;
-            // 
-            // cboRequestorType
-            // 
-            this.cboRequestorType.FormattingEnabled = true;
-            this.cboRequestorType.Location = new System.Drawing.Point(3, 438);
-            this.cboRequestorType.Name = "cboRequestorType";
-            this.cboRequestorType.Size = new System.Drawing.Size(430, 39);
-            this.cboRequestorType.TabIndex = 590;
-            this.cboRequestorType.SelectionChangeCommitted += new System.EventHandler(this.cboRequestorType_SelectionChangeCommitted);
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(1426, 264);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(432, 39);
-            this.cmbLocation.TabIndex = 589;
-            // 
-            // cboPosition
-            // 
-            this.cboPosition.FormattingEnabled = true;
-            this.cboPosition.Location = new System.Drawing.Point(933, 264);
-            this.cboPosition.Name = "cboPosition";
-            this.cboPosition.Size = new System.Drawing.Size(458, 39);
-            this.cboPosition.TabIndex = 588;
-            this.cboPosition.SelectionChangeCommitted += new System.EventHandler(this.cboPosition_SelectionChangeCommitted);
-            // 
-            // cboUnit
-            // 
-            this.cboUnit.FormattingEnabled = true;
-            this.cboUnit.Location = new System.Drawing.Point(468, 264);
-            this.cboUnit.Name = "cboUnit";
-            this.cboUnit.Size = new System.Drawing.Size(396, 39);
-            this.cboUnit.TabIndex = 587;
-            this.cboUnit.SelectionChangeCommitted += new System.EventHandler(this.cboUnit_SelectionChangeCommitted);
-            // 
-            // cbodepartment
-            // 
-            this.cbodepartment.FormattingEnabled = true;
-            this.cbodepartment.Location = new System.Drawing.Point(3, 264);
-            this.cbodepartment.Name = "cbodepartment";
-            this.cbodepartment.Size = new System.Drawing.Size(430, 39);
-            this.cbodepartment.TabIndex = 586;
-            this.cbodepartment.SelectedValueChanged += new System.EventHandler(this.cbodepartment_SelectedValueChanged);
-            // 
-            // cbousertype
-            // 
-            this.cbousertype.FormattingEnabled = true;
-            this.cbousertype.Location = new System.Drawing.Point(468, 438);
-            this.cbousertype.Name = "cbousertype";
-            this.cbousertype.Size = new System.Drawing.Size(459, 39);
-            this.cbousertype.TabIndex = 578;
-            this.cbousertype.SelectionChangeCommitted += new System.EventHandler(this.cbousertype_SelectionChangeCommitted);
-            // 
-            // odbEmployeeImage
-            // 
-            this.odbEmployeeImage.Title = "Select Image";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pbImage, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 14);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(404, 526);
-            this.tableLayoutPanel1.TabIndex = 595;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.btnImage, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnRemove, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 423);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(398, 100);
-            this.tableLayoutPanel2.TabIndex = 593;
-            // 
-            // pbImage
-            // 
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
-            this.pbImage.Location = new System.Drawing.Point(8, 7);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(388, 406);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 592;
-            this.pbImage.TabStop = false;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
@@ -533,6 +388,22 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1861, 526);
             this.tableLayoutPanel3.TabIndex = 596;
             // 
+            // cmbNotif
+            // 
+            this.cmbNotif.FormattingEnabled = true;
+            this.cmbNotif.Location = new System.Drawing.Point(1426, 438);
+            this.cmbNotif.Name = "cmbNotif";
+            this.cmbNotif.Size = new System.Drawing.Size(396, 39);
+            this.cmbNotif.TabIndex = 591;
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(1426, 264);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(432, 39);
+            this.cmbLocation.TabIndex = 589;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -546,6 +417,135 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(487, 85);
             this.tableLayoutPanel4.TabIndex = 592;
+            // 
+            // cbousertype
+            // 
+            this.cbousertype.FormattingEnabled = true;
+            this.cbousertype.Location = new System.Drawing.Point(468, 438);
+            this.cbousertype.Name = "cbousertype";
+            this.cbousertype.Size = new System.Drawing.Size(459, 39);
+            this.cbousertype.TabIndex = 578;
+            this.cbousertype.SelectionChangeCommitted += new System.EventHandler(this.cbousertype_SelectionChangeCommitted);
+            // 
+            // cboRequestorType
+            // 
+            this.cboRequestorType.FormattingEnabled = true;
+            this.cboRequestorType.Location = new System.Drawing.Point(3, 438);
+            this.cboRequestorType.Name = "cboRequestorType";
+            this.cboRequestorType.Size = new System.Drawing.Size(430, 39);
+            this.cboRequestorType.TabIndex = 590;
+            this.cboRequestorType.SelectionChangeCommitted += new System.EventHandler(this.cboRequestorType_SelectionChangeCommitted);
+            // 
+            // cbodepartment
+            // 
+            this.cbodepartment.FormattingEnabled = true;
+            this.cbodepartment.Location = new System.Drawing.Point(3, 264);
+            this.cbodepartment.Name = "cbodepartment";
+            this.cbodepartment.Size = new System.Drawing.Size(430, 39);
+            this.cbodepartment.TabIndex = 586;
+            this.cbodepartment.SelectedValueChanged += new System.EventHandler(this.cbodepartment_SelectedValueChanged);
+            // 
+            // cboUnit
+            // 
+            this.cboUnit.FormattingEnabled = true;
+            this.cboUnit.Location = new System.Drawing.Point(468, 264);
+            this.cboUnit.Name = "cboUnit";
+            this.cboUnit.Size = new System.Drawing.Size(396, 39);
+            this.cboUnit.TabIndex = 587;
+            this.cboUnit.SelectionChangeCommitted += new System.EventHandler(this.cboUnit_SelectionChangeCommitted);
+            // 
+            // cboPosition
+            // 
+            this.cboPosition.FormattingEnabled = true;
+            this.cboPosition.Location = new System.Drawing.Point(933, 264);
+            this.cboPosition.Name = "cboPosition";
+            this.cboPosition.Size = new System.Drawing.Size(458, 39);
+            this.cboPosition.TabIndex = 588;
+            this.cboPosition.SelectionChangeCommitted += new System.EventHandler(this.cboPosition_SelectionChangeCommitted);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.pbImage, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 14);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(404, 526);
+            this.tableLayoutPanel1.TabIndex = 595;
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
+            this.pbImage.Location = new System.Drawing.Point(8, 7);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(388, 406);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 592;
+            this.pbImage.TabStop = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.btnImage, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnRemove, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 423);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(398, 100);
+            this.tableLayoutPanel2.TabIndex = 593;
+            // 
+            // btnImage
+            // 
+            this.btnImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.btnImage.FlatAppearance.BorderSize = 0;
+            this.btnImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
+            this.btnImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImage.ForeColor = System.Drawing.Color.White;
+            this.btnImage.Location = new System.Drawing.Point(8, 7);
+            this.btnImage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(160, 64);
+            this.btnImage.TabIndex = 593;
+            this.btnImage.Text = "Select";
+            this.btnImage.UseVisualStyleBackColor = false;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.White;
+            this.btnRemove.Enabled = false;
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
+            this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.Black;
+            this.btnRemove.Location = new System.Drawing.Point(207, 7);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(183, 64);
+            this.btnRemove.TabIndex = 594;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // odbEmployeeImage
+            // 
+            this.odbEmployeeImage.Title = "Select Image";
             // 
             // frmEditUser
             // 
@@ -563,13 +563,13 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditUser_FormClosing);
             this.Load += new System.EventHandler(this.frmEditUser_Load);
             this.materialCard1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -273,6 +273,17 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
 
+        DataSet sp_lot_management(int id,
+            string lot_number,
+   string description,
+   string category,
+   string added_by,
+   string date_added,
+   string updated_by,
+   string date_updated,
+   string mode);
+
+
         DataSet sp_Sub_Category(int sub_category_id,
       string sub_category_desc,
       string sc_added_by,
