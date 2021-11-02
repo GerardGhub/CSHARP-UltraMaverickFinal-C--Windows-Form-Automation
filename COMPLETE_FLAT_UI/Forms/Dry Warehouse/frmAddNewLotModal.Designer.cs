@@ -128,6 +128,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matlotnumber.Size = new System.Drawing.Size(414, 50);
             this.matlotnumber.TabIndex = 0;
             this.matlotnumber.Text = "";
+            this.matlotnumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matlotnumber_KeyPress);
             // 
             // matBtnSave
             // 

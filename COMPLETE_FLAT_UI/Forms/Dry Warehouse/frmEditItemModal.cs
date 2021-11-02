@@ -77,14 +77,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-            SendMessageInComboboxPHolder();
+            this.SendMessageInComboboxPHolder();
 
-            loadItemClassDropdown();
-            loadMajorCategoryDropdown();
-            loadSubCategoryDropdown();
-            loadItemTypeDropdown();
-            loadPrimaryUnitDropdown();
-            FirstLoadBindingOrb();
+            this.loadItemClassDropdown();
+            this.loadMajorCategoryDropdown();
+            this.loadSubCategoryDropdown();
+            this.loadItemTypeDropdown();
+            this.loadPrimaryUnitDropdown();
+            this.FirstLoadBindingOrb();
         }
 
 
@@ -94,7 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboItemClass, "Item_Class_dropdown", dSet);
 
 
-            lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
+            this.lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
         }
         public void loadMajorCategoryDropdown()
         {
@@ -102,7 +102,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboMajorCategory, "Major_Category_dropdown", dSet);
 
 
-            lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+            this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
         public void loadSubCategoryDropdown()
@@ -111,7 +111,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboSubCat, "Sub_Category_dropdown", dSet);
 
 
-            lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
         }
 
 
@@ -121,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboItemType, "Item_Type_dropdown", dSet);
 
 
-            lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
+            this.lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
         }
 
         public void loadPrimaryUnitDropdown()
@@ -130,7 +130,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboPrimaryUnit, "Primary_Unit_dropdown", dSet);
 
 
-            lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
+            this.lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
         }
 
         private void SendMessageInComboboxPHolder()
@@ -147,15 +147,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void FirstLoadBindingOrb()
         {
-            txtcreatedBy.Text = created_by;
-            txtMatItemCode.Text = item_code;
-            txtMatItemDesc.Text = item_description;
-            cboItemClass.Text = item_class;
-            cboMajorCategory.Text = major_category;
-            cboSubCat.Text = sub_category;
-            cboPrimaryUnit.Text = primary_unit;
-            txtmatConversion.Text = conversion;
-            cboItemType.Text = item_type;
+            this.txtcreatedBy.Text = created_by;
+            this.txtMatItemCode.Text = item_code;
+            this.txtMatItemDesc.Text = item_description;
+            this.cboItemClass.Text = item_class;
+            this.cboMajorCategory.Text = major_category;
+            this.cboSubCat.Text = sub_category;
+            this.cboPrimaryUnit.Text = primary_unit;
+            this.txtmatConversion.Text = conversion;
+            this.cboItemType.Text = item_type;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

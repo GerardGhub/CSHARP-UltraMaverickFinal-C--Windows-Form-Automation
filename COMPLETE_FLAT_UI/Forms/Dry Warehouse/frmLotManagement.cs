@@ -36,7 +36,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             InitializeComponent();
         }
+        //User Binding
         public string sp_user_id { get; set; }
+        //Update
+        public string sp_id { get; set; }
+        public string sp_lot_number { get; set; }
+        public string sp_description { get; set; }
+        public string sp_category { get; set; }
         private void frmLotManagement_Load(object sender, EventArgs e)
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -173,10 +179,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-           frmUpdateLotData addNew = new frmUpdateLotData(this, sp_user_id);
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+           frmUpdateLotData addNew = new frmUpdateLotData(this, sp_user_id, sp_lot_number, sp_description, sp_category, p_id);
             addNew.ShowDialog();
+        }
+
+        private void dgvLotData_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.showValueCell();
+        }
+
+        private void showValueCell()
+        {
+            if (dgvLotData.Rows.Count > 0)
+            {
+                if (dgvLotData.CurrentRow != null)
+                {
+                    if (dgvLotData.CurrentRow.Cells["lot_number"].Value != null)
+                    {
+                        p_id = Convert.ToInt32(dgvLotData.CurrentRow.Cells["id"].Value);
+                        sp_lot_number = dgvLotData.CurrentRow.Cells["lot_number"].Value.ToString();
+                        sp_description = dgvLotData.CurrentRow.Cells["description"].Value.ToString();
+                        sp_category = dgvLotData.CurrentRow.Cells["category"].Value.ToString();
+                   
+                    }
+                }
+            }
         }
     }
 }

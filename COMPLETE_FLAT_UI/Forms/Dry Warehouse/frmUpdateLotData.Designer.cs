@@ -33,7 +33,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtcreatedBy = new System.Windows.Forms.TextBox();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.cboMajorCategory = new MetroFramework.Controls.MetroComboBox();
             this.matdescription = new MaterialSkin.Controls.MaterialTextBox();
             this.matlotnumber = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -44,6 +43,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matcreatedby = new MaterialSkin.Controls.MaterialTextBox();
             this.mattotalsku = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboMajorCategory = new System.Windows.Forms.ComboBox();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matBtnSave.UseAccentColor = false;
             this.matBtnSave.UseVisualStyleBackColor = true;
+            this.matBtnSave.Click += new System.EventHandler(this.matBtnSave_Click);
             // 
             // label2
             // 
@@ -105,17 +106,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.Size = new System.Drawing.Size(216, 32);
             this.label2.TabIndex = 593;
             this.label2.Text = "Major Category:";
-            // 
-            // cboMajorCategory
-            // 
-            this.cboMajorCategory.FormattingEnabled = true;
-            this.cboMajorCategory.ItemHeight = 24;
-            this.cboMajorCategory.Location = new System.Drawing.Point(1188, 265);
-            this.cboMajorCategory.Name = "cboMajorCategory";
-            this.cboMajorCategory.PromptText = "Major Category";
-            this.cboMajorCategory.Size = new System.Drawing.Size(541, 30);
-            this.cboMajorCategory.TabIndex = 577;
-            this.cboMajorCategory.UseSelectable = true;
             // 
             // matdescription
             // 
@@ -136,6 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.matlotnumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matlotnumber.Depth = 0;
+            this.matlotnumber.Enabled = false;
             this.matlotnumber.Font = new System.Drawing.Font("Roboto", 12F);
             this.matlotnumber.Hint = "Lot  Number";
             this.matlotnumber.Location = new System.Drawing.Point(570, 71);
@@ -150,6 +141,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.cboMajorCategory);
             this.materialCard1.Controls.Add(this.btnImage);
             this.materialCard1.Controls.Add(this.btnRemove);
             this.materialCard1.Controls.Add(this.matBtnSave);
@@ -158,7 +150,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.matcreatedby);
             this.materialCard1.Controls.Add(this.mattotalsku);
             this.materialCard1.Controls.Add(this.label2);
-            this.materialCard1.Controls.Add(this.cboMajorCategory);
             this.materialCard1.Controls.Add(this.matdescription);
             this.materialCard1.Controls.Add(this.matlotnumber);
             this.materialCard1.Depth = 0;
@@ -252,6 +243,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.mattotalsku.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattotalsku.Depth = 0;
+            this.mattotalsku.Enabled = false;
             this.mattotalsku.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattotalsku.Hint = "Total SKU";
             this.mattotalsku.Location = new System.Drawing.Point(570, 236);
@@ -275,6 +267,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // cboMajorCategory
+            // 
+            this.cboMajorCategory.Enabled = false;
+            this.cboMajorCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cboMajorCategory.FormattingEnabled = true;
+            this.cboMajorCategory.Location = new System.Drawing.Point(1186, 258);
+            this.cboMajorCategory.Name = "cboMajorCategory";
+            this.cboMajorCategory.Size = new System.Drawing.Size(543, 54);
+            this.cboMajorCategory.TabIndex = 602;
             // 
             // frmUpdateLotData
             // 
@@ -304,7 +306,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.TextBox txtcreatedBy;
         private MaterialSkin.Controls.MaterialButton matBtnSave;
         private System.Windows.Forms.Label label2;
-        private MetroFramework.Controls.MetroComboBox cboMajorCategory;
         private MaterialSkin.Controls.MaterialTextBox matdescription;
         private MaterialSkin.Controls.MaterialTextBox matlotnumber;
         private MaterialSkin.Controls.MaterialCard materialCard1;
@@ -314,6 +315,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Label lblMajorCatId;
         private MaterialSkin.Controls.MaterialTextBox matcreatedby;
         private MaterialSkin.Controls.MaterialTextBox mattotalsku;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cboMajorCategory;
     }
 }

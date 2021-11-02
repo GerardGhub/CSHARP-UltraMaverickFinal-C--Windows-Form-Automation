@@ -26,15 +26,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         Boolean ready = false;
 
         private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
-        private FileStream fileStream;
-        private BinaryReader binaryReader;
-        public Byte[] imageByte = null;
+
         public frmAddNewLotModal(frmLotManagement frm, string created_by)
         {
+            InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
             this.created_by = created_by;
-            InitializeComponent();
+         
         }
         public string created_by { get; set; }
 
@@ -250,6 +249,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //        MessageBox.Show("Error  : Image Failed To Load \n\n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    }
             //}
+        }
+
+        private void matlotnumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
+         
+            
         }
     }
 }

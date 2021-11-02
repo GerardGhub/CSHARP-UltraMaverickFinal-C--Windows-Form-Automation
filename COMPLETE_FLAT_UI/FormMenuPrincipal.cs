@@ -1108,6 +1108,13 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void rMReceivingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDryReceivingModule fm = new frmDryReceivingModule();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());

@@ -192,11 +192,23 @@
     <Compile Include="Forms\Dry Warehouse\frmAddNewUomConversion.Designer.cs">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmChooseLotNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmChooseLotNumber.Designer.cs">
+      <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\frmDryRawMaterials.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\frmDryRawMaterials.Designer.cs">
       <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmDryReceivingModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmDryReceivingModule.Designer.cs">
+      <DependentUpon>frmDryReceivingModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\frmEditItemModal.cs">
       <SubType>Form</SubType>
@@ -427,8 +439,14 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\frmAddNewUomConversion.resx">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmChooseLotNumber.resx">
+      <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmDryRawMaterials.resx">
       <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmDryReceivingModule.resx">
+      <DependentUpon>frmDryReceivingModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmEditItemModal.resx">
       <DependentUpon>frmEditItemModal.cs</DependentUpon>

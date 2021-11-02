@@ -85,6 +85,9 @@
             this.toolClosePanelSelection = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.listOfReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rMReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lotManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rMBarcodeModuleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -113,9 +116,6 @@
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
-            this.rMReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lotManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rMBarcodeModuleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -821,9 +821,30 @@
             // listOfReceivingToolStripMenuItem
             // 
             this.listOfReceivingToolStripMenuItem.Name = "listOfReceivingToolStripMenuItem";
-            this.listOfReceivingToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.listOfReceivingToolStripMenuItem.Size = new System.Drawing.Size(492, 54);
             this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
             this.listOfReceivingToolStripMenuItem.Click += new System.EventHandler(this.listOfReceivingToolStripMenuItem_Click);
+            // 
+            // rMReceivingToolStripMenuItem
+            // 
+            this.rMReceivingToolStripMenuItem.Name = "rMReceivingToolStripMenuItem";
+            this.rMReceivingToolStripMenuItem.Size = new System.Drawing.Size(492, 54);
+            this.rMReceivingToolStripMenuItem.Text = "RM Receiving";
+            this.rMReceivingToolStripMenuItem.Click += new System.EventHandler(this.rMReceivingToolStripMenuItem_Click);
+            // 
+            // lotManagementToolStripMenuItem
+            // 
+            this.lotManagementToolStripMenuItem.Name = "lotManagementToolStripMenuItem";
+            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(492, 54);
+            this.lotManagementToolStripMenuItem.Text = "Lot Management";
+            this.lotManagementToolStripMenuItem.Click += new System.EventHandler(this.lotManagementToolStripMenuItem_Click);
+            // 
+            // rMBarcodeModuleToolStripMenuItem
+            // 
+            this.rMBarcodeModuleToolStripMenuItem.Name = "rMBarcodeModuleToolStripMenuItem";
+            this.rMBarcodeModuleToolStripMenuItem.Size = new System.Drawing.Size(492, 54);
+            this.rMBarcodeModuleToolStripMenuItem.Text = "RM Barcode Module";
+            this.rMBarcodeModuleToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeModuleToolStripMenuItem_Click);
             // 
             // btnLogout
             // 
@@ -1245,26 +1266,6 @@
             // 
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
-            // 
-            // rMReceivingToolStripMenuItem
-            // 
-            this.rMReceivingToolStripMenuItem.Name = "rMReceivingToolStripMenuItem";
-            this.rMReceivingToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
-            this.rMReceivingToolStripMenuItem.Text = "RM Receiving";
-            // 
-            // lotManagementToolStripMenuItem
-            // 
-            this.lotManagementToolStripMenuItem.Name = "lotManagementToolStripMenuItem";
-            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
-            this.lotManagementToolStripMenuItem.Text = "Lot Management";
-            this.lotManagementToolStripMenuItem.Click += new System.EventHandler(this.lotManagementToolStripMenuItem_Click);
-            // 
-            // rMBarcodeModuleToolStripMenuItem
-            // 
-            this.rMBarcodeModuleToolStripMenuItem.Name = "rMBarcodeModuleToolStripMenuItem";
-            this.rMBarcodeModuleToolStripMenuItem.Size = new System.Drawing.Size(492, 54);
-            this.rMBarcodeModuleToolStripMenuItem.Text = "RM Barcode Module";
-            this.rMBarcodeModuleToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeModuleToolStripMenuItem_Click);
             // 
             // FormMenuPrincipal
             // 
