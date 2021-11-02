@@ -273,15 +273,43 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
 
-        DataSet sp_lot_management(int id,
-            string lot_number,
-   string description,
-   string category,
-   string added_by,
-   string date_added,
-   string updated_by,
-   string date_updated,
-   string mode);
+        DataSet sp_lot_management(
+        int id,
+        string lot_number,
+        string description,
+        string category,
+        string added_by,
+        string date_added,
+        string updated_by,
+        string date_updated,
+        string mode);
+
+
+        DataSet sp_tblDryWHReceiving(
+        int id,
+        int index_id_partial,
+        string item_code,
+        string item_description,
+        string qty_received,
+        string date_added,
+        string added_by,
+        string updated_by,
+        string updated_date,
+        string supplier,
+        string mode);
+
+
+        DataSet sp_tblDryPartialReceivingRejection(
+        int id,
+        int index_id,
+        int po_number,
+        int qty_reject,
+        string reject_remarks,
+        string added_by,
+        string date_added,
+        string updated_by,
+        string updated_date,
+        string mode);
 
 
         DataSet sp_Sub_Category(int sub_category_id,

@@ -29,10 +29,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMajorCategory));
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.metroSave = new MetroFramework.Controls.MetroButton();
@@ -42,6 +42,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedAt = new MaterialSkin.Controls.MaterialTextBox();
             this.txtmajorCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.dgvMajorCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.major_category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.major_category_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.lbltotalrecords = new System.Windows.Forms.Label();
@@ -54,12 +60,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.major_category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.major_category_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -182,21 +182,21 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.AllowUserToAddRows = false;
             this.dgvMajorCategory.AllowUserToDeleteRows = false;
             this.dgvMajorCategory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            this.dgvMajorCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvMajorCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMajorCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMajorCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvMajorCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMajorCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMajorCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMajorCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMajorCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMajorCategory.ColumnHeadersHeight = 35;
             this.dgvMajorCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvMajorCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -206,14 +206,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mc_added_by,
             this.mc_updated_at,
             this.mc_updated_by});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMajorCategory.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMajorCategory.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMajorCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMajorCategory.EnableHeadersVisualStyles = false;
             this.dgvMajorCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -222,14 +222,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.MultiSelect = false;
             this.dgvMajorCategory.Name = "dgvMajorCategory";
             this.dgvMajorCategory.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMajorCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMajorCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMajorCategory.RowHeadersVisible = false;
             this.dgvMajorCategory.RowHeadersWidth = 102;
             this.dgvMajorCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -261,6 +261,61 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvMajorCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvMajorCategory.CurrentCellChanged += new System.EventHandler(this.dgvMajorCategory_CurrentCellChanged);
+            // 
+            // major_category_id
+            // 
+            this.major_category_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.major_category_id.DataPropertyName = "major_category_id";
+            this.major_category_id.FillWeight = 40.60914F;
+            this.major_category_id.HeaderText = "ID";
+            this.major_category_id.MinimumWidth = 12;
+            this.major_category_id.Name = "major_category_id";
+            this.major_category_id.ReadOnly = true;
+            this.major_category_id.Width = 12;
+            // 
+            // major_category_desc
+            // 
+            this.major_category_desc.DataPropertyName = "major_category_desc";
+            this.major_category_desc.FillWeight = 99.49239F;
+            this.major_category_desc.HeaderText = "ITEM CLASS";
+            this.major_category_desc.MinimumWidth = 12;
+            this.major_category_desc.Name = "major_category_desc";
+            this.major_category_desc.ReadOnly = true;
+            // 
+            // mc_added_at
+            // 
+            this.mc_added_at.DataPropertyName = "mc_added_at";
+            this.mc_added_at.FillWeight = 99.49239F;
+            this.mc_added_at.HeaderText = "CREATED DATE";
+            this.mc_added_at.MinimumWidth = 12;
+            this.mc_added_at.Name = "mc_added_at";
+            this.mc_added_at.ReadOnly = true;
+            // 
+            // mc_added_by
+            // 
+            this.mc_added_by.DataPropertyName = "mc_added_by";
+            this.mc_added_by.FillWeight = 99.49239F;
+            this.mc_added_by.HeaderText = "CREATED BY";
+            this.mc_added_by.MinimumWidth = 12;
+            this.mc_added_by.Name = "mc_added_by";
+            this.mc_added_by.ReadOnly = true;
+            // 
+            // mc_updated_at
+            // 
+            this.mc_updated_at.DataPropertyName = "mc_updated_at";
+            this.mc_updated_at.FillWeight = 99.49239F;
+            this.mc_updated_at.HeaderText = "UPDATED DATE";
+            this.mc_updated_at.MinimumWidth = 12;
+            this.mc_updated_at.Name = "mc_updated_at";
+            this.mc_updated_at.ReadOnly = true;
+            // 
+            // mc_updated_by
+            // 
+            this.mc_updated_by.DataPropertyName = "mc_updated_by";
+            this.mc_updated_by.HeaderText = "UPDATED BY";
+            this.mc_updated_by.MinimumWidth = 12;
+            this.mc_updated_by.Name = "mc_updated_by";
+            this.mc_updated_by.ReadOnly = true;
             // 
             // materialCard1
             // 
@@ -307,6 +362,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
             this.lbltotalrecords.TabIndex = 606;
             this.lbltotalrecords.Text = "76";
+            this.lbltotalrecords.Click += new System.EventHandler(this.lbltotalrecords_Click);
             // 
             // label2
             // 
@@ -321,6 +377,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.label2.Size = new System.Drawing.Size(100, 39);
             this.label2.TabIndex = 607;
             this.label2.Text = "Items";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -412,61 +469,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.TabIndex = 609;
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
-            // 
-            // major_category_id
-            // 
-            this.major_category_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.major_category_id.DataPropertyName = "major_category_id";
-            this.major_category_id.FillWeight = 40.60914F;
-            this.major_category_id.HeaderText = "ID";
-            this.major_category_id.MinimumWidth = 12;
-            this.major_category_id.Name = "major_category_id";
-            this.major_category_id.ReadOnly = true;
-            this.major_category_id.Width = 12;
-            // 
-            // major_category_desc
-            // 
-            this.major_category_desc.DataPropertyName = "major_category_desc";
-            this.major_category_desc.FillWeight = 99.49239F;
-            this.major_category_desc.HeaderText = "ITEM CLASS";
-            this.major_category_desc.MinimumWidth = 12;
-            this.major_category_desc.Name = "major_category_desc";
-            this.major_category_desc.ReadOnly = true;
-            // 
-            // mc_added_at
-            // 
-            this.mc_added_at.DataPropertyName = "mc_added_at";
-            this.mc_added_at.FillWeight = 99.49239F;
-            this.mc_added_at.HeaderText = "CREATED DATE";
-            this.mc_added_at.MinimumWidth = 12;
-            this.mc_added_at.Name = "mc_added_at";
-            this.mc_added_at.ReadOnly = true;
-            // 
-            // mc_added_by
-            // 
-            this.mc_added_by.DataPropertyName = "mc_added_by";
-            this.mc_added_by.FillWeight = 99.49239F;
-            this.mc_added_by.HeaderText = "CREATED BY";
-            this.mc_added_by.MinimumWidth = 12;
-            this.mc_added_by.Name = "mc_added_by";
-            this.mc_added_by.ReadOnly = true;
-            // 
-            // mc_updated_at
-            // 
-            this.mc_updated_at.DataPropertyName = "mc_updated_at";
-            this.mc_updated_at.FillWeight = 99.49239F;
-            this.mc_updated_at.HeaderText = "UPDATED DATE";
-            this.mc_updated_at.MinimumWidth = 12;
-            this.mc_updated_at.Name = "mc_updated_at";
-            this.mc_updated_at.ReadOnly = true;
-            // 
-            // mc_updated_by
-            // 
-            this.mc_updated_by.DataPropertyName = "mc_updated_by";
-            this.mc_updated_by.HeaderText = "UPDATED BY";
-            this.mc_updated_by.MinimumWidth = 12;
-            this.mc_updated_by.Name = "mc_updated_by";
-            this.mc_updated_by.ReadOnly = true;
             // 
             // frmMajorCategory
             // 

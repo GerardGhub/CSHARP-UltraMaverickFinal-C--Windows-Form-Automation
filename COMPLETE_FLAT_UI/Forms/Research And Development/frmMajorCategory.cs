@@ -43,8 +43,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-            showMajorCategoryData();
-            SearchMethodJarVarCallingSP();
+            this.showMajorCategoryData();
+            this.SearchMethodJarVarCallingSP();
         }
         protected override CreateParams CreateParams
         {
@@ -181,12 +181,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 {
                     if (dgvMajorCategory.CurrentRow.Cells["major_category_desc"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["major_category_id"].Value);
-                        txtmajorCategory.Text = dgvMajorCategory.CurrentRow.Cells["major_category_desc"].Value.ToString();
-                        txtCreatedBy.Text = dgvMajorCategory.CurrentRow.Cells["mc_added_by"].Value.ToString();
-                        txtCreatedAt.Text = dgvMajorCategory.CurrentRow.Cells["mc_added_at"].Value.ToString();
-                        txtModifiedAt.Text = dgvMajorCategory.CurrentRow.Cells["mc_updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvMajorCategory.CurrentRow.Cells["mc_updated_by"].Value.ToString();
+                        this.p_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["major_category_id"].Value);
+                        this.txtmajorCategory.Text = dgvMajorCategory.CurrentRow.Cells["major_category_desc"].Value.ToString();
+                        this.txtCreatedBy.Text = dgvMajorCategory.CurrentRow.Cells["mc_added_by"].Value.ToString();
+                        this.txtCreatedAt.Text = dgvMajorCategory.CurrentRow.Cells["mc_added_at"].Value.ToString();
+                        this.txtModifiedAt.Text = dgvMajorCategory.CurrentRow.Cells["mc_updated_at"].Value.ToString();
+                        this.txtModifiedBy.Text = dgvMajorCategory.CurrentRow.Cells["mc_updated_by"].Value.ToString();
                     }
                 }
             }
@@ -194,16 +194,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
-            matBtnDelete.Visible = false;
-            matBtnCancel.Visible = true;
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            matBtnSave.Visible = true;
-            txtmajorCategory.Enabled = true;
-            txtmajorCategory.Focus();
+            this.mode = "edit";
+            this.txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
+            this.txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            this.matBtnDelete.Visible = false;
+            this.matBtnCancel.Visible = true;
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+            this.matBtnSave.Visible = true;
+            this.txtmajorCategory.Enabled = true;
+            this.txtmajorCategory.Focus();
         }
 
         public void MajorCategoryAlreadyExist()
@@ -241,10 +241,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                MajorCategoryAlreadyExist();
+                this.MajorCategoryAlreadyExist();
 
 
-                txtmajorCategory.Focus();
+                this.txtmajorCategory.Focus();
                 return;
             }
             else
@@ -665,6 +665,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 }
 
             }
+        }
+
+        private void lbltotalrecords_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

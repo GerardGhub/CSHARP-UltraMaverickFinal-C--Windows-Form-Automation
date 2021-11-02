@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,9 +32,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public int p_id { get; set; }
         public string sp_item_code { get; set; }
         public string sp_item_description { get; set; }
+        public string sp_added_by { get; set; }
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
             this.firstLoad();
+            this.sp_added_by = userinfo.user_id.ToString();
             this.mattxtbarcode.Focus();
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
@@ -43,7 +46,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             DateTime dNow = DateTime.Now;
 
-            mattxtreceivingdate.Text = (dNow.ToString("M/d/yyyy"));
+            this.mattxtreceivingdate.Text = (dNow.ToString("M/d/yyyy"));
             this.dgvMajorCategory.Visible = false;
         }
 
@@ -202,7 +205,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.ItemFoundforReceiving();
                         materialCard2.Visible = true;
                         materialCard3.Visible = true;
-
+                        mattxtReceived.Visible = true;
+                        matbtnCancel.Visible = true;
                     }
                 }
                 else
@@ -303,8 +307,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void btnSelectLot_Click(object sender, EventArgs e)
         {
-            frmChooseLotNumber asd = new frmChooseLotNumber();
-            asd.ShowDialog();
+            frmChooseLotNumber showModal = new frmChooseLotNumber(this, mattxtcategory.Text);
+            showModal.ShowDialog();
+
+
+   
         }
 
         private void mattxtqtyReceived_TextChanged(object sender, EventArgs e)
@@ -345,6 +352,108 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void mattxtactualdelivery_TextChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        public void FillRequiredFields()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Fill up the required fields!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        private void mattxtReceived_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mattxtReceived_Click_1(object sender, EventArgs e)
+        {
+
+
+            if (mattxtqtyReceived.Text.Trim() == string.Empty)
+            {
+                this.FillRequiredFields();
+                mattxtqtyReceived.Focus();
+                return;
+            }
+
+            if (mattxtlotno.Text.Trim() == string.Empty)
+            {
+                this.FillRequiredFields();
+                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                LotSelection.ShowDialog();
+                return;
+            }
+            if (mattxtLotDescription.Text.Trim() == string.Empty)
+            {
+                this.FillRequiredFields();
+                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                LotSelection.ShowDialog();
+                return;
+            }
+
+
+            this.dSet.Clear();
+            this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                p_id, mattxtitemcode.Text, mattxtitemdesc.Text, mattxtqtyReceived.Text, "", sp_added_by, sp_added_by, "", mattxtSupplier.Text, "add");
+            this.SaveSuccessfully();
+
+        }
+
+        public void SaveSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Save";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        private void btnAddRejetModal_Click(object sender, EventArgs e)
+        {
+            frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text,p_id, Convert.ToInt32(mattxtponumber.Text));
+            showModal.ShowDialog();
+
         }
     }
 }

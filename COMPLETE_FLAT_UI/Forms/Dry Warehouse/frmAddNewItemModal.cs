@@ -39,6 +39,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
         }
+
         public string created_by { get; set; }
         MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
         private void frmAddNewItemModal_Load(object sender, EventArgs e)
@@ -59,15 +60,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void CleartextBoxes()
         {
          
-            textBox1.Text = String.Empty;
-            cboPrimaryUnit.Text = String.Empty;
-            txtmatConversion.Text = String.Empty;
-            cboMajorCategory.Text = String.Empty;
-            cboSubCat.Text = String.Empty;
-            cboItemType.Text = String.Empty;
-            cboItemClass.Text = String.Empty;
-            txtMatItemCode.Text = String.Empty;
-            txtMatItemDesc.Text = String.Empty;
+            this.textBox1.Text = String.Empty;
+            this.cboPrimaryUnit.Text = String.Empty;
+            this.txtmatConversion.Text = String.Empty;
+            this.cboMajorCategory.Text = String.Empty;
+            this.cboSubCat.Text = String.Empty;
+            this.cboItemType.Text = String.Empty;
+            this.cboItemClass.Text = String.Empty;
+            this.txtMatItemCode.Text = String.Empty;
+            this.txtMatItemDesc.Text = String.Empty;
                 
         }
 
@@ -85,7 +86,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboMajorCategory, "Major_Category_dropdown", dSet);
 
 
-            lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+            this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
         public void loadSubCategoryDropdown()
@@ -94,7 +95,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboSubCat, "Sub_Category_dropdown", dSet);
 
 
-            lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
         }
 
 
@@ -104,7 +105,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboItemType, "Item_Type_dropdown", dSet);
 
 
-            lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
+            this.lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
         }
 
         public void loadPrimaryUnitDropdown()
@@ -113,13 +114,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboPrimaryUnit, "Primary_Unit_dropdown", dSet);
 
 
-            lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
+            this.lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
         }
 
 
         private void CallingMainFormWindowBinder()
         {
-            txtcreatedBy.Text = created_by;
+            this.txtcreatedBy.Text = created_by;
           
          
         }
@@ -130,7 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void frmAddNewItemModal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            textBox1.Text = "Gerard Singian";
+            this.textBox1.Text = "Gerard Singian";
         }
 
         private void cboItemClass_SelectionChangeCommitted(object sender, EventArgs e)
@@ -141,7 +142,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void cboMajorCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
-            lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+            this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
         private void cboSubCat_SelectionChangeCommitted(object sender, EventArgs e)
@@ -275,7 +276,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (cboItemClass.Text == String.Empty)
             {
                 FillRequiredTextbox();
-                cboItemClass.Focus();
+                this.cboItemClass.Focus();
                 return;
             }
 
