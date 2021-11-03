@@ -939,10 +939,10 @@ namespace ULTRAMAVERICK.Report
                 crV1.Refresh();
             }
 
-            else if (myglobal.REPORT_NAME == "IDRepackReportreprint")
+            else if (myglobal.REPORT_NAME == "DryReceivingBarcode")
             {
-                rpt.Load(Rpt_Path + "\\MainRepackingBarcodeMicroReprint.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+                rpt.Load(Rpt_Path + "\\DryReceivingBarcode.rpt");
+                //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
                 ////////rpt.SetDatabaseLogon("sa", "Nescafe3in1");
                 rpt.Refresh();
 

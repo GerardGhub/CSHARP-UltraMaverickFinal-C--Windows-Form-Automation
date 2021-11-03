@@ -120,15 +120,15 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAddRejetModal.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAHCSURBVFhHYxgFo2AUDHrgt9FP3WeDfyCUSxvgsN+BxXezLxeUCwee6wOUfdYFPvFdH/DLd12g
-        PVSYuiB0VSinz/qAbUB8zHObJx9UmMF3TbAGUOwFEP/33eC/BSjHDpWiLghcFygGtOQWyCIgPuC2043b
-        Z7OPNNDXd8CWrws8CBKDKmeYdOKbzISTP0Opgk//UAcbCgx+OaBlD6GOOATEN7BZDgJgjad+/qcKPvmz
-        HGosA4P/Bn9Z7/UB96GOwBnsNHMACHitC1SDOgIcFVBhFECTKEAG7muDJHFZPrzBW09zeBaEAWxiNAFf
-        nM31vjibvQDirv8MDIwgsc9uJjpQsU6wIlqCr85myUCL/gHx/y8upv2f3Iw1gOwnYL6z2bn/vsYYpSTV
-        wRcn8wKohSD8A0KbXvrkYCwCVQIGk078sph48udqquDTP/2hxkIAMCp6kBzx9rOblRhUCg7A2QdbniYH
-        I5cDXx3Njb+4mL1DcgAoBCbA0gQM0MQBn10sNIEWPodafA2YJqqANCRNOJm3gxXREnx1MkuBWnjti4Op
-        BEgMKU2cp0si/OpingSzHAZAueOzp6EolDsKRsEoGI6AgQEAFvxwPYyYN0AAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAcJJREFUWEdj
+        GAWjYBQMeuC30U/dZ4N/IJRLG+Cw34HFd7MvF5QLB57rA5R91gU+8V0f8Mt3XaA9VJi6IHRVKKfP+oBt
+        QHzMc5snH1SYwXdNsAZQ7AUQ//fd4L8FKMcOlaIuCFwXKAa05BbIIiA+4LbTjdtns4800Nd3wJavCzwI
+        EoMqZ5h04pvMhJM/Q6mCT/9QBxsKDH45oGUPoY44BMQ3sFkOAmCNp37+pwo++bMcaiwDg/8Gf1nv9QH3
+        oY7AGew0cwAIeK0LVIM6AhwVUGEUQJMoQAbua4MkcVk+vMFbT3N4FoQBbGI0AV+czfW+OJu9AOKu/wwM
+        jCCxz24mOlCxTrAiWoKvzmbJQIv+AfH/Ly6m/Z/cjDWA7CdgvrPZuf++xhilJNXBFyfzAqiFIPwDQpte
+        +uRgLAJVAgaTTvyymHjy52qq4NM//aHGQgAwKnqQHPH2s5uVGFQKDsDZB1ueJgcjlwNfHc2Nv7iYvUNy
+        ACgEJsDSBAzQxAGfXSw0gRY+h1p8DZgmqoA0JE04mbeDFdESfHUyS4FaeO2Lg6kESAwpTZynSyL86mKe
+        BLMcBkC547OnoSiUOwpGwSgYjoCBAQAW/HA9jJg3QAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnSelectLot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -161,6 +161,9 @@
     <value>True</value>
   </metadata>
   <metadata name="mc_updated_by.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

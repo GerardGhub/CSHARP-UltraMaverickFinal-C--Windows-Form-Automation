@@ -296,6 +296,13 @@ namespace ULTRAMAVERICK.Models
         string updated_by,
         string updated_date,
         string supplier,
+        string lot_no,
+        string lot_description,
+        string mfg_date,
+        string exp_date,
+        string category,
+        string uom,
+        string qty_reject,
         string mode);
 
 
@@ -322,12 +329,12 @@ namespace ULTRAMAVERICK.Models
       string mode);
 
         DataSet sp_Primary_Unit(int unit_id,
-  string unit_desc,
-  string pm_added_by,
-  string pm_added_at,
-  string pm_updated_at,
-  string pm_updated_by,
-  string mode);
+            string unit_desc,
+            string pm_added_by,
+            string pm_added_at,
+            string pm_updated_at,
+            string pm_updated_by,
+            string mode);
 
             DataSet sp_Item_Type(int item_type_id,
             string item_type_desc,

@@ -40,12 +40,12 @@ namespace ULTRAMAVERICK.Forms.Users
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-            getAllDepartment(); // all Department Management
-            lstDepartment_Click(sender, e); // Click Thge ListView
+            this.getAllDepartment(); // all Department Management
+            this.lstDepartment_Click(sender, e); // Click Thge ListView
             myglobal.global_module = "Active"; // Mode for Searching
-            load_search(); //Bind the Information
-            HideDataGrid(); // Hide the DataGrid
-            LoadLocation(); // Loading the Depeartment
+            this.load_search(); //Bind the Information
+            this.HideDataGrid(); // Hide the DataGrid
+            this.LoadLocation(); // Loading the Depeartment
             cboLocation.Visible = false;
         }
 

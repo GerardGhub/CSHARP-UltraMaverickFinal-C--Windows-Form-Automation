@@ -1,4 +1,5 @@
 ﻿using COMPLETE_FLAT_UI.Models;
+using CrystalDecisions.CrystalReports.Engine;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
+
+        string Rpt_Path = "";
+     
+        ReportDocument rpt = new ReportDocument();
         public frmDryReceivingModule()
         {
             InitializeComponent();
@@ -33,6 +38,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_item_code { get; set; }
         public string sp_item_description { get; set; }
         public string sp_added_by { get; set; }
+        public string sp_final_id { get; set; }
+        public double sp_receiving_qty { get; set; }
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
             this.firstLoad();
@@ -42,10 +49,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
         }
 
+        private void showLatestID()      
+        {
+            try
+            {
+               
+                xClass.fillDataGridView(dgvReceivedID, "tblDryWHReceiving_last_id", dSet);
+         
+  
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
         private void firstLoad()
         {
             DateTime dNow = DateTime.Now;
-
+            this.crV1.Visible = false;
+            this.dgvReceivedID.Visible = false;
             this.mattxtreceivingdate.Text = (dNow.ToString("M/d/yyyy"));
             this.dgvMajorCategory.Visible = false;
         }
@@ -148,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                        dv.RowFilter = "item_code like '%" + mattxtbarcode.Text + "%'";
+                        dv.RowFilter = "item_code = '" + mattxtbarcode.Text + "'";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -207,6 +233,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         materialCard3.Visible = true;
                         mattxtReceived.Visible = true;
                         matbtnCancel.Visible = true;
+
+                        //Remove Some Data
+                        mattxtqtyReceived.Text = String.Empty;
+                        mattxtlotno.Text = String.Empty;
+                        mattxtLotDescription.Text = String.Empty;
+                        //mattxtqtyreject.Text = String.Empty;
                     }
                 }
                 else
@@ -282,6 +314,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                        mattxtqtyuom.Text = dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
                       mattxtponumber.Text = dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
                        mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
+                        mattxtqtyreject.Text = dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
+                        mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
                     }
                 }
             }
@@ -321,7 +355,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
 
 
-                mattxtsoh.Text = (float.Parse(mattxtqtyReceived.Text) - float.Parse(mattxtsoh.Text)).ToString();
+              mattxtupdatedstocks.Text = (float.Parse(mattxtsoh.Text) + float.Parse(mattxtqtyReceived.Text)).ToString();
             }
             catch (Exception)
             {
@@ -331,15 +365,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (mattxtqtyReceived.Text == String.Empty)
             {
-              
-            }
-            else
-            {
                 try
                 {
 
 
-                    mattxtsoh.Text = (float.Parse(mattxtqtyReceived.Text) + float.Parse(mattxtsoh.Text)).ToString();
+                    mattxtupdatedstocks.Text = String.Empty;
                 }
                 catch (Exception)
                 {
@@ -347,6 +377,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                 }
             }
+          
         }
 
         private void mattxtactualdelivery_TextChanged(object sender, EventArgs e)
@@ -388,40 +419,143 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
-        private void mattxtReceived_Click_1(object sender, EventArgs e)
+        public void LessThanQtyReceived()
         {
 
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Less Than Qty Received";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
 
-            if (mattxtqtyReceived.Text.Trim() == string.Empty)
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+        private void mattxtReceived_Click_1(object sender, EventArgs e)
+        {
+            double order;
+            double currentreject;
+       
+
+            order = double.Parse(mattxtactualdelivery.Text);
+            currentreject = double.Parse(mattxtqtyreject.Text);
+     
+
+            if (order < currentreject)
             {
-                this.FillRequiredFields();
-                mattxtqtyReceived.Focus();
+                // code
+  
+                this.LessThanQtyReceived();
+                this.btnAddRejetModal_Click(sender, e);
                 return;
             }
-
-            if (mattxtlotno.Text.Trim() == string.Empty)
+            else
             {
-                this.FillRequiredFields();
-                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
-                LotSelection.ShowDialog();
-                return;
-            }
-            if (mattxtLotDescription.Text.Trim() == string.Empty)
-            {
-                this.FillRequiredFields();
-                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
-                LotSelection.ShowDialog();
-                return;
+                //MessageBox.Show("Bebes");
+                //return;
             }
 
+            //proceess of repack kupra
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
 
-            this.dSet.Clear();
-            this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                p_id, mattxtitemcode.Text, mattxtitemdesc.Text, mattxtqtyReceived.Text, "", sp_added_by, sp_added_by, "", mattxtSupplier.Text, "add");
-            this.SaveSuccessfully();
+                if (mattxtqtyReceived.Text.Trim() == string.Empty)
+                {
+                    this.FillRequiredFields();
+                    mattxtqtyReceived.Focus();
+                    return;
+                }
+
+                if (mattxtlotno.Text.Trim() == string.Empty)
+                {
+                    this.FillRequiredFields();
+                    frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                    LotSelection.ShowDialog();
+                    return;
+                }
+                if (mattxtLotDescription.Text.Trim() == string.Empty)
+                {
+                    this.FillRequiredFields();
+                    frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                    LotSelection.ShowDialog();
+                    return;
+                }
+
+                this.SummaryComputation();
+
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                    mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, "add");
+                this.SaveSuccessfully();
+                this.showLatestID();
+                //this.SummaryComputation();
+       
+                this.PrintingProcess();
+            }
+            else
+            {
+                return;
+            }
 
         }
 
+        private void SummaryComputation()
+        {
+            //sp_final_id = (float.Parse(sp_final_id) + 1).ToString();
+            double qtyReceiving;
+            double rejected;
+
+
+            qtyReceiving = double.Parse(mattxtqtyReceived.Text);
+            rejected = double.Parse(mattxtqtyreject.Text);
+
+
+            sp_receiving_qty = qtyReceiving - rejected;
+        }
+        private void PrintingProcess()
+        {
+            Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
+
+
+
+            PrintDialog printDialog = new PrintDialog();
+            rpt.Load(Rpt_Path + "\\DryReceivingBarcode.rpt");
+
+            //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+            //MessageBox.Show(sp_final_id);
+            rpt.Refresh();
+            myglobal.DATE_REPORT2 = sp_final_id;
+            string mystringid = myglobal.DATE_REPORT2;
+            rpt.SetParameterValue("@mystringid", mystringid);
+
+
+
+            crV1.ReportSource = rpt;
+            crV1.Refresh();
+
+
+
+            rpt.PrintOptions.PrinterName = printDialog.PrinterSettings.PrinterName;
+
+
+            rpt.PrintToPrinter(printDialog.PrinterSettings.Copies, printDialog.PrinterSettings.Collate, printDialog.PrinterSettings.ToPage, printDialog.PrinterSettings.ToPage);
+
+        }
         public void SaveSuccessfully()
         {
 
@@ -454,6 +588,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text,p_id, Convert.ToInt32(mattxtponumber.Text));
             showModal.ShowDialog();
 
+        }
+
+        private void dgvReceivedID_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgvReceivedID.Rows.Count > 0)
+            {
+                if (dgvReceivedID.CurrentRow != null)
+                {
+                    if (dgvReceivedID.CurrentRow.Cells["id"].Value != null)
+                    {
+                      
+                        sp_final_id = dgvReceivedID.CurrentRow.Cells["id"].Value.ToString();
+
+                    }
+                }
+            }
         }
     }
 }
