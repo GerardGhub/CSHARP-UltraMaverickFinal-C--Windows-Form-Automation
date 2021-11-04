@@ -40,6 +40,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_added_by { get; set; }
         public string sp_final_id { get; set; }
         public double sp_receiving_qty { get; set; }
+        public string sp_total_remaining_po { get; set; }
+        
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
             this.firstLoad();
@@ -47,6 +49,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtbarcode.Focus();
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.mattxtbarcode.Focus();
         }
 
         private void showLatestID()      
@@ -223,7 +226,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     if(totalRecords == "0")
                     {
-
+                        this.RMNotExistReceiving();
+                        this.mattxtbarcode.Text = String.Empty;
+                        this.mattxtbarcode.Focus();
                     }
                     else
                     {
@@ -316,6 +321,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                        mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
                         mattxtqtyreject.Text = dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
                         mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
+                        sp_total_remaining_po = dgvMajorCategory.CurrentRow.Cells["totalremainingpo"].Value.ToString();
+                       
                     }
                 }
             }
@@ -323,7 +330,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void mattxtqtyReceived_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(mattxtqtyReceived.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
 
 
 
@@ -445,8 +461,96 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         }
+
+        public void InvalidQtyReceived()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Invalid Qty Received";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
         private void mattxtReceived_Click_1(object sender, EventArgs e)
         {
+
+            if (mattxtqtyReceived.Text.Trim() == string.Empty)
+            {
+                this.FillRequiredFields();
+                mattxtqtyReceived.Focus();
+                return;
+            }
+
+            double orderActual;
+            double currentrejectActual;
+            double rejecttotal;
+
+
+            orderActual = double.Parse(mattxtactualdelivery.Text);
+            currentrejectActual = double.Parse(mattxtqtyReceived.Text);
+            rejecttotal = double.Parse(mattxtqtyreject.Text);
+
+            if (orderActual < currentrejectActual)
+            {
+                // code
+
+                this.LessThanQtyReceived();
+                mattxtqtyReceived.Text = String.Empty;
+                mattxtqtyReceived.Focus();
+                return;
+            }
+            else
+            {
+                //MessageBox.Show("Bebes");
+                //return;
+            }
+
+            if (currentrejectActual < rejecttotal)
+            {
+                // code buje
+
+                this.InvalidQtyReceived();
+                mattxtqtyReceived.Text = String.Empty;
+                mattxtqtyReceived.Focus();
+                return;
+            }
+
+            if (mattxtlotno.Text.Trim() == string.Empty)
+            {
+                this.FillRequiredFields();
+                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                LotSelection.ShowDialog();
+                return;
+            }
+            if (mattxtLotDescription.Text.Trim() == string.Empty)
+            {
+                this.FillRequiredFields();
+                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                LotSelection.ShowDialog();
+                return;
+            }
+
+
+       
+
             double order;
             double currentreject;
        
@@ -470,47 +574,86 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
             //proceess of repack kupra
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (currentreject == 0)
             {
-
-                if (mattxtqtyReceived.Text.Trim() == string.Empty)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    this.FillRequiredFields();
-                    mattxtqtyReceived.Focus();
+
+
+
+
+                    this.SummaryComputation();
+
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), "add");
+                    this.SaveSuccessfully();
+                    this.showLatestID();
+                    //this.SummaryComputation();
+
+                    this.PrintingProcess();
+                    this.frmDryReceivingModule_Load(sender, e);
+                }
+                else
+                {
                     return;
                 }
-
-                if (mattxtlotno.Text.Trim() == string.Empty)
-                {
-                    this.FillRequiredFields();
-                    frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
-                    LotSelection.ShowDialog();
-                    return;
-                }
-                if (mattxtLotDescription.Text.Trim() == string.Empty)
-                {
-                    this.FillRequiredFields();
-                    frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
-                    LotSelection.ShowDialog();
-                    return;
-                }
-
-                this.SummaryComputation();
-
-                this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                    p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                    mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, "add");
-                this.SaveSuccessfully();
-                this.showLatestID();
-                //this.SummaryComputation();
-       
-                this.PrintingProcess();
             }
-            else
+            else 
             {
-                return;
+                double qtyReceiving;
+                double rejected;
+                double totalSum;
+
+
+                qtyReceiving = double.Parse(mattxtqtyReceived.Text);
+                rejected = double.Parse(mattxtqtyreject.Text);
+
+
+                totalSum = qtyReceiving - rejected;
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received the Qty '"+totalSum+"' ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+
+
+                    this.SummaryComputation();
+
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), "add");
+
+                    this.SaveSuccessfully();
+                    this.showLatestID();
+                    //this.SummaryComputation();
+
+                    this.PrintingProcess();
+
+                    //Update Projects Partial PO Actual Remaining
+
+                    double qtytotalPo;
+                    double QtyReject;
+                    double qtyReturnSummary;
+               
+
+                    qtytotalPo = double.Parse(sp_total_remaining_po);
+                    QtyReject = double.Parse(mattxtqtyreject.Text);
+
+                    qtyReturnSummary = qtytotalPo + QtyReject;
+
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, qtyReturnSummary.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), "rejectComeback");
+                }
+                else
+                {
+                    return;
+                }
             }
+      
 
         }
 
@@ -604,6 +747,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     }
                 }
             }
+        }
+
+        private void mattxtqtyreject_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                mattxtupdatedstocks.Text = (float.Parse(mattxtsoh.Text) + float.Parse(mattxtqtyReceived.Text)).ToString();
+            }
+            catch (Exception)
+            {
+
+
+            }
+            try
+            {
+
+
+               mattxtqtyReceived.Text = (float.Parse(mattxtactualdelivery.Text) - float.Parse(mattxtqtyreject.Text)).ToString();
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+
+            if (mattxtqtyReceived.Text == String.Empty)
+            {
+                try
+                {
+
+
+                    mattxtupdatedstocks.Text = String.Empty;
+                }
+                catch (Exception)
+                {
+
+
+                }
+            }
+
+
+
+
         }
     }
 }

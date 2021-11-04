@@ -202,7 +202,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
+            popup.BodyColor = Color.Green;
             popup.Popup();
             popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
             popup.Delay = 500;
@@ -224,9 +224,53 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 this.AlreadyExist();
 
-                this.metroCmbRejectRemarks.Text = String.Empty;
-                this.metroCmbRejectRemarks.Focus();
-                return;
+                //this.metroCmbRejectRemarks.Text = String.Empty;
+                //this.metroCmbRejectRemarks.Focus();
+                double orderScope1;
+                double currentrejectScope1;
+                double qtyRejectScope1;
+                double AllowancesScope1;
+
+                orderScope1 = double.Parse(mattxtQtyReceived.Text);
+                currentrejectScope1 = double.Parse(lbltotalReject.Text);
+                qtyRejectScope1 = double.Parse(mattxtqtyreject.Text);
+
+                AllowancesScope1 = currentrejectScope1 + qtyRejectScope1;
+
+                if (orderScope1 < AllowancesScope1)
+                {
+                    // code
+                    this.mattxtqtyreject.Text = String.Empty;
+                    this.mattxtqtyreject.Focus();
+                    this.LessThanQtyReceived();
+
+                    return;
+                }
+                //Initialize();
+                double totalExistingReject;
+                double QtyRejectCommits;
+                double totalSummaryofReject;
+
+                totalExistingReject = double.Parse(lbltotalReject.Text);
+                QtyRejectCommits = double.Parse(mattxtqtyreject.Text);
+
+
+                totalSummaryofReject = totalExistingReject + QtyRejectCommits;
+                if (MetroFramework.MetroMessageBox.Show(this, "You already have same reject/remark, Are you sure you want to update an existing reject '"+totalSummaryofReject+"'?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                 
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
+                        sp_index_id, sp_po_number, Convert.ToInt32(totalSummaryofReject), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", "edit");
+                    this.AddedSuccessfully();
+                    frmAddNewPartialRejectReceiving_Load(sender, e);
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
+                    return;
             }
 
             double order;
