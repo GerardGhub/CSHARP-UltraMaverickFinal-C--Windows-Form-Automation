@@ -77,6 +77,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvReceivedID.Visible = false;
             this.mattxtreceivingdate.Text = (dNow.ToString("M/d/yyyy"));
             this.dgvMajorCategory.Visible = false;
+            this.materialCard2.Visible = false;
+            this.materialCard3.Visible = false;
+            this.mattxtReceived.Visible = false;
+            this.matbtnCancel.Visible = false;
         }
 
         private void mattxtbarcode_KeyDown(object sender, KeyEventArgs e)
@@ -234,16 +238,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     {
                         this.mattxtbarcode.Text = String.Empty;
                         this.ItemFoundforReceiving();
-                        materialCard2.Visible = true;
-                        materialCard3.Visible = true;
-                        mattxtReceived.Visible = true;
-                        matbtnCancel.Visible = true;
+                        this.materialCard2.Visible = true;
+                        this.materialCard3.Visible = true;
+                        this.mattxtReceived.Visible = true;
+                        this.matbtnCancel.Visible = true;
 
                         //Remove Some Data
-                        mattxtqtyReceived.Text = String.Empty;
-                        mattxtlotno.Text = String.Empty;
-                        mattxtLotDescription.Text = String.Empty;
+                        this.mattxtqtyReceived.Text = String.Empty;
+                        this.mattxtlotno.Text = String.Empty;
+                        this.mattxtLotDescription.Text = String.Empty;
                         //mattxtqtyreject.Text = String.Empty;
+                        this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
                     }
                 }
                 else
@@ -523,15 +528,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 //return;
             }
 
-            if (currentrejectActual < rejecttotal)
-            {
-                // code buje
+            //if (currentrejectActual < rejecttotal)
+            //{
+            //    // code buje
 
-                this.InvalidQtyReceived();
-                mattxtqtyReceived.Text = String.Empty;
-                mattxtqtyReceived.Focus();
-                return;
-            }
+            //    this.InvalidQtyReceived();
+            //    mattxtqtyReceived.Text = String.Empty;
+            //    mattxtqtyReceived.Focus();
+            //    return;
+            //}
 
             if (mattxtlotno.Text.Trim() == string.Empty)
             {
@@ -602,17 +607,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else 
             {
-                double qtyReceiving;
-                double rejected;
-                double totalSum;
+                //double qtyReceiving;
+                //double rejected;
+                //double totalSum;
 
 
-                qtyReceiving = double.Parse(mattxtqtyReceived.Text);
-                rejected = double.Parse(mattxtqtyreject.Text);
+                //qtyReceiving = double.Parse(mattxtqtyReceived.Text);
+                //rejected = double.Parse(mattxtqtyreject.Text);
 
 
-                totalSum = qtyReceiving - rejected;
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received the Qty '"+totalSum+"' ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                //totalSum = qtyReceiving - rejected;
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received the Qty '"+mattxtqtyreject.Text+"' ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
@@ -647,6 +652,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, qtyReturnSummary.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), "rejectComeback");
+                    this.frmDryReceivingModule_Load(sender, e);
                 }
                 else
                 {

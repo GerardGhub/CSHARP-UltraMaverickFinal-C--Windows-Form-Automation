@@ -28,7 +28,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-        string mode = "";
+     
         DataSet dSet_temp = new DataSet();
         public frmAddNewPartialRejectReceiving(frmDryReceivingModule frm, string item_description, string quantity,
             int primary_key, int po_number)
@@ -56,6 +56,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_primary_key{get; set;}
 
         public int TotalSummaryofReject { get; set; }
+        public string sp_ActualQty { get; set; }
         private void frmAddNewPartialRejectReceiving_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -214,6 +215,63 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         }
+
+
+        private void doSearchInTextBoxCmbDoubleEntry()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "index_id = '" + sp_index_id + "' and reject_remarks = '"+ metroCmbRejectRemarks.Text + "' ";
+
+                    }
+             
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvLotData.DataSource = dv;
+                    //lbltotalrecords.Text = dgvLotData.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            this.dgvLotData.Columns["id"].Visible = false;
+            this.dgvLotData.Columns["index_id"].Visible = false;
+            this.dgvLotData.Columns["po_number"].Visible = false;
+            //this.dgvLotData.Columns["date_added"].Visible = false;
+
+            //this.dgvLotData.Columns[1].Width = 128;
+            //this.SumofTotalReject();
+        }
+
         private void matBtnAdd_Click(object sender, EventArgs e)
         {
 
@@ -247,11 +305,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     return;
                 }
                 //Initialize();
+                this.doSearchInTextBoxCmbDoubleEntry();
                 double totalExistingReject;
                 double QtyRejectCommits;
                 double totalSummaryofReject;
 
-                totalExistingReject = double.Parse(lbltotalReject.Text);
+                totalExistingReject = double.Parse(sp_ActualQty);
                 QtyRejectCommits = double.Parse(mattxtqtyreject.Text);
 
 
@@ -263,6 +322,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
                         sp_index_id, sp_po_number, Convert.ToInt32(totalSummaryofReject), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", "edit");
                     this.AddedSuccessfully();
+                    this.SearchMethodJarVarCallingSP();
+                    this.doSearchInTextBoxCmb();
                     frmAddNewPartialRejectReceiving_Load(sender, e);
                     this.Close();
                 }
@@ -360,10 +421,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     {
 
                         sp_primary_key= dgvLotData.CurrentRow.Cells["id"].Value.ToString();
-                      
+                      sp_ActualQty = dgvLotData.CurrentRow.Cells["qty_reject"].Value.ToString();
 
 
-                     
+
                     }
                 }
             }
@@ -426,6 +487,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void dgvLotData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
