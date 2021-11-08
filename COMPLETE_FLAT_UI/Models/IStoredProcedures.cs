@@ -304,6 +304,7 @@ namespace ULTRAMAVERICK.Models
         string uom,
         string qty_reject,
         int po_number,
+        int added_by_userid,
         string mode);
 
 

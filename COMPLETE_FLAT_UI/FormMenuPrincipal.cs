@@ -22,6 +22,7 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Import;
 using System.IO;
 using ULTRAMAVERICK.Report;
 using CrystalDecisions.CrystalReports.Engine;
+using ULTRAMAVERICK.Barcode_Reprinting;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1113,6 +1114,15 @@ namespace COMPLETE_FLAT_UI
             frmDryReceivingModule fm = new frmDryReceivingModule();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmBarcodeReprinting fm = new frmBarcodeReprinting();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+
+
         }
 
         private void button5_Click(object sender, EventArgs e)

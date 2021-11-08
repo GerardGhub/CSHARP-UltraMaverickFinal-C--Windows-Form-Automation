@@ -131,6 +131,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Barcode Reprinting\frmBarcodeReprinting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barcode Reprinting\frmBarcodeReprinting.Designer.cs">
+      <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\Adorner.cs" />
     <Compile Include="Class\import_drywh_rawmats.cs" />
     <Compile Include="Class\MenuColorTable.cs" />
@@ -418,6 +424,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UltraMaverickDBDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Barcode Reprinting\frmBarcodeReprinting.resx">
+      <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormListaClientes.resx">
       <DependentUpon>FormListaClientes.cs</DependentUpon>
     </EmbeddedResource>

@@ -38,6 +38,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_item_code { get; set; }
         public string sp_item_description { get; set; }
         public string sp_added_by { get; set; }
+        public string sp_added_by_userid { get; set; }
         public string sp_final_id { get; set; }
         public double sp_receiving_qty { get; set; }
         public string sp_total_remaining_po { get; set; }
@@ -45,7 +46,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
             this.firstLoad();
-            this.sp_added_by = userinfo.user_id.ToString();
+            this.sp_added_by = userinfo.emp_name.ToString();
+            this.sp_added_by_userid = userinfo.user_id.ToString();
             this.mattxtbarcode.Focus();
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
@@ -313,20 +315,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
                     if (dgvMajorCategory.CurrentRow.Cells["item_code"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["PrimaryID"].Value);
-                  mattxtitemcode.Text = dgvMajorCategory.CurrentRow.Cells["item_code"].Value.ToString();
-                        mattxtitemdesc.Text = dgvMajorCategory.CurrentRow.Cells["item_description"].Value.ToString();
-                        mattxtSupplier.Text = dgvMajorCategory.CurrentRow.Cells["Supplier"].Value.ToString();
-                        mattxtmfgdate.Text = dgvMajorCategory.CurrentRow.Cells["mfg_date"].Value.ToString();
-                       mattxtexpirydate.Text = dgvMajorCategory.CurrentRow.Cells["expiration_date"].Value.ToString();
-                        matdaysExpiry.Text = dgvMajorCategory.CurrentRow.Cells["DaysToExpired"].Value.ToString();
-                      mattxtcategory.Text = dgvMajorCategory.CurrentRow.Cells["major_category"].Value.ToString();
-                       mattxtqtyuom.Text = dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
-                      mattxtponumber.Text = dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
-                       mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
-                        mattxtqtyreject.Text = dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
-                        mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
-                        sp_total_remaining_po = dgvMajorCategory.CurrentRow.Cells["totalremainingpo"].Value.ToString();
+                        this.p_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["PrimaryID"].Value);
+                        this.mattxtitemcode.Text = dgvMajorCategory.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.mattxtitemdesc.Text = dgvMajorCategory.CurrentRow.Cells["item_description"].Value.ToString();
+                        this.mattxtSupplier.Text = dgvMajorCategory.CurrentRow.Cells["Supplier"].Value.ToString();
+                        this.mattxtmfgdate.Text = dgvMajorCategory.CurrentRow.Cells["mfg_date"].Value.ToString();
+                        this.mattxtexpirydate.Text = dgvMajorCategory.CurrentRow.Cells["expiration_date"].Value.ToString();
+                        this.matdaysExpiry.Text = dgvMajorCategory.CurrentRow.Cells["DaysToExpired"].Value.ToString();
+                        this.mattxtcategory.Text = dgvMajorCategory.CurrentRow.Cells["major_category"].Value.ToString();
+                        this.mattxtqtyuom.Text = dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
+                        this.mattxtponumber.Text = dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
+                        this.mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
+                        this.mattxtqtyreject.Text = dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
+                        this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
+                        this.sp_total_remaining_po = dgvMajorCategory.CurrentRow.Cells["totalremainingpo"].Value.ToString();
                        
                     }
                 }
@@ -518,8 +520,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 // code
 
                 this.LessThanQtyReceived();
-                mattxtqtyReceived.Text = String.Empty;
-                mattxtqtyReceived.Focus();
+                this.mattxtqtyReceived.Text = String.Empty;
+                this.mattxtqtyReceived.Focus();
                 return;
             }
             else
@@ -592,7 +594,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), "add");
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "add");
                     this.SaveSuccessfully();
                     this.showLatestID();
                     //this.SummaryComputation();
@@ -628,7 +630,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), "add");
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "add");
 
                     this.SaveSuccessfully();
                     this.showLatestID();
@@ -651,7 +653,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, qtyReturnSummary.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), "rejectComeback");
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejectComeback");
                     this.frmDryReceivingModule_Load(sender, e);
                 }
                 else
@@ -747,8 +749,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
                     if (dgvReceivedID.CurrentRow.Cells["id"].Value != null)
                     {
-                      
-                        sp_final_id = dgvReceivedID.CurrentRow.Cells["id"].Value.ToString();
+
+                        this.sp_final_id = dgvReceivedID.CurrentRow.Cells["id"].Value.ToString();
 
                     }
                 }
@@ -761,7 +763,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
 
 
-                mattxtupdatedstocks.Text = (float.Parse(mattxtsoh.Text) + float.Parse(mattxtqtyReceived.Text)).ToString();
+                this.mattxtupdatedstocks.Text = (float.Parse(mattxtsoh.Text) + float.Parse(mattxtqtyReceived.Text)).ToString();
             }
             catch (Exception)
             {
@@ -772,7 +774,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
 
 
-               mattxtqtyReceived.Text = (float.Parse(mattxtactualdelivery.Text) - float.Parse(mattxtqtyreject.Text)).ToString();
+                this.mattxtqtyReceived.Text = (float.Parse(mattxtactualdelivery.Text) - float.Parse(mattxtqtyreject.Text)).ToString();
             }
             catch (Exception)
             {
@@ -787,7 +789,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
 
 
-                    mattxtupdatedstocks.Text = String.Empty;
+                    this.mattxtupdatedstocks.Text = String.Empty;
                 }
                 catch (Exception)
                 {
