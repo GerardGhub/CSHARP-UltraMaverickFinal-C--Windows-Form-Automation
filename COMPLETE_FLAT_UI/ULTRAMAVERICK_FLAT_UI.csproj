@@ -222,6 +222,12 @@
     <Compile Include="Forms\Dry Warehouse\frmDryReceivingModule.Designer.cs">
       <DependentUpon>frmDryReceivingModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmDryWHInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmDryWHInventory.Designer.cs">
+      <DependentUpon>frmDryWHInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\frmEditItemModal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -465,6 +471,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmDryReceivingModule.resx">
       <DependentUpon>frmDryReceivingModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmDryWHInventory.resx">
+      <DependentUpon>frmDryWHInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmEditItemModal.resx">
       <DependentUpon>frmEditItemModal.cs</DependentUpon>

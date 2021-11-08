@@ -1125,6 +1125,13 @@ namespace COMPLETE_FLAT_UI
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmDryWHInventory fm = new frmDryWHInventory();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());

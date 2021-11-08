@@ -19,6 +19,9 @@ namespace ULTRAMAVERICK.Report
         string Rpt_Path = "";
         ReportDocument rpt = new ReportDocument();
         myclasses xClass = new myclasses();
+        IStoredProcedures objStorProc = null;
+        IStoredProcedures g_objStoredProcCollection = null;
+        myclasses myClass = new myclasses();
         public frmReport()
         {
             InitializeComponent();
@@ -26,13 +29,14 @@ namespace ULTRAMAVERICK.Report
 
         private void frmReport_Load(object sender, EventArgs e)
         {
-
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             crV1.Width = this.Width;
             crV1.Height = 10;
 
             Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
 
-
+            
             xClass.ActivitiesLogs(userinfo.emp_name + " Generated " + myglobal.REPORT_NAME + " Report");
 
             displayReport();
@@ -950,6 +954,18 @@ namespace ULTRAMAVERICK.Report
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
             }
+
+            else if (myglobal.REPORT_NAME == "DryReceivingBarcodeReprint")
+            {
+                rpt.Load(Rpt_Path + "\\DryReceivingBarcodeReprint.rpt");
+                //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+                ////////rpt.SetDatabaseLogon("sa", "Nescafe3in1");
+                rpt.Refresh();
+
+
+                crV1.ReportSource = rpt;
+                crV1.Refresh();
+            }
             //else if (myglobal.REPORT_NAME == "IDRepackReportMain")
             //{
             //    rpt.Load(Rpt_Path + "\\IDRepackReportMain.rpt");
@@ -1483,7 +1499,10 @@ namespace ULTRAMAVERICK.Report
             }
         }
 
-
-
+        DataSet dset = new DataSet();
+        private void frmReport_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
+        }
     }
 }

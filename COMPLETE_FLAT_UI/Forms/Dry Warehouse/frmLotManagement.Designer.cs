@@ -54,7 +54,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lot_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTALSKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2.SuspendLayout();
@@ -223,7 +223,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lot_number,
             this.description,
             this.category,
-            this.Column1,
+            this.TOTALSKU,
             this.added_by,
             this.date_added});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -371,12 +371,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.category.Name = "category";
             this.category.ReadOnly = true;
             // 
-            // Column1
+            // TOTALSKU
             // 
-            this.Column1.HeaderText = "TOTAL SKU";
-            this.Column1.MinimumWidth = 12;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.TOTALSKU.DataPropertyName = "TOTALSKU";
+            this.TOTALSKU.HeaderText = "TOTAL SKU";
+            this.TOTALSKU.MinimumWidth = 12;
+            this.TOTALSKU.Name = "TOTALSKU";
+            this.TOTALSKU.ReadOnly = true;
             // 
             // added_by
             // 
@@ -445,7 +446,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn lot_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTALSKU;
         private System.Windows.Forms.DataGridViewTextBoxColumn added_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
     }
