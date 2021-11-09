@@ -2279,7 +2279,7 @@ namespace ULTRAMAVERICK.Forms.Users
             p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
 
             dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfile(0,
+            dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                 p_id,
                 "s",
                 "s",
@@ -2292,7 +2292,6 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
-                imageByte,
                 "addModuleRights");
         }
         private void button2_Click(object sender, EventArgs e)

@@ -61,18 +61,18 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            loadUser_type(); // Load the UserType at User Rights
+            this.loadUser_type(); // Load the UserType at User Rights
       
 
   
    
      
 
-            loadDepartment(); // Loading the Depeartment
-            loadRequestorType(); //Load Requestor Types
+            this.loadDepartment(); // Loading the Depeartment
+            this.loadRequestorType(); //Load Requestor Types
  
-            RefresherOnLoadingThePage();
-            NewData();
+            this.RefresherOnLoadingThePage();
+            this.NewData();
         }
 
 
@@ -339,7 +339,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 else
                 {
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(0,
+                    dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                         Convert.ToInt32(sp_user_rights_id),
                         txtuser.Text.Trim(),
                         txtpassword.Text.Trim(),
@@ -351,7 +351,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         department_id,
                         requestor_id,
                         sp_unit_id,
-                        lblGenderSelected.Text.Trim(), imageByte,
+                        lblGenderSelected.Text.Trim(),
                         "add");
                     textBox1.Text = "Save Gerard Singian";
                     SaveSuccessfully();
@@ -512,7 +512,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 {
 
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(0,
+                    dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                         Convert.ToInt32(sp_user_rights_id),
                         txtuser.Text.Trim(),
                         txtpassword.Text.Trim(),
@@ -524,7 +524,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         department_id,
                         requestor_id,
                         sp_unit_id,
-                        lblGenderSelected.Text.Trim(), imageByte,
+                        lblGenderSelected.Text.Trim(),
                         "add");
                     textBox1.Text = "SaveGerardSingian";
                     SaveSuccessfully();

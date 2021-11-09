@@ -92,7 +92,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             this.lbltotalrecords.Text = dgvRawMats.Rows.Count.ToString();
             this.user_id = userinfo.user_id;
-           
+            this.materialCard3.Visible = false;
+
+
         }
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)

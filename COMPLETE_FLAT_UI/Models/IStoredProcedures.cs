@@ -187,7 +187,21 @@ namespace ULTRAMAVERICK.Models
             string gender,
             Byte[] image_employee,
             string mode);
-       
+
+        DataSet sp_userfileIncrement(int userfile_id,
+         int user_rights_id,
+         string username, string password,
+         string employee_name,
+         string user_section,
+         string receiving_status,
+         string Position,
+         string employee_lastname,
+         string Department,
+         string requestor_type,
+         string Unit,
+         string gender,
+         string mode);
+
         DataSet sp_userfile(int userfile_id, string username, string password, string user_section, string mode);
 
 

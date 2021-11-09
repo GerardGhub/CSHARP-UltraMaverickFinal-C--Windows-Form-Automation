@@ -530,15 +530,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 //return;
             }
 
-            //if (currentrejectActual < rejecttotal)
-            //{
-            //    // code buje
-
-            //    this.InvalidQtyReceived();
-            //    mattxtqtyReceived.Text = String.Empty;
-            //    mattxtqtyReceived.Focus();
-            //    return;
-            //}
 
             if (mattxtlotno.Text.Trim() == string.Empty)
             {
@@ -589,7 +580,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                    this.SummaryComputation();
+                    //this.SummaryComputation();  11/19/2021
 
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
@@ -672,7 +663,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             double rejected;
 
 
-            qtyReceiving = double.Parse(mattxtqtyReceived.Text);
+            qtyReceiving = double.Parse(mattxtactualdelivery.Text);
             rejected = double.Parse(mattxtqtyreject.Text);
 
 
@@ -691,8 +682,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //MessageBox.Show(sp_final_id);
             rpt.Refresh();
             myglobal.DATE_REPORT2 = sp_final_id;
-            string mystringid = myglobal.DATE_REPORT2;
-            rpt.SetParameterValue("@mystringid", mystringid);
+            //string mystringid = myglobal.DATE_REPORT2;
+            //string mystringid = myglobal.DATE_REPORT2;
+            rpt.SetParameterValue("@mystringid", sp_final_id);
 
 
 
