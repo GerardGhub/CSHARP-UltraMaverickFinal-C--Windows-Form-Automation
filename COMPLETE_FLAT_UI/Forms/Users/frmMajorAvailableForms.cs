@@ -752,7 +752,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
             dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfile(0,
+            dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                 Convert.ToInt32(sp_user_rights_id),
                 "s",
                 "s",
@@ -764,7 +764,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 "s",
-                Convert.ToInt32(temp_id).ToString(),imageByte, "addModuleRightsMajorPartial");
+                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
         }
 
         private void matBtnNext_Click(object sender, EventArgs e)
@@ -772,7 +772,7 @@ namespace ULTRAMAVERICK.Forms.Users
             showvalue();
 
             dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfile(0,
+            dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                 Convert.ToInt32(sp_user_rights_id),
                 "s10",
                 "s9",
@@ -784,7 +784,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s3",
                 "s2",
                 Convert.ToInt32(temp_id).ToString(),
-                Convert.ToInt32(temp_id).ToString(), imageByte, "addModuleRightsMajorPartial");
+                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
 
             if (dgvUserRights.Rows.Count >= 1)
             {

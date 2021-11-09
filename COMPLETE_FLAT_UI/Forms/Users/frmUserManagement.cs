@@ -437,7 +437,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(0, 
+                    dSet = g_objStoredProcCollection.sp_userfileIncrement(0, 
                         Convert.ToInt32(lblrightsID.Text), 
                         txtuser.Text.Trim(), 
                         txtpassword.Text.Trim(), 
@@ -450,7 +450,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         lblRequestorTypeID.Text.Trim(), 
                         lblUnitID.Text.Trim(),
                         lblGenderSelected.Text.Trim(),
-                        imageByte,
+                       
                         "add");
 
                     return true;

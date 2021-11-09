@@ -476,7 +476,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 else
                 {
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(0,
+                    dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                         Convert.ToInt32(sp_user_rights_id),
                         txtuser.Text.Trim(),
                         txtpassword.Text.Trim(),
@@ -488,7 +488,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         sp_drop_department_id,
                         sp_requestor_type_id,
                         sp_dept_unit_id,
-                        lblGenderSelected.Text.Trim(), imageByte,
+                        lblGenderSelected.Text.Trim(), 
                         "add");
                     textBox1.Text = "Save Gerard Singian";
                     SaveSuccessfully();

@@ -731,6 +731,7 @@
             // 
             // dryWHInventoryToolStripMenuItem
             // 
+            this.dryWHInventoryToolStripMenuItem.Enabled = false;
             this.dryWHInventoryToolStripMenuItem.Name = "dryWHInventoryToolStripMenuItem";
             this.dryWHInventoryToolStripMenuItem.Size = new System.Drawing.Size(603, 54);
             this.dryWHInventoryToolStripMenuItem.Text = "Dry WH Inventory";

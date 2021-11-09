@@ -777,7 +777,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void matBtnNext_Click(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfile(0,
+            dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                 Convert.ToInt32(txtRightsID.Text),
                 "s",
                 "s",
@@ -789,7 +789,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                 Convert.ToInt32(p_id).ToString(),
-                Convert.ToInt32(p_id).ToString(), imageByte, "addModuleRightsModulePartial");
+                Convert.ToInt32(p_id).ToString(), "addModuleRightsModulePartial");
 
             if (dgvUserRights.Rows.Count >= 1)
             {

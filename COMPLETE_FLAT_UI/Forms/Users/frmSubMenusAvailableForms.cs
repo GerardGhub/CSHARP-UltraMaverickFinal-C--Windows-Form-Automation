@@ -758,7 +758,7 @@ namespace ULTRAMAVERICK.Forms.Users
             //showValue();
 
             dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfile(0,
+            dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
                 Convert.ToInt32(txtRightsID.Text),
                 "s",
                 "s",
@@ -770,7 +770,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "s",
                 "s",
                  Convert.ToInt32(p_id).ToString(),
-                Convert.ToInt32(p_id).ToString(), imageByte, "addModuleRightsSubMenuPartial");
+                Convert.ToInt32(p_id).ToString(), "addModuleRightsSubMenuPartial");
 
             if (dgvUserRights.Rows.Count >= 1)
             {
