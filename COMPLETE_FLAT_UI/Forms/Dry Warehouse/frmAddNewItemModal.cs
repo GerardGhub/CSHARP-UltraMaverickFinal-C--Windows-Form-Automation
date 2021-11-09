@@ -320,7 +320,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                txtMatItemCode.Text, txtMatItemDesc.Text, "", "", "","","","","","","","", "getbyname");
+                txtMatItemCode.Text, txtMatItemDesc.Text, "", "", "","","","","","","","",0, "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -385,7 +385,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     cboItemType.Text.Trim(),
                     txtcreatedAt.Text.Trim(),
                     txtcreatedBy.Text.Trim(),
-                    "","",
+                    "","",0,
                     "add");
 
                 dSet.Clear();
@@ -400,7 +400,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     cboItemType.Text.Trim(),
                     txtcreatedAt.Text.Trim(),
                     txtcreatedBy.Text.Trim(),
-                    "", "",
+                    "", "",0,
                     "addRMLogs");
 
                 textBox1.Text = "data Already Save!";

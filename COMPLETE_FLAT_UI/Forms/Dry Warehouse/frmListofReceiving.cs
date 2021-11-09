@@ -20,9 +20,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
-        string mode = "";
-        int p_id = 0;
-        int temp_hid = 0;
+
+
         DateTime dNow = DateTime.Now;
         Boolean ready = false;
 
@@ -38,10 +37,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-            this.showSubCategoryData();
+            this.showReceivingData();
         }
 
-        private void showSubCategoryData()      //method for loading available_menus
+        private void showReceivingData()      //method for loading available_menus
         {
             try
             {

@@ -194,7 +194,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertItemCode");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -215,7 +215,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             //Item Type
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertItemType");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertItemType");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -239,7 +239,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertItemClass");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertItemClass");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -258,7 +258,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertMajorCategory");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertMajorCategory");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -277,7 +277,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertSubCategory");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertSubCategory");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -296,7 +296,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertPrimaryUnit");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertPrimaryUnit");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -422,7 +422,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                Convert.ToString(user_id), item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "final_save_bulk_data_status_only");
+                Convert.ToString(user_id), item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "final_save_bulk_data_status_only");
 
             return false;
 

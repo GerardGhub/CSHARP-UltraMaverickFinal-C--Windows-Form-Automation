@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -40,13 +44,15 @@
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbltotalReceiving = new System.Windows.Forms.Label();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvParseData = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroPanel2.SuspendLayout();
@@ -57,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanel1
@@ -177,7 +184,7 @@
             this.metroPanel3.BackColor = System.Drawing.Color.DarkSlateGray;
             this.metroPanel3.Controls.Add(this.pictureBox3);
             this.metroPanel3.Controls.Add(this.label8);
-            this.metroPanel3.Controls.Add(this.label4);
+            this.metroPanel3.Controls.Add(this.lbltotalReceiving);
             this.metroPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
@@ -215,17 +222,17 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Raw Material Receiving";
             // 
-            // label4
+            // lbltotalReceiving
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(41, 156);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 95);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "0";
+            this.lbltotalReceiving.AutoSize = true;
+            this.lbltotalReceiving.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalReceiving.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbltotalReceiving.Location = new System.Drawing.Point(41, 156);
+            this.lbltotalReceiving.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalReceiving.Name = "lbltotalReceiving";
+            this.lbltotalReceiving.Size = new System.Drawing.Size(87, 95);
+            this.lbltotalReceiving.TabIndex = 9;
+            this.lbltotalReceiving.Text = "0";
             // 
             // metroPanel4
             // 
@@ -317,6 +324,96 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(2798, 291);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // dgvParseData
+            // 
+            this.dgvParseData.AllowUserToAddRows = false;
+            this.dgvParseData.AllowUserToDeleteRows = false;
+            this.dgvParseData.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvParseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvParseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvParseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvParseData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvParseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvParseData.ColumnHeadersHeight = 35;
+            this.dgvParseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvParseData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvParseData.EnableHeadersVisualStyles = false;
+            this.dgvParseData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvParseData.Location = new System.Drawing.Point(1394, 629);
+            this.dgvParseData.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvParseData.MultiSelect = false;
+            this.dgvParseData.Name = "dgvParseData";
+            this.dgvParseData.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvParseData.RowHeadersVisible = false;
+            this.dgvParseData.RowHeadersWidth = 102;
+            this.dgvParseData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvParseData.RowTemplate.DividerHeight = 5;
+            this.dgvParseData.RowTemplate.Height = 40;
+            this.dgvParseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvParseData.Size = new System.Drawing.Size(138, 111);
+            this.dgvParseData.TabIndex = 596;
+            this.dgvParseData.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvParseData.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvParseData.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvParseData.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvParseData.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvParseData.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvParseData.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvParseData.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvParseData.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvParseData.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvParseData.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.dgvParseData.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvParseData.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvParseData.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvParseData.ThemeStyle.ReadOnly = true;
+            this.dgvParseData.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvParseData.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvParseData.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvParseData.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvParseData.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvParseData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.dgvParseData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvParseData.Visible = false;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 12;
+            // 
             // FormLogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -324,6 +421,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2926, 1368);
             this.ControlBox = false;
+            this.Controls.Add(this.dgvParseData);
             this.Controls.Add(this.materialCard1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -346,6 +444,7 @@
             this.materialCard1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,7 +456,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbltotalReceiving;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -369,5 +468,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvParseData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

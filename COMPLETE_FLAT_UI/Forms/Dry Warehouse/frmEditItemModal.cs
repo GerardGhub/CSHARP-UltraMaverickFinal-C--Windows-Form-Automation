@@ -290,6 +290,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     txtcreatedAt.Text.Trim(),
                     txtcreatedBy.Text.Trim(),
                     "", txtcreatedBy.Text.Trim(),
+                    float.Parse(mattxtBufferStocks.Text.Trim()),
                     "edit");
                 textBox1.Text = "data Already Save!";
                 SaveSuccessfully();
@@ -371,6 +372,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void frmEditItemModal_FormClosed(object sender, FormClosedEventArgs e)
         {
             textBox1.Text = "Gerard Singian";
+        }
+
+        private void mattxtBufferStocks_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(mattxtBufferStocks.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void mattxtBufferStocks_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

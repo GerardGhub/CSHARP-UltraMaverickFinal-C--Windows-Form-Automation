@@ -37,6 +37,7 @@ namespace COMPLETE_FLAT_UI
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
         DataSet dset_rights = new DataSet();
+        DataSet dSet = new DataSet();
         int rights_id = 0;
         bool ready = false;
         myclasses myClass = new myclasses();
@@ -66,6 +67,7 @@ namespace COMPLETE_FLAT_UI
         private Rectangle sizeGripRectangle;
         public string ImageParse { get; set; }
         public int sp_user_id { get; set; }
+        public string total_receiving_dry_wh { get; set; }
 
         protected override void WndProc(ref Message m)
         {
@@ -283,6 +285,7 @@ namespace COMPLETE_FLAT_UI
                 //Adorner.AddBadgeTo(btnProductionPlanner, "123");
                 //Adorner.AddBadgeTo(btnPreparationDepartment, "123");
                 //Adorner.AddBadgeTo(btnResearchAndDevelopment, "123");
+                //Adorner.AddBadgeToToolStrip(listOfReceivingToolStripMenuItem, total_receiving_dry_wh);
             }
         }
         public string user_section_controlBox { get; set; }
@@ -353,12 +356,14 @@ namespace COMPLETE_FLAT_UI
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
             //this.Size = new Size(1300, 700); //Size of Windows
-            BadgeNotification();
-            RoundPictureAss();
+            this.BadgeNotification();
+            this.RoundPictureAss();
+
+            this.showReceivingData();
             //btnUsers.Enabled = true;
-            lblFirstName.Text = userinfo.emp_name.ToString() + userinfo.emp_lastname.ToString();// First Name Session
+            this.lblFirstName.Text = userinfo.emp_name.ToString() + userinfo.emp_lastname.ToString();// First Name Session
             //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
-            lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
+            this.lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();// loading logo
                               //rights here
          ImageParse = userinfo.image_employee;
@@ -553,7 +558,10 @@ namespace COMPLETE_FLAT_UI
                     {
                         toolModulePrimaryUnitMgmt.Enabled = true;
                     }
-
+                    else if (form_name == "frmDryWHInventory.cs")
+                    {
+                        dryWHInventoryToolStripMenuItem.Enabled = true;
+                    }
 
                 }
             }
@@ -604,6 +612,25 @@ namespace COMPLETE_FLAT_UI
             }
         }
 
+        private void showReceivingData()      //method for loading available_menus
+        {
+            try
+            {
+                this.ready = false;
+                this.xClass.fillDataGridView(dgvParseData, "Po_Receiving_Warehouse", dSet);
+                this.ready = true;
+               this.total_receiving_dry_wh = dgvParseData.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+
         //METODO PARA MOSTRAR FORMULARIO DE LOGO Al CERRAR OTROS FORM ----------------------------------------------------------
         private void MostrarFormLogoAlCerrarForms(object sender, FormClosedEventArgs e)
         {
@@ -639,7 +666,7 @@ namespace COMPLETE_FLAT_UI
             toolDropdownMenu.Visible = false;
             toolDropdownUser.Visible = false;
             //Research And Development
-            toolStripRawMaterials.Visible = false;
+            toolStripRawMaterials.Visible = true;
 
             this.timeSubMenuIn.Start();
 
@@ -1128,6 +1155,20 @@ namespace COMPLETE_FLAT_UI
         private void button3_Click(object sender, EventArgs e)
         {
             frmDryWHInventory fm = new frmDryWHInventory();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void dryWHInventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDryWHInventory fm = new frmDryWHInventory();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void rMBarcodeReprintingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBarcodeReprinting fm = new frmBarcodeReprinting();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

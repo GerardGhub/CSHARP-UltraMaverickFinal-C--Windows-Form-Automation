@@ -12,6 +12,7 @@ namespace ULTRAMAVERICK.Class
     {
 
         private static List<Control> controls = new List<Control>();
+        private static List<ToolStripMenuItem> ToolStripMenuItems = new List<ToolStripMenuItem>();
 
         static public bool AddBadgeTo(Control ctl, string Text)
         {
@@ -27,6 +28,8 @@ namespace ULTRAMAVERICK.Class
 
             return true;
         }
+
+   
 
         static public bool RemoveBadgeFrom(Control ctl)
         {

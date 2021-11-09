@@ -29,9 +29,9 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTypeofApprover));
             this.lblDepartmentID = new System.Windows.Forms.Label();
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
@@ -56,8 +56,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnAddTool = new System.Windows.Forms.ToolStripButton();
             this.btnEditTool = new System.Windows.Forms.ToolStripButton();
-            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
+            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_table)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -260,18 +260,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgv_table.AllowUserToDeleteRows = false;
             this.dgv_table.AllowUserToResizeColumns = false;
             this.dgv_table.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_table.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_table.ColumnHeadersHeight = 45;
             this.dgv_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_table.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -284,8 +284,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgv_table.ReadOnly = true;
             this.dgv_table.RowHeadersVisible = false;
             this.dgv_table.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_table.Size = new System.Drawing.Size(267, 469);
             this.dgv_table.TabIndex = 456;
@@ -411,35 +411,35 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnEditTool.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTool.Image")));
             this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(112, 45);
+            this.btnEditTool.Size = new System.Drawing.Size(112, 88);
             this.btnEditTool.Text = "&Edit";
             this.btnEditTool.Click += new System.EventHandler(this.edit_Click);
-            // 
-            // btnUpdateTool
-            // 
-            this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
-            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(123, 45);
-            this.btnUpdateTool.Text = "&Save";
-            this.btnUpdateTool.Visible = false;
-            this.btnUpdateTool.Click += new System.EventHandler(this.save_Click);
             // 
             // btnDeleteTool
             // 
             this.btnDeleteTool.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteTool.Image")));
             this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(169, 45);
+            this.btnDeleteTool.Size = new System.Drawing.Size(169, 88);
             this.btnDeleteTool.Text = "&Remove";
             this.btnDeleteTool.Click += new System.EventHandler(this.remove_Click);
+            // 
+            // btnUpdateTool
+            // 
+            this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
+            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdateTool.Name = "btnUpdateTool";
+            this.btnUpdateTool.Size = new System.Drawing.Size(123, 88);
+            this.btnUpdateTool.Text = "&Save";
+            this.btnUpdateTool.Visible = false;
+            this.btnUpdateTool.Click += new System.EventHandler(this.save_Click);
             // 
             // btnCancelTool
             // 
             this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
             this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(150, 45);
+            this.btnCancelTool.Size = new System.Drawing.Size(150, 88);
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             this.btnCancelTool.Click += new System.EventHandler(this.cancel_Click);

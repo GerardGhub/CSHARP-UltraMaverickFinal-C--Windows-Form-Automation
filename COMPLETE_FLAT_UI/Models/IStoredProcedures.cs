@@ -360,6 +360,7 @@ namespace ULTRAMAVERICK.Models
                 string created_by,
                 string updated_at,
                 string updated_by,
+                float buffer_stock,
                 string mode);
 
             DataSet sp_projects(

@@ -60,7 +60,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                 MessageBox.Show(ex.Message);
             }
-
+            dgvSubCategory.Columns["is_active"].Visible = false;
 
         }
 
@@ -474,10 +474,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         if (is_expirables == "1")
                         {
                            matRadioExpirable.Checked = true;
+                            matRadioNotExpirable.Checked = false;
                         }
                         else if (is_expirables == "0")
                         {
                             matRadioExpirable.Checked = false;
+                            matRadioNotExpirable.Checked = true;
                         }
                         else
                         {
@@ -573,21 +575,29 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            dSet.Clear();
-            dSet = objStorProc.sp_Sub_Category(0,
-                txtSubCategory.Text, "", "", "", "","", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
+            if (mode == "edit")
             {
-                SubCategoryAlreadyExist();
-
-
-                txtSubCategory.Focus();
-                return;
+                metroSave_Click(sender, e);
             }
             else
             {
-                metroSave_Click(sender, e);
+                dSet.Clear();
+                dSet = objStorProc.sp_Sub_Category(0,
+                    txtSubCategory.Text, "", "", "", "", "", "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+
+                    SubCategoryAlreadyExist();
+
+
+                    txtSubCategory.Focus();
+                    return;
+                }
+                else
+                {
+                    metroSave_Click(sender, e);
+                }
             }
         }
 

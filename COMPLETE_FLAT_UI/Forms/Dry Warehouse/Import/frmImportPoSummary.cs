@@ -250,7 +250,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertItemCode");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -274,7 +274,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                sp_po_number, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getPoNumber");
+                sp_po_number, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getPoNumber");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -325,7 +325,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertPrimaryUnit");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertPrimaryUnit");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -378,7 +378,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getdetailsforBulkInsertItemCode");
+                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -401,7 +401,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                sp_po_number, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "", "getPoNumber");
+                sp_po_number, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0, "getPoNumber");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -503,7 +503,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             sp_user_id= userinfo.user_id.ToString(); // ID of User
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                Convert.ToString(user_id), item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", sp_user_id, "final_save_bulk_data_status_POSummary");
+                Convert.ToString(user_id), item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", sp_user_id,0, "final_save_bulk_data_status_POSummary");
 
             return false;
 

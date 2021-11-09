@@ -34,10 +34,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,29 +45,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.major_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primary_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RESERVED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buffer_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_RECEIVED = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primary_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QA_RECEIVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
-            this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
+            this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard2
@@ -86,40 +85,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard2.Size = new System.Drawing.Size(1701, 820);
             this.materialCard2.TabIndex = 7;
-            // 
-            // materialCard1
-            // 
-            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.lbltotalrecords);
-            this.materialCard1.Controls.Add(this.txtItemCode);
-            this.materialCard1.Controls.Add(this.label2);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(68, 223);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1698, 157);
-            this.materialCard1.TabIndex = 577;
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtItemCode.Depth = 0;
-            this.txtItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtItemCode.Hint = "Item Code";
-            this.txtItemCode.Location = new System.Drawing.Point(1121, 21);
-            this.txtItemCode.MaxLength = 50;
-            this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtItemCode.Multiline = false;
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(547, 50);
-            this.txtItemCode.TabIndex = 573;
-            this.txtItemCode.Text = "";
             // 
             // dgvRawMats
             // 
@@ -150,24 +115,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_class,
             this.major_category,
             this.sub_category,
-            this.primary_unit,
             this.conversion,
             this.item_type,
             this.created_at,
             this.created_by,
             this.updated_at,
             this.updated_by,
-            this.Column1,
-            this.Column2,
-            this.Column3,
+            this.SOH,
+            this.RESERVED,
+            this.buffer_stock,
             this.TOTAL_RECEIVED,
             this.Column5,
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9,
+            this.primary_unit,
             this.Column10,
-            this.Column11,
+            this.QA_RECEIVING,
             this.Column12,
             this.Column13});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -225,6 +189,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
+            // materialCard1
+            // 
+            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.lbltotalrecords);
+            this.materialCard1.Controls.Add(this.txtItemCode);
+            this.materialCard1.Controls.Add(this.label2);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(68, 223);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(1698, 157);
+            this.materialCard1.TabIndex = 577;
+            // 
             // lbltotalrecords
             // 
             this.lbltotalrecords.AutoSize = true;
@@ -237,6 +219,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
             this.lbltotalrecords.TabIndex = 578;
             this.lbltotalrecords.Text = "76";
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtItemCode.Depth = 0;
+            this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtItemCode.Hint = "Item Code";
+            this.txtItemCode.Location = new System.Drawing.Point(1121, 21);
+            this.txtItemCode.MaxLength = 50;
+            this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemCode.Multiline = false;
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(547, 50);
+            this.txtItemCode.TabIndex = 573;
+            this.txtItemCode.Text = "";
             // 
             // label2
             // 
@@ -315,16 +313,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sub_category.ReadOnly = true;
             this.sub_category.Width = 253;
             // 
-            // primary_unit
-            // 
-            this.primary_unit.DataPropertyName = "primary_unit";
-            this.primary_unit.FillWeight = 113.0644F;
-            this.primary_unit.HeaderText = "PRIMARY UNIT";
-            this.primary_unit.MinimumWidth = 12;
-            this.primary_unit.Name = "primary_unit";
-            this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 245;
-            // 
             // conversion
             // 
             this.conversion.DataPropertyName = "conversion";
@@ -385,29 +373,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_by.Visible = false;
             this.updated_by.Width = 219;
             // 
-            // Column1
+            // SOH
             // 
-            this.Column1.HeaderText = "STOCK ON HAND";
-            this.Column1.MinimumWidth = 12;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 278;
+            this.SOH.DataPropertyName = "SOH";
+            this.SOH.HeaderText = "STOCK ON HAND";
+            this.SOH.MinimumWidth = 12;
+            this.SOH.Name = "SOH";
+            this.SOH.ReadOnly = true;
+            this.SOH.Width = 278;
             // 
-            // Column2
+            // RESERVED
             // 
-            this.Column2.HeaderText = "RESERVED IN PRODUCTION";
-            this.Column2.MinimumWidth = 12;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 401;
+            this.RESERVED.DataPropertyName = "RESERVED";
+            this.RESERVED.HeaderText = "RESERVED IN PRODUCTION";
+            this.RESERVED.MinimumWidth = 12;
+            this.RESERVED.Name = "RESERVED";
+            this.RESERVED.ReadOnly = true;
+            this.RESERVED.Width = 401;
             // 
-            // Column3
+            // buffer_stock
             // 
-            this.Column3.HeaderText = "BUFFER STOCKS";
-            this.Column3.MinimumWidth = 12;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 260;
+            this.buffer_stock.DataPropertyName = "buffer_stock";
+            this.buffer_stock.HeaderText = "BUFFER STOCKS";
+            this.buffer_stock.MinimumWidth = 12;
+            this.buffer_stock.Name = "buffer_stock";
+            this.buffer_stock.ReadOnly = true;
+            this.buffer_stock.Width = 260;
             // 
             // TOTAL_RECEIVED
             // 
@@ -450,13 +441,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column8.ReadOnly = true;
             this.Column8.Width = 310;
             // 
-            // Column9
+            // primary_unit
             // 
-            this.Column9.HeaderText = "UOM";
-            this.Column9.MinimumWidth = 12;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 132;
+            this.primary_unit.DataPropertyName = "primary_unit";
+            this.primary_unit.HeaderText = "UOM";
+            this.primary_unit.MinimumWidth = 12;
+            this.primary_unit.Name = "primary_unit";
+            this.primary_unit.ReadOnly = true;
+            this.primary_unit.Width = 132;
             // 
             // Column10
             // 
@@ -466,13 +458,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column10.ReadOnly = true;
             this.Column10.Width = 201;
             // 
-            // Column11
+            // QA_RECEIVING
             // 
-            this.Column11.HeaderText = "QA RECEIVING";
-            this.Column11.MinimumWidth = 12;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 243;
+            this.QA_RECEIVING.DataPropertyName = "QA_RECEIVING";
+            this.QA_RECEIVING.HeaderText = "QA RECEIVING";
+            this.QA_RECEIVING.MinimumWidth = 12;
+            this.QA_RECEIVING.Name = "QA_RECEIVING";
+            this.QA_RECEIVING.ReadOnly = true;
+            this.QA_RECEIVING.Width = 243;
             // 
             // Column12
             // 
@@ -501,9 +494,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Text = "Dry WH Inventory";
             this.Load += new System.EventHandler(this.frmDryWHInventory_Load);
             this.materialCard2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -522,24 +515,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn item_class;
         private System.Windows.Forms.DataGridViewTextBoxColumn major_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn primary_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SOH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RESERVED;
+        private System.Windows.Forms.DataGridViewTextBoxColumn buffer_stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_RECEIVED;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn primary_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QA_RECEIVING;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
     }

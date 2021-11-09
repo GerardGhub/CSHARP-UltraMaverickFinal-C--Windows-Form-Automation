@@ -65,7 +65,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
             xClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
-
+          this.dgvChildForms.Columns["menu_id"].Visible = false;
 
         }
 

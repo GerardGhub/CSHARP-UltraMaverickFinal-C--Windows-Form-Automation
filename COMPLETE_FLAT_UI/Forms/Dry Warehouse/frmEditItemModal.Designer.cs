@@ -42,16 +42,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.txtcreatedBy = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboItemClass = new System.Windows.Forms.ComboBox();
+            this.cboItemType = new System.Windows.Forms.ComboBox();
+            this.cboPrimaryUnit = new System.Windows.Forms.ComboBox();
+            this.cboMajorCategory = new System.Windows.Forms.ComboBox();
             this.cboSubCat = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cboMajorCategory = new System.Windows.Forms.ComboBox();
-            this.cboPrimaryUnit = new System.Windows.Forms.ComboBox();
-            this.cboItemType = new System.Windows.Forms.ComboBox();
-            this.cboItemClass = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,7 +145,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Depth = 0;
             this.txtmatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatConversion.Hint = "Conversion";
-            this.txtmatConversion.Location = new System.Drawing.Point(693, 371);
+            this.txtmatConversion.Location = new System.Drawing.Point(684, 375);
             this.txtmatConversion.MaxLength = 50;
             this.txtmatConversion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmatConversion.Multiline = false;
@@ -233,6 +234,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.mattxtBufferStocks);
             this.materialCard1.Controls.Add(this.label5);
             this.materialCard1.Controls.Add(this.label3);
             this.materialCard1.Controls.Add(this.label2);
@@ -261,6 +263,94 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Size = new System.Drawing.Size(1810, 624);
             this.materialCard1.TabIndex = 477;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(1338, 212);
+            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 32);
+            this.label5.TabIndex = 600;
+            this.label5.Text = "Item Type:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(1339, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 32);
+            this.label3.TabIndex = 599;
+            this.label3.Text = "Item Class:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(692, 213);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(212, 32);
+            this.label2.TabIndex = 598;
+            this.label2.Text = "Sub Categgory:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(63, 212);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 32);
+            this.label1.TabIndex = 597;
+            this.label1.Text = "Major Categgory:";
+            // 
+            // cboItemClass
+            // 
+            this.cboItemClass.FormattingEnabled = true;
+            this.cboItemClass.Location = new System.Drawing.Point(1338, 94);
+            this.cboItemClass.Name = "cboItemClass";
+            this.cboItemClass.Size = new System.Drawing.Size(414, 39);
+            this.cboItemClass.TabIndex = 596;
+            this.cboItemClass.SelectionChangeCommitted += new System.EventHandler(this.cboItemClass_SelectionChangeCommitted);
+            // 
+            // cboItemType
+            // 
+            this.cboItemType.FormattingEnabled = true;
+            this.cboItemType.Location = new System.Drawing.Point(1338, 247);
+            this.cboItemType.Name = "cboItemType";
+            this.cboItemType.Size = new System.Drawing.Size(414, 39);
+            this.cboItemType.TabIndex = 595;
+            this.cboItemType.SelectionChangeCommitted += new System.EventHandler(this.cboItemType_SelectionChangeCommitted);
+            // 
+            // cboPrimaryUnit
+            // 
+            this.cboPrimaryUnit.FormattingEnabled = true;
+            this.cboPrimaryUnit.Location = new System.Drawing.Point(59, 422);
+            this.cboPrimaryUnit.Name = "cboPrimaryUnit";
+            this.cboPrimaryUnit.Size = new System.Drawing.Size(414, 39);
+            this.cboPrimaryUnit.TabIndex = 594;
+            this.cboPrimaryUnit.SelectionChangeCommitted += new System.EventHandler(this.cboPrimaryUnit_SelectionChangeCommitted);
+            // 
+            // cboMajorCategory
+            // 
+            this.cboMajorCategory.FormattingEnabled = true;
+            this.cboMajorCategory.Location = new System.Drawing.Point(59, 247);
+            this.cboMajorCategory.Name = "cboMajorCategory";
+            this.cboMajorCategory.Size = new System.Drawing.Size(414, 39);
+            this.cboMajorCategory.TabIndex = 593;
+            this.cboMajorCategory.SelectionChangeCommitted += new System.EventHandler(this.cboMajorCategory_SelectionChangeCommitted);
+            // 
             // cboSubCat
             // 
             this.cboSubCat.FormattingEnabled = true;
@@ -283,93 +373,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // cboMajorCategory
+            // mattxtBufferStocks
             // 
-            this.cboMajorCategory.FormattingEnabled = true;
-            this.cboMajorCategory.Location = new System.Drawing.Point(59, 247);
-            this.cboMajorCategory.Name = "cboMajorCategory";
-            this.cboMajorCategory.Size = new System.Drawing.Size(414, 39);
-            this.cboMajorCategory.TabIndex = 593;
-            this.cboMajorCategory.SelectionChangeCommitted += new System.EventHandler(this.cboMajorCategory_SelectionChangeCommitted);
-            // 
-            // cboPrimaryUnit
-            // 
-            this.cboPrimaryUnit.FormattingEnabled = true;
-            this.cboPrimaryUnit.Location = new System.Drawing.Point(59, 422);
-            this.cboPrimaryUnit.Name = "cboPrimaryUnit";
-            this.cboPrimaryUnit.Size = new System.Drawing.Size(414, 39);
-            this.cboPrimaryUnit.TabIndex = 594;
-            this.cboPrimaryUnit.SelectionChangeCommitted += new System.EventHandler(this.cboPrimaryUnit_SelectionChangeCommitted);
-            // 
-            // cboItemType
-            // 
-            this.cboItemType.FormattingEnabled = true;
-            this.cboItemType.Location = new System.Drawing.Point(1338, 247);
-            this.cboItemType.Name = "cboItemType";
-            this.cboItemType.Size = new System.Drawing.Size(414, 39);
-            this.cboItemType.TabIndex = 595;
-            this.cboItemType.SelectionChangeCommitted += new System.EventHandler(this.cboItemType_SelectionChangeCommitted);
-            // 
-            // cboItemClass
-            // 
-            this.cboItemClass.FormattingEnabled = true;
-            this.cboItemClass.Location = new System.Drawing.Point(1338, 94);
-            this.cboItemClass.Name = "cboItemClass";
-            this.cboItemClass.Size = new System.Drawing.Size(414, 39);
-            this.cboItemClass.TabIndex = 596;
-            this.cboItemClass.SelectionChangeCommitted += new System.EventHandler(this.cboItemClass_SelectionChangeCommitted);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(63, 212);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 32);
-            this.label1.TabIndex = 597;
-            this.label1.Text = "Major Categgory:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(692, 213);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 32);
-            this.label2.TabIndex = 598;
-            this.label2.Text = "Sub Categgory:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(1339, 59);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 32);
-            this.label3.TabIndex = 599;
-            this.label3.Text = "Item Class:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(1338, 212);
-            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 32);
-            this.label5.TabIndex = 600;
-            this.label5.Text = "Item Type:";
+            this.mattxtBufferStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtBufferStocks.Depth = 0;
+            this.mattxtBufferStocks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mattxtBufferStocks.Hint = "Buffer Stock";
+            this.mattxtBufferStocks.Location = new System.Drawing.Point(1338, 372);
+            this.mattxtBufferStocks.MaxLength = 50;
+            this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtBufferStocks.Multiline = false;
+            this.mattxtBufferStocks.Name = "mattxtBufferStocks";
+            this.mattxtBufferStocks.Size = new System.Drawing.Size(414, 50);
+            this.mattxtBufferStocks.TabIndex = 601;
+            this.mattxtBufferStocks.Text = "";
+            this.mattxtBufferStocks.TextChanged += new System.EventHandler(this.mattxtBufferStocks_TextChanged);
+            this.mattxtBufferStocks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtBufferStocks_KeyPress);
             // 
             // frmEditItemModal
             // 
@@ -418,5 +437,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private MaterialSkin.Controls.MaterialTextBox mattxtBufferStocks;
     }
 }
