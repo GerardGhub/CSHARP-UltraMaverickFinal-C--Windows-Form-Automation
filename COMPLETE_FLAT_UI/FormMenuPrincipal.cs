@@ -562,6 +562,26 @@ namespace COMPLETE_FLAT_UI
                     {
                         dryWHInventoryToolStripMenuItem.Enabled = true;
                     }
+                    else if (form_name == "frmListofReceiving.cs")
+                    {
+                        listOfReceivingToolStripMenuItem.Enabled = true;
+                    }
+                    else if (form_name == "frmDryReceivingModule.cs")
+                    {
+                        rMReceivingToolStripMenuItem.Enabled = true;
+                    }
+                    else if (form_name == "frmLotManagement.cs")
+                    {
+                        lotManagementToolStripMenuItem.Enabled = true;
+                    }
+                    else if (form_name == "rMBarcodeModuleToolStripMenuItem")
+                    {
+                        rMBarcodeModuleToolStripMenuItem.Enabled = true;
+                    }
+                    else if (form_name == "rMBarcodeReprintingToolStripMenuItem")
+                    {
+                        rMBarcodeReprintingToolStripMenuItem.Enabled = true;
+                    }
 
                 }
             }
@@ -604,6 +624,10 @@ namespace COMPLETE_FLAT_UI
                     else if (form_name == "toolImportDry")
                     {
                         toolImportDry.Visible = true;
+                    }
+                    else if(form_name == "toolReceiving")
+                    {
+                        toolReceiving.Visible = true;
                     }
               
 

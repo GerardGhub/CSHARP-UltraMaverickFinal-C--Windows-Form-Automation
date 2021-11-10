@@ -474,6 +474,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.matChkQAUserAccount.TabIndex = 574;
             this.matChkQAUserAccount.Text = "QA User Account";
             this.matChkQAUserAccount.UseVisualStyleBackColor = true;
+            this.matChkQAUserAccount.Visible = false;
             this.matChkQAUserAccount.CheckedChanged += new System.EventHandler(this.matChkQAUserAccount_CheckedChanged);
             // 
             // cmbQAUserType

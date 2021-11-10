@@ -54,7 +54,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
             dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_Class_Major");
-
+            //this.dgvitemClass.Columns["item_class_id"].Visible = false;
         }
 
         private void doSearchInTextBox()

@@ -511,8 +511,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
                     int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-                    if (tmpID == primary_key)
-                    {
+                    //if (tmpID == primary_key)
+                    //{
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_userfile(primary_key,
                             Convert.ToInt32(cbousertype.SelectedValue.ToString()),
@@ -532,13 +532,13 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         textBox1.Text = "SaveGerardSingian";
                         this.Close();
                         return true;
-                    }
-                    else
-                    {
-                        UserNameAlreadyTaken();
-                        txtuser.Focus();
-                        return false;
-                    }
+                    //}
+                    //else
+                    //{
+                    //    UserNameAlreadyTaken();
+                    //    txtuser.Focus();
+                    //    return false;
+                    //}
                 }
                 else
                 {

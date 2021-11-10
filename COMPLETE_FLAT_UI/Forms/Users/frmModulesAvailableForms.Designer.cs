@@ -51,6 +51,16 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtParentName = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvGrandChildForms = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChildForm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUserRights = new Guna.UI2.WinForms.Guna2DataGridView();
             this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,16 +76,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
             this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
-            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChildForm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrandChildForms)).BeginInit();
@@ -257,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvGrandChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvGrandChildForms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGrandChildForms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGrandChildForms.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvGrandChildForms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGrandChildForms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -338,6 +338,103 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvGrandChildForms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvGrandChildForms.CurrentCellChanged += new System.EventHandler(this.dgvChildForms_CurrentCellChanged);
+            // 
+            // menu_id
+            // 
+            this.menu_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.menu_id.DataPropertyName = "menu_id";
+            this.menu_id.FillWeight = 40.60914F;
+            this.menu_id.HeaderText = "ID";
+            this.menu_id.MinimumWidth = 12;
+            this.menu_id.Name = "menu_id";
+            this.menu_id.ReadOnly = true;
+            this.menu_id.Width = 12;
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "count";
+            this.count.FillWeight = 99.49239F;
+            this.count.HeaderText = "MAJOR MENU";
+            this.count.MinimumWidth = 12;
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 241;
+            // 
+            // ChildForm
+            // 
+            this.ChildForm.DataPropertyName = "ChildForm";
+            this.ChildForm.FillWeight = 99.49239F;
+            this.ChildForm.HeaderText = "SUB MENU";
+            this.ChildForm.MinimumWidth = 12;
+            this.ChildForm.Name = "ChildForm";
+            this.ChildForm.ReadOnly = true;
+            this.ChildForm.Width = 201;
+            // 
+            // menu_name
+            // 
+            this.menu_name.DataPropertyName = "menu_name";
+            this.menu_name.FillWeight = 99.49239F;
+            this.menu_name.HeaderText = "MODULE";
+            this.menu_name.MinimumWidth = 12;
+            this.menu_name.Name = "menu_name";
+            this.menu_name.ReadOnly = true;
+            this.menu_name.Width = 178;
+            // 
+            // menu_form_name
+            // 
+            this.menu_form_name.DataPropertyName = "menu_form_name";
+            this.menu_form_name.FillWeight = 99.49239F;
+            this.menu_form_name.HeaderText = "DEV FORM NAME";
+            this.menu_form_name.MinimumWidth = 12;
+            this.menu_form_name.Name = "menu_form_name";
+            this.menu_form_name.ReadOnly = true;
+            this.menu_form_name.Width = 281;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 246;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 214;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Width = 251;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Width = 219;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "search";
+            this.Column1.HeaderText = "ss";
+            this.Column1.MinimumWidth = 12;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 250;
             // 
             // dgvUserRights
             // 
@@ -589,94 +686,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click_1);
-            // 
-            // menu_id
-            // 
-            this.menu_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.menu_id.DataPropertyName = "menu_id";
-            this.menu_id.FillWeight = 40.60914F;
-            this.menu_id.HeaderText = "ID";
-            this.menu_id.MinimumWidth = 12;
-            this.menu_id.Name = "menu_id";
-            this.menu_id.ReadOnly = true;
-            this.menu_id.Width = 12;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "count";
-            this.count.FillWeight = 99.49239F;
-            this.count.HeaderText = "MAJOR MENU";
-            this.count.MinimumWidth = 12;
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            // 
-            // ChildForm
-            // 
-            this.ChildForm.DataPropertyName = "ChildForm";
-            this.ChildForm.FillWeight = 99.49239F;
-            this.ChildForm.HeaderText = "SUB MENU";
-            this.ChildForm.MinimumWidth = 12;
-            this.ChildForm.Name = "ChildForm";
-            this.ChildForm.ReadOnly = true;
-            // 
-            // menu_name
-            // 
-            this.menu_name.DataPropertyName = "menu_name";
-            this.menu_name.FillWeight = 99.49239F;
-            this.menu_name.HeaderText = "MODULE";
-            this.menu_name.MinimumWidth = 12;
-            this.menu_name.Name = "menu_name";
-            this.menu_name.ReadOnly = true;
-            // 
-            // menu_form_name
-            // 
-            this.menu_form_name.DataPropertyName = "menu_form_name";
-            this.menu_form_name.FillWeight = 99.49239F;
-            this.menu_form_name.HeaderText = "DEV FORM NAME";
-            this.menu_form_name.MinimumWidth = 12;
-            this.menu_form_name.Name = "menu_form_name";
-            this.menu_form_name.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "search";
-            this.Column1.HeaderText = "ss";
-            this.Column1.MinimumWidth = 12;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
             // 
             // frmModulesAvailableForms
             // 
