@@ -215,5 +215,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         }
+
+        private void txtMatConversion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(txtMatConversion.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

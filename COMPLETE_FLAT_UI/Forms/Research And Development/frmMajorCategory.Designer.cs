@@ -69,10 +69,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // 
             // metroFinalSaving
             // 
-            this.metroFinalSaving.Location = new System.Drawing.Point(1013, 85);
-            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroFinalSaving.Location = new System.Drawing.Point(380, 36);
+            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.metroFinalSaving.Name = "metroFinalSaving";
-            this.metroFinalSaving.Size = new System.Drawing.Size(181, 48);
+            this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
             this.metroFinalSaving.TabIndex = 605;
             this.metroFinalSaving.Text = "Saving";
             this.metroFinalSaving.UseSelectable = true;
@@ -81,10 +81,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // 
             // metroSave
             // 
-            this.metroSave.Location = new System.Drawing.Point(689, 85);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroSave.Location = new System.Drawing.Point(258, 36);
+            this.metroSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.metroSave.Name = "metroSave";
-            this.metroSave.Size = new System.Drawing.Size(181, 48);
+            this.metroSave.Size = new System.Drawing.Size(68, 20);
             this.metroSave.TabIndex = 604;
             this.metroSave.Text = "Add";
             this.metroSave.UseSelectable = true;
@@ -98,12 +98,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtCreatedBy.Enabled = false;
             this.txtCreatedBy.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtCreatedBy.Hint = "Created By";
-            this.txtCreatedBy.Location = new System.Drawing.Point(743, 140);
+            this.txtCreatedBy.Location = new System.Drawing.Point(279, 59);
+            this.txtCreatedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtCreatedBy.MaxLength = 50;
             this.txtCreatedBy.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCreatedBy.Multiline = false;
             this.txtCreatedBy.Name = "txtCreatedBy";
-            this.txtCreatedBy.Size = new System.Drawing.Size(275, 50);
+            this.txtCreatedBy.Size = new System.Drawing.Size(103, 50);
             this.txtCreatedBy.TabIndex = 600;
             this.txtCreatedBy.Text = "";
             this.txtCreatedBy.Visible = false;
@@ -115,12 +116,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtCreatedAt.Enabled = false;
             this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtCreatedAt.Hint = "Created At";
-            this.txtCreatedAt.Location = new System.Drawing.Point(1235, 83);
+            this.txtCreatedAt.Location = new System.Drawing.Point(463, 35);
+            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtCreatedAt.MaxLength = 50;
             this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCreatedAt.Multiline = false;
             this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(275, 50);
+            this.txtCreatedAt.Size = new System.Drawing.Size(103, 50);
             this.txtCreatedAt.TabIndex = 599;
             this.txtCreatedAt.Text = "";
             this.txtCreatedAt.Visible = false;
@@ -132,12 +134,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedBy.Enabled = false;
             this.txtModifiedBy.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtModifiedBy.Hint = "Modified By";
-            this.txtModifiedBy.Location = new System.Drawing.Point(1374, 140);
+            this.txtModifiedBy.Location = new System.Drawing.Point(515, 59);
+            this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtModifiedBy.MaxLength = 50;
             this.txtModifiedBy.MouseState = MaterialSkin.MouseState.OUT;
             this.txtModifiedBy.Multiline = false;
             this.txtModifiedBy.Name = "txtModifiedBy";
-            this.txtModifiedBy.Size = new System.Drawing.Size(275, 50);
+            this.txtModifiedBy.Size = new System.Drawing.Size(103, 50);
             this.txtModifiedBy.TabIndex = 598;
             this.txtModifiedBy.Text = "";
             this.txtModifiedBy.Visible = false;
@@ -149,12 +152,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedAt.Enabled = false;
             this.txtModifiedAt.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtModifiedAt.Hint = "Modified At";
-            this.txtModifiedAt.Location = new System.Drawing.Point(1062, 140);
+            this.txtModifiedAt.Location = new System.Drawing.Point(398, 59);
+            this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtModifiedAt.MaxLength = 50;
             this.txtModifiedAt.MouseState = MaterialSkin.MouseState.OUT;
             this.txtModifiedAt.Multiline = false;
             this.txtModifiedAt.Name = "txtModifiedAt";
-            this.txtModifiedAt.Size = new System.Drawing.Size(275, 50);
+            this.txtModifiedAt.Size = new System.Drawing.Size(103, 50);
             this.txtModifiedAt.TabIndex = 593;
             this.txtModifiedAt.Text = "";
             this.txtModifiedAt.Visible = false;
@@ -168,12 +172,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmajorCategory.Enabled = false;
             this.txtmajorCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmajorCategory.Hint = "Major Category";
-            this.txtmajorCategory.Location = new System.Drawing.Point(36, 38);
+            this.txtmajorCategory.Location = new System.Drawing.Point(14, 16);
+            this.txtmajorCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtmajorCategory.MaxLength = 50;
             this.txtmajorCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmajorCategory.Multiline = false;
             this.txtmajorCategory.Name = "txtmajorCategory";
-            this.txtmajorCategory.Size = new System.Drawing.Size(1706, 50);
+            this.txtmajorCategory.Size = new System.Drawing.Size(974, 50);
             this.txtmajorCategory.TabIndex = 0;
             this.txtmajorCategory.Text = "";
             // 
@@ -217,8 +222,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMajorCategory.EnableHeadersVisualStyles = false;
             this.dgvMajorCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvMajorCategory.Location = new System.Drawing.Point(14, 14);
-            this.dgvMajorCategory.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvMajorCategory.Location = new System.Drawing.Point(5, 6);
             this.dgvMajorCategory.MultiSelect = false;
             this.dgvMajorCategory.Name = "dgvMajorCategory";
             this.dgvMajorCategory.ReadOnly = true;
@@ -236,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.RowTemplate.DividerHeight = 5;
             this.dgvMajorCategory.RowTemplate.Height = 40;
             this.dgvMajorCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMajorCategory.Size = new System.Drawing.Size(1741, 684);
+            this.dgvMajorCategory.Size = new System.Drawing.Size(984, 287);
             this.dgvMajorCategory.TabIndex = 593;
             this.dgvMajorCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvMajorCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -325,12 +329,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard1.Controls.Add(this.txtmajorCategory);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(79, 207);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Location = new System.Drawing.Point(13, 87);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1769, 173);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Size = new System.Drawing.Size(997, 73);
             this.materialCard1.TabIndex = 595;
             // 
             // materialCard2
@@ -341,12 +345,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard2.Controls.Add(this.dgvMajorCategory);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(79, 518);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Location = new System.Drawing.Point(16, 217);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1769, 712);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(994, 299);
             this.materialCard2.TabIndex = 594;
             // 
             // lbltotalrecords
@@ -356,10 +360,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1713, 1244);
-            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalrecords.Location = new System.Drawing.Point(1274, 522);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
+            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
             this.lbltotalrecords.TabIndex = 606;
             this.lbltotalrecords.Text = "76";
             this.lbltotalrecords.Click += new System.EventHandler(this.lbltotalrecords_Click);
@@ -371,10 +374,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1721, 1329);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(1277, 557);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 39);
+            this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 607;
             this.label2.Text = "Items";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -383,9 +385,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(85, 420);
+            this.panel1.Location = new System.Drawing.Point(32, 176);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(857, 85);
+            this.panel1.Size = new System.Drawing.Size(321, 36);
             this.panel1.TabIndex = 608;
             // 
             // toolStrip2
@@ -402,7 +405,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(857, 85);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Size = new System.Drawing.Size(321, 36);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -411,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
             this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(122, 78);
+            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
             this.matBtnNew.Text = "&New";
             this.matBtnNew.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -420,7 +424,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
             this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(112, 78);
+            this.matBtnEdit.Size = new System.Drawing.Size(71, 33);
             this.matBtnEdit.Text = "&Edit";
             this.matBtnEdit.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -429,7 +433,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(169, 78);
+            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
             this.matBtnDelete.Text = "&Remove";
             this.matBtnDelete.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
@@ -438,7 +442,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(123, 78);
+            this.matBtnSave.Size = new System.Drawing.Size(75, 44);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             this.matBtnSave.Click += new System.EventHandler(this.toolStripButton4_Click);
@@ -448,7 +452,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(150, 78);
+            this.matBtnCancel.Size = new System.Drawing.Size(87, 44);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             this.matBtnCancel.Click += new System.EventHandler(this.toolStripButton5_Click);
@@ -460,21 +464,22 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.Depth = 0;
             this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSearch.Hint = "Search";
-            this.mattxtSearch.Location = new System.Drawing.Point(1301, 397);
+            this.mattxtSearch.Location = new System.Drawing.Point(1108, 166);
+            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.mattxtSearch.MaxLength = 50;
             this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtSearch.Multiline = false;
             this.mattxtSearch.Name = "mattxtSearch";
-            this.mattxtSearch.Size = new System.Drawing.Size(547, 50);
+            this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
             this.mattxtSearch.TabIndex = 609;
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
             // frmMajorCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1942, 1382);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbltotalrecords);
@@ -487,6 +492,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.txtModifiedAt);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.materialCard2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "frmMajorCategory";
             this.Text = "Major Category";
             this.Load += new System.EventHandler(this.frmMajorCategory_Load);

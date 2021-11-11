@@ -42,6 +42,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.txtcreatedBy = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboMajorCategory = new System.Windows.Forms.ComboBox();
             this.cboSubCat = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,10 +61,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtcreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcreatedAt.Enabled = false;
             this.txtcreatedAt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcreatedAt.Location = new System.Drawing.Point(553, 917);
-            this.txtcreatedAt.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtcreatedAt.Location = new System.Drawing.Point(207, 385);
             this.txtcreatedAt.Name = "txtcreatedAt";
-            this.txtcreatedAt.Size = new System.Drawing.Size(383, 39);
+            this.txtcreatedAt.Size = new System.Drawing.Size(145, 20);
             this.txtcreatedAt.TabIndex = 480;
             this.txtcreatedAt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtcreatedAt.Visible = false;
@@ -75,10 +74,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblPrimaryUnitID.BackColor = System.Drawing.Color.Transparent;
             this.lblPrimaryUnitID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrimaryUnitID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPrimaryUnitID.Location = new System.Drawing.Point(305, 385);
-            this.lblPrimaryUnitID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblPrimaryUnitID.Location = new System.Drawing.Point(114, 161);
             this.lblPrimaryUnitID.Name = "lblPrimaryUnitID";
-            this.lblPrimaryUnitID.Size = new System.Drawing.Size(87, 32);
+            this.lblPrimaryUnitID.Size = new System.Drawing.Size(35, 13);
             this.lblPrimaryUnitID.TabIndex = 591;
             this.lblPrimaryUnitID.Text = "NULL";
             this.lblPrimaryUnitID.Visible = false;
@@ -89,10 +87,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblItemTypeID.BackColor = System.Drawing.Color.Transparent;
             this.lblItemTypeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemTypeID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblItemTypeID.Location = new System.Drawing.Point(1582, 216);
-            this.lblItemTypeID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblItemTypeID.Location = new System.Drawing.Point(593, 91);
             this.lblItemTypeID.Name = "lblItemTypeID";
-            this.lblItemTypeID.Size = new System.Drawing.Size(87, 32);
+            this.lblItemTypeID.Size = new System.Drawing.Size(35, 13);
             this.lblItemTypeID.TabIndex = 590;
             this.lblItemTypeID.Text = "NULL";
             this.lblItemTypeID.Visible = false;
@@ -103,10 +100,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblIDSubCat.BackColor = System.Drawing.Color.Transparent;
             this.lblIDSubCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDSubCat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblIDSubCat.Location = new System.Drawing.Point(940, 221);
-            this.lblIDSubCat.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblIDSubCat.Location = new System.Drawing.Point(352, 93);
             this.lblIDSubCat.Name = "lblIDSubCat";
-            this.lblIDSubCat.Size = new System.Drawing.Size(87, 32);
+            this.lblIDSubCat.Size = new System.Drawing.Size(35, 13);
             this.lblIDSubCat.TabIndex = 589;
             this.lblIDSubCat.Text = "NULL";
             this.lblIDSubCat.Visible = false;
@@ -117,10 +113,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblMajorCatId.BackColor = System.Drawing.Color.Transparent;
             this.lblMajorCatId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMajorCatId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblMajorCatId.Location = new System.Drawing.Point(320, 215);
-            this.lblMajorCatId.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblMajorCatId.Location = new System.Drawing.Point(120, 90);
             this.lblMajorCatId.Name = "lblMajorCatId";
-            this.lblMajorCatId.Size = new System.Drawing.Size(87, 32);
+            this.lblMajorCatId.Size = new System.Drawing.Size(35, 13);
             this.lblMajorCatId.TabIndex = 588;
             this.lblMajorCatId.Text = "NULL";
             this.lblMajorCatId.Visible = false;
@@ -131,10 +126,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblItemClassID.BackColor = System.Drawing.Color.Transparent;
             this.lblItemClassID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemClassID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblItemClassID.Location = new System.Drawing.Point(1539, 49);
-            this.lblItemClassID.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblItemClassID.Location = new System.Drawing.Point(577, 21);
             this.lblItemClassID.Name = "lblItemClassID";
-            this.lblItemClassID.Size = new System.Drawing.Size(87, 32);
+            this.lblItemClassID.Size = new System.Drawing.Size(35, 13);
             this.lblItemClassID.TabIndex = 587;
             this.lblItemClassID.Text = "NULL";
             this.lblItemClassID.Visible = false;
@@ -145,12 +139,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Depth = 0;
             this.txtmatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatConversion.Hint = "Conversion";
-            this.txtmatConversion.Location = new System.Drawing.Point(684, 375);
+            this.txtmatConversion.Location = new System.Drawing.Point(256, 157);
+            this.txtmatConversion.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtmatConversion.MaxLength = 50;
             this.txtmatConversion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmatConversion.Multiline = false;
             this.txtmatConversion.Name = "txtmatConversion";
-            this.txtmatConversion.Size = new System.Drawing.Size(414, 50);
+            this.txtmatConversion.Size = new System.Drawing.Size(155, 50);
             this.txtmatConversion.TabIndex = 586;
             this.txtmatConversion.Text = "";
             // 
@@ -160,10 +155,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(58, 387);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label4.Location = new System.Drawing.Point(22, 162);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(178, 32);
+            this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 584;
             this.label4.Text = "Primary Unit:";
             // 
@@ -174,8 +168,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.DrawShadows = true;
             this.matBtnSave.HighEmphasis = true;
             this.matBtnSave.Icon = null;
-            this.matBtnSave.Location = new System.Drawing.Point(85, 828);
-            this.matBtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnSave.Location = new System.Drawing.Point(32, 347);
+            this.matBtnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSave.Name = "matBtnSave";
             this.matBtnSave.Size = new System.Drawing.Size(58, 36);
@@ -193,12 +187,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemDesc.Enabled = false;
             this.txtMatItemDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemDesc.Hint = "Item Description";
-            this.txtMatItemDesc.Location = new System.Drawing.Point(693, 68);
+            this.txtMatItemDesc.Location = new System.Drawing.Point(260, 29);
+            this.txtMatItemDesc.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtMatItemDesc.MaxLength = 50;
             this.txtMatItemDesc.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemDesc.Multiline = false;
             this.txtMatItemDesc.Name = "txtMatItemDesc";
-            this.txtMatItemDesc.Size = new System.Drawing.Size(414, 50);
+            this.txtMatItemDesc.Size = new System.Drawing.Size(155, 50);
             this.txtMatItemDesc.TabIndex = 1;
             this.txtMatItemDesc.Text = "";
             // 
@@ -209,12 +204,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode.Enabled = false;
             this.txtMatItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemCode.Hint = "Item Code";
-            this.txtMatItemCode.Location = new System.Drawing.Point(59, 68);
+            this.txtMatItemCode.Location = new System.Drawing.Point(22, 29);
+            this.txtMatItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtMatItemCode.MaxLength = 50;
             this.txtMatItemCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemCode.Multiline = false;
             this.txtMatItemCode.Name = "txtMatItemCode";
-            this.txtMatItemCode.Size = new System.Drawing.Size(414, 50);
+            this.txtMatItemCode.Size = new System.Drawing.Size(155, 50);
             this.txtMatItemCode.TabIndex = 0;
             this.txtMatItemCode.Text = "";
             // 
@@ -223,10 +219,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtcreatedBy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcreatedBy.Enabled = false;
             this.txtcreatedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcreatedBy.Location = new System.Drawing.Point(85, 917);
-            this.txtcreatedBy.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtcreatedBy.Location = new System.Drawing.Point(32, 385);
             this.txtcreatedBy.Name = "txtcreatedBy";
-            this.txtcreatedBy.Size = new System.Drawing.Size(383, 39);
+            this.txtcreatedBy.Size = new System.Drawing.Size(145, 20);
             this.txtcreatedBy.TabIndex = 478;
             this.txtcreatedBy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtcreatedBy.Visible = false;
@@ -255,13 +250,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.txtMatItemCode);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(53, 165);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Location = new System.Drawing.Point(20, 69);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1810, 624);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Size = new System.Drawing.Size(679, 262);
             this.materialCard1.TabIndex = 477;
+            // 
+            // mattxtBufferStocks
+            // 
+            this.mattxtBufferStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtBufferStocks.Depth = 0;
+            this.mattxtBufferStocks.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtBufferStocks.Hint = "Buffer Stock";
+            this.mattxtBufferStocks.Location = new System.Drawing.Point(502, 156);
+            this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtBufferStocks.MaxLength = 50;
+            this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtBufferStocks.Multiline = false;
+            this.mattxtBufferStocks.Name = "mattxtBufferStocks";
+            this.mattxtBufferStocks.Size = new System.Drawing.Size(155, 50);
+            this.mattxtBufferStocks.TabIndex = 601;
+            this.mattxtBufferStocks.Text = "";
+            this.mattxtBufferStocks.TextChanged += new System.EventHandler(this.mattxtBufferStocks_TextChanged);
+            this.mattxtBufferStocks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtBufferStocks_KeyPress);
             // 
             // label5
             // 
@@ -269,10 +282,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(1338, 212);
-            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Location = new System.Drawing.Point(502, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 32);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 600;
             this.label5.Text = "Item Type:";
             // 
@@ -282,10 +294,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(1339, 59);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Location = new System.Drawing.Point(502, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 32);
+            this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 599;
             this.label3.Text = "Item Class:";
             // 
@@ -295,10 +306,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(692, 213);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(260, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 32);
+            this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 598;
             this.label2.Text = "Sub Categgory:";
             // 
@@ -308,55 +318,59 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(63, 212);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(24, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 32);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 597;
             this.label1.Text = "Major Categgory:";
             // 
             // cboItemClass
             // 
             this.cboItemClass.FormattingEnabled = true;
-            this.cboItemClass.Location = new System.Drawing.Point(1338, 94);
+            this.cboItemClass.Location = new System.Drawing.Point(502, 39);
+            this.cboItemClass.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cboItemClass.Name = "cboItemClass";
-            this.cboItemClass.Size = new System.Drawing.Size(414, 39);
+            this.cboItemClass.Size = new System.Drawing.Size(158, 21);
             this.cboItemClass.TabIndex = 596;
             this.cboItemClass.SelectionChangeCommitted += new System.EventHandler(this.cboItemClass_SelectionChangeCommitted);
             // 
             // cboItemType
             // 
             this.cboItemType.FormattingEnabled = true;
-            this.cboItemType.Location = new System.Drawing.Point(1338, 247);
+            this.cboItemType.Location = new System.Drawing.Point(502, 104);
+            this.cboItemType.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cboItemType.Name = "cboItemType";
-            this.cboItemType.Size = new System.Drawing.Size(414, 39);
+            this.cboItemType.Size = new System.Drawing.Size(158, 21);
             this.cboItemType.TabIndex = 595;
             this.cboItemType.SelectionChangeCommitted += new System.EventHandler(this.cboItemType_SelectionChangeCommitted);
             // 
             // cboPrimaryUnit
             // 
             this.cboPrimaryUnit.FormattingEnabled = true;
-            this.cboPrimaryUnit.Location = new System.Drawing.Point(59, 422);
+            this.cboPrimaryUnit.Location = new System.Drawing.Point(22, 177);
+            this.cboPrimaryUnit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cboPrimaryUnit.Name = "cboPrimaryUnit";
-            this.cboPrimaryUnit.Size = new System.Drawing.Size(414, 39);
+            this.cboPrimaryUnit.Size = new System.Drawing.Size(158, 21);
             this.cboPrimaryUnit.TabIndex = 594;
             this.cboPrimaryUnit.SelectionChangeCommitted += new System.EventHandler(this.cboPrimaryUnit_SelectionChangeCommitted);
             // 
             // cboMajorCategory
             // 
             this.cboMajorCategory.FormattingEnabled = true;
-            this.cboMajorCategory.Location = new System.Drawing.Point(59, 247);
+            this.cboMajorCategory.Location = new System.Drawing.Point(22, 104);
+            this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cboMajorCategory.Name = "cboMajorCategory";
-            this.cboMajorCategory.Size = new System.Drawing.Size(414, 39);
+            this.cboMajorCategory.Size = new System.Drawing.Size(158, 21);
             this.cboMajorCategory.TabIndex = 593;
             this.cboMajorCategory.SelectionChangeCommitted += new System.EventHandler(this.cboMajorCategory_SelectionChangeCommitted);
             // 
             // cboSubCat
             // 
             this.cboSubCat.FormattingEnabled = true;
-            this.cboSubCat.Location = new System.Drawing.Point(693, 247);
+            this.cboSubCat.Location = new System.Drawing.Point(260, 104);
+            this.cboSubCat.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cboSubCat.Name = "cboSubCat";
-            this.cboSubCat.Size = new System.Drawing.Size(414, 39);
+            this.cboSubCat.Size = new System.Drawing.Size(158, 21);
             this.cboSubCat.TabIndex = 592;
             this.cboSubCat.SelectionChangeCommitted += new System.EventHandler(this.cboSubCat_SelectionChangeCommitted);
             // 
@@ -364,42 +378,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(1399, 945);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.textBox1.Location = new System.Drawing.Point(525, 396);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(383, 39);
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 476;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // mattxtBufferStocks
-            // 
-            this.mattxtBufferStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtBufferStocks.Depth = 0;
-            this.mattxtBufferStocks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mattxtBufferStocks.Hint = "Buffer Stock";
-            this.mattxtBufferStocks.Location = new System.Drawing.Point(1338, 372);
-            this.mattxtBufferStocks.MaxLength = 50;
-            this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtBufferStocks.Multiline = false;
-            this.mattxtBufferStocks.Name = "mattxtBufferStocks";
-            this.mattxtBufferStocks.Size = new System.Drawing.Size(414, 50);
-            this.mattxtBufferStocks.TabIndex = 601;
-            this.mattxtBufferStocks.Text = "";
-            this.mattxtBufferStocks.TextChanged += new System.EventHandler(this.mattxtBufferStocks_TextChanged);
-            this.mattxtBufferStocks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtBufferStocks_KeyPress);
-            // 
             // frmEditItemModal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1934, 1035);
+            this.ClientSize = new System.Drawing.Size(719, 393);
             this.Controls.Add(this.txtcreatedAt);
             this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.txtcreatedBy);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "frmEditItemModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Raw Materials";

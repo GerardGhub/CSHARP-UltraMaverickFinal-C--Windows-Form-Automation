@@ -40,7 +40,7 @@ namespace COMPLETE_FLAT_UI
 
         private void FormLogo_Load(object sender, EventArgs e)
         {
-            pictureBox1.Padding = new Padding(0);
+            //pictureBox1.Padding = new Padding(0);
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showReceivingData();
@@ -68,7 +68,9 @@ namespace COMPLETE_FLAT_UI
 
         }
 
+        private void materialCard1_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }

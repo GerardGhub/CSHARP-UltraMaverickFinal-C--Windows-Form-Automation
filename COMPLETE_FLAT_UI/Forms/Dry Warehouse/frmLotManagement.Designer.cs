@@ -46,10 +46,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvLotData = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.metroSave = new MetroFramework.Controls.MetroButton();
-            this.txtCreatedAt = new MaterialSkin.Controls.MaterialTextBox();
-            this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lot_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +53,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.TOTALSKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroSave = new MetroFramework.Controls.MetroButton();
+            this.txtCreatedAt = new MaterialSkin.Controls.MaterialTextBox();
+            this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -70,12 +70,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSearch.Depth = 0;
             this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSearch.Hint = "Search";
-            this.mattxtSearch.Location = new System.Drawing.Point(1296, 198);
+            this.mattxtSearch.Location = new System.Drawing.Point(1118, 83);
+            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.mattxtSearch.MaxLength = 50;
             this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtSearch.Multiline = false;
             this.mattxtSearch.Name = "mattxtSearch";
-            this.mattxtSearch.Size = new System.Drawing.Size(547, 50);
+            this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
             this.mattxtSearch.TabIndex = 621;
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
@@ -94,7 +95,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnCancel});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(857, 85);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Size = new System.Drawing.Size(321, 36);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -103,7 +105,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
             this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(122, 78);
+            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
             this.matBtnNew.Text = "&New";
             this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
             // 
@@ -112,7 +114,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
             this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(112, 78);
+            this.matBtnEdit.Size = new System.Drawing.Size(71, 33);
             this.matBtnEdit.Text = "&Edit";
             this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
             // 
@@ -121,7 +123,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(169, 78);
+            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
             this.matBtnDelete.Text = "&Remove";
             this.matBtnDelete.Visible = false;
             // 
@@ -130,7 +132,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(123, 78);
+            this.matBtnSave.Size = new System.Drawing.Size(75, 33);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             // 
@@ -139,7 +141,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(150, 78);
+            this.matBtnCancel.Size = new System.Drawing.Size(87, 33);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             // 
@@ -147,9 +149,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(80, 221);
+            this.panel1.Location = new System.Drawing.Point(30, 93);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(857, 85);
+            this.panel1.Size = new System.Drawing.Size(321, 36);
             this.panel1.TabIndex = 620;
             // 
             // lbltotalrecords
@@ -159,10 +162,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1708, 1194);
-            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalrecords.Location = new System.Drawing.Point(1272, 501);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(79, 85);
+            this.lbltotalrecords.Size = new System.Drawing.Size(33, 36);
             this.lbltotalrecords.TabIndex = 618;
             this.lbltotalrecords.Text = "0";
             // 
@@ -173,10 +175,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1716, 1279);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(1276, 536);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 39);
+            this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 619;
             this.label2.Text = "Items";
             // 
@@ -188,12 +189,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Controls.Add(this.dgvLotData);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(74, 348);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Location = new System.Drawing.Point(28, 146);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1769, 832);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(970, 349);
             this.materialCard2.TabIndex = 611;
             // 
             // dgvLotData
@@ -237,8 +238,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLotData.EnableHeadersVisualStyles = false;
             this.dgvLotData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLotData.Location = new System.Drawing.Point(14, 14);
-            this.dgvLotData.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvLotData.Location = new System.Drawing.Point(5, 6);
             this.dgvLotData.MultiSelect = false;
             this.dgvLotData.Name = "dgvLotData";
             this.dgvLotData.ReadOnly = true;
@@ -256,7 +256,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.RowTemplate.DividerHeight = 5;
             this.dgvLotData.RowTemplate.Height = 40;
             this.dgvLotData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLotData.Size = new System.Drawing.Size(1741, 804);
+            this.dgvLotData.Size = new System.Drawing.Size(960, 337);
             this.dgvLotData.TabIndex = 593;
             this.dgvLotData.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvLotData.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -281,59 +281,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.dgvLotData_CurrentCellChanged);
-            // 
-            // metroSave
-            // 
-            this.metroSave.Location = new System.Drawing.Point(684, 35);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroSave.Name = "metroSave";
-            this.metroSave.Size = new System.Drawing.Size(181, 48);
-            this.metroSave.TabIndex = 616;
-            this.metroSave.Text = "Add";
-            this.metroSave.UseSelectable = true;
-            this.metroSave.Visible = false;
-            // 
-            // txtCreatedAt
-            // 
-            this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedAt.Depth = 0;
-            this.txtCreatedAt.Enabled = false;
-            this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtCreatedAt.Hint = "Created At";
-            this.txtCreatedAt.Location = new System.Drawing.Point(1230, 33);
-            this.txtCreatedAt.MaxLength = 50;
-            this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCreatedAt.Multiline = false;
-            this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(275, 50);
-            this.txtCreatedAt.TabIndex = 614;
-            this.txtCreatedAt.Text = "";
-            this.txtCreatedAt.Visible = false;
-            // 
-            // metroFinalSaving
-            // 
-            this.metroFinalSaving.Location = new System.Drawing.Point(1008, 35);
-            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroFinalSaving.Name = "metroFinalSaving";
-            this.metroFinalSaving.Size = new System.Drawing.Size(181, 48);
-            this.metroFinalSaving.TabIndex = 617;
-            this.metroFinalSaving.Text = "Saving";
-            this.metroFinalSaving.UseSelectable = true;
-            this.metroFinalSaving.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(456, 1233);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(383, 39);
-            this.textBox1.TabIndex = 622;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // id
             // 
@@ -396,11 +343,64 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.date_added.Name = "date_added";
             this.date_added.ReadOnly = true;
             // 
+            // metroSave
+            // 
+            this.metroSave.Location = new System.Drawing.Point(256, 15);
+            this.metroSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroSave.Name = "metroSave";
+            this.metroSave.Size = new System.Drawing.Size(68, 20);
+            this.metroSave.TabIndex = 616;
+            this.metroSave.Text = "Add";
+            this.metroSave.UseSelectable = true;
+            this.metroSave.Visible = false;
+            // 
+            // txtCreatedAt
+            // 
+            this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCreatedAt.Depth = 0;
+            this.txtCreatedAt.Enabled = false;
+            this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtCreatedAt.Hint = "Created At";
+            this.txtCreatedAt.Location = new System.Drawing.Point(461, 14);
+            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtCreatedAt.MaxLength = 50;
+            this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCreatedAt.Multiline = false;
+            this.txtCreatedAt.Name = "txtCreatedAt";
+            this.txtCreatedAt.Size = new System.Drawing.Size(103, 50);
+            this.txtCreatedAt.TabIndex = 614;
+            this.txtCreatedAt.Text = "";
+            this.txtCreatedAt.Visible = false;
+            // 
+            // metroFinalSaving
+            // 
+            this.metroFinalSaving.Location = new System.Drawing.Point(378, 15);
+            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroFinalSaving.Name = "metroFinalSaving";
+            this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
+            this.metroFinalSaving.TabIndex = 617;
+            this.metroFinalSaving.Text = "Saving";
+            this.metroFinalSaving.UseSelectable = true;
+            this.metroFinalSaving.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(171, 517);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 622;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // frmLotManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1917, 1340);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.panel1);
@@ -410,6 +410,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.metroSave);
             this.Controls.Add(this.txtCreatedAt);
             this.Controls.Add(this.metroFinalSaving);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "frmLotManagement";
             this.Text = "Lot Management";
             this.Load += new System.EventHandler(this.frmLotManagement_Load);
