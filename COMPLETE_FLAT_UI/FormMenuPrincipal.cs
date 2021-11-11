@@ -211,24 +211,24 @@ namespace COMPLETE_FLAT_UI
 
     private void DashboardEpicComebackofText()
         {
-            btnDashBoard.Text = "Dashboard";
-            btnUsers.Text = "Users";
-            btnPreparationDepartment.Text = "Preparation Dept";
-            btnDryWarehouse.Text = "Dry Warehouse";
-            btnResearchAndDevelopment.Text = "Research & Dev";
-            btnProductionPlanner.Text = "Planner";
-            btnLogout.Text = "Logout";
+            btnDashBoard1.Text = "Dashboard";
+            btnUsers1.Text = "Users";
+            btnPreparationDepartment1.Text = "Preparation Dept";
+            btnDryWarehouse1.Text = "Dry Warehouse";
+            btnResearchAndDevelopment1.Text = "Research & Dev";
+            btnProductionPlanner1.Text = "Planner";
+            btnLogout1.Text = "Logout";
         }
 
         private void ClearDashboardtext()
         {
-            btnDashBoard.Text = String.Empty;
-            btnUsers.Text = String.Empty;
-            btnPreparationDepartment.Text = String.Empty;
-            btnDryWarehouse.Text = String.Empty;
-            btnResearchAndDevelopment.Text = String.Empty;
-            btnProductionPlanner.Text = String.Empty;
-            btnLogout.Text = String.Empty;
+            btnDashBoard1.Text = String.Empty;
+            btnUsers1.Text = String.Empty;
+            btnPreparationDepartment1.Text = String.Empty;
+            btnDryWarehouse1.Text = String.Empty;
+            btnResearchAndDevelopment1.Text = String.Empty;
+            btnProductionPlanner1.Text = String.Empty;
+            btnLogout1.Text = String.Empty;
         }
         private void tmExpandirMenu_Tick(object sender, EventArgs e)
         {
@@ -404,30 +404,30 @@ namespace COMPLETE_FLAT_UI
               
                     if (parent_form_name == "User")
                     {
-                        btnUsers.Enabled = true;
+                        btnUsers1.Visible = true;
                     }
                     else if (parent_form_name == "bt")
                     {
-                        btnDashBoard.Enabled = true;
+                        btnDashBoard1.Visible = true;
                       /*  MostrarFormLogo()*/;
                     }
 
 
                     else if (parent_form_name == "Dry Warehouse")
                     {
-                        btnDryWarehouse.Enabled = true;
+                        btnDryWarehouse1.Visible = true;
                     }
                     else if (parent_form_name == "Production Planner")
                     {
-                        btnProductionPlanner.Enabled = true;
+                        btnProductionPlanner1.Visible = true;
                     }
                     else if (parent_form_name == "Preparation Department")
                     {
-                        btnPreparationDepartment.Enabled = true;
+                        btnPreparationDepartment1.Visible = true;
                     }
                     else if (parent_form_name == "Research & Development")
                     {
-                        btnResearchAndDevelopment.Enabled = true;
+                        btnResearchAndDevelopment1.Visible = true;
                     }
 
                 }
@@ -837,6 +837,7 @@ namespace COMPLETE_FLAT_UI
 
 
             panelMenuSelection.Visible = false;
+            MainMajorData.Visible = true;
         }
     
 
@@ -1008,31 +1009,31 @@ namespace COMPLETE_FLAT_UI
             if (txtMatSideBarColor.Text == "Light Gray")
             {
                 panelMenu.BackColor = ColorTranslator.FromHtml("#D6D6D6");
-                btnDashBoard.BackColor = ColorTranslator.FromHtml("#D6D6D6");
-                btnUsers.BackColor = ColorTranslator.FromHtml("#D6D6D6");
-                btnDryWarehouse.BackColor = ColorTranslator.FromHtml("#D6D6D6");
-                btnProductionPlanner.BackColor = ColorTranslator.FromHtml("#D6D6D6");
-                btnPreparationDepartment.BackColor = ColorTranslator.FromHtml("#D6D6D6");
-                btnResearchAndDevelopment.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnDashBoard1.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnUsers1.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnDryWarehouse1.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnProductionPlanner1.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnPreparationDepartment1.BackColor = ColorTranslator.FromHtml("#D6D6D6");
+                btnResearchAndDevelopment1.BackColor = ColorTranslator.FromHtml("#D6D6D6");
             }
             else if (txtMatSideBarColor.Text == "Matte Black")
             {
                 panelMenu.BackColor = ColorTranslator.FromHtml("#4F4F51");
                 //Button
-                btnDashBoard.ForeColor = Color.White;
-                btnUsers.ForeColor = Color.White;
-                btnDryWarehouse.ForeColor = Color.White;
-                btnProductionPlanner.ForeColor = Color.White;
-                btnPreparationDepartment.ForeColor = Color.White;
-                btnResearchAndDevelopment.ForeColor = Color.White;
+                btnDashBoard1.ForeColor = Color.White;
+                btnUsers1.ForeColor = Color.White;
+                btnDryWarehouse1.ForeColor = Color.White;
+                btnProductionPlanner1.ForeColor = Color.White;
+                btnPreparationDepartment1.ForeColor = Color.White;
+                btnResearchAndDevelopment1.ForeColor = Color.White;
 
                 panelMenu.BackColor = ColorTranslator.FromHtml("#4F4F51");
-                btnDashBoard.BackColor = ColorTranslator.FromHtml("#4F4F51");
-                btnUsers.BackColor = ColorTranslator.FromHtml("#4F4F51");
-                btnDryWarehouse.BackColor = ColorTranslator.FromHtml("#4F4F51");
-                btnProductionPlanner.BackColor = ColorTranslator.FromHtml("#4F4F51");
-                btnPreparationDepartment.BackColor = ColorTranslator.FromHtml("#4F4F51");
-                btnResearchAndDevelopment.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnDashBoard1.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnUsers1.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnDryWarehouse1.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnProductionPlanner1.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnPreparationDepartment1.BackColor = ColorTranslator.FromHtml("#4F4F51");
+                btnResearchAndDevelopment1.BackColor = ColorTranslator.FromHtml("#4F4F51");
             }
             else
             {
@@ -1198,6 +1199,114 @@ namespace COMPLETE_FLAT_UI
         }
 
         private void panelMenuSelection_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDashBoard1_Click(object sender, EventArgs e)
+        {
+            panelMenuSelection.Visible = false;
+        }
+
+        private void btnLogout1_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                //this.Close();
+
+                //frmLoginForm Login = new frmLoginForm();
+                //Login.ShowDialog();
+
+                //this.Hide();
+                //frmLoginForm sistema = new frmLoginForm();
+                //sistema.ShowDialog();
+
+                Application.Exit();
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
+        private void btnDashBoard1_Click_1(object sender, EventArgs e)
+        {
+            panelMenuSelection.Visible = false;
+        }
+
+        private void btnUsers1_Click(object sender, EventArgs e)
+        {
+            panelMenuSelection.Visible = true;
+
+            SubMenu();
+
+            //Research And Development
+            toolStripRawMaterials.Visible = false;
+            toolImportDry.Visible = false;
+            this.timeSubMenuIn.Start();
+       
+        }
+
+        private void btnDryWarehouse1_Click(object sender, EventArgs e)
+        {
+            panelMenuSelection.Visible = true;
+
+            toolStripRawMaterials.Visible = false;
+            SubMenu();
+            toolDropdownMenu.Visible = false;
+            toolDropdownUser.Visible = false;
+            //Research And Development
+            toolStripRawMaterials.Visible = true;
+
+            this.timeSubMenuIn.Start();
+
+        }
+
+        private void btnProductionPlanner_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPreparationDepartment1_Click(object sender, EventArgs e)
+        {
+            frmDashBoardFormMenu addNew = new frmDashBoardFormMenu(this);
+            addNew.ShowDialog();
+     
+        }
+
+        private void btnResearchAndDevelopment1_Click(object sender, EventArgs e)
+        {
+            //AbrirFormEnPanel(new Form1());
+            panelMenuSelection.Visible = true;
+            SubMenu();
+            toolImportDry.Visible = false;
+            //User major Menu
+            toolDropdownUser.Visible = false;
+            toolDropdownMenu.Visible = false;
+      
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+                    }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProductionPlanner1_Click(object sender, EventArgs e)
+        {
+            MainMajorData.Visible = false;
+        }
+
+        private void btnProductionPlanner1_Click_1(object sender, EventArgs e)
         {
 
         }

@@ -44,17 +44,18 @@ namespace COMPLETE_FLAT_UI
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showReceivingData();
-            dgvParseData.Visible = false;
-            
+            dataGridView1.Visible = false;
+         
+
         }
         private void showReceivingData()      //method for loading available_menus
         {
             try
             {
                 this.ready = false;
-                this.xClass.fillDataGridView(dgvParseData, "Po_Receiving_Warehouse", dSet);
+                this.xClass.fillDataGridView(dataGridView1, "Po_Receiving_Warehouse", dSet);
                 this.ready = true;
-                this.lbltotalReceiving.Text = dgvParseData.RowCount.ToString();
+                this.lbltotalReceiving.Text = dataGridView1.RowCount.ToString();
             }
             catch (Exception ex)
             {
