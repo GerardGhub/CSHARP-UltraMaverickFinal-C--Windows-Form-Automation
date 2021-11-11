@@ -84,6 +84,7 @@
             this.dgvParseData.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvParseData.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvParseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvParseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -111,7 +112,7 @@
             this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvParseData.EnableHeadersVisualStyles = false;
             this.dgvParseData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvParseData.Location = new System.Drawing.Point(523, 264);
+            this.dgvParseData.Location = new System.Drawing.Point(12, 592);
             this.dgvParseData.MultiSelect = false;
             this.dgvParseData.Name = "dgvParseData";
             this.dgvParseData.ReadOnly = true;
@@ -129,7 +130,7 @@
             this.dgvParseData.RowTemplate.DividerHeight = 5;
             this.dgvParseData.RowTemplate.Height = 40;
             this.dgvParseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParseData.Size = new System.Drawing.Size(52, 47);
+            this.dgvParseData.Size = new System.Drawing.Size(23, 10);
             this.dgvParseData.TabIndex = 596;
             this.dgvParseData.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvParseData.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -157,14 +158,12 @@
             // 
             // id
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.id.DataPropertyName = "id";
             this.id.FillWeight = 40.60914F;
             this.id.HeaderText = "ID";
             this.id.MinimumWidth = 12;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 12;
             // 
             // materialCard2
             // 
@@ -450,7 +449,6 @@
         #endregion
         private System.Windows.Forms.Label lbltotalReceiving;
         private Guna.UI2.WinForms.Guna2DataGridView dgvParseData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private MetroFramework.Controls.MetroPanel metroPanel4;
@@ -468,5 +466,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

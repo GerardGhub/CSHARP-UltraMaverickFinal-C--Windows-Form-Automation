@@ -44,6 +44,8 @@ namespace COMPLETE_FLAT_UI
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showReceivingData();
+            dgvParseData.Visible = false;
+            
         }
         private void showReceivingData()      //method for loading available_menus
         {
