@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
@@ -203,9 +203,8 @@
             this.PanelHeader.Controls.Add(this.btnCerrar);
             this.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelHeader.Location = new System.Drawing.Point(0, 0);
-            this.PanelHeader.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(2933, 103);
+            this.PanelHeader.Size = new System.Drawing.Size(1024, 44);
             this.PanelHeader.TabIndex = 1;
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
             // 
@@ -216,10 +215,9 @@
             this.btnMaximizedFinal.FlatAppearance.BorderSize = 0;
             this.btnMaximizedFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximizedFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizedFinal.Image")));
-            this.btnMaximizedFinal.Location = new System.Drawing.Point(2564, -1);
-            this.btnMaximizedFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMaximizedFinal.Location = new System.Drawing.Point(885, 0);
             this.btnMaximizedFinal.Name = "btnMaximizedFinal";
-            this.btnMaximizedFinal.Size = new System.Drawing.Size(115, 103);
+            this.btnMaximizedFinal.Size = new System.Drawing.Size(43, 43);
             this.btnMaximizedFinal.TabIndex = 5;
             this.btnMaximizedFinal.UseVisualStyleBackColor = true;
             this.btnMaximizedFinal.Click += new System.EventHandler(this.btnMaximizedFinal_Click);
@@ -231,10 +229,9 @@
             this.btnMinimizeFinal.FlatAppearance.BorderSize = 0;
             this.btnMinimizeFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizeFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizeFinal.Image")));
-            this.btnMinimizeFinal.Location = new System.Drawing.Point(2677, -5);
-            this.btnMinimizeFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMinimizeFinal.Location = new System.Drawing.Point(927, -2);
             this.btnMinimizeFinal.Name = "btnMinimizeFinal";
-            this.btnMinimizeFinal.Size = new System.Drawing.Size(115, 103);
+            this.btnMinimizeFinal.Size = new System.Drawing.Size(43, 43);
             this.btnMinimizeFinal.TabIndex = 3;
             this.btnMinimizeFinal.UseVisualStyleBackColor = true;
             this.btnMinimizeFinal.Click += new System.EventHandler(this.btnMinimizeFinal_Click);
@@ -245,13 +242,12 @@
             this.txtMatSideBarColor.Depth = 0;
             this.txtMatSideBarColor.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatSideBarColor.Hint = "SideBar Color";
-            this.txtMatSideBarColor.Location = new System.Drawing.Point(1396, 28);
-            this.txtMatSideBarColor.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtMatSideBarColor.Location = new System.Drawing.Point(524, 12);
             this.txtMatSideBarColor.MaxLength = 50;
             this.txtMatSideBarColor.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatSideBarColor.Multiline = false;
             this.txtMatSideBarColor.Name = "txtMatSideBarColor";
-            this.txtMatSideBarColor.Size = new System.Drawing.Size(257, 50);
+            this.txtMatSideBarColor.Size = new System.Drawing.Size(96, 50);
             this.txtMatSideBarColor.TabIndex = 12;
             this.txtMatSideBarColor.Text = "";
             this.txtMatSideBarColor.Visible = false;
@@ -265,10 +261,9 @@
             this.btnNotificationsBell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotificationsBell.Image = ((System.Drawing.Image)(resources.GetObject("btnNotificationsBell.Image")));
             this.btnNotificationsBell.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotificationsBell.Location = new System.Drawing.Point(2368, 6);
-            this.btnNotificationsBell.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnNotificationsBell.Location = new System.Drawing.Point(811, 3);
             this.btnNotificationsBell.Name = "btnNotificationsBell";
-            this.btnNotificationsBell.Size = new System.Drawing.Size(180, 93);
+            this.btnNotificationsBell.Size = new System.Drawing.Size(68, 39);
             this.btnNotificationsBell.TabIndex = 1;
             this.btnNotificationsBell.Text = "       .";
             this.btnNotificationsBell.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -281,10 +276,9 @@
             this.btnCloseFinal.FlatAppearance.BorderSize = 0;
             this.btnCloseFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseFinal.Image")));
-            this.btnCloseFinal.Location = new System.Drawing.Point(2818, 5);
-            this.btnCloseFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnCloseFinal.Location = new System.Drawing.Point(980, 2);
             this.btnCloseFinal.Name = "btnCloseFinal";
-            this.btnCloseFinal.Size = new System.Drawing.Size(104, 93);
+            this.btnCloseFinal.Size = new System.Drawing.Size(39, 39);
             this.btnCloseFinal.TabIndex = 1;
             this.btnCloseFinal.UseVisualStyleBackColor = true;
             this.btnCloseFinal.Click += new System.EventHandler(this.btnCloseFinal_Click);
@@ -296,10 +290,9 @@
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnMaximize.Location = new System.Drawing.Point(-29907, 0);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMaximize.Location = new System.Drawing.Point(-11292, 0);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(115, 103);
+            this.btnMaximize.Size = new System.Drawing.Size(43, 43);
             this.btnMaximize.TabIndex = 4;
             this.btnMaximize.UseVisualStyleBackColor = true;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
@@ -311,10 +304,9 @@
             this.btnNormalFinal.FlatAppearance.BorderSize = 0;
             this.btnNormalFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNormalFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnNormalFinal.Image")));
-            this.btnNormalFinal.Location = new System.Drawing.Point(2564, -1);
-            this.btnNormalFinal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnNormalFinal.Location = new System.Drawing.Point(885, 0);
             this.btnNormalFinal.Name = "btnNormalFinal";
-            this.btnNormalFinal.Size = new System.Drawing.Size(115, 103);
+            this.btnNormalFinal.Size = new System.Drawing.Size(43, 43);
             this.btnNormalFinal.TabIndex = 4;
             this.btnNormalFinal.UseVisualStyleBackColor = true;
             this.btnNormalFinal.Visible = false;
@@ -327,10 +319,9 @@
             this.btnNormal1.FlatAppearance.BorderSize = 0;
             this.btnNormal1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNormal1.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnNormal1.Location = new System.Drawing.Point(-29907, 2);
-            this.btnNormal1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnNormal1.Location = new System.Drawing.Point(-11292, 1);
             this.btnNormal1.Name = "btnNormal1";
-            this.btnNormal1.Size = new System.Drawing.Size(115, 103);
+            this.btnNormal1.Size = new System.Drawing.Size(43, 43);
             this.btnNormal1.TabIndex = 5;
             this.btnNormal1.UseVisualStyleBackColor = true;
             this.btnNormal1.Visible = false;
@@ -343,10 +334,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.btnClose.Location = new System.Drawing.Point(-29907, 7);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnClose.Location = new System.Drawing.Point(-11292, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(104, 93);
+            this.btnClose.Size = new System.Drawing.Size(39, 39);
             this.btnClose.TabIndex = 1;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -358,10 +348,9 @@
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
-            this.btnMinimize.Location = new System.Drawing.Point(-29907, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMinimize.Location = new System.Drawing.Point(-11292, 0);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(115, 103);
+            this.btnMinimize.Size = new System.Drawing.Size(43, 43);
             this.btnMinimize.TabIndex = 3;
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -369,10 +358,9 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::ULTRAMAVERICK.Properties.Resources.ULTRA_MAVERICK;
-            this.pictureBox8.Location = new System.Drawing.Point(7, -1);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox8.Location = new System.Drawing.Point(3, 0);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(142, 99);
+            this.pictureBox8.Size = new System.Drawing.Size(53, 42);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 5;
             this.pictureBox8.TabStop = false;
@@ -382,10 +370,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(165, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(62, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 38);
+            this.label1.Size = new System.Drawing.Size(124, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "ULTRA MAVERICK";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -397,10 +384,9 @@
             this.btnNormal.FlatAppearance.BorderSize = 0;
             this.btnNormal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNormal.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnNormal.Location = new System.Drawing.Point(-32768, 0);
-            this.btnNormal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnNormal.Location = new System.Drawing.Point(-11945, 0);
             this.btnNormal.Name = "btnNormal";
-            this.btnNormal.Size = new System.Drawing.Size(115, 103);
+            this.btnNormal.Size = new System.Drawing.Size(43, 43);
             this.btnNormal.TabIndex = 3;
             this.btnNormal.UseVisualStyleBackColor = true;
             this.btnNormal.Visible = false;
@@ -413,10 +399,9 @@
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
-            this.btnMinimizar.Location = new System.Drawing.Point(-32768, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMinimizar.Location = new System.Drawing.Point(-11945, 0);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(115, 103);
+            this.btnMinimizar.Size = new System.Drawing.Size(43, 43);
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.UseVisualStyleBackColor = true;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -428,10 +413,9 @@
             this.btnMaximizar.FlatAppearance.BorderSize = 0;
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximizar.Image = global::ULTRAMAVERICK.Properties.Resources.maximize3;
-            this.btnMaximizar.Location = new System.Drawing.Point(-32768, 0);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMaximizar.Location = new System.Drawing.Point(-11945, 0);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(115, 103);
+            this.btnMaximizar.Size = new System.Drawing.Size(43, 43);
             this.btnMaximizar.TabIndex = 1;
             this.btnMaximizar.UseVisualStyleBackColor = true;
             this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
@@ -443,10 +427,9 @@
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.btnCerrar.Location = new System.Drawing.Point(-32768, 5);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnCerrar.Location = new System.Drawing.Point(-11945, 2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(104, 93);
+            this.btnCerrar.Size = new System.Drawing.Size(39, 39);
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -474,10 +457,9 @@
             this.panelMenu.Controls.Add(this.btnUsers);
             this.panelMenu.Controls.Add(this.btnDashBoard);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 103);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panelMenu.Location = new System.Drawing.Point(0, 44);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(613, 1328);
+            this.panelMenu.Size = new System.Drawing.Size(185, 724);
             this.panelMenu.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -488,12 +470,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblPosition, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 266);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 112);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(602, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 42);
             this.tableLayoutPanel1.TabIndex = 147;
             // 
             // lblFirstName
@@ -503,10 +486,9 @@
             this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.1F);
             this.lblFirstName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblFirstName.Location = new System.Drawing.Point(8, 0);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblFirstName.Location = new System.Drawing.Point(3, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(586, 50);
+            this.lblFirstName.Size = new System.Drawing.Size(175, 21);
             this.lblFirstName.TabIndex = 5;
             this.lblFirstName.Text = "Gerard";
             this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -517,10 +499,9 @@
             this.lblPosition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPosition.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblPosition.Location = new System.Drawing.Point(8, 50);
-            this.lblPosition.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblPosition.Location = new System.Drawing.Point(3, 21);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(586, 50);
+            this.lblPosition.Size = new System.Drawing.Size(175, 21);
             this.lblPosition.TabIndex = 7;
             this.lblPosition.Text = "Position";
             this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -529,10 +510,9 @@
             // 
             this.pbImage.BackColor = System.Drawing.Color.Transparent;
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Location = new System.Drawing.Point(104, 10);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pbImage.Location = new System.Drawing.Point(7, 4);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(357, 246);
+            this.pbImage.Size = new System.Drawing.Size(134, 103);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 146;
             this.pbImage.TabStop = false;
@@ -540,11 +520,13 @@
             // panelMenuSelection
             // 
             this.panelMenuSelection.Controls.Add(this.toolStrip2);
-            this.panelMenuSelection.Location = new System.Drawing.Point(12, 464);
+            this.panelMenuSelection.Location = new System.Drawing.Point(4, 195);
+            this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
             this.panelMenuSelection.Name = "panelMenuSelection";
-            this.panelMenuSelection.Size = new System.Drawing.Size(535, 833);
+            this.panelMenuSelection.Size = new System.Drawing.Size(168, 349);
             this.panelMenuSelection.TabIndex = 2;
             this.panelMenuSelection.Visible = false;
+            this.panelMenuSelection.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuSelection_Paint);
             // 
             // toolStrip2
             // 
@@ -561,8 +543,9 @@
             this.toolClosePanelSelection});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(471, 833);
+            this.toolStrip2.Size = new System.Drawing.Size(83, 349);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -582,7 +565,7 @@
             this.toolDropdownUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownUser.Name = "toolDropdownUser";
-            this.toolDropdownUser.Size = new System.Drawing.Size(466, 44);
+            this.toolDropdownUser.Size = new System.Drawing.Size(226, 44);
             this.toolDropdownUser.Text = "User  Manager                  ";
             this.toolDropdownUser.Visible = false;
             this.toolDropdownUser.Click += new System.EventHandler(this.toolDropdownUser_Click);
@@ -593,7 +576,7 @@
             this.toolUserManagement.Enabled = false;
             this.toolUserManagement.ForeColor = System.Drawing.SystemColors.InfoText;
             this.toolUserManagement.Name = "toolUserManagement";
-            this.toolUserManagement.Size = new System.Drawing.Size(461, 54);
+            this.toolUserManagement.Size = new System.Drawing.Size(192, 22);
             this.toolUserManagement.Text = "User Management";
             this.toolUserManagement.Click += new System.EventHandler(this.toolUserManagement_Click);
             // 
@@ -603,7 +586,7 @@
             this.toolUserRights.Enabled = false;
             this.toolUserRights.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolUserRights.Name = "toolUserRights";
-            this.toolUserRights.Size = new System.Drawing.Size(461, 54);
+            this.toolUserRights.Size = new System.Drawing.Size(192, 22);
             this.toolUserRights.Text = "User Rights";
             this.toolUserRights.Click += new System.EventHandler(this.toolUserRights_Click);
             // 
@@ -613,7 +596,7 @@
             this.toolDepartment.Enabled = false;
             this.toolDepartment.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolDepartment.Name = "toolDepartment";
-            this.toolDepartment.Size = new System.Drawing.Size(461, 54);
+            this.toolDepartment.Size = new System.Drawing.Size(192, 22);
             this.toolDepartment.Text = "Department";
             this.toolDepartment.Click += new System.EventHandler(this.toolDepartment_Click);
             // 
@@ -623,7 +606,7 @@
             this.toolDepartmentUnit.Enabled = false;
             this.toolDepartmentUnit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolDepartmentUnit.Name = "toolDepartmentUnit";
-            this.toolDepartmentUnit.Size = new System.Drawing.Size(461, 54);
+            this.toolDepartmentUnit.Size = new System.Drawing.Size(192, 22);
             this.toolDepartmentUnit.Text = "Unit";
             this.toolDepartmentUnit.Click += new System.EventHandler(this.toolDepartmentUnit_Click);
             // 
@@ -631,7 +614,7 @@
             // 
             this.toolTypeofApprover.Enabled = false;
             this.toolTypeofApprover.Name = "toolTypeofApprover";
-            this.toolTypeofApprover.Size = new System.Drawing.Size(461, 54);
+            this.toolTypeofApprover.Size = new System.Drawing.Size(192, 22);
             this.toolTypeofApprover.Text = "Type of Approver";
             this.toolTypeofApprover.Click += new System.EventHandler(this.toolTypeofApprover_Click);
             // 
@@ -639,7 +622,7 @@
             // 
             this.toolPosition.Enabled = false;
             this.toolPosition.Name = "toolPosition";
-            this.toolPosition.Size = new System.Drawing.Size(461, 54);
+            this.toolPosition.Size = new System.Drawing.Size(192, 22);
             this.toolPosition.Text = "Position";
             this.toolPosition.Click += new System.EventHandler(this.toolPosition_Click);
             // 
@@ -647,7 +630,7 @@
             // 
             this.toolDropdownLocation.Enabled = false;
             this.toolDropdownLocation.Name = "toolDropdownLocation";
-            this.toolDropdownLocation.Size = new System.Drawing.Size(461, 54);
+            this.toolDropdownLocation.Size = new System.Drawing.Size(192, 22);
             this.toolDropdownLocation.Text = "Location";
             this.toolDropdownLocation.Click += new System.EventHandler(this.toolDropdownLocation_Click);
             // 
@@ -668,7 +651,7 @@
             this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRawMaterials.Name = "toolStripRawMaterials";
-            this.toolStripRawMaterials.Size = new System.Drawing.Size(466, 44);
+            this.toolStripRawMaterials.Size = new System.Drawing.Size(141, 44);
             this.toolStripRawMaterials.Text = "Raw Material";
             this.toolStripRawMaterials.Visible = false;
             this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
@@ -677,7 +660,7 @@
             // 
             this.toolStripModuleItemClass.Enabled = false;
             this.toolStripModuleItemClass.Name = "toolStripModuleItemClass";
-            this.toolStripModuleItemClass.Size = new System.Drawing.Size(603, 54);
+            this.toolStripModuleItemClass.Size = new System.Drawing.Size(250, 22);
             this.toolStripModuleItemClass.Text = "Item Class";
             this.toolStripModuleItemClass.Click += new System.EventHandler(this.toolStripModuleItemClass_Click_1);
             // 
@@ -685,7 +668,7 @@
             // 
             this.toolStripModuleMajorCategory.Enabled = false;
             this.toolStripModuleMajorCategory.Name = "toolStripModuleMajorCategory";
-            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(603, 54);
+            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(250, 22);
             this.toolStripModuleMajorCategory.Text = "Major Category";
             this.toolStripModuleMajorCategory.Click += new System.EventHandler(this.toolStripModuleMajorCategory_Click);
             // 
@@ -693,7 +676,7 @@
             // 
             this.toolStripModuleSubCategory.Enabled = false;
             this.toolStripModuleSubCategory.Name = "toolStripModuleSubCategory";
-            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(603, 54);
+            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(250, 22);
             this.toolStripModuleSubCategory.Text = "Sub Category";
             this.toolStripModuleSubCategory.Click += new System.EventHandler(this.toolStripModuleSubCategory_Click);
             // 
@@ -701,7 +684,7 @@
             // 
             this.toolStripModulePrimaryUnit.Enabled = false;
             this.toolStripModulePrimaryUnit.Name = "toolStripModulePrimaryUnit";
-            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(603, 54);
+            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(250, 22);
             this.toolStripModulePrimaryUnit.Text = "Primary Unit";
             this.toolStripModulePrimaryUnit.Click += new System.EventHandler(this.toolStripModulePrimaryUnit_Click);
             // 
@@ -709,7 +692,7 @@
             // 
             this.toolStripModuleItemType.Enabled = false;
             this.toolStripModuleItemType.Name = "toolStripModuleItemType";
-            this.toolStripModuleItemType.Size = new System.Drawing.Size(603, 54);
+            this.toolStripModuleItemType.Size = new System.Drawing.Size(250, 22);
             this.toolStripModuleItemType.Text = "Item Type";
             this.toolStripModuleItemType.Click += new System.EventHandler(this.toolStripModuleItemType_Click);
             // 
@@ -717,7 +700,7 @@
             // 
             this.toolModuleRawMaterialsDry.Enabled = false;
             this.toolModuleRawMaterialsDry.Name = "toolModuleRawMaterialsDry";
-            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(603, 54);
+            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(250, 22);
             this.toolModuleRawMaterialsDry.Text = "Raw Material";
             this.toolModuleRawMaterialsDry.Click += new System.EventHandler(this.toolModuleRawMaterialsDry_Click);
             // 
@@ -725,7 +708,7 @@
             // 
             this.toolModulePrimaryUnitMgmt.Enabled = false;
             this.toolModulePrimaryUnitMgmt.Name = "toolModulePrimaryUnitMgmt";
-            this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(603, 54);
+            this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(250, 22);
             this.toolModulePrimaryUnitMgmt.Text = "Manage Active Primary Unit";
             this.toolModulePrimaryUnitMgmt.Click += new System.EventHandler(this.toolModulePrimaryUnitMgmt_Click);
             // 
@@ -733,7 +716,7 @@
             // 
             this.dryWHInventoryToolStripMenuItem.Enabled = false;
             this.dryWHInventoryToolStripMenuItem.Name = "dryWHInventoryToolStripMenuItem";
-            this.dryWHInventoryToolStripMenuItem.Size = new System.Drawing.Size(603, 54);
+            this.dryWHInventoryToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.dryWHInventoryToolStripMenuItem.Text = "Dry WH Inventory";
             this.dryWHInventoryToolStripMenuItem.Click += new System.EventHandler(this.dryWHInventoryToolStripMenuItem_Click);
             // 
@@ -749,7 +732,7 @@
             this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownMenu.Name = "toolDropdownMenu";
-            this.toolDropdownMenu.Size = new System.Drawing.Size(466, 44);
+            this.toolDropdownMenu.Size = new System.Drawing.Size(125, 44);
             this.toolDropdownMenu.Text = "Menu";
             this.toolDropdownMenu.Visible = false;
             // 
@@ -757,7 +740,7 @@
             // 
             this.toolParentMenu.Enabled = false;
             this.toolParentMenu.Name = "toolParentMenu";
-            this.toolParentMenu.Size = new System.Drawing.Size(361, 54);
+            this.toolParentMenu.Size = new System.Drawing.Size(150, 22);
             this.toolParentMenu.Text = "Major Menu";
             this.toolParentMenu.Click += new System.EventHandler(this.toolParentMenu_Click);
             // 
@@ -765,7 +748,7 @@
             // 
             this.toolChildMenu.Enabled = false;
             this.toolChildMenu.Name = "toolChildMenu";
-            this.toolChildMenu.Size = new System.Drawing.Size(361, 54);
+            this.toolChildMenu.Size = new System.Drawing.Size(150, 22);
             this.toolChildMenu.Text = "Sub Menu";
             this.toolChildMenu.Click += new System.EventHandler(this.toolChildMenu_Click);
             // 
@@ -773,7 +756,7 @@
             // 
             this.toolGrandChildMenu.Enabled = false;
             this.toolGrandChildMenu.Name = "toolGrandChildMenu";
-            this.toolGrandChildMenu.Size = new System.Drawing.Size(361, 54);
+            this.toolGrandChildMenu.Size = new System.Drawing.Size(150, 22);
             this.toolGrandChildMenu.Text = "Modules";
             this.toolGrandChildMenu.Click += new System.EventHandler(this.toolGrandChildMenu_Click);
             // 
@@ -788,7 +771,7 @@
             this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolImportDry.Name = "toolImportDry";
-            this.toolImportDry.Size = new System.Drawing.Size(466, 44);
+            this.toolImportDry.Size = new System.Drawing.Size(125, 44);
             this.toolImportDry.Text = "Import Dry";
             this.toolImportDry.Visible = false;
             this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
@@ -797,7 +780,7 @@
             // 
             this.dryRawMaterialsToolStripMenuItem.Enabled = false;
             this.dryRawMaterialsToolStripMenuItem.Name = "dryRawMaterialsToolStripMenuItem";
-            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(460, 54);
+            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.dryRawMaterialsToolStripMenuItem.Text = "Dry Raw Materials";
             this.dryRawMaterialsToolStripMenuItem.Click += new System.EventHandler(this.dryRawMaterialsToolStripMenuItem_Click);
             // 
@@ -805,7 +788,7 @@
             // 
             this.poSummaryToolStripMenuItem.Enabled = false;
             this.poSummaryToolStripMenuItem.Name = "poSummaryToolStripMenuItem";
-            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(460, 54);
+            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.poSummaryToolStripMenuItem.Text = "Po Summary";
             this.poSummaryToolStripMenuItem.Click += new System.EventHandler(this.poSummaryToolStripMenuItem_Click);
             // 
@@ -823,7 +806,7 @@
             this.toolReceiving.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolReceiving.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolReceiving.Name = "toolReceiving";
-            this.toolReceiving.Size = new System.Drawing.Size(466, 44);
+            this.toolReceiving.Size = new System.Drawing.Size(122, 44);
             this.toolReceiving.Text = "Receiving";
             this.toolReceiving.Visible = false;
             // 
@@ -831,7 +814,7 @@
             // 
             this.listOfReceivingToolStripMenuItem.Enabled = false;
             this.listOfReceivingToolStripMenuItem.Name = "listOfReceivingToolStripMenuItem";
-            this.listOfReceivingToolStripMenuItem.Size = new System.Drawing.Size(536, 54);
+            this.listOfReceivingToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
             this.listOfReceivingToolStripMenuItem.Click += new System.EventHandler(this.listOfReceivingToolStripMenuItem_Click);
             // 
@@ -839,7 +822,7 @@
             // 
             this.rMReceivingToolStripMenuItem.Enabled = false;
             this.rMReceivingToolStripMenuItem.Name = "rMReceivingToolStripMenuItem";
-            this.rMReceivingToolStripMenuItem.Size = new System.Drawing.Size(536, 54);
+            this.rMReceivingToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.rMReceivingToolStripMenuItem.Text = "RM Receiving";
             this.rMReceivingToolStripMenuItem.Click += new System.EventHandler(this.rMReceivingToolStripMenuItem_Click);
             // 
@@ -847,7 +830,7 @@
             // 
             this.lotManagementToolStripMenuItem.Enabled = false;
             this.lotManagementToolStripMenuItem.Name = "lotManagementToolStripMenuItem";
-            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(536, 54);
+            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.lotManagementToolStripMenuItem.Text = "Lot Management";
             this.lotManagementToolStripMenuItem.Click += new System.EventHandler(this.lotManagementToolStripMenuItem_Click);
             // 
@@ -855,7 +838,7 @@
             // 
             this.rMBarcodeModuleToolStripMenuItem.Enabled = false;
             this.rMBarcodeModuleToolStripMenuItem.Name = "rMBarcodeModuleToolStripMenuItem";
-            this.rMBarcodeModuleToolStripMenuItem.Size = new System.Drawing.Size(536, 54);
+            this.rMBarcodeModuleToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.rMBarcodeModuleToolStripMenuItem.Text = "RM Barcode Module";
             this.rMBarcodeModuleToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeModuleToolStripMenuItem_Click);
             // 
@@ -863,7 +846,7 @@
             // 
             this.rMBarcodeReprintingToolStripMenuItem.Enabled = false;
             this.rMBarcodeReprintingToolStripMenuItem.Name = "rMBarcodeReprintingToolStripMenuItem";
-            this.rMBarcodeReprintingToolStripMenuItem.Size = new System.Drawing.Size(536, 54);
+            this.rMBarcodeReprintingToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.rMBarcodeReprintingToolStripMenuItem.Text = "RM Barcode Reprinting";
             this.rMBarcodeReprintingToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeReprintingToolStripMenuItem_Click);
             // 
@@ -875,7 +858,7 @@
             this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolClosePanelSelection.Name = "toolClosePanelSelection";
-            this.toolClosePanelSelection.Size = new System.Drawing.Size(466, 44);
+            this.toolClosePanelSelection.Size = new System.Drawing.Size(82, 44);
             this.toolClosePanelSelection.Text = "Back";
             this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
             // 
@@ -890,10 +873,9 @@
             this.btnLogout.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 1042);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnLogout.Location = new System.Drawing.Point(0, 437);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(613, 95);
+            this.btnLogout.Size = new System.Drawing.Size(230, 40);
             this.btnLogout.TabIndex = 16;
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -906,10 +888,9 @@
             this.btnMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.Location = new System.Drawing.Point(498, -10);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMenu.Location = new System.Drawing.Point(142, -4);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(115, 88);
+            this.btnMenu.Size = new System.Drawing.Size(43, 37);
             this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMenu.TabIndex = 12;
             this.btnMenu.TabStop = false;
@@ -921,10 +902,9 @@
             this.lblLastName.BackColor = System.Drawing.Color.Transparent;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblLastName.Location = new System.Drawing.Point(498, 78);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblLastName.Location = new System.Drawing.Point(134, 155);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(125, 38);
+            this.lblLastName.Size = new System.Drawing.Size(53, 16);
             this.lblLastName.TabIndex = 6;
             this.lblLastName.Text = "Singian";
             this.lblLastName.Visible = false;
@@ -934,10 +914,9 @@
             this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox9.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.pictureBox9.Location = new System.Drawing.Point(24, -21995);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox9.Location = new System.Drawing.Point(9, -9057);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(115, 88);
+            this.pictureBox9.Size = new System.Drawing.Size(43, 37);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox9.TabIndex = 14;
             this.pictureBox9.TabStop = false;
@@ -947,10 +926,9 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.btnSalir.Location = new System.Drawing.Point(24, -21995);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnSalir.Location = new System.Drawing.Point(9, -9057);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(115, 88);
+            this.btnSalir.Size = new System.Drawing.Size(43, 37);
             this.btnSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnSalir.TabIndex = 13;
             this.btnSalir.TabStop = false;
@@ -958,10 +936,9 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox5.Location = new System.Drawing.Point(0, 739);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox5.Location = new System.Drawing.Point(0, 310);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(5, 95);
+            this.pictureBox5.Size = new System.Drawing.Size(2, 40);
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Visible = false;
@@ -978,10 +955,9 @@
             this.btnResearchAndDevelopment.ForeColor = System.Drawing.SystemColors.Window;
             this.btnResearchAndDevelopment.Image = ((System.Drawing.Image)(resources.GetObject("btnResearchAndDevelopment.Image")));
             this.btnResearchAndDevelopment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnResearchAndDevelopment.Location = new System.Drawing.Point(0, 933);
-            this.btnResearchAndDevelopment.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnResearchAndDevelopment.Location = new System.Drawing.Point(0, 391);
             this.btnResearchAndDevelopment.Name = "btnResearchAndDevelopment";
-            this.btnResearchAndDevelopment.Size = new System.Drawing.Size(613, 95);
+            this.btnResearchAndDevelopment.Size = new System.Drawing.Size(230, 40);
             this.btnResearchAndDevelopment.TabIndex = 10;
             this.btnResearchAndDevelopment.Text = "Research & Dev";
             this.btnResearchAndDevelopment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -991,10 +967,9 @@
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox6.Location = new System.Drawing.Point(0, 630);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox6.Location = new System.Drawing.Point(0, 264);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(5, 95);
+            this.pictureBox6.Size = new System.Drawing.Size(2, 40);
             this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Visible = false;
@@ -1011,10 +986,9 @@
             this.btnPreparationDepartment.ForeColor = System.Drawing.SystemColors.Window;
             this.btnPreparationDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnPreparationDepartment.Image")));
             this.btnPreparationDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPreparationDepartment.Location = new System.Drawing.Point(0, 824);
-            this.btnPreparationDepartment.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnPreparationDepartment.Location = new System.Drawing.Point(0, 346);
             this.btnPreparationDepartment.Name = "btnPreparationDepartment";
-            this.btnPreparationDepartment.Size = new System.Drawing.Size(613, 95);
+            this.btnPreparationDepartment.Size = new System.Drawing.Size(230, 40);
             this.btnPreparationDepartment.TabIndex = 8;
             this.btnPreparationDepartment.Text = "Preparation Dept";
             this.btnPreparationDepartment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1024,10 +998,9 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox3.Location = new System.Drawing.Point(0, 520);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox3.Location = new System.Drawing.Point(0, 218);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(5, 95);
+            this.pictureBox3.Size = new System.Drawing.Size(2, 40);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Visible = false;
@@ -1044,10 +1017,9 @@
             this.btnProductionPlanner.ForeColor = System.Drawing.SystemColors.Window;
             this.btnProductionPlanner.Image = ((System.Drawing.Image)(resources.GetObject("btnProductionPlanner.Image")));
             this.btnProductionPlanner.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductionPlanner.Location = new System.Drawing.Point(0, 714);
-            this.btnProductionPlanner.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnProductionPlanner.Location = new System.Drawing.Point(0, 299);
             this.btnProductionPlanner.Name = "btnProductionPlanner";
-            this.btnProductionPlanner.Size = new System.Drawing.Size(613, 95);
+            this.btnProductionPlanner.Size = new System.Drawing.Size(230, 40);
             this.btnProductionPlanner.TabIndex = 6;
             this.btnProductionPlanner.Text = "Planner";
             this.btnProductionPlanner.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1056,10 +1028,9 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 410);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 172);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(5, 95);
+            this.pictureBox4.Size = new System.Drawing.Size(2, 40);
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Visible = false;
@@ -1076,10 +1047,9 @@
             this.btnDryWarehouse.ForeColor = System.Drawing.SystemColors.Window;
             this.btnDryWarehouse.Image = ((System.Drawing.Image)(resources.GetObject("btnDryWarehouse.Image")));
             this.btnDryWarehouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDryWarehouse.Location = new System.Drawing.Point(0, 604);
-            this.btnDryWarehouse.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnDryWarehouse.Location = new System.Drawing.Point(0, 253);
             this.btnDryWarehouse.Name = "btnDryWarehouse";
-            this.btnDryWarehouse.Size = new System.Drawing.Size(613, 95);
+            this.btnDryWarehouse.Size = new System.Drawing.Size(230, 40);
             this.btnDryWarehouse.TabIndex = 4;
             this.btnDryWarehouse.Text = "Dry Warehouse";
             this.btnDryWarehouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1089,10 +1059,9 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 300);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 126);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(5, 95);
+            this.pictureBox2.Size = new System.Drawing.Size(2, 40);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
@@ -1109,10 +1078,9 @@
             this.btnUsers.ForeColor = System.Drawing.SystemColors.Window;
             this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
             this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(0, 494);
-            this.btnUsers.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnUsers.Location = new System.Drawing.Point(0, 207);
             this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(613, 95);
+            this.btnUsers.Size = new System.Drawing.Size(230, 40);
             this.btnUsers.TabIndex = 2;
             this.btnUsers.Text = "Users";
             this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1130,10 +1098,9 @@
             this.btnDashBoard.ForeColor = System.Drawing.SystemColors.Window;
             this.btnDashBoard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashBoard.Image")));
             this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashBoard.Location = new System.Drawing.Point(0, 385);
-            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnDashBoard.Location = new System.Drawing.Point(0, 161);
             this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(613, 95);
+            this.btnDashBoard.Size = new System.Drawing.Size(230, 40);
             this.btnDashBoard.TabIndex = 0;
             this.btnDashBoard.Text = "Dashboard";
             this.btnDashBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1153,10 +1120,9 @@
             this.panel1.Controls.Add(this.lbFecha);
             this.panel1.Controls.Add(this.lblHora);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(613, 1305);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel1.Location = new System.Drawing.Point(185, 715);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2320, 126);
+            this.panel1.Size = new System.Drawing.Size(839, 53);
             this.panel1.TabIndex = 5;
             // 
             // button1
@@ -1166,10 +1132,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1045, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.button1.Location = new System.Drawing.Point(392, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(376, 67);
+            this.button1.Size = new System.Drawing.Size(141, 28);
             this.button1.TabIndex = 496;
             this.button1.Text = "Approver Tagging";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1184,10 +1149,9 @@
             this.btnApproverTagging.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnApproverTagging.Image = ((System.Drawing.Image)(resources.GetObject("btnApproverTagging.Image")));
             this.btnApproverTagging.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApproverTagging.Location = new System.Drawing.Point(1461, 22);
-            this.btnApproverTagging.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnApproverTagging.Location = new System.Drawing.Point(548, 9);
             this.btnApproverTagging.Name = "btnApproverTagging";
-            this.btnApproverTagging.Size = new System.Drawing.Size(205, 67);
+            this.btnApproverTagging.Size = new System.Drawing.Size(77, 28);
             this.btnApproverTagging.TabIndex = 495;
             this.btnApproverTagging.Text = "Approver Tagging";
             this.btnApproverTagging.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1200,10 +1164,9 @@
             this.lblDateFinal.AutoSize = true;
             this.lblDateFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblDateFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblDateFinal.Location = new System.Drawing.Point(459, 43);
-            this.lblDateFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDateFinal.Location = new System.Drawing.Point(172, 18);
             this.lblDateFinal.Name = "lblDateFinal";
-            this.lblDateFinal.Size = new System.Drawing.Size(555, 46);
+            this.lblDateFinal.Size = new System.Drawing.Size(224, 20);
             this.lblDateFinal.TabIndex = 5;
             this.lblDateFinal.Text = "Lunes, 26 de septiembre 2021";
             // 
@@ -1212,10 +1175,9 @@
             this.lblTimeFinal.AutoSize = true;
             this.lblTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblTimeFinal.Location = new System.Drawing.Point(16, 7);
-            this.lblTimeFinal.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTimeFinal.Location = new System.Drawing.Point(6, 3);
             this.lblTimeFinal.Name = "lblTimeFinal";
-            this.lblTimeFinal.Size = new System.Drawing.Size(409, 105);
+            this.lblTimeFinal.Size = new System.Drawing.Size(168, 44);
             this.lblTimeFinal.TabIndex = 2;
             this.lblTimeFinal.Text = "21:49:45";
             // 
@@ -1225,10 +1187,9 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(-30518, 0);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDate.Location = new System.Drawing.Point(-11475, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(555, 46);
+            this.lblDate.Size = new System.Drawing.Size(224, 20);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "Lunes, 26 de septiembre 2018";
             // 
@@ -1238,10 +1199,9 @@
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTime.Location = new System.Drawing.Point(-30518, 0);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTime.Location = new System.Drawing.Point(-11475, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(519, 134);
+            this.lblTime.Size = new System.Drawing.Size(205, 54);
             this.lblTime.TabIndex = 2;
             this.lblTime.Text = "21:49:45";
             // 
@@ -1251,10 +1211,9 @@
             this.lbFecha.AutoSize = true;
             this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(-32155, 0);
-            this.lbFecha.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbFecha.Location = new System.Drawing.Point(-11899, 0);
             this.lbFecha.Name = "lbFecha";
-            this.lbFecha.Size = new System.Drawing.Size(555, 46);
+            this.lbFecha.Size = new System.Drawing.Size(224, 20);
             this.lbFecha.TabIndex = 4;
             this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
             // 
@@ -1264,10 +1223,9 @@
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.Color.LightGray;
-            this.lblHora.Location = new System.Drawing.Point(-32155, 0);
-            this.lblHora.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblHora.Location = new System.Drawing.Point(-11899, 0);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(519, 134);
+            this.lblHora.Size = new System.Drawing.Size(205, 54);
             this.lblHora.TabIndex = 1;
             this.lblHora.Text = "21:49:45";
             // 
@@ -1276,10 +1234,9 @@
             this.panelContenedorForm.BackColor = System.Drawing.SystemColors.Window;
             this.panelContenedorForm.Controls.Add(this.dgvParseData);
             this.panelContenedorForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorForm.Location = new System.Drawing.Point(613, 103);
-            this.panelContenedorForm.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panelContenedorForm.Location = new System.Drawing.Point(185, 44);
             this.panelContenedorForm.Name = "panelContenedorForm";
-            this.panelContenedorForm.Size = new System.Drawing.Size(2320, 1202);
+            this.panelContenedorForm.Size = new System.Drawing.Size(839, 671);
             this.panelContenedorForm.TabIndex = 6;
             // 
             // dgvParseData
@@ -1287,55 +1244,54 @@
             this.dgvParseData.AllowUserToAddRows = false;
             this.dgvParseData.AllowUserToDeleteRows = false;
             this.dgvParseData.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvParseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvParseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvParseData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvParseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvParseData.ColumnHeadersHeight = 35;
             this.dgvParseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParseData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvParseData.EnableHeadersVisualStyles = false;
             this.dgvParseData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvParseData.Location = new System.Drawing.Point(1091, 546);
-            this.dgvParseData.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvParseData.Location = new System.Drawing.Point(409, 229);
             this.dgvParseData.MultiSelect = false;
             this.dgvParseData.Name = "dgvParseData";
             this.dgvParseData.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvParseData.RowHeadersVisible = false;
             this.dgvParseData.RowHeadersWidth = 102;
             this.dgvParseData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvParseData.RowTemplate.DividerHeight = 5;
             this.dgvParseData.RowTemplate.Height = 40;
             this.dgvParseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParseData.Size = new System.Drawing.Size(138, 111);
+            this.dgvParseData.Size = new System.Drawing.Size(52, 47);
             this.dgvParseData.TabIndex = 596;
             this.dgvParseData.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvParseData.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -1380,9 +1336,8 @@
             this.panelContenedorPrincipal.Controls.Add(this.PanelHeader);
             this.panelContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedorPrincipal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panelContenedorPrincipal.Name = "panelContenedorPrincipal";
-            this.panelContenedorPrincipal.Size = new System.Drawing.Size(2933, 1431);
+            this.panelContenedorPrincipal.Size = new System.Drawing.Size(1024, 768);
             this.panelContenedorPrincipal.TabIndex = 0;
             // 
             // timeSubMenuIn
@@ -1392,15 +1347,14 @@
             // 
             // FormMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2933, 1431);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.ControlBox = false;
             this.Controls.Add(this.panelContenedorPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.MinimumSize = new System.Drawing.Size(1813, 1192);
+            this.MinimumSize = new System.Drawing.Size(383, 304);
             this.Name = "FormMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

@@ -35,10 +35,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +60,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.QA_RECEIVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -78,12 +78,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Controls.Add(this.dgvRawMats);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(68, 401);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Location = new System.Drawing.Point(26, 168);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1701, 820);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(973, 570);
             this.materialCard2.TabIndex = 7;
             // 
             // dgvRawMats
@@ -146,8 +146,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvRawMats.Location = new System.Drawing.Point(14, 14);
-            this.dgvRawMats.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvRawMats.Location = new System.Drawing.Point(5, 6);
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
@@ -164,7 +163,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(1673, 792);
+            this.dgvRawMats.Size = new System.Drawing.Size(963, 558);
             this.dgvRawMats.TabIndex = 5;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -189,66 +188,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
-            // materialCard1
-            // 
-            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.lbltotalrecords);
-            this.materialCard1.Controls.Add(this.txtItemCode);
-            this.materialCard1.Controls.Add(this.label2);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(68, 223);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1698, 157);
-            this.materialCard1.TabIndex = 577;
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(39, 47);
-            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
-            this.lbltotalrecords.TabIndex = 578;
-            this.lbltotalrecords.Text = "76";
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtItemCode.Depth = 0;
-            this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtItemCode.Hint = "Item Code";
-            this.txtItemCode.Location = new System.Drawing.Point(1121, 21);
-            this.txtItemCode.MaxLength = 50;
-            this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtItemCode.Multiline = false;
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(547, 50);
-            this.txtItemCode.TabIndex = 573;
-            this.txtItemCode.Text = "";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(265, 83);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 39);
-            this.label2.TabIndex = 579;
-            this.label2.Text = "Items";
-            // 
             // item_id
             // 
             this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -270,7 +209,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 204;
+            this.item_code.Width = 81;
             // 
             // Item_description
             // 
@@ -281,7 +220,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Item_description.MinimumWidth = 12;
             this.Item_description.Name = "Item_description";
             this.Item_description.ReadOnly = true;
-            this.Item_description.Width = 298;
+            this.Item_description.Width = 116;
             // 
             // item_class
             // 
@@ -291,7 +230,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_class.MinimumWidth = 12;
             this.item_class.Name = "item_class";
             this.item_class.ReadOnly = true;
-            this.item_class.Width = 211;
+            this.item_class.Width = 82;
             // 
             // major_category
             // 
@@ -301,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.major_category.MinimumWidth = 12;
             this.major_category.Name = "major_category";
             this.major_category.ReadOnly = true;
-            this.major_category.Width = 293;
+            this.major_category.Width = 114;
             // 
             // sub_category
             // 
@@ -311,7 +250,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sub_category.MinimumWidth = 12;
             this.sub_category.Name = "sub_category";
             this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 253;
+            this.sub_category.Width = 98;
             // 
             // conversion
             // 
@@ -321,7 +260,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.conversion.MinimumWidth = 12;
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
-            this.conversion.Width = 233;
             // 
             // item_type
             // 
@@ -331,7 +269,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_type.MinimumWidth = 12;
             this.item_type.Name = "item_type";
             this.item_type.ReadOnly = true;
-            this.item_type.Width = 194;
+            this.item_type.Width = 75;
             // 
             // created_at
             // 
@@ -341,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
             this.created_at.Visible = false;
-            this.created_at.Width = 246;
+            this.created_at.Width = 96;
             // 
             // created_by
             // 
@@ -351,7 +289,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_by.Name = "created_by";
             this.created_by.ReadOnly = true;
             this.created_by.Visible = false;
-            this.created_by.Width = 214;
+            this.created_by.Width = 83;
             // 
             // updated_at
             // 
@@ -361,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_at.Name = "updated_at";
             this.updated_at.ReadOnly = true;
             this.updated_at.Visible = false;
-            this.updated_at.Width = 251;
+            this.updated_at.Width = 98;
             // 
             // updated_by
             // 
@@ -371,7 +309,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_by.Name = "updated_by";
             this.updated_by.ReadOnly = true;
             this.updated_by.Visible = false;
-            this.updated_by.Width = 219;
+            this.updated_by.Width = 85;
             // 
             // SOH
             // 
@@ -380,7 +318,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.SOH.MinimumWidth = 12;
             this.SOH.Name = "SOH";
             this.SOH.ReadOnly = true;
-            this.SOH.Width = 278;
+            this.SOH.Width = 107;
             // 
             // RESERVED
             // 
@@ -389,7 +327,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.RESERVED.MinimumWidth = 12;
             this.RESERVED.Name = "RESERVED";
             this.RESERVED.ReadOnly = true;
-            this.RESERVED.Width = 401;
+            this.RESERVED.Width = 156;
             // 
             // buffer_stock
             // 
@@ -398,7 +336,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.buffer_stock.MinimumWidth = 12;
             this.buffer_stock.Name = "buffer_stock";
             this.buffer_stock.ReadOnly = true;
-            this.buffer_stock.Width = 260;
+            this.buffer_stock.Width = 102;
             // 
             // TOTAL_RECEIVED
             // 
@@ -407,7 +345,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.TOTAL_RECEIVED.MinimumWidth = 12;
             this.TOTAL_RECEIVED.Name = "TOTAL_RECEIVED";
             this.TOTAL_RECEIVED.ReadOnly = true;
-            this.TOTAL_RECEIVED.Width = 187;
+            this.TOTAL_RECEIVED.Width = 80;
             // 
             // Column5
             // 
@@ -415,7 +353,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column5.MinimumWidth = 12;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 166;
+            this.Column5.Width = 71;
             // 
             // Column6
             // 
@@ -423,7 +361,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column6.MinimumWidth = 12;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 137;
+            this.Column6.Width = 59;
             // 
             // Column7
             // 
@@ -431,7 +369,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column7.MinimumWidth = 12;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 235;
+            this.Column7.Width = 94;
             // 
             // Column8
             // 
@@ -439,7 +377,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column8.MinimumWidth = 12;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 310;
+            this.Column8.Width = 121;
             // 
             // primary_unit
             // 
@@ -448,7 +386,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.primary_unit.MinimumWidth = 12;
             this.primary_unit.Name = "primary_unit";
             this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 132;
+            this.primary_unit.Width = 57;
             // 
             // Column10
             // 
@@ -456,7 +394,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column10.MinimumWidth = 12;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 201;
+            this.Column10.Width = 78;
             // 
             // QA_RECEIVING
             // 
@@ -465,7 +403,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.QA_RECEIVING.MinimumWidth = 12;
             this.QA_RECEIVING.Name = "QA_RECEIVING";
             this.QA_RECEIVING.ReadOnly = true;
-            this.QA_RECEIVING.Width = 243;
+            this.QA_RECEIVING.Width = 94;
             // 
             // Column12
             // 
@@ -473,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column12.MinimumWidth = 12;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            this.Column12.Width = 324;
+            this.Column12.Width = 126;
             // 
             // Column13
             // 
@@ -481,15 +419,75 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column13.MinimumWidth = 12;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            this.Column13.Width = 260;
+            this.Column13.Width = 101;
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.lbltotalrecords);
+            this.materialCard1.Controls.Add(this.txtItemCode);
+            this.materialCard1.Controls.Add(this.label2);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(26, 94);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Size = new System.Drawing.Size(973, 66);
+            this.materialCard1.TabIndex = 577;
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(15, 20);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
+            this.lbltotalrecords.TabIndex = 578;
+            this.lbltotalrecords.Text = "76";
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtItemCode.Depth = 0;
+            this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtItemCode.Hint = "Item Code";
+            this.txtItemCode.Location = new System.Drawing.Point(756, 9);
+            this.txtItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtItemCode.MaxLength = 50;
+            this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemCode.Multiline = false;
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(205, 50);
+            this.txtItemCode.TabIndex = 573;
+            this.txtItemCode.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(99, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 18);
+            this.label2.TabIndex = 579;
+            this.label2.Text = "Items";
             // 
             // frmDryWHInventory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1845, 1361);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.materialCard2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "frmDryWHInventory";
             this.Text = "Dry WH Inventory";
             this.Load += new System.EventHandler(this.frmDryWHInventory_Load);

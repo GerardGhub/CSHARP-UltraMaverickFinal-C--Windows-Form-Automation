@@ -177,7 +177,7 @@ namespace COMPLETE_FLAT_UI
         private void btnMenu_Click(object sender, EventArgs e)
         {
             //-------CON EFECTO SLIDING
-            if (panelMenu.Width == 230)
+            if (panelMenu.Width == 185)
             {
                 this.tmContraerMenu.Start();
                 lblFirstName.Visible = false;
@@ -232,7 +232,7 @@ namespace COMPLETE_FLAT_UI
         }
         private void tmExpandirMenu_Tick(object sender, EventArgs e)
         {
-            if (panelMenu.Width >= 230)
+            if (panelMenu.Width >= 185)
                 this.tmExpandirMenu.Stop();
             else
                 panelMenu.Width = panelMenu.Width + 5;
@@ -1195,6 +1195,11 @@ namespace COMPLETE_FLAT_UI
             frmBarcodeReprinting fm = new frmBarcodeReprinting();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+        }
+
+        private void panelMenuSelection_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void button5_Click(object sender, EventArgs e)

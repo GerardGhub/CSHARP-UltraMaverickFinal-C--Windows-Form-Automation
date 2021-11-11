@@ -59,12 +59,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.mattxtCategory);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(75, 212);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Location = new System.Drawing.Point(28, 89);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1134, 188);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Size = new System.Drawing.Size(425, 79);
             this.materialCard1.TabIndex = 2;
             // 
             // mattxtLotnumber
@@ -73,12 +73,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtLotnumber.Depth = 0;
             this.mattxtLotnumber.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtLotnumber.Hint = "Lot Number";
-            this.mattxtLotnumber.Location = new System.Drawing.Point(835, 43);
+            this.mattxtLotnumber.Location = new System.Drawing.Point(313, 18);
+            this.mattxtLotnumber.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.mattxtLotnumber.MaxLength = 50;
             this.mattxtLotnumber.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtLotnumber.Multiline = false;
             this.mattxtLotnumber.Name = "mattxtLotnumber";
-            this.mattxtLotnumber.Size = new System.Drawing.Size(272, 50);
+            this.mattxtLotnumber.Size = new System.Drawing.Size(102, 50);
             this.mattxtLotnumber.TabIndex = 3;
             this.mattxtLotnumber.Text = "";
             this.mattxtLotnumber.TextChanged += new System.EventHandler(this.mattxtLotnumber_TextChanged);
@@ -91,12 +92,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtCategory.Enabled = false;
             this.mattxtCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mattxtCategory.Hint = "Major Category";
-            this.mattxtCategory.Location = new System.Drawing.Point(46, 42);
+            this.mattxtCategory.Location = new System.Drawing.Point(17, 18);
+            this.mattxtCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.mattxtCategory.MaxLength = 50;
             this.mattxtCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtCategory.Multiline = false;
             this.mattxtCategory.Name = "mattxtCategory";
-            this.mattxtCategory.Size = new System.Drawing.Size(761, 50);
+            this.mattxtCategory.Size = new System.Drawing.Size(285, 50);
             this.mattxtCategory.TabIndex = 2;
             this.mattxtCategory.Text = "Takla";
             this.mattxtCategory.TextChanged += new System.EventHandler(this.mattxtCategory_TextChanged);
@@ -141,8 +143,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLotData.EnableHeadersVisualStyles = false;
             this.dgvLotData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLotData.Location = new System.Drawing.Point(14, 14);
-            this.dgvLotData.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvLotData.Location = new System.Drawing.Point(5, 6);
             this.dgvLotData.MultiSelect = false;
             this.dgvLotData.Name = "dgvLotData";
             this.dgvLotData.ReadOnly = true;
@@ -160,7 +161,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.RowTemplate.DividerHeight = 5;
             this.dgvLotData.RowTemplate.Height = 40;
             this.dgvLotData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLotData.Size = new System.Drawing.Size(1106, 974);
+            this.dgvLotData.Size = new System.Drawing.Size(415, 408);
             this.dgvLotData.TabIndex = 594;
             this.dgvLotData.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvLotData.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -247,12 +248,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Controls.Add(this.dgvLotData);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(75, 511);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Location = new System.Drawing.Point(28, 214);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1134, 1002);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(425, 420);
             this.materialCard2.TabIndex = 3;
             // 
             // lbltotalrecords
@@ -262,10 +263,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1074, 1537);
-            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbltotalrecords.Location = new System.Drawing.Point(480, 645);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
+            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
             this.lbltotalrecords.TabIndex = 610;
             this.lbltotalrecords.Text = "76";
             // 
@@ -276,10 +276,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1082, 1622);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(483, 680);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 39);
+            this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 611;
             this.label2.Text = "Items";
             // 
@@ -290,8 +289,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matbtnSelect.DrawShadows = true;
             this.matbtnSelect.HighEmphasis = true;
             this.matbtnSelect.Icon = null;
-            this.matbtnSelect.Location = new System.Drawing.Point(75, 1586);
-            this.matbtnSelect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matbtnSelect.Location = new System.Drawing.Point(28, 665);
+            this.matbtnSelect.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnSelect.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnSelect.Name = "matbtnSelect";
             this.matbtnSelect.Size = new System.Drawing.Size(74, 36);
@@ -304,14 +303,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             // frmChooseLotNumber
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 1678);
+            this.ClientSize = new System.Drawing.Size(469, 730);
             this.Controls.Add(this.matbtnSelect);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.MaximizeBox = false;
             this.Name = "frmChooseLotNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

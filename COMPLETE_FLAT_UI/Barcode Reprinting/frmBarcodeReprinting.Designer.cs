@@ -35,6 +35,14 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvReprinting = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_reject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mattxtReceivingID = new MaterialSkin.Controls.MaterialTextBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,14 +52,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
             this.crV1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_reject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReprinting)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -65,12 +65,12 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.materialCard2.Controls.Add(this.dgvReprinting);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(98, 479);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Location = new System.Drawing.Point(14, 201);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1701, 842);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(996, 353);
             this.materialCard2.TabIndex = 6;
             // 
             // dgvReprinting
@@ -115,8 +115,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.dgvReprinting.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReprinting.EnableHeadersVisualStyles = false;
             this.dgvReprinting.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvReprinting.Location = new System.Drawing.Point(14, 14);
-            this.dgvReprinting.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvReprinting.Location = new System.Drawing.Point(5, 6);
             this.dgvReprinting.MultiSelect = false;
             this.dgvReprinting.Name = "dgvReprinting";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -133,7 +132,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.dgvReprinting.RowTemplate.DividerHeight = 5;
             this.dgvReprinting.RowTemplate.Height = 40;
             this.dgvReprinting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReprinting.Size = new System.Drawing.Size(1673, 814);
+            this.dgvReprinting.Size = new System.Drawing.Size(986, 341);
             this.dgvReprinting.TabIndex = 594;
             this.dgvReprinting.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvReprinting.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -157,143 +156,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.dgvReprinting.ThemeStyle.RowsStyle.Height = 40;
             this.dgvReprinting.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvReprinting.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            // 
-            // mattxtReceivingID
-            // 
-            this.mattxtReceivingID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtReceivingID.Depth = 0;
-            this.mattxtReceivingID.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtReceivingID.Hint = "Receiving ID";
-            this.mattxtReceivingID.Location = new System.Drawing.Point(480, 105);
-            this.mattxtReceivingID.MaxLength = 50;
-            this.mattxtReceivingID.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtReceivingID.Multiline = false;
-            this.mattxtReceivingID.Name = "mattxtReceivingID";
-            this.mattxtReceivingID.Size = new System.Drawing.Size(547, 50);
-            this.mattxtReceivingID.TabIndex = 569;
-            this.mattxtReceivingID.Text = "";
-            this.mattxtReceivingID.Visible = false;
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1574, 1365);
-            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
-            this.lbltotalrecords.TabIndex = 570;
-            this.lbltotalrecords.Text = "76";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(1685, 1402);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 39);
-            this.label3.TabIndex = 571;
-            this.label3.Text = "Items";
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtItemCode.Depth = 0;
-            this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtItemCode.Hint = "Item Code";
-            this.txtItemCode.Location = new System.Drawing.Point(1132, 73);
-            this.txtItemCode.MaxLength = 50;
-            this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtItemCode.Multiline = false;
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(547, 50);
-            this.txtItemCode.TabIndex = 573;
-            this.txtItemCode.Text = "";
-            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
-            // 
-            // bunifuDatepickerReceivingDate
-            // 
-            this.bunifuDatepickerReceivingDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDatepickerReceivingDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuDatepickerReceivingDate.CustomFormat = "yyyy-M-dd";
-            this.bunifuDatepickerReceivingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDatepickerReceivingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuDatepickerReceivingDate.Location = new System.Drawing.Point(20, 118);
-            this.bunifuDatepickerReceivingDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.bunifuDatepickerReceivingDate.Name = "bunifuDatepickerReceivingDate";
-            this.bunifuDatepickerReceivingDate.Size = new System.Drawing.Size(415, 67);
-            this.bunifuDatepickerReceivingDate.TabIndex = 574;
-            this.bunifuDatepickerReceivingDate.ValueChanged += new System.EventHandler(this.bunifuDatepickerReceivingDate_ValueChanged);
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(17, 66);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(106, 19);
-            this.materialLabel1.TabIndex = 575;
-            this.materialLabel1.Text = "Receiving Date";
-            // 
-            // materialCard1
-            // 
-            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.materialLabel1);
-            this.materialCard1.Controls.Add(this.mattxtReceivingID);
-            this.materialCard1.Controls.Add(this.bunifuDatepickerReceivingDate);
-            this.materialCard1.Controls.Add(this.txtItemCode);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(98, 195);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1698, 232);
-            this.materialCard1.TabIndex = 576;
-            // 
-            // matbtnPrint
-            // 
-            this.matbtnPrint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnPrint.Depth = 0;
-            this.matbtnPrint.DrawShadows = true;
-            this.matbtnPrint.HighEmphasis = true;
-            this.matbtnPrint.Icon = null;
-            this.matbtnPrint.Location = new System.Drawing.Point(98, 1365);
-            this.matbtnPrint.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnPrint.Name = "matbtnPrint";
-            this.matbtnPrint.Size = new System.Drawing.Size(63, 36);
-            this.matbtnPrint.TabIndex = 577;
-            this.matbtnPrint.Text = "PRINT";
-            this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnPrint.UseAccentColor = false;
-            this.matbtnPrint.UseVisualStyleBackColor = true;
-            this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
-            // 
-            // crV1
-            // 
-            this.crV1.ActiveViewIndex = -1;
-            this.crV1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crV1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crV1.Location = new System.Drawing.Point(1280, 1316);
-            this.crV1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.crV1.Name = "crV1";
-            this.crV1.Size = new System.Drawing.Size(50, 147);
-            this.crV1.TabIndex = 578;
-            this.crV1.Visible = false;
             // 
             // selected
             // 
@@ -361,17 +223,156 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.added_by.MinimumWidth = 12;
             this.added_by.Name = "added_by";
             // 
+            // mattxtReceivingID
+            // 
+            this.mattxtReceivingID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtReceivingID.Depth = 0;
+            this.mattxtReceivingID.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtReceivingID.Hint = "Receiving ID";
+            this.mattxtReceivingID.Location = new System.Drawing.Point(180, 44);
+            this.mattxtReceivingID.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtReceivingID.MaxLength = 50;
+            this.mattxtReceivingID.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtReceivingID.Multiline = false;
+            this.mattxtReceivingID.Name = "mattxtReceivingID";
+            this.mattxtReceivingID.Size = new System.Drawing.Size(205, 50);
+            this.mattxtReceivingID.TabIndex = 569;
+            this.mattxtReceivingID.Text = "";
+            this.mattxtReceivingID.Visible = false;
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(1222, 791);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
+            this.lbltotalrecords.TabIndex = 570;
+            this.lbltotalrecords.Text = "76";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label3.Location = new System.Drawing.Point(1264, 807);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 18);
+            this.label3.TabIndex = 571;
+            this.label3.Text = "Items";
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtItemCode.Depth = 0;
+            this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtItemCode.Hint = "Item Code";
+            this.txtItemCode.Location = new System.Drawing.Point(783, 31);
+            this.txtItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtItemCode.MaxLength = 50;
+            this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemCode.Multiline = false;
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(205, 50);
+            this.txtItemCode.TabIndex = 573;
+            this.txtItemCode.Text = "";
+            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
+            // 
+            // bunifuDatepickerReceivingDate
+            // 
+            this.bunifuDatepickerReceivingDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuDatepickerReceivingDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.bunifuDatepickerReceivingDate.CustomFormat = "yyyy-M-dd";
+            this.bunifuDatepickerReceivingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuDatepickerReceivingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuDatepickerReceivingDate.Location = new System.Drawing.Point(8, 49);
+            this.bunifuDatepickerReceivingDate.Name = "bunifuDatepickerReceivingDate";
+            this.bunifuDatepickerReceivingDate.Size = new System.Drawing.Size(158, 31);
+            this.bunifuDatepickerReceivingDate.TabIndex = 574;
+            this.bunifuDatepickerReceivingDate.ValueChanged += new System.EventHandler(this.bunifuDatepickerReceivingDate_ValueChanged);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(6, 28);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(106, 19);
+            this.materialLabel1.TabIndex = 575;
+            this.materialLabel1.Text = "Receiving Date";
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.materialLabel1);
+            this.materialCard1.Controls.Add(this.mattxtReceivingID);
+            this.materialCard1.Controls.Add(this.bunifuDatepickerReceivingDate);
+            this.materialCard1.Controls.Add(this.txtItemCode);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(14, 82);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Size = new System.Drawing.Size(996, 97);
+            this.materialCard1.TabIndex = 576;
+            // 
+            // matbtnPrint
+            // 
+            this.matbtnPrint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnPrint.Depth = 0;
+            this.matbtnPrint.DrawShadows = true;
+            this.matbtnPrint.HighEmphasis = true;
+            this.matbtnPrint.Icon = null;
+            this.matbtnPrint.Location = new System.Drawing.Point(37, 572);
+            this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnPrint.Name = "matbtnPrint";
+            this.matbtnPrint.Size = new System.Drawing.Size(63, 36);
+            this.matbtnPrint.TabIndex = 577;
+            this.matbtnPrint.Text = "PRINT";
+            this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnPrint.UseAccentColor = false;
+            this.matbtnPrint.UseVisualStyleBackColor = true;
+            this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
+            // 
+            // crV1
+            // 
+            this.crV1.ActiveViewIndex = -1;
+            this.crV1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crV1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crV1.Location = new System.Drawing.Point(480, 552);
+            this.crV1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.crV1.Name = "crV1";
+            this.crV1.Size = new System.Drawing.Size(20, 63);
+            this.crV1.TabIndex = 578;
+            this.crV1.ToolPanelWidth = 75;
+            this.crV1.Visible = false;
+            // 
             // frmBarcodeReprinting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1872, 1474);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.crV1);
             this.Controls.Add(this.matbtnPrint);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.materialCard2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "frmBarcodeReprinting";
             this.Text = "DRY WH Receiving Barcode Reprinting";
             this.Load += new System.EventHandler(this.frmBarcodeReprinting_Load);

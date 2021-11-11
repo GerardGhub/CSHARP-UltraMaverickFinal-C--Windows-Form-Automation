@@ -36,6 +36,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemClass));
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvitemClass = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.item_class_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_class_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.txtmatItemClass = new MaterialSkin.Controls.MaterialTextBox();
             this.txtModifiedAt = new MaterialSkin.Controls.MaterialTextBox();
@@ -54,12 +60,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.item_class_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_class_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -75,12 +75,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard2.Controls.Add(this.dgvitemClass);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(98, 605);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Location = new System.Drawing.Point(24, 254);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1769, 669);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(975, 281);
             this.materialCard2.TabIndex = 580;
             // 
             // dgvitemClass
@@ -123,8 +123,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvitemClass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvitemClass.EnableHeadersVisualStyles = false;
             this.dgvitemClass.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvitemClass.Location = new System.Drawing.Point(14, 14);
-            this.dgvitemClass.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvitemClass.Location = new System.Drawing.Point(5, 6);
             this.dgvitemClass.MultiSelect = false;
             this.dgvitemClass.Name = "dgvitemClass";
             this.dgvitemClass.ReadOnly = true;
@@ -142,7 +141,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvitemClass.RowTemplate.DividerHeight = 5;
             this.dgvitemClass.RowTemplate.Height = 40;
             this.dgvitemClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvitemClass.Size = new System.Drawing.Size(1741, 641);
+            this.dgvitemClass.Size = new System.Drawing.Size(965, 269);
             this.dgvitemClass.TabIndex = 593;
             this.dgvitemClass.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -167,250 +166,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvitemClass.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.dgvitemClass.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvitemClass.CurrentCellChanged += new System.EventHandler(this.dgvitemClass_CurrentCellChanged_1);
-            // 
-            // materialCard1
-            // 
-            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.txtmatItemClass);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(98, 199);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1769, 238);
-            this.materialCard1.TabIndex = 582;
-            // 
-            // txtmatItemClass
-            // 
-            this.txtmatItemClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtmatItemClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmatItemClass.Depth = 0;
-            this.txtmatItemClass.Enabled = false;
-            this.txtmatItemClass.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmatItemClass.Hint = "Item Class";
-            this.txtmatItemClass.Location = new System.Drawing.Point(36, 90);
-            this.txtmatItemClass.MaxLength = 50;
-            this.txtmatItemClass.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmatItemClass.Multiline = false;
-            this.txtmatItemClass.Name = "txtmatItemClass";
-            this.txtmatItemClass.Size = new System.Drawing.Size(1706, 50);
-            this.txtmatItemClass.TabIndex = 0;
-            this.txtmatItemClass.Text = "";
-            // 
-            // txtModifiedAt
-            // 
-            this.txtModifiedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtModifiedAt.Depth = 0;
-            this.txtModifiedAt.Enabled = false;
-            this.txtModifiedAt.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtModifiedAt.Hint = "Modified At";
-            this.txtModifiedAt.Location = new System.Drawing.Point(1160, 105);
-            this.txtModifiedAt.MaxLength = 50;
-            this.txtModifiedAt.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtModifiedAt.Multiline = false;
-            this.txtModifiedAt.Name = "txtModifiedAt";
-            this.txtModifiedAt.Size = new System.Drawing.Size(275, 50);
-            this.txtModifiedAt.TabIndex = 1;
-            this.txtModifiedAt.Text = "";
-            this.txtModifiedAt.Visible = false;
-            // 
-            // txtModifiedBy
-            // 
-            this.txtModifiedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtModifiedBy.Depth = 0;
-            this.txtModifiedBy.Enabled = false;
-            this.txtModifiedBy.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtModifiedBy.Hint = "Modified By";
-            this.txtModifiedBy.Location = new System.Drawing.Point(1474, 115);
-            this.txtModifiedBy.MaxLength = 50;
-            this.txtModifiedBy.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtModifiedBy.Multiline = false;
-            this.txtModifiedBy.Name = "txtModifiedBy";
-            this.txtModifiedBy.Size = new System.Drawing.Size(275, 50);
-            this.txtModifiedBy.TabIndex = 585;
-            this.txtModifiedBy.Text = "";
-            this.txtModifiedBy.Visible = false;
-            // 
-            // txtCreatedAt
-            // 
-            this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedAt.Depth = 0;
-            this.txtCreatedAt.Enabled = false;
-            this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtCreatedAt.Hint = "Created At";
-            this.txtCreatedAt.Location = new System.Drawing.Point(786, 105);
-            this.txtCreatedAt.MaxLength = 50;
-            this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCreatedAt.Multiline = false;
-            this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(275, 50);
-            this.txtCreatedAt.TabIndex = 586;
-            this.txtCreatedAt.Text = "";
-            this.txtCreatedAt.Visible = false;
-            // 
-            // txtCreatedBy
-            // 
-            this.txtCreatedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedBy.Depth = 0;
-            this.txtCreatedBy.Enabled = false;
-            this.txtCreatedBy.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtCreatedBy.Hint = "Created By";
-            this.txtCreatedBy.Location = new System.Drawing.Point(445, 105);
-            this.txtCreatedBy.MaxLength = 50;
-            this.txtCreatedBy.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCreatedBy.Multiline = false;
-            this.txtCreatedBy.Name = "txtCreatedBy";
-            this.txtCreatedBy.Size = new System.Drawing.Size(275, 50);
-            this.txtCreatedBy.TabIndex = 587;
-            this.txtCreatedBy.Text = "";
-            this.txtCreatedBy.Visible = false;
-            // 
-            // metroSave
-            // 
-            this.metroSave.Location = new System.Drawing.Point(1072, 453);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroSave.Name = "metroSave";
-            this.metroSave.Size = new System.Drawing.Size(181, 48);
-            this.metroSave.TabIndex = 591;
-            this.metroSave.Text = "Add";
-            this.metroSave.UseSelectable = true;
-            this.metroSave.Visible = false;
-            this.metroSave.Click += new System.EventHandler(this.metroSave_Click);
-            // 
-            // metroFinalSaving
-            // 
-            this.metroFinalSaving.Location = new System.Drawing.Point(1107, 505);
-            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroFinalSaving.Name = "metroFinalSaving";
-            this.metroFinalSaving.Size = new System.Drawing.Size(181, 48);
-            this.metroFinalSaving.TabIndex = 592;
-            this.metroFinalSaving.Text = "Saving";
-            this.metroFinalSaving.UseSelectable = true;
-            this.metroFinalSaving.Visible = false;
-            this.metroFinalSaving.Click += new System.EventHandler(this.metroFinalSaving_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(98, 508);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(857, 85);
-            this.panel1.TabIndex = 593;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.matBtnNew,
-            this.matBtnEdit,
-            this.matBtnDelete,
-            this.matBtnSave,
-            this.matBtnCancel});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(857, 85);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // matBtnNew
-            // 
-            this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
-            this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(122, 78);
-            this.matBtnNew.Text = "&New";
-            this.matBtnNew.Click += new System.EventHandler(this.btnAddTool_Click);
-            // 
-            // matBtnEdit
-            // 
-            this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
-            this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(112, 78);
-            this.matBtnEdit.Text = "&Edit";
-            this.matBtnEdit.Click += new System.EventHandler(this.btnEditTool_Click);
-            // 
-            // matBtnDelete
-            // 
-            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
-            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(169, 78);
-            this.matBtnDelete.Text = "&Remove";
-            this.matBtnDelete.Click += new System.EventHandler(this.btnDeleteTool_Click);
-            // 
-            // matBtnSave
-            // 
-            this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
-            this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(123, 78);
-            this.matBtnSave.Text = "&Save";
-            this.matBtnSave.Visible = false;
-            this.matBtnSave.Click += new System.EventHandler(this.btnUpdateTool_Click);
-            // 
-            // matBtnCancel
-            // 
-            this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
-            this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(150, 78);
-            this.matBtnCancel.Text = "&Cancel";
-            this.matBtnCancel.Visible = false;
-            this.matBtnCancel.Click += new System.EventHandler(this.btnCancelTool_Click);
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1742, 1288);
-            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(121, 85);
-            this.lbltotalrecords.TabIndex = 594;
-            this.lbltotalrecords.Text = "76";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.label2.Location = new System.Drawing.Point(1750, 1373);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 39);
-            this.label2.TabIndex = 595;
-            this.label2.Text = "Items";
-            // 
-            // mattxtSearch
-            // 
-            this.mattxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mattxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtSearch.Depth = 0;
-            this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtSearch.Hint = "Search";
-            this.mattxtSearch.Location = new System.Drawing.Point(1316, 471);
-            this.mattxtSearch.MaxLength = 50;
-            this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtSearch.Multiline = false;
-            this.mattxtSearch.Name = "mattxtSearch";
-            this.mattxtSearch.Size = new System.Drawing.Size(547, 50);
-            this.mattxtSearch.TabIndex = 596;
-            this.mattxtSearch.Text = "";
-            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
             // item_class_id
             // 
@@ -465,11 +220,261 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.item_updated_by.Name = "item_updated_by";
             this.item_updated_by.ReadOnly = true;
             // 
+            // materialCard1
+            // 
+            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.txtmatItemClass);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(24, 83);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Size = new System.Drawing.Size(975, 100);
+            this.materialCard1.TabIndex = 582;
+            // 
+            // txtmatItemClass
+            // 
+            this.txtmatItemClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtmatItemClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmatItemClass.Depth = 0;
+            this.txtmatItemClass.Enabled = false;
+            this.txtmatItemClass.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtmatItemClass.Hint = "Item Class";
+            this.txtmatItemClass.Location = new System.Drawing.Point(14, 38);
+            this.txtmatItemClass.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtmatItemClass.MaxLength = 50;
+            this.txtmatItemClass.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtmatItemClass.Multiline = false;
+            this.txtmatItemClass.Name = "txtmatItemClass";
+            this.txtmatItemClass.Size = new System.Drawing.Size(952, 50);
+            this.txtmatItemClass.TabIndex = 0;
+            this.txtmatItemClass.Text = "";
+            // 
+            // txtModifiedAt
+            // 
+            this.txtModifiedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtModifiedAt.Depth = 0;
+            this.txtModifiedAt.Enabled = false;
+            this.txtModifiedAt.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtModifiedAt.Hint = "Modified At";
+            this.txtModifiedAt.Location = new System.Drawing.Point(435, 44);
+            this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtModifiedAt.MaxLength = 50;
+            this.txtModifiedAt.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtModifiedAt.Multiline = false;
+            this.txtModifiedAt.Name = "txtModifiedAt";
+            this.txtModifiedAt.Size = new System.Drawing.Size(103, 50);
+            this.txtModifiedAt.TabIndex = 1;
+            this.txtModifiedAt.Text = "";
+            this.txtModifiedAt.Visible = false;
+            // 
+            // txtModifiedBy
+            // 
+            this.txtModifiedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtModifiedBy.Depth = 0;
+            this.txtModifiedBy.Enabled = false;
+            this.txtModifiedBy.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtModifiedBy.Hint = "Modified By";
+            this.txtModifiedBy.Location = new System.Drawing.Point(553, 48);
+            this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtModifiedBy.MaxLength = 50;
+            this.txtModifiedBy.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtModifiedBy.Multiline = false;
+            this.txtModifiedBy.Name = "txtModifiedBy";
+            this.txtModifiedBy.Size = new System.Drawing.Size(103, 50);
+            this.txtModifiedBy.TabIndex = 585;
+            this.txtModifiedBy.Text = "";
+            this.txtModifiedBy.Visible = false;
+            // 
+            // txtCreatedAt
+            // 
+            this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCreatedAt.Depth = 0;
+            this.txtCreatedAt.Enabled = false;
+            this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtCreatedAt.Hint = "Created At";
+            this.txtCreatedAt.Location = new System.Drawing.Point(295, 44);
+            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtCreatedAt.MaxLength = 50;
+            this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCreatedAt.Multiline = false;
+            this.txtCreatedAt.Name = "txtCreatedAt";
+            this.txtCreatedAt.Size = new System.Drawing.Size(103, 50);
+            this.txtCreatedAt.TabIndex = 586;
+            this.txtCreatedAt.Text = "";
+            this.txtCreatedAt.Visible = false;
+            // 
+            // txtCreatedBy
+            // 
+            this.txtCreatedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCreatedBy.Depth = 0;
+            this.txtCreatedBy.Enabled = false;
+            this.txtCreatedBy.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtCreatedBy.Hint = "Created By";
+            this.txtCreatedBy.Location = new System.Drawing.Point(167, 44);
+            this.txtCreatedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtCreatedBy.MaxLength = 50;
+            this.txtCreatedBy.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCreatedBy.Multiline = false;
+            this.txtCreatedBy.Name = "txtCreatedBy";
+            this.txtCreatedBy.Size = new System.Drawing.Size(103, 50);
+            this.txtCreatedBy.TabIndex = 587;
+            this.txtCreatedBy.Text = "";
+            this.txtCreatedBy.Visible = false;
+            // 
+            // metroSave
+            // 
+            this.metroSave.Location = new System.Drawing.Point(402, 190);
+            this.metroSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroSave.Name = "metroSave";
+            this.metroSave.Size = new System.Drawing.Size(68, 20);
+            this.metroSave.TabIndex = 591;
+            this.metroSave.Text = "Add";
+            this.metroSave.UseSelectable = true;
+            this.metroSave.Visible = false;
+            this.metroSave.Click += new System.EventHandler(this.metroSave_Click);
+            // 
+            // metroFinalSaving
+            // 
+            this.metroFinalSaving.Location = new System.Drawing.Point(415, 212);
+            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroFinalSaving.Name = "metroFinalSaving";
+            this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
+            this.metroFinalSaving.TabIndex = 592;
+            this.metroFinalSaving.Text = "Saving";
+            this.metroFinalSaving.UseSelectable = true;
+            this.metroFinalSaving.Visible = false;
+            this.metroFinalSaving.Click += new System.EventHandler(this.metroFinalSaving_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.toolStrip2);
+            this.panel1.Location = new System.Drawing.Point(37, 213);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(321, 36);
+            this.panel1.TabIndex = 593;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.matBtnNew,
+            this.matBtnEdit,
+            this.matBtnDelete,
+            this.matBtnSave,
+            this.matBtnCancel});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Size = new System.Drawing.Size(321, 36);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // matBtnNew
+            // 
+            this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
+            this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnNew.Name = "matBtnNew";
+            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
+            this.matBtnNew.Text = "&New";
+            this.matBtnNew.Click += new System.EventHandler(this.btnAddTool_Click);
+            // 
+            // matBtnEdit
+            // 
+            this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
+            this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnEdit.Name = "matBtnEdit";
+            this.matBtnEdit.Size = new System.Drawing.Size(71, 33);
+            this.matBtnEdit.Text = "&Edit";
+            this.matBtnEdit.Click += new System.EventHandler(this.btnEditTool_Click);
+            // 
+            // matBtnDelete
+            // 
+            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
+            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnDelete.Name = "matBtnDelete";
+            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
+            this.matBtnDelete.Text = "&Remove";
+            this.matBtnDelete.Click += new System.EventHandler(this.btnDeleteTool_Click);
+            // 
+            // matBtnSave
+            // 
+            this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
+            this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnSave.Name = "matBtnSave";
+            this.matBtnSave.Size = new System.Drawing.Size(75, 82);
+            this.matBtnSave.Text = "&Save";
+            this.matBtnSave.Visible = false;
+            this.matBtnSave.Click += new System.EventHandler(this.btnUpdateTool_Click);
+            // 
+            // matBtnCancel
+            // 
+            this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
+            this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnCancel.Name = "matBtnCancel";
+            this.matBtnCancel.Size = new System.Drawing.Size(87, 82);
+            this.matBtnCancel.Text = "&Cancel";
+            this.matBtnCancel.Visible = false;
+            this.matBtnCancel.Click += new System.EventHandler(this.btnCancelTool_Click);
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(1285, 540);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
+            this.lbltotalrecords.TabIndex = 594;
+            this.lbltotalrecords.Text = "76";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label2.Location = new System.Drawing.Point(1288, 576);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 18);
+            this.label2.TabIndex = 595;
+            this.label2.Text = "Items";
+            // 
+            // mattxtSearch
+            // 
+            this.mattxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mattxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtSearch.Depth = 0;
+            this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtSearch.Hint = "Search";
+            this.mattxtSearch.Location = new System.Drawing.Point(1126, 198);
+            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtSearch.MaxLength = 50;
+            this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtSearch.Multiline = false;
+            this.mattxtSearch.Name = "mattxtSearch";
+            this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
+            this.mattxtSearch.TabIndex = 596;
+            this.mattxtSearch.Text = "";
+            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
+            // 
             // frmItemClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1974, 1419);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);
@@ -482,6 +487,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.txtModifiedAt);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.materialCard2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "frmItemClass";
             this.Text = "Item Class";
             this.Load += new System.EventHandler(this.frmItemClass_Load);
