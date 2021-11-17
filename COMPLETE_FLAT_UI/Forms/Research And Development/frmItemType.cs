@@ -37,7 +37,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             InitializeComponent();
         }
-
+        public string sp_created_by { get; set; }
+        public string sp_created_at { get; set; }
         private void frmItemType_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -138,8 +139,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
 
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
+            sp_created_by = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
             txtmatItemType.Select();
@@ -150,8 +151,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             matBtnCancel.Visible = false;
             mode = "";
-            txtCreatedAt.Text = String.Empty;
-            txtCreatedBy.Text = String.Empty;
+            sp_created_at = String.Empty;
+           sp_created_by = String.Empty;
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
             matBtnNew.Visible = true;
@@ -206,16 +207,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 else
                 {
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Item_Type(0,
-                        txtmatItemType.Text.Trim(),
+                dSet.Clear();
+                dSet = objStorProc.sp_Item_Type(0,
+                txtmatItemType.Text.Trim(),
 
-                        txtCreatedBy.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "add");
+                sp_created_by,
+                sp_created_at,
+                txtModifiedAt.Text.Trim(),
+                txtModifiedBy.Text.Trim(), "add");
 
-                    showItemTypeData();
+                showItemTypeData();
 
 
                     return true;
@@ -223,57 +224,57 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
             else if (mode == "edit")
             {
-                dSet.Clear();
-                dSet = objStorProc.sp_Item_Type(0,
-                    txtmatItemType.Text,
-                    "", "", "", "", "getbyname");
+            dSet.Clear();
+            dSet = objStorProc.sp_Item_Type(0,
+            txtmatItemType.Text,
+            "", "", "", "", "getbyname");
 
-                dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_Item_Type(p_id,
-                    txtmatItemType.Text, "", "", "", "", "getbyid");
+            dSet_temp.Clear();
+            dSet_temp = objStorProc.sp_Item_Type(p_id,
+            txtmatItemType.Text, "", "", "", "", "getbyid");
 
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-                    if (tmpID == p_id)
-                    {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_Item_Type(p_id,
-                            txtmatItemType.Text.Trim(),
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+            int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
+            if (tmpID == p_id)
+            {
+            dSet.Clear();
+            dSet = objStorProc.sp_Item_Type(p_id,
+            txtmatItemType.Text.Trim(),
 
-                            txtCreatedBy.Text.Trim(),
-                            txtCreatedAt.Text.Trim(),
-                            txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(), "edit");
-                        UpdateNotifications();
-                        showItemTypeData();
-                        mode = "";
-                        matBtnCancel_Click(new object(), new System.EventArgs());
-                        return true;
-                    }
-                    else
-                    {
+            sp_created_by,
+            sp_created_at,
+            txtModifiedAt.Text.Trim(),
+            txtModifiedBy.Text.Trim(), "edit");
+            UpdateNotifications();
+            showItemTypeData();
+            mode = "";
+            matBtnCancel_Click(new object(), new System.EventArgs());
+            return true;
+            }
+            else
+            {
 
-                        txtmatItemType.Text = String.Empty;
-                        txtmatItemType.Focus();
-                        return false;
-                    }
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Item_Type(p_id,
-                        txtmatItemType.Text.Trim(),
+            txtmatItemType.Text = String.Empty;
+            txtmatItemType.Focus();
+            return false;
+            }
+            }
+            else
+            {
+            dSet.Clear();
+            dSet = objStorProc.sp_Item_Type(p_id,
+            txtmatItemType.Text.Trim(),
 
-                          txtCreatedBy.Text.Trim(),
-                          txtCreatedAt.Text.Trim(),
-                          txtModifiedAt.Text.Trim(),
-                          txtModifiedBy.Text.Trim(), "edit");
-                    UpdateNotifications();
-                    showItemTypeData();
-                    mode = "";
-                    matBtnCancel_Click(new object(), new System.EventArgs());
-                }
+            sp_created_by,
+            sp_created_at,
+            txtModifiedAt.Text.Trim(),
+            txtModifiedBy.Text.Trim(), "edit");
+            this.UpdateNotifications();
+            this.showItemTypeData();
+            mode = "";
+            matBtnCancel_Click(new object(), new System.EventArgs());
+            }
             }
             else if (mode == "delete")
             {
@@ -290,35 +291,30 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void matBtnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvItemType.Rows.Count > 0)
-            {
+        if (dgvItemType.Rows.Count > 0)
+        {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Type", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-
-
-                    mode = "delete";
-
-                    if (saveMode())
-                    {
-                        DeletedSuccessfully();
-                        showItemTypeData();
-
-                        matBtnCancel_Click("", e);
-                    }
-                }
-
-                else
-                {
-                    return;
-                }
+        if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Type", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+        {
 
 
+        mode = "delete";
 
+        if (saveMode())
+        {
+        this.DeletedSuccessfully();
+        this.showItemTypeData();
 
+        this.matBtnCancel_Click("", e);
+        }
+        }
 
+        else
+        {
+        return;
+        }
 
-            }
+        }
         }
 
         public void ItemTypeAlreadyExist()
@@ -530,8 +526,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     {
                         p_id = Convert.ToInt32(dgvItemType.CurrentRow.Cells["item_type_id"].Value);
                         txtmatItemType.Text = dgvItemType.CurrentRow.Cells["item_type_desc"].Value.ToString();
-                        txtCreatedBy.Text = dgvItemType.CurrentRow.Cells["it_added_by"].Value.ToString();
-                        txtCreatedAt.Text = dgvItemType.CurrentRow.Cells["it_added_at"].Value.ToString();
+                        sp_created_by = dgvItemType.CurrentRow.Cells["it_added_by"].Value.ToString();
+                        sp_created_at = dgvItemType.CurrentRow.Cells["it_added_at"].Value.ToString();
                         txtModifiedAt.Text = dgvItemType.CurrentRow.Cells["it_updated_at"].Value.ToString();
                         txtModifiedBy.Text = dgvItemType.CurrentRow.Cells["it_updated_by"].Value.ToString();
                     }
@@ -550,8 +546,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtModifiedAt.Text = String.Empty;
             txtModifiedBy.Text = String.Empty;
             matBtnDelete.Visible = false;
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            sp_created_at = (dNow.ToString("M/d/yyyy"));
+            sp_created_by = userinfo.emp_name.ToUpper();
             //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
             txtmatItemType.Select();
@@ -562,8 +558,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             matBtnCancel.Visible = false;
             mode = "";
-            txtCreatedAt.Text = String.Empty;
-            txtCreatedBy.Text = String.Empty;
+            sp_created_at = String.Empty;
+            sp_created_by = String.Empty;
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
             matBtnNew.Visible = true;

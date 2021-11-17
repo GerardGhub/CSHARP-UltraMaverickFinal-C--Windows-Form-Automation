@@ -46,8 +46,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmatItemClass = new MaterialSkin.Controls.MaterialTextBox();
             this.txtModifiedAt = new MaterialSkin.Controls.MaterialTextBox();
             this.txtModifiedBy = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtCreatedAt = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtCreatedBy = new MaterialSkin.Controls.MaterialTextBox();
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -246,7 +244,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmatItemClass.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatItemClass.Hint = "Item Class";
             this.txtmatItemClass.Location = new System.Drawing.Point(14, 38);
-            this.txtmatItemClass.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtmatItemClass.Margin = new System.Windows.Forms.Padding(1);
             this.txtmatItemClass.MaxLength = 50;
             this.txtmatItemClass.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmatItemClass.Multiline = false;
@@ -263,7 +261,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedAt.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtModifiedAt.Hint = "Modified At";
             this.txtModifiedAt.Location = new System.Drawing.Point(435, 44);
-            this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(1);
             this.txtModifiedAt.MaxLength = 50;
             this.txtModifiedAt.MouseState = MaterialSkin.MouseState.OUT;
             this.txtModifiedAt.Multiline = false;
@@ -281,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedBy.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtModifiedBy.Hint = "Modified By";
             this.txtModifiedBy.Location = new System.Drawing.Point(553, 48);
-            this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(1);
             this.txtModifiedBy.MaxLength = 50;
             this.txtModifiedBy.MouseState = MaterialSkin.MouseState.OUT;
             this.txtModifiedBy.Multiline = false;
@@ -291,46 +289,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedBy.Text = "";
             this.txtModifiedBy.Visible = false;
             // 
-            // txtCreatedAt
-            // 
-            this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedAt.Depth = 0;
-            this.txtCreatedAt.Enabled = false;
-            this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtCreatedAt.Hint = "Created At";
-            this.txtCreatedAt.Location = new System.Drawing.Point(295, 44);
-            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.txtCreatedAt.MaxLength = 50;
-            this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCreatedAt.Multiline = false;
-            this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(103, 50);
-            this.txtCreatedAt.TabIndex = 586;
-            this.txtCreatedAt.Text = "";
-            this.txtCreatedAt.Visible = false;
-            // 
-            // txtCreatedBy
-            // 
-            this.txtCreatedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedBy.Depth = 0;
-            this.txtCreatedBy.Enabled = false;
-            this.txtCreatedBy.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtCreatedBy.Hint = "Created By";
-            this.txtCreatedBy.Location = new System.Drawing.Point(167, 44);
-            this.txtCreatedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.txtCreatedBy.MaxLength = 50;
-            this.txtCreatedBy.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCreatedBy.Multiline = false;
-            this.txtCreatedBy.Name = "txtCreatedBy";
-            this.txtCreatedBy.Size = new System.Drawing.Size(103, 50);
-            this.txtCreatedBy.TabIndex = 587;
-            this.txtCreatedBy.Text = "";
-            this.txtCreatedBy.Visible = false;
-            // 
             // metroSave
             // 
             this.metroSave.Location = new System.Drawing.Point(402, 190);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroSave.Name = "metroSave";
             this.metroSave.Size = new System.Drawing.Size(68, 20);
             this.metroSave.TabIndex = 591;
@@ -342,7 +304,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // metroFinalSaving
             // 
             this.metroFinalSaving.Location = new System.Drawing.Point(415, 212);
-            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1);
             this.metroFinalSaving.Name = "metroFinalSaving";
             this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
             this.metroFinalSaving.TabIndex = 592;
@@ -356,7 +318,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Location = new System.Drawing.Point(37, 213);
-            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(321, 36);
             this.panel1.TabIndex = 593;
@@ -365,6 +327,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -375,7 +338,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.Size = new System.Drawing.Size(321, 36);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
@@ -385,7 +348,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
             this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
+            this.matBtnNew.Size = new System.Drawing.Size(74, 33);
             this.matBtnNew.Text = "&New";
             this.matBtnNew.Click += new System.EventHandler(this.btnAddTool_Click);
             // 
@@ -394,7 +357,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
             this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(71, 33);
+            this.matBtnEdit.Size = new System.Drawing.Size(70, 33);
             this.matBtnEdit.Text = "&Edit";
             this.matBtnEdit.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
@@ -403,7 +366,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
+            this.matBtnDelete.Size = new System.Drawing.Size(92, 33);
             this.matBtnDelete.Text = "&Remove";
             this.matBtnDelete.Click += new System.EventHandler(this.btnDeleteTool_Click);
             // 
@@ -412,7 +375,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(75, 82);
+            this.matBtnSave.Size = new System.Drawing.Size(74, 44);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             this.matBtnSave.Click += new System.EventHandler(this.btnUpdateTool_Click);
@@ -422,7 +385,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(87, 82);
+            this.matBtnCancel.Size = new System.Drawing.Size(83, 44);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             this.matBtnCancel.Click += new System.EventHandler(this.btnCancelTool_Click);
@@ -460,7 +423,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSearch.Hint = "Search";
             this.mattxtSearch.Location = new System.Drawing.Point(1126, 198);
-            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtSearch.MaxLength = 50;
             this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtSearch.Multiline = false;
@@ -481,13 +444,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.metroFinalSaving);
             this.Controls.Add(this.metroSave);
-            this.Controls.Add(this.txtCreatedBy);
-            this.Controls.Add(this.txtCreatedAt);
             this.Controls.Add(this.txtModifiedBy);
             this.Controls.Add(this.txtModifiedAt);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.materialCard2);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmItemClass";
             this.Text = "Item Class";
             this.Load += new System.EventHandler(this.frmItemClass_Load);
@@ -510,8 +471,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private MaterialSkin.Controls.MaterialTextBox txtmatItemClass;
         private MaterialSkin.Controls.MaterialTextBox txtModifiedAt;
         private MaterialSkin.Controls.MaterialTextBox txtModifiedBy;
-        private MaterialSkin.Controls.MaterialTextBox txtCreatedAt;
-        private MaterialSkin.Controls.MaterialTextBox txtCreatedBy;
         private MetroFramework.Controls.MetroButton metroSave;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         private Guna.UI2.WinForms.Guna2DataGridView dgvitemClass;

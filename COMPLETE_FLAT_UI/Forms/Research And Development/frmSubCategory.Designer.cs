@@ -29,10 +29,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSubCategory));
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioNotExpirable = new MaterialSkin.Controls.MaterialRadioButton();
@@ -49,8 +49,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.is_expirable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.metroSave = new MetroFramework.Controls.MetroButton();
-            this.txtModifiedBy = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtModifiedAt = new MaterialSkin.Controls.MaterialTextBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -96,10 +94,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matRadioNotExpirable.MouseState = MaterialSkin.MouseState.HOVER;
             this.matRadioNotExpirable.Name = "matRadioNotExpirable";
             this.matRadioNotExpirable.Ripple = true;
-            this.matRadioNotExpirable.Size = new System.Drawing.Size(137, 37);
+            this.matRadioNotExpirable.Size = new System.Drawing.Size(141, 37);
             this.matRadioNotExpirable.TabIndex = 580;
             this.matRadioNotExpirable.TabStop = true;
-            this.matRadioNotExpirable.Text = "Not - Expirable";
+            this.matRadioNotExpirable.Text = "Non - Expirable";
             this.matRadioNotExpirable.UseVisualStyleBackColor = true;
             this.matRadioNotExpirable.CheckedChanged += new System.EventHandler(this.matRadioNotExpirable_CheckedChanged);
             // 
@@ -129,7 +127,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtSubCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtSubCategory.Hint = "Sub Category";
             this.txtSubCategory.Location = new System.Drawing.Point(14, 13);
-            this.txtSubCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtSubCategory.Margin = new System.Windows.Forms.Padding(1);
             this.txtSubCategory.MaxLength = 50;
             this.txtSubCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.txtSubCategory.Multiline = false;
@@ -159,21 +157,21 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvSubCategory.AllowUserToAddRows = false;
             this.dgvSubCategory.AllowUserToDeleteRows = false;
             this.dgvSubCategory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvSubCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvSubCategory.ColumnHeadersHeight = 35;
             this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -184,14 +182,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.sc_updated_at,
             this.sc_updated_by,
             this.is_expirable});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvSubCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubCategory.EnableHeadersVisualStyles = false;
             this.dgvSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -199,14 +197,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvSubCategory.MultiSelect = false;
             this.dgvSubCategory.Name = "dgvSubCategory";
             this.dgvSubCategory.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvSubCategory.RowHeadersVisible = false;
             this.dgvSubCategory.RowHeadersWidth = 102;
             this.dgvSubCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -305,7 +303,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // metroFinalSaving
             // 
             this.metroFinalSaving.Location = new System.Drawing.Point(511, 151);
-            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1);
             this.metroFinalSaving.Name = "metroFinalSaving";
             this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
             this.metroFinalSaving.TabIndex = 618;
@@ -317,7 +315,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // metroSave
             // 
             this.metroSave.Location = new System.Drawing.Point(390, 151);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroSave.Name = "metroSave";
             this.metroSave.Size = new System.Drawing.Size(68, 20);
             this.metroSave.TabIndex = 617;
@@ -325,42 +323,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.metroSave.UseSelectable = true;
             this.metroSave.Visible = false;
             this.metroSave.Click += new System.EventHandler(this.metroSave_Click);
-            // 
-            // txtModifiedBy
-            // 
-            this.txtModifiedBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtModifiedBy.Depth = 0;
-            this.txtModifiedBy.Enabled = false;
-            this.txtModifiedBy.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtModifiedBy.Hint = "Modified By";
-            this.txtModifiedBy.Location = new System.Drawing.Point(646, 174);
-            this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.txtModifiedBy.MaxLength = 50;
-            this.txtModifiedBy.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtModifiedBy.Multiline = false;
-            this.txtModifiedBy.Name = "txtModifiedBy";
-            this.txtModifiedBy.Size = new System.Drawing.Size(103, 50);
-            this.txtModifiedBy.TabIndex = 611;
-            this.txtModifiedBy.Text = "";
-            this.txtModifiedBy.Visible = false;
-            // 
-            // txtModifiedAt
-            // 
-            this.txtModifiedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtModifiedAt.Depth = 0;
-            this.txtModifiedAt.Enabled = false;
-            this.txtModifiedAt.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtModifiedAt.Hint = "Modified At";
-            this.txtModifiedAt.Location = new System.Drawing.Point(530, 174);
-            this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.txtModifiedAt.MaxLength = 50;
-            this.txtModifiedAt.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtModifiedAt.Multiline = false;
-            this.txtModifiedAt.Name = "txtModifiedAt";
-            this.txtModifiedAt.Size = new System.Drawing.Size(103, 50);
-            this.txtModifiedAt.TabIndex = 606;
-            this.txtModifiedAt.Text = "";
-            this.txtModifiedAt.Visible = false;
             // 
             // lbltotalrecords
             // 
@@ -393,7 +355,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Location = new System.Drawing.Point(24, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(321, 36);
             this.panel1.TabIndex = 621;
@@ -412,7 +374,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.Size = new System.Drawing.Size(321, 36);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
@@ -449,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(75, 82);
+            this.matBtnSave.Size = new System.Drawing.Size(75, 44);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             this.matBtnSave.Click += new System.EventHandler(this.toolStripButton4_Click);
@@ -459,7 +421,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(87, 82);
+            this.matBtnCancel.Size = new System.Drawing.Size(87, 44);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             this.matBtnCancel.Click += new System.EventHandler(this.toolStripButton5_Click);
@@ -476,11 +438,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.metroFinalSaving);
             this.Controls.Add(this.metroSave);
-            this.Controls.Add(this.txtModifiedBy);
-            this.Controls.Add(this.txtModifiedAt);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmSubCategory";
-            this.Text = "Sub Category";
+            this.Text = "Category";
             this.Load += new System.EventHandler(this.frmSubCategory_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
@@ -502,8 +462,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private Guna.UI2.WinForms.Guna2DataGridView dgvSubCategory;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         private MetroFramework.Controls.MetroButton metroSave;
-        private MaterialSkin.Controls.MaterialTextBox txtModifiedBy;
-        private MaterialSkin.Controls.MaterialTextBox txtModifiedAt;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;

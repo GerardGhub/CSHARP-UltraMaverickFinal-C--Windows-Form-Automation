@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         DataSet dSet = new DataSet();
 
 
-        int p_id = 0;
+ 
 
         DateTime dNow = DateTime.Now;
         //Boolean ready = false;

@@ -27,7 +27,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         IStoredProcedures objStorProc = null;
-        IStoredProcedures g_objStoredProcCollection = null;
+   
         myclasses myClass = new myclasses();
         string mode = "";
         public frmImportPoSummary()

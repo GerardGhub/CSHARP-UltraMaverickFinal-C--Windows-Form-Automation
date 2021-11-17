@@ -70,7 +70,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // metroFinalSaving
             // 
             this.metroFinalSaving.Location = new System.Drawing.Point(380, 36);
-            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1);
             this.metroFinalSaving.Name = "metroFinalSaving";
             this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
             this.metroFinalSaving.TabIndex = 605;
@@ -82,7 +82,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // metroSave
             // 
             this.metroSave.Location = new System.Drawing.Point(258, 36);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroSave.Name = "metroSave";
             this.metroSave.Size = new System.Drawing.Size(68, 20);
             this.metroSave.TabIndex = 604;
@@ -99,7 +99,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtCreatedBy.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtCreatedBy.Hint = "Created By";
             this.txtCreatedBy.Location = new System.Drawing.Point(279, 59);
-            this.txtCreatedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtCreatedBy.Margin = new System.Windows.Forms.Padding(1);
             this.txtCreatedBy.MaxLength = 50;
             this.txtCreatedBy.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCreatedBy.Multiline = false;
@@ -117,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtCreatedAt.Hint = "Created At";
             this.txtCreatedAt.Location = new System.Drawing.Point(463, 35);
-            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(1);
             this.txtCreatedAt.MaxLength = 50;
             this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCreatedAt.Multiline = false;
@@ -135,7 +135,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedBy.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtModifiedBy.Hint = "Modified By";
             this.txtModifiedBy.Location = new System.Drawing.Point(515, 59);
-            this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtModifiedBy.Margin = new System.Windows.Forms.Padding(1);
             this.txtModifiedBy.MaxLength = 50;
             this.txtModifiedBy.MouseState = MaterialSkin.MouseState.OUT;
             this.txtModifiedBy.Multiline = false;
@@ -153,7 +153,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtModifiedAt.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtModifiedAt.Hint = "Modified At";
             this.txtModifiedAt.Location = new System.Drawing.Point(398, 59);
-            this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtModifiedAt.Margin = new System.Windows.Forms.Padding(1);
             this.txtModifiedAt.MaxLength = 50;
             this.txtModifiedAt.MouseState = MaterialSkin.MouseState.OUT;
             this.txtModifiedAt.Multiline = false;
@@ -173,7 +173,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmajorCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmajorCategory.Hint = "Major Category";
             this.txtmajorCategory.Location = new System.Drawing.Point(14, 16);
-            this.txtmajorCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtmajorCategory.Margin = new System.Windows.Forms.Padding(1);
             this.txtmajorCategory.MaxLength = 50;
             this.txtmajorCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmajorCategory.Multiline = false;
@@ -386,7 +386,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Location = new System.Drawing.Point(32, 176);
-            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(321, 36);
             this.panel1.TabIndex = 608;
@@ -405,7 +405,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.Size = new System.Drawing.Size(321, 36);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
@@ -465,7 +465,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSearch.Hint = "Search";
             this.mattxtSearch.Location = new System.Drawing.Point(1108, 166);
-            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtSearch.MaxLength = 50;
             this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtSearch.Multiline = false;
@@ -492,9 +492,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.txtModifiedAt);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.materialCard2);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmMajorCategory";
-            this.Text = "Major Category";
+            this.Text = "Warehouses";
             this.Load += new System.EventHandler(this.frmMajorCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).EndInit();
             this.materialCard1.ResumeLayout(false);

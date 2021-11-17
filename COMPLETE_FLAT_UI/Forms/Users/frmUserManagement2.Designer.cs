@@ -33,9 +33,23 @@ namespace ULTRAMAVERICK.Forms.Users
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserManagement2));
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvUsers = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type_of_approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.cmbNotif = new MaterialSkin.Controls.MaterialTextBox();
@@ -63,19 +77,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label2 = new System.Windows.Forms.Label();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type_of_approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -103,14 +104,14 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
-            this.dgvUsers.AllowUserToResizeRows = false;
+            this.dgvUsers.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -119,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUsers.ColumnHeadersHeight = 35;
+            this.dgvUsers.ColumnHeadersHeight = 40;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userfile_id,
@@ -152,7 +153,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -161,6 +162,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.RowHeadersVisible = false;
             this.dgvUsers.RowHeadersWidth = 102;
             this.dgvUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvUsers.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
             this.dgvUsers.RowTemplate.DividerHeight = 5;
             this.dgvUsers.RowTemplate.Height = 40;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -175,11 +180,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvUsers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvUsers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvUsers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUsers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
             this.dgvUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.dgvUsers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
             this.dgvUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvUsers.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvUsers.ThemeStyle.HeaderStyle.Height = 40;
             this.dgvUsers.ThemeStyle.ReadOnly = true;
             this.dgvUsers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvUsers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -190,6 +195,132 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvUsers.CurrentCellChanged += new System.EventHandler(this.dgvUsers_CurrentCellChanged);
             this.dgvUsers.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUsers_RowPostPaint);
+            // 
+            // userfile_id
+            // 
+            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.userfile_id.DataPropertyName = "userfile_id";
+            this.userfile_id.FillWeight = 40.60914F;
+            this.userfile_id.Frozen = true;
+            this.userfile_id.HeaderText = "ID";
+            this.userfile_id.MinimumWidth = 12;
+            this.userfile_id.Name = "userfile_id";
+            this.userfile_id.ReadOnly = true;
+            this.userfile_id.Visible = false;
+            this.userfile_id.Width = 12;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.FillWeight = 99.49239F;
+            this.username.Frozen = true;
+            this.username.HeaderText = "USERNAME";
+            this.username.MinimumWidth = 12;
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.Width = 90;
+            // 
+            // employee_name
+            // 
+            this.employee_name.DataPropertyName = "employee_name";
+            this.employee_name.FillWeight = 99.49239F;
+            this.employee_name.Frozen = true;
+            this.employee_name.HeaderText = "FIRST NAME";
+            this.employee_name.MinimumWidth = 12;
+            this.employee_name.Name = "employee_name";
+            this.employee_name.ReadOnly = true;
+            this.employee_name.Width = 87;
+            // 
+            // employee_lastname
+            // 
+            this.employee_lastname.DataPropertyName = "employee_lastname";
+            this.employee_lastname.FillWeight = 99.49239F;
+            this.employee_lastname.HeaderText = "LAST NAME";
+            this.employee_lastname.MinimumWidth = 12;
+            this.employee_lastname.Name = "employee_lastname";
+            this.employee_lastname.ReadOnly = true;
+            this.employee_lastname.Width = 83;
+            // 
+            // gender
+            // 
+            this.gender.DataPropertyName = "gender";
+            this.gender.HeaderText = "GENDER";
+            this.gender.MinimumWidth = 12;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Width = 75;
+            // 
+            // department_name
+            // 
+            this.department_name.DataPropertyName = "department_name";
+            this.department_name.HeaderText = "DEPARTMENT";
+            this.department_name.MinimumWidth = 12;
+            this.department_name.Name = "department_name";
+            this.department_name.ReadOnly = true;
+            this.department_name.Width = 101;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "UNIT";
+            this.Unit.MinimumWidth = 12;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Width = 57;
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "POSITION";
+            this.Position.MinimumWidth = 12;
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
+            this.Position.Width = 82;
+            // 
+            // type_of_approver
+            // 
+            this.type_of_approver.DataPropertyName = "type_of_approver";
+            this.type_of_approver.HeaderText = "REQUESTOR TYPE";
+            this.type_of_approver.MinimumWidth = 12;
+            this.type_of_approver.Name = "type_of_approver";
+            this.type_of_approver.ReadOnly = true;
+            this.type_of_approver.Width = 110;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "PASSWORD";
+            this.password.MinimumWidth = 12;
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Width = 91;
+            // 
+            // user_rights_name
+            // 
+            this.user_rights_name.DataPropertyName = "user_rights_name";
+            this.user_rights_name.HeaderText = "USER RIGHTS";
+            this.user_rights_name.MinimumWidth = 12;
+            this.user_rights_name.Name = "user_rights_name";
+            this.user_rights_name.ReadOnly = true;
+            this.user_rights_name.Width = 92;
+            // 
+            // receiving_status
+            // 
+            this.receiving_status.DataPropertyName = "receiving_status";
+            this.receiving_status.HeaderText = "NOTIFICATION";
+            this.receiving_status.MinimumWidth = 12;
+            this.receiving_status.Name = "receiving_status";
+            this.receiving_status.ReadOnly = true;
+            this.receiving_status.Width = 106;
+            // 
+            // user_section
+            // 
+            this.user_section.DataPropertyName = "user_section";
+            this.user_section.HeaderText = "LAYOUT";
+            this.user_section.MinimumWidth = 12;
+            this.user_section.Name = "user_section";
+            this.user_section.ReadOnly = true;
+            this.user_section.Width = 71;
             // 
             // mattxtSearch
             // 
@@ -229,7 +360,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard1.Controls.Add(this.txtname);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(844, 556);
+            this.materialCard1.Location = new System.Drawing.Point(704, 556);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
@@ -523,46 +654,51 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // btnAddTool
             // 
+            this.btnAddTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTool.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTool.Image")));
             this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(75, 37);
+            this.btnAddTool.Size = new System.Drawing.Size(74, 37);
             this.btnAddTool.Text = "&New";
             this.btnAddTool.Click += new System.EventHandler(this.btnAddTool_Click);
             // 
             // btnEditTool
             // 
+            this.btnEditTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditTool.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTool.Image")));
             this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(71, 37);
+            this.btnEditTool.Size = new System.Drawing.Size(70, 37);
             this.btnEditTool.Text = "&Edit";
             this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
             // btnDeleteTool
             // 
+            this.btnDeleteTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteTool.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteTool.Image")));
             this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(94, 37);
+            this.btnDeleteTool.Size = new System.Drawing.Size(92, 37);
             this.btnDeleteTool.Text = "&Remove";
             this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
             // 
             // btnUpdateTool
             // 
+            this.btnUpdateTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
             this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(75, 44);
+            this.btnUpdateTool.Size = new System.Drawing.Size(74, 44);
             this.btnUpdateTool.Text = "&Save";
             this.btnUpdateTool.Visible = false;
             // 
             // btnCancelTool
             // 
+            this.btnCancelTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
             this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(87, 44);
+            this.btnCancelTool.Size = new System.Drawing.Size(83, 44);
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             // 
@@ -604,132 +740,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // userfile_id
-            // 
-            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.userfile_id.DataPropertyName = "userfile_id";
-            this.userfile_id.FillWeight = 40.60914F;
-            this.userfile_id.Frozen = true;
-            this.userfile_id.HeaderText = "ID";
-            this.userfile_id.MinimumWidth = 12;
-            this.userfile_id.Name = "userfile_id";
-            this.userfile_id.ReadOnly = true;
-            this.userfile_id.Visible = false;
-            this.userfile_id.Width = 12;
-            // 
-            // username
-            // 
-            this.username.DataPropertyName = "username";
-            this.username.FillWeight = 99.49239F;
-            this.username.Frozen = true;
-            this.username.HeaderText = "USERNAME";
-            this.username.MinimumWidth = 12;
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            this.username.Width = 88;
-            // 
-            // employee_name
-            // 
-            this.employee_name.DataPropertyName = "employee_name";
-            this.employee_name.FillWeight = 99.49239F;
-            this.employee_name.Frozen = true;
-            this.employee_name.HeaderText = "FIRST NAME";
-            this.employee_name.MinimumWidth = 12;
-            this.employee_name.Name = "employee_name";
-            this.employee_name.ReadOnly = true;
-            this.employee_name.Width = 85;
-            // 
-            // employee_lastname
-            // 
-            this.employee_lastname.DataPropertyName = "employee_lastname";
-            this.employee_lastname.FillWeight = 99.49239F;
-            this.employee_lastname.HeaderText = "LAST NAME";
-            this.employee_lastname.MinimumWidth = 12;
-            this.employee_lastname.Name = "employee_lastname";
-            this.employee_lastname.ReadOnly = true;
-            this.employee_lastname.Width = 81;
-            // 
-            // gender
-            // 
-            this.gender.DataPropertyName = "gender";
-            this.gender.HeaderText = "GENDER";
-            this.gender.MinimumWidth = 12;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 73;
-            // 
-            // department_name
-            // 
-            this.department_name.DataPropertyName = "department_name";
-            this.department_name.HeaderText = "DEPARTMENT";
-            this.department_name.MinimumWidth = 12;
-            this.department_name.Name = "department_name";
-            this.department_name.ReadOnly = true;
-            this.department_name.Width = 99;
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "Unit";
-            this.Unit.HeaderText = "UNIT";
-            this.Unit.MinimumWidth = 12;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Width = 55;
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.HeaderText = "POSITION";
-            this.Position.MinimumWidth = 12;
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            this.Position.Width = 80;
-            // 
-            // type_of_approver
-            // 
-            this.type_of_approver.DataPropertyName = "type_of_approver";
-            this.type_of_approver.HeaderText = "REQUESTOR TYPE";
-            this.type_of_approver.MinimumWidth = 12;
-            this.type_of_approver.Name = "type_of_approver";
-            this.type_of_approver.ReadOnly = true;
-            this.type_of_approver.Width = 108;
-            // 
-            // password
-            // 
-            this.password.DataPropertyName = "password";
-            this.password.HeaderText = "PASSWORD";
-            this.password.MinimumWidth = 12;
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Width = 89;
-            // 
-            // user_rights_name
-            // 
-            this.user_rights_name.DataPropertyName = "user_rights_name";
-            this.user_rights_name.HeaderText = "USER RIGHTS";
-            this.user_rights_name.MinimumWidth = 12;
-            this.user_rights_name.Name = "user_rights_name";
-            this.user_rights_name.ReadOnly = true;
-            this.user_rights_name.Width = 90;
-            // 
-            // receiving_status
-            // 
-            this.receiving_status.DataPropertyName = "receiving_status";
-            this.receiving_status.HeaderText = "NOTIFICATION";
-            this.receiving_status.MinimumWidth = 12;
-            this.receiving_status.Name = "receiving_status";
-            this.receiving_status.ReadOnly = true;
-            this.receiving_status.Width = 104;
-            // 
-            // user_section
-            // 
-            this.user_section.DataPropertyName = "user_section";
-            this.user_section.HeaderText = "LAYOUT";
-            this.user_section.MinimumWidth = 12;
-            this.user_section.Name = "user_section";
-            this.user_section.ReadOnly = true;
-            this.user_section.Width = 69;
-            // 
             // frmUserManagement2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +752,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.materialCard2);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmUserManagement2";
             this.Text = "User Management";

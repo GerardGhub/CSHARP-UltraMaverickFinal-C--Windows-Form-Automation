@@ -74,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // metroButtonSave
             // 
             this.metroButtonSave.Location = new System.Drawing.Point(191, 327);
-            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonSave.Name = "metroButtonSave";
             this.metroButtonSave.Size = new System.Drawing.Size(68, 20);
             this.metroButtonSave.TabIndex = 577;
@@ -186,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtpassword.Hint = "Password";
             this.txtpassword.Location = new System.Drawing.Point(534, 1);
-            this.txtpassword.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(1);
             this.txtpassword.MaxLength = 50;
             this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtpassword.Multiline = false;
@@ -203,7 +203,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtuser.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtuser.Hint = "UserName";
             this.txtuser.Location = new System.Drawing.Point(349, 1);
-            this.txtuser.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtuser.Margin = new System.Windows.Forms.Padding(1);
             this.txtuser.MaxLength = 50;
             this.txtuser.MouseState = MaterialSkin.MouseState.OUT;
             this.txtuser.Multiline = false;
@@ -257,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtLastName.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtLastName.Hint = "Last Name";
             this.txtLastName.Location = new System.Drawing.Point(175, 1);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(1);
             this.txtLastName.MaxLength = 50;
             this.txtLastName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtLastName.Multiline = false;
@@ -275,7 +275,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtname.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtname.Hint = "First Name";
             this.txtname.Location = new System.Drawing.Point(1, 1);
-            this.txtname.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtname.Margin = new System.Windows.Forms.Padding(1);
             this.txtname.MaxLength = 50;
             this.txtname.MouseState = MaterialSkin.MouseState.OUT;
             this.txtname.Multiline = false;
@@ -371,7 +371,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel3.Controls.Add(this.label9, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(157, 6);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -387,7 +387,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cmbNotif.FormattingEnabled = true;
             this.cmbNotif.Location = new System.Drawing.Point(534, 181);
-            this.cmbNotif.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cmbNotif.Margin = new System.Windows.Forms.Padding(1);
             this.cmbNotif.Name = "cmbNotif";
             this.cmbNotif.Size = new System.Drawing.Size(151, 21);
             this.cmbNotif.TabIndex = 591;
@@ -396,7 +396,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cmbLocation.FormattingEnabled = true;
             this.cmbLocation.Location = new System.Drawing.Point(534, 109);
-            this.cmbLocation.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cmbLocation.Margin = new System.Windows.Forms.Padding(1);
             this.cmbLocation.Name = "cmbLocation";
             this.cmbLocation.Size = new System.Drawing.Size(163, 21);
             this.cmbLocation.TabIndex = 589;
@@ -409,7 +409,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel4.Controls.Add(this.matRadioMale, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.matRadioFemale, 1, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(349, 181);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -420,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cbousertype.FormattingEnabled = true;
             this.cbousertype.Location = new System.Drawing.Point(175, 181);
-            this.cbousertype.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbousertype.Margin = new System.Windows.Forms.Padding(1);
             this.cbousertype.Name = "cbousertype";
             this.cbousertype.Size = new System.Drawing.Size(172, 21);
             this.cbousertype.TabIndex = 578;
@@ -430,7 +430,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cboRequestorType.FormattingEnabled = true;
             this.cboRequestorType.Location = new System.Drawing.Point(1, 181);
-            this.cboRequestorType.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboRequestorType.Margin = new System.Windows.Forms.Padding(1);
             this.cboRequestorType.Name = "cboRequestorType";
             this.cboRequestorType.Size = new System.Drawing.Size(164, 21);
             this.cboRequestorType.TabIndex = 590;
@@ -440,7 +440,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cbodepartment.FormattingEnabled = true;
             this.cbodepartment.Location = new System.Drawing.Point(1, 109);
-            this.cbodepartment.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbodepartment.Margin = new System.Windows.Forms.Padding(1);
             this.cbodepartment.Name = "cbodepartment";
             this.cbodepartment.Size = new System.Drawing.Size(164, 21);
             this.cbodepartment.TabIndex = 586;
@@ -450,7 +450,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cboUnit.FormattingEnabled = true;
             this.cboUnit.Location = new System.Drawing.Point(175, 109);
-            this.cboUnit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboUnit.Margin = new System.Windows.Forms.Padding(1);
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Size = new System.Drawing.Size(151, 21);
             this.cboUnit.TabIndex = 587;
@@ -460,7 +460,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cboPosition.FormattingEnabled = true;
             this.cboPosition.Location = new System.Drawing.Point(349, 109);
-            this.cboPosition.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboPosition.Margin = new System.Windows.Forms.Padding(1);
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Size = new System.Drawing.Size(174, 21);
             this.cboPosition.TabIndex = 588;
@@ -474,7 +474,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 6);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
@@ -503,7 +503,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel2.Controls.Add(this.btnRemove, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 177);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -553,13 +553,13 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 330);
+            this.ClientSize = new System.Drawing.Size(916, 399);
             this.Controls.Add(this.metroButtonSave);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnUpdateTool);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.lblGenderSelected);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit User Information";

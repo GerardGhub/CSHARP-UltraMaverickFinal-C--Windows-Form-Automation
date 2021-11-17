@@ -23,6 +23,7 @@ using System.IO;
 using ULTRAMAVERICK.Report;
 using CrystalDecisions.CrystalReports.Engine;
 using ULTRAMAVERICK.Barcode_Reprinting;
+using System.Drawing.Drawing2D;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -31,7 +32,7 @@ namespace COMPLETE_FLAT_UI
 
 
         ReportDocument rpt = new ReportDocument();
-        string Rpt_Path = "";
+        //string Rpt_Path = "";
         //Constructor
         public Byte[] imageByte = null;
         myclasses xClass = new myclasses();
@@ -68,6 +69,7 @@ namespace COMPLETE_FLAT_UI
         public string ImageParse { get; set; }
         public int sp_user_id { get; set; }
         public string total_receiving_dry_wh { get; set; }
+
 
         protected override void WndProc(ref Message m)
         {
@@ -113,6 +115,7 @@ namespace COMPLETE_FLAT_UI
             e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
 
             base.OnPaint(e);
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
        
@@ -159,18 +162,12 @@ namespace COMPLETE_FLAT_UI
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+      
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+    
         }
 
         //METODOS PARA ANIMACION DE MENU SLIDING--
@@ -718,10 +715,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+     
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -1215,7 +1209,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnLogout1_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 //this.Close();
 
@@ -1309,6 +1303,18 @@ namespace COMPLETE_FLAT_UI
         private void btnProductionPlanner1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblPosition_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void storesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+           frmImportStore fm = new frmImportStore();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         private void button5_Click(object sender, EventArgs e)

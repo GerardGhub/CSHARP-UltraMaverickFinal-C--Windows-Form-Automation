@@ -106,7 +106,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             "Office",
             "Production"});
             this.cbodepartment.Location = new System.Drawing.Point(29, 83);
-            this.cbodepartment.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbodepartment.Margin = new System.Windows.Forms.Padding(1);
             this.cbodepartment.Name = "cbodepartment";
             this.cbodepartment.Size = new System.Drawing.Size(140, 29);
             this.cbodepartment.TabIndex = 585;
@@ -122,7 +122,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             "Office",
             "Production"});
             this.cboUnit.Location = new System.Drawing.Point(219, 83);
-            this.cboUnit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboUnit.Margin = new System.Windows.Forms.Padding(1);
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Size = new System.Drawing.Size(159, 29);
             this.cboUnit.TabIndex = 584;
@@ -138,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             "Office",
             "Production"});
             this.cboPosition.Location = new System.Drawing.Point(426, 82);
-            this.cboPosition.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboPosition.Margin = new System.Windows.Forms.Padding(1);
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Size = new System.Drawing.Size(238, 29);
             this.cboPosition.TabIndex = 583;
@@ -154,7 +154,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             "Office",
             "Production"});
             this.cmbLocation.Location = new System.Drawing.Point(426, 127);
-            this.cmbLocation.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cmbLocation.Margin = new System.Windows.Forms.Padding(1);
             this.cmbLocation.Name = "cmbLocation";
             this.cmbLocation.Size = new System.Drawing.Size(238, 29);
             this.cmbLocation.TabIndex = 582;
@@ -169,7 +169,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             "On",
             "Off"});
             this.cboRequestorType.Location = new System.Drawing.Point(29, 184);
-            this.cboRequestorType.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboRequestorType.Margin = new System.Windows.Forms.Padding(1);
             this.cboRequestorType.Name = "cboRequestorType";
             this.cboRequestorType.Size = new System.Drawing.Size(140, 29);
             this.cboRequestorType.TabIndex = 581;
@@ -185,7 +185,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             "On",
             "Off"});
             this.cmbNotif.Location = new System.Drawing.Point(219, 184);
-            this.cmbNotif.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cmbNotif.Margin = new System.Windows.Forms.Padding(1);
             this.cmbNotif.Name = "cmbNotif";
             this.cmbNotif.Size = new System.Drawing.Size(159, 29);
             this.cmbNotif.TabIndex = 580;
@@ -258,7 +258,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cbousertype.FormattingEnabled = true;
             this.cbousertype.ItemHeight = 23;
             this.cbousertype.Location = new System.Drawing.Point(426, 27);
-            this.cbousertype.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbousertype.Margin = new System.Windows.Forms.Padding(1);
             this.cbousertype.Name = "cbousertype";
             this.cbousertype.Size = new System.Drawing.Size(238, 29);
             this.cbousertype.TabIndex = 575;
@@ -309,7 +309,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtpassword.Hint = "Password";
             this.txtpassword.Location = new System.Drawing.Point(219, 115);
-            this.txtpassword.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(1);
             this.txtpassword.MaxLength = 50;
             this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtpassword.Multiline = false;
@@ -327,7 +327,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtuser.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtuser.Hint = "UserName";
             this.txtuser.Location = new System.Drawing.Point(29, 116);
-            this.txtuser.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtuser.Margin = new System.Windows.Forms.Padding(1);
             this.txtuser.MaxLength = 50;
             this.txtuser.MouseState = MaterialSkin.MouseState.OUT;
             this.txtuser.Multiline = false;
@@ -380,7 +380,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtLastName.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtLastName.Hint = "Last Name";
             this.txtLastName.Location = new System.Drawing.Point(219, 13);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(1);
             this.txtLastName.MaxLength = 50;
             this.txtLastName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtLastName.Multiline = false;
@@ -397,7 +397,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtname.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtname.Hint = "First Name";
             this.txtname.Location = new System.Drawing.Point(29, 13);
-            this.txtname.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtname.Margin = new System.Windows.Forms.Padding(1);
             this.txtname.MaxLength = 50;
             this.txtname.MouseState = MaterialSkin.MouseState.OUT;
             this.txtname.Multiline = false;
@@ -452,7 +452,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // metroButtonSave
             // 
             this.metroButtonSave.Location = new System.Drawing.Point(226, 42);
-            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonSave.Name = "metroButtonSave";
             this.metroButtonSave.Size = new System.Drawing.Size(68, 20);
             this.metroButtonSave.TabIndex = 573;
@@ -482,14 +482,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cmbQAUserType.Enabled = false;
             this.cmbQAUserType.FormattingEnabled = true;
-            this.cmbQAUserType.ItemHeight = 24;
+            this.cmbQAUserType.ItemHeight = 23;
             this.cmbQAUserType.Items.AddRange(new object[] {
             "Office",
             "Production"});
             this.cmbQAUserType.Location = new System.Drawing.Point(304, 351);
-            this.cmbQAUserType.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cmbQAUserType.Margin = new System.Windows.Forms.Padding(1);
             this.cmbQAUserType.Name = "cmbQAUserType";
-            this.cmbQAUserType.Size = new System.Drawing.Size(238, 30);
+            this.cmbQAUserType.Size = new System.Drawing.Size(238, 29);
             this.cmbQAUserType.TabIndex = 587;
             this.cmbQAUserType.UseSelectable = true;
             this.cmbQAUserType.Visible = false;
@@ -511,7 +511,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 330);
+            this.ClientSize = new System.Drawing.Size(751, 395);
             this.Controls.Add(this.cmbQAUserType);
             this.Controls.Add(this.matChkQAUserAccount);
             this.Controls.Add(this.lblUserType);
@@ -519,7 +519,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Controls.Add(this.btnUpdateTool);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialCard1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmAddnewUserModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add new User";

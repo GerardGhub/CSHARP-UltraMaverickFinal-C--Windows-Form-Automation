@@ -171,7 +171,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void frmAddnewUserModal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            textBox1.Text = "Save Gerard Singian";
+            textBox1.Text = "SaveGerardSingian";
         }
 
         public void FillRequiredTextbox()

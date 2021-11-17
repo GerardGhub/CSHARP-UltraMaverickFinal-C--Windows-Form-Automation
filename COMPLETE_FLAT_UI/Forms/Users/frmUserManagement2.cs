@@ -243,21 +243,22 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(textBox1.Text =="SaveGerardSingian")
+            if(this.textBox1.Text =="SaveGerardSingian")
             {
-                if(lbltotalrecords.Text =="0")
+                if(this.lbltotalrecords.Text =="0")
                 {
 
                 }
                 else
                 {
-                    toolStrip2.Visible = true;
+                    this.toolStrip2.Visible = true;
                 }
 
             
-                displayUsers();
+                this.displayUsers();
                
-                textBox1.Text = String.Empty;
+                this.textBox1.Text = String.Empty;
+                this.frmUserManagement2_Load(sender, e);
             }
         }
         public void DeletedSuccessfully()

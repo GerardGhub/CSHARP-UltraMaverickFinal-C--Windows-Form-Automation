@@ -39,6 +39,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         public string sp_created_at { get; set; }
         public string sp_created_by { get; set; }
         public string is_expirables { get; set; }
+        public string sp_modified_at { get; set; }
+        public string sp_modified_by { get; set; }
         private void frmSubCategory_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -72,8 +74,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtSubCategory.Enabled = true;
             this.matBtnNew.Visible = false;
             this.txtSubCategory.Text = String.Empty;
-            this.txtModifiedAt.Text = String.Empty;
-            this.txtModifiedBy.Text = String.Empty;
+            this.sp_modified_at = String.Empty;
+            this.sp_modified_by = String.Empty;
 
             this.sp_created_at = (dNow.ToString("M/d/yyyy"));
             this.sp_created_by = userinfo.emp_name.ToUpper();
@@ -159,8 +161,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             this.mode = "edit";
-            this.txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            this.txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
+            this.sp_modified_by = userinfo.emp_name.ToUpper();
             this.matBtnDelete.Visible = false;
             this.matBtnCancel.Visible = true;
             this.matBtnNew.Visible = false;
@@ -205,10 +207,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                SubCategoryAlreadyExist();
+                this.SubCategoryAlreadyExist();
 
 
-                txtSubCategory.Focus();
+                this.txtSubCategory.Focus();
                 return;
             }
             else
@@ -343,8 +345,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                         sp_created_at,
                         sp_created_by,
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), is_expirables, "add");
+                        sp_modified_at,
+                        sp_modified_by, is_expirables, "add");
 
                     showSubCategoryData();
 
@@ -374,8 +376,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                             sp_created_by,
                             sp_created_at,
-                            txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(), is_expirables, "edit");
+                            sp_modified_at,
+                            sp_modified_by, is_expirables, "edit");
                         UpdateNotifications();
                         showSubCategoryData();
                         mode = "";
@@ -398,8 +400,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                           sp_created_by,
                          sp_created_at,
-                          txtModifiedAt.Text.Trim(),
-                          txtModifiedBy.Text.Trim(), is_expirables, "edit");
+                          sp_modified_at,
+                          sp_modified_by, is_expirables, "edit");
                     UpdateNotifications();
                     showSubCategoryData();
                     mode = "";
@@ -467,8 +469,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         this.txtSubCategory.Text = dgvSubCategory.CurrentRow.Cells["sub_category_desc"].Value.ToString();
                         this.sp_created_by = dgvSubCategory.CurrentRow.Cells["sc_added_by"].Value.ToString();
                         this.sp_created_at = dgvSubCategory.CurrentRow.Cells["sc_added_at"].Value.ToString();
-                        this.txtModifiedAt.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_at"].Value.ToString();
-                        this.txtModifiedBy.Text = dgvSubCategory.CurrentRow.Cells["sc_updated_by"].Value.ToString();
+                        this.sp_modified_at = dgvSubCategory.CurrentRow.Cells["sc_updated_at"].Value.ToString();
+                        this.sp_modified_by = dgvSubCategory.CurrentRow.Cells["sc_updated_by"].Value.ToString();
                         is_expirables = dgvSubCategory.CurrentRow.Cells["is_expirable"].Value.ToString();
 
                         if (is_expirables == "1")
@@ -498,8 +500,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtSubCategory.Enabled = true;
             this.matBtnNew.Visible = false;
             this.txtSubCategory.Text = String.Empty;
-            this.txtModifiedAt.Text = String.Empty;
-            this.txtModifiedBy.Text = String.Empty;
+            this.sp_modified_at = String.Empty;
+            this.sp_modified_by = String.Empty;
             this.matRadioExpirable.Enabled = true;
             this.matRadioNotExpirable.Enabled = true;
             this.matBtnDelete.Visible = false;
@@ -513,15 +515,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            matBtnCancel.Visible = false;
-            mode = "";
-            sp_created_at = String.Empty;
-            sp_created_by = String.Empty;
-            matBtnEdit.Visible = true;
-            matBtnSave.Visible = false;
-            matBtnNew.Visible = true;
-            matBtnDelete.Visible = true;
-            txtSubCategory.Enabled = false;
+            this.matBtnCancel.Visible = false;
+            this.mode = "";
+            this.sp_created_at = String.Empty;
+            this.sp_created_by = String.Empty;
+            this.matBtnEdit.Visible = true;
+            this.matBtnSave.Visible = false;
+            this.matBtnNew.Visible = true;
+            this.matBtnDelete.Visible = true;
+            this.txtSubCategory.Enabled = false;
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -562,8 +564,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             mode = "edit";
             this.matRadioExpirable.Enabled = true;
             this.matRadioNotExpirable.Enabled = true;
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+           this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
+            this.sp_modified_by = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
