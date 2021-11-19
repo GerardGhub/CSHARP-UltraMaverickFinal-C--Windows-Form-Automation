@@ -25,13 +25,13 @@ namespace ULTRAMAVERICK.Forms.Users
         Boolean ready = false;
         string mode = "";
         int p_id = 0;
-        int p_id_parent = 0;
+   
         myclasses myClass = new myclasses();
         DataSet dSet_temp = new DataSet();
         myglobal pointer_module = new myglobal();
         DataSet dsetHeader = new DataSet();
         int pkey = 0;
-        int pkey2 = 0;
+     
         public Byte[] imageByte = null;
         public frmUserRight()
         {

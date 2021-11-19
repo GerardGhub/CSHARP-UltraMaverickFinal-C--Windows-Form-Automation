@@ -59,7 +59,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(528, 408);
+            this.textBox1.Location = new System.Drawing.Point(305, 352);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 471;
@@ -231,7 +231,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatConversion.Hint = "Conversion";
             this.txtmatConversion.Location = new System.Drawing.Point(260, 156);
-            this.txtmatConversion.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtmatConversion.Margin = new System.Windows.Forms.Padding(1);
             this.txtmatConversion.MaxLength = 50;
             this.txtmatConversion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmatConversion.Multiline = false;
@@ -246,7 +246,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboPrimaryUnit.FormattingEnabled = true;
             this.cboPrimaryUnit.ItemHeight = 23;
             this.cboPrimaryUnit.Location = new System.Drawing.Point(22, 178);
-            this.cboPrimaryUnit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboPrimaryUnit.Margin = new System.Windows.Forms.Padding(1);
             this.cboPrimaryUnit.Name = "cboPrimaryUnit";
             this.cboPrimaryUnit.PromptText = "Primary Unit";
             this.cboPrimaryUnit.Size = new System.Drawing.Size(160, 29);
@@ -259,7 +259,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboItemType.FormattingEnabled = true;
             this.cboItemType.ItemHeight = 23;
             this.cboItemType.Location = new System.Drawing.Point(502, 107);
-            this.cboItemType.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboItemType.Margin = new System.Windows.Forms.Padding(1);
             this.cboItemType.Name = "cboItemType";
             this.cboItemType.PromptText = "Item Type";
             this.cboItemType.Size = new System.Drawing.Size(158, 29);
@@ -272,7 +272,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboSubCat.FormattingEnabled = true;
             this.cboSubCat.ItemHeight = 23;
             this.cboSubCat.Location = new System.Drawing.Point(260, 107);
-            this.cboSubCat.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboSubCat.Margin = new System.Windows.Forms.Padding(1);
             this.cboSubCat.Name = "cboSubCat";
             this.cboSubCat.PromptText = "Sub Category";
             this.cboSubCat.Size = new System.Drawing.Size(158, 29);
@@ -285,7 +285,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboMajorCategory.FormattingEnabled = true;
             this.cboMajorCategory.ItemHeight = 23;
             this.cboMajorCategory.Location = new System.Drawing.Point(24, 108);
-            this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1);
             this.cboMajorCategory.Name = "cboMajorCategory";
             this.cboMajorCategory.PromptText = "Major Category";
             this.cboMajorCategory.Size = new System.Drawing.Size(160, 29);
@@ -298,7 +298,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboItemClass.FormattingEnabled = true;
             this.cboItemClass.ItemHeight = 23;
             this.cboItemClass.Location = new System.Drawing.Point(502, 45);
-            this.cboItemClass.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboItemClass.Margin = new System.Windows.Forms.Padding(1);
             this.cboItemClass.Name = "cboItemClass";
             this.cboItemClass.PromptText = "Item Class";
             this.cboItemClass.Size = new System.Drawing.Size(158, 29);
@@ -314,7 +314,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemDesc.Hint = "Item Description";
             this.txtMatItemDesc.Location = new System.Drawing.Point(260, 29);
-            this.txtMatItemDesc.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatItemDesc.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatItemDesc.MaxLength = 50;
             this.txtMatItemDesc.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemDesc.Multiline = false;
@@ -331,7 +331,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemCode.Hint = "Item Code";
             this.txtMatItemCode.Location = new System.Drawing.Point(26, 29);
-            this.txtMatItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatItemCode.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatItemCode.MaxLength = 50;
             this.txtMatItemCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemCode.Multiline = false;
@@ -389,13 +389,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 402);
+            this.ClientSize = new System.Drawing.Size(726, 404);
             this.Controls.Add(this.txtcreatedAt);
             this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.txtcreatedBy);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmAddNewItemModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Raw Material";

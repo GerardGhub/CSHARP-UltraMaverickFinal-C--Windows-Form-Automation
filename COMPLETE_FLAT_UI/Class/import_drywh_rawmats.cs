@@ -19,7 +19,19 @@ namespace ULTRAMAVERICK.Class
         public string conversion { get; set; }
     }
 
-    public class approve_po_summary
+    public class store_masterlist
+    {
+        public int store_id { get; set; }
+        public string store_name { get; set; }
+        public string store_area { get; set; }
+        public string store_code { get; set; }
+        public string store_route { get; set; }
+
+
+    }
+
+
+        public class approve_po_summary
     {
 
         public int PrimaryID { get; set; }

@@ -459,7 +459,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtItemCode.Hint = "Item Code";
             this.txtItemCode.Location = new System.Drawing.Point(756, 9);
-            this.txtItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtItemCode.Margin = new System.Windows.Forms.Padding(1);
             this.txtItemCode.MaxLength = 50;
             this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtItemCode.Multiline = false;
@@ -487,7 +487,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.materialCard2);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmDryWHInventory";
             this.Text = "Dry WH Inventory";
             this.Load += new System.EventHandler(this.frmDryWHInventory_Load);

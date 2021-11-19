@@ -204,6 +204,12 @@
     <Compile Include="Forms\Dry Warehouse\frmAddNewUomConversion.Designer.cs">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmAreaManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmAreaManagement.Designer.cs">
+      <DependentUpon>frmAreaManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\frmChooseLotNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,30 @@
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Import\frmImportStore.Designer.cs">
       <DependentUpon>frmImportStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewArea.Designer.cs">
+      <DependentUpon>frmAddNewArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewRoute.Designer.cs">
+      <DependentUpon>frmAddNewRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditArea.Designer.cs">
+      <DependentUpon>frmEditArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmStoreRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmStoreRoute.Designer.cs">
+      <DependentUpon>frmStoreRoute.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Research And Development\frmItemClass.cs">
       <SubType>Form</SubType>
@@ -469,6 +499,9 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\frmAddNewUomConversion.resx">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmAreaManagement.resx">
+      <DependentUpon>frmAreaManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmChooseLotNumber.resx">
       <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
     </EmbeddedResource>
@@ -504,6 +537,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportStore.resx">
       <DependentUpon>frmImportStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAddNewArea.resx">
+      <DependentUpon>frmAddNewArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAddNewRoute.resx">
+      <DependentUpon>frmAddNewRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmStoreRoute.resx">
+      <DependentUpon>frmStoreRoute.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Research And Development\frmItemClass.resx">
       <DependentUpon>frmItemClass.cs</DependentUpon>

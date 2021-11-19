@@ -24,6 +24,7 @@ using ULTRAMAVERICK.Report;
 using CrystalDecisions.CrystalReports.Engine;
 using ULTRAMAVERICK.Barcode_Reprinting;
 using System.Drawing.Drawing2D;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1313,6 +1314,20 @@ namespace COMPLETE_FLAT_UI
         private void storesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
            frmImportStore fm = new frmImportStore();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void storeAreaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAreaManagement fm = new frmAreaManagement();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void storeRouteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStoreRoute fm = new frmStoreRoute();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

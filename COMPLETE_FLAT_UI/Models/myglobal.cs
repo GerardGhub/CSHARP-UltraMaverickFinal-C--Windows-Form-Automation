@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Models
 
         public string received_id = "";
 
-        public static bool updated;
+        //public static bool updated;
         public static int swtcherprint = 0;
         public static DateTime DATE_START;
         public static DateTime DATE_END;

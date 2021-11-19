@@ -48,14 +48,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
                 objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-                txtMatItemCode.Focus();
-            CallingMainFormWindowBinder();
-            loadItemClassDropdown();
-            loadMajorCategoryDropdown();
-            loadSubCategoryDropdown();
-            loadItemTypeDropdown();
-            loadPrimaryUnitDropdown();
-            CleartextBoxes();
+                this.txtMatItemCode.Focus();
+            this.CallingMainFormWindowBinder();
+            this.loadItemClassDropdown();
+            this.loadMajorCategoryDropdown();
+            this.loadSubCategoryDropdown();
+            this.loadItemTypeDropdown();
+            this.loadPrimaryUnitDropdown();
+            this.CleartextBoxes();
         }
         private void CleartextBoxes()
         {

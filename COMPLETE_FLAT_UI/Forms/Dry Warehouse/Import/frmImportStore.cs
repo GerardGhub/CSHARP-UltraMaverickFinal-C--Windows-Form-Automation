@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
@@ -60,10 +61,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public string sp_item_type { get; set; }
         //Expirable
         public string sp_is_expirable { get; set; }
+        //Storer
+        public string sp_store_name { get; set; }
+        public string sp_store_code { get; set; }
+        public string sp_store_area { get; set; }
+        public string sp_store_route { get; set; }
 
         private void frmImportStore_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.tbl_stores' table. You can move, or remove it, as needed.
+            this.tbl_storesTableAdapter.Fill(this.ultraMaverickDBDataSet.tbl_stores);
 
+            objStorProc = xClass.g_objStoredProc.GetCollections();
+            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Project_Po_Summary' table. You can move, or remove it, as needed.
+            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
+            //// TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Raw_Materials_Dry' table. You can move, or remove it, as needed.
+            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
+            dgvRawMats.Columns[0].Width = 100;// The id column 
+            this.CallOthers();
+            //this.VisibilityOffInDataGrid();
         }
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)
@@ -121,30 +137,78 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
-            //this.SearchMethodJarVarCallingSP();
-            //this.doSearchInTextBox();
+            this.SearchMethodJarVarCallingSP();
+            this.doSearchInTextBox();
         }
+
+
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEngines.Clear();  //Clear the Fucking data set
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("RawMatsBindingPoImport");
+
+        }
+        private void doSearchInTextBox()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+                        dv.RowFilter = "item_code = '" + item_code_main + "' ";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvUnits.DataSource = dv;
+
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
+
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgvRawMats.CurrentRow != null)
             {
-                if (dgvRawMats.CurrentRow.Cells["item_code"].Value != null)
+                if (dgvRawMats.CurrentRow.Cells["store_name"].Value != null)
                 {
-                    this.item_id_main = dgvRawMats.CurrentRow.Cells["PrimaryID"].Value.ToString();
-                    this.item_code_main = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
-                    this.item_description_main = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
-                    this.sp_qty_order = dgvRawMats.CurrentRow.Cells["qty_order"].Value.ToString();
-                    this.primary_unit_main = dgvRawMats.CurrentRow.Cells["qty_uom"].Value.ToString();
-                    this.sp_po_number = dgvRawMats.CurrentRow.Cells["po_number"].Value.ToString();
-                    this.sp_pr_number = dgvRawMats.CurrentRow.Cells["pr_number"].Value.ToString();
-                    this.sp_po_date = dgvRawMats.CurrentRow.Cells["po_date"].Value.ToString();
-                    this.sp_pr_date = dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
-                    this.sp_unit_price = dgvRawMats.CurrentRow.Cells["unit_price"].Value.ToString();
-                    this.sp_supplier = dgvRawMats.CurrentRow.Cells["supplier"].Value.ToString();
-
-                    this.sp_qty_delivered = dgvRawMats.CurrentRow.Cells["qty_delivered"].Value.ToString();
-                    this.sp_qty_billed = dgvRawMats.CurrentRow.Cells["qty_billed"].Value.ToString();
+                    this.sp_store_name = dgvRawMats.CurrentRow.Cells["store_name"].Value.ToString();
+                    this.sp_store_code = dgvRawMats.CurrentRow.Cells["store_code"].Value.ToString();
+                    this.sp_store_area = dgvRawMats.CurrentRow.Cells["store_area"].Value.ToString();
+                    this.sp_store_route = dgvRawMats.CurrentRow.Cells["store_route"].Value.ToString();
                     if (lbltotalrecords.Text == "0")
                     {
 
@@ -158,6 +222,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 }
             }
+        }
+
+        private void cbosheet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                DataTable dt = tableCollection[cbosheet.SelectedItem.ToString()];
+                //dgvRawMats.DataSource = dt;
+                if (dt != null)
+                {
+                    List<store_masterlist> Import_Stores = new List<store_masterlist>();
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        store_masterlist Store = new store_masterlist();
+
+
+                        Store.store_name = dt.Rows[i]["Store"].ToString();
+                        Store.store_code = dt.Rows[i]["Code"].ToString();
+                        Store.store_area = dt.Rows[i]["Area"].ToString();
+                        Store.store_route = dt.Rows[i]["Route"].ToString();
+
+                        Import_Stores.Add(Store);
+                    }
+                    drymaterialsBindingSource.DataSource = Import_Stores;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.CallOthers();
+        }
+
+        private void txtFileName_TextChanged(object sender, EventArgs e)
+        {
+            cbosheet.Enabled = true;
         }
     }
 }

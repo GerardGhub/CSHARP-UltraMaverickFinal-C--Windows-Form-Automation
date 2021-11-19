@@ -16,7 +16,7 @@ namespace ULTRAMAVERICK.Models
         public StoredProcedures g_objStoredProc = new StoredProcedures();
         public IStoredProcedures g_objStoredProcFill;
 
-        public static string confirmPassword;
+        //public static string confirmPassword;
         public user_infos muser_infos = new user_infos();
 
 
