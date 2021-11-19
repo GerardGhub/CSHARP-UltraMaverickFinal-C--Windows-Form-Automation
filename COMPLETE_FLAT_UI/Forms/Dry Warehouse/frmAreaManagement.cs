@@ -113,7 +113,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             this.dgvRawMats.Columns["area_id"].Visible = false;
             this.dgvRawMats.Columns["is_active"].Visible = false;
-            this.dgvRawMats.Columns["modified_at"].Visible = false;
+            //this.dgvRawMats.Columns["modified_at"].Visible = false;
 
         }
 

@@ -27,7 +27,7 @@ namespace ULTRAMAVERICK.Forms.Users
         IStoredProcedures objStorProc = null;
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
-        int s_id = 0;
+
         Boolean ready = false;
         DataSet dSet = new DataSet();
         string mode = "";

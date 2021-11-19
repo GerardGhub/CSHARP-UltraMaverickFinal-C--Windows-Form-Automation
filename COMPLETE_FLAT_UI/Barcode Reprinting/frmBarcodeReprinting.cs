@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
-        string mode;
+ 
         ReportDocument rpt = new ReportDocument();
         string Rpt_Path = "";
         DataSet dSet = new DataSet();

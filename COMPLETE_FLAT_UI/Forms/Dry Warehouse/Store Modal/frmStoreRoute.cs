@@ -53,9 +53,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-
-
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("tblAreaSpMajor");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("tblRouteSpMajor");
 
         }
 
@@ -75,8 +73,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             this.dgvRawMats.Columns["route_id"].Visible = false;
             this.dgvRawMats.Columns["is_active"].Visible = false;
-            this.dgvRawMats.Columns["modified_at"].Visible = false;
-            this.dgvRawMats.Columns["modified_by"].Visible = false;
+            //this.dgvRawMats.Columns["modified_at"].Visible = false;
+            //this.dgvRawMats.Columns["modified_by"].Visible = false;
         }
 
         private void LoadingrefresherOrb()
@@ -121,6 +119,106 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             matBtnEdit.Visible = false;
             frmAddNewRoute addNew = new frmAddNewRoute(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
             addNew.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            frmStoreRoute_Load(sender, e);
+        }
+
+        private void doSearchInTextBoxCmb()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+                        //Gerard Singian Developer Man
+
+                        dv.RowFilter = "route_name like '%" + txtSearch.Text + "%'";
+
+                    }
+                    else if (myglobal.global_module == "VISITORS")
+                    {
+
+                    }
+                    dgvRawMats.DataSource = dv;
+                    lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
+
+
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+                doSearchInTextBoxCmb();
+            }
+            if (txtSearch.Text == "")
+            {
+                doSearchInTextBoxCmb();
+            }
+        }
+
+        private void matBtnEdit_Click(object sender, EventArgs e)
+        {
+            this.sp_typeof_mode = "edit";
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+            frmAddNewRoute addNew = new frmAddNewRoute(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
+            addNew.ShowDialog();
+        }
+
+        private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.showValueCell();
+        }
+        private void showValueCell()
+        {
+            if (this.dgvRawMats.Rows.Count > 0)
+            {
+                if (this.dgvRawMats.CurrentRow != null)
+                {
+                    if (this.dgvRawMats.CurrentRow.Cells["route_name"].Value != null)
+                    {
+                        this.p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["route_id"].Value);
+                        sp_area_name = dgvRawMats.CurrentRow.Cells["route_name"].Value.ToString();
+
+
+                    }
+                }
+            }
         }
     }
 }

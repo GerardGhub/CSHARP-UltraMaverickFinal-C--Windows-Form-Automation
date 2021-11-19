@@ -361,12 +361,20 @@ namespace ULTRAMAVERICK.Models
             string mode);
 
         DataSet sp_tblArea(int area_id,
-          string area_name,
-          string added_by,
-          string date_added,
-          string modified_by,
-          string modified_at,
-          string mode);
+        string area_name,
+        string added_by,
+        string date_added,
+        string modified_by,
+        string modified_at,
+        string mode);
+
+        DataSet sp_tblRoute(int route_id,
+        string route_name,
+        string added_by,
+        string date_added,
+        string modified_by,
+        string modified_at,
+        string mode);
 
         DataSet sp_Raw_Materials_Dry(
                 int item_id,

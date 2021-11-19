@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.mattxtArea = new MaterialSkin.Controls.MaterialTextBox();
+            this.matTxtRouteName = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
@@ -39,7 +39,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.mattxtArea);
+            this.materialCard1.Controls.Add(this.matTxtRouteName);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(35, 87);
@@ -50,20 +50,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.Size = new System.Drawing.Size(495, 209);
             this.materialCard1.TabIndex = 473;
             // 
-            // mattxtArea
+            // matTxtRouteName
             // 
-            this.mattxtArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtArea.Depth = 0;
-            this.mattxtArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mattxtArea.Hint = "Area";
-            this.mattxtArea.Location = new System.Drawing.Point(40, 72);
-            this.mattxtArea.MaxLength = 50;
-            this.mattxtArea.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtArea.Multiline = false;
-            this.mattxtArea.Name = "mattxtArea";
-            this.mattxtArea.Size = new System.Drawing.Size(401, 50);
-            this.mattxtArea.TabIndex = 0;
-            this.mattxtArea.Text = "";
+            this.matTxtRouteName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtRouteName.Depth = 0;
+            this.matTxtRouteName.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtRouteName.Hint = "Route";
+            this.matTxtRouteName.Location = new System.Drawing.Point(40, 72);
+            this.matTxtRouteName.MaxLength = 50;
+            this.matTxtRouteName.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtRouteName.Multiline = false;
+            this.matTxtRouteName.Name = "matTxtRouteName";
+            this.matTxtRouteName.Size = new System.Drawing.Size(401, 50);
+            this.matTxtRouteName.TabIndex = 0;
+            this.matTxtRouteName.Text = "";
             // 
             // textBox1
             // 
@@ -94,6 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
             // frmAddNewRoute
             // 
@@ -117,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         #endregion
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialTextBox mattxtArea;
+        private MaterialSkin.Controls.MaterialTextBox matTxtRouteName;
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
     }
