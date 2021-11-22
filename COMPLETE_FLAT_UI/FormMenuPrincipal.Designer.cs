@@ -85,6 +85,7 @@
             this.dryRawMaterialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consolidatedOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolReceiving = new System.Windows.Forms.ToolStripDropDownButton();
             this.listOfReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rMReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,6 +127,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
+            this.orderRESTAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -496,7 +498,7 @@
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(85, 349);
+            this.toolStrip2.Size = new System.Drawing.Size(232, 349);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -602,7 +604,7 @@
             this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRawMaterials.Name = "toolStripRawMaterials";
-            this.toolStripRawMaterials.Size = new System.Drawing.Size(147, 44);
+            this.toolStripRawMaterials.Size = new System.Drawing.Size(231, 44);
             this.toolStripRawMaterials.Text = "Raw Material";
             this.toolStripRawMaterials.Visible = false;
             this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
@@ -683,7 +685,7 @@
             this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownMenu.Name = "toolDropdownMenu";
-            this.toolDropdownMenu.Size = new System.Drawing.Size(136, 44);
+            this.toolDropdownMenu.Size = new System.Drawing.Size(231, 44);
             this.toolDropdownMenu.Text = "Menu";
             this.toolDropdownMenu.Visible = false;
             // 
@@ -716,14 +718,16 @@
             this.toolImportDry.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dryRawMaterialsToolStripMenuItem,
             this.poSummaryToolStripMenuItem,
-            this.storesToolStripMenuItem1});
+            this.storesToolStripMenuItem1,
+            this.consolidatedOrderToolStripMenuItem,
+            this.orderRESTAPIToolStripMenuItem});
             this.toolImportDry.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.toolImportDry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolImportDry.Image = ((System.Drawing.Image)(resources.GetObject("toolImportDry.Image")));
             this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolImportDry.Name = "toolImportDry";
-            this.toolImportDry.Size = new System.Drawing.Size(136, 44);
+            this.toolImportDry.Size = new System.Drawing.Size(231, 44);
             this.toolImportDry.Text = "Import Dry";
             this.toolImportDry.Visible = false;
             this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
@@ -732,7 +736,7 @@
             // 
             this.dryRawMaterialsToolStripMenuItem.Enabled = false;
             this.dryRawMaterialsToolStripMenuItem.Name = "dryRawMaterialsToolStripMenuItem";
-            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.dryRawMaterialsToolStripMenuItem.Text = "Dry Raw Materials";
             this.dryRawMaterialsToolStripMenuItem.Click += new System.EventHandler(this.dryRawMaterialsToolStripMenuItem_Click);
             // 
@@ -740,16 +744,23 @@
             // 
             this.poSummaryToolStripMenuItem.Enabled = false;
             this.poSummaryToolStripMenuItem.Name = "poSummaryToolStripMenuItem";
-            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.poSummaryToolStripMenuItem.Text = "Po Summary";
             this.poSummaryToolStripMenuItem.Click += new System.EventHandler(this.poSummaryToolStripMenuItem_Click);
             // 
             // storesToolStripMenuItem1
             // 
             this.storesToolStripMenuItem1.Name = "storesToolStripMenuItem1";
-            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(199, 26);
+            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(211, 26);
             this.storesToolStripMenuItem1.Text = "Stores";
             this.storesToolStripMenuItem1.Click += new System.EventHandler(this.storesToolStripMenuItem1_Click);
+            // 
+            // consolidatedOrderToolStripMenuItem
+            // 
+            this.consolidatedOrderToolStripMenuItem.Name = "consolidatedOrderToolStripMenuItem";
+            this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.consolidatedOrderToolStripMenuItem.Text = "Consolidated Order";
+            this.consolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.consolidatedOrderToolStripMenuItem_Click);
             // 
             // toolReceiving
             // 
@@ -768,7 +779,7 @@
             this.toolReceiving.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolReceiving.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolReceiving.Name = "toolReceiving";
-            this.toolReceiving.Size = new System.Drawing.Size(125, 44);
+            this.toolReceiving.Size = new System.Drawing.Size(231, 44);
             this.toolReceiving.Text = "Receiving";
             this.toolReceiving.Visible = false;
             // 
@@ -831,6 +842,7 @@
             this.storesToolStripMenuItem.Name = "storesToolStripMenuItem";
             this.storesToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.storesToolStripMenuItem.Text = "Stores";
+            this.storesToolStripMenuItem.Click += new System.EventHandler(this.storesToolStripMenuItem_Click);
             // 
             // toolClosePanelSelection
             // 
@@ -840,7 +852,7 @@
             this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolClosePanelSelection.Name = "toolClosePanelSelection";
-            this.toolClosePanelSelection.Size = new System.Drawing.Size(84, 44);
+            this.toolClosePanelSelection.Size = new System.Drawing.Size(231, 44);
             this.toolClosePanelSelection.Text = "Back";
             this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
             // 
@@ -1303,6 +1315,13 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
+            // orderRESTAPIToolStripMenuItem
+            // 
+            this.orderRESTAPIToolStripMenuItem.Name = "orderRESTAPIToolStripMenuItem";
+            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.orderRESTAPIToolStripMenuItem.Text = "Order REST API";
+            this.orderRESTAPIToolStripMenuItem.Click += new System.EventHandler(this.orderRESTAPIToolStripMenuItem_Click);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1440,6 +1459,8 @@
         private System.Windows.Forms.ToolStripMenuItem storeAreaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem storeRouteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem storesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consolidatedOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderRESTAPIToolStripMenuItem;
     }
 }
 

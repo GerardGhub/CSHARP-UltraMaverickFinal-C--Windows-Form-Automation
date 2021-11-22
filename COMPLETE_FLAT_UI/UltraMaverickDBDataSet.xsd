@@ -181,6 +181,43 @@ SELECT
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dry_wh_ordersTableAdapter" GeneratorDataComponentClassName="dry_wh_ordersTableAdapter" Name="dry_wh_orders" UserDataComponentName="dry_wh_ordersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="UltraMaverickDBConnectionString (Settings)" DbObjectName="UltraMaverickDB.dbo.dry_wh_orders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+      [date_ordered]
+      ,[store_name]
+      ,[route]
+      ,[area]
+      ,[category]
+      ,[item_code]
+      ,[description]
+      ,[uom]
+      ,[qty]
+  FROM [UltraMaverickDB].[dbo].[dry_wh_orders] where is_active='1'
+
+
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="store_name" DataSetColumn="store_name" />
+              <Mapping SourceColumn="date_ordered" DataSetColumn="date_ordered" />
+              <Mapping SourceColumn="route" DataSetColumn="route" />
+              <Mapping SourceColumn="area" DataSetColumn="area" />
+              <Mapping SourceColumn="category" DataSetColumn="category" />
+              <Mapping SourceColumn="item_code" DataSetColumn="item_code" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="uom" DataSetColumn="uom" />
+              <Mapping SourceColumn="qty" DataSetColumn="qty" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -189,7 +226,7 @@ SELECT
   <xs:element name="UltraMaverickDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="UltraMaverickDBDataSet" msprop:Generator_UserDSName="UltraMaverickDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Raw_Materials_Dry" msprop:Generator_TableClassName="Raw_Materials_DryDataTable" msprop:Generator_TableVarName="tableRaw_Materials_Dry" msprop:Generator_TablePropName="Raw_Materials_Dry" msprop:Generator_RowDeletingName="Raw_Materials_DryRowDeleting" msprop:Generator_RowChangingName="Raw_Materials_DryRowChanging" msprop:Generator_RowEvHandlerName="Raw_Materials_DryRowChangeEventHandler" msprop:Generator_RowDeletedName="Raw_Materials_DryRowDeleted" msprop:Generator_UserTableName="Raw_Materials_Dry" msprop:Generator_RowChangedName="Raw_Materials_DryRowChanged" msprop:Generator_RowEvArgName="Raw_Materials_DryRowChangeEvent" msprop:Generator_RowClassName="Raw_Materials_DryRow">
+        <xs:element name="Raw_Materials_Dry" msprop:Generator_TableClassName="Raw_Materials_DryDataTable" msprop:Generator_TableVarName="tableRaw_Materials_Dry" msprop:Generator_RowChangedName="Raw_Materials_DryRowChanged" msprop:Generator_TablePropName="Raw_Materials_Dry" msprop:Generator_RowDeletingName="Raw_Materials_DryRowDeleting" msprop:Generator_RowChangingName="Raw_Materials_DryRowChanging" msprop:Generator_RowEvHandlerName="Raw_Materials_DryRowChangeEventHandler" msprop:Generator_RowDeletedName="Raw_Materials_DryRowDeleted" msprop:Generator_RowClassName="Raw_Materials_DryRow" msprop:Generator_UserTableName="Raw_Materials_Dry" msprop:Generator_RowEvArgName="Raw_Materials_DryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
@@ -252,7 +289,7 @@ SELECT
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Project_Po_Summary" msprop:Generator_TableClassName="Project_Po_SummaryDataTable" msprop:Generator_TableVarName="tableProject_Po_Summary" msprop:Generator_RowChangedName="Project_Po_SummaryRowChanged" msprop:Generator_TablePropName="Project_Po_Summary" msprop:Generator_RowDeletingName="Project_Po_SummaryRowDeleting" msprop:Generator_RowChangingName="Project_Po_SummaryRowChanging" msprop:Generator_RowEvHandlerName="Project_Po_SummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="Project_Po_SummaryRowDeleted" msprop:Generator_RowClassName="Project_Po_SummaryRow" msprop:Generator_UserTableName="Project_Po_Summary" msprop:Generator_RowEvArgName="Project_Po_SummaryRowChangeEvent">
+        <xs:element name="Project_Po_Summary" msprop:Generator_TableClassName="Project_Po_SummaryDataTable" msprop:Generator_TableVarName="tableProject_Po_Summary" msprop:Generator_TablePropName="Project_Po_Summary" msprop:Generator_RowDeletingName="Project_Po_SummaryRowDeleting" msprop:Generator_RowChangingName="Project_Po_SummaryRowChanging" msprop:Generator_RowEvHandlerName="Project_Po_SummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="Project_Po_SummaryRowDeleted" msprop:Generator_UserTableName="Project_Po_Summary" msprop:Generator_RowChangedName="Project_Po_SummaryRowChanged" msprop:Generator_RowEvArgName="Project_Po_SummaryRowChangeEvent" msprop:Generator_RowClassName="Project_Po_SummaryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_code" msprop:Generator_ColumnVarNameInTable="columnitem_code" msprop:Generator_ColumnPropNameInRow="item_code" msprop:Generator_ColumnPropNameInTable="item_codeColumn" msprop:Generator_UserColumnName="item_code" minOccurs="0">
@@ -358,7 +395,7 @@ SELECT
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tbl_stores" msprop:Generator_TableClassName="tbl_storesDataTable" msprop:Generator_TableVarName="tabletbl_stores" msprop:Generator_TablePropName="tbl_stores" msprop:Generator_RowDeletingName="tbl_storesRowDeleting" msprop:Generator_RowChangingName="tbl_storesRowChanging" msprop:Generator_RowEvHandlerName="tbl_storesRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_storesRowDeleted" msprop:Generator_UserTableName="tbl_stores" msprop:Generator_RowChangedName="tbl_storesRowChanged" msprop:Generator_RowEvArgName="tbl_storesRowChangeEvent" msprop:Generator_RowClassName="tbl_storesRow">
+        <xs:element name="tbl_stores" msprop:Generator_TableClassName="tbl_storesDataTable" msprop:Generator_TableVarName="tabletbl_stores" msprop:Generator_RowChangedName="tbl_storesRowChanged" msprop:Generator_TablePropName="tbl_stores" msprop:Generator_RowDeletingName="tbl_storesRowDeleting" msprop:Generator_RowChangingName="tbl_storesRowChanging" msprop:Generator_RowEvHandlerName="tbl_storesRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_storesRowDeleted" msprop:Generator_RowClassName="tbl_storesRow" msprop:Generator_UserTableName="tbl_stores" msprop:Generator_RowEvArgName="tbl_storesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="store_name" msprop:Generator_ColumnVarNameInTable="columnstore_name" msprop:Generator_ColumnPropNameInRow="store_name" msprop:Generator_ColumnPropNameInTable="store_nameColumn" msprop:Generator_UserColumnName="store_name" minOccurs="0">
@@ -383,6 +420,75 @@ SELECT
                 </xs:simpleType>
               </xs:element>
               <xs:element name="store_route" msprop:Generator_ColumnVarNameInTable="columnstore_route" msprop:Generator_ColumnPropNameInRow="store_route" msprop:Generator_ColumnPropNameInTable="store_routeColumn" msprop:Generator_UserColumnName="store_route" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dry_wh_orders" msprop:Generator_TableClassName="dry_wh_ordersDataTable" msprop:Generator_TableVarName="tabledry_wh_orders" msprop:Generator_TablePropName="dry_wh_orders" msprop:Generator_RowDeletingName="dry_wh_ordersRowDeleting" msprop:Generator_RowChangingName="dry_wh_ordersRowChanging" msprop:Generator_RowEvHandlerName="dry_wh_ordersRowChangeEventHandler" msprop:Generator_RowDeletedName="dry_wh_ordersRowDeleted" msprop:Generator_UserTableName="dry_wh_orders" msprop:Generator_RowChangedName="dry_wh_ordersRowChanged" msprop:Generator_RowEvArgName="dry_wh_ordersRowChangeEvent" msprop:Generator_RowClassName="dry_wh_ordersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="store_name" msprop:Generator_ColumnVarNameInTable="columnstore_name" msprop:Generator_ColumnPropNameInRow="store_name" msprop:Generator_ColumnPropNameInTable="store_nameColumn" msprop:Generator_UserColumnName="store_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_ordered" msprop:Generator_ColumnVarNameInTable="columndate_ordered" msprop:Generator_ColumnPropNameInRow="date_ordered" msprop:Generator_ColumnPropNameInTable="date_orderedColumn" msprop:Generator_UserColumnName="date_ordered" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="route" msprop:Generator_ColumnVarNameInTable="columnroute" msprop:Generator_ColumnPropNameInRow="route" msprop:Generator_ColumnPropNameInTable="routeColumn" msprop:Generator_UserColumnName="route" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="area" msprop:Generator_ColumnVarNameInTable="columnarea" msprop:Generator_ColumnPropNameInRow="area" msprop:Generator_ColumnPropNameInTable="areaColumn" msprop:Generator_UserColumnName="area" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_code" msprop:Generator_ColumnVarNameInTable="columnitem_code" msprop:Generator_ColumnPropNameInRow="item_code" msprop:Generator_ColumnPropNameInTable="item_codeColumn" msprop:Generator_UserColumnName="item_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="uom" msprop:Generator_ColumnVarNameInTable="columnuom" msprop:Generator_ColumnPropNameInRow="uom" msprop:Generator_ColumnPropNameInTable="uomColumn" msprop:Generator_UserColumnName="uom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />

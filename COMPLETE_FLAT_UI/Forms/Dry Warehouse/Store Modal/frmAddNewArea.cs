@@ -57,13 +57,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
          
             if (modes == "add")
             {
-                materialButton1.Text = "ADD";
+                this.Text = "Add New Area";
+                this.materialButton1.Text = "ADD";
                 this.created_by = created_by;
                 this.mattxtArea.Text = String.Empty;
             }
             else
             {
-                materialButton1.Text = "UPDATE";
+                this.Text = "Update Area";
+                this.materialButton1.Text = "UPDATE";
                 this.created_by = created_by;
               
                 this.mattxtArea.Text = sp_area_name;

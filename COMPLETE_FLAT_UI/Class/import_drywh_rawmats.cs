@@ -30,6 +30,22 @@ namespace ULTRAMAVERICK.Class
 
     }
 
+    public class store_order_dry_wh_orders
+    {
+        public int primary_id { get; set; }
+        public int order_id { get; set; }
+        public string date_ordered { get; set; }
+        public string fox { get; set; }
+        public string store_name { get; set; }
+        public string route { get; set; }
+        public string area { get; set; }
+        public string category { get; set; }
+        public string item_code { get; set; }
+        public string description { get; set; }
+        public string uom { get; set; }
+        public string qty { get; set; }
+
+    }
 
         public class approve_po_summary
     {

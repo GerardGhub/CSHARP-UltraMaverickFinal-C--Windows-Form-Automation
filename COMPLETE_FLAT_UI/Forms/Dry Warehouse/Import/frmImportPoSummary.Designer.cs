@@ -40,21 +40,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
-            this.txtFileName = new MaterialSkin.Controls.MaterialTextBox();
-            this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
-            this.cbosheet = new MetroFramework.Controls.MetroComboBox();
-            this.project_Po_SummaryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
-            this.ultraMaverickDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            this.dgvUnits = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.pr_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pr_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.po_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +56,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.PrimaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
+            this.txtFileName = new MaterialSkin.Controls.MaterialTextBox();
+            this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
+            this.cbosheet = new MetroFramework.Controls.MetroComboBox();
+            this.project_Po_SummaryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
+            this.ultraMaverickDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.dgvUnits = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
@@ -193,6 +193,136 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             this.dgvRawMats.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvRawMats_RowPostPaint);
+            // 
+            // pr_number
+            // 
+            this.pr_number.DataPropertyName = "pr_number";
+            this.pr_number.HeaderText = "PR NUMBER";
+            this.pr_number.Name = "pr_number";
+            this.pr_number.ReadOnly = true;
+            this.pr_number.Width = 115;
+            // 
+            // pr_date
+            // 
+            this.pr_date.DataPropertyName = "pr_date";
+            this.pr_date.HeaderText = "PR DATE";
+            this.pr_date.Name = "pr_date";
+            this.pr_date.ReadOnly = true;
+            this.pr_date.Width = 90;
+            // 
+            // po_number
+            // 
+            this.po_number.DataPropertyName = "po_number";
+            this.po_number.HeaderText = "PO NUMBER";
+            this.po_number.Name = "po_number";
+            this.po_number.ReadOnly = true;
+            this.po_number.Width = 118;
+            // 
+            // po_date
+            // 
+            this.po_date.DataPropertyName = "po_date";
+            this.po_date.HeaderText = "PO DATE";
+            this.po_date.Name = "po_date";
+            this.po_date.ReadOnly = true;
+            this.po_date.Width = 93;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 111;
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.HeaderText = "ITEM DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            this.item_description.ReadOnly = true;
+            this.item_description.Width = 164;
+            // 
+            // qty_order
+            // 
+            this.qty_order.DataPropertyName = "qty_order";
+            this.qty_order.HeaderText = "QTY ORDERED";
+            this.qty_order.Name = "qty_order";
+            this.qty_order.ReadOnly = true;
+            this.qty_order.Width = 133;
+            // 
+            // qty_delivered
+            // 
+            this.qty_delivered.DataPropertyName = "qty_delivered";
+            this.qty_delivered.HeaderText = "QTY DELIVERED";
+            this.qty_delivered.Name = "qty_delivered";
+            this.qty_delivered.ReadOnly = true;
+            this.qty_delivered.Width = 141;
+            // 
+            // qty_billed
+            // 
+            this.qty_billed.DataPropertyName = "qty_billed";
+            this.qty_billed.HeaderText = "QTY BILLED";
+            this.qty_billed.Name = "qty_billed";
+            this.qty_billed.ReadOnly = true;
+            this.qty_billed.Width = 111;
+            // 
+            // qty_uom
+            // 
+            this.qty_uom.DataPropertyName = "qty_uom";
+            this.qty_uom.HeaderText = "UOM";
+            this.qty_uom.Name = "qty_uom";
+            this.qty_uom.ReadOnly = true;
+            this.qty_uom.Width = 68;
+            // 
+            // unit_price
+            // 
+            this.unit_price.DataPropertyName = "unit_price";
+            this.unit_price.HeaderText = "UNIT PRICE";
+            this.unit_price.Name = "unit_price";
+            this.unit_price.ReadOnly = true;
+            this.unit_price.Width = 110;
+            // 
+            // supplier
+            // 
+            this.supplier.DataPropertyName = "supplier";
+            this.supplier.HeaderText = "VENDOR NAME";
+            this.supplier.Name = "supplier";
+            this.supplier.ReadOnly = true;
+            this.supplier.Width = 140;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "ACTIVE";
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            this.Active.Width = 83;
+            // 
+            // PrimaryID
+            // 
+            this.PrimaryID.DataPropertyName = "PrimaryID";
+            this.PrimaryID.HeaderText = "PrimaryID";
+            this.PrimaryID.Name = "PrimaryID";
+            this.PrimaryID.ReadOnly = true;
+            this.PrimaryID.Width = 99;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "created_by";
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 106;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "created_at";
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 103;
             // 
             // drymaterialsBindingSource
             // 
@@ -459,141 +589,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
-            // pr_number
-            // 
-            this.pr_number.DataPropertyName = "pr_number";
-            this.pr_number.HeaderText = "PR NUMBER";
-            this.pr_number.Name = "pr_number";
-            this.pr_number.ReadOnly = true;
-            this.pr_number.Width = 115;
-            // 
-            // pr_date
-            // 
-            this.pr_date.DataPropertyName = "pr_date";
-            this.pr_date.HeaderText = "PR DATE";
-            this.pr_date.Name = "pr_date";
-            this.pr_date.ReadOnly = true;
-            this.pr_date.Width = 90;
-            // 
-            // po_number
-            // 
-            this.po_number.DataPropertyName = "po_number";
-            this.po_number.HeaderText = "PO NUMBER";
-            this.po_number.Name = "po_number";
-            this.po_number.ReadOnly = true;
-            this.po_number.Width = 118;
-            // 
-            // po_date
-            // 
-            this.po_date.DataPropertyName = "po_date";
-            this.po_date.HeaderText = "PO DATE";
-            this.po_date.Name = "po_date";
-            this.po_date.ReadOnly = true;
-            this.po_date.Width = 93;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 111;
-            // 
-            // item_description
-            // 
-            this.item_description.DataPropertyName = "item_description";
-            this.item_description.HeaderText = "ITEM DESCRIPTION";
-            this.item_description.MinimumWidth = 12;
-            this.item_description.Name = "item_description";
-            this.item_description.ReadOnly = true;
-            this.item_description.Width = 164;
-            // 
-            // qty_order
-            // 
-            this.qty_order.DataPropertyName = "qty_order";
-            this.qty_order.HeaderText = "QTY ORDERED";
-            this.qty_order.Name = "qty_order";
-            this.qty_order.ReadOnly = true;
-            this.qty_order.Width = 133;
-            // 
-            // qty_delivered
-            // 
-            this.qty_delivered.DataPropertyName = "qty_delivered";
-            this.qty_delivered.HeaderText = "QTY DELIVERED";
-            this.qty_delivered.Name = "qty_delivered";
-            this.qty_delivered.ReadOnly = true;
-            this.qty_delivered.Width = 141;
-            // 
-            // qty_billed
-            // 
-            this.qty_billed.DataPropertyName = "qty_billed";
-            this.qty_billed.HeaderText = "QTY BILLED";
-            this.qty_billed.Name = "qty_billed";
-            this.qty_billed.ReadOnly = true;
-            this.qty_billed.Width = 111;
-            // 
-            // qty_uom
-            // 
-            this.qty_uom.DataPropertyName = "qty_uom";
-            this.qty_uom.HeaderText = "UOM";
-            this.qty_uom.Name = "qty_uom";
-            this.qty_uom.ReadOnly = true;
-            this.qty_uom.Width = 68;
-            // 
-            // unit_price
-            // 
-            this.unit_price.DataPropertyName = "unit_price";
-            this.unit_price.HeaderText = "UNIT PRICE";
-            this.unit_price.Name = "unit_price";
-            this.unit_price.ReadOnly = true;
-            this.unit_price.Width = 110;
-            // 
-            // supplier
-            // 
-            this.supplier.DataPropertyName = "supplier";
-            this.supplier.HeaderText = "VENDOR NAME";
-            this.supplier.Name = "supplier";
-            this.supplier.ReadOnly = true;
-            this.supplier.Width = 140;
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "ACTIVE";
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            this.Active.Width = 83;
-            // 
-            // PrimaryID
-            // 
-            this.PrimaryID.DataPropertyName = "PrimaryID";
-            this.PrimaryID.HeaderText = "PrimaryID";
-            this.PrimaryID.Name = "PrimaryID";
-            this.PrimaryID.ReadOnly = true;
-            this.PrimaryID.Width = 99;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "created_by";
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Width = 106;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "created_at";
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Width = 103;
-            // 
             // frmImportPoSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 652);
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialCard2);

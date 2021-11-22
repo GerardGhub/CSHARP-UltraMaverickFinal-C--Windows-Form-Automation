@@ -375,23 +375,53 @@ namespace ULTRAMAVERICK.Models
         string modified_by,
         string modified_at,
         string mode);
+        DataSet sp_tbl_stores(
+        int stored_id,
+        string store_name,
+        string store_area,
+        string store_code,
+        string store_route,
+        string added_by,
+        string date_added,
+        string modified_by,
+        string modified_date,
+        string mode);
+
+        DataSet sp_dry_wh_orders(
+        int primary_id,
+        int order_id,
+        string date_ordered,
+        string fox,
+        string store_name,
+        string route,
+        string area,
+        string category,
+        string item_code,
+        string description,
+        string uom,
+        string qty,
+        string is_active,
+        string date_added,
+        string added_by,
+        string mode);
+
 
         DataSet sp_Raw_Materials_Dry(
-                int item_id,
-                string item_code,
-                string item_description,
-                string item_class,
-                string major_category,
-                string sub_category,
-                string primary_unit,
-                string conversion,
-                string item_type,
-                string created_at,
-                string created_by,
-                string updated_at,
-                string updated_by,
-                float buffer_stock,
-                string mode);
+        int item_id,
+        string item_code,
+        string item_description,
+        string item_class,
+        string major_category,
+        string sub_category,
+        string primary_unit,
+        string conversion,
+        string item_type,
+        string created_at,
+        string created_by,
+        string updated_at,
+        string updated_by,
+        float buffer_stock,
+        string mode);
 
             DataSet sp_projects(
             int primaryid,

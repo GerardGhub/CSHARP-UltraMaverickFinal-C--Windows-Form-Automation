@@ -110,6 +110,9 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -264,6 +267,12 @@
     <Compile Include="Forms\Dry Warehouse\frmUpdateLotData.Designer.cs">
       <DependentUpon>frmUpdateLotData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.Designer.cs">
+      <DependentUpon>frmImportConsolidatedOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Import\frmImportPoSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +308,18 @@
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditArea.Designer.cs">
       <DependentUpon>frmEditArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmListofStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmListofStore.Designer.cs">
+      <DependentUpon>frmListofStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmStoreOrderRestAPIcall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmStoreOrderRestAPIcall.Designer.cs">
+      <DependentUpon>frmStoreOrderRestAPIcall.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\frmStoreRoute.cs">
       <SubType>Form</SubType>
@@ -529,6 +550,9 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\frmUpdateLotData.resx">
       <DependentUpon>frmUpdateLotData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.resx">
+      <DependentUpon>frmImportConsolidatedOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportPoSummary.resx">
       <DependentUpon>frmImportPoSummary.cs</DependentUpon>
     </EmbeddedResource>
@@ -543,6 +567,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAddNewRoute.resx">
       <DependentUpon>frmAddNewRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmListofStore.resx">
+      <DependentUpon>frmListofStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmStoreOrderRestAPIcall.resx">
+      <DependentUpon>frmStoreOrderRestAPIcall.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmStoreRoute.resx">
       <DependentUpon>frmStoreRoute.cs</DependentUpon>

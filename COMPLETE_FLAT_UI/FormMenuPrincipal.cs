@@ -1332,6 +1332,27 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void storesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           frmListofStore fm = new frmListofStore();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void consolidatedOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImportConsolidatedOrder fm = new frmImportConsolidatedOrder();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void orderRESTAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStoreOrderRestAPIcall fm = new frmStoreOrderRestAPIcall();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());

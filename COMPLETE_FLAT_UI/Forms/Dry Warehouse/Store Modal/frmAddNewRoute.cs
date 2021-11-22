@@ -55,13 +55,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (modes == "add")
             {
-                materialButton1.Text = "ADD";
+                this.Text = "Add New Route";
+                this.materialButton1.Text = "ADD";
                 this.created_by = created_by;
                 this.matTxtRouteName.Text = String.Empty;
             }
             else
             {
-                materialButton1.Text = "UPDATE";
+                this.Text = "Update Route";
+                this.materialButton1.Text = "UPDATE";
                 this.created_by = created_by;
 
                 this.matTxtRouteName.Text = sp_route_name;
