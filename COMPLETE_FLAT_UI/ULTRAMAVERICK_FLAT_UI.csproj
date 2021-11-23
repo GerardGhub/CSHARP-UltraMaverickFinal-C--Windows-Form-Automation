@@ -267,6 +267,12 @@
     <Compile Include="Forms\Dry Warehouse\frmUpdateLotData.Designer.cs">
       <DependentUpon>frmUpdateLotData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmWarehouseCrewMgmt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\frmWarehouseCrewMgmt.Designer.cs">
+      <DependentUpon>frmWarehouseCrewMgmt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -561,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmUpdateLotData.resx">
       <DependentUpon>frmUpdateLotData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\frmWarehouseCrewMgmt.resx">
+      <DependentUpon>frmWarehouseCrewMgmt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.resx">
       <DependentUpon>frmImportConsolidatedOrder.cs</DependentUpon>

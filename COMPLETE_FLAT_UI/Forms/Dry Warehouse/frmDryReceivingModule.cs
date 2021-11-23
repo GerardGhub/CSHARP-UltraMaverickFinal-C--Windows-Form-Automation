@@ -74,6 +74,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void firstLoad()
         {
+            mattxtlotno.BackColor = Color.Red;
+
             DateTime dNow = DateTime.Now;
             this.crV1.Visible = false;
             this.dgvReceivedID.Visible = false;

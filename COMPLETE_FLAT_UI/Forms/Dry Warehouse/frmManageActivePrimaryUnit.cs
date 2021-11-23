@@ -47,25 +47,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            sp_user_id = userinfo.user_id.ToString();
-            showRawMaterialsInDryWH();
-            SearchMethodJarVarCallingSP();
-            SearchMethodJarVarCallingSPUnits();
+            this.sp_user_id = userinfo.user_id.ToString();
+            this.showRawMaterialsInDryWH();
+            this.SearchMethodJarVarCallingSP();
+            this.SearchMethodJarVarCallingSPUnits();
             myglobal.global_module = "Active"; // Mode for Searching
-            HideControls();
+            this.HideControls();
         }
         private void HideControls()
         {
-            txtmatid.Visible = false;
+            this.txtmatid.Visible = false;
         }
 
         DataSet dset_emp_SearchEnginesonUnit = new DataSet();
         private void SearchMethodJarVarCallingSPUnits()
         {
-            dset_emp_SearchEnginesonUnit.Clear();
+            this.dset_emp_SearchEnginesonUnit.Clear();
 
 
-            dset_emp_SearchEnginesonUnit = objStorProc.sp_getMajorTables("PrimaryUnitManagementMajor");
+            this.dset_emp_SearchEnginesonUnit = objStorProc.sp_getMajorTables("PrimaryUnitManagementMajor");
 
         }
 

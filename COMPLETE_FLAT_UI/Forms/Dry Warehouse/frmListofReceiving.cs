@@ -46,7 +46,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
            
                 this.xClass.fillDataGridView(dgvSubCategory, "Po_Receiving_Warehouse", dSet);
              
-                this.lbltotaldata.Text = dgvSubCategory.RowCount.ToString();
+                this.lblgrandtotaldata.Text = dgvSubCategory.RowCount.ToString();
             }
             catch (Exception ex)
             {

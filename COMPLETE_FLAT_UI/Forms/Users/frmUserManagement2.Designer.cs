@@ -108,13 +108,12 @@ namespace ULTRAMAVERICK.Forms.Users
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -138,7 +137,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.user_section});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
@@ -179,14 +178,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvUsers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.dgvUsers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUsers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.ThemeStyle.HeaderStyle.Height = 40;
             this.dgvUsers.ThemeStyle.ReadOnly = true;
             this.dgvUsers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvUsers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvUsers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUsers.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvUsers.ThemeStyle.RowsStyle.Height = 40;
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -216,7 +215,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.username.MinimumWidth = 12;
             this.username.Name = "username";
             this.username.ReadOnly = true;
-            this.username.Width = 112;
+            this.username.Width = 110;
             // 
             // employee_name
             // 
@@ -227,7 +226,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.employee_name.MinimumWidth = 12;
             this.employee_name.Name = "employee_name";
             this.employee_name.ReadOnly = true;
-            this.employee_name.Width = 117;
+            this.employee_name.Width = 115;
             // 
             // employee_lastname
             // 
@@ -237,7 +236,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.employee_lastname.MinimumWidth = 12;
             this.employee_lastname.Name = "employee_lastname";
             this.employee_lastname.ReadOnly = true;
-            this.employee_lastname.Width = 115;
+            this.employee_lastname.Width = 113;
             // 
             // gender
             // 
@@ -246,7 +245,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.gender.MinimumWidth = 12;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
-            this.gender.Width = 93;
+            this.gender.Width = 91;
             // 
             // department_name
             // 
@@ -255,7 +254,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.department_name.MinimumWidth = 12;
             this.department_name.Name = "department_name";
             this.department_name.ReadOnly = true;
-            this.department_name.Width = 128;
+            this.department_name.Width = 126;
             // 
             // Unit
             // 
@@ -264,7 +263,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Unit.MinimumWidth = 12;
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
-            this.Unit.Width = 68;
+            this.Unit.Width = 66;
             // 
             // Position
             // 
@@ -273,7 +272,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Position.MinimumWidth = 12;
             this.Position.Name = "Position";
             this.Position.ReadOnly = true;
-            this.Position.Width = 103;
+            this.Position.Width = 101;
             // 
             // type_of_approver
             // 
@@ -282,7 +281,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.type_of_approver.MinimumWidth = 12;
             this.type_of_approver.Name = "type_of_approver";
             this.type_of_approver.ReadOnly = true;
-            this.type_of_approver.Width = 156;
+            this.type_of_approver.Width = 154;
             // 
             // password
             // 
@@ -291,7 +290,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.password.MinimumWidth = 12;
             this.password.Name = "password";
             this.password.ReadOnly = true;
-            this.password.Width = 114;
+            this.password.Width = 112;
             // 
             // user_rights_name
             // 
@@ -300,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.user_rights_name.MinimumWidth = 12;
             this.user_rights_name.Name = "user_rights_name";
             this.user_rights_name.ReadOnly = true;
-            this.user_rights_name.Width = 125;
+            this.user_rights_name.Width = 123;
             // 
             // receiving_status
             // 
@@ -309,7 +308,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.receiving_status.MinimumWidth = 12;
             this.receiving_status.Name = "receiving_status";
             this.receiving_status.ReadOnly = true;
-            this.receiving_status.Width = 133;
+            this.receiving_status.Width = 131;
             // 
             // user_section
             // 
@@ -318,7 +317,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.user_section.MinimumWidth = 12;
             this.user_section.Name = "user_section";
             this.user_section.ReadOnly = true;
-            this.user_section.Width = 89;
+            this.user_section.Width = 87;
             // 
             // mattxtSearch
             // 

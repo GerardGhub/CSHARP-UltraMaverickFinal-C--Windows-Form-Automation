@@ -760,8 +760,26 @@ namespace COMPLETE_FLAT_UI
 
         private void btnCloseFinal_Click(object sender, EventArgs e)
         {
-            UpdateUserPasswordModal uptsetting = new UpdateUserPasswordModal();
-            uptsetting.ShowDialog();
+            //UpdateUserPasswordModal uptsetting = new UpdateUserPasswordModal();
+            //uptsetting.ShowDialog();
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //this.Close();
+
+                //frmLoginForm Login = new frmLoginForm();
+                //Login.ShowDialog();
+
+                //this.Hide();
+                //frmLoginForm sistema = new frmLoginForm();
+                //sistema.ShowDialog();
+
+                Application.Exit();
+            }
+            else
+            {
+
+                return;
+            }
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -1358,6 +1376,18 @@ namespace COMPLETE_FLAT_UI
             frmPendingOrder fm = new frmPendingOrder();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+        }
+
+        private void warehouseCrewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmWarehouseCrewMgmt fm = new frmWarehouseCrewMgmt();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
         private void button5_Click(object sender, EventArgs e)

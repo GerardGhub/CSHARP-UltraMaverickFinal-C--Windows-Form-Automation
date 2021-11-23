@@ -29,9 +29,9 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTypeofApprover));
             this.lblDepartmentID = new System.Windows.Forms.Label();
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
@@ -82,7 +82,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // metroButtonSave
             // 
             this.metroButtonSave.Location = new System.Drawing.Point(817, 351);
-            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonSave.Name = "metroButtonSave";
             this.metroButtonSave.Size = new System.Drawing.Size(68, 20);
             this.metroButtonSave.TabIndex = 455;
@@ -215,7 +215,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // metroButtonDelete
             // 
             this.metroButtonDelete.Location = new System.Drawing.Point(810, 316);
-            this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(68, 20);
             this.metroButtonDelete.TabIndex = 457;
@@ -249,18 +249,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgv_table.AllowUserToDeleteRows = false;
             this.dgv_table.AllowUserToResizeColumns = false;
             this.dgv_table.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_table.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_table.ColumnHeadersHeight = 45;
             this.dgv_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_table.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -272,8 +272,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgv_table.ReadOnly = true;
             this.dgv_table.RowHeadersVisible = false;
             this.dgv_table.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_table.Size = new System.Drawing.Size(100, 197);
             this.dgv_table.TabIndex = 456;
@@ -321,7 +321,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard2.Controls.Add(this.lstTypeofApprovers);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(48, 332);
+            this.materialCard2.Location = new System.Drawing.Point(48, 240);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
@@ -336,7 +336,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1426, 822);
+            this.lbltotalrecords.Location = new System.Drawing.Point(1426, 730);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
             this.lbltotalrecords.TabIndex = 578;
@@ -349,7 +349,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(1468, 838);
+            this.label3.Location = new System.Drawing.Point(1468, 746);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 18);
             this.label3.TabIndex = 579;
@@ -360,7 +360,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Location = new System.Drawing.Point(48, 248);
-            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(578, 40);
             this.panel1.TabIndex = 580;
@@ -379,7 +379,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.Size = new System.Drawing.Size(578, 40);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
@@ -436,7 +436,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 584);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.dgv_table);
@@ -455,7 +455,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.metroButtonDelete);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label19);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmTypeofApprover";
             this.Text = "Type of Approver";
             this.Load += new System.EventHandler(this.frmTypeofApprover_Load);

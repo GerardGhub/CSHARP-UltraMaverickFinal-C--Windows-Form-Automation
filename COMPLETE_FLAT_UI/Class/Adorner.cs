@@ -82,8 +82,8 @@ namespace ULTRAMAVERICK.Class
 
         class Badge : Label
         {
-            //Color BackColor = Color.SkyBlue;
-            Color BackColor =  ColorTranslator.FromHtml("#FF0000");
+            Color BackColor = Color.Black;
+            //Color BackColor =  ColorTranslator.FromHtml("#FF0000");
             Color ForeColor = Color.White;
             Font font = new Font("Sans Serif", 8f, FontStyle.Bold);
 
@@ -94,7 +94,7 @@ namespace ULTRAMAVERICK.Class
             protected override void OnPaint(PaintEventArgs e)
             {
                 e.Graphics.FillEllipse(new SolidBrush(BackColor), this.ClientRectangle);
-                e.Graphics.DrawString(Text, font, new SolidBrush(ForeColor), 3, 1);
+                e.Graphics.DrawString(Text, font, new SolidBrush(ForeColor), 1, 1);
             }
 
             protected override void OnClick(EventArgs e)

@@ -62,10 +62,14 @@ namespace ULTRAMAVERICK.Forms.Users
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-            textBox1.Text = String.Empty;
-            displayUsers();
-            hiDeDatagridColumn();
-            load_search();
+            this.WindowsLoadVBinder();
+            this.displayUsers();
+            //hiDeDatagridColumn();
+            this.load_search();
+        }
+        private void WindowsLoadVBinder()
+        {
+            this.textBox1.Text = String.Empty;
         }
 
         private void  hiDeDatagridColumn()
