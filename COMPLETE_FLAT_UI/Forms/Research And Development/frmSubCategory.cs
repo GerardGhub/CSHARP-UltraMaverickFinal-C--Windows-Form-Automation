@@ -28,7 +28,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         int p_id = 0;
         int temp_hid = 0;
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
+
 
 
         DataSet dSet_temp = new DataSet();
@@ -46,15 +46,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-            showSubCategoryData();
+            this.showSubCategoryData();
         }
         private void showSubCategoryData()      //method for loading available_menus
         {
             try
             {
-                ready = false;
+        
                 xClass.fillDataGridView(dgvSubCategory, "Sub_Category", dSet);
-                ready = true;
+         
                 lbltotalrecords.Text = dgvSubCategory.RowCount.ToString();
             }
             catch (Exception ex)

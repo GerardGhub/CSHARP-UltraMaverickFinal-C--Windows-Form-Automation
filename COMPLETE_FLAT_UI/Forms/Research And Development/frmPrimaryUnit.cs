@@ -28,7 +28,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         int p_id = 0;
         int temp_hid = 0;
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
+
 
 
         DataSet dSet_temp = new DataSet();
@@ -49,9 +49,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             try
             {
-                ready = false;
+             
                 xClass.fillDataGridView(dgvPrimaryUnit, "Primary_Unit", dSet);
-                ready = true;
+      
                 lbltotalrecords.Text = dgvPrimaryUnit.RowCount.ToString();
             }
             catch (Exception ex)

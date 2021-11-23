@@ -30,40 +30,50 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.mattxtArea = new MaterialSkin.Controls.MaterialTextBox();
+            this.mattxtStoreName = new MaterialSkin.Controls.MaterialTextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mattxtStoreCode = new MaterialSkin.Controls.MaterialTextBox();
+            this.cmbStoreRoute = new MetroFramework.Controls.MetroComboBox();
+            this.cmbStoreArea = new MetroFramework.Controls.MetroComboBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.mattxtArea);
+            this.materialCard1.Controls.Add(this.materialLabel2);
+            this.materialCard1.Controls.Add(this.materialLabel1);
+            this.materialCard1.Controls.Add(this.cmbStoreArea);
+            this.materialCard1.Controls.Add(this.cmbStoreRoute);
+            this.materialCard1.Controls.Add(this.mattxtStoreCode);
+            this.materialCard1.Controls.Add(this.mattxtStoreName);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(31, 92);
+            this.materialCard1.Location = new System.Drawing.Point(33, 92);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(495, 209);
+            this.materialCard1.Size = new System.Drawing.Size(495, 334);
             this.materialCard1.TabIndex = 0;
             // 
-            // mattxtArea
+            // mattxtStoreName
             // 
-            this.mattxtArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtArea.Depth = 0;
-            this.mattxtArea.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtArea.Hint = "Area";
-            this.mattxtArea.Location = new System.Drawing.Point(40, 72);
-            this.mattxtArea.MaxLength = 50;
-            this.mattxtArea.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtArea.Multiline = false;
-            this.mattxtArea.Name = "mattxtArea";
-            this.mattxtArea.Size = new System.Drawing.Size(401, 50);
-            this.mattxtArea.TabIndex = 0;
-            this.mattxtArea.Text = "";
+            this.mattxtStoreName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtStoreName.Depth = 0;
+            this.mattxtStoreName.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtStoreName.Hint = "Store Name";
+            this.mattxtStoreName.Location = new System.Drawing.Point(49, 89);
+            this.mattxtStoreName.MaxLength = 50;
+            this.mattxtStoreName.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtStoreName.Multiline = false;
+            this.mattxtStoreName.Name = "mattxtStoreName";
+            this.mattxtStoreName.Size = new System.Drawing.Size(401, 50);
+            this.mattxtStoreName.TabIndex = 0;
+            this.mattxtStoreName.Text = "";
             // 
             // materialButton1
             // 
@@ -72,7 +82,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(467, 309);
+            this.materialButton1.Location = new System.Drawing.Point(467, 455);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -88,7 +98,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(206, 309);
+            this.textBox1.Location = new System.Drawing.Point(206, 455);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 472;
@@ -96,11 +106,70 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // mattxtStoreCode
+            // 
+            this.mattxtStoreCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtStoreCode.Depth = 0;
+            this.mattxtStoreCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mattxtStoreCode.Hint = "Store Code";
+            this.mattxtStoreCode.Location = new System.Drawing.Point(49, 17);
+            this.mattxtStoreCode.MaxLength = 50;
+            this.mattxtStoreCode.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtStoreCode.Multiline = false;
+            this.mattxtStoreCode.Name = "mattxtStoreCode";
+            this.mattxtStoreCode.Size = new System.Drawing.Size(401, 50);
+            this.mattxtStoreCode.TabIndex = 1;
+            this.mattxtStoreCode.Text = "";
+            // 
+            // cmbStoreRoute
+            // 
+            this.cmbStoreRoute.FormattingEnabled = true;
+            this.cmbStoreRoute.ItemHeight = 23;
+            this.cmbStoreRoute.Location = new System.Drawing.Point(49, 175);
+            this.cmbStoreRoute.Name = "cmbStoreRoute";
+            this.cmbStoreRoute.Size = new System.Drawing.Size(401, 29);
+            this.cmbStoreRoute.TabIndex = 2;
+            this.cmbStoreRoute.UseSelectable = true;
+            // 
+            // cmbStoreArea
+            // 
+            this.cmbStoreArea.FormattingEnabled = true;
+            this.cmbStoreArea.ItemHeight = 23;
+            this.cmbStoreArea.Location = new System.Drawing.Point(49, 251);
+            this.cmbStoreArea.Name = "cmbStoreArea";
+            this.cmbStoreArea.Size = new System.Drawing.Size(401, 29);
+            this.cmbStoreArea.TabIndex = 3;
+            this.cmbStoreArea.UseSelectable = true;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(51, 229);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(74, 19);
+            this.materialLabel1.TabIndex = 4;
+            this.materialLabel1.Text = "Store Area";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(51, 153);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(83, 19);
+            this.materialLabel2.TabIndex = 5;
+            this.materialLabel2.Text = "Store Route";
+            // 
             // frmAddNewArea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 357);
+            this.ClientSize = new System.Drawing.Size(562, 533);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.materialCard1);
@@ -110,6 +179,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewArea_FormClosed);
             this.Load += new System.EventHandler(this.frmAddNewArea_Load);
             this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,8 +188,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         #endregion
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialTextBox mattxtArea;
+        private MaterialSkin.Controls.MaterialTextBox mattxtStoreName;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private System.Windows.Forms.TextBox textBox1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MetroFramework.Controls.MetroComboBox cmbStoreArea;
+        private MetroFramework.Controls.MetroComboBox cmbStoreRoute;
+        private MaterialSkin.Controls.MaterialTextBox mattxtStoreCode;
     }
 }

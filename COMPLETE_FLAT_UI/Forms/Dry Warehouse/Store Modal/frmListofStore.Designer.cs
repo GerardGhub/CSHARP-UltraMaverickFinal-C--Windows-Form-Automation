@@ -33,23 +33,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListofStore));
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnNewTool = new System.Windows.Forms.ToolStripButton();
+            this.btnEditTool = new System.Windows.Forms.ToolStripButton();
+            this.btnRemoveTool = new System.Windows.Forms.ToolStripButton();
+            this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.stored_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.store_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.store_route = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbltotaldata
@@ -59,7 +67,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
             this.lbltotaldata.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotaldata.Location = new System.Drawing.Point(12, 558);
+            this.lbltotaldata.Location = new System.Drawing.Point(12, 610);
             this.lbltotaldata.Name = "lbltotaldata";
             this.lbltotaldata.Size = new System.Drawing.Size(46, 40);
             this.lbltotaldata.TabIndex = 637;
@@ -72,7 +80,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(57, 572);
+            this.label4.Location = new System.Drawing.Point(57, 624);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 638;
@@ -86,7 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2.Controls.Add(this.dgvSubCategory);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(14, 82);
+            this.materialCard2.Location = new System.Drawing.Point(14, 142);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
@@ -121,14 +129,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.store_name,
             this.store_area,
             this.store_route,
-            this.date_added,
-            this.added_by,
-            this.modified_date,
-            this.modified_by});
+            this.date_added});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -173,7 +178,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvSubCategory.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvSubCategory.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvSubCategory.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubCategory.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dgvSubCategory.ThemeStyle.RowsStyle.Height = 40;
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -204,10 +209,100 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label2.TabIndex = 635;
             this.label2.Text = "Items";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.toolStripMain);
+            this.panel1.Location = new System.Drawing.Point(14, 95);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(309, 40);
+            this.panel1.TabIndex = 666;
+            // 
+            // toolStripMain
+            // 
+            this.toolStripMain.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripMain.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNewTool,
+            this.btnEditTool,
+            this.btnRemoveTool,
+            this.btnUpdateTool,
+            this.btnCancelTool});
+            this.toolStripMain.Location = new System.Drawing.Point(0, 0);
+            this.toolStripMain.Name = "toolStripMain";
+            this.toolStripMain.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMain.Size = new System.Drawing.Size(309, 40);
+            this.toolStripMain.TabIndex = 1;
+            this.toolStripMain.Text = "toolStrip2";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(382, 113);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 667;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnNewTool
+            // 
+            this.btnNewTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewTool.Image = ((System.Drawing.Image)(resources.GetObject("btnNewTool.Image")));
+            this.btnNewTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNewTool.Name = "btnNewTool";
+            this.btnNewTool.Size = new System.Drawing.Size(74, 37);
+            this.btnNewTool.Text = "&New";
+            this.btnNewTool.Click += new System.EventHandler(this.btnNewTool_Click);
+            // 
+            // btnEditTool
+            // 
+            this.btnEditTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditTool.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTool.Image")));
+            this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditTool.Name = "btnEditTool";
+            this.btnEditTool.Size = new System.Drawing.Size(70, 37);
+            this.btnEditTool.Text = "&Edit";
+            // 
+            // btnRemoveTool
+            // 
+            this.btnRemoveTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveTool.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveTool.Image")));
+            this.btnRemoveTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRemoveTool.Name = "btnRemoveTool";
+            this.btnRemoveTool.Size = new System.Drawing.Size(92, 37);
+            this.btnRemoveTool.Text = "&Remove";
+            // 
+            // btnUpdateTool
+            // 
+            this.btnUpdateTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
+            this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdateTool.Name = "btnUpdateTool";
+            this.btnUpdateTool.Size = new System.Drawing.Size(74, 44);
+            this.btnUpdateTool.Text = "&Save";
+            this.btnUpdateTool.Visible = false;
+            // 
+            // btnCancelTool
+            // 
+            this.btnCancelTool.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
+            this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelTool.Name = "btnCancelTool";
+            this.btnCancelTool.Size = new System.Drawing.Size(83, 44);
+            this.btnCancelTool.Text = "&Cancel";
+            this.btnCancelTool.Visible = false;
+            // 
             // stored_id
             // 
             this.stored_id.DataPropertyName = "stored_id";
             this.stored_id.FillWeight = 40.60914F;
+            this.stored_id.Frozen = true;
             this.stored_id.HeaderText = "STORE ID";
             this.stored_id.MinimumWidth = 12;
             this.stored_id.Name = "stored_id";
@@ -218,6 +313,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.store_code.DataPropertyName = "store_code";
             this.store_code.FillWeight = 99.49239F;
+            this.store_code.Frozen = true;
             this.store_code.HeaderText = "STORE CODE";
             this.store_code.MinimumWidth = 12;
             this.store_code.Name = "store_code";
@@ -228,6 +324,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.store_name.DataPropertyName = "store_name";
             this.store_name.FillWeight = 99.49239F;
+            this.store_name.Frozen = true;
             this.store_name.HeaderText = "STORE NAME";
             this.store_name.MinimumWidth = 12;
             this.store_name.Name = "store_name";
@@ -263,35 +360,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.date_added.ReadOnly = true;
             this.date_added.Width = 125;
             // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            this.added_by.Width = 107;
-            // 
-            // modified_date
-            // 
-            this.modified_date.DataPropertyName = "modified_date";
-            this.modified_date.HeaderText = "MODIFIED DATE";
-            this.modified_date.Name = "modified_date";
-            this.modified_date.ReadOnly = true;
-            this.modified_date.Width = 144;
-            // 
-            // modified_by
-            // 
-            this.modified_by.DataPropertyName = "modified_by";
-            this.modified_by.HeaderText = "MODIFIED BY";
-            this.modified_by.Name = "modified_by";
-            this.modified_by.ReadOnly = true;
-            this.modified_by.Width = 126;
-            // 
             // frmListofStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 598);
+            this.ClientSize = new System.Drawing.Size(1024, 654);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbltotaldata);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.materialCard2);
@@ -302,6 +377,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Load += new System.EventHandler(this.frmListofStore_Load);
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,14 +394,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private Guna.UI2.WinForms.Guna2DataGridView dgvSubCategory;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStrip toolStripMain;
+        private System.Windows.Forms.ToolStripButton btnNewTool;
+        private System.Windows.Forms.ToolStripButton btnEditTool;
+        private System.Windows.Forms.ToolStripButton btnRemoveTool;
+        private System.Windows.Forms.ToolStripButton btnUpdateTool;
+        private System.Windows.Forms.ToolStripButton btnCancelTool;
+        public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn stored_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_area;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_route;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
-        private System.Windows.Forms.DataGridViewTextBoxColumn added_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modified_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modified_by;
     }
 }

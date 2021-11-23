@@ -60,7 +60,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void LoadRecords()
         {
-            if (lbltotalrecords.Text == "0")
+            if (this.lbltotalrecords.Text == "0")
             {
 
             }

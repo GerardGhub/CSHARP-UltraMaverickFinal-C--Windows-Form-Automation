@@ -60,7 +60,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.Text = "Add New Area";
                 this.materialButton1.Text = "ADD";
                 this.created_by = created_by;
-                this.mattxtArea.Text = String.Empty;
+                this.mattxtStoreName.Text = String.Empty;
             }
             else
             {
@@ -68,9 +68,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.materialButton1.Text = "UPDATE";
                 this.created_by = created_by;
               
-                this.mattxtArea.Text = sp_area_name;
+                this.mattxtStoreName.Text = sp_area_name;
             }
-            this.mattxtArea.Focus();
+            this.mattxtStoreName.Focus();
 
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -141,10 +141,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            if (mattxtArea.Text == String.Empty)
+            if (mattxtStoreName.Text == String.Empty)
             {
                 FillRequiredTextbox();
-               mattxtArea.Focus();
+               mattxtStoreName.Focus();
                 return;
             }
 
@@ -152,15 +152,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             dSet.Clear();
             dSet = objStorProc.sp_tblArea(0,
-                mattxtArea.Text, created_by, "", "", "", "getbyname");
+                mattxtStoreName.Text, created_by, "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 this.AlreadyExist();
-                this.mattxtArea.Text = String.Empty;
+                this.mattxtStoreName.Text = String.Empty;
 
 
-                this.mattxtArea.Focus();
+                this.mattxtStoreName.Focus();
                 return;
             }
             else
@@ -237,7 +237,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     dSet = objStorProc.sp_tblArea(0,
 
 
-                        mattxtArea.Text.Trim(),
+                        mattxtStoreName.Text.Trim(),
                         created_by,
                         "",
                         "",
@@ -265,7 +265,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_tblArea(sp_area_id,mattxtArea.Text.Trim(),
+                    dSet = objStorProc.sp_tblArea(sp_area_id,mattxtStoreName.Text.Trim(),
                         created_by,
                         "",
                        created_by,

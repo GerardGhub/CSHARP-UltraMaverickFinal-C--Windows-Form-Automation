@@ -97,7 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     this.sp_order_id = this.dgvStoreOrder.CurrentRow.Cells["id"].Value.ToString();
                     this.sp_date_ordered = this.dgvStoreOrder.CurrentRow.Cells["date_ordered"].Value.ToString();
-                    //this.sp_fox = this.dgvStoreOrder.CurrentRow.Cells["store_code"].Value.ToString();
+                    this.sp_fox = this.dgvStoreOrder.CurrentRow.Cells["store_code"].Value.ToString();
                     this.sp_store_name = this.dgvStoreOrder.CurrentRow.Cells["store_name"].Value.ToString();
                     this.sp_route = this.dgvStoreOrder.CurrentRow.Cells["route"].Value.ToString();
                     this.sp_area = this.dgvStoreOrder.CurrentRow.Cells["area"].Value.ToString();
@@ -252,40 +252,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void SaveMethod1()
         {
 
-            //Check The if store order already created at the system
-            dSet.Clear();
-            dSet = objStorProc.sp_dry_wh_orders(0,
-                Convert.ToInt32(sp_order_id),
-                sp_date_ordered,
-                sp_fox,
-                sp_store_name,
-                sp_route,
-                sp_area,
-                sp_category,
-                sp_item_code,
-                sp_description,
-                sp_uom,
-                sp_qty,
-                "1",
-                "",
-                "",
-                "getbyorderid_api");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                //RawMatsAlreadyExist();
-
-                mode = "error";
-
-                dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-
-
-            }
-            else
-            {
-
-            }
+   
 
 
             //Check The store if existg on the system
@@ -358,40 +325,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             }
 
-            ////Check The Area if existg on the system
-            //dSet.Clear();
-            //dSet = objStorProc.sp_dry_wh_orders(0,
-            //    0,
-            //    sp_date_ordered,
-            //    sp_fox,
-            //    sp_store_name,
-            //    sp_route,
-            //    sp_area,
-            //    sp_category,
-            //    sp_item_code,
-            //    sp_description,
-            //    sp_uom,
-            //    sp_qty,
-            //    "1",
-            //    "",
-            //    "",
-            //    "get_area_name");
+            //Check The Area if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "get_area_name");
 
-            //if (dSet.Tables[0].Rows.Count > 0)
-            //{
-            //    //RawMatsAlreadyExist();
-
-
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //RawMatsAlreadyExist();
 
 
-            //}
-            //else
-            //{
-            //    mode = "error";
 
-            //    this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
-            //}
+            }
+            else
+            {
+                mode = "error";
+
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
 
             //Check The Route if existg on the system
             dSet.Clear();
@@ -517,7 +484,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Check The if store order already created at the system
             dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(0,
-                0,
+                Convert.ToInt32(sp_order_id),
                 sp_date_ordered,
                 sp_fox,
                 sp_store_name,
@@ -531,22 +498,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 "1",
                 "",
                 "",
-                "getbydata_manual");
+                "getbyorderid_api");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
 
-                this.mode = "error";
+                mode = "error";
 
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
 
 
             }
             else
             {
-
+                if (mode == "error")
+                {
+                    dSet.Clear();
+                    dSet = objStorProc.sp_dry_wh_orders(0,
+                       Convert.ToInt32( sp_order_id),
+                        sp_date_ordered,
+                        sp_fox,
+                        sp_store_name,
+                        sp_route,
+                        sp_area,
+                        sp_category,
+                        sp_item_code,
+                        sp_description,
+                        sp_uom,
+                        sp_qty,
+                        "1",
+                        "",
+                         Convert.ToInt32(user_id).ToString(),
+                        "add_validation");
+                }
+                else
+                {
+                    dSet.Clear();
+                    dSet = objStorProc.sp_dry_wh_orders(0,
+                        Convert.ToInt32(sp_order_id),
+                        sp_date_ordered,
+                        sp_fox,
+                        sp_store_name,
+                        sp_route,
+                        sp_area,
+                        sp_category,
+                        sp_item_code,
+                        sp_description,
+                        sp_uom,
+                        sp_qty,
+                        "1",
+                        "",
+                         Convert.ToInt32(user_id).ToString(),
+                        "add");
+                }
             }
 
 
@@ -569,7 +575,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                         this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
-                        this.InsertDataPerRow();
+                        //this.InsertDataPerRow();
+                        MessageBox.Show("OK");
+                        frmStoreOrderRestAPIcall_Load(new object(), new System.EventArgs());
                     }
 
 

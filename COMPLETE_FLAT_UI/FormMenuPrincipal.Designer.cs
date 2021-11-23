@@ -86,6 +86,7 @@
             this.poSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consolidatedOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderRESTAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolReceiving = new System.Windows.Forms.ToolStripDropDownButton();
             this.listOfReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rMReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +128,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
-            this.orderRESTAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pendingOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -720,7 +721,8 @@
             this.poSummaryToolStripMenuItem,
             this.storesToolStripMenuItem1,
             this.consolidatedOrderToolStripMenuItem,
-            this.orderRESTAPIToolStripMenuItem});
+            this.orderRESTAPIToolStripMenuItem,
+            this.pendingOrderToolStripMenuItem});
             this.toolImportDry.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.toolImportDry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolImportDry.Image = ((System.Drawing.Image)(resources.GetObject("toolImportDry.Image")));
@@ -761,6 +763,13 @@
             this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.consolidatedOrderToolStripMenuItem.Text = "Consolidated Order";
             this.consolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.consolidatedOrderToolStripMenuItem_Click);
+            // 
+            // orderRESTAPIToolStripMenuItem
+            // 
+            this.orderRESTAPIToolStripMenuItem.Name = "orderRESTAPIToolStripMenuItem";
+            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.orderRESTAPIToolStripMenuItem.Text = "Order REST API";
+            this.orderRESTAPIToolStripMenuItem.Click += new System.EventHandler(this.orderRESTAPIToolStripMenuItem_Click);
             // 
             // toolReceiving
             // 
@@ -1315,12 +1324,12 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
-            // orderRESTAPIToolStripMenuItem
+            // pendingOrderToolStripMenuItem
             // 
-            this.orderRESTAPIToolStripMenuItem.Name = "orderRESTAPIToolStripMenuItem";
-            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
-            this.orderRESTAPIToolStripMenuItem.Text = "Order REST API";
-            this.orderRESTAPIToolStripMenuItem.Click += new System.EventHandler(this.orderRESTAPIToolStripMenuItem_Click);
+            this.pendingOrderToolStripMenuItem.Name = "pendingOrderToolStripMenuItem";
+            this.pendingOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.pendingOrderToolStripMenuItem.Text = "Pending Orders";
+            this.pendingOrderToolStripMenuItem.Click += new System.EventHandler(this.pendingOrderToolStripMenuItem_Click);
             // 
             // FormMenuPrincipal
             // 
@@ -1461,6 +1470,7 @@
         private System.Windows.Forms.ToolStripMenuItem storesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consolidatedOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderRESTAPIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pendingOrderToolStripMenuItem;
     }
 }
 

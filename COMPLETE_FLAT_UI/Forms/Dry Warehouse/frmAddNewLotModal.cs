@@ -23,7 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         DataSet dSet = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
-        Boolean ready = false;
+
 
         private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
 

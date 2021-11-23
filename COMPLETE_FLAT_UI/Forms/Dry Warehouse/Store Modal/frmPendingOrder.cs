@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin;
-using MaterialSkin.Controls;
 using ULTRAMAVERICK.Models;
 
-namespace COMPLETE_FLAT_UI
+namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    public partial class FormLogo : MaterialForm
+    public partial class frmPendingOrder : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -21,59 +20,47 @@ namespace COMPLETE_FLAT_UI
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
-
-
+        string mode = "";
+        int p_id = 0;
+        int temp_hid = 0;
         DateTime dNow = DateTime.Now;
 
 
 
         DataSet dSet_temp = new DataSet();
-        public FormLogo()
+        public frmPendingOrder()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void frmPendingOrder_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void FormLogo_Load(object sender, EventArgs e)
-        {
-            //pictureBox1.Padding = new Padding(0);
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            this.showReceivingData();
-            dataGridView1.Visible = false;
-         
 
+            this.showDryWhPendingOrders();
         }
-        private void showReceivingData()      //method for loading available_menus
+
+        private void showDryWhPendingOrders()      //method for loading available_menus
         {
             try
             {
-           
-                this.xClass.fillDataGridView(dataGridView1, "Po_Receiving_Warehouse", dSet);
-          
-                this.lbltotalReceiving.Text = dataGridView1.RowCount.ToString();
+
+                xClass.fillDataGridView(this.dgvSubCategory, "dry_wh_orders_pending", dSet);
+
+                this.lbltotaldata.Text = this.dgvSubCategory.RowCount.ToString();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-
-
-        }
-
-        private void metroPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void materialCard1_Paint(object sender, PaintEventArgs e)
-        {
+            this.dgvSubCategory.Columns["is_active"].Visible = false;
+            this.dgvSubCategory.Columns["added_by"].Visible = false;
+            this.dgvSubCategory.Columns["primary_id"].Visible = false;
+            this.dgvSubCategory.Columns["is_for_validation"].Visible = false;
 
         }
     }
+    
 }

@@ -37,6 +37,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
             this.showReceivingData();
+            this.WindowsRefresher();
+        }
+        private void WindowsRefresher()
+        {
+            if (textBox1.Text == "data Already Save!")
+            {
+                toolStripMain.Visible = false;
+            }
+            else if (textBox1.Text == "Gerard Singian")
+            {
+                textBox1.Text = string.Empty;
+                toolStripMain.Visible = true;
+   
+            }
+            else
+            {
+
+
+            }
         }
         private void showReceivingData()      //method for loading available_menus
         {
@@ -54,6 +73,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             this.dgvSubCategory.Columns["stored_id"].Visible = false;
             this.dgvSubCategory.Columns["is_active"].Visible = false;
+        }
+
+        private void btnNewTool_Click(object sender, EventArgs e)
+        {
+            toolStripMain.Visible = false;
+           frmAddNewStore addNew = new frmAddNewStore(this);
+            addNew.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.frmListofStore_Load(sender, e);
         }
     }
 }

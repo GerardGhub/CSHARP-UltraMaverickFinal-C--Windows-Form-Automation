@@ -1353,6 +1353,13 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void pendingOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPendingOrder fm = new frmPendingOrder();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());
