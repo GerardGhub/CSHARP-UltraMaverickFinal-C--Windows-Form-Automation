@@ -45,17 +45,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         public string sp_item_description { get; set; }
         public string sp_quantity { get; set; }
-        public string sp_reject_remarks { get; set; }
+
         public int sp_index_id { get; set; }
         public int sp_po_number { get; set; }
-        public int sp_qty_reject { get; set; }
+  
         public string sp_added_by { get; set; }
-        public string sp_date_added { get; set; }
-        public string sp_updated_by { get; set; }
-        public string sp_updated_date { get; set; }
+  
         public string sp_primary_key{get; set;}
 
-        public int TotalSummaryofReject { get; set; }
         public string sp_ActualQty { get; set; }
         private void frmAddNewPartialRejectReceiving_Load(object sender, EventArgs e)
         {
@@ -108,7 +105,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     {
 
                     }
-                    dgvLotData.DataSource = dv;
+                    this.dgvLotData.DataSource = dv;
                     //lbltotalrecords.Text = dgvLotData.RowCount.ToString();
                 }
             }

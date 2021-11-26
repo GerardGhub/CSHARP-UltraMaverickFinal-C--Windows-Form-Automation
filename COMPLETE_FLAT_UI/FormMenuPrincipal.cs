@@ -359,7 +359,7 @@ namespace COMPLETE_FLAT_UI
 
             this.showReceivingData();
             //btnUsers.Enabled = true;
-            this.lblFirstName.Text = userinfo.emp_name.ToString() + userinfo.emp_lastname.ToString();// First Name Session
+            this.lblFirstName.Text = userinfo.emp_name.ToString() + new string(' ', 1) + userinfo.emp_lastname.ToString();// First Name Session
             //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
             this.lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();// loading logo
@@ -1251,6 +1251,9 @@ namespace COMPLETE_FLAT_UI
         private void btnDashBoard1_Click_1(object sender, EventArgs e)
         {
             panelMenuSelection.Visible = false;
+            FormLogo fm = new FormLogo();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         private void btnUsers1_Click(object sender, EventArgs e)

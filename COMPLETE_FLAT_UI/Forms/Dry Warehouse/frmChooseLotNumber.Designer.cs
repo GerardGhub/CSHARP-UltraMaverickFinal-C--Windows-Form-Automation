@@ -37,16 +37,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtLotnumber = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.dgvLotData = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.matbtnSelect = new MaterialSkin.Controls.MaterialButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lot_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.matbtnSelect = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLotData)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -74,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtLotnumber.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtLotnumber.Hint = "Lot Number";
             this.mattxtLotnumber.Location = new System.Drawing.Point(313, 18);
-            this.mattxtLotnumber.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtLotnumber.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtLotnumber.MaxLength = 50;
             this.mattxtLotnumber.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtLotnumber.Multiline = false;
@@ -93,7 +93,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mattxtCategory.Hint = "Major Category";
             this.mattxtCategory.Location = new System.Drawing.Point(17, 18);
-            this.mattxtCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtCategory.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtCategory.MaxLength = 50;
             this.mattxtCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtCategory.Multiline = false;
@@ -113,12 +113,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLotData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvLotData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvLotData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvLotData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvLotData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -134,15 +133,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.date_added});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLotData.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLotData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLotData.EnableHeadersVisualStyles = false;
-            this.dgvLotData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvLotData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvLotData.Location = new System.Drawing.Point(5, 6);
             this.dgvLotData.MultiSelect = false;
             this.dgvLotData.Name = "dgvLotData";
@@ -163,84 +162,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLotData.Size = new System.Drawing.Size(415, 408);
             this.dgvLotData.TabIndex = 594;
-            this.dgvLotData.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvLotData.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvLotData.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvLotData.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dgvLotData.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvLotData.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvLotData.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgvLotData.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLotData.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLotData.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLotData.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvLotData.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.dgvLotData.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvLotData.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvLotData.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.dgvLotData.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.dgvLotData.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLotData.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvLotData.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLotData.ThemeStyle.HeaderStyle.Height = 35;
             this.dgvLotData.ThemeStyle.ReadOnly = true;
             this.dgvLotData.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLotData.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvLotData.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvLotData.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvLotData.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvLotData.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLotData.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvLotData.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvLotData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLotData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.dgvLotData_CurrentCellChanged);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 12;
-            // 
-            // lot_number
-            // 
-            this.lot_number.DataPropertyName = "lot_number";
-            this.lot_number.FillWeight = 99.49239F;
-            this.lot_number.HeaderText = "LOT NO.";
-            this.lot_number.MinimumWidth = 12;
-            this.lot_number.Name = "lot_number";
-            this.lot_number.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.FillWeight = 99.49239F;
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 12;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.FillWeight = 99.49239F;
-            this.category.HeaderText = "CATEGORY";
-            this.category.MinimumWidth = 12;
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.FillWeight = 99.49239F;
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.MinimumWidth = 12;
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 12;
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
             // 
             // materialCard2
             // 
@@ -301,6 +245,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matbtnSelect.UseVisualStyleBackColor = true;
             this.matbtnSelect.Click += new System.EventHandler(this.matbtnSelect_Click);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 12;
+            // 
+            // lot_number
+            // 
+            this.lot_number.DataPropertyName = "lot_number";
+            this.lot_number.FillWeight = 99.49239F;
+            this.lot_number.HeaderText = "LOT NO.";
+            this.lot_number.MinimumWidth = 12;
+            this.lot_number.Name = "lot_number";
+            this.lot_number.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.FillWeight = 99.49239F;
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 12;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.FillWeight = 99.49239F;
+            this.category.HeaderText = "CATEGORY";
+            this.category.MinimumWidth = 12;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.FillWeight = 99.49239F;
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.MinimumWidth = 12;
+            this.added_by.Name = "added_by";
+            this.added_by.ReadOnly = true;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 12;
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            // 
             // frmChooseLotNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,7 +310,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.Name = "frmChooseLotNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -333,13 +332,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
+        private MaterialSkin.Controls.MaterialTextBox mattxtLotnumber;
+        private MaterialSkin.Controls.MaterialButton matbtnSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn lot_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn added_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
-        private MaterialSkin.Controls.MaterialTextBox mattxtLotnumber;
-        private MaterialSkin.Controls.MaterialButton matbtnSelect;
     }
 }

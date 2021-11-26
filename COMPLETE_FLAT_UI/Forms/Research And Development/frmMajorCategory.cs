@@ -42,7 +42,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
+           
             this.showMajorCategoryData();
             this.SearchMethodJarVarCallingSP();
         }

@@ -42,6 +42,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_final_id { get; set; }
         public double sp_receiving_qty { get; set; }
         public string sp_total_remaining_po { get; set; }
+        public string sp_warehouse_reject_approval { get; set; }
         
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
@@ -52,6 +53,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.mattxtbarcode.Focus();
+    
         }
 
         private void showLatestID()      
@@ -139,6 +141,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Red;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        private void QCReceiverAlreadyApproved()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Item Already Approved on QC Supervisor for receiving!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
             popup.Popup();
 
             popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
@@ -311,11 +342,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void showValueCell()
         {
-            if (dgvMajorCategory.Rows.Count > 0)
+            if (this.dgvMajorCategory.Rows.Count > 0)
             {
-                if (dgvMajorCategory.CurrentRow != null)
+                if (this.dgvMajorCategory.CurrentRow != null)
                 {
-                    if (dgvMajorCategory.CurrentRow.Cells["item_code"].Value != null)
+                    if (this.dgvMajorCategory.CurrentRow.Cells["item_code"].Value != null)
                     {
                         this.p_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["PrimaryID"].Value);
                         this.mattxtitemcode.Text = dgvMajorCategory.CurrentRow.Cells["item_code"].Value.ToString();
@@ -327,11 +358,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtcategory.Text = dgvMajorCategory.CurrentRow.Cells["major_category"].Value.ToString();
                         this.mattxtqtyuom.Text = dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
                         this.mattxtponumber.Text = dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
-                        this.mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
+
+
                         this.mattxtqtyreject.Text = dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
                         this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
                         this.sp_total_remaining_po = dgvMajorCategory.CurrentRow.Cells["totalremainingpo"].Value.ToString();
-                       
+                        this.sp_warehouse_reject_approval = dgvMajorCategory.CurrentRow.Cells["WH_Reject_Approval"].Value.ToString();
+
+                        if (sp_warehouse_reject_approval == "1")                
+                        {
+                            this.mattxtqtyreject.Text = "0";
+                            this.mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["WH_Reject_QTY"].Value.ToString();
+                        }
+                        else
+                        {
+                            //MessageBox.Show("0");
+                            this.mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
+                        }
+                        if(this.matdaysExpiry.Text == String.Empty)
+                        {
+                            this.matdaysExpiry.Text = "0";                        }
+
                     }
                 }
             }
@@ -583,12 +630,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                     //this.SummaryComputation();  11/19/2021
+                    this.SummaryComputation(); //Inject 11/25/2021
 
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "add");
-                    this.SaveSuccessfully();
+                    if (this.sp_warehouse_reject_approval == "1")
+                    {
+                        this.dSet.Clear();
+                        this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                            p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                            mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "updated_rejected_partial");
+                    }
+
+                        this.SaveSuccessfully();
                     this.showLatestID();
                     //this.SummaryComputation();
 
@@ -710,7 +766,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
+            popup.ContentText = "Successfully Received";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -730,8 +786,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void btnAddRejetModal_Click(object sender, EventArgs e)
         {
-            frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text,p_id, Convert.ToInt32(mattxtponumber.Text));
-            showModal.ShowDialog();
+
+            //Notify the User if the Transactioin already approve by QC Superviosr
+            if (this.sp_warehouse_reject_approval == "1")
+            {
+                this.QCReceiverAlreadyApproved();
+            }
+           
+                frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text, p_id, Convert.ToInt32(mattxtponumber.Text));
+                showModal.ShowDialog();
+          
+        
+
+    
 
         }
 
@@ -794,6 +861,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
+
+        }
+
+        private void v(object sender, EventArgs e)
+        {
 
         }
     }
