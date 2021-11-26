@@ -360,24 +360,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtponumber.Text = dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
 
 
-                        this.mattxtqtyreject.Text = dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
-                        this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
+                        this.mattxtqtyreject.Text = this.dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
+                        if (this.totalRecords == "2")
+                        {
+                            int sum = 0;
+                            for (int i = 0; i < this.dgvMajorCategory.Rows.Count; ++i)
+                            {
+                                sum += Convert.ToInt32(this.dgvMajorCategory.Rows[i].Cells["total_received"].Value);
+                            }
+                            this.mattxtsoh.Text = sum.ToString();
+
+                        }
+                        else
+                        {
+                            this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
+                        }
                         this.sp_total_remaining_po = dgvMajorCategory.CurrentRow.Cells["totalremainingpo"].Value.ToString();
                         this.sp_warehouse_reject_approval = dgvMajorCategory.CurrentRow.Cells["WH_Reject_Approval"].Value.ToString();
 
-                        if (sp_warehouse_reject_approval == "1")                
+                        if (this.sp_warehouse_reject_approval == "1")                
                         {
-                            this.mattxtqtyreject.Text = "0";
-                            this.mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["WH_Reject_QTY"].Value.ToString();
+                            this.mattxtactualdelivery.Text = this.dgvMajorCategory.CurrentRow.Cells["WH_Reject_QTY"].Value.ToString();
+                            //this.mattxtqtyreject.Text = "0";
+
                         }
                         else
                         {
                             //MessageBox.Show("0");
-                            this.mattxtactualdelivery.Text = dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
+                            this.mattxtactualdelivery.Text = this.dgvMajorCategory.CurrentRow.Cells["actual_delivery"].Value.ToString();
+
+
                         }
                         if(this.matdaysExpiry.Text == String.Empty)
                         {
-                            this.matdaysExpiry.Text = "0";                        }
+                            this.matdaysExpiry.Text = "0";              
+                        }
+                        //MessageBox.Show(p_id.ToString());
 
                     }
                 }
@@ -623,7 +641,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //proceess of repack kupra
             if (currentreject == 0)
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
@@ -636,8 +654,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "add");
-                    if (this.sp_warehouse_reject_approval == "1")
+                    if (this.sp_warehouse_reject_approval =="1")
                     {
+
+                  
                         this.dSet.Clear();
                         this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                             p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
@@ -680,6 +700,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "add");
+
+                    if (this.sp_warehouse_reject_approval == "1")
+                    {
+
+
+                        this.dSet.Clear();
+                        this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                            p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                            mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "updated_rejected_partial");
+                    }
+
 
                     this.SaveSuccessfully();
                     this.showLatestID();
