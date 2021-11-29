@@ -215,7 +215,7 @@ namespace COMPLETE_FLAT_UI
             btnDryWarehouse1.Text = "Dry Warehouse";
             btnResearchAndDevelopment1.Text = "Research & Dev";
             btnProductionPlanner1.Text = "Planner";
-            btnLogout1.Text = "Logout";
+            btnSetUp.Text = "Logout";
         }
 
         private void ClearDashboardtext()
@@ -226,7 +226,7 @@ namespace COMPLETE_FLAT_UI
             btnDryWarehouse1.Text = String.Empty;
             btnResearchAndDevelopment1.Text = String.Empty;
             btnProductionPlanner1.Text = String.Empty;
-            btnLogout1.Text = String.Empty;
+            btnSetUp.Text = String.Empty;
         }
         private void tmExpandirMenu_Tick(object sender, EventArgs e)
         {

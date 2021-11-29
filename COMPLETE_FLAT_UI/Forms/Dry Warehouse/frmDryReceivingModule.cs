@@ -361,7 +361,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                         this.mattxtqtyreject.Text = this.dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
-                        if (this.totalRecords == "2")
+                        if (this.totalRecords == "1")
+                        {
+                            this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
+              
+
+                        }
+                        else
                         {
                             int sum = 0;
                             for (int i = 0; i < this.dgvMajorCategory.Rows.Count; ++i)
@@ -369,11 +375,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                                 sum += Convert.ToInt32(this.dgvMajorCategory.Rows[i].Cells["total_received"].Value);
                             }
                             this.mattxtsoh.Text = sum.ToString();
-
-                        }
-                        else
-                        {
-                            this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
                         }
                         this.sp_total_remaining_po = dgvMajorCategory.CurrentRow.Cells["totalremainingpo"].Value.ToString();
                         this.sp_warehouse_reject_approval = dgvMajorCategory.CurrentRow.Cells["WH_Reject_Approval"].Value.ToString();
@@ -504,6 +505,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
+        public void InvalidQuantity()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Invalid Quantity!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
         private void mattxtReceived_Click(object sender, EventArgs e)
         {
 
@@ -566,10 +592,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void mattxtReceived_Click_1(object sender, EventArgs e)
         {
 
-            if (mattxtqtyReceived.Text.Trim() == string.Empty)
+            if (this.mattxtqtyReceived.Text.Trim() == string.Empty)
             {
                 this.FillRequiredFields();
-                mattxtqtyReceived.Focus();
+      
+                return;
+            }
+
+            if(this.mattxtqtyReceived.Text == "0")
+            {
+                this.InvalidQuantity();
+
                 return;
             }
 
@@ -688,7 +721,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                 //totalSum = qtyReceiving - rejected;
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to received the Qty '"+mattxtqtyreject.Text+"' ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure " +
+                    "you want to received the Qty '"+mattxtqtyreject.Text+"' ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
