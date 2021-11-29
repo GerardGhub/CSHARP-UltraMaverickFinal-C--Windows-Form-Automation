@@ -39,6 +39,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
         public string sp_created_by { get; set; }
         public string sp_created_at { get; set; }
+        public string sp_modified_at { get; set; }
+        public string sp_modified_by { get; set; }
         private void frmItemType_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -136,8 +138,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatItemType.Enabled = true;
             matBtnNew.Visible = false;
             txtmatItemType.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            this.sp_modified_at = String.Empty;
+            this.sp_modified_by = String.Empty;
 
             sp_created_at = (dNow.ToString("M/d/yyyy"));
             sp_created_by = userinfo.emp_name.ToUpper();
@@ -213,8 +215,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                 sp_created_by,
                 sp_created_at,
-                txtModifiedAt.Text.Trim(),
-                txtModifiedBy.Text.Trim(), "add");
+                this.sp_modified_at,
+                this.sp_modified_by, "add");
 
                 showItemTypeData();
 
@@ -244,8 +246,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             sp_created_by,
             sp_created_at,
-            txtModifiedAt.Text.Trim(),
-            txtModifiedBy.Text.Trim(), "edit");
+            this.sp_modified_at,
+          this.sp_modified_by, "edit");
             UpdateNotifications();
             showItemTypeData();
             mode = "";
@@ -268,8 +270,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             sp_created_by,
             sp_created_at,
-            txtModifiedAt.Text.Trim(),
-            txtModifiedBy.Text.Trim(), "edit");
+           this.sp_modified_at,
+            this.sp_modified_by, "edit");
             this.UpdateNotifications();
             this.showItemTypeData();
             mode = "";
@@ -366,16 +368,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
-            matBtnDelete.Visible = false;
-            matBtnCancel.Visible = true;
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            matBtnSave.Visible = true;
-            txtmatItemType.Enabled = true;
-            txtmatItemType.Focus();
+            this.mode = "edit";
+            this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
+           this.sp_modified_by = userinfo.emp_name.ToUpper();
+            this.matBtnDelete.Visible = false;
+            this.matBtnCancel.Visible = true;
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+            this.matBtnSave.Visible = true;
+            this.txtmatItemType.Enabled = true;
+            this.txtmatItemType.Focus();
         }
 
 
@@ -414,7 +416,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "SUCCESSFULLY UPDATE FORM INFORMATION";
+            popup.ContentText = "SUCCESSFULLY UPDATE";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -528,8 +530,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         txtmatItemType.Text = dgvItemType.CurrentRow.Cells["item_type_desc"].Value.ToString();
                         sp_created_by = dgvItemType.CurrentRow.Cells["it_added_by"].Value.ToString();
                         sp_created_at = dgvItemType.CurrentRow.Cells["it_added_at"].Value.ToString();
-                        txtModifiedAt.Text = dgvItemType.CurrentRow.Cells["it_updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvItemType.CurrentRow.Cells["it_updated_by"].Value.ToString();
+                        this.sp_modified_at= dgvItemType.CurrentRow.Cells["it_updated_at"].Value.ToString();
+                        this.sp_modified_by = dgvItemType.CurrentRow.Cells["it_updated_by"].Value.ToString();
                     }
                 }
             }
@@ -543,8 +545,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatItemType.Enabled = true;
             matBtnNew.Visible = false;
             txtmatItemType.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+          this.sp_modified_at = String.Empty;
+            this.sp_modified_by = String.Empty;
             matBtnDelete.Visible = false;
             sp_created_at = (dNow.ToString("M/d/yyyy"));
             sp_created_by = userinfo.emp_name.ToUpper();
@@ -570,8 +572,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+           this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
+           this.sp_modified_by = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;

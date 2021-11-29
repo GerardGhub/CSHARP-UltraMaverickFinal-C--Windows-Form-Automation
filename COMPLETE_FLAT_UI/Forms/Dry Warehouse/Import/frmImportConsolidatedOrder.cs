@@ -64,6 +64,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.dry_wh_orders' table. You can move, or remove it, as needed.
             this.dry_wh_ordersTableAdapter.Fill(this.ultraMaverickDBDataSet.dry_wh_orders);
+          
+            
             objStorProc = xClass.g_objStoredProc.GetCollections();
             // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.tbl_stores' table. You can move, or remove it, as needed.
             //Remove muna eto
@@ -130,6 +132,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                         Store.date_ordered = dt.Rows[i]["ORDER DATE"].ToString();
                         Store.store_name = dt.Rows[i]["STORE"].ToString();
+                        Store.fox = dt.Rows[i]["STORE CODE"].ToString();
                         Store.route = dt.Rows[i]["ROUTE"].ToString();
                         Store.area = dt.Rows[i]["AREA"].ToString();
                         Store.category = dt.Rows[i]["CATEGORY"].ToString();
@@ -172,6 +175,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 this.mattxtSearch_TextChanged(sender, e);
             }
+
         }
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
@@ -182,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 {
                     //this.sp_order_id = (int)dgvRawMats.CurrentRow.Cells["order_id"].Value;
                     this.sp_date_ordered = dgvRawMats.CurrentRow.Cells["date_ordered"].Value.ToString();
-                    //this.sp_fox = dgvRawMats.CurrentRow.Cells["fox"].Value.ToString();
+                    this.sp_fox = dgvRawMats.CurrentRow.Cells["fox"].Value.ToString();
                     this.sp_store_name = dgvRawMats.CurrentRow.Cells["store_name"].Value.ToString();
                     this.sp_route = dgvRawMats.CurrentRow.Cells["route"].Value.ToString();
                     this.sp_area= dgvRawMats.CurrentRow.Cells["area"].Value.ToString();
@@ -232,6 +236,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 "",
                 "",
                 "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //RawMatsAlreadyExist();
+
+
+
+
+            }
+            else
+            {
+                mode = "error";
+
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
+            //Check The store Code if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "getbystore_code");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -512,13 +551,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
 
 
-           
-
-
-
-
-
-
 
             dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(0,
@@ -611,7 +643,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Raw Materials Successfully Upload";
+            popup.ContentText = "Successfully Upload";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -653,7 +685,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import a new Store? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
                 }

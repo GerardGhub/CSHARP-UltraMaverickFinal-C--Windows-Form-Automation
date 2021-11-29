@@ -39,6 +39,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
         public string sp_created_at { get; set; }
         public string sp_created_by { get; set; }
+        public string sp_modified_at { get; set; }
+        public string sp_modified_by { get; set; }
         private void frmItemClass_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -136,8 +138,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatItemClass.Enabled = true;
             matBtnNew.Visible = false;
             txtmatItemClass.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+           sp_modified_at = String.Empty;
+            sp_modified_by = String.Empty;
       
            sp_created_at = (dNow.ToString("M/d/yyyy"));
             sp_created_by = userinfo.emp_name.ToUpper();
@@ -163,8 +165,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            sp_modified_at = (dNow.ToString("M/d/yyyy"));
+           sp_modified_by = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
@@ -231,7 +233,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Item Class Already Exist!";
+            popup.ContentText = "Data Already Exist!";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -277,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "SUCCESSFULLY UPDATE FORM INFORMATION";
+            popup.ContentText = "SUCCESSFULLY UPDATE";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -371,8 +373,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                        
                         sp_created_by,
                         sp_created_at,
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "add");
+                        sp_modified_at,
+                        sp_modified_by, "add");
 
                     this.showItemClassData();
          
@@ -398,8 +400,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                            
                             sp_created_by,
                             sp_created_at,
-                            txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(), "edit");
+                           sp_modified_at,
+                            sp_modified_by, "edit");
                         UpdateNotifications();
                         showItemClassData();
                         mode = "";
@@ -421,8 +423,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                           sp_created_by,
                           sp_created_at,
-                          txtModifiedAt.Text.Trim(),
-                          txtModifiedBy.Text.Trim(), "edit");
+                         sp_modified_at,
+                          sp_modified_by, "edit");
                     UpdateNotifications();
                     showItemClassData();
                     mode = "";
@@ -489,8 +491,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         txtmatItemClass.Text = dgvitemClass.CurrentRow.Cells["item_class_desc"].Value.ToString();
                         sp_created_by = dgvitemClass.CurrentRow.Cells["item_added_by"].Value.ToString();
                        sp_created_at = dgvitemClass.CurrentRow.Cells["item_added_at"].Value.ToString();
-                        txtModifiedAt.Text = dgvitemClass.CurrentRow.Cells["item_updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvitemClass.CurrentRow.Cells["item_updated_by"].Value.ToString();
+                       sp_modified_at = dgvitemClass.CurrentRow.Cells["item_updated_at"].Value.ToString();
+                        sp_modified_by = dgvitemClass.CurrentRow.Cells["item_updated_by"].Value.ToString();
                     }
                 }
             }
@@ -568,8 +570,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatItemClass.Enabled = true;
             matBtnNew.Visible = false;
             txtmatItemClass.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            sp_modified_at = String.Empty;
+            sp_modified_by = String.Empty;
             matBtnDelete.Visible = false;
             sp_created_at = (dNow.ToString("M/d/yyyy"));
             sp_created_by = userinfo.emp_name.ToUpper();
@@ -595,8 +597,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void btnEditTool_Click(object sender, EventArgs e)
         {
             mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+           sp_modified_at = (dNow.ToString("M/d/yyyy"));
+            sp_modified_by = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;

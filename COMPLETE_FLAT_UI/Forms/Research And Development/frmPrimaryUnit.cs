@@ -38,6 +38,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
         public string sp_created_at { get; set; }
         public string sp_created_by { get; set; }
+        public string sp_modified_at { get; set; }
+        public string sp_modified_by { get; set; }
         private void frmPrimaryUnit_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -71,8 +73,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatPrimaryUnit.Enabled = true;
             matBtnNew.Visible = false;
             txtmatPrimaryUnit.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+            this.sp_modified_at = String.Empty;
+            this.sp_modified_by = String.Empty;
             matBtnDelete.Visible = false;
             sp_created_at = (dNow.ToString("M/d/yyyy"));
             sp_created_by = userinfo.emp_name.ToUpper();
@@ -281,8 +283,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                         sp_created_by,
                         sp_created_at,
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(), "add");
+                       this.sp_modified_at,
+                        this.sp_modified_by, "add");
 
                     showPrimaryUnitData();
 
@@ -312,8 +314,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                             sp_created_by,
                             sp_created_at,
-                            txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(), "edit");
+                            this.sp_modified_at,
+                            this.sp_modified_by, "edit");
                         UpdateNotifications();
                         showPrimaryUnitData();
                         mode = "";
@@ -336,8 +338,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
                          sp_created_by,
                          sp_created_at,
-                          txtModifiedAt.Text.Trim(),
-                          txtModifiedBy.Text.Trim(), "edit");
+                         this.sp_modified_at,
+                         this.sp_modified_by, "edit");
                     UpdateNotifications();
                     showPrimaryUnitData();
                     mode = "";
@@ -440,8 +442,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
+           this.sp_modified_by= userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
@@ -468,8 +470,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         txtmatPrimaryUnit.Text = dgvPrimaryUnit.CurrentRow.Cells["unit_desc"].Value.ToString();
                         sp_created_by = dgvPrimaryUnit.CurrentRow.Cells["pm_added_by"].Value.ToString();
                         sp_created_at = dgvPrimaryUnit.CurrentRow.Cells["pm_added_at"].Value.ToString();
-                        txtModifiedAt.Text = dgvPrimaryUnit.CurrentRow.Cells["pm_updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvPrimaryUnit.CurrentRow.Cells["pm_updated_by"].Value.ToString();
+                       this.sp_modified_at = dgvPrimaryUnit.CurrentRow.Cells["pm_updated_at"].Value.ToString();
+                       this.sp_modified_by = dgvPrimaryUnit.CurrentRow.Cells["pm_updated_by"].Value.ToString();
                     }
                 }
             }
@@ -483,8 +485,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             txtmatPrimaryUnit.Enabled = true;
             matBtnNew.Visible = false;
             txtmatPrimaryUnit.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
+           this.sp_modified_at = String.Empty;
+           this.sp_modified_by = String.Empty;
             matBtnDelete.Visible = false;
             sp_created_at = (dNow.ToString("M/d/yyyy"));
             sp_created_by = userinfo.emp_name.ToUpper();
@@ -497,8 +499,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void editt_Click(object sender, EventArgs e)
         {
             mode = "edit";
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+            this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
+          this.sp_modified_by = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;

@@ -54,6 +54,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_primary_key{get; set;}
 
         public string sp_ActualQty { get; set; }
+        public string sp_totalRecordSearch { get; set; }
         private void frmAddNewPartialRejectReceiving_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -106,6 +107,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     }
                     this.dgvLotData.DataSource = dv;
+                    this.sp_totalRecordSearch = dgvLotData.RowCount.ToString();
                     //lbltotalrecords.Text = dgvLotData.RowCount.ToString();
                 }
             }
@@ -269,9 +271,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //this.SumofTotalReject();
         }
 
-        private void matBtnAdd_Click(object sender, EventArgs e)
+        public void FillRequiredTextbox()
         {
 
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+        private void matBtnAdd_Click(object sender, EventArgs e)
+        {
+            if(this.mattxtqtyreject.Text == String.Empty)
+            {
+                this.FillRequiredTextbox();
+                this.mattxtqtyreject.Focus();
+                return;
+            }
             this.dSet.Clear();
             this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(0,
               sp_index_id, 0, 0, metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", "getbyname");
@@ -291,6 +324,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 qtyRejectScope1 = double.Parse(mattxtqtyreject.Text);
 
                 AllowancesScope1 = currentrejectScope1 + qtyRejectScope1;
+           
 
                 if (orderScope1 < AllowancesScope1)
                 {
@@ -301,17 +335,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     return;
                 }
+            
                 //Initialize();
                 this.doSearchInTextBoxCmbDoubleEntry();
+                //MessageBox.Show(mattxtqtyreject.Text);
+                //MessageBox.Show("" + sp_ActualQty);
+          
+                //return;
+                if(this.sp_totalRecordSearch == "0")
+                {
+                    this.sp_ActualQty = "0";
+                }
                 double totalExistingReject;
                 double QtyRejectCommits;
                 double totalSummaryofReject;
 
-                totalExistingReject = double.Parse(sp_ActualQty);
-                QtyRejectCommits = double.Parse(mattxtqtyreject.Text);
+                totalExistingReject = double.Parse(this.sp_ActualQty);
+                QtyRejectCommits = double.Parse(this.mattxtqtyreject.Text);
 
-
+         
                 totalSummaryofReject = totalExistingReject + QtyRejectCommits;
+           
                 if (MetroFramework.MetroMessageBox.Show(this, "You already have same reject/remark, Are you sure you want to update an existing reject '"+totalSummaryofReject+"'?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                  
@@ -331,17 +375,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     return;
             }
 
+        
             double order;
             double currentreject;
             double qtyReject;
             double Allowances;
 
-            order = double.Parse(mattxtQtyReceived.Text);
-            currentreject = double.Parse(lbltotalReject.Text);
-            qtyReject = double.Parse(mattxtqtyreject.Text);
+            order = double.Parse(this.mattxtQtyReceived.Text);
+            currentreject = double.Parse(this.lbltotalReject.Text);
+            qtyReject = double.Parse(this.mattxtqtyreject.Text);
 
             Allowances = currentreject + qtyReject;
 
+     
             if (order < Allowances)
             {
                 // code
@@ -360,6 +406,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a reject?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
+             
+
+
 
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(0,
@@ -367,6 +416,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.AddedSuccessfully();
                 frmAddNewPartialRejectReceiving_Load(sender, e);
                 this.Close();
+           
             }
             else
             {
