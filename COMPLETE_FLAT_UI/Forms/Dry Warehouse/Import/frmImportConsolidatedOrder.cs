@@ -288,6 +288,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             }
 
+            //Check The store Code Area and Route if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "getbystore_code_store_are_store_route");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //RawMatsAlreadyExist();
+
+
+
+
+            }
+            else
+            {
+                mode = "error";
+
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
             //Check The Item Code if existg on the system
             dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(0,

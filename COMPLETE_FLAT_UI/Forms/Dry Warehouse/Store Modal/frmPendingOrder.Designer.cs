@@ -35,8 +35,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotaldata = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +47,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotaldata = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +156,117 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // order_id
+            // 
+            this.order_id.DataPropertyName = "order_id";
+            this.order_id.FillWeight = 40.60914F;
+            this.order_id.Frozen = true;
+            this.order_id.HeaderText = "STORE ID";
+            this.order_id.MinimumWidth = 12;
+            this.order_id.Name = "order_id";
+            this.order_id.ReadOnly = true;
+            this.order_id.Width = 96;
+            // 
+            // date_ordered
+            // 
+            this.date_ordered.DataPropertyName = "date_ordered";
+            this.date_ordered.Frozen = true;
+            this.date_ordered.HeaderText = "DATE ORDERED";
+            this.date_ordered.Name = "date_ordered";
+            this.date_ordered.ReadOnly = true;
+            this.date_ordered.Width = 140;
+            // 
+            // fox
+            // 
+            this.fox.DataPropertyName = "fox";
+            this.fox.FillWeight = 99.49239F;
+            this.fox.Frozen = true;
+            this.fox.HeaderText = "STORE CODE";
+            this.fox.MinimumWidth = 12;
+            this.fox.Name = "fox";
+            this.fox.ReadOnly = true;
+            this.fox.Width = 122;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.FillWeight = 99.49239F;
+            this.store_name.Frozen = true;
+            this.store_name.HeaderText = "STORE NAME";
+            this.store_name.MinimumWidth = 12;
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
+            this.store_name.Width = 123;
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.FillWeight = 99.49239F;
+            this.area.HeaderText = "STORE AREA";
+            this.area.MinimumWidth = 12;
+            this.area.Name = "area";
+            this.area.ReadOnly = true;
+            this.area.Width = 118;
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.FillWeight = 99.49239F;
+            this.route.HeaderText = "STORE ROUTE";
+            this.route.MinimumWidth = 12;
+            this.route.Name = "route";
+            this.route.ReadOnly = true;
+            this.route.Width = 128;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 12;
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            this.date_added.Width = 123;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 111;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            this.description.Width = 127;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 108;
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.HeaderText = "UOM";
+            this.uom.Name = "uom";
+            this.uom.ReadOnly = true;
+            this.uom.Width = 68;
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.HeaderText = "QTY";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Width = 61;
+            // 
             // lbltotaldata
             // 
             this.lbltotaldata.AutoSize = true;
@@ -174,122 +285,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(70, 483);
+            this.label4.Location = new System.Drawing.Point(82, 483);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 640;
             this.label4.Text = "Items";
-            // 
-            // order_id
-            // 
-            this.order_id.DataPropertyName = "order_id";
-            this.order_id.FillWeight = 40.60914F;
-            this.order_id.Frozen = true;
-            this.order_id.HeaderText = "STORE ID";
-            this.order_id.MinimumWidth = 12;
-            this.order_id.Name = "order_id";
-            this.order_id.ReadOnly = true;
-            this.order_id.Width = 98;
-            // 
-            // date_ordered
-            // 
-            this.date_ordered.DataPropertyName = "date_ordered";
-            this.date_ordered.Frozen = true;
-            this.date_ordered.HeaderText = "DATE ORDERED";
-            this.date_ordered.Name = "date_ordered";
-            this.date_ordered.ReadOnly = true;
-            this.date_ordered.Width = 142;
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.FillWeight = 99.49239F;
-            this.fox.Frozen = true;
-            this.fox.HeaderText = "STORE CODE";
-            this.fox.MinimumWidth = 12;
-            this.fox.Name = "fox";
-            this.fox.ReadOnly = true;
-            this.fox.Width = 124;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.FillWeight = 99.49239F;
-            this.store_name.Frozen = true;
-            this.store_name.HeaderText = "STORE NAME";
-            this.store_name.MinimumWidth = 12;
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            this.store_name.Width = 125;
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.FillWeight = 99.49239F;
-            this.area.HeaderText = "STORE AREA";
-            this.area.MinimumWidth = 12;
-            this.area.Name = "area";
-            this.area.ReadOnly = true;
-            this.area.Width = 120;
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.FillWeight = 99.49239F;
-            this.route.HeaderText = "STORE ROUTE";
-            this.route.MinimumWidth = 12;
-            this.route.Name = "route";
-            this.route.ReadOnly = true;
-            this.route.Width = 130;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 12;
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
-            this.date_added.Width = 125;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.Width = 129;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 110;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.HeaderText = "UOM";
-            this.uom.Name = "uom";
-            this.uom.ReadOnly = true;
-            this.uom.Width = 70;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.HeaderText = "QTY";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 63;
             // 
             // frmPendingOrder
             // 

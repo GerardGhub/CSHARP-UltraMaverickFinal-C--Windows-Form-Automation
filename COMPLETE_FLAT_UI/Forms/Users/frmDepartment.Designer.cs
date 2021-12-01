@@ -214,7 +214,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // metroButtonSave
             // 
             this.metroButtonSave.Location = new System.Drawing.Point(639, 329);
-            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonSave.Name = "metroButtonSave";
             this.metroButtonSave.Size = new System.Drawing.Size(68, 20);
             this.metroButtonSave.TabIndex = 436;
@@ -256,7 +256,7 @@ namespace ULTRAMAVERICK.Forms.Users
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstDepartment.BackColor = System.Drawing.SystemColors.Control;
             this.lstDepartment.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstDepartment.Font = new System.Drawing.Font("Segoe UI", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstDepartment.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstDepartment.FormattingEnabled = true;
             this.lstDepartment.ItemHeight = 20;
             this.lstDepartment.Location = new System.Drawing.Point(10, 9);
@@ -271,7 +271,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // metroButtonDelete
             // 
             this.metroButtonDelete.Location = new System.Drawing.Point(633, 294);
-            this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(68, 20);
             this.metroButtonDelete.TabIndex = 439;
@@ -306,7 +306,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtdepartment.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtdepartment.Hint = "Department";
             this.txtdepartment.Location = new System.Drawing.Point(18, 20);
-            this.txtdepartment.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtdepartment.Margin = new System.Windows.Forms.Padding(1);
             this.txtdepartment.MaxLength = 50;
             this.txtdepartment.MouseState = MaterialSkin.MouseState.OUT;
             this.txtdepartment.Multiline = false;
@@ -322,7 +322,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.cboLocation.FormattingEnabled = true;
             this.cboLocation.ItemHeight = 23;
             this.cboLocation.Location = new System.Drawing.Point(104, 171);
-            this.cboLocation.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboLocation.Margin = new System.Windows.Forms.Padding(1);
             this.cboLocation.Name = "cboLocation";
             this.cboLocation.Size = new System.Drawing.Size(123, 29);
             this.cboLocation.TabIndex = 442;
@@ -376,7 +376,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Location = new System.Drawing.Point(24, 240);
-            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(578, 40);
             this.panel1.TabIndex = 570;
@@ -385,6 +385,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -395,7 +396,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.Size = new System.Drawing.Size(578, 40);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
@@ -405,7 +406,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnAddTool.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTool.Image")));
             this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(75, 37);
+            this.btnAddTool.Size = new System.Drawing.Size(74, 37);
             this.btnAddTool.Text = "&New";
             this.btnAddTool.Click += new System.EventHandler(this.neww_Click);
             // 
@@ -414,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnEditTool.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTool.Image")));
             this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(71, 37);
+            this.btnEditTool.Size = new System.Drawing.Size(70, 37);
             this.btnEditTool.Text = "&Edit";
             this.btnEditTool.Click += new System.EventHandler(this.editt_Click);
             // 
@@ -423,7 +424,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteTool.Image")));
             this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(94, 37);
+            this.btnDeleteTool.Size = new System.Drawing.Size(92, 37);
             this.btnDeleteTool.Text = "&Remove";
             this.btnDeleteTool.Click += new System.EventHandler(this.removee_Click);
             // 
@@ -432,7 +433,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
             this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(75, 37);
+            this.btnUpdateTool.Size = new System.Drawing.Size(74, 37);
             this.btnUpdateTool.Text = "&Save";
             this.btnUpdateTool.Visible = false;
             this.btnUpdateTool.Click += new System.EventHandler(this.savee_Click);
@@ -442,7 +443,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
             this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(87, 37);
+            this.btnCancelTool.Size = new System.Drawing.Size(83, 37);
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             this.btnCancelTool.Click += new System.EventHandler(this.cancels_Click);
@@ -472,7 +473,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmDepartment";
             this.Text = "Department";
             this.Load += new System.EventHandler(this.frmDepartment_Load);

@@ -38,13 +38,14 @@ namespace ULTRAMAVERICK.Forms.Users
             InitializeComponent();
         }
 
+        public string sp_department_id { get; set; }
         private void frmDepartmentUnit_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            loadDepartment();
-            SearchMethodJarVarCallingSP();
-            displayDepartmentUnits();
+            this.loadDepartment();
+            this.SearchMethodJarVarCallingSP();
+            this.displayDepartmentUnits();
             
         }
 
@@ -178,36 +179,36 @@ namespace ULTRAMAVERICK.Forms.Users
             myClass.fillComboBoxDepartment(cbodepartment, "department_dropdown", dSet);
             ready = true;
 
-            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString();
+           this.sp_department_id = cbodepartment.SelectedValue.ToString();
         }
 
         private void btnAddTool_Click(object sender, EventArgs e)
         {
-            mode = "add";
-            btn_visible(false);
-            txt_read_only(false);
+            this.mode = "add";
+            this.btn_visible(false);
+            this.txt_read_only(false);
 
-            txtsection.Enabled = true;
-            cbodepartment.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
-            cbodepartment.Enabled = true;
-            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString(); //Binding First Meet
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            cbodepartment.Select();
-            cbodepartment.Focus();
+            this.txtsection.Enabled = true;
+            this.cbodepartment.Text = String.Empty;
+            this.txtModifiedAt.Text = String.Empty;
+            this.txtModifiedBy.Text = String.Empty;
+            this.cbodepartment.Enabled = true;
+            this.sp_department_id = cbodepartment.SelectedValue.ToString(); //Binding First Meet
+            this.txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            this.txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            this.txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            this.cbodepartment.Select();
+            this.cbodepartment.Focus();
         }
         private void btn_visible(Boolean val)
         {
-            btnAddTool.Visible = val;
-            btnEditTool.Visible = val;
-            btnDeleteTool.Visible = val;
+            this.btnAddTool.Visible = val;
+            this.btnEditTool.Visible = val;
+            this.btnDeleteTool.Visible = val;
 
 
-            btnUpdateTool.Visible = !val;
-            btnCancelTool.Visible = !val;
+            this.btnUpdateTool.Visible = !val;
+            this.btnCancelTool.Visible = !val;
         }
         private void txt_read_only(Boolean val)
         {
@@ -455,7 +456,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet.Clear();
                     dSet = objStorProc.sp_DepartmentUnit(0, 
                         txtsection.Text.Trim(),
-                        lbldepartmentid.Text.Trim(),             
+                        sp_department_id,             
                         txtModifiedAt.Text.Trim(),
                         txtModifiedBy.Text.Trim(),
                         txtCreatedAt.Text.Trim(),
@@ -481,7 +482,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         dSet.Clear();
                         dSet = objStorProc.sp_DepartmentUnit(p_id, 
                             txtsection.Text.Trim(),
-                            lbldepartmentid.Text.Trim(),
+                            sp_department_id,
                             txtModifiedAt.Text.Trim(),
                             txtModifiedBy.Text.Trim(),
                             txtCreatedAt.Text.Trim(),
@@ -504,7 +505,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet.Clear();
                     dSet = objStorProc.sp_DepartmentUnit(p_id,
                         txtsection.Text.Trim(),
-                        lbldepartmentid.Text.Trim(),
+                        sp_department_id,
                         txtModifiedAt.Text.Trim(),
                         txtModifiedBy.Text.Trim(),
                         txtCreatedAt.Text.Trim(),
@@ -537,14 +538,14 @@ namespace ULTRAMAVERICK.Forms.Users
 
             if (txtsection.Text.Trim() == string.Empty)
             {
-                FillRequiredFields();
-                txtsection.Focus();
+                this.FillRequiredFields();
+                this.txtsection.Focus();
             }
             else
             {
-                if (saveMode())
+                if (this.saveMode())
                 {
-                    displayDepartmentUnits();
+                    this.displayDepartmentUnits();
                     string tmode = mode;
 
                     if (tmode == "add")
@@ -566,7 +567,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString();
+           sp_department_id= cbodepartment.SelectedValue.ToString();
         }
 
         private void BtnModuleClose_Click(object sender, EventArgs e)
@@ -641,12 +642,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
                     mode = "delete";
 
-                    if (saveMode())
+                    if (this.saveMode())
                     {
-                        DeletedSuccessfully();
-                        displayDepartmentUnits();
+                        this.DeletedSuccessfully();
+                        this.displayDepartmentUnits();
 
-                        btnCancelTool_Click("", e);
+                        this.btnCancelTool_Click("", e);
                     }
                 }
 
@@ -669,7 +670,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString();
+            sp_department_id = cbodepartment.SelectedValue.ToString();
             if(mode =="add")
             {
                 doSearchInTextBoxCmb();
@@ -684,21 +685,21 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            mode = "add";
-            btn_visible(false);
-            txt_read_only(false);
+            this.mode = "add";
+            this.btn_visible(false);
+            this.txt_read_only(false);
 
-            txtsection.Enabled = true;
-            cbodepartment.Text = String.Empty;
-            txtModifiedAt.Text = String.Empty;
-            txtModifiedBy.Text = String.Empty;
-            cbodepartment.Enabled = true;
-            lbldepartmentid.Text = cbodepartment.SelectedValue.ToString(); //Binding First Meet
-            txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            cbodepartment.Select();
-            cbodepartment.Focus();
+            this.txtsection.Enabled = true;
+            this.cbodepartment.Text = String.Empty;
+            this.txtModifiedAt.Text = String.Empty;
+            this.txtModifiedBy.Text = String.Empty;
+            this.cbodepartment.Enabled = true;
+            this.sp_department_id = cbodepartment.SelectedValue.ToString(); //Binding First Meet
+            this.txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
+            this.txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            this.txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            this.cbodepartment.Select();
+            this.cbodepartment.Focus();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

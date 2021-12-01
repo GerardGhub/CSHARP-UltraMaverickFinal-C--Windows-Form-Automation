@@ -96,7 +96,7 @@ namespace COMPLETE_FLAT_UI
             // 
             this.txtMaterialUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMaterialUsername.Depth = 0;
-            this.txtMaterialUsername.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtMaterialUsername.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterialUsername.Hint = "Username";
             this.txtMaterialUsername.Location = new System.Drawing.Point(203, 48);
             this.txtMaterialUsername.MaxLength = 50;
@@ -117,10 +117,10 @@ namespace COMPLETE_FLAT_UI
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard3.Location = new System.Drawing.Point(10, 89);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
-            this.materialCard3.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard3.Size = new System.Drawing.Size(486, 241);
             this.materialCard3.TabIndex = 488;
             // 
@@ -128,7 +128,7 @@ namespace COMPLETE_FLAT_UI
             // 
             this.txtMaterialPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMaterialPassword.Depth = 0;
-            this.txtMaterialPassword.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtMaterialPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterialPassword.Hint = "Password";
             this.txtMaterialPassword.Location = new System.Drawing.Point(203, 120);
             this.txtMaterialPassword.MaxLength = 50;
@@ -170,7 +170,7 @@ namespace COMPLETE_FLAT_UI
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLoginForm";
