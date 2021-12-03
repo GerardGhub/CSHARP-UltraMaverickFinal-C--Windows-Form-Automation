@@ -12,7 +12,7 @@ namespace ULTRAMAVERICK.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -47,8 +47,8 @@ namespace ULTRAMAVERICK.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FM-MMERCADO-L;Initial Catalog=UltraMaverickDB;Integrated Security=SSP" +
-            "I;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
+            "PI;")]
         public string hr_bakConnectionString {
             get {
                 return ((string)(this["hr_bakConnectionString"]));
@@ -57,8 +57,8 @@ namespace ULTRAMAVERICK.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FM-MMERCADO-L;Initial Catalog=UltraMaverickDB;Integrated Security=SSP" +
-            "I;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
+            "PI;")]
         public string hr_application_conn2 {
             get {
                 return ((string)(this["hr_application_conn2"]));
@@ -67,8 +67,8 @@ namespace ULTRAMAVERICK.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FM-MMERCADO-L;Initial Catalog=UltraMaverickDB;Integrated Security=SSP" +
-            "I;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
+            "PI;")]
         public string hr_application_conn {
             get {
                 return ((string)(this["hr_application_conn"]));
@@ -78,8 +78,8 @@ namespace ULTRAMAVERICK.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FM-MMERCADO-L;Initial Catalog=UltraMaverickDB;Integrated Security=Tru" +
-            "e")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=Tr" +
+            "ue")]
         public string UltraMaverickDBConnectionString {
             get {
                 return ((string)(this["UltraMaverickDBConnectionString"]));

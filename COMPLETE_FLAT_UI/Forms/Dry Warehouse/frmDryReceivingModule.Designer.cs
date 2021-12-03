@@ -29,15 +29,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDryReceivingModule));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mattxtbarcode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
@@ -60,6 +60,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtitemcode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddRejetModal = new System.Windows.Forms.Button();
             this.mattxtLotDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.btnSelectLot = new System.Windows.Forms.Button();
@@ -78,8 +80,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.crV1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.dgvReceivedID = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).BeginInit();
@@ -94,13 +94,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtbarcode.Depth = 0;
             this.mattxtbarcode.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtbarcode.Hint = "Scan the Barcode";
-            this.mattxtbarcode.Location = new System.Drawing.Point(22, 9);
+            this.mattxtbarcode.Location = new System.Drawing.Point(29, 11);
             this.mattxtbarcode.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtbarcode.MaxLength = 50;
             this.mattxtbarcode.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtbarcode.Multiline = false;
             this.mattxtbarcode.Name = "mattxtbarcode";
-            this.mattxtbarcode.Size = new System.Drawing.Size(682, 36);
+            this.mattxtbarcode.Size = new System.Drawing.Size(909, 36);
             this.mattxtbarcode.TabIndex = 0;
             this.mattxtbarcode.Text = "";
             this.mattxtbarcode.UseTallSize = false;
@@ -112,12 +112,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.mattxtbarcode);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(23, 78);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Location = new System.Drawing.Point(31, 96);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(726, 52);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard1.Size = new System.Drawing.Size(968, 64);
             this.materialCard1.TabIndex = 0;
             // 
             // materialCard2
@@ -137,12 +137,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Controls.Add(this.materialLabel1);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(22, 142);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Location = new System.Drawing.Point(29, 175);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(726, 264);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard2.Size = new System.Drawing.Size(968, 325);
             this.materialCard2.TabIndex = 1;
             this.materialCard2.Visible = false;
             this.materialCard2.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard2_Paint);
@@ -151,9 +151,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(254, 202);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(339, 249);
+            this.bunifuCustomLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(60, 13);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(76, 19);
             this.bunifuCustomLabel2.TabIndex = 31;
             this.bunifuCustomLabel2.Text = "Expiry Date";
             // 
@@ -161,9 +162,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(10, 202);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(13, 249);
+            this.bunifuCustomLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(59, 13);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(77, 19);
             this.bunifuCustomLabel1.TabIndex = 30;
             this.bunifuCustomLabel1.Text = "MFTG. Date";
             // 
@@ -171,10 +173,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.mattxtexpirydate.Enabled = false;
             this.mattxtexpirydate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.mattxtexpirydate.Location = new System.Drawing.Point(256, 223);
-            this.mattxtexpirydate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.mattxtexpirydate.Location = new System.Drawing.Point(341, 274);
+            this.mattxtexpirydate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mattxtexpirydate.MinimumSize = new System.Drawing.Size(0, 30);
             this.mattxtexpirydate.Name = "mattxtexpirydate";
-            this.mattxtexpirydate.Size = new System.Drawing.Size(213, 29);
+            this.mattxtexpirydate.Size = new System.Drawing.Size(283, 30);
             this.mattxtexpirydate.TabIndex = 29;
             // 
             // dgvMajorCategory
@@ -182,21 +185,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvMajorCategory.AllowUserToAddRows = false;
             this.dgvMajorCategory.AllowUserToDeleteRows = false;
             this.dgvMajorCategory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.White;
-            this.dgvMajorCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
+            this.dgvMajorCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
             this.dgvMajorCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMajorCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvMajorCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMajorCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMajorCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMajorCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMajorCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.dgvMajorCategory.ColumnHeadersHeight = 35;
             this.dgvMajorCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvMajorCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -206,35 +209,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mc_added_by,
             this.mc_updated_at,
             this.mc_updated_by});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMajorCategory.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMajorCategory.DefaultCellStyle = dataGridViewCellStyle35;
             this.dgvMajorCategory.EnableHeadersVisualStyles = false;
             this.dgvMajorCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvMajorCategory.Location = new System.Drawing.Point(151, 257);
+            this.dgvMajorCategory.Location = new System.Drawing.Point(201, 316);
+            this.dgvMajorCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMajorCategory.MultiSelect = false;
             this.dgvMajorCategory.Name = "dgvMajorCategory";
             this.dgvMajorCategory.ReadOnly = true;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMajorCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMajorCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvMajorCategory.RowHeadersVisible = false;
             this.dgvMajorCategory.RowHeadersWidth = 102;
             this.dgvMajorCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMajorCategory.RowTemplate.DividerHeight = 5;
             this.dgvMajorCategory.RowTemplate.Height = 40;
             this.dgvMajorCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMajorCategory.Size = new System.Drawing.Size(653, 21);
+            this.dgvMajorCategory.Size = new System.Drawing.Size(871, 26);
             this.dgvMajorCategory.TabIndex = 594;
             this.dgvMajorCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvMajorCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -320,10 +324,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtmfgdate.CalendarMonthBackground = System.Drawing.SystemColors.ControlDark;
             this.mattxtmfgdate.Enabled = false;
             this.mattxtmfgdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.mattxtmfgdate.Location = new System.Drawing.Point(8, 223);
-            this.mattxtmfgdate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.mattxtmfgdate.Location = new System.Drawing.Point(11, 274);
+            this.mattxtmfgdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mattxtmfgdate.MinimumSize = new System.Drawing.Size(0, 30);
             this.mattxtmfgdate.Name = "mattxtmfgdate";
-            this.mattxtmfgdate.Size = new System.Drawing.Size(215, 29);
+            this.mattxtmfgdate.Size = new System.Drawing.Size(285, 30);
             this.mattxtmfgdate.TabIndex = 28;
             // 
             // mattxtcategory
@@ -334,13 +339,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtcategory.Enabled = false;
             this.mattxtcategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtcategory.Hint = "Category";
-            this.mattxtcategory.Location = new System.Drawing.Point(256, 37);
+            this.mattxtcategory.Location = new System.Drawing.Point(341, 46);
             this.mattxtcategory.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtcategory.MaxLength = 50;
             this.mattxtcategory.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtcategory.Multiline = false;
             this.mattxtcategory.Name = "mattxtcategory";
-            this.mattxtcategory.Size = new System.Drawing.Size(215, 50);
+            this.mattxtcategory.Size = new System.Drawing.Size(287, 50);
             this.mattxtcategory.TabIndex = 26;
             this.mattxtcategory.Text = "";
             // 
@@ -352,13 +357,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matdaysExpiry.Enabled = false;
             this.matdaysExpiry.Font = new System.Drawing.Font("Roboto", 12F);
             this.matdaysExpiry.Hint = "Expiry Days";
-            this.matdaysExpiry.Location = new System.Drawing.Point(501, 203);
+            this.matdaysExpiry.Location = new System.Drawing.Point(668, 250);
             this.matdaysExpiry.Margin = new System.Windows.Forms.Padding(1);
             this.matdaysExpiry.MaxLength = 50;
             this.matdaysExpiry.MouseState = MaterialSkin.MouseState.OUT;
             this.matdaysExpiry.Multiline = false;
             this.matdaysExpiry.Name = "matdaysExpiry";
-            this.matdaysExpiry.Size = new System.Drawing.Size(215, 50);
+            this.matdaysExpiry.Size = new System.Drawing.Size(287, 50);
             this.matdaysExpiry.TabIndex = 7;
             this.matdaysExpiry.Text = "";
             // 
@@ -370,13 +375,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSupplier.Enabled = false;
             this.mattxtSupplier.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSupplier.Hint = "Suppliers";
-            this.mattxtSupplier.Location = new System.Drawing.Point(8, 144);
+            this.mattxtSupplier.Location = new System.Drawing.Point(11, 177);
             this.mattxtSupplier.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtSupplier.MaxLength = 50;
             this.mattxtSupplier.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtSupplier.Multiline = false;
             this.mattxtSupplier.Name = "mattxtSupplier";
-            this.mattxtSupplier.Size = new System.Drawing.Size(708, 50);
+            this.mattxtSupplier.Size = new System.Drawing.Size(944, 50);
             this.mattxtSupplier.TabIndex = 5;
             this.mattxtSupplier.Text = "";
             // 
@@ -388,13 +393,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtitemdesc.Enabled = false;
             this.mattxtitemdesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtitemdesc.Hint = "Description";
-            this.mattxtitemdesc.Location = new System.Drawing.Point(8, 91);
+            this.mattxtitemdesc.Location = new System.Drawing.Point(11, 112);
             this.mattxtitemdesc.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtitemdesc.MaxLength = 50;
             this.mattxtitemdesc.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtitemdesc.Multiline = false;
             this.mattxtitemdesc.Name = "mattxtitemdesc";
-            this.mattxtitemdesc.Size = new System.Drawing.Size(708, 50);
+            this.mattxtitemdesc.Size = new System.Drawing.Size(944, 50);
             this.mattxtitemdesc.TabIndex = 4;
             this.mattxtitemdesc.Text = "";
             // 
@@ -406,13 +411,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtreceivingdate.Enabled = false;
             this.mattxtreceivingdate.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtreceivingdate.Hint = "Receiving Date";
-            this.mattxtreceivingdate.Location = new System.Drawing.Point(501, 37);
+            this.mattxtreceivingdate.Location = new System.Drawing.Point(668, 46);
             this.mattxtreceivingdate.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtreceivingdate.MaxLength = 50;
             this.mattxtreceivingdate.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtreceivingdate.Multiline = false;
             this.mattxtreceivingdate.Name = "mattxtreceivingdate";
-            this.mattxtreceivingdate.Size = new System.Drawing.Size(215, 50);
+            this.mattxtreceivingdate.Size = new System.Drawing.Size(287, 50);
             this.mattxtreceivingdate.TabIndex = 3;
             this.mattxtreceivingdate.Text = "";
             // 
@@ -424,13 +429,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtitemcode.Enabled = false;
             this.mattxtitemcode.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtitemcode.Hint = "Item Code";
-            this.mattxtitemcode.Location = new System.Drawing.Point(8, 37);
+            this.mattxtitemcode.Location = new System.Drawing.Point(11, 46);
             this.mattxtitemcode.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtitemcode.MaxLength = 50;
             this.mattxtitemcode.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtitemcode.Multiline = false;
             this.mattxtitemcode.Name = "mattxtitemcode";
-            this.mattxtitemcode.Size = new System.Drawing.Size(215, 50);
+            this.mattxtitemcode.Size = new System.Drawing.Size(287, 50);
             this.mattxtitemcode.TabIndex = 1;
             this.mattxtitemcode.Text = "";
             // 
@@ -439,7 +444,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(6, 6);
+            this.materialLabel1.Location = new System.Drawing.Point(8, 7);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -466,14 +471,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard3.Controls.Add(this.materialLabel2);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(22, 419);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard3.Location = new System.Drawing.Point(29, 516);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
-            this.materialCard3.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard3.Size = new System.Drawing.Size(726, 218);
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard3.Size = new System.Drawing.Size(968, 268);
             this.materialCard3.TabIndex = 10;
             this.materialCard3.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel2.Location = new System.Drawing.Point(671, 252);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(284, 12);
+            this.panel2.TabIndex = 599;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel1.Location = new System.Drawing.Point(341, 252);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(284, 12);
+            this.panel1.TabIndex = 598;
             // 
             // btnAddRejetModal
             // 
@@ -482,10 +505,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.btnAddRejetModal.FlatAppearance.BorderSize = 0;
             this.btnAddRejetModal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRejetModal.Image = ((System.Drawing.Image)(resources.GetObject("btnAddRejetModal.Image")));
-            this.btnAddRejetModal.Location = new System.Drawing.Point(176, 161);
+            this.btnAddRejetModal.Location = new System.Drawing.Point(235, 198);
             this.btnAddRejetModal.Margin = new System.Windows.Forms.Padding(1);
             this.btnAddRejetModal.Name = "btnAddRejetModal";
-            this.btnAddRejetModal.Size = new System.Drawing.Size(41, 31);
+            this.btnAddRejetModal.Size = new System.Drawing.Size(55, 38);
             this.btnAddRejetModal.TabIndex = 27;
             this.btnAddRejetModal.UseVisualStyleBackColor = false;
             this.btnAddRejetModal.Click += new System.EventHandler(this.btnAddRejetModal_Click);
@@ -498,13 +521,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtLotDescription.Enabled = false;
             this.mattxtLotDescription.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtLotDescription.Hint = "Lot Description";
-            this.mattxtLotDescription.Location = new System.Drawing.Point(502, 156);
+            this.mattxtLotDescription.Location = new System.Drawing.Point(669, 192);
             this.mattxtLotDescription.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtLotDescription.MaxLength = 50;
             this.mattxtLotDescription.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtLotDescription.Multiline = false;
             this.mattxtLotDescription.Name = "mattxtLotDescription";
-            this.mattxtLotDescription.Size = new System.Drawing.Size(215, 50);
+            this.mattxtLotDescription.Size = new System.Drawing.Size(287, 50);
             this.mattxtLotDescription.TabIndex = 26;
             this.mattxtLotDescription.Text = "";
             // 
@@ -515,10 +538,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.btnSelectLot.FlatAppearance.BorderSize = 0;
             this.btnSelectLot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectLot.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectLot.Image")));
-            this.btnSelectLot.Location = new System.Drawing.Point(422, 162);
+            this.btnSelectLot.Location = new System.Drawing.Point(563, 199);
             this.btnSelectLot.Margin = new System.Windows.Forms.Padding(1);
             this.btnSelectLot.Name = "btnSelectLot";
-            this.btnSelectLot.Size = new System.Drawing.Size(41, 37);
+            this.btnSelectLot.Size = new System.Drawing.Size(55, 46);
             this.btnSelectLot.TabIndex = 25;
             this.btnSelectLot.UseVisualStyleBackColor = false;
             this.btnSelectLot.Click += new System.EventHandler(this.btnSelectLot_Click);
@@ -531,13 +554,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtupdatedstocks.Enabled = false;
             this.mattxtupdatedstocks.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtupdatedstocks.Hint = "Updated Stocks";
-            this.mattxtupdatedstocks.Location = new System.Drawing.Point(256, 92);
+            this.mattxtupdatedstocks.Location = new System.Drawing.Point(341, 113);
             this.mattxtupdatedstocks.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtupdatedstocks.MaxLength = 50;
             this.mattxtupdatedstocks.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtupdatedstocks.Multiline = false;
             this.mattxtupdatedstocks.Name = "mattxtupdatedstocks";
-            this.mattxtupdatedstocks.Size = new System.Drawing.Size(215, 50);
+            this.mattxtupdatedstocks.Size = new System.Drawing.Size(287, 50);
             this.mattxtupdatedstocks.TabIndex = 23;
             this.mattxtupdatedstocks.Text = "";
             // 
@@ -549,13 +572,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtponumber.Enabled = false;
             this.mattxtponumber.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtponumber.Hint = "PO Number";
-            this.mattxtponumber.Location = new System.Drawing.Point(256, 34);
+            this.mattxtponumber.Location = new System.Drawing.Point(341, 42);
             this.mattxtponumber.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtponumber.MaxLength = 50;
             this.mattxtponumber.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtponumber.Multiline = false;
             this.mattxtponumber.Name = "mattxtponumber";
-            this.mattxtponumber.Size = new System.Drawing.Size(215, 50);
+            this.mattxtponumber.Size = new System.Drawing.Size(287, 50);
             this.mattxtponumber.TabIndex = 22;
             this.mattxtponumber.Text = "";
             // 
@@ -567,13 +590,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtqtyreject.Enabled = false;
             this.mattxtqtyreject.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtqtyreject.Hint = "QTY. Reject";
-            this.mattxtqtyreject.Location = new System.Drawing.Point(9, 156);
+            this.mattxtqtyreject.Location = new System.Drawing.Point(12, 192);
             this.mattxtqtyreject.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtqtyreject.MaxLength = 50;
             this.mattxtqtyreject.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtqtyreject.Multiline = false;
             this.mattxtqtyreject.Name = "mattxtqtyreject";
-            this.mattxtqtyreject.Size = new System.Drawing.Size(215, 50);
+            this.mattxtqtyreject.Size = new System.Drawing.Size(287, 50);
             this.mattxtqtyreject.TabIndex = 21;
             this.mattxtqtyreject.Text = "";
             this.mattxtqtyreject.TextChanged += new System.EventHandler(this.mattxtqtyreject_TextChanged);
@@ -587,13 +610,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtqtyReceived.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtqtyReceived.ForeColor = System.Drawing.Color.Yellow;
             this.mattxtqtyReceived.Hint = "QTY. Received";
-            this.mattxtqtyReceived.Location = new System.Drawing.Point(502, 92);
+            this.mattxtqtyReceived.Location = new System.Drawing.Point(669, 113);
             this.mattxtqtyReceived.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtqtyReceived.MaxLength = 50;
             this.mattxtqtyReceived.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtqtyReceived.Multiline = false;
             this.mattxtqtyReceived.Name = "mattxtqtyReceived";
-            this.mattxtqtyReceived.Size = new System.Drawing.Size(215, 50);
+            this.mattxtqtyReceived.Size = new System.Drawing.Size(287, 50);
             this.mattxtqtyReceived.TabIndex = 20;
             this.mattxtqtyReceived.Text = "";
             this.mattxtqtyReceived.TextChanged += new System.EventHandler(this.mattxtqtyReceived_TextChanged);
@@ -607,13 +630,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtsoh.Enabled = false;
             this.mattxtsoh.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtsoh.Hint = "Stock on Hand";
-            this.mattxtsoh.Location = new System.Drawing.Point(9, 92);
+            this.mattxtsoh.Location = new System.Drawing.Point(12, 113);
             this.mattxtsoh.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtsoh.MaxLength = 50;
             this.mattxtsoh.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtsoh.Multiline = false;
             this.mattxtsoh.Name = "mattxtsoh";
-            this.mattxtsoh.Size = new System.Drawing.Size(215, 50);
+            this.mattxtsoh.Size = new System.Drawing.Size(287, 50);
             this.mattxtsoh.TabIndex = 19;
             this.mattxtsoh.Text = "";
             // 
@@ -626,13 +649,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtlotno.Enabled = false;
             this.mattxtlotno.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtlotno.Hint = "Lot No.";
-            this.mattxtlotno.Location = new System.Drawing.Point(256, 156);
+            this.mattxtlotno.Location = new System.Drawing.Point(341, 192);
             this.mattxtlotno.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtlotno.MaxLength = 50;
             this.mattxtlotno.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtlotno.Multiline = false;
             this.mattxtlotno.Name = "mattxtlotno";
-            this.mattxtlotno.Size = new System.Drawing.Size(213, 50);
+            this.mattxtlotno.Size = new System.Drawing.Size(284, 50);
             this.mattxtlotno.TabIndex = 18;
             this.mattxtlotno.Text = "";
             // 
@@ -644,13 +667,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtactualdelivery.Enabled = false;
             this.mattxtactualdelivery.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtactualdelivery.Hint = "Actual Delivery";
-            this.mattxtactualdelivery.Location = new System.Drawing.Point(502, 34);
+            this.mattxtactualdelivery.Location = new System.Drawing.Point(669, 42);
             this.mattxtactualdelivery.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtactualdelivery.MaxLength = 50;
             this.mattxtactualdelivery.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtactualdelivery.Multiline = false;
             this.mattxtactualdelivery.Name = "mattxtactualdelivery";
-            this.mattxtactualdelivery.Size = new System.Drawing.Size(215, 50);
+            this.mattxtactualdelivery.Size = new System.Drawing.Size(287, 50);
             this.mattxtactualdelivery.TabIndex = 17;
             this.mattxtactualdelivery.Text = "";
             this.mattxtactualdelivery.TextChanged += new System.EventHandler(this.mattxtactualdelivery_TextChanged);
@@ -663,13 +686,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtqtyuom.Enabled = false;
             this.mattxtqtyuom.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtqtyuom.Hint = "Unit of Measure";
-            this.mattxtqtyuom.Location = new System.Drawing.Point(9, 34);
+            this.mattxtqtyuom.Location = new System.Drawing.Point(12, 42);
             this.mattxtqtyuom.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtqtyuom.MaxLength = 50;
             this.mattxtqtyuom.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtqtyuom.Multiline = false;
             this.mattxtqtyuom.Name = "mattxtqtyuom";
-            this.mattxtqtyuom.Size = new System.Drawing.Size(215, 50);
+            this.mattxtqtyuom.Size = new System.Drawing.Size(287, 50);
             this.mattxtqtyuom.TabIndex = 15;
             this.mattxtqtyuom.Text = "";
             // 
@@ -678,7 +701,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(10, 8);
+            this.materialLabel2.Location = new System.Drawing.Point(13, 10);
             this.materialLabel2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
@@ -693,8 +716,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtReceived.DrawShadows = true;
             this.mattxtReceived.HighEmphasis = true;
             this.mattxtReceived.Icon = null;
-            this.mattxtReceived.Location = new System.Drawing.Point(571, 642);
-            this.mattxtReceived.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.mattxtReceived.Location = new System.Drawing.Point(761, 790);
+            this.mattxtReceived.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mattxtReceived.MouseState = MaterialSkin.MouseState.HOVER;
             this.mattxtReceived.Name = "mattxtReceived";
             this.mattxtReceived.Size = new System.Drawing.Size(89, 36);
@@ -713,8 +736,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matbtnCancel.DrawShadows = true;
             this.matbtnCancel.HighEmphasis = true;
             this.matbtnCancel.Icon = null;
-            this.matbtnCancel.Location = new System.Drawing.Point(670, 642);
-            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnCancel.Location = new System.Drawing.Point(893, 790);
+            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnCancel.Name = "matbtnCancel";
             this.matbtnCancel.Size = new System.Drawing.Size(77, 36);
@@ -730,9 +753,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(308, 52);
+            this.textBox1.Location = new System.Drawing.Point(411, 64);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.Size = new System.Drawing.Size(193, 23);
             this.textBox1.TabIndex = 595;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
@@ -743,10 +767,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.crV1.ActiveViewIndex = -1;
             this.crV1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crV1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crV1.Location = new System.Drawing.Point(654, 31);
+            this.crV1.Location = new System.Drawing.Point(872, 38);
             this.crV1.Margin = new System.Windows.Forms.Padding(1);
             this.crV1.Name = "crV1";
-            this.crV1.Size = new System.Drawing.Size(92, 47);
+            this.crV1.Size = new System.Drawing.Size(122, 57);
             this.crV1.TabIndex = 597;
             this.crV1.ToolPanelWidth = 1;
             // 
@@ -755,54 +779,55 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvReceivedID.AllowUserToAddRows = false;
             this.dgvReceivedID.AllowUserToDeleteRows = false;
             this.dgvReceivedID.AllowUserToResizeRows = false;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.White;
-            this.dgvReceivedID.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
+            this.dgvReceivedID.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvReceivedID.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReceivedID.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvReceivedID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReceivedID.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvReceivedID.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReceivedID.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReceivedID.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.dgvReceivedID.ColumnHeadersHeight = 35;
             this.dgvReceivedID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReceivedID.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id});
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReceivedID.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReceivedID.DefaultCellStyle = dataGridViewCellStyle39;
             this.dgvReceivedID.EnableHeadersVisualStyles = false;
             this.dgvReceivedID.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvReceivedID.Location = new System.Drawing.Point(519, 31);
+            this.dgvReceivedID.Location = new System.Drawing.Point(692, 38);
+            this.dgvReceivedID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvReceivedID.MultiSelect = false;
             this.dgvReceivedID.Name = "dgvReceivedID";
             this.dgvReceivedID.ReadOnly = true;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReceivedID.RowHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReceivedID.RowHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.dgvReceivedID.RowHeadersVisible = false;
             this.dgvReceivedID.RowHeadersWidth = 102;
             this.dgvReceivedID.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvReceivedID.RowTemplate.DividerHeight = 5;
             this.dgvReceivedID.RowTemplate.Height = 40;
             this.dgvReceivedID.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReceivedID.Size = new System.Drawing.Size(52, 47);
+            this.dgvReceivedID.Size = new System.Drawing.Size(69, 58);
             this.dgvReceivedID.TabIndex = 595;
             this.dgvReceivedID.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvReceivedID.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -839,27 +864,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.id.ReadOnly = true;
             this.id.Width = 12;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel1.Location = new System.Drawing.Point(256, 205);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 10);
-            this.panel1.TabIndex = 598;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel2.Location = new System.Drawing.Point(503, 205);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(213, 10);
-            this.panel2.TabIndex = 599;
-            // 
             // frmDryReceivingModule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 706);
+            this.ClientSize = new System.Drawing.Size(1029, 869);
             this.Controls.Add(this.dgvReceivedID);
             this.Controls.Add(this.crV1);
             this.Controls.Add(this.textBox1);

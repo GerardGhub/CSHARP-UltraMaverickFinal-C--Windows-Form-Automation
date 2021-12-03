@@ -43,6 +43,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.item_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.txtmatItemClass = new MaterialSkin.Controls.MaterialTextBox();
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
@@ -55,12 +56,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.materialCard3.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard2
@@ -220,6 +224,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.mattxtSearch);
             this.materialCard1.Controls.Add(this.txtmatItemClass);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -230,6 +235,24 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.Size = new System.Drawing.Size(975, 100);
             this.materialCard1.TabIndex = 582;
+            // 
+            // mattxtSearch
+            // 
+            this.mattxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mattxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtSearch.Depth = 0;
+            this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtSearch.Hint = "Search";
+            this.mattxtSearch.Location = new System.Drawing.Point(763, 37);
+            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
+            this.mattxtSearch.MaxLength = 50;
+            this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtSearch.Multiline = false;
+            this.mattxtSearch.Name = "mattxtSearch";
+            this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
+            this.mattxtSearch.TabIndex = 600;
+            this.mattxtSearch.Text = "";
+            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged_1);
             // 
             // txtmatItemClass
             // 
@@ -246,7 +269,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmatItemClass.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmatItemClass.Multiline = false;
             this.txtmatItemClass.Name = "txtmatItemClass";
-            this.txtmatItemClass.Size = new System.Drawing.Size(952, 50);
+            this.txtmatItemClass.Size = new System.Drawing.Size(738, 50);
             this.txtmatItemClass.TabIndex = 0;
             this.txtmatItemClass.Text = "";
             // 
@@ -327,8 +350,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(92, 33);
-            this.matBtnDelete.Text = "&Remove";
+            this.matBtnDelete.Size = new System.Drawing.Size(90, 33);
+            this.matBtnDelete.Text = "&InActive";
             this.matBtnDelete.Click += new System.EventHandler(this.btnDeleteTool_Click);
             // 
             // matBtnSave
@@ -336,7 +359,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(74, 44);
+            this.matBtnSave.Size = new System.Drawing.Size(74, 41);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             this.matBtnSave.Click += new System.EventHandler(this.btnUpdateTool_Click);
@@ -376,30 +399,62 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.label2.TabIndex = 595;
             this.label2.Text = "Items";
             // 
-            // mattxtSearch
+            // matRadioNotActive
             // 
-            this.mattxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mattxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtSearch.Depth = 0;
-            this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtSearch.Hint = "Search";
-            this.mattxtSearch.Location = new System.Drawing.Point(1126, 198);
-            this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
-            this.mattxtSearch.MaxLength = 50;
-            this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtSearch.Multiline = false;
-            this.mattxtSearch.Name = "mattxtSearch";
-            this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
-            this.mattxtSearch.TabIndex = 596;
-            this.mattxtSearch.Text = "";
-            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
+            this.matRadioNotActive.AutoSize = true;
+            this.matRadioNotActive.Depth = 0;
+            this.matRadioNotActive.Location = new System.Drawing.Point(103, 14);
+            this.matRadioNotActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioNotActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioNotActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioNotActive.Name = "matRadioNotActive";
+            this.matRadioNotActive.Ripple = true;
+            this.matRadioNotActive.Size = new System.Drawing.Size(103, 37);
+            this.matRadioNotActive.TabIndex = 598;
+            this.matRadioNotActive.TabStop = true;
+            this.matRadioNotActive.Text = "In - Active";
+            this.matRadioNotActive.UseVisualStyleBackColor = true;
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
+            // 
+            // matRadioActive
+            // 
+            this.matRadioActive.AutoSize = true;
+            this.matRadioActive.Depth = 0;
+            this.matRadioActive.Location = new System.Drawing.Point(9, 14);
+            this.matRadioActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioActive.Name = "matRadioActive";
+            this.matRadioActive.Ripple = true;
+            this.matRadioActive.Size = new System.Drawing.Size(78, 37);
+            this.matRadioActive.TabIndex = 597;
+            this.matRadioActive.TabStop = true;
+            this.matRadioActive.Text = "Active";
+            this.matRadioActive.UseVisualStyleBackColor = true;
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
+            // 
+            // materialCard3
+            // 
+            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.matRadioActive);
+            this.materialCard3.Controls.Add(this.matRadioNotActive);
+            this.materialCard3.Depth = 0;
+            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard3.Location = new System.Drawing.Point(778, 190);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard3.Name = "materialCard3";
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard3.Size = new System.Drawing.Size(221, 59);
+            this.materialCard3.TabIndex = 599;
             // 
             // frmItemClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.mattxtSearch);
+            this.ClientSize = new System.Drawing.Size(1024, 618);
+            this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -418,6 +473,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.panel1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.materialCard3.ResumeLayout(false);
+            this.materialCard3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,12 +497,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private System.Windows.Forms.ToolStripButton matBtnCancel;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
-        private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_class_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_class_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_added_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_added_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_updated_by;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
+        private MaterialSkin.Controls.MaterialCard materialCard3;
+        private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
     }
 }

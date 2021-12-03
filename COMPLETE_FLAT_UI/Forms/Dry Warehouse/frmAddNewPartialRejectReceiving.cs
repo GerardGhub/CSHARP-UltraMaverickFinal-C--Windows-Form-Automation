@@ -305,6 +305,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.mattxtqtyreject.Focus();
                 return;
             }
+            //MessageBox.Show("+",sp_index_id.ToString());
             this.dSet.Clear();
             this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(0,
               sp_index_id, 0, 0, metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", "getbyname");
@@ -403,7 +404,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 //return;
             }
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a reject?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a reject?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
              
@@ -467,8 +468,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     if (dgvLotData.CurrentRow.Cells["index_id"].Value != null)
                     {
 
-                        sp_primary_key= dgvLotData.CurrentRow.Cells["id"].Value.ToString();
-                      sp_ActualQty = dgvLotData.CurrentRow.Cells["qty_reject"].Value.ToString();
+                        this.sp_primary_key= dgvLotData.CurrentRow.Cells["id"].Value.ToString();
+                      this.sp_ActualQty = dgvLotData.CurrentRow.Cells["qty_reject"].Value.ToString();
 
 
 
@@ -506,7 +507,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void dgvLotData_DoubleClick(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you remove the reject?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you remove the reject?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.dSet.Clear();
                 //MessageBox.Show(sp_primary_key.ToString());

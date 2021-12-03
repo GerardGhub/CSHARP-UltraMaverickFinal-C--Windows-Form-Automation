@@ -29,27 +29,14 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserManagement2));
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvUsers = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type_of_approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.cmbNotif = new MaterialSkin.Controls.MaterialTextBox();
@@ -77,6 +64,19 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label2 = new System.Windows.Forms.Label();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type_of_approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -105,20 +105,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsers.ColumnHeadersHeight = 40;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -135,14 +135,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.user_rights_name,
             this.receiving_status,
             this.user_section});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsers.EnableHeadersVisualStyles = false;
             this.dgvUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -150,19 +150,19 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvUsers.RowHeadersVisible = false;
             this.dgvUsers.RowHeadersWidth = 102;
             this.dgvUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsers.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUsers.RowTemplate.DividerHeight = 5;
             this.dgvUsers.RowTemplate.Height = 40;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -178,7 +178,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvUsers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.dgvUsers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUsers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.ThemeStyle.HeaderStyle.Height = 40;
@@ -192,132 +192,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvUsers.CurrentCellChanged += new System.EventHandler(this.dgvUsers_CurrentCellChanged);
             this.dgvUsers.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUsers_RowPostPaint);
-            // 
-            // userfile_id
-            // 
-            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.userfile_id.DataPropertyName = "userfile_id";
-            this.userfile_id.FillWeight = 40.60914F;
-            this.userfile_id.Frozen = true;
-            this.userfile_id.HeaderText = "ID";
-            this.userfile_id.MinimumWidth = 12;
-            this.userfile_id.Name = "userfile_id";
-            this.userfile_id.ReadOnly = true;
-            this.userfile_id.Visible = false;
-            this.userfile_id.Width = 12;
-            // 
-            // username
-            // 
-            this.username.DataPropertyName = "username";
-            this.username.FillWeight = 99.49239F;
-            this.username.Frozen = true;
-            this.username.HeaderText = "USERNAME";
-            this.username.MinimumWidth = 12;
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            this.username.Width = 110;
-            // 
-            // employee_name
-            // 
-            this.employee_name.DataPropertyName = "employee_name";
-            this.employee_name.FillWeight = 99.49239F;
-            this.employee_name.Frozen = true;
-            this.employee_name.HeaderText = "FIRST NAME";
-            this.employee_name.MinimumWidth = 12;
-            this.employee_name.Name = "employee_name";
-            this.employee_name.ReadOnly = true;
-            this.employee_name.Width = 115;
-            // 
-            // employee_lastname
-            // 
-            this.employee_lastname.DataPropertyName = "employee_lastname";
-            this.employee_lastname.FillWeight = 99.49239F;
-            this.employee_lastname.HeaderText = "LAST NAME";
-            this.employee_lastname.MinimumWidth = 12;
-            this.employee_lastname.Name = "employee_lastname";
-            this.employee_lastname.ReadOnly = true;
-            this.employee_lastname.Width = 113;
-            // 
-            // gender
-            // 
-            this.gender.DataPropertyName = "gender";
-            this.gender.HeaderText = "GENDER";
-            this.gender.MinimumWidth = 12;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 91;
-            // 
-            // department_name
-            // 
-            this.department_name.DataPropertyName = "department_name";
-            this.department_name.HeaderText = "DEPARTMENT";
-            this.department_name.MinimumWidth = 12;
-            this.department_name.Name = "department_name";
-            this.department_name.ReadOnly = true;
-            this.department_name.Width = 126;
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "Unit";
-            this.Unit.HeaderText = "UNIT";
-            this.Unit.MinimumWidth = 12;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Width = 66;
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.HeaderText = "POSITION";
-            this.Position.MinimumWidth = 12;
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            this.Position.Width = 101;
-            // 
-            // type_of_approver
-            // 
-            this.type_of_approver.DataPropertyName = "type_of_approver";
-            this.type_of_approver.HeaderText = "REQUESTOR TYPE";
-            this.type_of_approver.MinimumWidth = 12;
-            this.type_of_approver.Name = "type_of_approver";
-            this.type_of_approver.ReadOnly = true;
-            this.type_of_approver.Width = 154;
-            // 
-            // password
-            // 
-            this.password.DataPropertyName = "password";
-            this.password.HeaderText = "PASSWORD";
-            this.password.MinimumWidth = 12;
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Width = 112;
-            // 
-            // user_rights_name
-            // 
-            this.user_rights_name.DataPropertyName = "user_rights_name";
-            this.user_rights_name.HeaderText = "USER RIGHTS";
-            this.user_rights_name.MinimumWidth = 12;
-            this.user_rights_name.Name = "user_rights_name";
-            this.user_rights_name.ReadOnly = true;
-            this.user_rights_name.Width = 123;
-            // 
-            // receiving_status
-            // 
-            this.receiving_status.DataPropertyName = "receiving_status";
-            this.receiving_status.HeaderText = "NOTIFICATION";
-            this.receiving_status.MinimumWidth = 12;
-            this.receiving_status.Name = "receiving_status";
-            this.receiving_status.ReadOnly = true;
-            this.receiving_status.Width = 131;
-            // 
-            // user_section
-            // 
-            this.user_section.DataPropertyName = "user_section";
-            this.user_section.HeaderText = "LAYOUT";
-            this.user_section.MinimumWidth = 12;
-            this.user_section.Name = "user_section";
-            this.user_section.ReadOnly = true;
-            this.user_section.Width = 87;
             // 
             // mattxtSearch
             // 
@@ -357,12 +231,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard1.Controls.Add(this.txtname);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(704, 556);
+            this.materialCard1.Location = new System.Drawing.Point(884, 547);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(122, 155);
+            this.materialCard1.Size = new System.Drawing.Size(122, 70);
             this.materialCard1.TabIndex = 664;
             this.materialCard1.Visible = false;
             // 
@@ -737,11 +611,138 @@ namespace ULTRAMAVERICK.Forms.Users
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // userfile_id
+            // 
+            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.userfile_id.DataPropertyName = "userfile_id";
+            this.userfile_id.FillWeight = 40.60914F;
+            this.userfile_id.Frozen = true;
+            this.userfile_id.HeaderText = "ID";
+            this.userfile_id.MinimumWidth = 12;
+            this.userfile_id.Name = "userfile_id";
+            this.userfile_id.ReadOnly = true;
+            this.userfile_id.Visible = false;
+            this.userfile_id.Width = 12;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.FillWeight = 99.49239F;
+            this.username.Frozen = true;
+            this.username.HeaderText = "USERNAME";
+            this.username.MinimumWidth = 12;
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.Width = 112;
+            // 
+            // employee_name
+            // 
+            this.employee_name.DataPropertyName = "employee_name";
+            this.employee_name.FillWeight = 99.49239F;
+            this.employee_name.Frozen = true;
+            this.employee_name.HeaderText = "FIRST NAME";
+            this.employee_name.MinimumWidth = 12;
+            this.employee_name.Name = "employee_name";
+            this.employee_name.ReadOnly = true;
+            this.employee_name.Width = 117;
+            // 
+            // employee_lastname
+            // 
+            this.employee_lastname.DataPropertyName = "employee_lastname";
+            this.employee_lastname.FillWeight = 99.49239F;
+            this.employee_lastname.Frozen = true;
+            this.employee_lastname.HeaderText = "LAST NAME";
+            this.employee_lastname.MinimumWidth = 12;
+            this.employee_lastname.Name = "employee_lastname";
+            this.employee_lastname.ReadOnly = true;
+            this.employee_lastname.Width = 115;
+            // 
+            // gender
+            // 
+            this.gender.DataPropertyName = "gender";
+            this.gender.HeaderText = "GENDER";
+            this.gender.MinimumWidth = 12;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Width = 93;
+            // 
+            // department_name
+            // 
+            this.department_name.DataPropertyName = "department_name";
+            this.department_name.HeaderText = "DEPARTMENT";
+            this.department_name.MinimumWidth = 12;
+            this.department_name.Name = "department_name";
+            this.department_name.ReadOnly = true;
+            this.department_name.Width = 128;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "UNIT";
+            this.Unit.MinimumWidth = 12;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Width = 68;
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "POSITION";
+            this.Position.MinimumWidth = 12;
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
+            this.Position.Width = 103;
+            // 
+            // type_of_approver
+            // 
+            this.type_of_approver.DataPropertyName = "type_of_approver";
+            this.type_of_approver.HeaderText = "REQUESTOR TYPE";
+            this.type_of_approver.MinimumWidth = 12;
+            this.type_of_approver.Name = "type_of_approver";
+            this.type_of_approver.ReadOnly = true;
+            this.type_of_approver.Width = 156;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "PASSWORD";
+            this.password.MinimumWidth = 12;
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Width = 114;
+            // 
+            // user_rights_name
+            // 
+            this.user_rights_name.DataPropertyName = "user_rights_name";
+            this.user_rights_name.HeaderText = "USER RIGHTS";
+            this.user_rights_name.MinimumWidth = 12;
+            this.user_rights_name.Name = "user_rights_name";
+            this.user_rights_name.ReadOnly = true;
+            this.user_rights_name.Width = 125;
+            // 
+            // receiving_status
+            // 
+            this.receiving_status.DataPropertyName = "receiving_status";
+            this.receiving_status.HeaderText = "NOTIFICATION";
+            this.receiving_status.MinimumWidth = 12;
+            this.receiving_status.Name = "receiving_status";
+            this.receiving_status.ReadOnly = true;
+            this.receiving_status.Width = 133;
+            // 
+            // user_section
+            // 
+            this.user_section.DataPropertyName = "user_section";
+            this.user_section.HeaderText = "LAYOUT";
+            this.user_section.MinimumWidth = 12;
+            this.user_section.Name = "user_section";
+            this.user_section.ReadOnly = true;
+            this.user_section.Width = 89;
+            // 
             // frmUserManagement2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 626);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);

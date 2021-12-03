@@ -41,14 +41,25 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         public string sp_created_by { get; set; }
         public string sp_modified_at { get; set; }
         public string sp_modified_by { get; set; }
+        public string sp_bind_selected { get; set; }
         private void frmItemClass_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ShowDataActivated();
+            this.ConnetionString();
             myglobal.global_module = "Active"; // Mode for Searching
             this.showItemClassData();
             this.SearchMethodJarVarCallingSP();
         }
+        private void ConnetionString()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+        private void ShowDataActivated()
+        {
+            this.matRadioActive.Checked = true;
+        }
+
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
@@ -59,6 +70,17 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_Class_Major");
             //this.dgvitemClass.Columns["item_class_id"].Visible = false;
         }
+
+        private void SearchMethodJarVarCallingSPInactive()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_Class_Major_Inactive");
+            //this.dgvitemClass.Columns["item_class_id"].Visible = false;
+        }
+
 
         private void doSearchInTextBox()
         {
@@ -118,6 +140,24 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             {
                 ready = false;
                 xClass.fillDataGridView(dgvitemClass, "Item_Class", dSet);
+                ready = true;
+                lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void showItemClassDataInActive()      //method for loading available_menus
+        {
+            try
+            {
+                ready = false;
+                xClass.fillDataGridView(dgvitemClass, "Item_Class_InActive", dSet);
                 ready = true;
                 lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
             }
@@ -279,7 +319,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "SUCCESSFULLY UPDATE";
+            popup.ContentText = "Successfully Save";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -300,7 +340,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void metroSave_Click(object sender, EventArgs e)
         {
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the  Item Class Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the  Item Class Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
            
@@ -434,10 +474,21 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             else if (mode == "delete")
             {
 
-                dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete");
+                if (this.sp_bind_selected == "1")
+                {
 
-                return true;
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete");
+                   
+                    return true;
+                }
+                else
+                {
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete_activation");
+                    this.matRadioActive.Checked = true;
+                    return true;
+                }
             }
             return false;
         }
@@ -498,7 +549,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
 
         }
-        public void DeletedSuccessfully()
+        public void InactiveSuccessfully()
         {
 
             PopupNotifier popup = new PopupNotifier();
@@ -507,7 +558,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Deleted Successfully";
+            popup.ContentText = "Successfully Inactive";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -526,42 +577,35 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
         }
-        private void matBtnDelete_Click(object sender, EventArgs e)
+
+        public void ActivatedSuccessfully()
         {
-            if (dgvitemClass.Rows.Count > 0)
-            {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Activated";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
 
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
 
-
-
-
-                    mode = "delete";
-
-                    if (saveMode())
-                    {
-                        DeletedSuccessfully();
-                        showItemClassData();
-
-                       matBtnCancel_Click("", e);
-                    }
-                }
-
-                else
-                {
-                    return;
-                }
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
 
 
+            popup.ShowOptionsButton = true;
 
 
-
-
-            }
         }
-
         private void btnAddTool_Click(object sender, EventArgs e)
         {
             mode = "add";
@@ -610,37 +654,78 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void btnDeleteTool_Click(object sender, EventArgs e)
         {
-            if (dgvitemClass.Rows.Count > 0)
+            if (this.sp_bind_selected == "1")
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (dgvitemClass.Rows.Count > 0)
                 {
 
-
-
-
-
-                    mode = "delete";
-
-                    if (saveMode())
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        DeletedSuccessfully();
-                        showItemClassData();
 
-                        matBtnCancel_Click("", e);
+
+
+
+
+                        mode = "delete";
+
+                        if (saveMode())
+                        {
+                            InactiveSuccessfully();
+                            showItemClassData();
+
+                            matBtnCancel_Click("", e);
+                        }
                     }
+
+                    else
+                    {
+                        return;
+                    }
+
+
+
+
+
+
                 }
 
-                else
+            }
+            else
+            {
+                if (dgvitemClass.Rows.Count > 0)
                 {
-                    return;
+
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+
+
+
+
+                        this.mode = "delete";
+
+                        if (this.saveMode())
+                        {
+                            this.ActivatedSuccessfully();
+                            this.showItemClassData();
+
+                            this.matBtnCancel_Click("", e);
+
+                        }
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+
+
+
+
+
+
                 }
-
-
-
-
-
-
             }
         }
 
@@ -665,6 +750,86 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
+            if (mattxtSearch.Text == "")
+            {
+                showItemClassData();
+            }
+            if (lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+                if (mode == "add")
+                {
+
+                }
+                else
+                {
+                    doSearchInTextBox();
+                }
+
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
+                this.matBtnDelete.Text = "&InActive";
+
+                this.showItemClassData();
+                this.SearchMethodJarVarCallingSP();
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+                this.matBtnDelete.Text = "&Activate";
+                this.showItemClassDataInActive();
+                this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
+                this.matBtnDelete.Text = "&InActive";
+     
+                this.showItemClassData();
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+                this.matBtnDelete.Text = "&Activate";
+                this.showItemClassDataInActive();
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void mattxtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            this.ConnetionString();
+            if(sp_bind_selected == "1")
+            {
+                this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+                this.SearchMethodJarVarCallingSPInactive();
+            }
+
             if (mattxtSearch.Text == "")
             {
                 showItemClassData();
