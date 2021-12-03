@@ -1263,6 +1263,8 @@ namespace COMPLETE_FLAT_UI
             SubMenu();
 
             //Research And Development
+            this.toolReceiving.Visible = false;
+            this.toolStore.Visible = false;
             toolStripRawMaterials.Visible = false;
             toolImportDry.Visible = false;
             this.timeSubMenuIn.Start();
@@ -1278,7 +1280,9 @@ namespace COMPLETE_FLAT_UI
             toolDropdownMenu.Visible = false;
             toolDropdownUser.Visible = false;
             //Research And Development
-            toolStripRawMaterials.Visible = true;
+            toolStripRawMaterials.Visible = false;
+            toolStripInventoryDry.Visible = true;
+            toolStore.Visible = false;
 
             this.timeSubMenuIn.Start();
 
@@ -1391,6 +1395,60 @@ namespace COMPLETE_FLAT_UI
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void btnSetUp_Click(object sender, EventArgs e)
+        {
+            this.panelMenuSelection.Visible = true;
+
+            this.toolStripRawMaterials.Visible = false;
+            this.SubMenu();
+            this.toolDropdownMenu.Visible = false;
+            this.toolDropdownUser.Visible = false;
+            //Research And Development
+            this.toolStripRawMaterials.Visible = true;
+            this.toolImportDry.Visible = false;
+            this.toolStore.Visible = true;
+            this.toolStripInventoryDry.Visible = false;
+            this.toolReceiving.Visible = false;
+            this.timeSubMenuIn.Start();
+        }
+
+        private void toolStripStoreArea_Click(object sender, EventArgs e)
+        {
+            frmAreaManagement fm = new frmAreaManagement();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void storeRoute_Click(object sender, EventArgs e)
+        {
+            frmStoreRoute fm = new frmStoreRoute();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStores_Click(object sender, EventArgs e)
+        {
+            frmListofStore fm = new frmListofStore();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void dryWHInventoryToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+            frmDryWHInventory fm = new frmDryWHInventory();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+
+        }
+
+        private void lotManagementToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmLotManagement fm = new frmLotManagement();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         private void button5_Click(object sender, EventArgs e)

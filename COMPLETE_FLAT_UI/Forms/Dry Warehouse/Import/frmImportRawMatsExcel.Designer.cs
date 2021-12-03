@@ -30,10 +30,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
             this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -85,22 +85,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.AllowUserToAddRows = false;
             this.dgvRawMats.AllowUserToDeleteRows = false;
             this.dgvRawMats.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvRawMats.AutoGenerateColumns = false;
-            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvRawMats.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvRawMats.ColumnHeadersHeight = 45;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NO,
@@ -115,14 +115,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.conversion});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -130,14 +130,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 102;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
@@ -158,7 +158,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvRawMats.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvRawMats.ThemeStyle.HeaderStyle.Height = 45;
             this.dgvRawMats.ThemeStyle.ReadOnly = true;
             this.dgvRawMats.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -209,7 +209,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.txtFileName.Enabled = false;
             this.txtFileName.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtFileName.Hint = "File Name";
-            this.txtFileName.Location = new System.Drawing.Point(26, 29);
+            this.txtFileName.Location = new System.Drawing.Point(26, 14);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(1);
             this.txtFileName.MaxLength = 50;
             this.txtFileName.MouseState = MaterialSkin.MouseState.OUT;
@@ -222,15 +222,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             // cbosheet
             // 
-            this.cbosheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbosheet.Enabled = false;
             this.cbosheet.FormattingEnabled = true;
             this.cbosheet.ItemHeight = 23;
-            this.cbosheet.Location = new System.Drawing.Point(538, 39);
+            this.cbosheet.Location = new System.Drawing.Point(27, 81);
             this.cbosheet.Margin = new System.Windows.Forms.Padding(1);
             this.cbosheet.Name = "cbosheet";
             this.cbosheet.PromptText = "Sheet";
-            this.cbosheet.Size = new System.Drawing.Size(218, 29);
+            this.cbosheet.Size = new System.Drawing.Size(285, 29);
             this.cbosheet.TabIndex = 3;
             this.cbosheet.UseSelectable = true;
             this.cbosheet.SelectedIndexChanged += new System.EventHandler(this.cbosheet_SelectedIndexChanged);
@@ -255,17 +254,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(971, 116);
+            this.materialCard2.Size = new System.Drawing.Size(971, 123);
             this.materialCard2.TabIndex = 4;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(536, 24);
+            this.label4.Location = new System.Drawing.Point(25, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 610;
@@ -325,19 +323,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // NO
             // 
             this.NO.DataPropertyName = "NO";
-            this.NO.Frozen = true;
             this.NO.HeaderText = "NO";
             this.NO.MinimumWidth = 12;
             this.NO.Name = "NO";
             this.NO.ReadOnly = true;
-            this.NO.Width = 58;
             // 
             // item_id
             // 
             this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.item_id.DataPropertyName = "item_id";
             this.item_id.FillWeight = 40.60914F;
-            this.item_id.Frozen = true;
             this.item_id.HeaderText = "ITEM ID";
             this.item_id.MinimumWidth = 12;
             this.item_id.Name = "item_id";
@@ -348,12 +343,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // item_code
             // 
             this.item_code.DataPropertyName = "item_code";
-            this.item_code.Frozen = true;
             this.item_code.HeaderText = "ITEM CODE";
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
             // 
             // Item_description
             // 
@@ -363,7 +356,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.Item_description.MinimumWidth = 12;
             this.Item_description.Name = "Item_description";
             this.Item_description.ReadOnly = true;
-            this.Item_description.Width = 129;
             // 
             // primary_unit
             // 
@@ -373,7 +365,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.primary_unit.MinimumWidth = 12;
             this.primary_unit.Name = "primary_unit";
             this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 135;
             // 
             // item_type
             // 
@@ -382,7 +373,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_type.MinimumWidth = 12;
             this.item_type.Name = "item_type";
             this.item_type.ReadOnly = true;
-            this.item_type.Width = 106;
             // 
             // item_class
             // 
@@ -392,7 +382,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_class.MinimumWidth = 12;
             this.item_class.Name = "item_class";
             this.item_class.ReadOnly = true;
-            this.item_class.Width = 116;
             // 
             // major_category
             // 
@@ -402,7 +391,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.major_category.MinimumWidth = 12;
             this.major_category.Name = "major_category";
             this.major_category.ReadOnly = true;
-            this.major_category.Width = 164;
             // 
             // sub_category
             // 
@@ -412,7 +400,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.sub_category.MinimumWidth = 12;
             this.sub_category.Name = "sub_category";
             this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 141;
             // 
             // conversion
             // 
@@ -422,7 +409,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.conversion.MinimumWidth = 12;
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
-            this.conversion.Width = 130;
             // 
             // frmImportRawMatsExcel
             // 

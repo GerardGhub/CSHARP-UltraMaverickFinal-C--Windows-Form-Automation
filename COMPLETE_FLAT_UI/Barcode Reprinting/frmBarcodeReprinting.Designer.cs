@@ -80,7 +80,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.dgvReprinting.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvReprinting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvReprinting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvReprinting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReprinting.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvReprinting.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReprinting.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -92,7 +92,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvReprinting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvReprinting.ColumnHeadersHeight = 35;
+            this.dgvReprinting.ColumnHeadersHeight = 45;
             this.dgvReprinting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReprinting.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selected,
@@ -146,7 +146,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.dgvReprinting.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvReprinting.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvReprinting.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvReprinting.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvReprinting.ThemeStyle.HeaderStyle.Height = 45;
             this.dgvReprinting.ThemeStyle.ReadOnly = false;
             this.dgvReprinting.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvReprinting.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -163,7 +163,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.mattxtReceivingID.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtReceivingID.Hint = "Receiving ID";
             this.mattxtReceivingID.Location = new System.Drawing.Point(212, 44);
-            this.mattxtReceivingID.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtReceivingID.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtReceivingID.MaxLength = 50;
             this.mattxtReceivingID.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtReceivingID.Multiline = false;
@@ -207,7 +207,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtItemCode.Hint = "Item Code";
             this.txtItemCode.Location = new System.Drawing.Point(424, 31);
-            this.txtItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtItemCode.Margin = new System.Windows.Forms.Padding(1);
             this.txtItemCode.MaxLength = 50;
             this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtItemCode.Multiline = false;
@@ -234,7 +234,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.Location = new System.Drawing.Point(6, 28);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -287,7 +287,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.crV1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crV1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crV1.Location = new System.Drawing.Point(480, 552);
-            this.crV1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.crV1.Margin = new System.Windows.Forms.Padding(1);
             this.crV1.Name = "crV1";
             this.crV1.Size = new System.Drawing.Size(20, 63);
             this.crV1.TabIndex = 578;
@@ -298,33 +298,27 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             // 
             this.selected.DataPropertyName = "selected";
             this.selected.FalseValue = "FALSE";
-            this.selected.Frozen = true;
             this.selected.HeaderText = "SELECTED";
             this.selected.MinimumWidth = 12;
             this.selected.Name = "selected";
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
-            this.selected.Width = 84;
             // 
             // id
             // 
             this.id.DataPropertyName = "id";
             this.id.FillWeight = 66.91177F;
-            this.id.Frozen = true;
             this.id.HeaderText = "RECEIVING ID";
             this.id.MinimumWidth = 12;
             this.id.Name = "id";
-            this.id.Width = 129;
             // 
             // item_code
             // 
             this.item_code.DataPropertyName = "item_code";
             this.item_code.FillWeight = 66.57212F;
-            this.item_code.Frozen = true;
             this.item_code.HeaderText = "ITEM CODE";
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
-            this.item_code.Width = 113;
             // 
             // item_description
             // 
@@ -333,7 +327,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.item_description.HeaderText = "DESCRIPTION";
             this.item_description.MinimumWidth = 12;
             this.item_description.Name = "item_description";
-            this.item_description.Width = 129;
             // 
             // qty_received
             // 
@@ -342,7 +335,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.qty_received.HeaderText = "QTY RECEIVED";
             this.qty_received.MinimumWidth = 12;
             this.qty_received.Name = "qty_received";
-            this.qty_received.Width = 135;
             // 
             // qty_reject
             // 
@@ -351,7 +343,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.qty_reject.HeaderText = "QTY REJECT";
             this.qty_reject.MinimumWidth = 12;
             this.qty_reject.Name = "qty_reject";
-            this.qty_reject.Width = 115;
             // 
             // date_added
             // 
@@ -360,7 +351,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.date_added.HeaderText = "DATE ADDED";
             this.date_added.MinimumWidth = 12;
             this.date_added.Name = "date_added";
-            this.date_added.Width = 125;
             // 
             // added_by
             // 
@@ -369,7 +359,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.added_by.HeaderText = "ADDED BY";
             this.added_by.MinimumWidth = 12;
             this.added_by.Name = "added_by";
-            this.added_by.Width = 107;
             // 
             // frmBarcodeReprinting
             // 
@@ -382,7 +371,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.materialCard2);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmBarcodeReprinting";
             this.Text = "DRY WH Receiving Barcode Reprinting";
             this.Load += new System.EventHandler(this.frmBarcodeReprinting_Load);

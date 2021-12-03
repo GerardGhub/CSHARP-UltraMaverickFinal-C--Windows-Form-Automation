@@ -42,13 +42,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.area_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modified_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -177,7 +177,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -255,65 +255,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             // 
-            // area_id
-            // 
-            this.area_id.DataPropertyName = "area_id";
-            this.area_id.FillWeight = 40.60914F;
-            this.area_id.Frozen = true;
-            this.area_id.HeaderText = "AREA ID";
-            this.area_id.MinimumWidth = 12;
-            this.area_id.Name = "area_id";
-            this.area_id.ReadOnly = true;
-            this.area_id.Width = 91;
-            // 
-            // area_name
-            // 
-            this.area_name.DataPropertyName = "area_name";
-            this.area_name.FillWeight = 59.93546F;
-            this.area_name.Frozen = true;
-            this.area_name.HeaderText = "AREA";
-            this.area_name.MinimumWidth = 12;
-            this.area_name.Name = "area_name";
-            this.area_name.ReadOnly = true;
-            this.area_name.Width = 72;
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.FillWeight = 97.00433F;
-            this.added_by.Frozen = true;
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.MinimumWidth = 12;
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            this.added_by.Width = 107;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.FillWeight = 77.07378F;
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 12;
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
-            this.date_added.Width = 125;
-            // 
-            // modified_by
-            // 
-            this.modified_by.DataPropertyName = "modified_by";
-            this.modified_by.HeaderText = "MODIFIED BY";
-            this.modified_by.Name = "modified_by";
-            this.modified_by.ReadOnly = true;
-            this.modified_by.Width = 126;
-            // 
-            // modified_at
-            // 
-            this.modified_at.DataPropertyName = "modified_at";
-            this.modified_at.HeaderText = "MODIFIED DATE";
-            this.modified_at.Name = "modified_at";
-            this.modified_at.ReadOnly = true;
-            this.modified_at.Width = 144;
-            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -330,6 +271,56 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.Size = new System.Drawing.Size(973, 570);
             this.materialCard2.TabIndex = 578;
+            // 
+            // area_id
+            // 
+            this.area_id.DataPropertyName = "area_id";
+            this.area_id.FillWeight = 40.60914F;
+            this.area_id.HeaderText = "AREA ID";
+            this.area_id.MinimumWidth = 12;
+            this.area_id.Name = "area_id";
+            this.area_id.ReadOnly = true;
+            // 
+            // area_name
+            // 
+            this.area_name.DataPropertyName = "area_name";
+            this.area_name.FillWeight = 59.93546F;
+            this.area_name.HeaderText = "AREA";
+            this.area_name.MinimumWidth = 12;
+            this.area_name.Name = "area_name";
+            this.area_name.ReadOnly = true;
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.FillWeight = 97.00433F;
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.MinimumWidth = 12;
+            this.added_by.Name = "added_by";
+            this.added_by.ReadOnly = true;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.FillWeight = 77.07378F;
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 12;
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            // 
+            // modified_by
+            // 
+            this.modified_by.DataPropertyName = "modified_by";
+            this.modified_by.HeaderText = "MODIFIED BY";
+            this.modified_by.Name = "modified_by";
+            this.modified_by.ReadOnly = true;
+            // 
+            // modified_at
+            // 
+            this.modified_at.DataPropertyName = "modified_at";
+            this.modified_at.HeaderText = "MODIFIED DATE";
+            this.modified_at.Name = "modified_at";
+            this.modified_at.ReadOnly = true;
             // 
             // frmAreaManagement
             // 

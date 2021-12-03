@@ -50,20 +50,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.cbosheet = new MetroFramework.Controls.MetroComboBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_route = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.ultraMaverickDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.project_Po_SummaryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
             this.tbl_storesTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.tbl_storesTableAdapter();
-            this.storenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeareaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storecodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storerouteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_route = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnits)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -344,11 +340,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.store_code,
             this.store_name,
             this.store_area,
-            this.store_route,
-            this.storenameDataGridViewTextBoxColumn,
-            this.storeareaDataGridViewTextBoxColumn,
-            this.storecodeDataGridViewTextBoxColumn,
-            this.storerouteDataGridViewTextBoxColumn});
+            this.store_route});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -405,36 +397,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             // 
-            // store_code
-            // 
-            this.store_code.DataPropertyName = "store_code";
-            this.store_code.HeaderText = "CODE";
-            this.store_code.MinimumWidth = 12;
-            this.store_code.Name = "store_code";
-            this.store_code.ReadOnly = true;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.MinimumWidth = 12;
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            // 
-            // store_area
-            // 
-            this.store_area.DataPropertyName = "store_area";
-            this.store_area.HeaderText = "AREA";
-            this.store_area.Name = "store_area";
-            this.store_area.ReadOnly = true;
-            // 
-            // store_route
-            // 
-            this.store_route.DataPropertyName = "store_route";
-            this.store_route.HeaderText = "ROUTE";
-            this.store_route.Name = "store_route";
-            this.store_route.ReadOnly = true;
-            // 
             // drymaterialsBindingSource
             // 
             this.drymaterialsBindingSource.AllowNew = true;
@@ -475,33 +437,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.tbl_storesTableAdapter.ClearBeforeFill = true;
             // 
-            // storenameDataGridViewTextBoxColumn
+            // store_code
             // 
-            this.storenameDataGridViewTextBoxColumn.DataPropertyName = "store_name";
-            this.storenameDataGridViewTextBoxColumn.HeaderText = "store_name";
-            this.storenameDataGridViewTextBoxColumn.Name = "storenameDataGridViewTextBoxColumn";
-            this.storenameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.store_code.DataPropertyName = "store_code";
+            this.store_code.HeaderText = "STORE CODE";
+            this.store_code.MinimumWidth = 12;
+            this.store_code.Name = "store_code";
+            this.store_code.ReadOnly = true;
             // 
-            // storeareaDataGridViewTextBoxColumn
+            // store_name
             // 
-            this.storeareaDataGridViewTextBoxColumn.DataPropertyName = "store_area";
-            this.storeareaDataGridViewTextBoxColumn.HeaderText = "store_area";
-            this.storeareaDataGridViewTextBoxColumn.Name = "storeareaDataGridViewTextBoxColumn";
-            this.storeareaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.HeaderText = "STORE NAME";
+            this.store_name.MinimumWidth = 12;
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
             // 
-            // storecodeDataGridViewTextBoxColumn
+            // store_area
             // 
-            this.storecodeDataGridViewTextBoxColumn.DataPropertyName = "store_code";
-            this.storecodeDataGridViewTextBoxColumn.HeaderText = "store_code";
-            this.storecodeDataGridViewTextBoxColumn.Name = "storecodeDataGridViewTextBoxColumn";
-            this.storecodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.store_area.DataPropertyName = "store_area";
+            this.store_area.HeaderText = "AREA";
+            this.store_area.Name = "store_area";
+            this.store_area.ReadOnly = true;
             // 
-            // storerouteDataGridViewTextBoxColumn
+            // store_route
             // 
-            this.storerouteDataGridViewTextBoxColumn.DataPropertyName = "store_route";
-            this.storerouteDataGridViewTextBoxColumn.HeaderText = "store_route";
-            this.storerouteDataGridViewTextBoxColumn.Name = "storerouteDataGridViewTextBoxColumn";
-            this.storerouteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.store_route.DataPropertyName = "store_route";
+            this.store_route.HeaderText = "ROUTE";
+            this.store_route.Name = "store_route";
+            this.store_route.ReadOnly = true;
             // 
             // frmImportStore
             // 
@@ -552,9 +516,5 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_area;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_route;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storenameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storeareaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storecodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn storerouteDataGridViewTextBoxColumn;
     }
 }

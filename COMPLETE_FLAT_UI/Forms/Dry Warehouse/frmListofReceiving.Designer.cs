@@ -39,8 +39,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lblgrandtotaldata = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.po_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +46,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.qty_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expected_delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actual_delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblgrandtotaldata = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
             this.SuspendLayout();
@@ -127,7 +127,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvSubCategory.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -139,7 +139,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSubCategory.ColumnHeadersHeight = 35;
+            this.dgvSubCategory.ColumnHeadersHeight = 45;
             this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.po_number,
@@ -193,7 +193,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvSubCategory.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSubCategory.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvSubCategory.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvSubCategory.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.Height = 45;
             this.dgvSubCategory.ThemeStyle.ReadOnly = true;
             this.dgvSubCategory.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvSubCategory.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -202,6 +202,66 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvSubCategory.ThemeStyle.RowsStyle.Height = 40;
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // po_number
+            // 
+            this.po_number.DataPropertyName = "po_number";
+            this.po_number.FillWeight = 40.60914F;
+            this.po_number.HeaderText = "PO NO.";
+            this.po_number.MinimumWidth = 12;
+            this.po_number.Name = "po_number";
+            this.po_number.ReadOnly = true;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 99.49239F;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.FillWeight = 99.49239F;
+            this.item_description.HeaderText = "DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            this.item_description.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.DataPropertyName = "Supplier";
+            this.Supplier.HeaderText = "SUPPLIER";
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
+            // qty_order
+            // 
+            this.qty_order.DataPropertyName = "qty_order";
+            this.qty_order.FillWeight = 99.49239F;
+            this.qty_order.HeaderText = "QTY. ORDER";
+            this.qty_order.MinimumWidth = 12;
+            this.qty_order.Name = "qty_order";
+            this.qty_order.ReadOnly = true;
+            // 
+            // expected_delivery
+            // 
+            this.expected_delivery.DataPropertyName = "expected_delivery";
+            this.expected_delivery.FillWeight = 99.49239F;
+            this.expected_delivery.HeaderText = "EXPECTED DELIVERY";
+            this.expected_delivery.MinimumWidth = 12;
+            this.expected_delivery.Name = "expected_delivery";
+            this.expected_delivery.ReadOnly = true;
+            // 
+            // actual_delivery
+            // 
+            this.actual_delivery.DataPropertyName = "actual_delivery";
+            this.actual_delivery.HeaderText = "ACTUAL DELIVERY";
+            this.actual_delivery.MinimumWidth = 12;
+            this.actual_delivery.Name = "actual_delivery";
+            this.actual_delivery.ReadOnly = true;
             // 
             // lblgrandtotaldata
             // 
@@ -226,73 +286,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label3.Size = new System.Drawing.Size(38, 17);
             this.label3.TabIndex = 671;
             this.label3.Text = "Items";
-            // 
-            // po_number
-            // 
-            this.po_number.DataPropertyName = "po_number";
-            this.po_number.FillWeight = 40.60914F;
-            this.po_number.HeaderText = "PO NO.";
-            this.po_number.MinimumWidth = 12;
-            this.po_number.Name = "po_number";
-            this.po_number.ReadOnly = true;
-            this.po_number.Width = 86;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 99.49239F;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
-            // 
-            // item_description
-            // 
-            this.item_description.DataPropertyName = "item_description";
-            this.item_description.FillWeight = 99.49239F;
-            this.item_description.HeaderText = "DESCRIPTION";
-            this.item_description.MinimumWidth = 12;
-            this.item_description.Name = "item_description";
-            this.item_description.ReadOnly = true;
-            this.item_description.Width = 129;
-            // 
-            // Supplier
-            // 
-            this.Supplier.DataPropertyName = "Supplier";
-            this.Supplier.HeaderText = "SUPPLIER";
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
-            this.Supplier.Width = 99;
-            // 
-            // qty_order
-            // 
-            this.qty_order.DataPropertyName = "qty_order";
-            this.qty_order.FillWeight = 99.49239F;
-            this.qty_order.HeaderText = "QTY. ORDER";
-            this.qty_order.MinimumWidth = 12;
-            this.qty_order.Name = "qty_order";
-            this.qty_order.ReadOnly = true;
-            this.qty_order.Width = 118;
-            // 
-            // expected_delivery
-            // 
-            this.expected_delivery.DataPropertyName = "expected_delivery";
-            this.expected_delivery.FillWeight = 99.49239F;
-            this.expected_delivery.HeaderText = "EXPECTED DELIVERY";
-            this.expected_delivery.MinimumWidth = 12;
-            this.expected_delivery.Name = "expected_delivery";
-            this.expected_delivery.ReadOnly = true;
-            this.expected_delivery.Width = 176;
-            // 
-            // actual_delivery
-            // 
-            this.actual_delivery.DataPropertyName = "actual_delivery";
-            this.actual_delivery.HeaderText = "ACTUAL DELIVERY";
-            this.actual_delivery.MinimumWidth = 12;
-            this.actual_delivery.Name = "actual_delivery";
-            this.actual_delivery.ReadOnly = true;
-            this.actual_delivery.Width = 160;
             // 
             // frmListofReceiving
             // 

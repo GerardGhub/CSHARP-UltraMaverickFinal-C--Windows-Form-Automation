@@ -19,16 +19,16 @@ namespace COMPLETE_FLAT_UI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            FormListaClientes hijo = new FormListaClientes();
-            AddOwnedForm(hijo);
-            hijo.FormBorderStyle = FormBorderStyle.None;
-            hijo.TopLevel = false;
-            hijo.Dock = DockStyle.Fill;
-            this.Controls.Add(hijo);
-            this.Tag = hijo;
-            hijo.BringToFront();
+            //FormListaClientes hijo = new FormListaClientes();
+            //AddOwnedForm(hijo);
+            //hijo.FormBorderStyle = FormBorderStyle.None;
+            //hijo.TopLevel = false;
+            //hijo.Dock = DockStyle.Fill;
+            //this.Controls.Add(hijo);
+            //this.Tag = hijo;
+            //hijo.BringToFront();
            
-            hijo.Show();  
+            //hijo.Show();  
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
