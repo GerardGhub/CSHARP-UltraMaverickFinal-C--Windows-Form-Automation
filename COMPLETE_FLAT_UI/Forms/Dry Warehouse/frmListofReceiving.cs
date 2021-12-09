@@ -44,9 +44,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
            
-                this.xClass.fillDataGridView(dgvSubCategory, "Po_Receiving_Warehouse", dSet);
+                this.xClass.fillDataGridView(this.dgvSubCategory, "Po_Receiving_Warehouse", dSet);
              
-                this.lblgrandtotaldata.Text = dgvSubCategory.RowCount.ToString();
+                this.lblgrandtotaldata.Text = this.dgvSubCategory.RowCount.ToString();
+                this.dgvSubCategory.Columns["PrimaryID"].Visible = false;
             }
             catch (Exception ex)
             {

@@ -364,17 +364,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         if (this.totalRecords == "1")
                         {
                             this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
-              
 
+                            
                         }
                         else
                         {
-                            int sum = 0;
-                            for (int i = 0; i < this.dgvMajorCategory.Rows.Count; ++i)
-                            {
-                                sum += Convert.ToInt32(this.dgvMajorCategory.Rows[i].Cells["total_received"].Value);
-                            }
-                            this.mattxtsoh.Text = sum.ToString();
+                            //int sum = 0;
+                            //for (int i = 0; i < this.dgvMajorCategory.Rows.Count; ++i)
+                            //{
+                            //    sum += Convert.ToInt32(this.dgvMajorCategory.Rows[i].Cells["total_received"].Value);
+                            //}
+                            //this.mattxtsoh.Text = sum.ToString();
+                        
+                                int sum2 = 0;
+                                for (int i = 0; i < this.dgvMajorCategory.Rows.Count; ++i)
+                                {
+                                    sum2 += Convert.ToInt32(this.dgvMajorCategory.Rows[i].Cells["TOTALRECEIVEDFINAL"].Value);
+                                }
+                                this.mattxtsoh.Text = sum2.ToString();
+                            
                         }
                         this.sp_total_remaining_po = dgvMajorCategory.CurrentRow.Cells["totalremainingpo"].Value.ToString();
                         this.sp_warehouse_reject_approval = dgvMajorCategory.CurrentRow.Cells["WH_Reject_Approval"].Value.ToString();
@@ -685,12 +693,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     //this.SummaryComputation();  11/19/2021
                     this.SummaryComputation(); //Inject 11/25/2021
 
+               
 
                     //Second Summary of Queryy Disposal of Rejection Remarks
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_timer_dispossal");
+
+                    //Second Summary of Queryy Disposal of Rejection Remarks RE == QA
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_wh_re_qa'");
+
 
                     //Commit the Data on The Database Stored procedure
                     this.dSet.Clear();
@@ -745,13 +761,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                     this.SummaryComputation();
-
+           
 
                     //Second Summary of Queryy Disposal of Rejection Remarks
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_timer_dispossal");
+
+                    //Second Summary of Queryy Disposal of Rejection Remarks RE == QA
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_wh_re_qa'");
 
 
                     //Commit Data on The Database Stored Procedure

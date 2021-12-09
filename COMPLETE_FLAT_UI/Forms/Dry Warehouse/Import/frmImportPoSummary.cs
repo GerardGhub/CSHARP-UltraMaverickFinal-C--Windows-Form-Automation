@@ -90,7 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         }
         private void CallOthers()
         {
-            this.lbltotalrecords.Text = dgvRawMats.Rows.Count.ToString();
+            this.lbltotalrecords.Text = this.dgvRawMats.Rows.Count.ToString();
             this.user_id = userinfo.user_id;
             this.materialCard3.Visible = false;
 

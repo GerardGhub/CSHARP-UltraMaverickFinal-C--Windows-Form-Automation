@@ -39,6 +39,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lblgrandtotaldata = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.po_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +48,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.qty_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expected_delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actual_delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblgrandtotaldata = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.PrimaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
             this.SuspendLayout();
@@ -148,7 +149,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Supplier,
             this.qty_order,
             this.expected_delivery,
-            this.actual_delivery});
+            this.actual_delivery,
+            this.PrimaryID});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,6 +204,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvSubCategory.ThemeStyle.RowsStyle.Height = 40;
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // lblgrandtotaldata
+            // 
+            this.lblgrandtotaldata.AutoSize = true;
+            this.lblgrandtotaldata.BackColor = System.Drawing.Color.Transparent;
+            this.lblgrandtotaldata.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgrandtotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lblgrandtotaldata.Location = new System.Drawing.Point(26, 624);
+            this.lblgrandtotaldata.Name = "lblgrandtotaldata";
+            this.lblgrandtotaldata.Size = new System.Drawing.Size(46, 40);
+            this.lblgrandtotaldata.TabIndex = 670;
+            this.lblgrandtotaldata.Text = "76";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label3.Location = new System.Drawing.Point(29, 659);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 17);
+            this.label3.TabIndex = 671;
+            this.label3.Text = "Items";
             // 
             // po_number
             // 
@@ -263,29 +289,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.actual_delivery.Name = "actual_delivery";
             this.actual_delivery.ReadOnly = true;
             // 
-            // lblgrandtotaldata
+            // PrimaryID
             // 
-            this.lblgrandtotaldata.AutoSize = true;
-            this.lblgrandtotaldata.BackColor = System.Drawing.Color.Transparent;
-            this.lblgrandtotaldata.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblgrandtotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblgrandtotaldata.Location = new System.Drawing.Point(26, 624);
-            this.lblgrandtotaldata.Name = "lblgrandtotaldata";
-            this.lblgrandtotaldata.Size = new System.Drawing.Size(46, 40);
-            this.lblgrandtotaldata.TabIndex = 670;
-            this.lblgrandtotaldata.Text = "76";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(29, 659);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 17);
-            this.label3.TabIndex = 671;
-            this.label3.Text = "Items";
+            this.PrimaryID.DataPropertyName = "PrimaryID";
+            this.PrimaryID.HeaderText = "ID";
+            this.PrimaryID.Name = "PrimaryID";
+            this.PrimaryID.ReadOnly = true;
             // 
             // frmListofReceiving
             // 
@@ -329,5 +338,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn qty_order;
         private System.Windows.Forms.DataGridViewTextBoxColumn expected_delivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn actual_delivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryID;
     }
 }
