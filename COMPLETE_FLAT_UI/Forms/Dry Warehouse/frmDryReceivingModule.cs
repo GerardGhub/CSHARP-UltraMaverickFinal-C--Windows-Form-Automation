@@ -43,6 +43,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public double sp_receiving_qty { get; set; }
         public string sp_total_remaining_po { get; set; }
         public string sp_warehouse_reject_approval { get; set; }
+        public int sp_projection_id { get; set; }
         
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
@@ -349,6 +350,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     if (this.dgvMajorCategory.CurrentRow.Cells["item_code"].Value != null)
                     {
                         this.p_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["PrimaryID"].Value);
+                        this.sp_projection_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["ProjectID"].Value);
                         this.mattxtitemcode.Text = dgvMajorCategory.CurrentRow.Cells["item_code"].Value.ToString();
                         this.mattxtitemdesc.Text = dgvMajorCategory.CurrentRow.Cells["item_description"].Value.ToString();
                         this.mattxtSupplier.Text = dgvMajorCategory.CurrentRow.Cells["Supplier"].Value.ToString();
@@ -910,7 +912,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.QCReceiverAlreadyApproved();
             }
            
-                frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text, p_id, Convert.ToInt32(mattxtponumber.Text));
+                frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text, p_id, Convert.ToInt32(mattxtponumber.Text), sp_projection_id);
                 showModal.ShowDialog();
           
         

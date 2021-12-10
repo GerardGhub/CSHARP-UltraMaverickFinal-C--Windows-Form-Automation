@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
      
         DataSet dSet_temp = new DataSet();
         public frmAddNewPartialRejectReceiving(frmDryReceivingModule frm, string item_description, string quantity,
-            int primary_key, int po_number)
+            int primary_key, int po_number, int projection_identity)
         {
             InitializeComponent();
             ths = frm;
@@ -40,6 +40,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sp_quantity = quantity;
             this.sp_index_id = primary_key;
             this.sp_po_number = po_number;
+            this.sp_projection_identity = projection_identity;
         }
 
 
@@ -55,6 +56,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         public string sp_ActualQty { get; set; }
         public string sp_totalRecordSearch { get; set; }
+        public int sp_projection_identity { get; set; }
         private void frmAddNewPartialRejectReceiving_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -308,7 +310,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //MessageBox.Show("+",sp_index_id.ToString());
             this.dSet.Clear();
             this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(0,
-              sp_index_id, 0, 0, metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", "getbyname");
+              sp_index_id, 0, 0, metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", 0, "getbyname");
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 this.AlreadyExist();
@@ -362,7 +364,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                  
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
-                        sp_index_id, sp_po_number, Convert.ToInt32(totalSummaryofReject), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", "edit");
+                        sp_index_id, sp_po_number, Convert.ToInt32(totalSummaryofReject), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", sp_projection_identity, "edit");
                     this.AddedSuccessfully();
                     this.SearchMethodJarVarCallingSP();
                     this.doSearchInTextBoxCmb();
@@ -413,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(0,
-                    sp_index_id, sp_po_number, Convert.ToInt32(mattxtqtyreject.Text), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", "add");
+                    sp_index_id, sp_po_number, Convert.ToInt32(mattxtqtyreject.Text), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", sp_projection_identity,  "add");
                 this.AddedSuccessfully();
                 frmAddNewPartialRejectReceiving_Load(sender, e);
                 this.Close();
@@ -512,7 +514,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.dSet.Clear();
                 //MessageBox.Show(sp_primary_key.ToString());
                 this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
-                    0, 0, 0, "", sp_added_by, "", sp_added_by, "", "delete");
+                    0, 0, 0, "", sp_added_by, "", sp_added_by, "", sp_projection_identity , "delete");
                 this.DeletedSuccessfully();
                 frmAddNewPartialRejectReceiving_Load(sender, e);
 

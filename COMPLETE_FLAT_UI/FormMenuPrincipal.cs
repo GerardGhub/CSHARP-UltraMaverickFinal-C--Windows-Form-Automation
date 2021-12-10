@@ -1263,6 +1263,7 @@ namespace COMPLETE_FLAT_UI
             SubMenu();
 
             //Research And Development
+            toolPreparation.Visible = false;
             this.toolReceiving.Visible = false;
             this.toolStore.Visible = false;
             toolStripRawMaterials.Visible = false;
@@ -1280,6 +1281,7 @@ namespace COMPLETE_FLAT_UI
             toolDropdownMenu.Visible = false;
             toolDropdownUser.Visible = false;
             //Research And Development
+            toolPreparation.Visible = true;
             toolStripRawMaterials.Visible = false;
             toolStripInventoryDry.Visible = true;
             toolStore.Visible = false;
@@ -1406,6 +1408,7 @@ namespace COMPLETE_FLAT_UI
             this.toolDropdownMenu.Visible = false;
             this.toolDropdownUser.Visible = false;
             //Research And Development
+            toolPreparation.Visible = false;
             this.toolStripRawMaterials.Visible = true;
             this.toolImportDry.Visible = false;
             this.toolStore.Visible = true;
@@ -1447,6 +1450,13 @@ namespace COMPLETE_FLAT_UI
         private void lotManagementToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmLotManagement fm = new frmLotManagement();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolDryForApproval_Click(object sender, EventArgs e)
+        {
+            frmStoreOrderforApproval fm = new frmStoreOrderforApproval();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
