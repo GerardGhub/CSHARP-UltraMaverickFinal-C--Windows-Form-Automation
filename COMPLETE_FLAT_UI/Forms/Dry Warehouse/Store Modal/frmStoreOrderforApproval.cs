@@ -43,11 +43,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             
             this.loadCategoryDropdown();
             this.loadStoreDropdown();
-
+            this.loadDateOrderDropdown();
             //Load The Data With Stored Procedure
-            this.LoadDataWithParamsOrders();
-
+            //this.LoadDataWithParamsOrders();
+            this.InitiliazeDatePickerMinDate();
             //this.load_search();
+        }
+        private void InitiliazeDatePickerMinDate()
+        {
+            this.bunifuPrepaDate.MinDate = DateTime.Now;
+        }
+        public void loadDateOrderDropdown()
+        {
+            try
+            {
+
+
+                myClass.fillComboBoxStoreOrderApproval(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date", this.dSet);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
         private void ConnectionInit()
@@ -81,7 +102,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
         
-            myClass.fillComboBoxDepartment(this.matcmbPackaging, "tblStoreOrderDryWH_dropdown", this.dSet);
+            myClass.fillComboBoxStoreOrderApproval(this.matcmbPackaging, "tblStoreOrderDryWH_dropdown_Approval", this.dSet);
 
             }
             catch (Exception ex)
@@ -128,6 +149,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
         }
+
+
         private void doSearch()
         {
             try
@@ -142,7 +165,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     else if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "  category = '" + this.matcmbPackaging.Text + "' and  fox = '" + this.matcmbPackaging.Text + "'      ";
+                        dv.RowFilter = "  category = '" + this.matcmbPackaging.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -172,7 +195,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void LoadDataWithParamsOrders()
         {
             this.ConnectionInit();
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbPackaging.Text, Convert.ToInt32(this.metroCmbStoreCode.Text));
+            MessageBox.Show(this.metroCmbStoreCode.Text);
+            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbPackaging.Text,0);
                 this.dgvReprinting.DataSource = dset.Tables[0];
                 for (int i = 0; i <= dgvReprinting.RowCount; i++)
                 {
@@ -191,12 +215,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.LoadDataWithParamsOrders();
+            //this.LoadDataWithParamsOrders();
+            this.ConnectionInit();
+            this.load_search();
         }
 
         private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //this.LoadDataWithParamsOrders();
+            this.ConnectionInit();
+            this.load_search();
+        }
+
+        private void cmbDateOrder_SelectionChangeCommitted(object sender, EventArgs e)
+        {
             this.ConnectionInit();
             this.load_search();
         }
