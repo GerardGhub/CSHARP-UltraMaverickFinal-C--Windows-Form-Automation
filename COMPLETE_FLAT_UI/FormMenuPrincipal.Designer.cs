@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
@@ -86,6 +86,7 @@
             this.toolModulePrimaryUnitMgmt = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouseCrewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lotManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.averageOrderTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDropdownMenu = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolParentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolChildMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,9 +105,11 @@
             this.rMBarcodeReprintingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPreparation = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolDryForApproval = new System.Windows.Forms.ToolStripMenuItem();
+            this.forApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.approvedOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preparationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDryApprovedOrder = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDryPreparation = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDryMoveOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDashBoard1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnUsers1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -658,21 +661,21 @@
             // toolStripStoreArea
             // 
             this.toolStripStoreArea.Name = "toolStripStoreArea";
-            this.toolStripStoreArea.Size = new System.Drawing.Size(159, 26);
+            this.toolStripStoreArea.Size = new System.Drawing.Size(180, 26);
             this.toolStripStoreArea.Text = "Store Area";
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
             // storeRoute
             // 
             this.storeRoute.Name = "storeRoute";
-            this.storeRoute.Size = new System.Drawing.Size(159, 26);
+            this.storeRoute.Size = new System.Drawing.Size(180, 26);
             this.storeRoute.Text = "Store Route";
             this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
             // 
             // toolStores
             // 
             this.toolStores.Name = "toolStores";
-            this.toolStores.Size = new System.Drawing.Size(159, 26);
+            this.toolStores.Size = new System.Drawing.Size(180, 26);
             this.toolStores.Text = "Stores";
             this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
             // 
@@ -687,7 +690,8 @@
             this.toolModuleRawMaterialsDry,
             this.toolModulePrimaryUnitMgmt,
             this.warehouseCrewToolStripMenuItem,
-            this.lotManagementToolStripMenuItem});
+            this.lotManagementToolStripMenuItem,
+            this.averageOrderTrendToolStripMenuItem});
             this.toolStripRawMaterials.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.toolStripRawMaterials.ForeColor = System.Drawing.SystemColors.InfoText;
             this.toolStripRawMaterials.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRawMaterials.Image")));
@@ -703,7 +707,7 @@
             // 
             this.toolStripModuleItemClass.Enabled = false;
             this.toolStripModuleItemClass.Name = "toolStripModuleItemClass";
-            this.toolStripModuleItemClass.Size = new System.Drawing.Size(195, 26);
+            this.toolStripModuleItemClass.Size = new System.Drawing.Size(218, 26);
             this.toolStripModuleItemClass.Text = "Item Class";
             this.toolStripModuleItemClass.Click += new System.EventHandler(this.toolStripModuleItemClass_Click_1);
             // 
@@ -711,7 +715,7 @@
             // 
             this.toolStripModuleMajorCategory.Enabled = false;
             this.toolStripModuleMajorCategory.Name = "toolStripModuleMajorCategory";
-            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(195, 26);
+            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(218, 26);
             this.toolStripModuleMajorCategory.Text = "Warehouses";
             this.toolStripModuleMajorCategory.Click += new System.EventHandler(this.toolStripModuleMajorCategory_Click);
             // 
@@ -719,7 +723,7 @@
             // 
             this.toolStripModuleSubCategory.Enabled = false;
             this.toolStripModuleSubCategory.Name = "toolStripModuleSubCategory";
-            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(195, 26);
+            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(218, 26);
             this.toolStripModuleSubCategory.Text = "Category";
             this.toolStripModuleSubCategory.Click += new System.EventHandler(this.toolStripModuleSubCategory_Click);
             // 
@@ -727,7 +731,7 @@
             // 
             this.toolStripModulePrimaryUnit.Enabled = false;
             this.toolStripModulePrimaryUnit.Name = "toolStripModulePrimaryUnit";
-            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(195, 26);
+            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(218, 26);
             this.toolStripModulePrimaryUnit.Text = "Primary Unit";
             this.toolStripModulePrimaryUnit.Click += new System.EventHandler(this.toolStripModulePrimaryUnit_Click);
             // 
@@ -735,7 +739,7 @@
             // 
             this.toolStripModuleItemType.Enabled = false;
             this.toolStripModuleItemType.Name = "toolStripModuleItemType";
-            this.toolStripModuleItemType.Size = new System.Drawing.Size(195, 26);
+            this.toolStripModuleItemType.Size = new System.Drawing.Size(218, 26);
             this.toolStripModuleItemType.Text = "Item Type";
             this.toolStripModuleItemType.Click += new System.EventHandler(this.toolStripModuleItemType_Click);
             // 
@@ -743,7 +747,7 @@
             // 
             this.toolModuleRawMaterialsDry.Enabled = false;
             this.toolModuleRawMaterialsDry.Name = "toolModuleRawMaterialsDry";
-            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(195, 26);
+            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(218, 26);
             this.toolModuleRawMaterialsDry.Text = "Raw Material";
             this.toolModuleRawMaterialsDry.Click += new System.EventHandler(this.toolModuleRawMaterialsDry_Click);
             // 
@@ -751,23 +755,30 @@
             // 
             this.toolModulePrimaryUnitMgmt.Enabled = false;
             this.toolModulePrimaryUnitMgmt.Name = "toolModulePrimaryUnitMgmt";
-            this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(195, 26);
+            this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(218, 26);
             this.toolModulePrimaryUnitMgmt.Text = "Conversion";
             this.toolModulePrimaryUnitMgmt.Click += new System.EventHandler(this.toolModulePrimaryUnitMgmt_Click);
             // 
             // warehouseCrewToolStripMenuItem
             // 
             this.warehouseCrewToolStripMenuItem.Name = "warehouseCrewToolStripMenuItem";
-            this.warehouseCrewToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.warehouseCrewToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.warehouseCrewToolStripMenuItem.Text = "Warehouse Crew";
             this.warehouseCrewToolStripMenuItem.Click += new System.EventHandler(this.warehouseCrewToolStripMenuItem_Click);
             // 
             // lotManagementToolStripMenuItem
             // 
             this.lotManagementToolStripMenuItem.Name = "lotManagementToolStripMenuItem";
-            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.lotManagementToolStripMenuItem.Text = "Lot Management";
             this.lotManagementToolStripMenuItem.Click += new System.EventHandler(this.lotManagementToolStripMenuItem_Click_1);
+            // 
+            // averageOrderTrendToolStripMenuItem
+            // 
+            this.averageOrderTrendToolStripMenuItem.Name = "averageOrderTrendToolStripMenuItem";
+            this.averageOrderTrendToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.averageOrderTrendToolStripMenuItem.Text = "Average Order Trend";
+            this.averageOrderTrendToolStripMenuItem.Click += new System.EventHandler(this.averageOrderTrendToolStripMenuItem_Click);
             // 
             // toolDropdownMenu
             // 
@@ -926,9 +937,7 @@
             // 
             this.toolPreparation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolDryForApproval,
-            this.toolDryApprovedOrder,
-            this.toolStripDryPreparation,
-            this.toolStripDryMoveOrder});
+            this.toolDryApprovedOrder});
             this.toolPreparation.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.toolPreparation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolPreparation.Image = ((System.Drawing.Image)(resources.GetObject("toolPreparation.Image")));
@@ -941,31 +950,46 @@
             // 
             // toolDryForApproval
             // 
+            this.toolDryForApproval.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.forApprovalToolStripMenuItem,
+            this.approvedOrderToolStripMenuItem,
+            this.preparationToolStripMenuItem,
+            this.moveOrderToolStripMenuItem});
             this.toolDryForApproval.Name = "toolDryForApproval";
-            this.toolDryForApproval.Size = new System.Drawing.Size(189, 26);
-            this.toolDryForApproval.Text = "For Approval";
+            this.toolDryForApproval.Size = new System.Drawing.Size(131, 26);
+            this.toolDryForApproval.Text = "Store";
             this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
+            // 
+            // forApprovalToolStripMenuItem
+            // 
+            this.forApprovalToolStripMenuItem.Name = "forApprovalToolStripMenuItem";
+            this.forApprovalToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.forApprovalToolStripMenuItem.Text = "For Approval";
+            this.forApprovalToolStripMenuItem.Click += new System.EventHandler(this.forApprovalToolStripMenuItem_Click);
+            // 
+            // approvedOrderToolStripMenuItem
+            // 
+            this.approvedOrderToolStripMenuItem.Name = "approvedOrderToolStripMenuItem";
+            this.approvedOrderToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.approvedOrderToolStripMenuItem.Text = "Approved Order";
+            // 
+            // preparationToolStripMenuItem
+            // 
+            this.preparationToolStripMenuItem.Name = "preparationToolStripMenuItem";
+            this.preparationToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.preparationToolStripMenuItem.Text = "Preparation";
+            // 
+            // moveOrderToolStripMenuItem
+            // 
+            this.moveOrderToolStripMenuItem.Name = "moveOrderToolStripMenuItem";
+            this.moveOrderToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.moveOrderToolStripMenuItem.Text = "Move Order";
             // 
             // toolDryApprovedOrder
             // 
-            this.toolDryApprovedOrder.Enabled = false;
             this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
-            this.toolDryApprovedOrder.Size = new System.Drawing.Size(189, 26);
-            this.toolDryApprovedOrder.Text = "Approved Order";
-            // 
-            // toolStripDryPreparation
-            // 
-            this.toolStripDryPreparation.Enabled = false;
-            this.toolStripDryPreparation.Name = "toolStripDryPreparation";
-            this.toolStripDryPreparation.Size = new System.Drawing.Size(189, 26);
-            this.toolStripDryPreparation.Text = "Preparation";
-            // 
-            // toolStripDryMoveOrder
-            // 
-            this.toolStripDryMoveOrder.Enabled = false;
-            this.toolStripDryMoveOrder.Name = "toolStripDryMoveOrder";
-            this.toolStripDryMoveOrder.Size = new System.Drawing.Size(189, 26);
-            this.toolStripDryMoveOrder.Text = "Move Order";
+            this.toolDryApprovedOrder.Size = new System.Drawing.Size(131, 26);
+            this.toolDryApprovedOrder.Text = "Internal";
             // 
             // toolStrip1
             // 
@@ -1316,47 +1340,47 @@
             this.dgvParseData.AllowUserToAddRows = false;
             this.dgvParseData.AllowUserToDeleteRows = false;
             this.dgvParseData.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvParseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvParseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvParseData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvParseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvParseData.ColumnHeadersHeight = 35;
             this.dgvParseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParseData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvParseData.EnableHeadersVisualStyles = false;
             this.dgvParseData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.Location = new System.Drawing.Point(409, 229);
             this.dgvParseData.MultiSelect = false;
             this.dgvParseData.Name = "dgvParseData";
             this.dgvParseData.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvParseData.RowHeadersVisible = false;
             this.dgvParseData.RowHeadersWidth = 102;
             this.dgvParseData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -1562,10 +1586,13 @@
         private System.Windows.Forms.ToolStripMenuItem dryWHInventoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lotManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolPreparation;
-        private System.Windows.Forms.ToolStripMenuItem toolDryForApproval;
         private System.Windows.Forms.ToolStripMenuItem toolDryApprovedOrder;
-        private System.Windows.Forms.ToolStripMenuItem toolStripDryPreparation;
-        private System.Windows.Forms.ToolStripMenuItem toolStripDryMoveOrder;
+        private System.Windows.Forms.ToolStripMenuItem toolDryForApproval;
+        private System.Windows.Forms.ToolStripMenuItem forApprovalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem approvedOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preparationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moveOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem averageOrderTrendToolStripMenuItem;
     }
 }
 

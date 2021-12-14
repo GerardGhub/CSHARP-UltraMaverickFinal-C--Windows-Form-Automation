@@ -38,6 +38,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.txtmajorCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.dgvMajorCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.major_category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.major_category_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.lbltotalrecords = new System.Windows.Forms.Label();
@@ -50,12 +56,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.major_category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.major_category_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -163,7 +163,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.RowTemplate.DividerHeight = 5;
             this.dgvMajorCategory.RowTemplate.Height = 40;
             this.dgvMajorCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMajorCategory.Size = new System.Drawing.Size(984, 287);
+            this.dgvMajorCategory.Size = new System.Drawing.Size(984, 511);
             this.dgvMajorCategory.TabIndex = 593;
             this.dgvMajorCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvMajorCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -188,6 +188,59 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvMajorCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvMajorCategory.CurrentCellChanged += new System.EventHandler(this.dgvMajorCategory_CurrentCellChanged);
+            // 
+            // major_category_id
+            // 
+            this.major_category_id.DataPropertyName = "major_category_id";
+            this.major_category_id.FillWeight = 40.60914F;
+            this.major_category_id.HeaderText = "ID";
+            this.major_category_id.MinimumWidth = 12;
+            this.major_category_id.Name = "major_category_id";
+            this.major_category_id.ReadOnly = true;
+            // 
+            // major_category_desc
+            // 
+            this.major_category_desc.DataPropertyName = "major_category_desc";
+            this.major_category_desc.FillWeight = 99.49239F;
+            this.major_category_desc.HeaderText = "ITEM CLASS";
+            this.major_category_desc.MinimumWidth = 12;
+            this.major_category_desc.Name = "major_category_desc";
+            this.major_category_desc.ReadOnly = true;
+            // 
+            // mc_added_at
+            // 
+            this.mc_added_at.DataPropertyName = "mc_added_at";
+            this.mc_added_at.FillWeight = 99.49239F;
+            this.mc_added_at.HeaderText = "CREATED DATE";
+            this.mc_added_at.MinimumWidth = 12;
+            this.mc_added_at.Name = "mc_added_at";
+            this.mc_added_at.ReadOnly = true;
+            // 
+            // mc_added_by
+            // 
+            this.mc_added_by.DataPropertyName = "mc_added_by";
+            this.mc_added_by.FillWeight = 99.49239F;
+            this.mc_added_by.HeaderText = "CREATED BY";
+            this.mc_added_by.MinimumWidth = 12;
+            this.mc_added_by.Name = "mc_added_by";
+            this.mc_added_by.ReadOnly = true;
+            // 
+            // mc_updated_at
+            // 
+            this.mc_updated_at.DataPropertyName = "mc_updated_at";
+            this.mc_updated_at.FillWeight = 99.49239F;
+            this.mc_updated_at.HeaderText = "UPDATED DATE";
+            this.mc_updated_at.MinimumWidth = 12;
+            this.mc_updated_at.Name = "mc_updated_at";
+            this.mc_updated_at.ReadOnly = true;
+            // 
+            // mc_updated_by
+            // 
+            this.mc_updated_by.DataPropertyName = "mc_updated_by";
+            this.mc_updated_by.HeaderText = "UPDATED BY";
+            this.mc_updated_by.MinimumWidth = 12;
+            this.mc_updated_by.Name = "mc_updated_by";
+            this.mc_updated_by.ReadOnly = true;
             // 
             // materialCard1
             // 
@@ -218,7 +271,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(994, 299);
+            this.materialCard2.Size = new System.Drawing.Size(994, 523);
             this.materialCard2.TabIndex = 594;
             // 
             // lbltotalrecords
@@ -342,59 +395,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.TabIndex = 609;
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
-            // 
-            // major_category_id
-            // 
-            this.major_category_id.DataPropertyName = "major_category_id";
-            this.major_category_id.FillWeight = 40.60914F;
-            this.major_category_id.HeaderText = "ID";
-            this.major_category_id.MinimumWidth = 12;
-            this.major_category_id.Name = "major_category_id";
-            this.major_category_id.ReadOnly = true;
-            // 
-            // major_category_desc
-            // 
-            this.major_category_desc.DataPropertyName = "major_category_desc";
-            this.major_category_desc.FillWeight = 99.49239F;
-            this.major_category_desc.HeaderText = "ITEM CLASS";
-            this.major_category_desc.MinimumWidth = 12;
-            this.major_category_desc.Name = "major_category_desc";
-            this.major_category_desc.ReadOnly = true;
-            // 
-            // mc_added_at
-            // 
-            this.mc_added_at.DataPropertyName = "mc_added_at";
-            this.mc_added_at.FillWeight = 99.49239F;
-            this.mc_added_at.HeaderText = "CREATED DATE";
-            this.mc_added_at.MinimumWidth = 12;
-            this.mc_added_at.Name = "mc_added_at";
-            this.mc_added_at.ReadOnly = true;
-            // 
-            // mc_added_by
-            // 
-            this.mc_added_by.DataPropertyName = "mc_added_by";
-            this.mc_added_by.FillWeight = 99.49239F;
-            this.mc_added_by.HeaderText = "CREATED BY";
-            this.mc_added_by.MinimumWidth = 12;
-            this.mc_added_by.Name = "mc_added_by";
-            this.mc_added_by.ReadOnly = true;
-            // 
-            // mc_updated_at
-            // 
-            this.mc_updated_at.DataPropertyName = "mc_updated_at";
-            this.mc_updated_at.FillWeight = 99.49239F;
-            this.mc_updated_at.HeaderText = "UPDATED DATE";
-            this.mc_updated_at.MinimumWidth = 12;
-            this.mc_updated_at.Name = "mc_updated_at";
-            this.mc_updated_at.ReadOnly = true;
-            // 
-            // mc_updated_by
-            // 
-            this.mc_updated_by.DataPropertyName = "mc_updated_by";
-            this.mc_updated_by.HeaderText = "UPDATED BY";
-            this.mc_updated_by.MinimumWidth = 12;
-            this.mc_updated_by.Name = "mc_updated_by";
-            this.mc_updated_by.ReadOnly = true;
             // 
             // frmMajorCategory
             // 

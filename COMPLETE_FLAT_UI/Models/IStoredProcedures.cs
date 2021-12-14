@@ -271,12 +271,22 @@ namespace ULTRAMAVERICK.Models
 
 
         DataSet sp_Item_Class(int item_class_id,
-    string item_class_desc,
-    string item_added_by,
-    string item_added_at,
-    string item_updated_at,
-    string item_updated_by,
-    string mode);
+        string item_class_desc,
+        string item_added_by,
+        string item_added_at,
+        string item_updated_at,
+        string item_updated_by,
+        string mode);
+
+        DataSet sp_avg_order_trend(int avg_id,
+        string avg_desc,
+        int avg_days,
+        string added_by,
+        string date_added,
+        string updated_by,
+        string updated_date,
+        string mode);
+
 
         DataSet sp_Major_Category(int major_category_id,
         string major_category_desc,

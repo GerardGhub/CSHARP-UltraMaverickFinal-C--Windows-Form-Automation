@@ -309,6 +309,12 @@
     <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewStore.Designer.cs">
       <DependentUpon>frmAddNewStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAVGOrderTrendSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAVGOrderTrendSetup.Designer.cs">
+      <DependentUpon>frmAVGOrderTrendSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditArea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -588,6 +594,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAddNewStore.resx">
       <DependentUpon>frmAddNewStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAVGOrderTrendSetup.resx">
+      <DependentUpon>frmAVGOrderTrendSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmListofStore.resx">
       <DependentUpon>frmListofStore.cs</DependentUpon>

@@ -43,8 +43,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +57,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
@@ -198,7 +198,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(1001, 384);
+            this.materialCard2.Size = new System.Drawing.Size(1001, 535);
             this.materialCard2.TabIndex = 1;
             // 
             // dgvRawMats
@@ -266,7 +266,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(991, 372);
+            this.dgvRawMats.Size = new System.Drawing.Size(991, 523);
             this.dgvRawMats.TabIndex = 4;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -292,31 +292,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(246, 577);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 472;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.FillWeight = 162.4365F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::ULTRAMAVERICK.Properties.Resources.ULTRA_MAVERICK;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 12;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 40;
-            // 
             // item_id
             // 
             this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -338,7 +313,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
+            this.item_code.Width = 111;
             // 
             // Item_description
             // 
@@ -349,7 +324,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Item_description.MinimumWidth = 12;
             this.Item_description.Name = "Item_description";
             this.Item_description.ReadOnly = true;
-            this.Item_description.Width = 166;
+            this.Item_description.Width = 164;
             // 
             // item_class
             // 
@@ -359,7 +334,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_class.MinimumWidth = 12;
             this.item_class.Name = "item_class";
             this.item_class.ReadOnly = true;
-            this.item_class.Width = 116;
+            this.item_class.Width = 114;
             // 
             // major_category
             // 
@@ -369,7 +344,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.major_category.MinimumWidth = 12;
             this.major_category.Name = "major_category";
             this.major_category.ReadOnly = true;
-            this.major_category.Width = 164;
+            this.major_category.Width = 162;
             // 
             // sub_category
             // 
@@ -379,7 +354,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sub_category.MinimumWidth = 12;
             this.sub_category.Name = "sub_category";
             this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 141;
+            this.sub_category.Width = 139;
             // 
             // primary_unit
             // 
@@ -389,7 +364,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.primary_unit.MinimumWidth = 12;
             this.primary_unit.Name = "primary_unit";
             this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 135;
+            this.primary_unit.Width = 133;
             // 
             // conversion
             // 
@@ -399,7 +374,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.conversion.MinimumWidth = 12;
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
-            this.conversion.Width = 130;
+            this.conversion.Width = 128;
             // 
             // item_type
             // 
@@ -409,7 +384,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_type.MinimumWidth = 12;
             this.item_type.Name = "item_type";
             this.item_type.ReadOnly = true;
-            this.item_type.Width = 106;
+            this.item_type.Width = 104;
             // 
             // buffer_stock
             // 
@@ -418,7 +393,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.buffer_stock.MinimumWidth = 12;
             this.buffer_stock.Name = "buffer_stock";
             this.buffer_stock.ReadOnly = true;
-            this.buffer_stock.Width = 142;
+            this.buffer_stock.Width = 140;
             // 
             // created_at
             // 
@@ -428,7 +403,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
             this.created_at.Visible = false;
-            this.created_at.Width = 136;
+            this.created_at.Width = 134;
             // 
             // created_by
             // 
@@ -438,7 +413,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_by.Name = "created_by";
             this.created_by.ReadOnly = true;
             this.created_by.Visible = false;
-            this.created_by.Width = 118;
+            this.created_by.Width = 116;
             // 
             // updated_at
             // 
@@ -448,7 +423,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_at.Name = "updated_at";
             this.updated_at.ReadOnly = true;
             this.updated_at.Visible = false;
-            this.updated_at.Width = 139;
+            this.updated_at.Width = 137;
             // 
             // updated_by
             // 
@@ -458,7 +433,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_by.Name = "updated_by";
             this.updated_by.ReadOnly = true;
             this.updated_by.Visible = false;
-            this.updated_by.Width = 121;
+            this.updated_by.Width = 119;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(848, 736);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 472;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 162.4365F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::ULTRAMAVERICK.Properties.Resources.ULTRA_MAVERICK;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 12;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 40;
             // 
             // frmDryRawMaterials
             // 

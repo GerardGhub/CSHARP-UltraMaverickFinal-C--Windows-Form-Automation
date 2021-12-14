@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
+using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
@@ -31,7 +34,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             InitializeComponent();
         }
-
+        public int sp_user_id { get; set; }
+        public string mode { get; set; }
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
 
@@ -47,7 +51,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Load The Data With Stored Procedure
             //this.LoadDataWithParamsOrders();
             this.InitiliazeDatePickerMinDate();
-            //this.load_search();
+            if (this.mode == "start")
+            {
+                this.ConnectionInit();
+                this.load_search();
+                this.mode = "";
+            }
+            else
+            {
+                this.ConnectionInit();
+                this.dset_emp1.Clear();
+
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+                DataView dv = new DataView(this.dset_emp1.Tables[0]);
+             
+                this.dgvReprinting.DataSource = dv;
+                this.lbltotaldata.Text = dgvReprinting.RowCount.ToString();
+
+            }
+            this.SaveButtonManipulator();
         }
         private void InitiliazeDatePickerMinDate()
         {
@@ -135,19 +157,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
+         
+                this.dset_emp1.Clear();
 
-            this.dset_emp1.Clear();
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
-
-            this.doSearch();
-
+                this.doSearch();
+          
 
         }
 
         private void DataRefresher()
         {
             this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
+            sp_user_id = userinfo.user_id;
         }
 
 
@@ -231,6 +254,181 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.ConnectionInit();
             this.load_search();
+        }
+
+        private void lbltotaldata_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbltotaldata.Text == "0")
+            {
+                this.materialCheckboxSelectAll.Visible = false;
+                this.labelSelectedSum.Visible = false;
+
+            }
+            else
+            {
+                this.materialCheckboxSelectAll.Visible = true;
+            }
+        }
+        int num = 0;
+        private void dgvReprinting_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool isChecked = (bool)dgvReprinting.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+            CheckCount(isChecked);
+        }
+
+        private void CheckCount(bool isChecked)
+        {
+            if (isChecked)
+            {
+                num++;
+            }
+            else
+            {
+                num--;
+            }
+            this.labelSelectedSum.Text = "Selected Items: " + num;
+            this.labelSelectedSum.Visible = true;
+            this.SaveButtonManipulator();
+        }
+
+        private void dgvReprinting_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool isChecked = (bool)dgvReprinting.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+            CheckCount(isChecked);
+        }
+
+        private void lbltotaldata_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void ApproveFunctionality()
+        {
+            //myglobal.Searchcategory = txtSearch.Text;
+
+
+
+            for (int i = 0; i <= dgvReprinting.RowCount - 1; i++)
+            {
+                try
+                {
+                    if (dgvReprinting.CurrentRow != null)
+                    {
+
+                        if (Convert.ToBoolean(dgvReprinting.Rows[i].Cells["selected"].Value) == true)
+                        {
+                            this.dgvReprinting.CurrentCell = this.dgvReprinting.Rows[i].Cells[this.dgvReprinting.CurrentCell.ColumnIndex];
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+
+                        }
+                        else
+                        {
+                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    this.dgvReprinting.CurrentCell = this.dgvReprinting.Rows[i].Cells[this.dgvReprinting.CurrentCell.ColumnIndex];
+                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+
+            this.ApprovedSuccessfully();
+            this.materialCheckboxSelectAll.Checked = false;
+            this.labelSelectedSum.Visible = false;
+            this.mode = "start";
+            this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
+        }
+
+        public void ApprovedSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Approved Successfully";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+        private void matbtnPrint_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.ApproveFunctionality();
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
+        private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            this.materialCheckboxSelectAll.Text = "UnSelect ALL";
+
+            for (int i = 0; i < this.dgvReprinting.RowCount; i++) { this.dgvReprinting.Rows[i].Cells[0].Value = true; }
+            if(this.materialCheckboxSelectAll.Checked ==true)
+            {
+                this.labelSelectedSum.Visible = true;
+
+                //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
+             
+                this.labelSelectedSum.Text = "Selected Items: " + this.dgvReprinting.RowCount.ToString();
+                this.num = this.dgvReprinting.RowCount;
+                this.SaveButtonManipulator();
+              
+            }
+            else
+            {
+                this.materialCheckboxSelectAll.Text = "Select ALL";
+                //this.labelSelectedSum.Visible = false;
+                for (int i = 0; i < dgvReprinting.RowCount; i++) { dgvReprinting.Rows[i].Cells[0].Value = false; }
+                this.labelSelectedSum.Text = "Selected Items: " + 0;
+                this.num = 0;
+                this.SaveButtonManipulator();
+            }
+        }
+
+        private void SaveButtonManipulator()
+        {
+            if (this.labelSelectedSum.Text == "0")
+            {
+                this.matbtnPrint.Visible = false;
+            }
+            else if(num == 0)
+            {
+                this.matbtnPrint.Visible = false;
+            }
+            else
+            {
+                this.matbtnPrint.Visible = true;
+            }
+        }
+        private void labelSelectedSum_TextChanged(object sender, EventArgs e)
+        {
+            this.SaveButtonManipulator();
         }
     }
 }

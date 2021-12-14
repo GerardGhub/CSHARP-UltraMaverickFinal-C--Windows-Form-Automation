@@ -1456,7 +1456,21 @@ namespace COMPLETE_FLAT_UI
 
         private void toolDryForApproval_Click(object sender, EventArgs e)
         {
+            //frmStoreOrderforApproval fm = new frmStoreOrderforApproval();
+            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            //AbrirFormEnPanel(fm);
+        }
+
+        private void forApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             frmStoreOrderforApproval fm = new frmStoreOrderforApproval();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void averageOrderTrendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAVGOrderTrendSetup fm = new frmAVGOrderTrendSetup();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

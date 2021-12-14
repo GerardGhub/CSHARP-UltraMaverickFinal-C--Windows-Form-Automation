@@ -35,6 +35,14 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvReprinting = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_reject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mattxtReceivingID = new MaterialSkin.Controls.MaterialTextBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,14 +52,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
             this.crV1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_reject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReprinting)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -156,13 +156,79 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.dgvReprinting.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvReprinting.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // selected
+            // 
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.HeaderText = "SELECTED";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 66.91177F;
+            this.id.HeaderText = "RECEIVING ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 66.57212F;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.FillWeight = 66.57212F;
+            this.item_description.HeaderText = "DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            // 
+            // qty_received
+            // 
+            this.qty_received.DataPropertyName = "qty_received";
+            this.qty_received.FillWeight = 66.57212F;
+            this.qty_received.HeaderText = "QTY RECEIVED";
+            this.qty_received.MinimumWidth = 12;
+            this.qty_received.Name = "qty_received";
+            // 
+            // qty_reject
+            // 
+            this.qty_reject.DataPropertyName = "qty_reject";
+            this.qty_reject.FillWeight = 66.91177F;
+            this.qty_reject.HeaderText = "QTY REJECT";
+            this.qty_reject.MinimumWidth = 12;
+            this.qty_reject.Name = "qty_reject";
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.FillWeight = 66.91177F;
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 12;
+            this.date_added.Name = "date_added";
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.FillWeight = 66.91177F;
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.MinimumWidth = 12;
+            this.added_by.Name = "added_by";
+            // 
             // mattxtReceivingID
             // 
             this.mattxtReceivingID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattxtReceivingID.Depth = 0;
             this.mattxtReceivingID.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtReceivingID.Hint = "Receiving ID";
-            this.mattxtReceivingID.Location = new System.Drawing.Point(212, 44);
+            this.mattxtReceivingID.Location = new System.Drawing.Point(217, 7);
             this.mattxtReceivingID.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtReceivingID.MaxLength = 50;
             this.mattxtReceivingID.MouseState = MaterialSkin.MouseState.OUT;
@@ -293,72 +359,6 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.crV1.TabIndex = 578;
             this.crV1.ToolPanelWidth = 75;
             this.crV1.Visible = false;
-            // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "SELECTED";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 66.91177F;
-            this.id.HeaderText = "RECEIVING ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 66.57212F;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            // 
-            // item_description
-            // 
-            this.item_description.DataPropertyName = "item_description";
-            this.item_description.FillWeight = 66.57212F;
-            this.item_description.HeaderText = "DESCRIPTION";
-            this.item_description.MinimumWidth = 12;
-            this.item_description.Name = "item_description";
-            // 
-            // qty_received
-            // 
-            this.qty_received.DataPropertyName = "qty_received";
-            this.qty_received.FillWeight = 66.57212F;
-            this.qty_received.HeaderText = "QTY RECEIVED";
-            this.qty_received.MinimumWidth = 12;
-            this.qty_received.Name = "qty_received";
-            // 
-            // qty_reject
-            // 
-            this.qty_reject.DataPropertyName = "qty_reject";
-            this.qty_reject.FillWeight = 66.91177F;
-            this.qty_reject.HeaderText = "QTY REJECT";
-            this.qty_reject.MinimumWidth = 12;
-            this.qty_reject.Name = "qty_reject";
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.FillWeight = 66.91177F;
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 12;
-            this.date_added.Name = "date_added";
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.FillWeight = 66.91177F;
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.MinimumWidth = 12;
-            this.added_by.Name = "added_by";
             // 
             // frmBarcodeReprinting
             // 
