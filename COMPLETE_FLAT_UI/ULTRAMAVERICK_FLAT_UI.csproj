@@ -201,6 +201,12 @@
     <Compile Include="Forms\Dry Warehouse\frmAddNewUomConversion.Designer.cs">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmNewStoreOrderApproved.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\frmNewStoreOrderApproved.Designer.cs">
+      <DependentUpon>frmNewStoreOrderApproved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\frmAreaManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -546,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\frmAddNewUomConversion.resx">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmNewStoreOrderApproved.resx">
+      <DependentUpon>frmNewStoreOrderApproved.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAreaManagement.resx">
       <DependentUpon>frmAreaManagement.cs</DependentUpon>

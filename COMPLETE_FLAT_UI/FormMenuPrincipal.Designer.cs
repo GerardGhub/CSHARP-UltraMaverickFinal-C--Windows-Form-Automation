@@ -956,7 +956,7 @@
             this.preparationToolStripMenuItem,
             this.moveOrderToolStripMenuItem});
             this.toolDryForApproval.Name = "toolDryForApproval";
-            this.toolDryForApproval.Size = new System.Drawing.Size(131, 26);
+            this.toolDryForApproval.Size = new System.Drawing.Size(180, 26);
             this.toolDryForApproval.Text = "Store";
             this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
             // 
@@ -972,6 +972,7 @@
             this.approvedOrderToolStripMenuItem.Name = "approvedOrderToolStripMenuItem";
             this.approvedOrderToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.approvedOrderToolStripMenuItem.Text = "Approved Order";
+            this.approvedOrderToolStripMenuItem.Click += new System.EventHandler(this.approvedOrderToolStripMenuItem_Click);
             // 
             // preparationToolStripMenuItem
             // 
@@ -988,7 +989,7 @@
             // toolDryApprovedOrder
             // 
             this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
-            this.toolDryApprovedOrder.Size = new System.Drawing.Size(131, 26);
+            this.toolDryApprovedOrder.Size = new System.Drawing.Size(180, 26);
             this.toolDryApprovedOrder.Text = "Internal";
             // 
             // toolStrip1

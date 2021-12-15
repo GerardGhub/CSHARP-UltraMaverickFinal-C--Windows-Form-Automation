@@ -17,17 +17,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
     public partial class frmStoreOrderforApproval : MaterialForm
     {
+        //Main Classs
         myclasses myClass = new myclasses();
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
+        IStoredProcedures objStorProc = null;
+        //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
-        int p_id = 0;
-        //ReportDocument rpt = new ReportDocument();
-        string Rpt_Path = "";
         DataSet dSet = new DataSet();
-        IStoredProcedures objStorProc = null;
+        //Variable Declaration
+        int p_id = 0;
+        string Rpt_Path = "";
+     
+
+
 
         public frmStoreOrderforApproval()
         {
@@ -35,10 +40,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         public int sp_user_id { get; set; }
         public string mode { get; set; }
-        public string mode_for_action { get; set; }
+
 
         //Class Binding to oTher window
-        public int sp_primary_id { get; set; }
+
         public int sp_order_id { get; set; }
         public string sp_date_ordered { get; set; }
         public string sp_fox { get; set; }
@@ -86,6 +91,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             this.SaveButtonManipulator();
         }
+
+    
         private void InitiliazeDatePickerMinDate()
         {
             this.bunifuPrepaDate.MinDate = DateTime.Now;
@@ -526,6 +533,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         
             this.labelSelectedSum.Visible = false;
             this.frmStoreOrderforApproval_Load(sender, e);
+        }
+
+        private void cmbDateOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
