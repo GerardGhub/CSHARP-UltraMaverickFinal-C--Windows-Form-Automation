@@ -438,12 +438,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
+           
                 this.materialCheckboxSelectAll.Text = "Select ALL";
                 //this.labelSelectedSum.Visible = false;
                 for (int i = 0; i < dgvStoreOrderApproval.RowCount; i++) { dgvStoreOrderApproval.Rows[i].Cells[0].Value = false; }
                 this.labelSelectedSum.Text = "Selected Items: " + 0;
                 this.num = 0;
                 this.SaveButtonManipulator();
+                this.frmStoreOrderforApproval_Load(sender, e);
+
             }
         }
 

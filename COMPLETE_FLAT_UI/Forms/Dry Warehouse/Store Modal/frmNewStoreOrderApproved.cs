@@ -9,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
+using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
@@ -28,6 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         //Variable Declaration
         int p_id = 0;
         string Rpt_Path = "";
+        double stackQuantity = 0;
         public frmNewStoreOrderApproved()
         {
             InitializeComponent();
@@ -84,6 +87,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             this.SaveButtonManipulator();
             this.DesignerSerializationVisibilityOninit();
+
+       
+
         }
 
         private void ShowDataActivated()
@@ -102,15 +108,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (this.labelSelectedSum.Text == "0")
             {
-                this.matbtnPrint.Visible = false;
+                this.matbtnCancel.Visible = false;
             }
             else if (num == 0)
             {
-                this.matbtnPrint.Visible = false;
+                this.matbtnCancel.Visible = false;
             }
             else
             {
-                this.matbtnPrint.Visible = true;
+                this.matbtnCancel.Visible = true;
             }
         }
 
@@ -133,10 +139,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
         int num = 0;
+        int num_static_value = 0;
+     
         private void dgvReprinting_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
             CheckCount(isChecked);
+
         }
 
         private void CheckCount(bool isChecked)
@@ -144,21 +153,64 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (isChecked)
             {
                 num++;
+                num_static_value = num;
             }
             else
             {
                 num--;
+    
             }
+            //Store in Static Value Integer Type of Variable
+       
             this.labelSelectedSum.Text = "Selected Items: " + num;
             this.labelSelectedSum.Visible = true;
             this.SaveButtonManipulator();
             this.EditManipulator();
+       
         }
+        private void DeSelectedDataTotalOrderQuantity()
+        {
+
+            double sum = 0;
+            double currentcellqty = Convert.ToDouble(this.sp_qty);
+
+            stackQuantity -= currentcellqty;
+            sum = stackQuantity;
+
+            this.lbltotalOrderQty.Text = sum.ToString();
+        }
+
+
+
+        private void SelectedDataTotalOrderQuantity()
+        {
+      
+            double sum = 0;
+            double currentcellqty = Convert.ToDouble(this.sp_qty);
+          
+
+            if(num_static_value <= num)
+            {
+                //MessageBox.Show("Top"  + num);
+                stackQuantity += currentcellqty;
+                sum = stackQuantity;
+            }
+            else
+            {
+                //MessageBox.Show("Bottom" + num_static_value);
+                stackQuantity -= currentcellqty;
+                sum = stackQuantity;
+            }
+   
+
+            this.lbltotalOrderQty.Text = sum.ToString();
+        }
+
         private void EditManipulator()
         {
             if (this.num == 1)
             {
-                this.matbtnPrint.Visible = true;
+                this.matbtnCancel.Visible = true;
                 this.matbtnEdit.Visible = true;
             }
             else
@@ -343,5 +395,213 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.load_search();
         }
+
+        private void dgvStoreOrderApproval_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+            CheckCount(isChecked);
+        }
+
+        private void labelSelectedSum_TextChanged(object sender, EventArgs e)
+        {
+            if(num == 0)
+            {
+                frmAddNewStoreOrderApproved_Load(sender, e);
+
+
+
+             }
+            else
+            {
+                this.SelectedDataTotalOrderQuantity();
+            }
+            //
+          
+        }
+
+        private void dgvStoreOrderApproval_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+   
+        }
+
+        private void metroCmbStoreCode_Validated(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.showDataGridDataValueChanged();
+        }
+        private void showDataGridDataValueChanged()
+        {
+            if (this.dgvStoreOrderApproval.Rows.Count > 0)
+            {
+                if (this.dgvStoreOrderApproval.CurrentRow != null)
+                {
+                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value != null)
+                    {
+                        p_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                        this.sp_order_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["order_id"].Value);
+                        this.sp_date_ordered = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
+                        this.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
+                        this.sp_store_name = this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value.ToString();
+                        this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
+                        this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
+                        this.sp_category = this.dgvStoreOrderApproval.CurrentRow.Cells["category"].Value.ToString();
+                        this.sp_item_code = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.sp_description = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
+                        this.sp_uom = this.dgvStoreOrderApproval.CurrentRow.Cells["uom"].Value.ToString();
+                        this.sp_qty = this.dgvStoreOrderApproval.CurrentRow.Cells["qty"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+        private void labelSelectedSum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbltotaldata_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbltotaldata.Text == "0")
+            {
+                this.materialCheckboxSelectAll.Visible = false;
+                this.labelSelectedSum.Visible = false;
+
+            }
+            else
+            {
+                this.materialCheckboxSelectAll.Visible = true;
+            }
+        }
+
+        private void CountAllQtyOrder()
+        {
+            int sum = 0;
+            for (int i = 0; i < this.dgvStoreOrderApproval.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(this.dgvStoreOrderApproval.Rows[i].Cells["qty"].Value);
+            }
+            this.lbltotalOrderQty.Text = sum.ToString();
+        }
+
+        private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            this.materialCheckboxSelectAll.Text = "UnSelect ALL";
+
+            for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) { this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true; }
+            if (this.materialCheckboxSelectAll.Checked == true)
+            {
+                this.labelSelectedSum.Visible = true;
+
+                //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
+
+                this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
+                this.num = this.dgvStoreOrderApproval.RowCount;
+                this.SaveButtonManipulator();
+                this.CountAllQtyOrder();
+            }
+            else
+            {
+                this.materialCheckboxSelectAll.Text = "Select ALL";
+                //this.labelSelectedSum.Visible = false;
+                for (int i = 0; i < dgvStoreOrderApproval.RowCount; i++) { dgvStoreOrderApproval.Rows[i].Cells[0].Value = false; }
+                this.labelSelectedSum.Text = "Selected Items: " + 0;
+                this.num = 0;
+                this.SaveButtonManipulator();
+                this.lbltotalOrderQty.Text = "0";
+            }
+        }
+
+        private void matbtnCancel_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Cancel the consolidated order ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.CancelFunctionality();
+            }
+            else
+            {
+
+                return;
+            }
+        }
+        private void CancelFunctionality()
+        {
+            //myglobal.Searchcategory = txtSearch.Text;
+
+
+
+            for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
+            {
+                try
+                {
+                    if (dgvStoreOrderApproval.CurrentRow != null)
+                    {
+
+                        if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
+                        {
+                            this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+
+                        }
+                        else
+                        {
+                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+
+            this.CancelledSuccessfully();
+            this.materialCheckboxSelectAll.Checked = false;
+            this.labelSelectedSum.Visible = false;
+            //this.mode = "start";
+           
+            this.frmAddNewStoreOrderApproved_Load(new object(), new System.EventArgs());
+        }
+
+        public void CancelledSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Approved Successfully";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+
+
+
     }
 }
