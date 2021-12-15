@@ -25,8 +25,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
-        public frmEditItemModal(frmDryRawMaterials frm, string created_by, 
-            string item_code, 
+        public frmEditItemModal(frmDryRawMaterials frm, string created_by,
+            string item_code,
             string item_description,
             string item_class,
             string major_category,
@@ -67,6 +67,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string conversion { get; set; }
         public string item_type { get; set; }
         public string primary_key { get; set; }
+        public string sp_created_by { get; set; }
+        public string sp_created_at { get; set; }
 
         private const int CB_SETCUEBANNER = 0x1703;
 
@@ -147,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void FirstLoadBindingOrb()
         {
-            this.txtcreatedBy.Text = created_by;
+            this.sp_created_by = created_by;
             this.txtMatItemCode.Text = item_code;
             this.txtMatItemDesc.Text = item_description;
             this.cboItemClass.Text = item_class;
@@ -287,9 +289,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     cboPrimaryUnit.Text.Trim(),
                     txtmatConversion.Text.Trim(),
                     cboItemType.Text.Trim(),
-                    txtcreatedAt.Text.Trim(),
-                    txtcreatedBy.Text.Trim(),
-                    "", txtcreatedBy.Text.Trim(),
+                    this.sp_created_at,
+                   this.sp_created_by,
+                    "", this.sp_created_by,
                     float.Parse(mattxtBufferStocks.Text.Trim()),
                     "edit");
                 textBox1.Text = "data Already Save!";
@@ -307,32 +309,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
         private void matBtnSave_Click(object sender, EventArgs e)
         {
-            SelectionChangedCommiotmentManual();
-            if (txtMatItemCode.Text == String.Empty)
+            this.SelectionChangedCommiotmentManual();
+            if (this.txtMatItemCode.Text == String.Empty)
             {
-                FillRequiredTextbox();
-                txtMatItemCode.Focus();
+                this.FillRequiredTextbox();
+                this.txtMatItemCode.Focus();
                 return;
             }
 
-            if (txtMatItemDesc.Text == String.Empty)
+            if (this.txtMatItemDesc.Text == String.Empty)
             {
-                FillRequiredTextbox();
-                txtMatItemDesc.Focus();
+                this.FillRequiredTextbox();
+                this.txtMatItemDesc.Focus();
                 return;
             }
 
-            if (lblItemClassID.Text == "NULL")
+            if (this.lblItemClassID.Text == "NULL")
             {
-                FillRequiredTextbox();
-                cboItemClass.Focus();
+                this.FillRequiredTextbox();
+                this.cboItemClass.Focus();
                 return;
             }
 
-            if (lblMajorCatId.Text == "NULL")
+            if (this.lblMajorCatId.Text == "NULL")
             {
-                FillRequiredTextbox();
-                cboMajorCategory.Focus();
+                this.FillRequiredTextbox();
+                this.cboMajorCategory.Focus();
                 return;
             }
 

@@ -48,7 +48,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
-            this.dgvReprinting = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,8 +67,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelSelectedSum = new System.Windows.Forms.Label();
+            this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReprinting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -278,29 +280,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnPrint.DrawShadows = true;
             this.matbtnPrint.HighEmphasis = true;
             this.matbtnPrint.Icon = null;
-            this.matbtnPrint.Location = new System.Drawing.Point(20, 686);
+            this.matbtnPrint.Location = new System.Drawing.Point(20, 685);
             this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnPrint.Name = "matbtnPrint";
-            this.matbtnPrint.Size = new System.Drawing.Size(58, 36);
+            this.matbtnPrint.Size = new System.Drawing.Size(87, 36);
             this.matbtnPrint.TabIndex = 583;
-            this.matbtnPrint.Text = "SAVE";
+            this.matbtnPrint.Text = "APPROVE";
             this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matbtnPrint.UseAccentColor = false;
             this.matbtnPrint.UseVisualStyleBackColor = true;
             this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
             // 
-            // dgvReprinting
+            // dgvStoreOrderApproval
             // 
-            this.dgvReprinting.AllowUserToAddRows = false;
-            this.dgvReprinting.AllowUserToDeleteRows = false;
-            this.dgvReprinting.AllowUserToResizeRows = false;
+            this.dgvStoreOrderApproval.AllowUserToAddRows = false;
+            this.dgvStoreOrderApproval.AllowUserToDeleteRows = false;
+            this.dgvStoreOrderApproval.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvReprinting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvReprinting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvReprinting.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvReprinting.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvReprinting.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvStoreOrderApproval.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvStoreOrderApproval.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvStoreOrderApproval.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvStoreOrderApproval.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -308,10 +310,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReprinting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvReprinting.ColumnHeadersHeight = 45;
-            this.dgvReprinting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvReprinting.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvStoreOrderApproval.ColumnHeadersHeight = 45;
+            this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selected,
             this.primary_id,
             this.order_id,
@@ -333,13 +335,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReprinting.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvReprinting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReprinting.EnableHeadersVisualStyles = false;
-            this.dgvReprinting.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvReprinting.Location = new System.Drawing.Point(5, 6);
-            this.dgvReprinting.MultiSelect = false;
-            this.dgvReprinting.Name = "dgvReprinting";
+            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvStoreOrderApproval.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStoreOrderApproval.EnableHeadersVisualStyles = false;
+            this.dgvStoreOrderApproval.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvStoreOrderApproval.Location = new System.Drawing.Point(5, 6);
+            this.dgvStoreOrderApproval.MultiSelect = false;
+            this.dgvStoreOrderApproval.Name = "dgvStoreOrderApproval";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -347,39 +349,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReprinting.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvReprinting.RowHeadersVisible = false;
-            this.dgvReprinting.RowHeadersWidth = 102;
-            this.dgvReprinting.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvReprinting.RowTemplate.DividerHeight = 5;
-            this.dgvReprinting.RowTemplate.Height = 40;
-            this.dgvReprinting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReprinting.Size = new System.Drawing.Size(1148, 455);
-            this.dgvReprinting.TabIndex = 594;
-            this.dgvReprinting.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
-            this.dgvReprinting.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvReprinting.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvReprinting.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvReprinting.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvReprinting.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvReprinting.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvReprinting.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvReprinting.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dgvReprinting.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvReprinting.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReprinting.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvReprinting.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvReprinting.ThemeStyle.HeaderStyle.Height = 45;
-            this.dgvReprinting.ThemeStyle.ReadOnly = false;
-            this.dgvReprinting.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvReprinting.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvReprinting.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReprinting.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dgvReprinting.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvReprinting.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvReprinting.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvReprinting.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReprinting_CellContentClick);
-            this.dgvReprinting.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReprinting_CellContentDoubleClick);
+            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvStoreOrderApproval.RowHeadersVisible = false;
+            this.dgvStoreOrderApproval.RowHeadersWidth = 102;
+            this.dgvStoreOrderApproval.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvStoreOrderApproval.RowTemplate.DividerHeight = 5;
+            this.dgvStoreOrderApproval.RowTemplate.Height = 40;
+            this.dgvStoreOrderApproval.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStoreOrderApproval.Size = new System.Drawing.Size(1148, 455);
+            this.dgvStoreOrderApproval.TabIndex = 594;
+            this.dgvStoreOrderApproval.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
+            this.dgvStoreOrderApproval.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrderApproval.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvStoreOrderApproval.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvStoreOrderApproval.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvStoreOrderApproval.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvStoreOrderApproval.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvStoreOrderApproval.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvStoreOrderApproval.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.dgvStoreOrderApproval.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.dgvStoreOrderApproval.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStoreOrderApproval.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvStoreOrderApproval.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvStoreOrderApproval.ThemeStyle.HeaderStyle.Height = 45;
+            this.dgvStoreOrderApproval.ThemeStyle.ReadOnly = false;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvStoreOrderApproval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReprinting_CellContentClick);
+            this.dgvStoreOrderApproval.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReprinting_CellContentDoubleClick);
+            this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvReprinting_CurrentCellChanged);
             // 
             // selected
             // 
@@ -390,7 +393,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.selected.Name = "selected";
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
-            this.selected.Width = 82;
+            this.selected.Width = 84;
             // 
             // primary_id
             // 
@@ -399,7 +402,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.primary_id.HeaderText = "ID";
             this.primary_id.MinimumWidth = 12;
             this.primary_id.Name = "primary_id";
-            this.primary_id.Width = 48;
+            this.primary_id.Width = 50;
             // 
             // order_id
             // 
@@ -408,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.order_id.HeaderText = "ORDER ID";
             this.order_id.MinimumWidth = 12;
             this.order_id.Name = "order_id";
-            this.order_id.Width = 93;
+            this.order_id.Width = 103;
             // 
             // date_ordered
             // 
@@ -417,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.date_ordered.HeaderText = "ORDER DATE";
             this.date_ordered.MinimumWidth = 12;
             this.date_ordered.Name = "date_ordered";
-            this.date_ordered.Width = 111;
+            this.date_ordered.Width = 123;
             // 
             // fox
             // 
@@ -426,7 +429,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.fox.HeaderText = "STORE CODE";
             this.fox.MinimumWidth = 12;
             this.fox.Name = "fox";
-            this.fox.Width = 112;
+            this.fox.Width = 124;
             // 
             // store_name
             // 
@@ -434,7 +437,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.store_name.HeaderText = "STORE";
             this.store_name.MinimumWidth = 6;
             this.store_name.Name = "store_name";
-            this.store_name.Width = 77;
+            this.store_name.Width = 79;
             // 
             // route
             // 
@@ -443,7 +446,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.route.HeaderText = "ROUTE";
             this.route.MinimumWidth = 12;
             this.route.Name = "route";
-            this.route.Width = 80;
+            this.route.Width = 82;
             // 
             // area
             // 
@@ -452,7 +455,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.area.HeaderText = "AREA";
             this.area.MinimumWidth = 12;
             this.area.Name = "area";
-            this.area.Width = 70;
+            this.area.Width = 72;
             // 
             // category
             // 
@@ -461,7 +464,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.category.HeaderText = "CATEGORY";
             this.category.MinimumWidth = 12;
             this.category.Name = "category";
-            this.category.Width = 108;
+            this.category.Width = 110;
             // 
             // item_code
             // 
@@ -469,7 +472,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.item_code.HeaderText = "ITEM CODE";
             this.item_code.MinimumWidth = 6;
             this.item_code.Name = "item_code";
-            this.item_code.Width = 102;
+            this.item_code.Width = 113;
             // 
             // description
             // 
@@ -477,7 +480,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.description.HeaderText = "DESCRIPTION";
             this.description.MinimumWidth = 6;
             this.description.Name = "description";
-            this.description.Width = 127;
+            this.description.Width = 129;
             // 
             // uom
             // 
@@ -485,7 +488,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.uom.HeaderText = "UOM";
             this.uom.MinimumWidth = 6;
             this.uom.Name = "uom";
-            this.uom.Width = 68;
+            this.uom.Width = 70;
             // 
             // qty
             // 
@@ -493,7 +496,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.qty.HeaderText = "QTY";
             this.qty.MinimumWidth = 6;
             this.qty.Name = "qty";
-            this.qty.Width = 61;
+            this.qty.Width = 63;
             // 
             // date_added
             // 
@@ -501,14 +504,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.date_added.HeaderText = "DATE ADDED";
             this.date_added.MinimumWidth = 6;
             this.date_added.Name = "date_added";
-            this.date_added.Width = 112;
+            this.date_added.Width = 125;
             // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.dgvReprinting);
+            this.materialCard2.Controls.Add(this.dgvStoreOrderApproval);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard2.Location = new System.Drawing.Point(20, 209);
@@ -562,11 +565,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.labelSelectedSum.Visible = false;
             this.labelSelectedSum.TextChanged += new System.EventHandler(this.labelSelectedSum_TextChanged);
             // 
+            // matbtnEdit
+            // 
+            this.matbtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnEdit.Depth = 0;
+            this.matbtnEdit.DrawShadows = true;
+            this.matbtnEdit.HighEmphasis = true;
+            this.matbtnEdit.Icon = null;
+            this.matbtnEdit.Location = new System.Drawing.Point(128, 685);
+            this.matbtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnEdit.Name = "matbtnEdit";
+            this.matbtnEdit.Size = new System.Drawing.Size(53, 36);
+            this.matbtnEdit.TabIndex = 642;
+            this.matbtnEdit.Text = "EDIT";
+            this.matbtnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnEdit.UseAccentColor = false;
+            this.matbtnEdit.UseVisualStyleBackColor = true;
+            this.matbtnEdit.Visible = false;
+            this.matbtnEdit.Click += new System.EventHandler(this.matbtnEdit_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(553, 690);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 643;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // frmStoreOrderforApproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 733);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.matbtnEdit);
             this.Controls.Add(this.labelSelectedSum);
             this.Controls.Add(this.lbltotaldata);
             this.Controls.Add(this.label4);
@@ -581,7 +618,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Load += new System.EventHandler(this.frmStoreOrderforApproval_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReprinting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).EndInit();
             this.materialCard2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -596,7 +633,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialButton matbtnPrint;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvReprinting;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private System.Windows.Forms.Label lbltotaldata;
         private System.Windows.Forms.Label label4;
@@ -623,5 +660,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MetroFramework.Controls.MetroComboBox matcmbPackaging;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialButton matbtnEdit;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

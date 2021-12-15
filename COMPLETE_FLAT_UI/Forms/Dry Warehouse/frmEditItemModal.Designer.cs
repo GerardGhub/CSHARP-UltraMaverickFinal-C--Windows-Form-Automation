@@ -29,7 +29,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtcreatedAt = new System.Windows.Forms.TextBox();
             this.lblPrimaryUnitID = new System.Windows.Forms.Label();
             this.lblItemTypeID = new System.Windows.Forms.Label();
             this.lblIDSubCat = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.txtMatItemDesc = new MaterialSkin.Controls.MaterialTextBox();
             this.txtMatItemCode = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtcreatedBy = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,18 +53,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtcreatedAt
-            // 
-            this.txtcreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcreatedAt.Enabled = false;
-            this.txtcreatedAt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcreatedAt.Location = new System.Drawing.Point(207, 385);
-            this.txtcreatedAt.Name = "txtcreatedAt";
-            this.txtcreatedAt.Size = new System.Drawing.Size(145, 20);
-            this.txtcreatedAt.TabIndex = 480;
-            this.txtcreatedAt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtcreatedAt.Visible = false;
             // 
             // lblPrimaryUnitID
             // 
@@ -140,7 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatConversion.Hint = "Conversion";
             this.txtmatConversion.Location = new System.Drawing.Point(256, 157);
-            this.txtmatConversion.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtmatConversion.Margin = new System.Windows.Forms.Padding(1);
             this.txtmatConversion.MaxLength = 50;
             this.txtmatConversion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmatConversion.Multiline = false;
@@ -188,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemDesc.Hint = "Item Description";
             this.txtMatItemDesc.Location = new System.Drawing.Point(260, 29);
-            this.txtMatItemDesc.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatItemDesc.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatItemDesc.MaxLength = 50;
             this.txtMatItemDesc.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemDesc.Multiline = false;
@@ -205,7 +191,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemCode.Hint = "Item Code";
             this.txtMatItemCode.Location = new System.Drawing.Point(22, 29);
-            this.txtMatItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatItemCode.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatItemCode.MaxLength = 50;
             this.txtMatItemCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemCode.Multiline = false;
@@ -213,18 +199,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode.Size = new System.Drawing.Size(155, 50);
             this.txtMatItemCode.TabIndex = 0;
             this.txtMatItemCode.Text = "";
-            // 
-            // txtcreatedBy
-            // 
-            this.txtcreatedBy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcreatedBy.Enabled = false;
-            this.txtcreatedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcreatedBy.Location = new System.Drawing.Point(32, 385);
-            this.txtcreatedBy.Name = "txtcreatedBy";
-            this.txtcreatedBy.Size = new System.Drawing.Size(145, 20);
-            this.txtcreatedBy.TabIndex = 478;
-            this.txtcreatedBy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtcreatedBy.Visible = false;
             // 
             // materialCard1
             // 
@@ -265,7 +239,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtBufferStocks.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtBufferStocks.Hint = "Buffer Stock";
             this.mattxtBufferStocks.Location = new System.Drawing.Point(502, 156);
-            this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtBufferStocks.MaxLength = 50;
             this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtBufferStocks.Multiline = false;
@@ -328,7 +302,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.cboItemClass.FormattingEnabled = true;
             this.cboItemClass.Location = new System.Drawing.Point(502, 39);
-            this.cboItemClass.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboItemClass.Margin = new System.Windows.Forms.Padding(1);
             this.cboItemClass.Name = "cboItemClass";
             this.cboItemClass.Size = new System.Drawing.Size(158, 21);
             this.cboItemClass.TabIndex = 596;
@@ -338,7 +312,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.cboItemType.FormattingEnabled = true;
             this.cboItemType.Location = new System.Drawing.Point(502, 104);
-            this.cboItemType.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboItemType.Margin = new System.Windows.Forms.Padding(1);
             this.cboItemType.Name = "cboItemType";
             this.cboItemType.Size = new System.Drawing.Size(158, 21);
             this.cboItemType.TabIndex = 595;
@@ -348,7 +322,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.cboPrimaryUnit.FormattingEnabled = true;
             this.cboPrimaryUnit.Location = new System.Drawing.Point(22, 177);
-            this.cboPrimaryUnit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboPrimaryUnit.Margin = new System.Windows.Forms.Padding(1);
             this.cboPrimaryUnit.Name = "cboPrimaryUnit";
             this.cboPrimaryUnit.Size = new System.Drawing.Size(158, 21);
             this.cboPrimaryUnit.TabIndex = 594;
@@ -358,7 +332,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.cboMajorCategory.FormattingEnabled = true;
             this.cboMajorCategory.Location = new System.Drawing.Point(22, 104);
-            this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1);
             this.cboMajorCategory.Name = "cboMajorCategory";
             this.cboMajorCategory.Size = new System.Drawing.Size(158, 21);
             this.cboMajorCategory.TabIndex = 593;
@@ -368,7 +342,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.cboSubCat.FormattingEnabled = true;
             this.cboSubCat.Location = new System.Drawing.Point(260, 104);
-            this.cboSubCat.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboSubCat.Margin = new System.Windows.Forms.Padding(1);
             this.cboSubCat.Name = "cboSubCat";
             this.cboSubCat.Size = new System.Drawing.Size(158, 21);
             this.cboSubCat.TabIndex = 592;
@@ -378,7 +352,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(525, 396);
+            this.textBox1.Location = new System.Drawing.Point(532, 357);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 476;
@@ -390,13 +364,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 393);
-            this.Controls.Add(this.txtcreatedAt);
+            this.ClientSize = new System.Drawing.Size(719, 401);
             this.Controls.Add(this.matBtnSave);
-            this.Controls.Add(this.txtcreatedBy);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmEditItemModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Raw Materials";
@@ -410,8 +382,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtcreatedAt;
         private System.Windows.Forms.Label lblPrimaryUnitID;
         private System.Windows.Forms.Label lblItemTypeID;
         private System.Windows.Forms.Label lblIDSubCat;
@@ -422,7 +392,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private MaterialSkin.Controls.MaterialButton matBtnSave;
         private MaterialSkin.Controls.MaterialTextBox txtMatItemDesc;
         private MaterialSkin.Controls.MaterialTextBox txtMatItemCode;
-        private System.Windows.Forms.TextBox txtcreatedBy;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboSubCat;

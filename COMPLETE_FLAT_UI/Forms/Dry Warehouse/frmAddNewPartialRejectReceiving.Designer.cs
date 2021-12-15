@@ -35,6 +35,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvLotData = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.index_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_reject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reject_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mattxtQtyReceived = new MaterialSkin.Controls.MaterialTextBox();
@@ -44,10 +48,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnAdd = new MaterialSkin.Controls.MaterialButton();
             this.lbltotalReject = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.index_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_reject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reject_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLotData)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -149,6 +149,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLotData_CellContentClick);
             this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.dgvLotData_CurrentCellChanged);
             this.dgvLotData.DoubleClick += new System.EventHandler(this.dgvLotData_DoubleClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // index_id
+            // 
+            this.index_id.DataPropertyName = "index_id";
+            this.index_id.FillWeight = 99.49239F;
+            this.index_id.HeaderText = "INDEX ID";
+            this.index_id.MinimumWidth = 12;
+            this.index_id.Name = "index_id";
+            this.index_id.ReadOnly = true;
+            // 
+            // qty_reject
+            // 
+            this.qty_reject.DataPropertyName = "qty_reject";
+            this.qty_reject.FillWeight = 99.49239F;
+            this.qty_reject.HeaderText = "QTY REJECT";
+            this.qty_reject.MinimumWidth = 12;
+            this.qty_reject.Name = "qty_reject";
+            this.qty_reject.ReadOnly = true;
+            // 
+            // reject_remarks
+            // 
+            this.reject_remarks.DataPropertyName = "reject_remarks";
+            this.reject_remarks.FillWeight = 99.49239F;
+            this.reject_remarks.HeaderText = "REMARKS";
+            this.reject_remarks.MinimumWidth = 12;
+            this.reject_remarks.Name = "reject_remarks";
+            this.reject_remarks.ReadOnly = true;
             // 
             // materialCard1
             // 
@@ -269,9 +305,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalReject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.lbltotalReject.Location = new System.Drawing.Point(32, 631);
             this.lbltotalReject.Name = "lbltotalReject";
-            this.lbltotalReject.Size = new System.Drawing.Size(46, 40);
+            this.lbltotalReject.Size = new System.Drawing.Size(32, 40);
             this.lbltotalReject.TabIndex = 612;
-            this.lbltotalReject.Text = "76";
+            this.lbltotalReject.Text = "0";
             // 
             // label2
             // 
@@ -284,42 +320,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 613;
             this.label2.Text = "Total Reject";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // index_id
-            // 
-            this.index_id.DataPropertyName = "index_id";
-            this.index_id.FillWeight = 99.49239F;
-            this.index_id.HeaderText = "INDEX ID";
-            this.index_id.MinimumWidth = 12;
-            this.index_id.Name = "index_id";
-            this.index_id.ReadOnly = true;
-            // 
-            // qty_reject
-            // 
-            this.qty_reject.DataPropertyName = "qty_reject";
-            this.qty_reject.FillWeight = 99.49239F;
-            this.qty_reject.HeaderText = "QTY REJECT";
-            this.qty_reject.MinimumWidth = 12;
-            this.qty_reject.Name = "qty_reject";
-            this.qty_reject.ReadOnly = true;
-            // 
-            // reject_remarks
-            // 
-            this.reject_remarks.DataPropertyName = "reject_remarks";
-            this.reject_remarks.FillWeight = 99.49239F;
-            this.reject_remarks.HeaderText = "REMARKS";
-            this.reject_remarks.MinimumWidth = 12;
-            this.reject_remarks.Name = "reject_remarks";
-            this.reject_remarks.ReadOnly = true;
             // 
             // frmAddNewPartialRejectReceiving
             // 

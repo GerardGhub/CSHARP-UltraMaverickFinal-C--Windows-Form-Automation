@@ -37,8 +37,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
@@ -51,7 +49,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtmatavgdescription = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.txtmatAverageqty = new MaterialSkin.Controls.MaterialTextBox();
-            this.dgvitemClass = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvAVGOrderTrend = new Guna.UI2.WinForms.Guna2DataGridView();
             this.avg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avg_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avg_days = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,11 +59,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.updated_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.materialCard3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAVGOrderTrend)).BeginInit();
             this.materialCard2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioActive.TabStop = true;
             this.matRadioActive.Text = "Active";
             this.matRadioActive.UseVisualStyleBackColor = true;
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
             // 
             // matRadioNotActive
             // 
@@ -116,31 +117,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioNotActive.TabStop = true;
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1273, 532);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
-            this.lbltotalrecords.TabIndex = 605;
-            this.lbltotalrecords.Text = "76";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.label2.Location = new System.Drawing.Point(1276, 568);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 18);
-            this.label2.TabIndex = 606;
-            this.label2.Text = "Items";
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
             // 
             // matBtnCancel
             // 
@@ -169,6 +146,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matBtnDelete.Name = "matBtnDelete";
             this.matBtnDelete.Size = new System.Drawing.Size(90, 33);
             this.matBtnDelete.Text = "&InActive";
+            this.matBtnDelete.Click += new System.EventHandler(this.matBtnDelete_Click);
             // 
             // matBtnEdit
             // 
@@ -177,6 +155,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matBtnEdit.Name = "matBtnEdit";
             this.matBtnEdit.Size = new System.Drawing.Size(70, 33);
             this.matBtnEdit.Text = "&Edit";
+            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
             // 
             // matBtnNew
             // 
@@ -244,6 +223,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtSearch.Size = new System.Drawing.Size(197, 50);
             this.mattxtSearch.TabIndex = 600;
             this.mattxtSearch.Text = "";
+            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
             // txtmatavgdescription
             // 
@@ -298,17 +278,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtmatAverageqty.Text = "";
             this.txtmatAverageqty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatAverageqty_KeyPress);
             // 
-            // dgvitemClass
+            // dgvAVGOrderTrend
             // 
-            this.dgvitemClass.AllowUserToAddRows = false;
-            this.dgvitemClass.AllowUserToDeleteRows = false;
-            this.dgvitemClass.AllowUserToResizeRows = false;
+            this.dgvAVGOrderTrend.AllowUserToAddRows = false;
+            this.dgvAVGOrderTrend.AllowUserToDeleteRows = false;
+            this.dgvAVGOrderTrend.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvitemClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvitemClass.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvitemClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvitemClass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvAVGOrderTrend.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAVGOrderTrend.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAVGOrderTrend.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvAVGOrderTrend.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAVGOrderTrend.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -316,10 +296,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvitemClass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvitemClass.ColumnHeadersHeight = 35;
-            this.dgvitemClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvitemClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvAVGOrderTrend.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAVGOrderTrend.ColumnHeadersHeight = 35;
+            this.dgvAVGOrderTrend.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvAVGOrderTrend.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.avg_id,
             this.avg_desc,
             this.avg_days,
@@ -334,14 +314,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvitemClass.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvitemClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvitemClass.EnableHeadersVisualStyles = false;
-            this.dgvitemClass.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvitemClass.Location = new System.Drawing.Point(5, 6);
-            this.dgvitemClass.MultiSelect = false;
-            this.dgvitemClass.Name = "dgvitemClass";
-            this.dgvitemClass.ReadOnly = true;
+            this.dgvAVGOrderTrend.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAVGOrderTrend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAVGOrderTrend.EnableHeadersVisualStyles = false;
+            this.dgvAVGOrderTrend.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvAVGOrderTrend.Location = new System.Drawing.Point(5, 6);
+            this.dgvAVGOrderTrend.MultiSelect = false;
+            this.dgvAVGOrderTrend.Name = "dgvAVGOrderTrend";
+            this.dgvAVGOrderTrend.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,37 +329,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvitemClass.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvitemClass.RowHeadersVisible = false;
-            this.dgvitemClass.RowHeadersWidth = 102;
-            this.dgvitemClass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvitemClass.RowTemplate.DividerHeight = 5;
-            this.dgvitemClass.RowTemplate.Height = 40;
-            this.dgvitemClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvitemClass.Size = new System.Drawing.Size(955, 481);
-            this.dgvitemClass.TabIndex = 593;
-            this.dgvitemClass.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvitemClass.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.Height = 35;
-            this.dgvitemClass.ThemeStyle.ReadOnly = true;
-            this.dgvitemClass.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvitemClass.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvitemClass.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dgvitemClass.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvitemClass.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvitemClass.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvAVGOrderTrend.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAVGOrderTrend.RowHeadersVisible = false;
+            this.dgvAVGOrderTrend.RowHeadersWidth = 102;
+            this.dgvAVGOrderTrend.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvAVGOrderTrend.RowTemplate.DividerHeight = 5;
+            this.dgvAVGOrderTrend.RowTemplate.Height = 40;
+            this.dgvAVGOrderTrend.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAVGOrderTrend.Size = new System.Drawing.Size(955, 454);
+            this.dgvAVGOrderTrend.TabIndex = 593;
+            this.dgvAVGOrderTrend.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
+            this.dgvAVGOrderTrend.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAVGOrderTrend.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAVGOrderTrend.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAVGOrderTrend.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAVGOrderTrend.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAVGOrderTrend.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvAVGOrderTrend.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvAVGOrderTrend.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.dgvAVGOrderTrend.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.dgvAVGOrderTrend.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAVGOrderTrend.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvAVGOrderTrend.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvAVGOrderTrend.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvAVGOrderTrend.ThemeStyle.ReadOnly = true;
+            this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvAVGOrderTrend.CurrentCellChanged += new System.EventHandler(this.dgvitemClass_CurrentCellChanged);
             // 
             // avg_id
             // 
@@ -456,7 +437,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.dgvitemClass);
+            this.materialCard2.Controls.Add(this.dgvAVGOrderTrend);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard2.Location = new System.Drawing.Point(22, 246);
@@ -464,17 +445,43 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(965, 493);
+            this.materialCard2.Size = new System.Drawing.Size(965, 466);
             this.materialCard2.TabIndex = 600;
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(861, 725);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(33, 36);
+            this.lbltotalrecords.TabIndex = 608;
+            this.lbltotalrecords.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label2.Location = new System.Drawing.Point(928, 737);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 18);
+            this.label2.TabIndex = 609;
+            this.label2.Text = "Items";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // frmAVGOrderTrendSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 768);
-            this.Controls.Add(this.materialCard3);
-            this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbltotalrecords);
+            this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.metroFinalSaving);
             this.Controls.Add(this.materialCard1);
@@ -490,7 +497,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.materialCard1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAVGOrderTrend)).EndInit();
             this.materialCard2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -502,8 +509,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
         private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
-        private System.Windows.Forms.Label lbltotalrecords;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripButton matBtnCancel;
         private System.Windows.Forms.ToolStripButton matBtnSave;
         private System.Windows.Forms.ToolStripButton matBtnDelete;
@@ -515,7 +520,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
         private MaterialSkin.Controls.MaterialTextBox txtmatavgdescription;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvitemClass;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvAVGOrderTrend;
         private MetroFramework.Controls.MetroButton metroSave;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MaterialSkin.Controls.MaterialTextBox txtmatAverageqty;
@@ -526,5 +531,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_date;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbltotalrecords;
     }
 }

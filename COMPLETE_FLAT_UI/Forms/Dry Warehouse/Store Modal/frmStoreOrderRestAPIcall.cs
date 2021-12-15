@@ -166,7 +166,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Raw Materials Successfully Upload";
+            popup.ContentText = "Uploaded Successfully";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
