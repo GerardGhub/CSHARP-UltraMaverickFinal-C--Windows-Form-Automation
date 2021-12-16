@@ -1482,6 +1482,13 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(StoreApproved);
         }
 
+        private void orderCancelRemarksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStoreOrderActivationRemarks StoreOrderCancelled = new frmStoreOrderActivationRemarks();
+            StoreOrderCancelled.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(StoreOrderCancelled);
+        }
+        
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());

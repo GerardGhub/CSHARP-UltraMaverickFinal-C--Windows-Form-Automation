@@ -40,7 +40,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         //Class Binding to oTher window
-
+        public string sp_bind_selected { get; set; }
         public int sp_order_id { get; set; }
         public string sp_date_ordered { get; set; }
         public string sp_fox { get; set; }
@@ -75,23 +75,62 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                this.ConnectionInit();
-                this.dset_emp1.Clear();
-
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
-                DataView dv = new DataView(this.dset_emp1.Tables[0]);
-
-                this.dgvStoreOrderApproval.DataSource = dv;
-                this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+                this.LoadDataActivatedforPreparation();
 
             }
             this.SaveButtonManipulator();
             this.DesignerSerializationVisibilityOninit();
 
-       
 
+            this.DataGridColumnDisabledEditing();
+            this.DataGridHideColumn();
         }
+        private void DataGridColumnDisabledEditing()
+        {
+            this.dgvStoreOrderApproval.Columns["primary_id"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["order_id"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["fox"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["store_name"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["route"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["area"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["category"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["item_code"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["description"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["uom"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["qty"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["DateDiff"].ReadOnly = true;
+        }
+        private void DataGridHideColumn()
+        {
+            this.dgvStoreOrderApproval.Columns["route"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["area"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["date_added"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["is_approved_by"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["is_approved_date"].Visible = false;
+        }
+        private void LoadDataActivatedforPreparation()
+        {
+            this.ConnectionInit();
+            this.dset_emp1.Clear();
 
+            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
+            DataView dv = new DataView(this.dset_emp1.Tables[0]);
+
+            this.dgvStoreOrderApproval.DataSource = dv;
+            this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+            this.lbltotalOrderQty.Text = "0";
+        }
+        private void LoadDataCancelledforPreparation()
+        {
+            this.ConnectionInit();
+            this.dset_emp1.Clear();
+
+            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isCancelled");
+            DataView dv = new DataView(this.dset_emp1.Tables[0]);
+
+            this.dgvStoreOrderApproval.DataSource = dv;
+            this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+        }
         private void ShowDataActivated()
         {
             this.matRadioActive.Checked = true;
@@ -138,8 +177,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
-        int num = 0;
-        int num_static_value = 0;
+        double num = 0;
+        double num_static_value = 0;
      
         private void dgvReprinting_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -152,8 +191,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (isChecked)
             {
-                num++;
-                num_static_value = num;
+                double totalRecords = Convert.ToInt32(this.lbltotaldata.Text.ToString());
+                if (num == totalRecords)
+                {
+
+                }
+                else
+                {
+                    num++;
+                    num_static_value = num;
+                }
             }
             else
             {
@@ -398,8 +445,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void dgvStoreOrderApproval_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-            CheckCount(isChecked);
+            try
+            {
+                bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                CheckCount(isChecked);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void labelSelectedSum_TextChanged(object sender, EventArgs e)
@@ -529,39 +585,74 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void CancelFunctionality()
         {
-            //myglobal.Searchcategory = txtSearch.Text;
 
-
-
-            for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
+            if (this.matRadioNotActive.Checked == true)
             {
-                try
+                for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
                 {
-                    if (dgvStoreOrderApproval.CurrentRow != null)
+                    try
                     {
-
-                        if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
+                        if (dgvStoreOrderApproval.CurrentRow != null)
                         {
-                            this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
 
-                        }
-                        else
-                        {
-                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
+                            if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
+                            {
+                                this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
 
+                            }
+                            else
+                            {
+
+                            }
                         }
                     }
+
+                    catch (Exception ex)
+                    {
+
+                        this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+
+                        MessageBox.Show(ex.Message);
+                    }
+
                 }
-                catch (Exception ex)
+            }
+            else
+            {
+
+                for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
                 {
+                    try
+                    {
+                        if (dgvStoreOrderApproval.CurrentRow != null)
+                        {
 
-                    this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+                            if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
+                            {
+                                this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
 
-                    MessageBox.Show(ex.Message);
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproved", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+
+                        MessageBox.Show(ex.Message);
+                    }
+
                 }
 
+                //End
             }
 
             this.CancelledSuccessfully();
@@ -599,9 +690,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
 
 
+                this.frmAddNewStoreOrderApproved_Load(sender, e);
+         
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+
+                this.LoadDataCancelledforPreparation();
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
 
 
+                this.frmAddNewStoreOrderApproved_Load(sender, e);
+
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+
+                this.LoadDataCancelledforPreparation();
+                this.lbltotalOrderQty.Text = "0";
+                this.matbtnCancel.Text = "RETURN";
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+
+            }
+        }
     }
 }
