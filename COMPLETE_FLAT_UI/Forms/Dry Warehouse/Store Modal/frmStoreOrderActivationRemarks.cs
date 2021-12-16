@@ -9,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
+using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
@@ -56,7 +58,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("avg_order_trend_major");
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("store_order_activation_remarks_activated_major");
 
             this.VisibilityFalseForDataGridColumn();
 
@@ -85,6 +87,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         }
+
+        private void ShowDataStoreOrderDeactivatedRemarks()
+        {
+            try
+            {
+                ready = false;
+                xClass.fillDataGridView(dgvAVGOrderTrend, "store_order_activation_remarks_deactivated_minor", dSet);
+                ready = true;
+                lbltotalrecords.Text = dgvAVGOrderTrend.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
 
         private void ConnetionString()
         {
@@ -123,6 +144,642 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Focus Events 
             this.txtmatRemarks.Select();
             this.txtmatRemarks.Focus();
+        }
+        public void FillRequiredFields()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Fill up the required fields!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+        public void DataAlreadyExist()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Data Already Exist!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        private void matBtnSave_Click(object sender, EventArgs e)
+        {
+            if (this.txtmatRemarks.Text == String.Empty)
+            {
+                this.FillRequiredFields();
+                this.txtmatRemarks.Focus();
+                return;
+            }
+            else if (this.matcmbType.Text == String.Empty)
+            {
+                this.FillRequiredFields();
+                this.matcmbType.Focus();
+                return;
+            }
+
+            dSet.Clear();
+            dSet = objStorProc.sp_store_order_activation_remarks(0, 
+                this.txtmatRemarks.Text.Trim(),
+               this.matcmbType.Text.Trim(), "","", "","", "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.DataAlreadyExist();
+
+                this.txtmatRemarks.Text = String.Empty;
+                this.matcmbType.Text = String.Empty;
+                this.txtmatRemarks.Focus();
+                this.matBtnCancel_Click(sender, e);
+                return;
+            }
+            else
+            {
+                this.SaveProcessClicker();
+            }
+        }
+
+        private void UpdateNotifications()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Save";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+        private void SaveProcessClicker()
+        {
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to commit the Information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (this.txtmatRemarks.Text.Trim() == string.Empty)
+                {
+                    this.FillRequiredFields();
+                    this.txtmatRemarks.Focus();
+                    return;
+                }
+
+                else
+                {
+                    if (saveMode())
+                    {
+                        string tmode = mode;
+
+                        if (tmode == "add")
+                        {
+                            dgvAVGOrderTrend.CurrentCell = dgvAVGOrderTrend[0, dgvAVGOrderTrend.Rows.Count - 1];
+                            this.UpdateNotifications();
+                        }
+                        else
+                        {
+                            dgvAVGOrderTrend.CurrentCell = dgvAVGOrderTrend[0, temp_hid];
+
+                        }
+                        this.matBtnCancel_Click(new object(), new System.EventArgs());
+                        this.UpdateNotifications();
+                    }
+                    else
+
+                        this.MetroFinalSavingEntry();
+                    return;
+                }
+            }
+
+            else
+            {
+                return;
+            }
+        }
+
+        private void MetroFinalSavingEntry()
+        {
+            if (this.txtmatRemarks.Text.Trim() == string.Empty)
+            {
+                this.FillRequiredFields();
+                this.txtmatRemarks.Focus();
+            }
+            else
+            {
+                if (this.saveMode())
+                {
+                    this.DataAlreadyExist();
+                    string tmode = mode;
+
+                    if (tmode == "add")
+                    {
+                        this.dgvAVGOrderTrend.CurrentCell = this.dgvAVGOrderTrend[0, this.dgvAVGOrderTrend.Rows.Count - 1];
+
+                    }
+                    else
+                    {
+                        this.dgvAVGOrderTrend.CurrentCell = this.dgvAVGOrderTrend[0, temp_hid];
+                    }
+                    this.matBtnCancel_Click(new object(), new System.EventArgs());
+                }
+                else
+
+                    return;
+            }
+        }
+
+
+        public bool saveMode()      //method for saving of data base on mode (add,edit,delete)
+        {
+
+            if (mode == "add")
+            {
+                dSet.Clear();
+                dSet = objStorProc.sp_store_order_activation_remarks(0, this.txtmatRemarks.Text.Trim(), 
+                    this.matcmbType.Text.Trim(), "", "", "", "", "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.DataAlreadyExist();
+
+                    this.txtmatRemarks.Text = string.Empty;
+                    this.txtmatRemarks.Focus();
+                    return false;
+                }
+                else
+                {
+
+                    dSet.Clear();
+                    dSet = objStorProc.sp_store_order_activation_remarks(0,
+                        this.txtmatRemarks.Text.Trim(),
+                        this.matcmbType.Text.Trim(),
+                        this.sp_added_by,
+                        this.sp_date_added,
+                        "",
+                        "",
+                        "add");
+
+                    this.ShowDataStoreOrderActivationRemarks();
+
+
+                    return true;
+                }
+            }
+            else if (mode == "edit")
+            {
+                dSet.Clear();
+                dSet = objStorProc.sp_store_order_activation_remarks(0, 
+                    this.txtmatRemarks.Text.Trim(),
+                   this.matcmbType.Text.Trim(),
+                    this.sp_added_by,
+                    this.sp_date_added,
+                    this.sp_updated_by,
+                    this.sp_updated_date, 
+                    "getbyname");
+
+                dSet_temp.Clear();
+                dSet_temp = objStorProc.sp_store_order_activation_remarks(p_id,
+                    this.txtmatRemarks.Text.Trim(),
+                   this.matcmbType.Text.Trim(), "", "", "", "", "getbyid");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
+                    if (tmpID == p_id)
+                    {
+                        dSet.Clear();
+                        dSet = objStorProc.sp_store_order_activation_remarks(p_id,
+                            this.txtmatRemarks.Text.Trim(),
+                            this.matcmbType.Text.Trim(),
+                            this.sp_added_by,
+                            this.sp_date_added,
+                           this.sp_updated_by,
+                            this.sp_updated_date, "edit");
+                        this.UpdateNotifications();
+                        this.ShowDataStoreOrderActivationRemarks();
+                        this.mode = "";
+                        matBtnCancel_Click(new object(), new System.EventArgs());
+                        return true;
+                    }
+                    else
+                    {
+
+                        this.txtmatRemarks.Text = String.Empty;
+                        this.txtmatRemarks.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    dSet.Clear();
+                    dSet = objStorProc.sp_store_order_activation_remarks(p_id,
+                        this.txtmatRemarks.Text.Trim(),
+                        this.matcmbType.Text.Trim(),
+                        this.sp_added_by,
+                        this.sp_date_added,
+                       this.sp_updated_by,
+                        this.sp_updated_date, "edit");
+                    this.UpdateNotifications();
+                    this.ShowDataStoreOrderActivationRemarks();
+                    this.mode = "";
+                    matBtnCancel_Click(new object(), new System.EventArgs());
+                }
+            }
+            else if (this.mode == "delete")
+            {
+                this.sp_updated_date = (dNow.ToString("M/d/yyyy"));
+                this.sp_updated_by = userinfo.emp_name.ToUpper();
+
+                if (this.sp_bind_selected == "1")
+                {
+
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_store_order_activation_remarks(p_id, 
+                        this.txtmatRemarks.Text.Trim(),
+                        this.matcmbType.Text.Trim(), "", "", this.sp_updated_by, this.sp_updated_date, "delete");
+
+                    return true;
+                }
+                else
+                {
+                    dSet_temp.Clear();
+                    dSet_temp = objStorProc.sp_store_order_activation_remarks(p_id, 
+                        this.txtmatRemarks.Text.Trim(),
+                        this.matcmbType.Text.Trim(), "", "", 
+                        this.sp_updated_by, 
+                        this.sp_updated_date, 
+                        "delete_activation");
+                    this.matRadioActive.Checked = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void matBtnCancel_Click(object sender, EventArgs e)
+        {
+            //Mode of System
+            this.mode = "";
+
+            //String Empty
+            this.sp_created_at = String.Empty;
+            this.sp_created_by = String.Empty;
+
+            //Button Visibility
+            this.matBtnEdit.Visible = true;
+            this.matBtnSave.Visible = false;
+            this.matBtnNew.Visible = true;
+            this.matBtnDelete.Visible = true;
+            this.matBtnCancel.Visible = false;
+
+            //Textbox Enabled Conditional Statement
+            this.txtmatRemarks.Enabled = false;
+            this.matcmbType.Enabled = false;
+        }
+
+        private void matBtnEdit_Click(object sender, EventArgs e)
+        {
+            //Mode
+            mode = "edit";
+            //System Binding
+            this.sp_updated_date = (dNow.ToString("M/d/yyyy"));
+            this.sp_updated_by = userinfo.emp_name.ToUpper();
+            //Button Controls Visibility
+            matBtnDelete.Visible = false;
+            matBtnCancel.Visible = true;
+            matBtnNew.Visible = false;
+            matBtnEdit.Visible = false;
+            matBtnSave.Visible = true;
+            //Button Enabled and TextBox
+            this.txtmatRemarks.Enabled = true;
+            this.matcmbType.Enabled = true;
+            this.txtmatRemarks.Focus();
+        }
+
+        private void dgvAVGOrderTrend_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.showDataGridDataValueChanged();
+        }
+        private void showDataGridDataValueChanged()
+        {
+            if (this.dgvAVGOrderTrend.Rows.Count > 0)
+            {
+                if (this.dgvAVGOrderTrend.CurrentRow != null)
+                {
+                    if (this.dgvAVGOrderTrend.CurrentRow.Cells["soar_desc"].Value != null)
+                    {
+                        p_id = Convert.ToInt32(this.dgvAVGOrderTrend.CurrentRow.Cells["soar_id"].Value);
+                        this.txtmatRemarks.Text = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_desc"].Value.ToString();
+                        this.matcmbType.Text = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_type"].Value.ToString();
+                        this.sp_added_by = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_added_by"].Value.ToString();
+                        this.sp_date_added = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_date_added"].Value.ToString();
+                        this.sp_updated_date = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_updated_date"].Value.ToString();
+                        this.sp_updated_by = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_updated_by"].Value.ToString();
+
+                    }
+                }
+            }
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
+                this.matBtnDelete.Text = "&InActive";
+                this.matBtnEdit.Visible = true;
+                this.ShowDataStoreOrderActivationRemarks();
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+                this.matBtnDelete.Text = "&Activate";
+                this.ShowDataStoreOrderDeactivatedRemarks();
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+
+            }
+        }
+        public void InactiveSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Inactive";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+
+        public void ActivatedSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Activated";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+        private void matBtnDelete_Click(object sender, EventArgs e)
+        {
+            //Start
+            if (this.sp_bind_selected == "1")
+            {
+                if (this.dgvAVGOrderTrend.Rows.Count > 0)
+                {
+
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+                        mode = "delete";
+
+                        if (this.saveMode())
+                        {
+                            this.InactiveSuccessfully();
+                            this.ShowDataStoreOrderActivationRemarks();
+                            this.matBtnCancel_Click("", e);
+                        }
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+
+                }
+
+            }
+            else
+            {
+                if (this.dgvAVGOrderTrend.Rows.Count > 0)
+                {
+
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+                        this.mode = "delete";
+
+                        if (this.saveMode())
+                        {
+                            this.ActivatedSuccessfully();
+                            this.ShowDataStoreOrderActivationRemarks();
+
+                            this.matBtnCancel_Click("", e);
+
+                        }
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+
+
+
+
+
+
+                }
+            }
+            //End
+        }
+
+        private void SearchMethodJarVarCallingSPInactive()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("store_order_activation_remarks_deactivated_major");
+            //this.dgvitemClass.Columns["item_class_id"].Visible = false;
+        }
+
+        private void doSearchInTextBox()
+        {
+            try
+            {
+
+                if (this.dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
+
+
+                    //Gerard Singian Developer Man
+
+
+
+
+                    dv.RowFilter = "soar_desc like '%" + mattxtSearch.Text + "%'";
+
+                    this.dgvAVGOrderTrend.DataSource = dv;
+                    this.lbltotalrecords.Text = this.dgvAVGOrderTrend.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2 s.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+        }
+
+
+        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.ConnetionString();
+            if (this.sp_bind_selected == "1")
+            {
+                this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+                this.SearchMethodJarVarCallingSPInactive();
+            }
+
+            if (this.mattxtSearch.Text == String.Empty)
+            {
+                this.ShowDataStoreOrderActivationRemarks();
+                return;
+            }
+            if (this.lbltotalrecords.Text == "0")
+            {
+
+            }
+            else
+            {
+
+                if (this.mode == "add")
+                {
+
+                }
+                else
+                {
+
+                    this.doSearchInTextBox();
+
+                }
+
+            }
+            //End of Method of Searching
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
+                this.matBtnDelete.Text = "&InActive";
+
+                this.ShowDataStoreOrderActivationRemarks();
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+                this.matBtnDelete.Text = "&Activate";
+                this.matBtnEdit.Visible = false;
+                this.ShowDataStoreOrderDeactivatedRemarks();
+                //this.SearchMethodJarVarCallingSP();
+            }
+            else
+            {
+
+            }
         }
     }
 }

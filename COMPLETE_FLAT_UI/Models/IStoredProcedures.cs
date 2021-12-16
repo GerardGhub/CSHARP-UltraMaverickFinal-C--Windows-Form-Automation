@@ -287,6 +287,16 @@ namespace ULTRAMAVERICK.Models
         string updated_date,
         string mode);
 
+        DataSet sp_store_order_activation_remarks(int soar_id,
+        string soar_desc,
+        string soar_type,
+        string soar_added_by,
+        string soar_date_added,
+        string soar_updated_by,
+        string soar_updated_date,
+        string mode);
+
+
 
         DataSet sp_Major_Category(int major_category_id,
         string major_category_desc,

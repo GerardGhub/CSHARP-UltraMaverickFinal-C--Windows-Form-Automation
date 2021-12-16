@@ -14,7 +14,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmActivationofPrimaryUnit : MaterialForm
     {
-        frmManageActivePrimaryUnit ths;
+        //frmManageActivePrimaryUnit ths;
         public frmActivationofPrimaryUnit(frmManageActivePrimaryUnit frm)
         {
             InitializeComponent();
