@@ -47,8 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_user_id { get; set; }
         private void frmDryRawMaterials_Load(object sender, EventArgs e)
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             this.sp_user_id = userinfo.user_id.ToString();
             this.showRawMaterialsInDryWH();
             this.LoadRecords();
@@ -57,6 +56,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.SearchMethodJarVarCallingSP();
         }
 
+
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
 
         private void LoadRecords()
         {

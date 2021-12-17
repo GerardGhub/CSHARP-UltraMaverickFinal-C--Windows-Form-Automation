@@ -38,6 +38,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.stored_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,15 +57,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.stored_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
             this.panel1.SuspendLayout();
@@ -69,7 +69,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
             this.lbltotaldata.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotaldata.Location = new System.Drawing.Point(12, 610);
+            this.lbltotaldata.Location = new System.Drawing.Point(12, 719);
             this.lbltotaldata.Name = "lbltotaldata";
             this.lbltotaldata.Size = new System.Drawing.Size(46, 40);
             this.lbltotaldata.TabIndex = 637;
@@ -81,7 +81,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(57, 624);
+            this.label4.Location = new System.Drawing.Point(57, 733);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 638;
@@ -100,7 +100,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(996, 470);
+            this.materialCard2.Size = new System.Drawing.Size(996, 571);
             this.materialCard2.TabIndex = 636;
             // 
             // dgvSubCategory
@@ -162,7 +162,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvSubCategory.RowTemplate.DividerHeight = 5;
             this.dgvSubCategory.RowTemplate.Height = 40;
             this.dgvSubCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubCategory.Size = new System.Drawing.Size(986, 458);
+            this.dgvSubCategory.Size = new System.Drawing.Size(986, 559);
             this.dgvSubCategory.TabIndex = 593;
             this.dgvSubCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -186,6 +186,80 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvSubCategory.ThemeStyle.RowsStyle.Height = 40;
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // stored_id
+            // 
+            this.stored_id.DataPropertyName = "stored_id";
+            this.stored_id.FillWeight = 40.60914F;
+            this.stored_id.HeaderText = "STORE ID";
+            this.stored_id.MinimumWidth = 12;
+            this.stored_id.Name = "stored_id";
+            this.stored_id.ReadOnly = true;
+            // 
+            // store_code
+            // 
+            this.store_code.DataPropertyName = "store_code";
+            this.store_code.FillWeight = 99.49239F;
+            this.store_code.HeaderText = "STORE CODE";
+            this.store_code.MinimumWidth = 12;
+            this.store_code.Name = "store_code";
+            this.store_code.ReadOnly = true;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.FillWeight = 99.49239F;
+            this.store_name.HeaderText = "STORE NAME";
+            this.store_name.MinimumWidth = 12;
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
+            // 
+            // store_area
+            // 
+            this.store_area.DataPropertyName = "store_area";
+            this.store_area.FillWeight = 99.49239F;
+            this.store_area.HeaderText = "STORE AREA";
+            this.store_area.MinimumWidth = 12;
+            this.store_area.Name = "store_area";
+            this.store_area.ReadOnly = true;
+            // 
+            // store_route
+            // 
+            this.store_route.DataPropertyName = "store_route";
+            this.store_route.FillWeight = 99.49239F;
+            this.store_route.HeaderText = "STORE ROUTE";
+            this.store_route.MinimumWidth = 12;
+            this.store_route.Name = "store_route";
+            this.store_route.ReadOnly = true;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 12;
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.Name = "added_by";
+            this.added_by.ReadOnly = true;
+            // 
+            // modified_date
+            // 
+            this.modified_date.DataPropertyName = "modified_date";
+            this.modified_date.HeaderText = "DATE MODIFIED";
+            this.modified_date.Name = "modified_date";
+            this.modified_date.ReadOnly = true;
+            // 
+            // modified_by
+            // 
+            this.modified_by.DataPropertyName = "modified_by";
+            this.modified_by.HeaderText = "MODIFIED BY";
+            this.modified_by.Name = "modified_by";
+            this.modified_by.ReadOnly = true;
             // 
             // lbltotalrecords
             // 
@@ -302,85 +376,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // stored_id
-            // 
-            this.stored_id.DataPropertyName = "stored_id";
-            this.stored_id.FillWeight = 40.60914F;
-            this.stored_id.HeaderText = "STORE ID";
-            this.stored_id.MinimumWidth = 12;
-            this.stored_id.Name = "stored_id";
-            this.stored_id.ReadOnly = true;
-            // 
-            // store_code
-            // 
-            this.store_code.DataPropertyName = "store_code";
-            this.store_code.FillWeight = 99.49239F;
-            this.store_code.HeaderText = "STORE CODE";
-            this.store_code.MinimumWidth = 12;
-            this.store_code.Name = "store_code";
-            this.store_code.ReadOnly = true;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.FillWeight = 99.49239F;
-            this.store_name.HeaderText = "STORE NAME";
-            this.store_name.MinimumWidth = 12;
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            // 
-            // store_area
-            // 
-            this.store_area.DataPropertyName = "store_area";
-            this.store_area.FillWeight = 99.49239F;
-            this.store_area.HeaderText = "STORE AREA";
-            this.store_area.MinimumWidth = 12;
-            this.store_area.Name = "store_area";
-            this.store_area.ReadOnly = true;
-            // 
-            // store_route
-            // 
-            this.store_route.DataPropertyName = "store_route";
-            this.store_route.FillWeight = 99.49239F;
-            this.store_route.HeaderText = "STORE ROUTE";
-            this.store_route.MinimumWidth = 12;
-            this.store_route.Name = "store_route";
-            this.store_route.ReadOnly = true;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 12;
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            // 
-            // modified_date
-            // 
-            this.modified_date.DataPropertyName = "modified_date";
-            this.modified_date.HeaderText = "DATE MODIFIED";
-            this.modified_date.Name = "modified_date";
-            this.modified_date.ReadOnly = true;
-            // 
-            // modified_by
-            // 
-            this.modified_by.DataPropertyName = "modified_by";
-            this.modified_by.HeaderText = "MODIFIED BY";
-            this.modified_by.Name = "modified_by";
-            this.modified_by.ReadOnly = true;
-            // 
             // frmListofStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 654);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbltotaldata);

@@ -25,6 +25,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using ULTRAMAVERICK.Barcode_Reprinting;
 using System.Drawing.Drawing2D;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1488,7 +1489,14 @@ namespace COMPLETE_FLAT_UI
             StoreOrderCancelled.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(StoreOrderCancelled);
         }
-        
+
+        private void allocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAllocationModule AllocationModule = new frmAllocationModule();
+            AllocationModule.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(AllocationModule);
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());

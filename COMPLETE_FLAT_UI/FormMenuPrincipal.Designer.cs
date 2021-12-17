@@ -87,6 +87,7 @@
             this.warehouseCrewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lotManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.averageOrderTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderCancelRemarksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDropdownMenu = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolParentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolChildMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,7 +141,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
-            this.orderCancelRemarksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -647,6 +648,7 @@
             // toolStore
             // 
             this.toolStore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allocationToolStripMenuItem,
             this.toolStripStoreArea,
             this.storeRoute,
             this.toolStores});
@@ -662,21 +664,21 @@
             // toolStripStoreArea
             // 
             this.toolStripStoreArea.Name = "toolStripStoreArea";
-            this.toolStripStoreArea.Size = new System.Drawing.Size(159, 26);
+            this.toolStripStoreArea.Size = new System.Drawing.Size(180, 26);
             this.toolStripStoreArea.Text = "Store Area";
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
             // storeRoute
             // 
             this.storeRoute.Name = "storeRoute";
-            this.storeRoute.Size = new System.Drawing.Size(159, 26);
+            this.storeRoute.Size = new System.Drawing.Size(180, 26);
             this.storeRoute.Text = "Store Route";
             this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
             // 
             // toolStores
             // 
             this.toolStores.Name = "toolStores";
-            this.toolStores.Size = new System.Drawing.Size(159, 26);
+            this.toolStores.Size = new System.Drawing.Size(180, 26);
             this.toolStores.Text = "Stores";
             this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
             // 
@@ -781,6 +783,13 @@
             this.averageOrderTrendToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.averageOrderTrendToolStripMenuItem.Text = "Average Order Trend";
             this.averageOrderTrendToolStripMenuItem.Click += new System.EventHandler(this.averageOrderTrendToolStripMenuItem_Click);
+            // 
+            // orderCancelRemarksToolStripMenuItem
+            // 
+            this.orderCancelRemarksToolStripMenuItem.Name = "orderCancelRemarksToolStripMenuItem";
+            this.orderCancelRemarksToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.orderCancelRemarksToolStripMenuItem.Text = "Order Cancel Remarks";
+            this.orderCancelRemarksToolStripMenuItem.Click += new System.EventHandler(this.orderCancelRemarksToolStripMenuItem_Click);
             // 
             // toolDropdownMenu
             // 
@@ -958,7 +967,7 @@
             this.preparationToolStripMenuItem,
             this.moveOrderToolStripMenuItem});
             this.toolDryForApproval.Name = "toolDryForApproval";
-            this.toolDryForApproval.Size = new System.Drawing.Size(131, 26);
+            this.toolDryForApproval.Size = new System.Drawing.Size(180, 26);
             this.toolDryForApproval.Text = "Store";
             this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
             // 
@@ -991,7 +1000,7 @@
             // toolDryApprovedOrder
             // 
             this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
-            this.toolDryApprovedOrder.Size = new System.Drawing.Size(131, 26);
+            this.toolDryApprovedOrder.Size = new System.Drawing.Size(180, 26);
             this.toolDryApprovedOrder.Text = "Internal";
             // 
             // toolStrip1
@@ -1445,12 +1454,12 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
-            // orderCancelRemarksToolStripMenuItem
+            // allocationToolStripMenuItem
             // 
-            this.orderCancelRemarksToolStripMenuItem.Name = "orderCancelRemarksToolStripMenuItem";
-            this.orderCancelRemarksToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.orderCancelRemarksToolStripMenuItem.Text = "Order Cancel Remarks";
-            this.orderCancelRemarksToolStripMenuItem.Click += new System.EventHandler(this.orderCancelRemarksToolStripMenuItem_Click);
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.allocationToolStripMenuItem.Text = "Allocation";
+            this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // FormMenuPrincipal
             // 
@@ -1604,6 +1613,7 @@
         private System.Windows.Forms.ToolStripMenuItem moveOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem averageOrderTrendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderCancelRemarksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
     }
 }
 
