@@ -35,9 +35,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrder = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
             this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +46,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrder)).BeginInit();
             this.SuspendLayout();
@@ -61,12 +61,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.Controls.Add(this.dgvStoreOrder);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(26, 161);
+            this.materialCard1.Location = new System.Drawing.Point(26, 135);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(973, 361);
+            this.materialCard1.Size = new System.Drawing.Size(973, 618);
             this.materialCard1.TabIndex = 575;
             // 
             // dgvStoreOrder
@@ -131,7 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrder.RowTemplate.DividerHeight = 5;
             this.dgvStoreOrder.RowTemplate.Height = 40;
             this.dgvStoreOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStoreOrder.Size = new System.Drawing.Size(963, 349);
+            this.dgvStoreOrder.Size = new System.Drawing.Size(963, 606);
             this.dgvStoreOrder.TabIndex = 5;
             this.dgvStoreOrder.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvStoreOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -157,13 +157,106 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrder.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvStoreOrder.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrder_CurrentCellChanged);
             // 
+            // date_ordered
+            // 
+            this.date_ordered.DataPropertyName = "dateOrdered";
+            this.date_ordered.Frozen = true;
+            this.date_ordered.HeaderText = "ORDER DATE";
+            this.date_ordered.MinimumWidth = 12;
+            this.date_ordered.Name = "date_ordered";
+            this.date_ordered.ReadOnly = true;
+            this.date_ordered.Width = 121;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 48;
+            // 
+            // store_code
+            // 
+            this.store_code.DataPropertyName = "fox";
+            this.store_code.Frozen = true;
+            this.store_code.HeaderText = "STORE CODE";
+            this.store_code.Name = "store_code";
+            this.store_code.ReadOnly = true;
+            this.store_code.Width = 122;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "name";
+            this.store_name.HeaderText = "STORE";
+            this.store_name.MinimumWidth = 12;
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
+            this.store_name.Width = 77;
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.HeaderText = "ROUTE";
+            this.route.Name = "route";
+            this.route.ReadOnly = true;
+            this.route.Width = 80;
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.HeaderText = "AREA";
+            this.area.Name = "area";
+            this.area.ReadOnly = true;
+            this.area.Width = 70;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "meattype";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 108;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "productcode";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 111;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "products";
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            this.description.Width = 127;
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.HeaderText = "UOM";
+            this.uom.Name = "uom";
+            this.uom.ReadOnly = true;
+            this.uom.Width = 68;
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.HeaderText = "QUANTITY ORDER";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Width = 158;
+            // 
             // lbltotalrecords
             // 
             this.lbltotalrecords.AutoSize = true;
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(42, 100);
+            this.lbltotalrecords.Location = new System.Drawing.Point(40, 84);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(32, 40);
             this.lbltotalrecords.TabIndex = 610;
@@ -175,7 +268,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(45, 136);
+            this.label2.Location = new System.Drawing.Point(77, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 611;
@@ -190,7 +283,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnUpload.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.matbtnUpload.HighEmphasis = true;
             this.matbtnUpload.Icon = null;
-            this.matbtnUpload.Location = new System.Drawing.Point(921, 109);
+            this.matbtnUpload.Location = new System.Drawing.Point(921, 83);
             this.matbtnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnUpload.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnUpload.Name = "matbtnUpload";
@@ -202,104 +295,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnUpload.UseVisualStyleBackColor = true;
             this.matbtnUpload.Click += new System.EventHandler(this.matbtnUpload_Click);
             // 
-            // date_ordered
-            // 
-            this.date_ordered.DataPropertyName = "dateOrdered";
-            this.date_ordered.Frozen = true;
-            this.date_ordered.HeaderText = "ORDER DATE";
-            this.date_ordered.MinimumWidth = 12;
-            this.date_ordered.Name = "date_ordered";
-            this.date_ordered.ReadOnly = true;
-            this.date_ordered.Width = 123;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.Frozen = true;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // store_code
-            // 
-            this.store_code.DataPropertyName = "fox";
-            this.store_code.Frozen = true;
-            this.store_code.HeaderText = "STORE CODE";
-            this.store_code.Name = "store_code";
-            this.store_code.ReadOnly = true;
-            this.store_code.Width = 124;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.MinimumWidth = 12;
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            this.store_name.Width = 79;
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.HeaderText = "ROUTE";
-            this.route.Name = "route";
-            this.route.ReadOnly = true;
-            this.route.Width = 82;
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.HeaderText = "AREA";
-            this.area.Name = "area";
-            this.area.ReadOnly = true;
-            this.area.Width = 72;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "meattype";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 110;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "productcode";
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "products";
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.Width = 129;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.HeaderText = "UOM";
-            this.uom.Name = "uom";
-            this.uom.ReadOnly = true;
-            this.uom.Width = 70;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.HeaderText = "QUANTITY ORDER";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 160;
-            // 
             // frmStoreOrderRestAPIcall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 682);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.matbtnUpload);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);

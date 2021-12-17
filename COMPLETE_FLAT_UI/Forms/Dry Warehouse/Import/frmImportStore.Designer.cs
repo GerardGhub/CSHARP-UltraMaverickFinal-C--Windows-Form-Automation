@@ -77,7 +77,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.mattxtSearch.Depth = 0;
             this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSearch.Hint = "Search";
-            this.mattxtSearch.Location = new System.Drawing.Point(794, 103);
+            this.mattxtSearch.Location = new System.Drawing.Point(794, 79);
             this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtSearch.MaxLength = 50;
             this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
@@ -96,7 +96,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard3.Controls.Add(this.dgvUnits);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(530, 119);
+            this.materialCard3.Location = new System.Drawing.Point(530, 95);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
@@ -197,7 +197,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(905, 21);
+            this.lbltotalrecords.Location = new System.Drawing.Point(917, 21);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
             this.lbltotalrecords.TabIndex = 608;
@@ -210,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(908, 57);
+            this.label2.Location = new System.Drawing.Point(920, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 609;
@@ -225,7 +225,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.matbtnUpload.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.matbtnUpload.HighEmphasis = true;
             this.matbtnUpload.Icon = null;
-            this.matbtnUpload.Location = new System.Drawing.Point(786, 73);
+            this.matbtnUpload.Location = new System.Drawing.Point(798, 73);
             this.matbtnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnUpload.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnUpload.Name = "matbtnUpload";
@@ -265,7 +265,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.matBtnBrowse.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.matBtnBrowse.HighEmphasis = true;
             this.matBtnBrowse.Icon = null;
-            this.matBtnBrowse.Location = new System.Drawing.Point(785, 22);
+            this.matBtnBrowse.Location = new System.Drawing.Point(797, 22);
             this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnBrowse.Name = "matBtnBrowse";
@@ -306,12 +306,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard2.Controls.Add(this.cbosheet);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(26, 550);
+            this.materialCard2.Location = new System.Drawing.Point(22, 622);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(968, 126);
+            this.materialCard2.Size = new System.Drawing.Size(980, 126);
             this.materialCard2.TabIndex = 571;
             // 
             // dgvRawMats
@@ -371,7 +371,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(963, 349);
+            this.dgvRawMats.Size = new System.Drawing.Size(967, 453);
             this.dgvRawMats.TabIndex = 5;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -416,12 +416,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard1.Controls.Add(this.dgvRawMats);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(26, 167);
+            this.materialCard1.Location = new System.Drawing.Point(22, 145);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(973, 361);
+            this.materialCard1.Size = new System.Drawing.Size(977, 465);
             this.materialCard1.TabIndex = 570;
             // 
             // ultraMaverickDBDataSetBindingSource
@@ -471,7 +471,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 682);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialCard2);

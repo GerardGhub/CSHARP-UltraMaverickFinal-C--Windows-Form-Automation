@@ -174,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text);
+                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text,this.metroCmbStoreCode.Text);
 
             }
             catch (Exception ex)
@@ -311,15 +311,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         }
                         else if (this.mode == "Search3")
                         {
-                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "' and   category = '" + this.matcmbPackaging.Text + "'  ";
+                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "' and   category = '" + this.matcmbCategory.Text + "'  ";
                         }
                         else if (this.mode == "Search4")
                         {
-                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "' and   category = '" + this.matcmbPackaging.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  ";
+                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "' and   category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  ";
                         }
                         else
                         {
-
+                            //dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'     ";
                         }
 
 
@@ -390,7 +390,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.matcmbPackaging, "tblStoreOrderDryWH_dropdown_Approval_isApproved", this.dSet, this.bunifuPrepaDate.Text);
+                myClass.fillComboBoxStoreOrderApprovalSync(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
 
             }
             catch (Exception ex)
@@ -408,7 +408,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSyncStore(this.metroCmbStoreCode, "tblStore_dropdown_isApproved", this.dSet, this.bunifuPrepaDate.Text);
+                myClass.fillComboBoxStoreOrderApprovalSyncStore(this.metroCmbStoreCode, "tblStore_dropdown_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
 
             }
             catch (Exception ex)
@@ -453,22 +453,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void cmbDateOrder_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            this.ConnectionInit();
             this.loadCategoryDropdown();
             this.mode = "Search2";
-            this.ConnectionInit();
+
             this.load_search();
+
         }
 
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //this.ConnectionInit();
-            //this.load_search();
-            //this.loadCategoryDropdown();
+          
+            this.ConnectionInit();
             this.loadStoreDropdown();
             this.mode = "Search3";
-            this.ConnectionInit();
+
             this.load_search();
+
+        
+       
         }
 
         private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
@@ -484,8 +487,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.mode = "Search1";
             this.ConnectionInit();
-            this.load_search();
             this.loadDateOrderDropdown();
+            this.load_search();
+      
    
         }
 
