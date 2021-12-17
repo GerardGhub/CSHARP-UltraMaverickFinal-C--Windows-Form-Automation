@@ -23,7 +23,7 @@ namespace ULTRAMAVERICK.Models
         public DataSet getTable(string eTablename)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
-            return g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            return g_objStoredProcFill.sp_getMinorTables(eTablename, null , null);
         }
         public void ActivitiesLogs(string logs)
         {
@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null , null);
 
             eListBox.DataSource = dSet.Tables[0].DefaultView;
 
@@ -103,7 +103,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
@@ -120,7 +120,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null,null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
@@ -138,10 +138,44 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null,null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[0].ToString();
+            eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+
+
+
+
+
+            g_objStoredProcFill = null;
+        }
+
+        public void fillComboBoxStoreOrderApprovalSync(ComboBox eComboBox, string eTablename, DataSet dSet , string string_data_find)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, string_data_find);
+
+            eComboBox.DataSource = dSet.Tables[0].DefaultView;
+            eComboBox.DisplayMember = dSet.Tables[0].Columns[0].ToString();
+            eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+
+
+
+
+
+            g_objStoredProcFill = null;
+        }
+
+        public void fillComboBoxStoreOrderApprovalSyncStore(ComboBox eComboBox, string eTablename, DataSet dSet, string string_data_find)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, string_data_find);
+
+            eComboBox.DataSource = dSet.Tables[0].DefaultView;
+            eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
             eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
 
 
@@ -154,7 +188,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
@@ -172,7 +206,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
@@ -190,7 +224,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
@@ -207,7 +241,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
@@ -220,7 +254,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[0].ToString();
@@ -238,7 +272,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[0].ToString();
@@ -329,7 +363,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
             DataView dv = new DataView(dSet.Tables[0]);
             dv.RowFilter = "Qty > 0";
 
@@ -364,7 +398,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
 
 
@@ -396,7 +430,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
 
 
@@ -412,7 +446,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[0].ToString();
@@ -438,7 +472,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[2].ToString();
@@ -450,7 +484,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
 
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
@@ -462,7 +496,7 @@ namespace ULTRAMAVERICK.Models
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null);
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null);
             eDataGrid.DataSource = dSet.Tables[0];
         }
 

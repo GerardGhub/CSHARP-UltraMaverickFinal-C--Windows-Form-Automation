@@ -24,7 +24,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             InitializeComponent();
             ths = frm;
-            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
+            textBox2.TextChanged += new EventHandler(textBox1_TextChanged);
         }
 
         private void frmStoreApprovedOrderUpdatePreparationDate_Load(object sender, EventArgs e)
@@ -37,7 +37,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ths.textBox1.Text = textBox1.Text;
+            ths.textBox2.Text = textBox2.Text;
+        }
+
+        private void frmStoreApprovedOrderUpdatePreparationDate_FormClosing(object sender, FormClosingEventArgs e)
+        {
+    
+
+            this.textBox2.Text = this.bunifuPrepaDate.Text;
+        }
+
+        private void matBtnSave_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ULTRAMAVERICK.Models
         DataSet sp_userlogin(string username, string password);
 
         //general (any pages) - get single table
-        DataSet sp_getMinorTables(string eTableName, int? pkId);
+        DataSet sp_getMinorTables(string eTableName, int? pkId, string string_data_find);
         DataSet sp_getFilterTables(string eTableName, string eDescription, int ePk);
 
         DataSet sp_GetCategory(string eTableName, int? cid, string feed_code, string category, string fgdate);
