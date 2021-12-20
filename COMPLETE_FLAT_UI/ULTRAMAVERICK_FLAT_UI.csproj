@@ -423,10 +423,10 @@
     <Compile Include="Forms\Research And Development\frmSubCategory.Designer.cs">
       <DependentUpon>frmSubCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmSubMenusAvailableForms.cs">
+    <Compile Include="Forms\Users\Menus\frmSubMenusAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmSubMenusAvailableForms.Designer.cs">
+    <Compile Include="Forms\Users\Menus\frmSubMenusAvailableForms.Designer.cs">
       <DependentUpon>frmSubMenusAvailableForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmDashBoardFormMenu.cs">
@@ -447,10 +447,10 @@
     <Compile Include="Forms\Users\frmDepartmentUnit.Designer.cs">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmModulesAvailableForms.cs">
+    <Compile Include="Forms\Users\Menus\frmModulesAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmModulesAvailableForms.Designer.cs">
+    <Compile Include="Forms\Users\Menus\frmModulesAvailableForms.Designer.cs">
       <DependentUpon>frmModulesAvailableForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmLocation.cs">
@@ -459,10 +459,10 @@
     <Compile Include="Forms\Users\frmLocation.Designer.cs">
       <DependentUpon>frmLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmMajorAvailableForms.cs">
+    <Compile Include="Forms\Users\Menus\frmMajorAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmMajorAvailableForms.Designer.cs">
+    <Compile Include="Forms\Users\Menus\frmMajorAvailableForms.Designer.cs">
       <DependentUpon>frmMajorAvailableForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmPosition.cs">
@@ -691,7 +691,7 @@
     <EmbeddedResource Include="Forms\Research And Development\frmSubCategory.resx">
       <DependentUpon>frmSubCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmSubMenusAvailableForms.resx">
+    <EmbeddedResource Include="Forms\Users\Menus\frmSubMenusAvailableForms.resx">
       <DependentUpon>frmSubMenusAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmDashBoardFormMenu.resx">
@@ -703,13 +703,13 @@
     <EmbeddedResource Include="Forms\Users\frmDepartmentUnit.resx">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmModulesAvailableForms.resx">
+    <EmbeddedResource Include="Forms\Users\Menus\frmModulesAvailableForms.resx">
       <DependentUpon>frmModulesAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmLocation.resx">
       <DependentUpon>frmLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmMajorAvailableForms.resx">
+    <EmbeddedResource Include="Forms\Users\Menus\frmMajorAvailableForms.resx">
       <DependentUpon>frmMajorAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmPosition.resx">

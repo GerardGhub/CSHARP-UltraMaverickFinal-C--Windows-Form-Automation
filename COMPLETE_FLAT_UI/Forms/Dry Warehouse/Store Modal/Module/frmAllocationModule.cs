@@ -184,7 +184,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.doSearchInTextBox();
             this.hideFindColumninDataGridViewer();
             this.SumofTotalOrderDataGridView();
-            //this.SumofTotalSOHDataGridView();
+            this.SumofTotalAllocatedDataGridView();
         }
 
 
@@ -198,14 +198,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.txtQtyOrder.Text = sum.ToString();
         }
 
-        private void SumofTotalSOHDataGridView()
+        private void SumofTotalAllocatedDataGridView()
         {
             int sum = 0;
             for (int i = 0; i < dgvFindStoreOrders.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(dgvFindStoreOrders.Rows[i].Cells["SOH"].Value);
+                sum += Convert.ToInt32(dgvFindStoreOrders.Rows[i].Cells["ALLOCATION_QTY_FIND"].Value);
             }
-            this.txtSoh.Text = sum.ToString();
+            this.lblqtyAllocatedFinal.Text = sum.ToString();
         }
 
 
@@ -273,7 +273,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     }
 
                     MessageBox.Show("SuccessFully Insert");
-                    txtItemCode_TextChanged(sender, e);
+                    this.SenderTextChangedValue();
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     return;
                 }
@@ -281,6 +281,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             ///Ending
             ///
         
+        }
+
+        private void SenderTextChangedValue()
+        {
+            txtItemCode_TextChanged(new object(), new System.EventArgs());
+            txtSoh_TextChanged(new object(), new System.EventArgs());
         }
         private void InsertDataPerRow()
         {
@@ -338,6 +344,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 }
             }
         }
-
+        
+        private void txtSoh_TextChanged(object sender, EventArgs e)
+        {
+            if(this.txtSoh.Text == this.lblqtyAllocatedFinal.Text)
+            {
+                this.matBtnSave.Enabled = false;
+            }
+            else
+            {
+                this.matBtnSave.Enabled = true;
+            }
+        }
     }
 }
