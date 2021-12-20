@@ -283,6 +283,16 @@ namespace ULTRAMAVERICK.Models
         string item_updated_by,
         string mode);
 
+        DataSet sp_Allocation_Logs(int allocation_id,
+            string a_item_code,
+            string a_item_desc,
+            string allocation_qty,
+            string allocate_by,
+            string allocate_date,
+            string order_key,
+            string mode);
+
+
         DataSet sp_avg_order_trend(int avg_id,
         string avg_desc,
         int avg_days,
