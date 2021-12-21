@@ -39,7 +39,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         public string sp_item_code { get; set; }
         public string sp_item_description { get; set; }
         public string sp_qty_finder { get; set; }
-        public double MemoryLogsQty { get; set; }
+
 
         public int user_id { get; set; }
 
@@ -48,7 +48,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.ConnectionInit();
             this.showRawMaterialsInDryWH();
 
-            this.MemoryLogsQty = 0;
             this.CallInitializeComponent();
         }
 

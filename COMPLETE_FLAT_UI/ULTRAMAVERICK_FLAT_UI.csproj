@@ -153,18 +153,6 @@
     <Compile Include="FormLogo.designer.cs">
       <DependentUpon>FormLogo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMantCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMantCliente.designer.cs">
-      <DependentUpon>FormMantCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMembresia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMembresia.designer.cs">
-      <DependentUpon>FormMembresia.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -539,10 +527,10 @@
     <Compile Include="Report\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="test\FormMenuPrincipal.cs">
+    <Compile Include="MainMenuParent\FormMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="test\FormMenuPrincipal.Designer.cs">
+    <Compile Include="MainMenuParent\FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="UltraMaverickDBDataSet.cs">
@@ -558,12 +546,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogo.resx">
       <DependentUpon>FormLogo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMantCliente.resx">
-      <DependentUpon>FormMantCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMembresia.resx">
-      <DependentUpon>FormMembresia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
@@ -755,7 +737,7 @@
     <EmbeddedResource Include="Report\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="test\FormMenuPrincipal.resx">
+    <EmbeddedResource Include="MainMenuParent\FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

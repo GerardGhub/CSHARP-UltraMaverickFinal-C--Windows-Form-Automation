@@ -243,7 +243,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnPrint.DrawShadows = true;
             this.matbtnPrint.HighEmphasis = true;
             this.matbtnPrint.Icon = null;
-            this.matbtnPrint.Location = new System.Drawing.Point(20, 685);
+            this.matbtnPrint.Location = new System.Drawing.Point(20, 690);
             this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnPrint.Name = "matbtnPrint";
@@ -319,7 +319,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.RowTemplate.DividerHeight = 5;
             this.dgvStoreOrderApproval.RowTemplate.Height = 40;
             this.dgvStoreOrderApproval.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStoreOrderApproval.Size = new System.Drawing.Size(1148, 455);
+            this.dgvStoreOrderApproval.Size = new System.Drawing.Size(1148, 463);
             this.dgvStoreOrderApproval.TabIndex = 594;
             this.dgvStoreOrderApproval.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvStoreOrderApproval.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -482,7 +482,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(1158, 467);
+            this.materialCard2.Size = new System.Drawing.Size(1158, 475);
             this.materialCard2.TabIndex = 579;
             // 
             // lbltotaldata
@@ -535,7 +535,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnEdit.DrawShadows = true;
             this.matbtnEdit.HighEmphasis = true;
             this.matbtnEdit.Icon = null;
-            this.matbtnEdit.Location = new System.Drawing.Point(128, 685);
+            this.matbtnEdit.Location = new System.Drawing.Point(128, 690);
             this.matbtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnEdit.Name = "matbtnEdit";
@@ -552,7 +552,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(553, 690);
+            this.textBox1.Location = new System.Drawing.Point(553, 698);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 643;

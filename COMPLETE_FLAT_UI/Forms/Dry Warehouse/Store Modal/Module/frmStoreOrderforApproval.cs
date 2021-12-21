@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -55,6 +56,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_description { get; set; }
         public string sp_uom { get; set; }
         public string sp_qty { get; set; }
+        public string total_item_for_allocation { get; set; }
 
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
@@ -63,8 +65,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.DataRefresher();
 
+            this.showRawMaterialforApproval();
+            if(this.total_item_for_allocation == "0")
+            {
+
+            }
+            else
+            {
+                //Start
+                if (MetroFramework.MetroMessageBox.Show(this, "Access the allocate module? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    frmAllocationModule fm = new frmAllocationModule();
+                    fm.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    this.ReturnFunctionality();
+                    return;
+                }
+
+
+                }
+
+        }
+
+        private void ReturnFunctionality()
+        {
+
             myglobal.global_module = "Active";
-            
+
             this.loadCategoryDropdown();
             this.loadStoreDropdown();
             this.loadDateOrderDropdown();
@@ -84,7 +114,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
                 DataView dv = new DataView(this.dset_emp1.Tables[0]);
-             
+
                 this.dgvStoreOrderApproval.DataSource = dv;
                 this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
 
@@ -92,7 +122,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.SaveButtonManipulator();
         }
 
-    
+        private void showRawMaterialforApproval()    //method for loading available_menus
+        {
+            try
+            {
+
+                xClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
+
+                this.total_item_for_allocation = this.dgvStoreOrderApproval.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            //this.dgvRawMats.Columns["item_id"].Visible = false;
+
+        }
         private void InitiliazeDatePickerMinDate()
         {
             this.bunifuPrepaDate.MinDate = DateTime.Now;
