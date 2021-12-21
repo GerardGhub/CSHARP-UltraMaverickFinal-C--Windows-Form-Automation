@@ -127,7 +127,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the  Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the  Information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 this.ConnectionInit();

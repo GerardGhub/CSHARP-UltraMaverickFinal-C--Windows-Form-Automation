@@ -57,6 +57,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_uom { get; set; }
         public string sp_qty { get; set; }
         public string total_item_for_allocation { get; set; }
+        public string is_issue_for_approval { get; set; }
 
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
@@ -65,19 +66,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.DataRefresher();
 
-            this.showRawMaterialforApproval();
-            if(this.total_item_for_allocation == "0")
-            {
 
+            this.showRawMaterialforApproval();
+
+            //this.ReturnFunctionality();
+
+            this.ValidatedItemforApproval();
+
+        }
+
+        private void ValidatedItemforApproval()
+        {
+            if (this.total_item_for_allocation == "0")
+            {
+                this.ReturnFunctionality();
             }
             else
             {
+
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Access the allocate module? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "You have " + total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     frmAllocationModule fm = new frmAllocationModule();
                     fm.ShowDialog();
-                    this.Close();
+
                 }
                 else
                 {
@@ -86,13 +98,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
 
 
-                }
-
+            }
         }
-
+        private void DataGridColumnDisabledEditing()
+        {
+            this.dgvStoreOrderApproval.Columns["primary_id"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["order_id"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["fox"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["store_name"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["route"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["area"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["category"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["item_code"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["description"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["uom"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["qty"].ReadOnly = true;
+            //this.dgvStoreOrderApproval.Columns["DateDiff"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["date_ordered"].ReadOnly = true;
+        }
         private void ReturnFunctionality()
         {
 
+            this.ConnectionInit();
+
+            this.DataRefresher();
             myglobal.global_module = "Active";
 
             this.loadCategoryDropdown();
@@ -101,14 +130,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Load The Data With Stored Procedure
             //this.LoadDataWithParamsOrders();
             this.InitiliazeDatePickerMinDate();
-            if (this.mode == "start")
-            {
-                this.ConnectionInit();
-                this.load_search();
-                this.mode = "";
-            }
-            else
-            {
+            this.mode = "";
+            //if (this.mode == "start")
+            //{
+            //    this.ConnectionInit();
+            //    this.load_search();
+            //    this.mode = "";
+            //}
+            //else
+            //{
                 this.ConnectionInit();
                 this.dset_emp1.Clear();
 
@@ -118,8 +148,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.dgvStoreOrderApproval.DataSource = dv;
                 this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
 
-            }
+            //}
             this.SaveButtonManipulator();
+            this.DataGridColumnDisabledEditing();
         }
 
         private void showRawMaterialforApproval()    //method for loading available_menus
@@ -127,9 +158,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-                xClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
+                xClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
 
-                this.total_item_for_allocation = this.dgvStoreOrderApproval.RowCount.ToString();
+                this.total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -139,6 +170,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.dgvRawMats.Columns["item_id"].Visible = false;
 
         }
+
+
         private void InitiliazeDatePickerMinDate()
         {
             this.bunifuPrepaDate.MinDate = DateTime.Now;
@@ -340,8 +373,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         int num = 0;
         private void dgvReprinting_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-            CheckCount(isChecked);
+            try
+            {
+                bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                CheckCount(isChecked);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+    
         }
 
         private void CheckCount(bool isChecked)
@@ -423,8 +466,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ApprovedSuccessfully();
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
-            this.mode = "start";
-            this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
+            //this.mode = "start";
+            //this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
+            this.ReturnFunctionality();
         }
 
         public void ApprovedSuccessfully()
@@ -521,7 +565,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Visibility Controls
             this.matbtnEdit.Visible = false;
             this.matbtnPrint.Visible = false;
-
+         
 
 
             frmEditConsolidatedOrder mywipwh = new frmEditConsolidatedOrder(this, 
@@ -581,7 +625,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Label Bugok
         
             this.labelSelectedSum.Visible = false;
-            this.frmStoreOrderforApproval_Load(sender, e);
+            //this.frmStoreOrderforApproval_Load(sender, e);
+            this.ReturnFunctionality();
         }
 
         private void cmbDateOrder_SelectedIndexChanged(object sender, EventArgs e)

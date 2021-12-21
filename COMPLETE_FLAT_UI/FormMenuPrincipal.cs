@@ -348,17 +348,26 @@ namespace COMPLETE_FLAT_UI
             catch (Exception) { loadDefaultImage(); }
         }
 
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {            // Calling the Stored PROC 
 
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
 
             //this.Size = new Size(1300, 700); //Size of Windows
             this.BadgeNotification();
             this.RoundPictureAss();
 
             this.showReceivingData();
+
+   
+
+
             //btnUsers.Enabled = true;
             this.lblFirstName.Text = userinfo.emp_name.ToString() + new string(' ', 1) + userinfo.emp_lastname.ToString();// First Name Session
             //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
@@ -591,6 +600,7 @@ namespace COMPLETE_FLAT_UI
 
 
         }
+
         private void SubMenu()
         {
             dset_rights.Clear();
@@ -1464,9 +1474,12 @@ namespace COMPLETE_FLAT_UI
 
         private void forApprovalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmStoreOrderforApproval fm = new frmStoreOrderforApproval();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
+          
+                frmStoreOrderforApproval fm = new frmStoreOrderforApproval();
+                fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+                AbrirFormEnPanel(fm);
+          
+       
         }
 
         private void averageOrderTrendToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1495,6 +1508,11 @@ namespace COMPLETE_FLAT_UI
             frmAllocationModule AllocationModule = new frmAllocationModule();
             AllocationModule.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(AllocationModule);
+        }
+
+        private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void button5_Click(object sender, EventArgs e)

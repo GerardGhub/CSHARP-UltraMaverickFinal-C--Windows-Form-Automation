@@ -271,7 +271,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
          
                     }
 
-                    MessageBox.Show("SuccessFully Insert");
+                    //MessageBox.Show("SuccessFully Insert");
                     this.SenderTextChangedValue();
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     return;
@@ -279,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             ///Ending
             ///
-        
+            this.matBtnSave_Click(sender, e);
         }
 
         private void SenderTextChangedValue()

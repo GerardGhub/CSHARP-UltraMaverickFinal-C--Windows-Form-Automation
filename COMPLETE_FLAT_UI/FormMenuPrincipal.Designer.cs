@@ -73,6 +73,7 @@
             this.toolStripInventoryDry = new System.Windows.Forms.ToolStripDropDownButton();
             this.dryWHInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStore = new System.Windows.Forms.ToolStripDropDownButton();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStoreArea = new System.Windows.Forms.ToolStripMenuItem();
             this.storeRoute = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStores = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,7 +142,6 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
-            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -660,6 +660,13 @@
             this.toolStore.Name = "toolStore";
             this.toolStore.Size = new System.Drawing.Size(231, 44);
             this.toolStore.Text = "Store";
+            // 
+            // allocationToolStripMenuItem
+            // 
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.allocationToolStripMenuItem.Text = "Allocation";
+            this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // toolStripStoreArea
             // 
@@ -1346,6 +1353,7 @@
             this.panelContenedorForm.Name = "panelContenedorForm";
             this.panelContenedorForm.Size = new System.Drawing.Size(839, 683);
             this.panelContenedorForm.TabIndex = 6;
+            this.panelContenedorForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorForm_Paint);
             // 
             // dgvParseData
             // 
@@ -1453,13 +1461,6 @@
             // 
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
-            // 
-            // allocationToolStripMenuItem
-            // 
-            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.allocationToolStripMenuItem.Text = "Allocation";
-            this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // FormMenuPrincipal
             // 

@@ -106,6 +106,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.Columns["uom"].ReadOnly = true;
             this.dgvStoreOrderApproval.Columns["qty"].ReadOnly = true;
             this.dgvStoreOrderApproval.Columns["DateDiff"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["date_ordered"].ReadOnly = true;
         }
         private void DataGridHideColumn()
         {
