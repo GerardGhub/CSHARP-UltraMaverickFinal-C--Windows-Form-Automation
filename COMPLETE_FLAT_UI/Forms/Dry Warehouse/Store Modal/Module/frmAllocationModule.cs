@@ -279,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             ///Ending
             ///
-            this.matBtnSave_Click(sender, e);
+            //this.matBtnSave_Click(sender, e);
         }
 
         private void SenderTextChangedValue()

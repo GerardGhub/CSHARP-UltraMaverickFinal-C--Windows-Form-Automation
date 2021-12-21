@@ -72,7 +72,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.ReturnFunctionality();
 
             this.ValidatedItemforApproval();
+            this.VisibilityFalseDataGrid();
+        }
 
+        private void VisibilityFalseDataGrid()
+        {
+            this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
         }
 
         private void ValidatedItemforApproval()
@@ -113,7 +119,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.Columns["description"].ReadOnly = true;
             this.dgvStoreOrderApproval.Columns["uom"].ReadOnly = true;
             this.dgvStoreOrderApproval.Columns["qty"].ReadOnly = true;
-            //this.dgvStoreOrderApproval.Columns["DateDiff"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["date_added"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["StockOnHand"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["ALLOCATION_QTY"].ReadOnly = true;
+            this.dgvStoreOrderApproval.Columns["ORDERS"].ReadOnly = true;
             this.dgvStoreOrderApproval.Columns["date_ordered"].ReadOnly = true;
         }
         private void ReturnFunctionality()
@@ -631,6 +640,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void cmbDateOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
+            {
+                if (Convert.ToDouble(row.Cells["StockOnHand"].Value) > Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
+                {
+                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+                    row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                }
+                else if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
+                {
+                    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
+
+                    row.Cells["qty"].Style.BackColor = Color.Red;
+                }
+                //else if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
+                //{
+                //    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
+
+                //    row.Cells["qty"].Style.BackColor = Color.White;
+                //}
+            }
 
         }
     }
