@@ -40,6 +40,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         public string sp_item_description { get; set; }
         public string sp_qty_finder { get; set; }
 
+        public int sp_total_row_allocated { get; set; }
+
 
         public int user_id { get; set; }
 
@@ -76,7 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 MessageBox.Show(ex.Message);
             }
-            //this.dgvRawMats.Columns["item_id"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
 
         }
 
@@ -108,6 +110,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["date_added"].Visible = false;
             this.dgvFindStoreOrders.Columns["route"].Visible = false;
             this.dgvFindStoreOrders.Columns["primary_id"].Visible = false;
+            this.dgvFindStoreOrders.Columns["total_row"].Visible = false;
+            //this.dgvFindStoreOrders.Columns["selecteds"].Visible = false;
         }
 
 
@@ -238,12 +242,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
         private void matBtnSave_Click(object sender, EventArgs e)
         {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.MethodPost();
+            }
+            else
 
-            //double CurrentComputationMemory;
+            {
+                return;
+            }
+            }
+
+        private void MethodPost()
+        {
 
 
-
-            //    CurrentComputationMemory = double.Parse(this.lblAllocatedQty.Text);
 
 
             this.ComputationofAllocationQuantity();
@@ -268,20 +281,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
                         this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
-         
+
                     }
 
                     //MessageBox.Show("SuccessFully Insert");
                     this.SenderTextChangedValue();
+                    this.showRawMaterialsInDryWH();
+                    this.AllocatedSuccessfully();
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     return;
                 }
             }
             ///Ending
             ///
-            //this.matBtnSave_Click(sender, e);
+            this.MethodPost();
         }
+        public void AllocatedSuccessfully()
+        {
 
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Allocated Successfully";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
         private void SenderTextChangedValue()
         {
             txtItemCode_TextChanged(new object(), new System.EventArgs());
@@ -290,8 +330,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void InsertDataPerRow()
         {
             dSet.Clear();
+            dSet = objStorProc.sp_Allocation_Logs(p_id,
+                this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), this.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()),
+                "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+
+                dSet.Clear();
+                dSet = objStorProc.sp_Allocation_Logs(p_id,
+                    this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), this.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()),
+                    "delete");
+            }
+
+
+
+            dSet.Clear();
             dSet = objStorProc.sp_Allocation_Logs(0,
-                this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), this.user_id.ToString(), "", p_id.ToString(),"add");
+                this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), this.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()),
+                "add");
         }
 
 
@@ -336,9 +393,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     if (this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value != null)
                     {
                         p_id = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["primary_id"].Value);
-
+                  
                       this.sp_qty_finder = this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value.ToString();
-       
+                        this.sp_total_row_allocated = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["total_row"].Value);
                     }
                 }
             }
@@ -354,6 +411,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 this.matBtnSave.Enabled = true;
             }
+
+            if (this.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
+            {
+     
+            }
+            else
+
+            {
+                this.matBtnSave.Enabled = true;
+            }
+            if(this.txtSoh.Text == "0")
+            {
+                this.matBtnSave.Enabled = false;
+            }
+        
+            //dSet.Clear();
+            //dSet = objStorProc.sp_avg_order_trend(0, this.txtmatavgdescription.Text.Trim(),
+            //    Convert.ToInt32(this.txtmatAverageqty.Text.Trim()), "", "", "", "", "check_if_already_have_activated_data");
+
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
+            //    this.AlreadyHaveActivatedData();
+            //    //Buje Malakas
+
+            //    return;
+            //}
+
+
         }
     }
 }

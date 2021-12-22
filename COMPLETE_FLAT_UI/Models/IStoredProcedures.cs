@@ -290,6 +290,7 @@ namespace ULTRAMAVERICK.Models
             string allocate_by,
             string allocate_date,
             string order_key,
+            int total_row,
             string mode);
 
 

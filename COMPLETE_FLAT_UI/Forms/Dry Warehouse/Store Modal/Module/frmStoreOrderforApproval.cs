@@ -506,8 +506,49 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         }
+
+        private void AllocationiSRequiredNotify()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Allocation is required for " + this.total_item_for_allocation +  "record(s)";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
+
+            this.showRawMaterialforApproval();
+            if (this.total_item_for_allocation == "0")
+            {
+           
+            }
+            else
+            {
+                AllocationiSRequiredNotify();
+                return;
+            }
+
             if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.ApproveFunctionality();
@@ -656,7 +697,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
-                    row.Cells["qty"].Style.BackColor = Color.Red;
+                    row.Cells["qty"].Style.BackColor = Color.Crimson;
+                }
+
+                else if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
+                {
+                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+                    row.Cells["AVERAGE_ORDER"].Style.BackColor = Color.Crimson;
                 }
                 //else if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
                 //{
