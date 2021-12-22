@@ -36,7 +36,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             string item_code,
             string description,
             string uom,
-            string qty)
+            string qty,
+            string StockOnHand,
+            string Allocated_Qty)
         {
             InitializeComponent();
             ths = frm;
@@ -53,7 +55,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.sp_description = description;
             this.sp_uom = uom;
             this.sp_qty = qty;
-        
+            this.sp_StockOnHand = StockOnHand;
+            this.sp_Allocated_Qty = Allocated_Qty;
 
         }
         //Class Binding to oTher window
@@ -69,13 +72,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_description { get; set; }
         public string sp_uom { get; set; }
         public string sp_qty { get; set; }
-
+        public string sp_StockOnHand { get; set; }
+        public string sp_Allocated_Qty { get; set; }
         //User Binding  Class 
 
         public int user_id { get; set; }
 
         private void frmEditConsolidatedOrder_Load(object sender, EventArgs e)
         {
+            this.ConnectionInit();
             this.BindDataintoTextBox();
             this.mattxtUpdatedQty.Focus();
         }
@@ -96,6 +101,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtQtyOrder.Text = this.sp_qty;
             //primary key
             this.sp_primary_id = this.sp_primary_id;
+            this.sp_StockOnHand = this.sp_StockOnHand;
+            this.sp_Allocated_Qty = this.sp_Allocated_Qty;
             //MessageBox.Show(""+sp_primary_id);
         }
 
@@ -124,14 +131,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 return;
             }
 
+            if (this.sp_Allocated_Qty == this.sp_StockOnHand)
+            {
+                double QuantityOrder;
+                double UpdatedQuantityOrder;
 
 
+                QuantityOrder = double.Parse(mattxtQtyOrder.Text);
+                UpdatedQuantityOrder = double.Parse(mattxtUpdatedQty.Text);
+                if (QuantityOrder > UpdatedQuantityOrder)
+                {
+                    //MessageBox.Show("A");
+                    //return;
+                }
+                else
+                {
+                    this.GreaterThanAllocatedQty();
+                    this.mattxtUpdatedQty.Text = String.Empty;
+                    this.mattxtUpdatedQty.Focus();
+                    //MessageBox.Show("B");
+                    return;
+                }
+            }
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the  Information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
-                this.ConnectionInit();
-
+                g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+                objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
                 //MessageBox.Show(""+sp_primary_id);
                 dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(sp_primary_id,
@@ -150,8 +177,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 "",
                  Convert.ToInt32(user_id).ToString(),
                 "edit");
+
+
                 this.UpdatedSuccessfully();
+
                 this.Close();
+
+
                 }
             else
             {
@@ -184,6 +216,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         }
+        public void GreaterThanAllocatedQty()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Greater than Allocated Qty";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
         public void FillRequiredTextbox()
         {
 

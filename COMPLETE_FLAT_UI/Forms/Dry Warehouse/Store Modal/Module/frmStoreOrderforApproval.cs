@@ -58,6 +58,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_qty { get; set; }
         public string total_item_for_allocation { get; set; }
         public string is_issue_for_approval { get; set; }
+        public string sp_StockOnHand { get; set; }
+        public string  sp_Allocated_Qty { get; set; }
 
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
@@ -630,7 +632,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 sp_item_code,
                 sp_description,
                 sp_uom,
-                sp_qty
+                sp_qty,
+                sp_StockOnHand,
+                sp_Allocated_Qty
                 );
             mywipwh.ShowDialog();
         }
@@ -660,6 +664,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.sp_description = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
                         this.sp_uom = this.dgvStoreOrderApproval.CurrentRow.Cells["uom"].Value.ToString();
                         this.sp_qty = this.dgvStoreOrderApproval.CurrentRow.Cells["qty"].Value.ToString();
+                        this.sp_StockOnHand = this.dgvStoreOrderApproval.CurrentRow.Cells["StockOnHand"].Value.ToString();
+                        this.sp_Allocated_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["ALLOCATION_QTY"].Value.ToString();
+                        
                     }
                 }
             }
@@ -688,29 +695,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
             {
-                if (Convert.ToDouble(row.Cells["StockOnHand"].Value) > Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
+                if (Convert.ToDouble(row.Cells["ORDERS"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value))
                 {
                     //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
                     row.Cells["qty"].Style.BackColor = Color.DarkOrange;
                 }
-                else if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
+                else
+                {
+                    row.Cells["qty"].Style.BackColor = Color.White;
+                }
+
+
+                if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
+                {
+                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+                    row.Cells["AVERAGE_ORDER"].Style.BackColor = Color.Crimson;
+                }
+
+
+                if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
+                {
+                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+                    row.Cells["qty"].Style.BackColor = Color.White;
+                }
+
+
+                if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
                 {
                     // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
                     row.Cells["qty"].Style.BackColor = Color.Crimson;
                 }
 
-                else if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
-                {
-                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
-                    row.Cells["AVERAGE_ORDER"].Style.BackColor = Color.Crimson;
-                }
                 //else if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
                 //{
                 //    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
                 //    row.Cells["qty"].Style.BackColor = Color.White;
                 //}
+
+
             }
 
         }

@@ -89,12 +89,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard1.Controls.Add(this.dgvRawMats);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(25, 134);
+            this.materialCard1.Location = new System.Drawing.Point(25, 70);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(973, 465);
+            this.materialCard1.Size = new System.Drawing.Size(973, 529);
             this.materialCard1.TabIndex = 1;
             // 
             // dgvRawMats
@@ -166,7 +166,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(963, 453);
+            this.dgvRawMats.Size = new System.Drawing.Size(963, 517);
             this.dgvRawMats.TabIndex = 5;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;

@@ -63,7 +63,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.lblAllocatedQty = new System.Windows.Forms.Label();
             this.lblqtyAllocatedFinal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.selecteds = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.selected2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code_find = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -307,7 +307,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.selected.ReadOnly = true;
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
-            this.selected.Width = 82;
+            this.selected.Width = 84;
             // 
             // item_code
             // 
@@ -317,7 +317,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 102;
+            this.item_code.Width = 113;
             // 
             // description
             // 
@@ -327,7 +327,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.description.MinimumWidth = 12;
             this.description.Name = "description";
             this.description.ReadOnly = true;
-            this.description.Width = 127;
+            this.description.Width = 129;
             // 
             // sub_category
             // 
@@ -337,7 +337,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.sub_category.MinimumWidth = 12;
             this.sub_category.Name = "sub_category";
             this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 108;
+            this.sub_category.Width = 110;
             // 
             // StockOnHand
             // 
@@ -345,7 +345,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.StockOnHand.HeaderText = "SOH";
             this.StockOnHand.Name = "StockOnHand";
             this.StockOnHand.ReadOnly = true;
-            this.StockOnHand.Width = 64;
+            this.StockOnHand.Width = 66;
             // 
             // ORDERS
             // 
@@ -353,7 +353,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.ORDERS.HeaderText = "ORDER";
             this.ORDERS.Name = "ORDERS";
             this.ORDERS.ReadOnly = true;
-            this.ORDERS.Width = 82;
+            this.ORDERS.Width = 84;
             // 
             // Allocation_qty
             // 
@@ -361,7 +361,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.Allocation_qty.HeaderText = "ALLOCATED QTY";
             this.Allocation_qty.Name = "Allocation_qty";
             this.Allocation_qty.ReadOnly = true;
-            this.Allocation_qty.Width = 132;
+            this.Allocation_qty.Width = 147;
             // 
             // materialCard3
             // 
@@ -399,7 +399,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.ColumnHeadersHeight = 45;
             this.dgvFindStoreOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvFindStoreOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selecteds,
+            this.selected2,
             this.primary_id,
             this.store_name,
             this.item_code_find,
@@ -465,6 +465,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvFindStoreOrders.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvFindStoreOrders.CurrentCellChanged += new System.EventHandler(this.dgvFindStoreOrders_CurrentCellChanged);
+            this.dgvFindStoreOrders.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvFindStoreOrders_RowPostPaint);
             // 
             // lbltotaldata
             // 
@@ -570,13 +571,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.label3.TabIndex = 648;
             this.label3.Text = "Total Allocated Quantity";
             // 
-            // selecteds
+            // selected2
             // 
-            this.selecteds.DataPropertyName = "selecteds";
-            this.selecteds.HeaderText = "";
-            this.selecteds.Name = "selecteds";
-            this.selecteds.ReadOnly = true;
-            this.selecteds.Width = 5;
+            this.selected2.DataPropertyName = "selected2";
+            this.selected2.HeaderText = "*";
+            this.selected2.Name = "selected2";
+            this.selected2.ReadOnly = true;
+            this.selected2.Width = 22;
             // 
             // primary_id
             // 
@@ -737,7 +738,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOnHand;
         private System.Windows.Forms.DataGridViewTextBoxColumn ORDERS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Allocation_qty;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selecteds;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selected2;
         private System.Windows.Forms.DataGridViewTextBoxColumn primary_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code_find;

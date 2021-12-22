@@ -188,8 +188,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.hideFindColumninDataGridViewer();
             this.SumofTotalOrderDataGridView();
             this.SumofTotalAllocatedDataGridView();
-        }
+            if(this.lbltotalStoreOrder.Text =="0")
+            {
 
+            }
+            else
+            {
+                this.SelectAllCheckBoxOnDataGrid();
+            }
+        }
+        private void SelectAllCheckBoxOnDataGrid()
+        {
+
+            for (int i = 0; i < this.dgvFindStoreOrders.RowCount; i++) { this.dgvFindStoreOrders.Rows[i].Cells["selected2"].Value = true; }
+        }
 
         private void SumofTotalOrderDataGridView()
         {
@@ -438,6 +450,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             //    return;
             //}
 
+
+        }
+
+        private void dgvFindStoreOrders_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
 
         }
     }
