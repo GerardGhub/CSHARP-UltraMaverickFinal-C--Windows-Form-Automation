@@ -46,26 +46,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public string Mat_row_number { get; set; }
         public int User_id { get; set; }
         //Date
-        public string sp_pr_number { get; set; }
-        public string sp_pr_date { get; set; }
-        public string sp_po_number { get; set; }
-        public string sp_po_date { get; set; }
-        public string sp_qty_order { get; set; }
+        public string Sp_pr_number { get; set; }
+        public string Sp_pr_date { get; set; }
+        public string Sp_po_number { get; set; }
+        public string Sp_po_date { get; set; }
+        public string Sp_qty_order { get; set; }
 
-        public string sp_qty_delivered { get; set; }
-        public string sp_qty_billed { get; set; }
+        public string Sp_qty_delivered { get; set; }
+        public string Sp_qty_billed { get; set; }
 
-        public string sp_unit_price { get; set; }
-        public string sp_user_id { get; set; }
-        public string sp_supplier { get; set; }
+        public string Sp_unit_price { get; set; }
+        public string Sp_user_id { get; set; }
+        public string Sp_supplier { get; set; }
 
         // Additional Model for Expiration Lookup on QC Checklist
-        public string sp_item_class { get; set; }
-        public string sp_major_category { get; set; }
-        public string sp_sub_category { get; set; }
-        public string sp_item_type { get; set; }
+        public string Sp_item_class { get; set; }
+        public string Sp_major_category { get; set; }
+        public string Sp_sub_category { get; set; }
+        public string Sp_item_type { get; set; }
         //Expirable
-        public string sp_is_expirable { get; set; }
+        public string Sp_is_expirable { get; set; }
 
         private void frmImportPoSummary_Load(object sender, EventArgs e)
         {
@@ -155,18 +155,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.Item_id_main = dgvRawMats.CurrentRow.Cells["PrimaryID"].Value.ToString();
                     this.Item_code_main = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
                     this.Item_description_main = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
-                    this.sp_qty_order = dgvRawMats.CurrentRow.Cells["qty_order"].Value.ToString();
+                    this.Sp_qty_order = dgvRawMats.CurrentRow.Cells["qty_order"].Value.ToString();
                     this.Primary_unit_main = dgvRawMats.CurrentRow.Cells["qty_uom"].Value.ToString();
-                    this.sp_po_number = dgvRawMats.CurrentRow.Cells["po_number"].Value.ToString();
-                    this.sp_pr_number = dgvRawMats.CurrentRow.Cells["pr_number"].Value.ToString();
-                    this.sp_po_date = dgvRawMats.CurrentRow.Cells["po_date"].Value.ToString();
-                    this.sp_pr_date = dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
-                    this.sp_unit_price = dgvRawMats.CurrentRow.Cells["unit_price"].Value.ToString();
-                    this.sp_supplier = dgvRawMats.CurrentRow.Cells["supplier"].Value.ToString();
+                    this.Sp_po_number = dgvRawMats.CurrentRow.Cells["po_number"].Value.ToString();
+                    this.Sp_pr_number = dgvRawMats.CurrentRow.Cells["pr_number"].Value.ToString();
+                    this.Sp_po_date = dgvRawMats.CurrentRow.Cells["po_date"].Value.ToString();
+                    this.Sp_pr_date = dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
+                    this.Sp_unit_price = dgvRawMats.CurrentRow.Cells["unit_price"].Value.ToString();
+                    this.Sp_supplier = dgvRawMats.CurrentRow.Cells["supplier"].Value.ToString();
 
-                    this.sp_qty_delivered = dgvRawMats.CurrentRow.Cells["qty_delivered"].Value.ToString();
-                    this.sp_qty_billed = dgvRawMats.CurrentRow.Cells["qty_billed"].Value.ToString();
-                    if (lbltotalrecords.Text == "0")
+                    this.Sp_qty_delivered = dgvRawMats.CurrentRow.Cells["qty_delivered"].Value.ToString();
+                    this.Sp_qty_billed = dgvRawMats.CurrentRow.Cells["qty_billed"].Value.ToString();
+                    if (this.lbltotalrecords.Text == "0")
                     {
 
                     }
@@ -276,7 +276,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                sp_po_number, 
+                Sp_po_number, 
                 Item_type_main, 
                 Item_class_main, 
                 Major_category_main, 
@@ -299,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             //Validate Qty Order if String or Not "[^0-9]"))]
             decimal d;
-            if (decimal.TryParse(sp_qty_order, out d))
+            if (decimal.TryParse(Sp_qty_order, out d))
             {
       
                
@@ -314,7 +314,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             //Validate Unit Price if Number Gago!
             decimal d2;
-            if (decimal.TryParse(sp_unit_price, out d2))
+            if (decimal.TryParse(Sp_unit_price, out d2))
             {
 
 
@@ -418,7 +418,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                sp_po_number, 
+                Sp_po_number, 
                 Item_type_main, 
                 Item_class_main, 
                 Major_category_main, 
@@ -441,26 +441,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_projects(0,
-                sp_po_number,
-                sp_qty_order, 
+                Sp_po_number,
+                Sp_qty_order, 
                 Item_description_main, 
-                sp_pr_number, 
-                sp_pr_date, 
-                sp_po_number, 
-                sp_po_date, 
+                Sp_pr_number, 
+                Sp_pr_date, 
+                Sp_po_number, 
+                Sp_po_date, 
                 Item_code_main, 
                 Item_description_main, 
-                sp_qty_order, 
-                sp_qty_delivered, 
-                sp_qty_billed, 
+                Sp_qty_order, 
+                Sp_qty_delivered, 
+                Sp_qty_billed, 
                 Primary_unit_main,
-                sp_unit_price, 
-                sp_supplier, 
-                sp_item_class, 
-                sp_item_type, 
-                sp_major_category, 
-                sp_sub_category, 
-                sp_is_expirable, "add");
+                Sp_unit_price, 
+                Sp_supplier, 
+                Sp_item_class, 
+                Sp_item_type, 
+                Sp_major_category, 
+                Sp_sub_category, 
+                Sp_is_expirable, "add");
 
 
 
@@ -540,7 +540,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         {
 
-            sp_user_id= userinfo.user_id.ToString(); // ID of User
+            Sp_user_id= userinfo.user_id.ToString(); // ID of User
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
                 Convert.ToString(User_id), 
@@ -548,7 +548,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 Item_class_main, 
                 Major_category_main, 
                 Sub_category_main, 
-                Primary_unit_main, "", "", "", "", "", sp_user_id,0, "final_save_bulk_data_status_POSummary");
+                Primary_unit_main, "", "", "", "", "", Sp_user_id,0, "final_save_bulk_data_status_POSummary");
 
             return false;
 
@@ -727,11 +727,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 if (dgvUnits.CurrentRow.Cells["item_code"].Value != null)
                 {
-                    sp_item_class = dgvUnits.CurrentRow.Cells["item_class"].Value.ToString();
-                    sp_item_type = dgvUnits.CurrentRow.Cells["item_type"].Value.ToString();
-                    sp_major_category = dgvUnits.CurrentRow.Cells["major_category"].Value.ToString();
-                    sp_sub_category = dgvUnits.CurrentRow.Cells["sub_category"].Value.ToString();
-                    sp_is_expirable = dgvUnits.CurrentRow.Cells["is_expirable"].Value.ToString();
+                    Sp_item_class = dgvUnits.CurrentRow.Cells["item_class"].Value.ToString();
+                    Sp_item_type = dgvUnits.CurrentRow.Cells["item_type"].Value.ToString();
+                    Sp_major_category = dgvUnits.CurrentRow.Cells["major_category"].Value.ToString();
+                    Sp_sub_category = dgvUnits.CurrentRow.Cells["sub_category"].Value.ToString();
+                    Sp_is_expirable = dgvUnits.CurrentRow.Cells["is_expirable"].Value.ToString();
 
                 }
             }

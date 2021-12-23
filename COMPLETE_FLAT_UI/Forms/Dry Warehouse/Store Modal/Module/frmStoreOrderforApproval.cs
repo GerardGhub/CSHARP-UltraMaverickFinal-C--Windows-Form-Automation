@@ -81,6 +81,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
             this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["StockOnHand"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["ALLOCATION_QTY"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
         }
 
         private void ValidatedItemforApproval()
@@ -138,18 +143,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.loadCategoryDropdown();
             this.loadStoreDropdown();
             this.loadDateOrderDropdown();
-            //Load The Data With Stored Procedure
-            //this.LoadDataWithParamsOrders();
+        
+
             this.InitiliazeDatePickerMinDate();
             this.mode = "";
-            //if (this.mode == "start")
-            //{
-            //    this.ConnectionInit();
-            //    this.load_search();
-            //    this.mode = "";
-            //}
-            //else
-            //{
+       
+
+
+
                 this.ConnectionInit();
                 this.dset_emp1.Clear();
 
@@ -159,10 +160,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.dgvStoreOrderApproval.DataSource = dv;
                 this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
 
-            //}
+          
             this.SaveButtonManipulator();
             this.DataGridColumnDisabledEditing();
+     
         }
+
 
         private void showRawMaterialforApproval()    //method for loading available_menus
         {
@@ -709,7 +712,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
                 {
                     //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
-                    row.Cells["AVERAGE_ORDER"].Style.BackColor = Color.Crimson;
+                    row.Cells["qty"].Style.BackColor = Color.Crimson;
                 }
 
 
@@ -719,12 +722,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     row.Cells["qty"].Style.BackColor = Color.White;
                 }
 
-
                 if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
                 {
                     // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
                     row.Cells["qty"].Style.BackColor = Color.Crimson;
+                }
+
+
+                if (Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value) != 0)
+                {
+                    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
+
+
+                    if (Convert.ToDouble(row.Cells["ORDERS"].Value) == Convert.ToDouble(row.Cells["TOTAL_COLUMN_ALLOCATED_QTY"].Value))
+                    {
+                        //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+                        row.Cells["qty"].Style.BackColor = Color.White;
+                    }
+                    else
+                    {
+                        row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                    }
+
                 }
 
                 //else if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))

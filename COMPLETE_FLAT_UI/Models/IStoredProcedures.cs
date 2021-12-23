@@ -291,6 +291,7 @@ namespace ULTRAMAVERICK.Models
             string allocate_date,
             string order_key,
             int total_row,
+            int total_column_qty,
             string mode);
 
 
