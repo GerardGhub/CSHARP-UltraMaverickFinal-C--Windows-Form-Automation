@@ -190,7 +190,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Already activated data!";
+            popup.ContentText = "Deactivated the active data!";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
@@ -790,23 +790,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                dSet.Clear();
-                dSet = objStorProc.sp_avg_order_trend(0, this.txtmatavgdescription.Text.Trim(),
-                    Convert.ToInt32(this.txtmatAverageqty.Text.Trim()), "", "", "", "", "check_if_already_have_activated_data");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    this.AlreadyHaveActivatedData();
-                    //Buje Malakas
-
-                    return;
-                }
+           
 
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the Average Order", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
+                        //Start of Forced Activated
+                        dSet.Clear();
+                        dSet = objStorProc.sp_avg_order_trend(0, this.txtmatavgdescription.Text.Trim(),
+                            Convert.ToInt32(this.txtmatAverageqty.Text.Trim()), "", "", "", "", "check_if_already_have_activated_data");
+
+                        if (dSet.Tables[0].Rows.Count > 0)
+                        {
+                            this.AlreadyHaveActivatedData();
+                            //Buje Malakas
+                            dSet.Clear();
+                            dSet = objStorProc.sp_avg_order_trend(0, this.txtmatavgdescription.Text.Trim(),
+                                Convert.ToInt32(this.txtmatAverageqty.Text.Trim()),
+                                "", "", "", "", "force_deactivated_the_actual_used");
+
+                            //return;
+                        }
+
+                        //End of forced Activated
 
                         this.mode = "delete";
 
