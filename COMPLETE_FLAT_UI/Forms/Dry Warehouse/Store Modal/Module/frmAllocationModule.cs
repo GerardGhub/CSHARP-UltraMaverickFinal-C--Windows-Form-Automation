@@ -210,6 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.lbltotalStoreOrder.Visible = false;
                 this.lblshowItemsFinder.Visible = false;
                 this.matCardFindAllocation.Visible = false;
+                this.groupBox1AdditionlOrderUI.Visible = false;
             }
             else
             {
@@ -219,6 +220,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.lbltotalStoreOrder.Visible = true;
                 this.lblshowItemsFinder.Visible = true;
                 this.matCardFindAllocation.Visible = true;
+                this.groupBox1AdditionlOrderUI.Visible = true;
             }
         }
         private void SelectAllCheckBoxOnDataGrid()

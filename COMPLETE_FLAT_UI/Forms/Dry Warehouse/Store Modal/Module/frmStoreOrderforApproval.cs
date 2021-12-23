@@ -64,7 +64,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
 
-            this.ConnectionInit();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            if (myClass.g_objStoredProc.getConnected() == true)
+            {
+                g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
+
+
+                this.Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
+
+
+                this.dgvStoreOrderApproval.Columns[0].Width = 50;// The id column
+                this.dgvStoreOrderApproval.Columns[3].Width = 150;// The id column
+
+            }
+            else
+            {
+                MessageBox.Show("Unable to connect in sql server", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
 
             this.DataRefresher();
 
@@ -135,7 +153,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void ReturnFunctionality()
         {
 
-            this.ConnectionInit();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
             this.DataRefresher();
             myglobal.global_module = "Active";
@@ -151,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-                this.ConnectionInit();
+                //this.ConnectionInit();
                 this.dset_emp1.Clear();
 
                 this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
@@ -332,7 +351,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void LoadDataWithParamsOrders()
         {
-            this.ConnectionInit();
+            //this.ConnectionInit();
             //MessageBox.Show(this.metroCmbStoreCode.Text);
             this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbPackaging.Text,0);
                 this.dgvStoreOrderApproval.DataSource = dset.Tables[0];
@@ -354,20 +373,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //this.LoadDataWithParamsOrders();
-            this.ConnectionInit();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.load_search();
         }
 
         private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //this.LoadDataWithParamsOrders();
-            this.ConnectionInit();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.load_search();
         }
 
         private void cmbDateOrder_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.ConnectionInit();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.load_search();
         }
 
@@ -542,7 +564,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
-
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showRawMaterialforApproval();
             if (this.total_item_for_allocation == "0")
             {
