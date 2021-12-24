@@ -77,7 +77,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
             this.lbltotalOrderQty = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxColorGuide = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
@@ -86,7 +86,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxColorGuide.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelSelectedSum
@@ -682,20 +682,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label2.TabIndex = 656;
             this.label2.Text = "Total Order Quantity:";
             // 
-            // groupBox1
+            // groupBoxColorGuide
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.materialLabel6);
-            this.groupBox1.Controls.Add(this.materialLabel4);
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(272, 701);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(409, 62);
-            this.groupBox1.TabIndex = 657;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Color Coding Guide :";
+            this.groupBoxColorGuide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxColorGuide.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBoxColorGuide.Controls.Add(this.panel2);
+            this.groupBoxColorGuide.Controls.Add(this.materialLabel6);
+            this.groupBoxColorGuide.Controls.Add(this.materialLabel4);
+            this.groupBoxColorGuide.Controls.Add(this.panel1);
+            this.groupBoxColorGuide.Location = new System.Drawing.Point(272, 701);
+            this.groupBoxColorGuide.Name = "groupBoxColorGuide";
+            this.groupBoxColorGuide.Size = new System.Drawing.Size(409, 62);
+            this.groupBoxColorGuide.TabIndex = 657;
+            this.groupBoxColorGuide.TabStop = false;
+            this.groupBoxColorGuide.Text = "Color Coding Guide :";
             // 
             // panel2
             // 
@@ -742,7 +742,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxColorGuide);
             this.Controls.Add(this.lbltotalOrderQty);
             this.Controls.Add(this.materialCheckboxSelectAll);
             this.Controls.Add(this.label2);
@@ -766,8 +766,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.PerformLayout();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxColorGuide.ResumeLayout(false);
+            this.groupBoxColorGuide.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -818,7 +818,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_prepa_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateDiff;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxColorGuide;
         private System.Windows.Forms.Panel panel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;

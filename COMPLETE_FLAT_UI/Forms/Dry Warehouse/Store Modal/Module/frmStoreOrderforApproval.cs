@@ -104,6 +104,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.Columns["ALLOCATION_QTY"].Visible = false;
             this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
             this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
         }
 
         private void ValidatedItemforApproval()
@@ -178,7 +179,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 this.dgvStoreOrderApproval.DataSource = dv;
                 this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-
+            if(this.lbltotaldata.Text == "0")
+            {
+                this.groupColorCoding.Visible = false;
+            }
+            else
+            {
+                this.groupColorCoding.Visible = true;
+            }
           
             this.SaveButtonManipulator();
             this.DataGridColumnDisabledEditing();

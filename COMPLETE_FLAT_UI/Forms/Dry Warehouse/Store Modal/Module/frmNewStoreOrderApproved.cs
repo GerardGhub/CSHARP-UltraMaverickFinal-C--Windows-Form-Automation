@@ -127,6 +127,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.DataSource = dv;
             this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
             this.lbltotalOrderQty.Text = "0";
+
+            if (this.lbltotaldata.Text =="0")
+            {
+                this.groupBoxColorGuide.Visible = false;
+            }
+            else
+            {
+                this.groupBoxColorGuide.Visible = true;
+            }
         }
         private void LoadDataCancelledforPreparation()
         {
