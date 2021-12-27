@@ -997,6 +997,7 @@
             this.preparationToolStripMenuItem.Name = "preparationToolStripMenuItem";
             this.preparationToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.preparationToolStripMenuItem.Text = "Preparation";
+            this.preparationToolStripMenuItem.Click += new System.EventHandler(this.preparationToolStripMenuItem_Click);
             // 
             // moveOrderToolStripMenuItem
             // 

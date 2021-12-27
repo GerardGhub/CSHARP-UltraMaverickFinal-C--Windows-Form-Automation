@@ -170,9 +170,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
              
-                xClass.fillDataGridView(dgvRawMats, "Raw_Materials_Dry", dSet);
+                xClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry", dSet);
             
-                lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
             catch (Exception ex)
             {

@@ -26,6 +26,7 @@ using ULTRAMAVERICK.Barcode_Reprinting;
 using System.Drawing.Drawing2D;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -852,9 +853,22 @@ namespace COMPLETE_FLAT_UI
           
         }
 
+
+        private void NormalSizeofSideBar()
+        {
+             if (panelMenu.Width == 55)
+            {
+                this.tmExpandirMenu.Start();
+                this.lblFirstName.Visible = true;
+
+                this.lblPosition.Visible = true;
+                this.pbImage.Visible = true;
+                DashboardEpicComebackofText();
+            }
+        }
         private void toolClosePanelSelection_Click_1(object sender, EventArgs e)
         {
-
+            this.NormalSizeofSideBar();
             ////this.timerSubMenuOut.Start();
 
             //timerSubMenuOut_Tick(sender, e);
@@ -867,6 +881,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnGrandChildForms_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmModulesAvailableForms fm = new frmModulesAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -874,6 +889,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolDepartment_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmDepartment fm = new frmDepartment();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -881,6 +897,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolUserManagement_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmUserManagement2 fm = new frmUserManagement2();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -888,6 +905,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolUserRights_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmUserRight fm = new frmUserRight();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -895,6 +913,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolDepartmentUnit_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmDepartmentUnit fm = new frmDepartmentUnit();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -902,6 +921,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolTypeofApprover_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmTypeofApprover fm = new frmTypeofApprover();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -909,6 +929,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolPosition_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmPosition fm = new frmPosition();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -916,6 +937,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolGrandChildMenu_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmModulesAvailableForms fm = new frmModulesAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -923,6 +945,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolParentMenu_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmMajorAvailableForms fm = new frmMajorAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -930,6 +953,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolChildMenu_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmSubMenusAvailableForms fm = new frmSubMenusAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -937,6 +961,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnApproverTagging_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmTaggingofApprover fm = new frmTaggingofApprover();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -980,6 +1005,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripModuleItemClass_Click_1(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmItemClass fm = new frmItemClass();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -987,6 +1013,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripModuleMajorCategory_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmMajorCategory fm = new frmMajorCategory();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -994,6 +1021,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripModuleSubCategory_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmSubCategory fm = new frmSubCategory();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1001,6 +1029,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripModulePrimaryUnit_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmPrimaryUnit fm = new frmPrimaryUnit();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1008,6 +1037,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripModuleItemType_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmItemType fm = new frmItemType();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1015,6 +1045,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolDropdownLocation_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmLocation fm = new frmLocation();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1022,6 +1053,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolModuleRawMaterialsDry_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmDryRawMaterials fm = new frmDryRawMaterials();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1072,6 +1104,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolModulePrimaryUnitMgmt_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmManageActivePrimaryUnit fm = new frmManageActivePrimaryUnit();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1091,13 +1124,15 @@ namespace COMPLETE_FLAT_UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-          frmUserManagement2 fm = new frmUserManagement2();
+            this.NormalSizeofSideBar();
+            frmUserManagement2 fm = new frmUserManagement2();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
 
         private void dryRawMaterialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmImportRawMatsExcel fm = new frmImportRawMatsExcel();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1105,15 +1140,13 @@ namespace COMPLETE_FLAT_UI
 
         private void poSummaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmImportPoSummary fm = new frmImportPoSummary();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
 
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void pictureBox10_Click_1(object sender, EventArgs e)
         {
@@ -1163,23 +1196,19 @@ namespace COMPLETE_FLAT_UI
 
         private void listOfReceivingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmListofReceiving fm = new frmListofReceiving();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
 
-        private void lotManagementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLotManagement fm = new frmLotManagement();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+
 
         private void rMBarcodeModuleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             myglobal.REPORT_NAME = "MicroBook";
             //rpt.Load(Rpt_Path + "\\MicroBook.rpt");
-
+            //this.NormalSizeofSideBar();
             frmReport fm = new frmReport();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1187,22 +1216,16 @@ namespace COMPLETE_FLAT_UI
 
         private void rMReceivingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmDryReceivingModule fm = new frmDryReceivingModule();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            frmBarcodeReprinting fm = new frmBarcodeReprinting();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmDryWHInventory fm = new frmDryWHInventory();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1210,6 +1233,7 @@ namespace COMPLETE_FLAT_UI
 
         private void dryWHInventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmDryWHInventory fm = new frmDryWHInventory();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1217,6 +1241,7 @@ namespace COMPLETE_FLAT_UI
 
         private void rMBarcodeReprintingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmBarcodeReprinting fm = new frmBarcodeReprinting();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1261,7 +1286,8 @@ namespace COMPLETE_FLAT_UI
 
         private void btnDashBoard1_Click_1(object sender, EventArgs e)
         {
-            panelMenuSelection.Visible = false;
+            this.NormalSizeofSideBar();
+            this.panelMenuSelection.Visible = false;
             FormLogo fm = new FormLogo();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1285,17 +1311,17 @@ namespace COMPLETE_FLAT_UI
 
         private void btnDryWarehouse1_Click(object sender, EventArgs e)
         {
-            panelMenuSelection.Visible = true;
+            this.panelMenuSelection.Visible = true;
 
-            toolStripRawMaterials.Visible = false;
-            SubMenu();
-            toolDropdownMenu.Visible = false;
-            toolDropdownUser.Visible = false;
+            this.toolStripRawMaterials.Visible = false;
+            this.SubMenu();
+            this.toolDropdownMenu.Visible = false;
+            this.toolDropdownUser.Visible = false;
             //Research And Development
-            toolPreparation.Visible = true;
-            toolStripRawMaterials.Visible = false;
-            toolStripInventoryDry.Visible = true;
-            toolStore.Visible = false;
+            this.toolPreparation.Visible = true;
+            this.toolStripRawMaterials.Visible = false;
+            this.toolStripInventoryDry.Visible = true;
+            this.toolStore.Visible = false;
 
             this.timeSubMenuIn.Start();
 
@@ -1316,12 +1342,12 @@ namespace COMPLETE_FLAT_UI
         private void btnResearchAndDevelopment1_Click(object sender, EventArgs e)
         {
             //AbrirFormEnPanel(new Form1());
-            panelMenuSelection.Visible = true;
-            SubMenu();
-            toolImportDry.Visible = false;
+            this.panelMenuSelection.Visible = true;
+            this.SubMenu();
+            this.toolImportDry.Visible = false;
             //User major Menu
-            toolDropdownUser.Visible = false;
-            toolDropdownMenu.Visible = false;
+            this.toolDropdownUser.Visible = false;
+            this.toolDropdownMenu.Visible = false;
       
         }
 
@@ -1336,7 +1362,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnProductionPlanner1_Click(object sender, EventArgs e)
         {
-            MainMajorData.Visible = false;
+            this.MainMajorData.Visible = false;
         }
 
         private void btnProductionPlanner1_Click_1(object sender, EventArgs e)
@@ -1351,34 +1377,25 @@ namespace COMPLETE_FLAT_UI
 
         private void storesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           frmImportStore fm = new frmImportStore();
+            this.NormalSizeofSideBar();
+            frmImportStore fm = new frmImportStore();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
 
         private void storeAreaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmAreaManagement fm = new frmAreaManagement();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
 
-        private void storeRouteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmStoreRoute fm = new frmStoreRoute();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
-
-        private void storesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           frmListofStore fm = new frmListofStore();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+      
 
         private void consolidatedOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmImportConsolidatedOrder fm = new frmImportConsolidatedOrder();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1386,6 +1403,7 @@ namespace COMPLETE_FLAT_UI
 
         private void orderRESTAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmStoreOrderRestAPIcall fm = new frmStoreOrderRestAPIcall();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1393,6 +1411,7 @@ namespace COMPLETE_FLAT_UI
 
         private void pendingOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmPendingOrder fm = new frmPendingOrder();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1400,6 +1419,7 @@ namespace COMPLETE_FLAT_UI
 
         private void warehouseCrewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmWarehouseCrewMgmt fm = new frmWarehouseCrewMgmt();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1437,6 +1457,7 @@ namespace COMPLETE_FLAT_UI
 
         private void storeRoute_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmStoreRoute fm = new frmStoreRoute();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1444,6 +1465,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStores_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmListofStore fm = new frmListofStore();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1451,7 +1473,7 @@ namespace COMPLETE_FLAT_UI
 
         private void dryWHInventoryToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            this.NormalSizeofSideBar();
             frmDryWHInventory fm = new frmDryWHInventory();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1460,6 +1482,7 @@ namespace COMPLETE_FLAT_UI
 
         private void lotManagementToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmLotManagement fm = new frmLotManagement();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1474,8 +1497,8 @@ namespace COMPLETE_FLAT_UI
 
         private void forApprovalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
-                frmStoreOrderforApproval fm = new frmStoreOrderforApproval();
+            this.NormalSizeofSideBar();
+            frmStoreOrderforApproval fm = new frmStoreOrderforApproval();
                 fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
                 AbrirFormEnPanel(fm);
           
@@ -1484,6 +1507,7 @@ namespace COMPLETE_FLAT_UI
 
         private void averageOrderTrendToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmAVGOrderTrendSetup fm = new frmAVGOrderTrendSetup();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1491,6 +1515,7 @@ namespace COMPLETE_FLAT_UI
 
         private void approvedOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmNewStoreOrderApproved StoreApproved = new frmNewStoreOrderApproved();
            StoreApproved.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(StoreApproved);
@@ -1498,6 +1523,7 @@ namespace COMPLETE_FLAT_UI
 
         private void orderCancelRemarksToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmStoreOrderActivationRemarks StoreOrderCancelled = new frmStoreOrderActivationRemarks();
             StoreOrderCancelled.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(StoreOrderCancelled);
@@ -1505,6 +1531,7 @@ namespace COMPLETE_FLAT_UI
 
         private void allocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.NormalSizeofSideBar();
             frmAllocationModule AllocationModule = new frmAllocationModule();
             AllocationModule.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(AllocationModule);
@@ -1515,25 +1542,19 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void preparationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //AbrirFormEnPanel(new Form1());
-            panelMenuSelection.Visible = true;
-            SubMenu();
-            toolImportDry.Visible = false;
-            //User major Menu
-            toolDropdownUser.Visible = false;
-            toolDropdownMenu.Visible = false;
+            this.btnMenu_Click(sender, e);
+
+            frmDryPreparationStore Preparation = new frmDryPreparationStore();
+            Preparation.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(Preparation);
         }
 
+   
 
-        private void toolStripModuleItemClass_Click(object sender, EventArgs e)
-        {
-            //frmItemClass fm = new frmItemClass();
-            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            //AbrirFormEnPanel(fm);
-        }
 
+      
 
 
     }
