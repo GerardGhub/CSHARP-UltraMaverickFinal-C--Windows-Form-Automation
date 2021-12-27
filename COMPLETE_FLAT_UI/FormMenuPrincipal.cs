@@ -217,7 +217,7 @@ namespace COMPLETE_FLAT_UI
             btnDryWarehouse1.Text = "Dry Warehouse";
             btnResearchAndDevelopment1.Text = "Research & Dev";
             btnProductionPlanner1.Text = "Planner";
-            btnSetUp.Text = "Logout";
+            btnSetUp.Text = "Set-Up";
         }
 
         private void ClearDashboardtext()

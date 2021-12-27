@@ -55,6 +55,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_qty { get; set; }
         public string sp_cancel_remarks { get; set; }
         public string sp_prepa_date_update { get; set; }
+   
 
         private void frmAddNewStoreOrderApproved_Load(object sender, EventArgs e)
         {

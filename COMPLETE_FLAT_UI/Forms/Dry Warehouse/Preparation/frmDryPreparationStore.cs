@@ -42,6 +42,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string sp_area { get; set; }
         public string sp_approved_preparation_date { get; set; }
 
+        public string sp_ordered_date { get; set; }
+
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -53,6 +55,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             this.dgvStoreOrderApproval.DataSource = dv;
             this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
+
+            if (this.lbltotalStoreforPreparation.Text == "0")
+            {
+
+            }
+            else
+            {
+                this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
+
+            }
+            this.LoadWindowsExecution();
+        }
+
+        private void LoadWindowsExecution()
+        {
+            this.dgvStoreOrderApproval.Enabled = false;
         }
 
         private void matRadioNext_CheckedChanged(object sender, EventArgs e)
@@ -150,7 +168,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
+            popup.BodyColor = Color.DarkSlateBlue;
             popup.Popup();
             popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
             popup.Delay = 500;
@@ -188,6 +206,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -223,7 +242,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                         //MessageBox.Show("" + this.sp_approved_preparation_date);
 
-                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'   ";
+                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' and date_ordered = '" + this.sp_ordered_date + "'  ";
 
                     }
                 
@@ -263,11 +282,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         if (this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value != null)
                         {
                     //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
-                    this.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
-                    this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
-                    this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
+                        this.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
+                        this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
+                        this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
                         this.sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
- 
+                        this.sp_ordered_date = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
+
                     }
                     }
                 }

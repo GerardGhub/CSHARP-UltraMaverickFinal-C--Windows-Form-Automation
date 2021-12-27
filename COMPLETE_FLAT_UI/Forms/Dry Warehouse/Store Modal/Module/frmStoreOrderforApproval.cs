@@ -208,7 +208,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 MessageBox.Show(ex.Message);
             }
-            //this.dgvRawMats.Columns["item_id"].Visible = false;
+        
 
         }
 

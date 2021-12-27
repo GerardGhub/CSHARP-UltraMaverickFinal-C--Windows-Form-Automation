@@ -47,6 +47,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalItemsOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
@@ -55,18 +62,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label2 = new System.Windows.Forms.Label();
             this.mattxtScanTheBarcode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalItemsOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.converted_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -292,6 +292,65 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             // 
+            // date_ordered
+            // 
+            this.date_ordered.DataPropertyName = "date_ordered";
+            this.date_ordered.FillWeight = 66.57212F;
+            this.date_ordered.HeaderText = "ORDER DATE";
+            this.date_ordered.MinimumWidth = 12;
+            this.date_ordered.Name = "date_ordered";
+            this.date_ordered.ReadOnly = true;
+            // 
+            // approved_preparation_date
+            // 
+            this.approved_preparation_date.DataPropertyName = "approved_preparation_date";
+            this.approved_preparation_date.HeaderText = "PREPARATION DATE";
+            this.approved_preparation_date.Name = "approved_preparation_date";
+            this.approved_preparation_date.ReadOnly = true;
+            // 
+            // fox
+            // 
+            this.fox.DataPropertyName = "fox";
+            this.fox.FillWeight = 66.57212F;
+            this.fox.HeaderText = "CODE";
+            this.fox.MinimumWidth = 12;
+            this.fox.Name = "fox";
+            this.fox.ReadOnly = true;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.HeaderText = "STORE";
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.FillWeight = 66.91177F;
+            this.route.HeaderText = "ROUTE";
+            this.route.MinimumWidth = 12;
+            this.route.Name = "route";
+            this.route.ReadOnly = true;
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.FillWeight = 66.91177F;
+            this.area.HeaderText = "AREA";
+            this.area.MinimumWidth = 12;
+            this.area.Name = "area";
+            this.area.ReadOnly = true;
+            // 
+            // TotalItemsOrder
+            // 
+            this.TotalItemsOrder.DataPropertyName = "TotalItemsOrder";
+            this.TotalItemsOrder.FillWeight = 66.91177F;
+            this.TotalItemsOrder.HeaderText = "TOTAL ITEMS";
+            this.TotalItemsOrder.MinimumWidth = 12;
+            this.TotalItemsOrder.Name = "TotalItemsOrder";
+            this.TotalItemsOrder.ReadOnly = true;
+            // 
             // lbltotaldata
             // 
             this.lbltotaldata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -360,7 +419,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.description,
             this.uom,
             this.qty,
-            this.dataGridViewTextBoxColumn5,
+            this.converted_qty,
             this.dataGridViewTextBoxColumn6});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
@@ -465,65 +524,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
             this.materialContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // date_ordered
-            // 
-            this.date_ordered.DataPropertyName = "date_ordered";
-            this.date_ordered.FillWeight = 66.57212F;
-            this.date_ordered.HeaderText = "ORDER DATE";
-            this.date_ordered.MinimumWidth = 12;
-            this.date_ordered.Name = "date_ordered";
-            this.date_ordered.ReadOnly = true;
-            // 
-            // approved_preparation_date
-            // 
-            this.approved_preparation_date.DataPropertyName = "approved_preparation_date";
-            this.approved_preparation_date.HeaderText = "PREPARATION DATE";
-            this.approved_preparation_date.Name = "approved_preparation_date";
-            this.approved_preparation_date.ReadOnly = true;
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.FillWeight = 66.57212F;
-            this.fox.HeaderText = "CODE";
-            this.fox.MinimumWidth = 12;
-            this.fox.Name = "fox";
-            this.fox.ReadOnly = true;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.FillWeight = 66.91177F;
-            this.route.HeaderText = "ROUTE";
-            this.route.MinimumWidth = 12;
-            this.route.Name = "route";
-            this.route.ReadOnly = true;
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.FillWeight = 66.91177F;
-            this.area.HeaderText = "AREA";
-            this.area.MinimumWidth = 12;
-            this.area.Name = "area";
-            this.area.ReadOnly = true;
-            // 
-            // TotalItemsOrder
-            // 
-            this.TotalItemsOrder.DataPropertyName = "TotalItemsOrder";
-            this.TotalItemsOrder.FillWeight = 66.91177F;
-            this.TotalItemsOrder.HeaderText = "TOTAL ITEMS";
-            this.TotalItemsOrder.MinimumWidth = 12;
-            this.TotalItemsOrder.Name = "TotalItemsOrder";
-            this.TotalItemsOrder.ReadOnly = true;
-            // 
             // item_code
             // 
             this.item_code.DataPropertyName = "item_code";
@@ -560,13 +560,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // converted_qty
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "store_name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "CONVERTED QTY";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.converted_qty.DataPropertyName = "converted_qty";
+            this.converted_qty.HeaderText = "CONVERTED QTY";
+            this.converted_qty.MinimumWidth = 6;
+            this.converted_qty.Name = "converted_qty";
+            this.converted_qty.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -637,7 +637,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn converted_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
