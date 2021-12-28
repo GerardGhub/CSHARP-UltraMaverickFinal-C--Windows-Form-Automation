@@ -66,8 +66,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             }
             this.LoadWindowsExecution();
+            this.loadCategoryDropdown();
         }
 
+
+        public void loadCategoryDropdown()
+        {
+            try
+            {
+
+
+                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Already_Approved", this.dSet);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+        }
         private void LoadWindowsExecution()
         {
             this.dgvStoreOrderApproval.Enabled = false;
@@ -75,7 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void matRadioNext_CheckedChanged(object sender, EventArgs e)
         {
-            if(this.matRadioNext.Checked == true)
+            if (this.matRadioNext.Checked == true)
             {
                 this.NextDatainDryStorePreparationEntry();
                 this.matRadioNext.Checked = false;
@@ -132,19 +151,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void matRadioPrevious_CheckedChanged(object sender, EventArgs e)
         {
-            if(matRadioPrevious.Checked == true)
+            if (matRadioPrevious.Checked == true)
             {
 
-          
-            int prev = this.dgvStoreOrderApproval.CurrentRow.Index - 1;
-            if (prev >= 0)
-            {
 
-                this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[prev].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-            }
-            else
-            {
-                this.FirstLineofPreparationSubject();
+                int prev = this.dgvStoreOrderApproval.CurrentRow.Index - 1;
+                if (prev >= 0)
+                {
+
+                    this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[prev].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                }
+                else
+                {
+                    this.FirstLineofPreparationSubject();
                     this.mattxtScanTheBarcode.Focus();
                     //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                 }
@@ -188,7 +207,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.SearchMethodJarVarCallingSP();
-            if(this.lbltotalStoreforPreparation.Text == "0")
+            if (this.lbltotalStoreforPreparation.Text == "0")
             {
 
             }
@@ -241,11 +260,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
                         //MessageBox.Show("" + this.sp_approved_preparation_date);
+                        //
+                        //dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' and date_ordered = '" + this.sp_ordered_date + "'  ";
 
-                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' and date_ordered = '" + this.sp_ordered_date + "'  ";
+                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'   ";
 
                     }
-                
+
                     this.guna2DgvMaterialPreparation.DataSource = dv;
                     this.lbltotaldata.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
                 }
@@ -274,26 +295,178 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void CurrentCellChangeofDgvStoreOrderApproval()
         {
-           
-                if (this.dgvStoreOrderApproval.Rows.Count > 0)
+
+            if (this.dgvStoreOrderApproval.Rows.Count > 0)
+            {
+                if (this.dgvStoreOrderApproval.CurrentRow != null)
                 {
-                    if (this.dgvStoreOrderApproval.CurrentRow != null)
+                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value != null)
                     {
-                        if (this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value != null)
-                        {
-                    //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
                         this.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
                         this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
                         this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
                         this.sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
-                        this.sp_ordered_date = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
+                        //this.sp_ordered_date = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
 
-                    }
                     }
                 }
             }
-        
+        }
+
+        private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.loadPreparationDateDropdown();
+        }
+
+        public void loadPreparationDateDropdown()
+        {
+            try
+            {
 
 
+
+                myClass.fillComboBoxStoreOrderApprovalSync(this.matCmbPreparationDate, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved_forPreparation", this.dSet, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matCmbPreparationDate.Text);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+        }
+
+        private void mattxtScanTheBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.ScanBarcode();
+            }
+        }
+
+
+        private void ReceivingBarcodeIdIsnotExist()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Receiving ID is not exist!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        public void FillRequiredFields()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Fill up the required fields!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        private void ScanBarcode()
+        {
+
+            if(this.mattxtScanTheBarcode.Text == String.Empty)
+            {
+                this.FillRequiredFields();
+                this.mattxtScanTheBarcode.Focus();
+                return;
+            }
+
+            //Connection Binding to Stored Procedure
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
+            //Start of Validating the Received If if exist on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.mattxtScanTheBarcode.Text.Trim(),
+                "", "", "", "", "","","", "check_if_the_barcode_is_exist");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+
+                //Start of Validating the Received If if exist on the system
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.mattxtScanTheBarcode.Text.Trim(),
+                    "", "", "", "", "", "", "", "check_if_the_barcode_is_exist_information");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+
+                    MessageBox.Show("A");
+
+                }
+                else
+                {
+
+                    MessageBox.Show("B");
+                }
+
+
+
+            }
+            else
+            {
+                this.ReceivingBarcodeIdIsnotExist();
+                //Buje Malakas
+                this.mattxtScanTheBarcode.Text = String.Empty;
+                this.mattxtScanTheBarcode.Focus();
+
+                return;
+            }
+
+
+
+        }
+
+        private void mattxtScanTheBarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+            e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+            e.Handled = true;
+            }
+        }
     }
 }

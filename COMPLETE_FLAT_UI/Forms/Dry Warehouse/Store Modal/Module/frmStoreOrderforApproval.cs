@@ -266,7 +266,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
         
-            myClass.fillComboBoxStoreOrderApproval(this.matcmbPackaging, "tblStoreOrderDryWH_dropdown_Approval", this.dSet);
+            myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval", this.dSet);
 
             }
             catch (Exception ex)
@@ -330,7 +330,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     else if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "  category = '" + this.matcmbPackaging.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
+                        dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -361,7 +361,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             //this.ConnectionInit();
             //MessageBox.Show(this.metroCmbStoreCode.Text);
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbPackaging.Text,0);
+            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbCategory.Text,0);
                 this.dgvStoreOrderApproval.DataSource = dset.Tables[0];
                 for (int i = 0; i <= dgvStoreOrderApproval.RowCount; i++)
                 {

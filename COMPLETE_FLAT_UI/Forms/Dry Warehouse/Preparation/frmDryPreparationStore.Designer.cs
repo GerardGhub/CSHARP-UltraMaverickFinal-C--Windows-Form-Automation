@@ -41,33 +41,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioNext = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioPrevious = new MaterialSkin.Controls.MaterialRadioButton();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.metroCmbStoreCode = new MetroFramework.Controls.MetroComboBox();
+            this.matCmbPreparationDate = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalItemsOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.guna2DgvMaterialPreparation = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotalStoreforPreparation = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mattxtScanTheBarcode = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.converted_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalStoreforPreparation = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.mattxtScanTheBarcode = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalItemsOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -81,9 +80,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.materialLabel5);
             this.materialCard1.Controls.Add(this.materialCard3);
-            this.materialCard1.Controls.Add(this.materialLabel3);
-            this.materialCard1.Controls.Add(this.metroCmbStoreCode);
+            this.materialCard1.Controls.Add(this.matCmbPreparationDate);
             this.materialCard1.Controls.Add(this.materialLabel2);
             this.materialCard1.Controls.Add(this.matcmbCategory);
             this.materialCard1.Depth = 0;
@@ -148,27 +147,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matRadioPrevious.UseVisualStyleBackColor = true;
             this.matRadioPrevious.CheckedChanged += new System.EventHandler(this.matRadioPrevious_CheckedChanged);
             // 
-            // materialLabel3
+            // matCmbPreparationDate
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(234, 6);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(38, 19);
-            this.materialLabel3.TabIndex = 580;
-            this.materialLabel3.Text = "Store";
-            // 
-            // metroCmbStoreCode
-            // 
-            this.metroCmbStoreCode.FormattingEnabled = true;
-            this.metroCmbStoreCode.ItemHeight = 23;
-            this.metroCmbStoreCode.Location = new System.Drawing.Point(233, 31);
-            this.metroCmbStoreCode.Name = "metroCmbStoreCode";
-            this.metroCmbStoreCode.Size = new System.Drawing.Size(224, 29);
-            this.metroCmbStoreCode.TabIndex = 579;
-            this.metroCmbStoreCode.UseSelectable = true;
+            this.matCmbPreparationDate.FormattingEnabled = true;
+            this.matCmbPreparationDate.ItemHeight = 23;
+            this.matCmbPreparationDate.Location = new System.Drawing.Point(233, 31);
+            this.matCmbPreparationDate.Name = "matCmbPreparationDate";
+            this.matCmbPreparationDate.Size = new System.Drawing.Size(224, 29);
+            this.matCmbPreparationDate.TabIndex = 579;
+            this.matCmbPreparationDate.UseSelectable = true;
             // 
             // materialLabel2
             // 
@@ -191,6 +178,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matcmbCategory.Size = new System.Drawing.Size(182, 29);
             this.matcmbCategory.TabIndex = 577;
             this.matcmbCategory.UseSelectable = true;
+            this.matcmbCategory.SelectionChangeCommitted += new System.EventHandler(this.matcmbCategory_SelectionChangeCommitted);
             // 
             // materialCard2
             // 
@@ -205,7 +193,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(986, 177);
+            this.materialCard2.Size = new System.Drawing.Size(986, 98);
             this.materialCard2.TabIndex = 656;
             // 
             // dgvStoreOrderApproval
@@ -230,7 +218,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvStoreOrderApproval.ColumnHeadersHeight = 45;
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.date_ordered,
             this.approved_preparation_date,
             this.fox,
             this.store_name,
@@ -266,7 +253,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvStoreOrderApproval.RowTemplate.DividerHeight = 5;
             this.dgvStoreOrderApproval.RowTemplate.Height = 40;
             this.dgvStoreOrderApproval.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStoreOrderApproval.Size = new System.Drawing.Size(976, 165);
+            this.dgvStoreOrderApproval.Size = new System.Drawing.Size(976, 86);
             this.dgvStoreOrderApproval.TabIndex = 595;
             this.dgvStoreOrderApproval.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvStoreOrderApproval.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -291,65 +278,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
-            // 
-            // date_ordered
-            // 
-            this.date_ordered.DataPropertyName = "date_ordered";
-            this.date_ordered.FillWeight = 66.57212F;
-            this.date_ordered.HeaderText = "ORDER DATE";
-            this.date_ordered.MinimumWidth = 12;
-            this.date_ordered.Name = "date_ordered";
-            this.date_ordered.ReadOnly = true;
-            // 
-            // approved_preparation_date
-            // 
-            this.approved_preparation_date.DataPropertyName = "approved_preparation_date";
-            this.approved_preparation_date.HeaderText = "PREPARATION DATE";
-            this.approved_preparation_date.Name = "approved_preparation_date";
-            this.approved_preparation_date.ReadOnly = true;
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.FillWeight = 66.57212F;
-            this.fox.HeaderText = "CODE";
-            this.fox.MinimumWidth = 12;
-            this.fox.Name = "fox";
-            this.fox.ReadOnly = true;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.FillWeight = 66.91177F;
-            this.route.HeaderText = "ROUTE";
-            this.route.MinimumWidth = 12;
-            this.route.Name = "route";
-            this.route.ReadOnly = true;
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.FillWeight = 66.91177F;
-            this.area.HeaderText = "AREA";
-            this.area.MinimumWidth = 12;
-            this.area.Name = "area";
-            this.area.ReadOnly = true;
-            // 
-            // TotalItemsOrder
-            // 
-            this.TotalItemsOrder.DataPropertyName = "TotalItemsOrder";
-            this.TotalItemsOrder.FillWeight = 66.91177F;
-            this.TotalItemsOrder.HeaderText = "TOTAL ITEMS";
-            this.TotalItemsOrder.MinimumWidth = 12;
-            this.TotalItemsOrder.Name = "TotalItemsOrder";
-            this.TotalItemsOrder.ReadOnly = true;
             // 
             // lbltotaldata
             // 
@@ -385,12 +313,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard4.Controls.Add(this.guna2DgvMaterialPreparation);
             this.materialCard4.Depth = 0;
             this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard4.Location = new System.Drawing.Point(16, 397);
+            this.materialCard4.Location = new System.Drawing.Point(16, 312);
             this.materialCard4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard4.Size = new System.Drawing.Size(986, 337);
+            this.materialCard4.Size = new System.Drawing.Size(986, 422);
             this.materialCard4.TabIndex = 657;
             // 
             // guna2DgvMaterialPreparation
@@ -450,7 +378,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.RowTemplate.DividerHeight = 5;
             this.guna2DgvMaterialPreparation.RowTemplate.Height = 40;
             this.guna2DgvMaterialPreparation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DgvMaterialPreparation.Size = new System.Drawing.Size(976, 325);
+            this.guna2DgvMaterialPreparation.Size = new System.Drawing.Size(976, 410);
             this.guna2DgvMaterialPreparation.TabIndex = 595;
             this.guna2DgvMaterialPreparation.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.guna2DgvMaterialPreparation.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -474,55 +402,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.Height = 40;
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // lbltotalStoreforPreparation
-            // 
-            this.lbltotalStoreforPreparation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalStoreforPreparation.AutoSize = true;
-            this.lbltotalStoreforPreparation.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalStoreforPreparation.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalStoreforPreparation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalStoreforPreparation.Location = new System.Drawing.Point(902, 355);
-            this.lbltotalStoreforPreparation.Name = "lbltotalStoreforPreparation";
-            this.lbltotalStoreforPreparation.Size = new System.Drawing.Size(27, 32);
-            this.lbltotalStoreforPreparation.TabIndex = 659;
-            this.lbltotalStoreforPreparation.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(947, 363);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
-            this.label2.TabIndex = 660;
-            this.label2.Text = "Items";
-            // 
-            // mattxtScanTheBarcode
-            // 
-            this.mattxtScanTheBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtScanTheBarcode.Depth = 0;
-            this.mattxtScanTheBarcode.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtScanTheBarcode.Hint = "Scan the Barcode";
-            this.mattxtScanTheBarcode.Location = new System.Drawing.Point(18, 347);
-            this.mattxtScanTheBarcode.MaxLength = 50;
-            this.mattxtScanTheBarcode.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtScanTheBarcode.Multiline = false;
-            this.mattxtScanTheBarcode.Name = "mattxtScanTheBarcode";
-            this.mattxtScanTheBarcode.Size = new System.Drawing.Size(209, 50);
-            this.mattxtScanTheBarcode.TabIndex = 661;
-            this.mattxtScanTheBarcode.Text = "";
-            // 
-            // materialContextMenuStrip1
-            // 
-            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.materialContextMenuStrip1.Depth = 0;
-            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // item_code
             // 
@@ -577,6 +456,119 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // lbltotalStoreforPreparation
+            // 
+            this.lbltotalStoreforPreparation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalStoreforPreparation.AutoSize = true;
+            this.lbltotalStoreforPreparation.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalStoreforPreparation.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalStoreforPreparation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalStoreforPreparation.Location = new System.Drawing.Point(902, 261);
+            this.lbltotalStoreforPreparation.Name = "lbltotalStoreforPreparation";
+            this.lbltotalStoreforPreparation.Size = new System.Drawing.Size(27, 32);
+            this.lbltotalStoreforPreparation.TabIndex = 659;
+            this.lbltotalStoreforPreparation.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(947, 269);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 660;
+            this.label2.Text = "Items";
+            // 
+            // mattxtScanTheBarcode
+            // 
+            this.mattxtScanTheBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtScanTheBarcode.Depth = 0;
+            this.mattxtScanTheBarcode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtScanTheBarcode.Hint = "Scan the Barcode";
+            this.mattxtScanTheBarcode.Location = new System.Drawing.Point(18, 253);
+            this.mattxtScanTheBarcode.MaxLength = 50;
+            this.mattxtScanTheBarcode.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtScanTheBarcode.Multiline = false;
+            this.mattxtScanTheBarcode.Name = "mattxtScanTheBarcode";
+            this.mattxtScanTheBarcode.Size = new System.Drawing.Size(209, 50);
+            this.mattxtScanTheBarcode.TabIndex = 661;
+            this.mattxtScanTheBarcode.Text = "";
+            this.mattxtScanTheBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mattxtScanTheBarcode_KeyDown);
+            this.mattxtScanTheBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtScanTheBarcode_KeyPress);
+            // 
+            // materialContextMenuStrip1
+            // 
+            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.materialContextMenuStrip1.Depth = 0;
+            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // approved_preparation_date
+            // 
+            this.approved_preparation_date.DataPropertyName = "approved_preparation_date";
+            this.approved_preparation_date.HeaderText = "PREPARATION DATE";
+            this.approved_preparation_date.Name = "approved_preparation_date";
+            this.approved_preparation_date.ReadOnly = true;
+            // 
+            // fox
+            // 
+            this.fox.DataPropertyName = "fox";
+            this.fox.FillWeight = 66.57212F;
+            this.fox.HeaderText = "CODE";
+            this.fox.MinimumWidth = 12;
+            this.fox.Name = "fox";
+            this.fox.ReadOnly = true;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.HeaderText = "STORE";
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.FillWeight = 66.91177F;
+            this.route.HeaderText = "ROUTE";
+            this.route.MinimumWidth = 12;
+            this.route.Name = "route";
+            this.route.ReadOnly = true;
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.FillWeight = 66.91177F;
+            this.area.HeaderText = "AREA";
+            this.area.MinimumWidth = 12;
+            this.area.Name = "area";
+            this.area.ReadOnly = true;
+            // 
+            // TotalItemsOrder
+            // 
+            this.TotalItemsOrder.DataPropertyName = "TotalItemsOrder";
+            this.TotalItemsOrder.FillWeight = 66.91177F;
+            this.TotalItemsOrder.HeaderText = "TOTAL ITEMS";
+            this.TotalItemsOrder.MinimumWidth = 12;
+            this.TotalItemsOrder.Name = "TotalItemsOrder";
+            this.TotalItemsOrder.ReadOnly = true;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Location = new System.Drawing.Point(236, 5);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(124, 19);
+            this.materialLabel5.TabIndex = 656;
+            this.materialLabel5.Text = "Preparation Date:";
+            // 
             // frmDryPreparationStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,8 +604,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialRadioButton matRadioNext;
         private MaterialSkin.Controls.MaterialRadioButton matRadioPrevious;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private MetroFramework.Controls.MetroComboBox metroCmbStoreCode;
+        private MetroFramework.Controls.MetroComboBox matCmbPreparationDate;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MetroFramework.Controls.MetroComboBox matcmbCategory;
         private MaterialSkin.Controls.MaterialCard materialCard2;
@@ -626,18 +617,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.Label label2;
         private MaterialSkin.Controls.MaterialTextBox mattxtScanTheBarcode;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered;
-        private System.Windows.Forms.DataGridViewTextBoxColumn approved_preparation_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn route;
-        private System.Windows.Forms.DataGridViewTextBoxColumn area;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalItemsOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn converted_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn approved_preparation_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn route;
+        private System.Windows.Forms.DataGridViewTextBoxColumn area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalItemsOrder;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
     }
 }

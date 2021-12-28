@@ -690,6 +690,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.groupBoxColorGuide.Controls.Add(this.materialLabel6);
             this.groupBoxColorGuide.Controls.Add(this.materialLabel4);
             this.groupBoxColorGuide.Controls.Add(this.panel1);
+            this.groupBoxColorGuide.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxColorGuide.Location = new System.Drawing.Point(272, 701);
             this.groupBoxColorGuide.Name = "groupBoxColorGuide";
             this.groupBoxColorGuide.Size = new System.Drawing.Size(409, 62);
@@ -709,11 +710,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
             this.materialLabel6.Location = new System.Drawing.Point(202, 27);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(143, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(111, 14);
             this.materialLabel6.TabIndex = 2;
             this.materialLabel6.Text = "2-Above to Prepared";
             // 
@@ -721,11 +723,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
             this.materialLabel4.Location = new System.Drawing.Point(13, 28);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(113, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(87, 14);
             this.materialLabel4.TabIndex = 1;
             this.materialLabel4.Text = "0-1 To Prepared";
             // 

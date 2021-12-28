@@ -295,6 +295,18 @@ namespace ULTRAMAVERICK.Models
             string mode);
 
 
+        DataSet sp_Store_Preparation_Logs(int prepa_id,
+        string prepa_source_key,
+        string prepa_approved_prepa_date,
+        string prepa_item_code,
+        string prepa_item_description,
+        string prepa_order_qty,
+        string prepa_allocated_qty,
+        string prepa_date_added,
+        string prepa_added_by,
+        string mode);
+
+
         DataSet sp_avg_order_trend(int avg_id,
         string avg_desc,
         int avg_days,

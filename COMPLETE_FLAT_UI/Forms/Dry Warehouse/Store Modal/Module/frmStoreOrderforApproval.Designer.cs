@@ -43,7 +43,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.metroCmbStoreCode = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.matcmbPackaging = new MetroFramework.Controls.MetroComboBox();
+            this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
             this.materialCheckboxSelectAll = new MaterialSkin.Controls.MaterialCheckbox();
@@ -51,18 +51,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label3 = new System.Windows.Forms.Label();
             this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.lbltotaldata = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelSelectedSum = new System.Windows.Forms.Label();
-            this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgvFindDataForAlocation = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.groupColorCoding = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +70,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ALLOCATION_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_COLUMN_ALLOCATED_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.lbltotaldata = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelSelectedSum = new System.Windows.Forms.Label();
+            this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvFindDataForAlocation = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.groupColorCoding = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -99,7 +99,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.Controls.Add(this.materialLabel3);
             this.materialCard1.Controls.Add(this.metroCmbStoreCode);
             this.materialCard1.Controls.Add(this.materialLabel2);
-            this.materialCard1.Controls.Add(this.matcmbPackaging);
+            this.materialCard1.Controls.Add(this.matcmbCategory);
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.bunifuPrepaDate);
             this.materialCard1.Depth = 0;
@@ -117,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel5.Location = new System.Drawing.Point(957, 14);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
@@ -172,16 +172,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel2.TabIndex = 578;
             this.materialLabel2.Text = "Category:";
             // 
-            // matcmbPackaging
+            // matcmbCategory
             // 
-            this.matcmbPackaging.FormattingEnabled = true;
-            this.matcmbPackaging.ItemHeight = 23;
-            this.matcmbPackaging.Location = new System.Drawing.Point(220, 41);
-            this.matcmbPackaging.Name = "matcmbPackaging";
-            this.matcmbPackaging.Size = new System.Drawing.Size(182, 29);
-            this.matcmbPackaging.TabIndex = 577;
-            this.matcmbPackaging.UseSelectable = true;
-            this.matcmbPackaging.SelectionChangeCommitted += new System.EventHandler(this.matcmbPackaging_SelectionChangeCommitted);
+            this.matcmbCategory.FormattingEnabled = true;
+            this.matcmbCategory.ItemHeight = 23;
+            this.matcmbCategory.Location = new System.Drawing.Point(220, 41);
+            this.matcmbCategory.Name = "matcmbCategory";
+            this.matcmbCategory.Size = new System.Drawing.Size(182, 29);
+            this.matcmbCategory.TabIndex = 577;
+            this.matcmbCategory.UseSelectable = true;
+            this.matcmbCategory.SelectionChangeCommitted += new System.EventHandler(this.matcmbPackaging_SelectionChangeCommitted);
             // 
             // materialLabel1
             // 
@@ -370,6 +370,163 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStoreOrderApproval_CellFormatting);
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvReprinting_CurrentCellChanged);
             // 
+            // selected
+            // 
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.HeaderText = "SELECTED";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            this.selected.Width = 82;
+            // 
+            // primary_id
+            // 
+            this.primary_id.DataPropertyName = "primary_id";
+            this.primary_id.FillWeight = 66.91177F;
+            this.primary_id.HeaderText = "ID";
+            this.primary_id.MinimumWidth = 12;
+            this.primary_id.Name = "primary_id";
+            this.primary_id.Width = 48;
+            // 
+            // order_id
+            // 
+            this.order_id.DataPropertyName = "order_id";
+            this.order_id.FillWeight = 66.57212F;
+            this.order_id.HeaderText = "ORDER ID";
+            this.order_id.MinimumWidth = 12;
+            this.order_id.Name = "order_id";
+            this.order_id.Width = 93;
+            // 
+            // date_ordered
+            // 
+            this.date_ordered.DataPropertyName = "date_ordered";
+            this.date_ordered.FillWeight = 66.57212F;
+            this.date_ordered.HeaderText = "ORDER DATE";
+            this.date_ordered.MinimumWidth = 12;
+            this.date_ordered.Name = "date_ordered";
+            this.date_ordered.Width = 111;
+            // 
+            // fox
+            // 
+            this.fox.DataPropertyName = "fox";
+            this.fox.FillWeight = 66.57212F;
+            this.fox.HeaderText = "STORE CODE";
+            this.fox.MinimumWidth = 12;
+            this.fox.Name = "fox";
+            this.fox.Width = 112;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.HeaderText = "STORE";
+            this.store_name.MinimumWidth = 6;
+            this.store_name.Name = "store_name";
+            this.store_name.Width = 77;
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.FillWeight = 66.91177F;
+            this.route.HeaderText = "ROUTE";
+            this.route.MinimumWidth = 12;
+            this.route.Name = "route";
+            this.route.Width = 80;
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.FillWeight = 66.91177F;
+            this.area.HeaderText = "AREA";
+            this.area.MinimumWidth = 12;
+            this.area.Name = "area";
+            this.area.Width = 70;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.FillWeight = 66.91177F;
+            this.category.HeaderText = "CATEGORY";
+            this.category.MinimumWidth = 12;
+            this.category.Name = "category";
+            this.category.Width = 108;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 6;
+            this.item_code.Name = "item_code";
+            this.item_code.Width = 102;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 6;
+            this.description.Name = "description";
+            this.description.Width = 127;
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.HeaderText = "UOM";
+            this.uom.MinimumWidth = 6;
+            this.uom.Name = "uom";
+            this.uom.Width = 68;
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.HeaderText = "QTY";
+            this.qty.MinimumWidth = 6;
+            this.qty.Name = "qty";
+            this.qty.Width = 61;
+            // 
+            // StockOnHand
+            // 
+            this.StockOnHand.DataPropertyName = "StockOnHand";
+            this.StockOnHand.HeaderText = "SOH";
+            this.StockOnHand.Name = "StockOnHand";
+            this.StockOnHand.Width = 64;
+            // 
+            // AVERAGE_ORDER
+            // 
+            this.AVERAGE_ORDER.DataPropertyName = "AVERAGE_ORDER";
+            this.AVERAGE_ORDER.HeaderText = "AVERAGE ORDER";
+            this.AVERAGE_ORDER.Name = "AVERAGE_ORDER";
+            this.AVERAGE_ORDER.Width = 138;
+            // 
+            // ORDERS
+            // 
+            this.ORDERS.DataPropertyName = "ORDERS";
+            this.ORDERS.HeaderText = "TOTAL ORDER";
+            this.ORDERS.Name = "ORDERS";
+            this.ORDERS.Width = 116;
+            // 
+            // ALLOCATION_QTY
+            // 
+            this.ALLOCATION_QTY.DataPropertyName = "ALLOCATION_QTY";
+            this.ALLOCATION_QTY.HeaderText = "ALLOCATED";
+            this.ALLOCATION_QTY.Name = "ALLOCATION_QTY";
+            this.ALLOCATION_QTY.Width = 113;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 6;
+            this.date_added.Name = "date_added";
+            this.date_added.Width = 112;
+            // 
+            // TOTAL_COLUMN_ALLOCATED_QTY
+            // 
+            this.TOTAL_COLUMN_ALLOCATED_QTY.DataPropertyName = "TOTAL_COLUMN_ALLOCATED_QTY";
+            this.TOTAL_COLUMN_ALLOCATED_QTY.HeaderText = "TOTAL COLUMN ALLOCATED QTY";
+            this.TOTAL_COLUMN_ALLOCATED_QTY.Name = "TOTAL_COLUMN_ALLOCATED_QTY";
+            this.TOTAL_COLUMN_ALLOCATED_QTY.Width = 208;
+            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -544,6 +701,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.groupColorCoding.Controls.Add(this.materialLabel6);
             this.groupColorCoding.Controls.Add(this.materialLabel4);
             this.groupColorCoding.Controls.Add(this.panel1);
+            this.groupColorCoding.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupColorCoding.Location = new System.Drawing.Point(696, 700);
             this.groupColorCoding.Name = "groupColorCoding";
             this.groupColorCoding.Size = new System.Drawing.Size(394, 62);
@@ -563,11 +721,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
             this.materialLabel6.Location = new System.Drawing.Point(202, 27);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(112, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(87, 14);
             this.materialLabel6.TabIndex = 2;
             this.materialLabel6.Text = "Abnormal Order";
             // 
@@ -575,11 +734,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
             this.materialLabel4.Location = new System.Drawing.Point(13, 28);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(99, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(77, 14);
             this.materialLabel4.TabIndex = 1;
             this.materialLabel4.Text = "For Allocation";
             // 
@@ -590,163 +750,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(39, 29);
             this.panel1.TabIndex = 0;
-            // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "SELECTED";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            this.selected.Width = 84;
-            // 
-            // primary_id
-            // 
-            this.primary_id.DataPropertyName = "primary_id";
-            this.primary_id.FillWeight = 66.91177F;
-            this.primary_id.HeaderText = "ID";
-            this.primary_id.MinimumWidth = 12;
-            this.primary_id.Name = "primary_id";
-            this.primary_id.Width = 50;
-            // 
-            // order_id
-            // 
-            this.order_id.DataPropertyName = "order_id";
-            this.order_id.FillWeight = 66.57212F;
-            this.order_id.HeaderText = "ORDER ID";
-            this.order_id.MinimumWidth = 12;
-            this.order_id.Name = "order_id";
-            this.order_id.Width = 103;
-            // 
-            // date_ordered
-            // 
-            this.date_ordered.DataPropertyName = "date_ordered";
-            this.date_ordered.FillWeight = 66.57212F;
-            this.date_ordered.HeaderText = "ORDER DATE";
-            this.date_ordered.MinimumWidth = 12;
-            this.date_ordered.Name = "date_ordered";
-            this.date_ordered.Width = 123;
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.FillWeight = 66.57212F;
-            this.fox.HeaderText = "STORE CODE";
-            this.fox.MinimumWidth = 12;
-            this.fox.Name = "fox";
-            this.fox.Width = 124;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.MinimumWidth = 6;
-            this.store_name.Name = "store_name";
-            this.store_name.Width = 79;
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.FillWeight = 66.91177F;
-            this.route.HeaderText = "ROUTE";
-            this.route.MinimumWidth = 12;
-            this.route.Name = "route";
-            this.route.Width = 82;
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.FillWeight = 66.91177F;
-            this.area.HeaderText = "AREA";
-            this.area.MinimumWidth = 12;
-            this.area.Name = "area";
-            this.area.Width = 72;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.FillWeight = 66.91177F;
-            this.category.HeaderText = "CATEGORY";
-            this.category.MinimumWidth = 12;
-            this.category.Name = "category";
-            this.category.Width = 110;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 6;
-            this.item_code.Name = "item_code";
-            this.item_code.Width = 113;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 6;
-            this.description.Name = "description";
-            this.description.Width = 129;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.HeaderText = "UOM";
-            this.uom.MinimumWidth = 6;
-            this.uom.Name = "uom";
-            this.uom.Width = 70;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.HeaderText = "QTY";
-            this.qty.MinimumWidth = 6;
-            this.qty.Name = "qty";
-            this.qty.Width = 63;
-            // 
-            // StockOnHand
-            // 
-            this.StockOnHand.DataPropertyName = "StockOnHand";
-            this.StockOnHand.HeaderText = "SOH";
-            this.StockOnHand.Name = "StockOnHand";
-            this.StockOnHand.Width = 66;
-            // 
-            // AVERAGE_ORDER
-            // 
-            this.AVERAGE_ORDER.DataPropertyName = "AVERAGE_ORDER";
-            this.AVERAGE_ORDER.HeaderText = "AVERAGE ORDER";
-            this.AVERAGE_ORDER.Name = "AVERAGE_ORDER";
-            this.AVERAGE_ORDER.Width = 153;
-            // 
-            // ORDERS
-            // 
-            this.ORDERS.DataPropertyName = "ORDERS";
-            this.ORDERS.HeaderText = "TOTAL ORDER";
-            this.ORDERS.Name = "ORDERS";
-            this.ORDERS.Width = 129;
-            // 
-            // ALLOCATION_QTY
-            // 
-            this.ALLOCATION_QTY.DataPropertyName = "ALLOCATION_QTY";
-            this.ALLOCATION_QTY.HeaderText = "ALLOCATED";
-            this.ALLOCATION_QTY.Name = "ALLOCATION_QTY";
-            this.ALLOCATION_QTY.Width = 115;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 6;
-            this.date_added.Name = "date_added";
-            this.date_added.Width = 125;
-            // 
-            // TOTAL_COLUMN_ALLOCATED_QTY
-            // 
-            this.TOTAL_COLUMN_ALLOCATED_QTY.DataPropertyName = "TOTAL_COLUMN_ALLOCATED_QTY";
-            this.TOTAL_COLUMN_ALLOCATED_QTY.HeaderText = "TOTAL COLUMN ALLOCATED QTY";
-            this.TOTAL_COLUMN_ALLOCATED_QTY.Name = "TOTAL_COLUMN_ALLOCATED_QTY";
-            this.TOTAL_COLUMN_ALLOCATED_QTY.Width = 259;
             // 
             // frmStoreOrderforApproval
             // 
@@ -799,7 +802,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MetroFramework.Controls.MetroComboBox metroCmbStoreCode;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MetroFramework.Controls.MetroComboBox matcmbPackaging;
+        private MetroFramework.Controls.MetroComboBox matcmbCategory;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialButton matbtnEdit;
         public System.Windows.Forms.TextBox textBox1;
