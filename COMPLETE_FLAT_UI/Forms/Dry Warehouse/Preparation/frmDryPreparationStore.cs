@@ -30,8 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         //Variable Declaration
         int p_id = 0;
 
-        string Rpt_Path = "";
-        double stackQuantity = 0;
+
         public frmDryPreparationStore()
         {
             InitializeComponent();
@@ -43,6 +42,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string sp_approved_preparation_date { get; set; }
 
         public string sp_ordered_date { get; set; }
+
+
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
@@ -414,27 +415,39 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             //Start of Validating the Received If if exist on the system
             dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.mattxtScanTheBarcode.Text.Trim(),
-                "", "", "", "", "","","", "check_if_the_barcode_is_exist");
+            dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
+               "", "", "", "", "","","", "check_if_the_barcode_is_exist");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
 
                 //Start of Validating the Received If if exist on the system
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.mattxtScanTheBarcode.Text.Trim(),
-                    "", "", "", "", "", "", "", "check_if_the_barcode_is_exist_information");
+                dset2.Clear();
+                dset2 = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.sp_approved_preparation_date,
+                   this.sp_fox, "", "", "", "", "", "", "check_if_the_barcode_is_exist_information");
 
-                if (dSet.Tables[0].Rows.Count > 0)
+
+                if (dset2.Tables[0].Rows.Count > 0)
                 {
 
-                    MessageBox.Show("A");
+                    //MessageBox.Show("A");
+
+                   frmServeStorePreparation addNew = new frmServeStorePreparation(this);
+                    addNew.ShowDialog();
+                    this.mattxtScanTheBarcode.Text = String.Empty;
+
 
                 }
                 else
                 {
 
-                    MessageBox.Show("B");
+                    this.ReceivingBarcodeIdIsnotExist();
+                    //MessageBox.Show("B");
+                    //Buje Malakas
+                    this.mattxtScanTheBarcode.Text = String.Empty;
+                    this.mattxtScanTheBarcode.Focus();
+
+                    return;
                 }
 
 
