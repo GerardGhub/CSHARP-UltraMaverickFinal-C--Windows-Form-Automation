@@ -24,9 +24,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
-        string mode = "";
+   
         int p_id = 0;
-        int temp_hid = 0;
+ 
         DateTime dNow = DateTime.Now;
         Boolean ready = false;
 

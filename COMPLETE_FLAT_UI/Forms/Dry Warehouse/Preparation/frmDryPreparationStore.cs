@@ -41,8 +41,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string sp_area { get; set; }
         public string sp_approved_preparation_date { get; set; }
 
-        public string sp_ordered_date { get; set; }
-
+        public string Sp_Material_Item_Description { get; set; }
+        public string Sp_Unit_Of_Measure { get; set; }
+        public string Sp_Converted_Qty { get; set; }
+        public string sp_material_id { get; set; }
 
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
@@ -256,14 +258,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     else if (myglobal.global_module == "Active")
                     {
 
-
-                        //Gerard Singian Developer Man
-
-
-                        //MessageBox.Show("" + this.sp_approved_preparation_date);
-                        //
-                        //dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' and date_ordered = '" + this.sp_ordered_date + "'  ";
-
                         dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'   ";
 
                     }
@@ -416,7 +410,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             //Start of Validating the Received If if exist on the system
             dSet.Clear();
             dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
-               "", "", "", "", "","","", "check_if_the_barcode_is_exist");
+               "", "", "", "", "","","",0, "check_if_the_barcode_is_exist");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -424,7 +418,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 //Start of Validating the Received If if exist on the system
                 dset2.Clear();
                 dset2 = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.sp_approved_preparation_date,
-                   this.sp_fox, "", "", "", "", "", "", "check_if_the_barcode_is_exist_information");
+                   this.sp_fox, "", "", "", "", "", "",0, "check_if_the_barcode_is_exist_information");
 
 
                 if (dset2.Tables[0].Rows.Count > 0)
@@ -432,7 +426,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     //MessageBox.Show("A");
 
-                   frmServeStorePreparation addNew = new frmServeStorePreparation(this);
+                   frmServeStorePreparation addNew = new frmServeStorePreparation(this, 
+                       this.sp_material_id,
+                       this.mattxtScanTheBarcode.Text,
+                       this.Sp_Material_Item_Description,
+                       this.Sp_Unit_Of_Measure,
+                       this.Sp_Converted_Qty,
+                       this.sp_approved_preparation_date
+                       );
                     addNew.ShowDialog();
                     this.mattxtScanTheBarcode.Text = String.Empty;
 
@@ -479,6 +480,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
             e.Handled = true;
+            }
+        }
+
+        private void guna2DgvMaterialPreparation_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.CurrentCellChangeofRawMaterials();
+        }
+
+        private void CurrentCellChangeofRawMaterials()
+        {
+
+            if (this.guna2DgvMaterialPreparation.Rows.Count > 0)
+            {
+                if (this.guna2DgvMaterialPreparation.CurrentRow != null)
+                {
+                    if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["store_name"].Value != null)
+                    {
+                       
+                        this.sp_material_id = this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
+                        this.Sp_Material_Item_Description = this.guna2DgvMaterialPreparation.CurrentRow.Cells["description"].Value.ToString();
+                        this.Sp_Unit_Of_Measure = this.guna2DgvMaterialPreparation.CurrentRow.Cells["uom"].Value.ToString();
+                        this.Sp_Converted_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["converted_qty"].Value.ToString();
+
+
+                    }
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox1.Text == "ItemServe")
+            {
+                this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
             }
         }
     }

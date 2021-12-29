@@ -231,7 +231,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
+            popup.BodyColor = Color.Crimson;
             popup.Popup();
             popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
             popup.Delay = 500;
