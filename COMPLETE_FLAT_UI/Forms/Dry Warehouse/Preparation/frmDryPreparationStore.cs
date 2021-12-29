@@ -35,7 +35,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             InitializeComponent();
         }
-
+        public string Sp_Qty_Serve { get; set; }
         public string sp_fox { get; set; }
         public string sp_route { get; set; }
         public string sp_area { get; set; }
@@ -432,7 +432,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                        this.Sp_Material_Item_Description,
                        this.Sp_Unit_Of_Measure,
                        this.Sp_Converted_Qty,
-                       this.sp_approved_preparation_date
+                       this.sp_approved_preparation_date,
+                        this.Sp_Qty_Serve
                        );
                     addNew.ShowDialog();
                     this.mattxtScanTheBarcode.Text = String.Empty;
@@ -502,7 +503,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.Sp_Material_Item_Description = this.guna2DgvMaterialPreparation.CurrentRow.Cells["description"].Value.ToString();
                         this.Sp_Unit_Of_Measure = this.guna2DgvMaterialPreparation.CurrentRow.Cells["uom"].Value.ToString();
                         this.Sp_Converted_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["converted_qty"].Value.ToString();
-
+                        this.Sp_Qty_Serve = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Serve_Qty"].Value.ToString();
 
                     }
                 }

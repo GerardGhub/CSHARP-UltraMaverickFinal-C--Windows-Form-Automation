@@ -37,7 +37,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             string Item_Description,
             string Unit_Of_Measure,
             string Converted_Qty,
-            string Preparation_Date
+            string Preparation_Date,
+            string Qty_Served
             )
         {
             InitializeComponent();
@@ -49,8 +50,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             Sp_Unit_Of_Measure = Unit_Of_Measure;
             Sp_Converted_Qty = Converted_Qty;
             Sp_Preparation_Date = Preparation_Date;
+            Sp_Qty_Served = Qty_Served;
         }
 
+        public string Sp_Qty_Served { get; set; }
         public string Sp_Preparation_Date { get; set; }
         public string Sp_Converted_Qty { get; set; }
         public string Sp_Unit_Of_Measure { get; set; }
@@ -76,7 +79,60 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.StaticWindowState();
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
-        
+
+
+            //Inventory Look Up
+            this.SearchMethodJarVarCallingSPReceivingIDInventory();
+            this.doSearchInTextBoxCmbRecID();
+        }
+
+
+        private void doSearchInTextBoxCmbRecID()
+        {
+            try
+            {
+                if (dset_emp_SearchEnginesReceivingIDInventory.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEnginesReceivingIDInventory.Tables[0]);
+                    if (myglobal.global_module == "EMPLOYEE")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+                        //Gerard Singian Developer Man
+
+                        dv.RowFilter = "id = '" + this.matTxtReceivingbarcodeID.Text + "'   ";
+
+                    }
+
+                    this.gunaDgvReceivedIDInventory.DataSource = dv;
+                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+        }
+
+
+
+        DataSet dset_emp_SearchEnginesReceivingIDInventory = new DataSet();
+        private void SearchMethodJarVarCallingSPReceivingIDInventory()
+        {
+            this.dset_emp_SearchEnginesReceivingIDInventory.Clear();
+            this.dset_emp_SearchEnginesReceivingIDInventory = objStorProc.sp_getMajorTables("searchorderForReceivingIDInventories");
+
         }
 
 
@@ -89,6 +145,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matTxtOrderQty.Text = this.Sp_Converted_Qty;
             this.Sp_Preparation_Date = this.Sp_Preparation_Date;
             this.Sp_User_ID = userinfo.user_id;
+            this.matTxtQtyRelease.Text = Sp_Qty_Served;
         }
 
  
@@ -106,12 +163,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         
         private void doSearchInTextBoxCmb()
         {
-
-         
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
@@ -164,11 +217,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     {
                         //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
                         this.mattxtItemCode.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
-                        //this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
-                        //this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
-                        //this.sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
-                        //this.sp_ordered_date = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
-
+        
                     }
                 }
             }
@@ -208,6 +257,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                this.mattxtQtyServe.Focus();
                 return;
             }
+
+            if(this.matTxtQtyRelease.Text == "0")
+            {
+
+            }
+            else
+            {
+                double QuantityOrder;
+                double QuantityRelease;
+                double firstEntrySolution;
+
+                double TextBoxQuantityInputState;
+
+                QuantityOrder = double.Parse(this.matTxtOrderQty.Text);
+                QuantityRelease = double.Parse(this.matTxtQtyRelease.Text);
+                firstEntrySolution = QuantityOrder - QuantityRelease;
+                TextBoxQuantityInputState = double.Parse(this.mattxtQtyServe.Text);
+                MessageBox.Show("" + firstEntrySolution);
+
+                if (firstEntrySolution > TextBoxQuantityInputState)
+                {
+                    //MessageBox.Show("A");
+                    //return;
+                }
+                else if(firstEntrySolution == TextBoxQuantityInputState)
+                {
+                    //MessageBox.Show("A1");
+                    //return;
+                }
+                else
+                {
+                    this.GreaterThanAllocatedQty();
+                    this.mattxtQtyServe.Text = String.Empty;
+                    this.mattxtQtyServe.Focus();
+                    //MessageBox.Show("B");
+                    return;
+                }
+
+            }
+
+
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a new  raw material ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
@@ -240,10 +330,67 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             ths.textBox1.Text = textBox1.Text;
         }
+        public void GreaterThanAllocatedQty()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Greater than Allocated Qty";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
 
         private void frmServeStorePreparation_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.textBox1.Text = "ItemServe";
+        }
+
+        private void mattxtQtyServe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(this.mattxtQtyServe.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void gunaDgvReceivedIDInventory_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.gunaDgvReceivedIDInventory.Rows.Count > 0)
+            {
+                if (this.gunaDgvReceivedIDInventory.CurrentRow != null)
+                {
+                    if (this.gunaDgvReceivedIDInventory.CurrentRow.Cells["item_code"].Value != null)
+                    {
+                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                        this.matTxtQtyRemaining.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["qty_received"].Value.ToString();
+                        this.matTxtExpDate.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["exp_date"].Value.ToString();
+
+                    }
+                }
+            }
         }
     }
 }
