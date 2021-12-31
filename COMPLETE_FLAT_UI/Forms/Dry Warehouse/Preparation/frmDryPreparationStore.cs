@@ -45,6 +45,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Unit_Of_Measure { get; set; }
         public string Sp_Converted_Qty { get; set; }
         public string sp_material_id { get; set; }
+        public string Sp_Receiving_ID_RecommendedFefo { get; set; }
+        public string Sp_Expiration_Date { get; set; }
 
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
@@ -71,6 +73,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.LoadWindowsExecution();
             this.loadCategoryDropdown();
         }
+
+        DataSet dset_emp_SearchEnginesReceivingIDFEFO = new DataSet();
+        private void SearchMethodJarVarCallingSPReceivingIDFEFODB()
+        {
+            try
+            {
+                //g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+                //objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
+                xClass.fillDataGridView(this.gunaDgvReceivingFEFO, "searchorderForReceivingIDFEFOStore", dset3);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+     
+            //this.dset_emp_SearchEnginesReceivingIDFEFO.Clear();
+            //this.dset_emp_SearchEnginesReceivingIDFEFO = objStorProc.sp_getMajorTables("searchorderForReceivingIDFEFOStore");
+
+        }
+
+
 
 
         public void loadCategoryDropdown()
@@ -367,6 +393,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         }
 
+        private void FeFoInformation()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "FEFO method select the recommended receiving ID "+this.Sp_Receiving_ID_RecommendedFefo+"!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
         public void FillRequiredFields()
         {
 
@@ -423,6 +474,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                 if (dset2.Tables[0].Rows.Count > 0)
                 {
+                    //FEFO Method Validation Entry
+                    //this.SearchMethodJarVarCallingSPReceivingIDFEFODB();
+                    xClass.fillDataGridView(this.gunaDgvReceivingFEFO, "searchorderForReceivingIDFEFOStore", dset3);
+                    //this.doSearchInTextBoxCmbReceivingIDFefo();
+
+                    if (this.mattxtScanTheBarcode.Text.Trim() == this.Sp_Receiving_ID_RecommendedFefo)
+                    {
+
+                    }
+                    else
+                    {
+                        this.FeFoInformation();
+                    }
+
 
                     //MessageBox.Show("A");
 
@@ -465,9 +530,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 return;
             }
 
+        }
 
+
+
+        private void doSearchInTextBoxCmbReceivingIDFefo()
+        {
+
+            //MessageBox.Show(this.Sp_Receiving_ID_RecommendedFefo);
+            //try
+            //{
+            //    if (dset_emp_SearchEnginesReceivingIDFEFO.Tables.Count > 0)
+            //    {
+            //        DataView dv = new DataView(dset_emp_SearchEnginesReceivingIDFEFO.Tables[0]);
+               
+            //            //Gerard Singian Developer Man
+
+            //            dv.RowFilter = "id = '" + this.matxt + "'   ";
+
+                  
+
+            //        this.gunaDgvReceivingFEFO.DataSource = dv;
+            //        //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+            //    }
+            //}
+            //catch (SyntaxErrorException)
+            //{
+            //    MessageBox.Show("Invalid character found MasterGit!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    return;
+            //}
+            //catch (EvaluateException)
+            //{
+            //    MessageBox.Show("Invalid character found MasterGit2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    return;
+            //}
 
         }
+
 
         private void mattxtScanTheBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -516,6 +617,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
             }
+        }
+
+        private void gunaDgvReceivingFEFO_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.CurrentCellChangeofRecommendedFefoID();
+        }
+        private void CurrentCellChangeofRecommendedFefoID()
+        {
+
+            if (this.gunaDgvReceivingFEFO.Rows.Count > 0)
+            {
+                if (this.gunaDgvReceivingFEFO.CurrentRow != null)
+                {
+                    if (this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value != null)
+                    {
+                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                        this.Sp_Receiving_ID_RecommendedFefo = this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value.ToString();
+                        this.Sp_Expiration_Date = this.gunaDgvReceivingFEFO.CurrentRow.Cells["exp_date"].Value.ToString();
+
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SearchMethodJarVarCallingSPReceivingIDFEFODB();
         }
     }
 }

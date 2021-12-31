@@ -38,6 +38,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.matTxtExpDate = new MaterialSkin.Controls.MaterialTextBox();
+            this.matTxtQtyRemaining = new MaterialSkin.Controls.MaterialTextBox();
+            this.matTxtQtyRelease = new MaterialSkin.Controls.MaterialTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.matTxtUOM = new MaterialSkin.Controls.MaterialTextBox();
             this.matTxtOrderQty = new MaterialSkin.Controls.MaterialTextBox();
@@ -48,12 +51,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.matTxtExpDate = new MaterialSkin.Controls.MaterialTextBox();
-            this.matTxtQtyRemaining = new MaterialSkin.Controls.MaterialTextBox();
-            this.matTxtQtyRelease = new MaterialSkin.Controls.MaterialTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gunaDgvReceivedIDInventory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDgvReceivedIDInventory)).BeginInit();
@@ -81,6 +82,54 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(747, 324);
             this.materialCard1.TabIndex = 0;
+            // 
+            // matTxtExpDate
+            // 
+            this.matTxtExpDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtExpDate.Depth = 0;
+            this.matTxtExpDate.Enabled = false;
+            this.matTxtExpDate.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtExpDate.Hint = "Expiration Date";
+            this.matTxtExpDate.Location = new System.Drawing.Point(511, 245);
+            this.matTxtExpDate.MaxLength = 50;
+            this.matTxtExpDate.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtExpDate.Multiline = false;
+            this.matTxtExpDate.Name = "matTxtExpDate";
+            this.matTxtExpDate.Size = new System.Drawing.Size(202, 50);
+            this.matTxtExpDate.TabIndex = 9;
+            this.matTxtExpDate.Text = "";
+            // 
+            // matTxtQtyRemaining
+            // 
+            this.matTxtQtyRemaining.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtQtyRemaining.Depth = 0;
+            this.matTxtQtyRemaining.Enabled = false;
+            this.matTxtQtyRemaining.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtQtyRemaining.Hint = "Qty. Remaining";
+            this.matTxtQtyRemaining.Location = new System.Drawing.Point(266, 245);
+            this.matTxtQtyRemaining.MaxLength = 50;
+            this.matTxtQtyRemaining.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtQtyRemaining.Multiline = false;
+            this.matTxtQtyRemaining.Name = "matTxtQtyRemaining";
+            this.matTxtQtyRemaining.Size = new System.Drawing.Size(202, 50);
+            this.matTxtQtyRemaining.TabIndex = 8;
+            this.matTxtQtyRemaining.Text = "";
+            // 
+            // matTxtQtyRelease
+            // 
+            this.matTxtQtyRelease.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtQtyRelease.Depth = 0;
+            this.matTxtQtyRelease.Enabled = false;
+            this.matTxtQtyRelease.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtQtyRelease.Hint = "Qty. Release";
+            this.matTxtQtyRelease.Location = new System.Drawing.Point(31, 162);
+            this.matTxtQtyRelease.MaxLength = 50;
+            this.matTxtQtyRelease.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtQtyRelease.Multiline = false;
+            this.matTxtQtyRelease.Name = "matTxtQtyRelease";
+            this.matTxtQtyRelease.Size = new System.Drawing.Size(202, 50);
+            this.matTxtQtyRelease.TabIndex = 7;
+            this.matTxtQtyRelease.Text = "";
             // 
             // panel1
             // 
@@ -285,61 +334,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(511, 427);
+            this.textBox1.Location = new System.Drawing.Point(506, 485);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 648;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // matTxtExpDate
-            // 
-            this.matTxtExpDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtExpDate.Depth = 0;
-            this.matTxtExpDate.Enabled = false;
-            this.matTxtExpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.matTxtExpDate.Hint = "Expiration Date";
-            this.matTxtExpDate.Location = new System.Drawing.Point(511, 245);
-            this.matTxtExpDate.MaxLength = 50;
-            this.matTxtExpDate.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtExpDate.Multiline = false;
-            this.matTxtExpDate.Name = "matTxtExpDate";
-            this.matTxtExpDate.Size = new System.Drawing.Size(202, 50);
-            this.matTxtExpDate.TabIndex = 9;
-            this.matTxtExpDate.Text = "";
-            // 
-            // matTxtQtyRemaining
-            // 
-            this.matTxtQtyRemaining.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtQtyRemaining.Depth = 0;
-            this.matTxtQtyRemaining.Enabled = false;
-            this.matTxtQtyRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.matTxtQtyRemaining.Hint = "Qty. Remaining";
-            this.matTxtQtyRemaining.Location = new System.Drawing.Point(266, 245);
-            this.matTxtQtyRemaining.MaxLength = 50;
-            this.matTxtQtyRemaining.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtQtyRemaining.Multiline = false;
-            this.matTxtQtyRemaining.Name = "matTxtQtyRemaining";
-            this.matTxtQtyRemaining.Size = new System.Drawing.Size(202, 50);
-            this.matTxtQtyRemaining.TabIndex = 8;
-            this.matTxtQtyRemaining.Text = "";
-            // 
-            // matTxtQtyRelease
-            // 
-            this.matTxtQtyRelease.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtQtyRelease.Depth = 0;
-            this.matTxtQtyRelease.Enabled = false;
-            this.matTxtQtyRelease.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.matTxtQtyRelease.Hint = "Qty. Release";
-            this.matTxtQtyRelease.Location = new System.Drawing.Point(31, 162);
-            this.matTxtQtyRelease.MaxLength = 50;
-            this.matTxtQtyRelease.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtQtyRelease.Multiline = false;
-            this.matTxtQtyRelease.Name = "matTxtQtyRelease";
-            this.matTxtQtyRelease.Size = new System.Drawing.Size(202, 50);
-            this.matTxtQtyRelease.TabIndex = 7;
-            this.matTxtQtyRelease.Text = "";
             // 
             // label1
             // 
@@ -436,11 +437,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label2.Text = "State Grid Binding Inventory Source";
             this.label2.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(498, 459);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.TabIndex = 652;
+            this.label3.Text = "TextBox for Two Way Binding";
+            this.label3.Visible = false;
+            // 
             // frmServeStorePreparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 517);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gunaDgvReceivedIDInventory);
             this.Controls.Add(this.label1);
@@ -480,5 +492,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2DataGridView gunaDgvReceivedIDInventory;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
