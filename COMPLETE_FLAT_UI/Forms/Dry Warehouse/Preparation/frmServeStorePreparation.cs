@@ -378,7 +378,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 "", this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
                 "update_dry_orders");
+
+                if (ActualQuantityReleased == 0)
+                {
+                    //Bulk Repack Based on Order
+                    dSet.Clear();
+                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                    this.Sp_Barcode_Id,
+                    this.Sp_Preparation_Date,
+                    this.mattxtItemCode.Text,
+                    this.matTxtDescription.Text,
+                    this.matTxtOrderQty.Text,
+                    this.mattxtQtyServe.Text,
+                    "", this.Sp_User_ID.ToString(),
+                    Convert.ToInt32(this.Sp_Material_Id),
+                    "bulk_produce_store_timestamp");
+                }
             }
+        
+
             else
             {
                 //Update Start Time Stamp
@@ -393,6 +411,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 "", this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
                 "start_dry_orders_store_timestamp");
+      
             }
 
 

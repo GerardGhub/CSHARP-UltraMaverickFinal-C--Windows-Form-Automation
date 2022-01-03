@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Item_Code {get; set;}
 
 
+        public int Sp_AssigneD_Task_By { get; set; }
+        public string Sp_Start_By { get; set; }
+        public string Sp_Employee_Name { get; set; }
+
+
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -75,6 +81,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             else
             {
                 this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
 
             }
             this.LoadWindowsExecution();
@@ -130,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void LoadWindowsExecution()
         {
             this.dgvStoreOrderApproval.Enabled = false;
-       
+            this.Sp_AssigneD_Task_By = userinfo.user_id;
         }
 
         private void matRadioNext_CheckedChanged(object sender, EventArgs e)
@@ -241,6 +249,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         }
 
+        public void PreparationAlreadyStartBy()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Preparation already start by "+this.Sp_Employee_Name+"";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.DarkSlateBlue;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
             this.CurrentCellChangeofDgvStoreOrderApproval();
@@ -257,17 +292,37 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 myglobal.global_module = "Active"; // Mode for Searching
             }
             this.doSearchInTextBoxCmb();
-            //this.MaterialDatagridColumnVisibilittyFalse();
+            this.MaterialDatagridColumnVisibilittyFalse();
             this.textBox1.Text = String.Empty;
+
+            //Validation Who Start The Preparation
+            if(this.Sp_AssigneD_Task_By == Convert.ToInt32(this.Sp_Start_By))
+            {
+                this.mattxtScanTheBarcode.Enabled = true;
+                this.mattxtScanTheBarcode.Focus();
+            }
+            else if(this.Sp_Start_By == "0")
+            {
+                this.mattxtScanTheBarcode.Enabled = true;
+                this.mattxtScanTheBarcode.Focus();
+            }
+            else
+            {
+                this.PreparationAlreadyStartBy();
+                this.mattxtScanTheBarcode.Enabled = false;
+            }
         }
 
         private void MaterialDatagridColumnVisibilittyFalse()
         {
-            this.guna2DgvMaterialPreparation.Columns["date_ordered"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["route"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -341,6 +396,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
                         this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
                         this.sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
+                        this.Sp_Start_By = this.dgvStoreOrderApproval.CurrentRow.Cells["start_by_user_id"].Value.ToString();
+                        this.Sp_Employee_Name = this.dgvStoreOrderApproval.CurrentRow.Cells["employee_name"].Value.ToString();
                         //this.sp_ordered_date = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
 
                     }
@@ -523,11 +580,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.doSearchInTextBoxCmbReceivingInformative();
 
 
-
-
-
-
-
                     //Binding The Receiving ID Check if the Inventory is Enough
                     this.CurrentCellChangeofRecommendedFefoID();
 
@@ -645,7 +697,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 int i = this.guna2DgvMaterialPreparation.CurrentRow.Index + 1;
                 if (i >= -1 && i < this.guna2DgvMaterialPreparation.Rows.Count)
-                    this.guna2DgvMaterialPreparation.CurrentCell = this.guna2DgvMaterialPreparation.Rows[i].Cells[0];
+                    this.guna2DgvMaterialPreparation.CurrentCell = this.guna2DgvMaterialPreparation.Rows[i].Cells["item_code"];
+                //Cell na 0
                 else
                 {
 
@@ -816,7 +869,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 else
                 {
 
-                    MessageBox.Show("You are in the Last Line");
+                    //MessageBox.Show("You are in the Last Line");
 
                     //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                     //timer1_Tick(sender, e);
@@ -824,6 +877,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     return;
                 }
               
+            }
+        }
+
+        private void lbltotaldata_TextChanged(object sender, EventArgs e)
+        {
+            if(this.lbltotaldata.Text == "0")
+            {
+                this.frmDryPreparation_Load(sender, e);
             }
         }
     }

@@ -121,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRawMats.AutoGenerateColumns = false;
-            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -506,7 +506,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.date_ordered.MinimumWidth = 12;
             this.date_ordered.Name = "date_ordered";
             this.date_ordered.ReadOnly = true;
-            this.date_ordered.Width = 123;
             // 
             // fox
             // 
@@ -514,7 +513,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.fox.HeaderText = "STORE CODE";
             this.fox.Name = "fox";
             this.fox.ReadOnly = true;
-            this.fox.Width = 124;
             // 
             // store_name
             // 
@@ -523,7 +521,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.store_name.MinimumWidth = 12;
             this.store_name.Name = "store_name";
             this.store_name.ReadOnly = true;
-            this.store_name.Width = 79;
             // 
             // route
             // 
@@ -531,7 +528,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.route.HeaderText = "ROUTE";
             this.route.Name = "route";
             this.route.ReadOnly = true;
-            this.route.Width = 82;
             // 
             // area
             // 
@@ -539,7 +535,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.area.HeaderText = "AREA";
             this.area.Name = "area";
             this.area.ReadOnly = true;
-            this.area.Width = 72;
             // 
             // category
             // 
@@ -547,7 +542,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.category.HeaderText = "CATEGORY";
             this.category.Name = "category";
             this.category.ReadOnly = true;
-            this.category.Width = 110;
             // 
             // item_code
             // 
@@ -555,7 +549,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_code.HeaderText = "ITEM CODE";
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
             // 
             // description
             // 
@@ -563,7 +556,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.description.HeaderText = "DESCRIPTION";
             this.description.Name = "description";
             this.description.ReadOnly = true;
-            this.description.Width = 129;
             // 
             // uom
             // 
@@ -571,7 +563,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.uom.HeaderText = "UOM";
             this.uom.Name = "uom";
             this.uom.ReadOnly = true;
-            this.uom.Width = 70;
             // 
             // qty
             // 
@@ -579,7 +570,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.qty.HeaderText = "QUANTITY ORDER";
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
-            this.qty.Width = 160;
             // 
             // frmImportConsolidatedOrder
             // 
