@@ -84,6 +84,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             //Inventory Look Up
             this.SearchMethodJarVarCallingSPReceivingIDInventory();
             this.doSearchInTextBoxCmbRecID();
+            //DataGrid Visible False
+            this.dgvStoreOrderApproval.Visible = false;
+            this.gunaDgvReceivedIDInventory.Visible = false;
         }
 
 
@@ -258,7 +261,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 return;
             }
 
-            if(this.matTxtQtyRelease.Text == "0")
+
+            double InputQtyServe;
+
+            double ActualRemainingofReceivingID;
+
+           InputQtyServe = double.Parse(this.mattxtQtyServe.Text);
+            ActualRemainingofReceivingID = double.Parse(this.matTxtQtyRemaining.Text);
+     
+
+            if (InputQtyServe > ActualRemainingofReceivingID)
+            {
+                //MessageBox.Show("A");
+                GreaterThanActualRemainingQty();
+                this.mattxtQtyServe.Text = String.Empty;
+                this.mattxtQtyServe.Focus();
+                return;
+            }
+            else
+            {
+                //MessageBox.Show("B");
+                //return;
+            }
+
+
+
+            if (this.matTxtQtyRelease.Text == "0")
             {
 
             }
@@ -274,7 +302,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 QuantityRelease = double.Parse(this.matTxtQtyRelease.Text);
                 firstEntrySolution = QuantityOrder - QuantityRelease;
                 TextBoxQuantityInputState = double.Parse(this.mattxtQtyServe.Text);
-                MessageBox.Show("" + firstEntrySolution);
+                //MessageBox.Show("" + firstEntrySolution);
 
                 if (firstEntrySolution > TextBoxQuantityInputState)
                 {
@@ -299,7 +327,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a new  raw material ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve  the raw material? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
             }
@@ -319,6 +347,54 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             "", this.Sp_User_ID.ToString(),
             Convert.ToInt32(this.Sp_Material_Id),
             "add");
+
+
+            double ActualQuantityReleased;
+
+            double ActualQuantityServed;
+
+            double ActualQuantityOrder;
+
+            double TotalQuantityServeState;
+
+
+            ActualQuantityReleased = double.Parse(this.matTxtQtyRelease.Text);
+            ActualQuantityServed = double.Parse(this.mattxtQtyServe.Text);
+            ActualQuantityOrder = double.Parse(this.matTxtOrderQty.Text);
+
+            TotalQuantityServeState = ActualQuantityReleased + ActualQuantityServed;
+
+            if(ActualQuantityOrder == TotalQuantityServeState)
+            {
+                //Update Status Already Repack
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                this.Sp_Barcode_Id,
+                this.Sp_Preparation_Date,
+                this.mattxtItemCode.Text,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                "update_dry_orders");
+            }
+            else
+            {
+                //Update Start Time Stamp
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                this.Sp_Barcode_Id,
+                this.Sp_Preparation_Date,
+                this.mattxtItemCode.Text,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                "start_dry_orders_store_timestamp");
+            }
+
 
 
             this.Close();
@@ -356,6 +432,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
         }
+
+        public void GreaterThanActualRemainingQty()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Greater than Actual Remaining Qty";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
 
         private void frmServeStorePreparation_FormClosing(object sender, FormClosingEventArgs e)
         {
