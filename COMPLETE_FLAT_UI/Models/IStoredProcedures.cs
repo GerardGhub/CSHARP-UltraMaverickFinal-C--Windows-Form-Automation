@@ -15,8 +15,8 @@ namespace ULTRAMAVERICK.Models
         DataSet sp_userlogin(string username, string password);
 
         //general (any pages) - get single table
-        DataSet sp_getMinorTables(string eTableName, 
-            int? pkId, 
+        DataSet sp_getMinorTables(string eTableName,
+            int? pkId,
             string string_data_find,
             string string_data_find2,
             string string_data_find3,
@@ -178,11 +178,11 @@ namespace ULTRAMAVERICK.Models
 
 
 
-        DataSet sp_userfile(int userfile_id, 
-            int user_rights_id, 
-            string username, string password, 
-            string employee_name, 
-            string user_section, 
+        DataSet sp_userfile(int userfile_id,
+            int user_rights_id,
+            string username, string password,
+            string employee_name,
+            string user_section,
             string receiving_status,
             string Position,
             string employee_lastname,
@@ -214,16 +214,16 @@ namespace ULTRAMAVERICK.Models
 
 
 
-            DataSet sp_position(
-            int position_id,
-            string position_name,
-            string department_id,
-            string created_by,
-            string created_at,
-            string modified_by,
-            string modified_date,
-            string primary_user_id,
-            string mode);
+        DataSet sp_position(
+        int position_id,
+        string position_name,
+        string department_id,
+        string created_by,
+        string created_at,
+        string modified_by,
+        string modified_date,
+        string primary_user_id,
+        string mode);
 
 
         DataSet sp_department(
@@ -264,14 +264,14 @@ namespace ULTRAMAVERICK.Models
 
 
 
-        DataSet sp_available_menu(int menu_id, 
-            string menu_name, 
-            string menu_form_name, 
-            string menu_count, 
-            string created_at, 
-            string created_by, 
-            string updated_at, 
-            string updated_by, 
+        DataSet sp_available_menu(int menu_id,
+            string menu_name,
+            string menu_form_name,
+            string menu_count,
+            string created_at,
+            string created_by,
+            string updated_at,
+            string updated_by,
             string mode);
 
 
@@ -406,13 +406,13 @@ namespace ULTRAMAVERICK.Models
             string pm_updated_by,
             string mode);
 
-            DataSet sp_Item_Type(int item_type_id,
-            string item_type_desc,
-            string it_added_by,
-            string it_added_at,
-            string it_updated_at,
-            string it_updated_by,
-            string mode);
+        DataSet sp_Item_Type(int item_type_id,
+        string item_type_desc,
+        string it_added_by,
+        string it_added_at,
+        string it_updated_at,
+        string it_updated_by,
+        string mode);
 
         DataSet sp_tblArea(int area_id,
         string area_name,
@@ -477,34 +477,34 @@ namespace ULTRAMAVERICK.Models
         float buffer_stock,
         string mode);
 
-            DataSet sp_projects(
-            int primaryid,
-            string projectid,
-            string actual_remaining_receiving,
-            string projectname,
-            string pr_number,
-            string pr_date,
-            string po_number,
-            string po_date,
-            string item_code,
-            string item_description,
-            string qty_order,
-            string qty_delivered,
-            string qty_billed,
-            string qty_uom,
-            string unit_price,
-            string supplier,
-            string item_class,
-            string item_type,
-            string major_category,
-            string sub_category,
-            string is_expirable,
-            string mode);
+        DataSet sp_projects(
+        int primaryid,
+        string projectid,
+        string actual_remaining_receiving,
+        string projectname,
+        string pr_number,
+        string pr_date,
+        string po_number,
+        string po_date,
+        string item_code,
+        string item_description,
+        string qty_order,
+        string qty_delivered,
+        string qty_billed,
+        string qty_uom,
+        string unit_price,
+        string supplier,
+        string item_class,
+        string item_type,
+        string major_category,
+        string sub_category,
+        string is_expirable,
+        string mode);
 
 
         DataSet sp_PrimaryUnitManagement(
         int id,
-        string  active_pu_primary_id,
+        string active_pu_primary_id,
         string active_pu_description,
         string active_pu_conversion,
         string item_primary_id,
@@ -520,14 +520,16 @@ namespace ULTRAMAVERICK.Models
 
 
         DataSet sp_Location(int location_id,
-string location_name,
-string created_at,
-string created_by,
-string updated_at,
-string updated_by,
-string mode);
+        string location_name,
+        string created_at,
+        string created_by,
+        string updated_at,
+        string updated_by,
+        string mode);
 
-        DataSet sp_available_menu_grandChild(int menu_id,
+
+
+        DataSet Sp_available_menu_grandChild(int menu_id,
       string menu_name,
       string menu_form_name,
       string parent_menu,
@@ -550,9 +552,9 @@ string mode);
 
         DataSet sp_user_rights(int user_rights_id, string user_rights_name, string mode);
 
-        DataSet sp_user_rights_details(int user_rights_details_id, 
-            int user_rights_id, 
-            int menu_id, 
+        DataSet sp_user_rights_details(int user_rights_details_id,
+            int user_rights_id,
+            int menu_id,
             string updated_at,
             string updated_by,
             string Tagging_Relationship,

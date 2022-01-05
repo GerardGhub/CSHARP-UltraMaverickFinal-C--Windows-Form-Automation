@@ -1000,7 +1000,7 @@ namespace COMPLETE_FLAT_UI
         private void tmFechaHora_Tick(object sender, EventArgs e)
         {
             lblDateFinal.Text = DateTime.Now.ToLongDateString();
-            lblTimeFinal.Text = DateTime.Now.ToString("HH:mm:ssss");
+            lblTimeFinal.Text = DateTime.Now.ToString("h:mm:ss");
         }
 
         private void toolStripModuleItemClass_Click_1(object sender, EventArgs e)

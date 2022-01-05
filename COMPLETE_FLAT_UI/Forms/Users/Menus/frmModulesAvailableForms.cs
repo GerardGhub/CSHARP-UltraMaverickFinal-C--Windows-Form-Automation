@@ -414,7 +414,7 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu_grandChild(0, txtgchild.Text, txtcountChildId.Text, "", "", "", "", "", "getbyname");
+                dSet = objStorProc.Sp_available_menu_grandChild(0, txtgchild.Text, txtcountChildId.Text, "", "", "", "", "", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -427,7 +427,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu_grandChild(0,
+                    dSet = objStorProc.Sp_available_menu_grandChild(0,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -448,11 +448,11 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu_grandChild(0,
+                dSet = objStorProc.Sp_available_menu_grandChild(0,
                     txtgchild.Text, "", "", "", "", "", "", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu_grandChild(p_id,
+                dSet_temp = objStorProc.Sp_available_menu_grandChild(p_id,
                     txtgchild.Text, "", "", "", "", "", "", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
@@ -461,7 +461,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_available_menu_grandChild(p_id,
+                        dSet = objStorProc.Sp_available_menu_grandChild(p_id,
                             txtgchild.Text.Trim(),
                             txtfname.Text.Trim(),
                             txtcountChildId.Text.Trim(),
@@ -484,7 +484,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu_grandChild(p_id,
+                    dSet = objStorProc.Sp_available_menu_grandChild(p_id,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -500,7 +500,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu_grandChild(p_id,
+                dSet_temp = objStorProc.Sp_available_menu_grandChild(p_id,
                     txtgchild.Text, "", "", "", "", "", "", "delete");
 
                 return true;
@@ -517,7 +517,7 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu_grandChild(0,
+                dSet = objStorProc.Sp_available_menu_grandChild(0,
                     txtgchild.Text.Trim(),
                     txtfname.Text.Trim(),
                     txtcountChildId.Text.Trim(),
@@ -528,31 +528,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
 
             displayGrandChildFormsData();
-            //matBtnNext_Click(new object(), new System.EventArgs());
-            //displayUserRightsData();
-            //displayGrandChildFormsData();
-
-
-
-
-            //if (saveMode())
-            //{
-            //    //displayGrandChildFormsData();
-            //    string tmode = mode;
-
-            //    if (tmode == "add")
-            //    {
-            //        dgvGrandChildForms.CurrentCell = dgvGrandChildForms[0, dgvGrandChildForms.Rows.Count - 1];
-            //    }
-            //    else
-            //    {
-            //        dgvGrandChildForms.CurrentCell = dgvGrandChildForms[0, temp_hid];
-            //    }
-            //    btnCancelTool_Click(sender, e);
-            //}
-            //else
-
-            //    return;
+       
 
         }
 
@@ -852,40 +828,37 @@ namespace ULTRAMAVERICK.Forms.Users
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = objStorProc.sp_available_menu_grandChild(0, txtgchild.Text, txtcountChildId.Text, "", "", "", "", "", "getbyname");
+            dSet = objStorProc.Sp_available_menu_grandChild(0, this.txtgchild.Text, 
+                this.txtcountChildId.Text, "", "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                GrandChildMenuAlreadyExist();
+                this.GrandChildMenuAlreadyExist();
 
-                txtgchild.Text = string.Empty;
-                txtgchild.Focus();
+                this.txtgchild.Text = string.Empty;
+                this.txtgchild.Focus();
                 return ;
             }
 
-            if (cboChildMenu.Text.Trim() == string.Empty)
+            if (this.cboChildMenu.Text.Trim() == string.Empty)
             {
-                FillRequiredFields();
-                cboChildMenu.Focus();
-
-
+                this.FillRequiredFields();
+                this.cboChildMenu.Focus();
                 return;
             }
 
 
-            if (txtgchild.Text.Trim() == string.Empty)
+            if (this.txtgchild.Text.Trim() == string.Empty)
             {
-                FillRequiredFields();
-                txtgchild.Focus();
-
-
+                this.FillRequiredFields();
+                this.txtgchild.Focus();
                 return;
             }
 
-            if (txtfname.Text.Trim() == string.Empty)
+            if (this.txtfname.Text.Trim() == string.Empty)
             {
-                FillRequiredFields();
-                txtfname.Focus();
+                this.FillRequiredFields();
+                this.txtfname.Focus();
                 return;
             }
 
@@ -906,7 +879,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu_grandChild(0,
+                    dSet = objStorProc.Sp_available_menu_grandChild(0,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -945,7 +918,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu_grandChild(p_id,
+                    dSet = objStorProc.Sp_available_menu_grandChild(p_id,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
