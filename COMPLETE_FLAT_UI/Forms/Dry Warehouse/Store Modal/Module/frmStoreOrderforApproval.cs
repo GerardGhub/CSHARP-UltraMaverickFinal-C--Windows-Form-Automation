@@ -330,8 +330,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     else if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
-
+                        dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "'  ";
+                        //dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
                     }
                     else if (myglobal.global_module == "VISITORS")
                     {
@@ -389,16 +389,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //this.LoadDataWithParamsOrders();
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            this.load_search();
+            //g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            //objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            //this.load_search();
         }
 
         private void cmbDateOrder_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            this.load_search();
+            //g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            //objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            //this.load_search();
         }
 
         private void lbltotaldata_TextChanged(object sender, EventArgs e)

@@ -80,7 +80,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 MessageBox.Show(ex.Message);
             }
             this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
-
+            this.dgvStoreOrderApproval.Columns["total_row"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["GRANDTOTAL_COL_QTY"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["COUNT_ORDER"].Visible = false;
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
@@ -503,14 +505,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 {
                     // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
-                    row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.Yellow;
-                    row.Cells["item_code_find"].Style.BackColor = Color.Yellow;
-                    row.Cells["store_name"].Style.BackColor = Color.Yellow;
-                    row.Cells["description_find"].Style.BackColor = Color.Yellow;
-                    row.Cells["uom"].Style.BackColor = Color.Yellow;
-                    row.Cells["qty"].Style.BackColor = Color.Yellow;
-                    row.Cells["date_ordered"].Style.BackColor = Color.Yellow;
-                    row.Cells["selected2"].Style.BackColor = Color.Yellow;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["item_code_find"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["store_name"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["description_find"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["uom"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["date_ordered"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["selected2"].Style.BackColor = Color.DarkOrange;
                 }
             }
 

@@ -38,7 +38,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             string Unit_Of_Measure,
             string Converted_Qty,
             string Preparation_Date,
-            string Qty_Served
+            string Qty_Served,
+            string Fox,
+            string Route,
+            string Area
             )
         {
             InitializeComponent();
@@ -51,7 +54,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             Sp_Converted_Qty = Converted_Qty;
             Sp_Preparation_Date = Preparation_Date;
             Sp_Qty_Served = Qty_Served;
+            sp_Fox = Fox;
+            sp_Route = Route;
+            sp_Area = Area;
         }
+
+        public string sp_Fox { get; set; }
+        public string sp_Route { get; set; }
+        public string sp_Area { get; set; }
 
         public string Sp_Qty_Served { get; set; }
         public string Sp_Preparation_Date { get; set; }
@@ -149,6 +159,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Sp_Preparation_Date = this.Sp_Preparation_Date;
             this.Sp_User_ID = userinfo.user_id;
             this.matTxtQtyRelease.Text = Sp_Qty_Served;
+            this.sp_Fox = sp_Fox;
+            this.sp_Route = sp_Route;
+            this.sp_Area = sp_Area;
         }
 
  
@@ -346,6 +359,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.mattxtQtyServe.Text,
             "", this.Sp_User_ID.ToString(),
             Convert.ToInt32(this.Sp_Material_Id),
+            this.sp_Fox , this.sp_Route, this.sp_Area,
             "add");
 
 
@@ -377,6 +391,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.mattxtQtyServe.Text,
                 "", this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
+                  this.sp_Fox, this.sp_Route, this.sp_Area,
                 "update_dry_orders");
 
                 if (ActualQuantityReleased == 0)
@@ -392,7 +407,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.mattxtQtyServe.Text,
                     "", this.Sp_User_ID.ToString(),
                     Convert.ToInt32(this.Sp_Material_Id),
+                    this.sp_Fox, this.sp_Route, this.sp_Area,
                     "bulk_produce_store_timestamp");
+
+
+                    //Bulk Update Start Whole Store Repository
+                    this.BulkSaveEntryIntoStoredProc();
                 }
             }
         
@@ -410,8 +430,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.mattxtQtyServe.Text,
                 "", this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
+                this.sp_Fox, this.sp_Route, this.sp_Area,
                 "start_dry_orders_store_timestamp");
-      
+                
+                //Bulk Update Start Whole Store Repository
+                this.BulkSaveEntryIntoStoredProc();
+
             }
 
 
@@ -421,6 +445,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         }
 
+        private void BulkSaveEntryIntoStoredProc()
+        {
+            //Bulk Update Start Whole Store Repository
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            this.Sp_Barcode_Id,
+            this.Sp_Preparation_Date,
+            this.mattxtItemCode.Text,
+            this.matTxtDescription.Text,
+            this.matTxtOrderQty.Text,
+            this.mattxtQtyServe.Text,
+            "", this.Sp_User_ID.ToString(),
+            Convert.ToInt32(this.Sp_Material_Id),
+            this.sp_Fox, this.sp_Route, this.sp_Area,
+            "start_dry_orders_store_timestamp_overall");
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;

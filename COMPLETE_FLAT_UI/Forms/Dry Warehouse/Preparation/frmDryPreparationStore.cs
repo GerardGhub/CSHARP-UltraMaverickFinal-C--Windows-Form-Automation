@@ -578,7 +578,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             //Start of Validating the Received If if exist on the system
             dSet.Clear();
             dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
-               "", "", "", "", "","","",0, "check_if_the_barcode_is_exist");
+               "", "", "", "", "","","",0,"","","", "check_if_the_barcode_is_exist");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -586,7 +586,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 //Start of Validating the Received If if exist on the system
                 dset2.Clear();
                 dset2 = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.sp_approved_preparation_date,
-                   this.sp_fox, "", "", "", "", "", "",0, "check_if_the_barcode_is_exist_information");
+                   this.sp_fox, "", "", "", "", "", "",0,"","","", "check_if_the_barcode_is_exist_information");
 
 
                 if (dset2.Tables[0].Rows.Count > 0)
@@ -614,34 +614,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.FindTheExactItemCode();
 
 
-                    ////FEFO Method Validation Entry
-                    //this.SearchMethodJarVarCallingSPReceivingIDFEFODB();
-                    ////xClass.fillDataGridView(this.gunaDgvReceivingFEFO, "searchorderForReceivingIDFEFOStore", dset3);
-                    //this.doSearchInTextBoxCmbReceivingIDFefo();
-
-                   // if (this.mattxtScanTheBarcode.Text.Trim() == this.Sp_Receiving_ID_RecommendedFefo)
-                   // {
-
-                   // }
-                   // else
-                   // {
-                   //     this.FeFoInformation();
-                   // }
-
-
-                   // //MessageBox.Show("A");
-
-                   //frmServeStorePreparation addNew = new frmServeStorePreparation(this, 
-                   //    this.sp_material_id,
-                   //    this.mattxtScanTheBarcode.Text,
-                   //    this.Sp_Material_Item_Description,
-                   //    this.Sp_Unit_Of_Measure,
-                   //    this.Sp_Converted_Qty,
-                   //    this.sp_approved_preparation_date,
-                   //     this.Sp_Qty_Serve
-                   //    );
-                   // addNew.ShowDialog();
-                   // this.mattxtScanTheBarcode.Text = String.Empty;
+            
 
 
                 }
@@ -700,7 +673,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.Sp_Unit_Of_Measure,
                     this.Sp_Converted_Qty,
                     this.sp_approved_preparation_date,
-                     this.Sp_Qty_Serve
+                     this.Sp_Qty_Serve,
+                     this.sp_fox,
+                     this.sp_route,
+                     this.sp_area
                     );
                 addNew.ShowDialog();
                 this.mattxtScanTheBarcode.Text = String.Empty;
