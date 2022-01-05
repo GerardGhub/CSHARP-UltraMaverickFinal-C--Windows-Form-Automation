@@ -61,6 +61,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_StockOnHand { get; set; }
         public string  sp_Allocated_Qty { get; set; }
 
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | 0x2000000;
+                return cp;
+            }
+        }
+
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
 
@@ -102,6 +113,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.matcmbCategory.Enabled = true;
                 this.load_search();
             }
+   
         }
 
         private void VisibilityFalseDataGrid()
@@ -228,29 +240,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
 
-        private void ConnectionInit()
-        {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            if (myClass.g_objStoredProc.getConnected() == true)
-            {
-                g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
-
-
-                this.Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
-
-
-                this.dgvStoreOrderApproval.Columns[0].Width = 50;// The id column
-                this.dgvStoreOrderApproval.Columns[3].Width = 150;// The id column
-
-            }
-            else
-            {
-                MessageBox.Show("Unable to connect in sql server", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-            }
-
-        }
 
 
         public void loadCategoryDropdown()
@@ -363,20 +352,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.load_search();
         }
 
-        private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            //this.LoadDataWithParamsOrders();
-            //g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            //objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            //this.load_search();
-        }
 
-        private void cmbDateOrder_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            //g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            //objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            //this.load_search();
-        }
+  
 
         private void lbltotaldata_TextChanged(object sender, EventArgs e)
         {
@@ -502,8 +479,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
             //this.mode = "start";
-            //this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
-            this.ReturnFunctionality();
+            this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
+            //this.ReturnFunctionality();
         }
 
         public void ApprovedSuccessfully()
@@ -568,7 +545,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.showRawMaterialforApproval();
             if (this.total_item_for_allocation == "0")
             {
-           
+                //Start Blocked
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    //MessageBox.Show("Pussy")
+                    this.ApproveFunctionality();
+                }
+                else
+                {
+
+                    return;
+                }
+
+
+                //End Blocked Peru
+
+
             }
             else
             {
@@ -576,15 +569,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 return;
             }
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                this.ApproveFunctionality();
-            }
-            else
-            {
-
-                return;
-            }
+        
         }
 
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)

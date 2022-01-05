@@ -469,7 +469,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mode = "Search2";
 
             this.load_search();
-
+            this.checkIfAlreadyPrepared();
         }
 
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
@@ -480,9 +480,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mode = "Search3";
 
             this.load_search();
+            this.checkIfAlreadyPrepared();
 
-        
-       
+
+
         }
 
         private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
@@ -492,6 +493,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mode = "Search4";
             this.ConnectionInit();
             this.load_search();
+            this.checkIfAlreadyPrepared();
         }
 
         private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
@@ -500,8 +502,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.loadDateOrderDropdown();
             this.load_search();
-      
-   
+            this.checkIfAlreadyPrepared();
+
+
         }
 
         private void dgvStoreOrderApproval_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -895,6 +898,93 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             this.frmAddNewStoreOrderApproved_Load(sender, e);
+        }
+
+
+        public void UnabledToCancelItemAlreadyPrepared()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Unable to modify item already prepared!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        private void checkIfAlreadyPrepared()
+        {
+            //Update Status Already Repack
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            "",
+            this.bunifuPrepaDate.Text,
+            "", "", "", "", "", "", 0,
+              this.matcmbCategory.Text, "", this.metroCmbStoreCode.Text,
+            "check_if_already_prepared");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.UnabledToCancelItemAlreadyPrepared();
+                this.dgvStoreOrderApproval.Enabled = false;
+            }
+            else
+            {
+                if(this.bunifuPrepaDate.Text == String.Empty)
+                {
+                    return;
+                }
+
+                if (this.matcmbCategory.Text == String.Empty)
+                {
+                    return;
+                }
+
+                if (this.metroCmbStoreCode.Text == String.Empty)
+                {
+                    return;
+                }
+
+                this.dgvStoreOrderApproval.Enabled = true;
+                //MessageBox.Show("B");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Update Status Already Repack
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            "",
+            this.bunifuPrepaDate.Text,
+            "","","","","","",0,
+              this.matcmbCategory.Text, "", this.metroCmbStoreCode.Text,
+            "check_if_already_prepared");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.UnabledToCancelItemAlreadyPrepared();
+            }
+            else
+            {
+                //MessageBox.Show("B");
+            }
         }
     }
 }

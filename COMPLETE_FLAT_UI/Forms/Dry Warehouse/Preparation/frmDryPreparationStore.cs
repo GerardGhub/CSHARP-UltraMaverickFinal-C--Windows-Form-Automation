@@ -67,12 +67,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.dset.Clear();
+            this.LoadWindowsExecution();
+            //this.dset = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation");
+            //DataView dv = new DataView(this.dset.Tables[0]);
+            this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
+            this.FormmLoadSearchState();
 
-            this.dset = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation");
-            DataView dv = new DataView(this.dset.Tables[0]);
 
-            this.dgvStoreOrderApproval.DataSource = dv;
-            this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
+            //this.dgvStoreOrderApproval.DataSource = dv;
+            //this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
 
             if (this.lbltotalStoreforPreparation.Text == "0")
             {
@@ -86,10 +89,58 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
 
             }
-            this.LoadWindowsExecution();
+
             this.loadCategoryDropdown();
             this.LoadStateVisibility();
+            //MessageBox.Show("" + this.Sp_AssigneD_Task_By);
         }
+
+        DataSet dset_emp_SearchEnginesPreparationPerStaff = new DataSet();
+        private void SearchMethodJarVarCallingSPPreparationPerStaffMigration()
+        {
+
+            this.dset_emp_SearchEnginesPreparationPerStaff.Clear();
+            this.dset_emp_SearchEnginesPreparationPerStaff = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation");
+
+        }
+
+        private void FormmLoadSearchState()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEnginesPreparationPerStaff.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEnginesPreparationPerStaff.Tables[0]);
+                 
+
+                        dv.RowFilter = "start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0'    ";
+
+
+
+                    this.dgvStoreOrderApproval.DataSource = dv;
+                    this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
 
         private void LoadStateVisibility()
         {
@@ -313,21 +364,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.textBox1.Text = String.Empty;
 
             //Validation Who Start The Preparation
-            if(this.Sp_AssigneD_Task_By == Convert.ToInt32(this.Sp_Start_By))
-            {
-                this.mattxtScanTheBarcode.Enabled = true;
-                this.mattxtScanTheBarcode.Focus();
-            }
-            else if(this.Sp_Start_By == "0")
-            {
-                this.mattxtScanTheBarcode.Enabled = true;
-                this.mattxtScanTheBarcode.Focus();
-            }
-            else
-            {
-                this.PreparationAlreadyStartBy();
-                this.mattxtScanTheBarcode.Enabled = false;
-            }
+            //if(this.Sp_AssigneD_Task_By == Convert.ToInt32(this.Sp_Start_By))
+            //{
+            //    this.mattxtScanTheBarcode.Enabled = true;
+            //    this.mattxtScanTheBarcode.Focus();
+            //}
+            //else if(this.Sp_Start_By == "0")
+            //{
+            //    this.mattxtScanTheBarcode.Enabled = true;
+            //    this.mattxtScanTheBarcode.Focus();
+            //}
+            //else
+            //{
+            //    this.PreparationAlreadyStartBy();
+            //    this.mattxtScanTheBarcode.Enabled = false;
+            //}
         }
 
         private void MaterialDatagridColumnVisibilittyFalse()
@@ -695,7 +746,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 else
                 {
 
-                        MessageBox.Show("You are in the Last Line");
+                        //MessageBox.Show("You are in the Last Line");
 
                     //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                     //timer1_Tick(sender, e);
