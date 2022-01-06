@@ -287,7 +287,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtnewusertype.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtnewusertype.Depth = 0;
             this.txtnewusertype.Enabled = false;
-            this.txtnewusertype.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnewusertype.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtnewusertype.Hint = "Description";
             this.txtnewusertype.Location = new System.Drawing.Point(25, 30);
             this.txtnewusertype.MaxLength = 50;
@@ -297,6 +297,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtnewusertype.Size = new System.Drawing.Size(878, 50);
             this.txtnewusertype.TabIndex = 570;
             this.txtnewusertype.Text = "";
+            this.txtnewusertype.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnewusertype_KeyPress);
             // 
             // materialCard1
             // 

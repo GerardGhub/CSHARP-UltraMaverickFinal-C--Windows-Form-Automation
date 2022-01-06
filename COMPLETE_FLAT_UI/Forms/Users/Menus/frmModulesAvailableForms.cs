@@ -47,18 +47,15 @@ namespace ULTRAMAVERICK.Forms.Users
         public string sp_created_by { get; set; }
         public string sp_modified_at { get; set; }
         public string sp_modified_by { get; set; }
+        public string Sp_RightsID { get; set; }
 
         private void frmGrandChildAvailableForms_Load(object sender, EventArgs e)
         {
-
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            displayGrandChildFormsData();
-
-            loadChildMenu();
-            displayUserRightsData();
-
-          
+            this.displayGrandChildFormsData();
+            this.loadChildMenu();
+            this.displayUserRightsData();  
         }
 
     
@@ -88,24 +85,18 @@ namespace ULTRAMAVERICK.Forms.Users
             if (dset_emp.Tables.Count > 0)
             {
                 DataView dv = new DataView(dset_emp.Tables[0]);
-
-
                 dv.RowFilter = "search = '" + txtcountChildId.Text + "' and menu_name like '%"+mattxtSearch.Text+ "%' ";
-
-
-
-                dgvGrandChildForms.DataSource = dv;
-                lbltotalrecords.Text = dgvGrandChildForms.RowCount.ToString();
+                this.dgvGrandChildForms.DataSource = dv;
+                this.lbltotalrecords.Text = dgvGrandChildForms.RowCount.ToString();
             }
         }
 
         public void loadChildMenu()
         {
-            ready = false;
-            myClass.fillComboBoxDepartment(cboChildMenu, "childform_dropdown", dSet);
-            ready = true;
-
-            txtcountChildId.Text = cboChildMenu.SelectedValue.ToString();
+            this.ready = false;
+            myClass.fillComboBoxDepartment(this.cboChildMenu, "childform_dropdown", dSet);
+            this.ready = true;
+            this.txtcountChildId.Text = this.cboChildMenu.SelectedValue.ToString();
         }
 
         private void displayGrandChildFormsData()      //method for loading available_menus
@@ -135,34 +126,32 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btn_visible(Boolean val)
         {
-            btnAddTool.Visible = val;
-            btnEditTool.Visible = val;
-            btnDeleteTool.Visible = val;
-
-
-            btnUpdateTool.Visible = !val;
-            btnCancelTool.Visible = !val;
+            this.btnAddTool.Visible = val;
+            this.btnEditTool.Visible = val;
+            this.btnDeleteTool.Visible = val;
+            this.btnUpdateTool.Visible = !val;
+            this.btnCancelTool.Visible = !val;
         }
 
 
         private void txt_read_only(Boolean val)
         {
-            txtfname.ReadOnly = val;
-            txtgchild.ReadOnly = val;
-            txtcountChildId.ReadOnly = val;
+            this.txtfname.ReadOnly = val;
+            this.txtgchild.ReadOnly = val;
+            this.txtcountChildId.ReadOnly = val;
 
             if (val == false)
             {
-                if (mode == "add")
+                if (this.mode == "add")
                 {
-                    txtgchild.Text = "";
-                    txtfname.Text = "";
-                    txtcountChildId.Text = "";
-                    txtgchild.Focus();
+                    this.txtgchild.Text = "";
+                    this.txtfname.Text = "";
+                    this.txtcountChildId.Text = "";
+                    this.txtgchild.Focus();
                 }
                 else
                 {
-                    txtgchild.Focus();
+                    this.txtgchild.Focus();
                 }
             }
 
@@ -736,14 +725,14 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dgvUserRights_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (dgvUserRights.Rows.Count > 0)
+            if (this.dgvUserRights.Rows.Count > 0)
             {
-                if (dgvUserRights.CurrentRow != null)
+                if (this.dgvUserRights.CurrentRow != null)
                 {
-                    if (dgvUserRights.CurrentRow.Cells["user_rights_name"].Value != null)
+                    if (this.dgvUserRights.CurrentRow.Cells["user_rights_name"].Value != null)
                     {
                         //p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
-                        txtRightsID.Text = dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
+                        this.Sp_RightsID = this.dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
 
                     }
                 }
@@ -754,7 +743,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
-                Convert.ToInt32(txtRightsID.Text),
+                Convert.ToInt32(this.Sp_RightsID),
                 "s",
                 "s",
                "s",
@@ -1014,6 +1003,26 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 
             
+        }
+
+        private void txtfname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void txtgchild_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void dgvGrandChildForms_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check the value of the e.ColumnIndex property if you want to apply this formatting only so some rcolumns.
+            if (e.Value != null)
+            {
+                e.Value = e.Value.ToString().ToUpper();
+                e.FormattingApplied = true;
+            }
         }
     }
 }

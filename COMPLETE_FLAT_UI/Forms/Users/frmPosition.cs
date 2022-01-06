@@ -803,5 +803,10 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             metroButtonSave_Click(sender, e);
         }
+
+        private void txtname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

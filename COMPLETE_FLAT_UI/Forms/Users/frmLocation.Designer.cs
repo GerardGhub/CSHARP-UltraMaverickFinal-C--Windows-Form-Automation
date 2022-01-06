@@ -40,6 +40,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvLocation = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.location_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.location_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
@@ -50,12 +56,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
-            this.location_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.location_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).BeginInit();
@@ -97,6 +97,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtmatLocation.Size = new System.Drawing.Size(973, 50);
             this.txtmatLocation.TabIndex = 0;
             this.txtmatLocation.Text = "";
+            this.txtmatLocation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatLocation_KeyPress);
             // 
             // metroSave
             // 
@@ -220,7 +221,61 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvLocation.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvLocation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLocation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemType_CellContentClick);
+            this.dgvLocation.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLocation_CellFormatting);
             this.dgvLocation.CurrentCellChanged += new System.EventHandler(this.dgvLocation_CurrentCellChanged);
+            // 
+            // location_id
+            // 
+            this.location_id.DataPropertyName = "location_id";
+            this.location_id.FillWeight = 40.60914F;
+            this.location_id.HeaderText = "ID";
+            this.location_id.MinimumWidth = 12;
+            this.location_id.Name = "location_id";
+            this.location_id.ReadOnly = true;
+            // 
+            // location_name
+            // 
+            this.location_name.DataPropertyName = "location_name";
+            this.location_name.FillWeight = 99.49239F;
+            this.location_name.HeaderText = "ITEM CLASS";
+            this.location_name.MinimumWidth = 12;
+            this.location_name.Name = "location_name";
+            this.location_name.ReadOnly = true;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.FillWeight = 99.49239F;
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.FillWeight = 99.49239F;
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.FillWeight = 99.49239F;
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
             // 
             // lbltotalrecords
             // 
@@ -342,59 +397,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             this.matBtnCancel.Click += new System.EventHandler(this.cancells_Click);
-            // 
-            // location_id
-            // 
-            this.location_id.DataPropertyName = "location_id";
-            this.location_id.FillWeight = 40.60914F;
-            this.location_id.HeaderText = "ID";
-            this.location_id.MinimumWidth = 12;
-            this.location_id.Name = "location_id";
-            this.location_id.ReadOnly = true;
-            // 
-            // location_name
-            // 
-            this.location_name.DataPropertyName = "location_name";
-            this.location_name.FillWeight = 99.49239F;
-            this.location_name.HeaderText = "ITEM CLASS";
-            this.location_name.MinimumWidth = 12;
-            this.location_name.Name = "location_name";
-            this.location_name.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.FillWeight = 99.49239F;
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.FillWeight = 99.49239F;
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.FillWeight = 99.49239F;
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
             // 
             // frmLocation
             // 

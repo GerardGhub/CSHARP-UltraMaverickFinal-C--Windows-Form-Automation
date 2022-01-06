@@ -42,6 +42,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
         public string sp_user_rights_id { get; set; }
         public string sp_created_at { get; set; }
+        public string Sp_CreatedByAndUserID { get; set; }
+        public string Sp_modified_at { get; set; }
         private void frmParentAvailableForms_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -100,7 +102,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
            sp_created_at = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            this.Sp_CreatedByAndUserID = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
             matBtnEDit.Visible = false;
             cboDepartmentMaterial.Enabled = true;
@@ -203,7 +205,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         //getAllParentMenu();
                         if (lstParentMenu.Items.Count > 0)
                         {
-                            int index = lstParentMenu.FindString(txtModifiedAt.Text, 0);
+                            int index = lstParentMenu.FindString(this.Sp_modified_at, 0);
                             if (index == -1) { index = 0; }
                             lstParentMenu.SelectedIndex = index;
                         }
@@ -281,9 +283,9 @@ namespace ULTRAMAVERICK.Forms.Users
                     txtMaterialMenu.Text.Trim(),
                         sp_created_at,
                     txtCreatedBy.Text.Trim(),
-                    txtModifiedAt.Text.Trim(),
+                    this.Sp_modified_at,
                     txtModifiedBy.Text.Trim(),
-                    txtCreatedByAndUserID.Text.Trim(),
+                    this.Sp_CreatedByAndUserID,
                     sp_department_id,
                     "add");
 
@@ -299,7 +301,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 dSet.Clear();
                 dSet = g_objStoredProcCollection.sp_ParentForms(temp_id,
                     txtMaterialMenu.Text.Trim(), "",
-                    txtCreatedByAndUserID.Text.Trim(), "", "", "", "", "getbyname");
+                    this.Sp_CreatedByAndUserID, "", "", "", "", "getbyname");
 
                 dSet_temp.Clear();
                 dSet_temp = g_objStoredProcCollection.sp_ParentForms(temp_id, txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "getbyid");
@@ -312,12 +314,12 @@ namespace ULTRAMAVERICK.Forms.Users
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_ParentForms(temp_id,
                             txtMaterialMenu.Text.Trim(),
-                                 sp_created_at,
-                            txtCreatedBy.Text.Trim(),                      
-                            txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(),
-                            txtCreatedByAndUserID.Text.Trim(),
-                            sp_department_id,
+                                 this.sp_created_at,
+                            this.txtCreatedBy.Text.Trim(),                      
+                            this.Sp_modified_at,
+                            this.txtModifiedBy.Text.Trim(),
+                            this.Sp_CreatedByAndUserID,
+                            this.sp_department_id,
                             "edit");
 
                         return true;
@@ -333,13 +335,13 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_ParentForms(temp_id,
-                        txtMaterialMenu.Text.Trim(),
-                            sp_created_at,
-                        txtCreatedBy.Text.Trim(),
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(),
-                        txtCreatedByAndUserID.Text.Trim(),
-                       sp_department_id,
+                        this.txtMaterialMenu.Text.Trim(),
+                            this.sp_created_at,
+                        this.txtCreatedBy.Text.Trim(),
+                        this.Sp_modified_at,
+                        this.txtModifiedBy.Text.Trim(),
+                        this.Sp_CreatedByAndUserID,
+                       this.sp_department_id,
                         "edit");
 
                     return true;
@@ -463,22 +465,17 @@ namespace ULTRAMAVERICK.Forms.Users
 
             if (lstParentMenu.Items.Count > 0)
             {
-                mode = "edit";
-                txtMaterialMenu.Enabled = true;
-                txtMaterialMenu.ReadOnly = false;
-
-
-
-
-
-                matBtnEDit.Visible = false;
-                materialBtnNew.Visible = false;
-               matBtnCancel.Visible = true;
-                matBtnDelete.Visible = false;
-                matBtnSave.Visible = true;
-                cboDepartmentMaterial.Enabled = true;
-                txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-                txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+                this.mode = "edit";
+                this.txtMaterialMenu.Enabled = true;
+                this.txtMaterialMenu.ReadOnly = false;
+                this.matBtnEDit.Visible = false;
+                this.materialBtnNew.Visible = false;
+                this.matBtnCancel.Visible = true;
+                this.matBtnDelete.Visible = false;
+                this.matBtnSave.Visible = true;
+                this.cboDepartmentMaterial.Enabled = true;
+                this.Sp_modified_at = (dNow.ToString("M/d/yyyy"));
+                this.txtModifiedBy.Text = userinfo.emp_name.ToUpper();
             }
         }
 
@@ -557,31 +554,22 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void dgv_table_CurrentCellChanged(object sender, EventArgs e)
         {
-            showParentMenuDetails();
+            this.showParentMenuDetails();
         }
         private void showParentMenuDetails()
         {
-            if (dgv_table.RowCount > 0)
+            if (this.dgv_table.RowCount > 0)
             {
-                if (dgv_table.CurrentRow != null)
+                if (this.dgv_table.CurrentRow != null)
                 {
-                    if (dgv_table.CurrentRow.Cells["parent_form_name"].Value != null)
+                    if (this.dgv_table.CurrentRow.Cells["parent_form_name"].Value != null)
                     {
-
-
-                        txtMaterialMenu.Text = dgv_table.CurrentRow.Cells["parent_form_name"].Value.ToString();
-                
-                        txtCreatedBy.Text = dgv_table.CurrentRow.Cells["created_by"].Value.ToString();
-                        sp_created_at = dgv_table.CurrentRow.Cells["created_at"].Value.ToString();
-
-
-                        txtMaterialDepartment.Text = dgv_table.CurrentRow.Cells["department"].Value.ToString();
-                        txtModifiedBy.Text = dgv_table.CurrentRow.Cells["updated_by"].Value.ToString();
-
-                        txtModifiedAt.Text = dgv_table.CurrentRow.Cells["updated_at"].Value.ToString();
-
-
-
+                        this.txtMaterialMenu.Text = dgv_table.CurrentRow.Cells["parent_form_name"].Value.ToString();                
+                        this.txtCreatedBy.Text = dgv_table.CurrentRow.Cells["created_by"].Value.ToString();
+                        this.sp_created_at = dgv_table.CurrentRow.Cells["created_at"].Value.ToString();
+                        this.txtMaterialDepartment.Text = dgv_table.CurrentRow.Cells["department"].Value.ToString();
+                        this.txtModifiedBy.Text = dgv_table.CurrentRow.Cells["updated_by"].Value.ToString();
+                        this.Sp_modified_at = dgv_table.CurrentRow.Cells["updated_at"].Value.ToString();
                     }
 
                 }
@@ -674,7 +662,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             sp_created_at = (dNow.ToString("M/d/yyyy"));
             txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            this.Sp_CreatedByAndUserID = userinfo.user_id.ToString();
             matBtnSave.Visible = true;
             matBtnEDit.Visible = false;
             cboDepartmentMaterial.Enabled = true;
@@ -824,27 +812,27 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnAddTool_Click_1(object sender, EventArgs e)
         {
-            mode = "add";
-            cboDepartmentMaterial.Visible = true;
-            txtMaterialDepartment.Visible = false;
-            matBtnDelete.Visible = false;
-            materialBtnNew.Visible = false;
+            this.mode = "add";
+            this.cboDepartmentMaterial.Visible = true;
+            this.txtMaterialDepartment.Visible = false;
+            this.matBtnDelete.Visible = false;
+            this.materialBtnNew.Visible = false;
 
-            lstParentMenu.Enabled = false;
+            this.lstParentMenu.Enabled = false;
 
-            txtMaterialMenu.Enabled = true;
-            txtMaterialMenu.Text = string.Empty;
-            matBtnCancel.Visible = true;
+            this.txtMaterialMenu.Enabled = true;
+            this.txtMaterialMenu.Text = string.Empty;
+            this.matBtnCancel.Visible = true;
 
 
-            sp_created_at = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            matBtnSave.Visible = true;
-            matBtnEDit.Visible = false;
-            cboDepartmentMaterial.Enabled = true;
-            loadDepartment();
-            txtMaterialMenu.Focus();
+            this.sp_created_at = (dNow.ToString("M/d/yyyy"));
+            this.txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            this.Sp_CreatedByAndUserID = userinfo.user_id.ToString();
+            this.matBtnSave.Visible = true;
+            this.matBtnEDit.Visible = false;
+            this.cboDepartmentMaterial.Enabled = true;
+            this.loadDepartment();
+            this.txtMaterialMenu.Focus();
         }
 
         private void btnCancelTool_Click_1(object sender, EventArgs e)
@@ -889,27 +877,27 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnEditTool_Click(object sender, EventArgs e)
         {
             
-                lstParentMenu.Enabled = false;
+                this.lstParentMenu.Enabled = false;
 
-                if (lstParentMenu.Items.Count > 0)
+                if (this.lstParentMenu.Items.Count > 0)
                 {
-                    mode = "edit";
-                    txtMaterialMenu.Enabled = true;
-                    txtMaterialMenu.ReadOnly = false;
-
-
-
-
-
-                    matBtnEDit.Visible = false;
-                    materialBtnNew.Visible = false;
-                    matBtnCancel.Visible = true;
-                    matBtnDelete.Visible = false;
-                    matBtnSave.Visible = true;
-                    cboDepartmentMaterial.Enabled = true;
-                    txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-                    txtModifiedBy.Text = userinfo.emp_name.ToUpper();
+                    this.mode = "edit";
+                    this.txtMaterialMenu.Enabled = true;
+                    this.txtMaterialMenu.ReadOnly = false;
+                    this.matBtnEDit.Visible = false;
+                    this.materialBtnNew.Visible = false;
+                    this.matBtnCancel.Visible = true;
+                    this.matBtnDelete.Visible = false;
+                    this.matBtnSave.Visible = true;
+                    this.cboDepartmentMaterial.Enabled = true;
+                    this.Sp_modified_at = (dNow.ToString("M/d/yyyy"));
+                    this.txtModifiedBy.Text = userinfo.emp_name.ToUpper();
                 }
             }
+
+        private void txtMaterialMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }
