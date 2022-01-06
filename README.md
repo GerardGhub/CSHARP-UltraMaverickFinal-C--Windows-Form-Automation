@@ -1,1 +1,15 @@
-NEW LAPTOIP MIGRATION Is the Active Brand for Development
+import React from 'react';
+
+
+export default function UltraMaverickWindowsApplication ()
+{
+return(
+
+<{[NEW LAPTOP MIGRATION]} Is the Active Branch for Development />
+
+}
+
+
+}
+
+
