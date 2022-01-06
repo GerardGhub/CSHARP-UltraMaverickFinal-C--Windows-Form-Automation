@@ -661,5 +661,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             //}
             doSearchInTextBox();
         }
+
+        private void txtmatItemType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

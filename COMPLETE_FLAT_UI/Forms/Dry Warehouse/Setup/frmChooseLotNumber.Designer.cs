@@ -37,16 +37,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtLotnumber = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.dgvLotData = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.matbtnSelect = new MaterialSkin.Controls.MaterialButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lot_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.matbtnSelect = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLotData)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -186,6 +186,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.dgvLotData_CurrentCellChanged);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 12;
+            // 
+            // lot_number
+            // 
+            this.lot_number.DataPropertyName = "lot_number";
+            this.lot_number.FillWeight = 99.49239F;
+            this.lot_number.HeaderText = "LOT NO.";
+            this.lot_number.MinimumWidth = 12;
+            this.lot_number.Name = "lot_number";
+            this.lot_number.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.FillWeight = 99.49239F;
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 12;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.FillWeight = 99.49239F;
+            this.category.HeaderText = "CATEGORY";
+            this.category.MinimumWidth = 12;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.FillWeight = 99.49239F;
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.MinimumWidth = 12;
+            this.added_by.Name = "added_by";
+            this.added_by.ReadOnly = true;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 12;
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            // 
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -244,61 +299,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matbtnSelect.UseAccentColor = false;
             this.matbtnSelect.UseVisualStyleBackColor = true;
             this.matbtnSelect.Click += new System.EventHandler(this.matbtnSelect_Click);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 12;
-            // 
-            // lot_number
-            // 
-            this.lot_number.DataPropertyName = "lot_number";
-            this.lot_number.FillWeight = 99.49239F;
-            this.lot_number.HeaderText = "LOT NO.";
-            this.lot_number.MinimumWidth = 12;
-            this.lot_number.Name = "lot_number";
-            this.lot_number.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.FillWeight = 99.49239F;
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 12;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.FillWeight = 99.49239F;
-            this.category.HeaderText = "CATEGORY";
-            this.category.MinimumWidth = 12;
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.FillWeight = 99.49239F;
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.MinimumWidth = 12;
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 12;
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
             // 
             // frmChooseLotNumber
             // 

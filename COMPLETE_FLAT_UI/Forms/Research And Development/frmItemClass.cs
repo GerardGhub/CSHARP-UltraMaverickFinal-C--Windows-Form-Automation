@@ -861,5 +861,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
+
+        private void txtmatItemClass_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

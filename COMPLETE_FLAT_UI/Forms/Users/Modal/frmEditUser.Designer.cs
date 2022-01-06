@@ -194,6 +194,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.Size = new System.Drawing.Size(163, 50);
             this.txtpassword.TabIndex = 564;
             this.txtpassword.Text = "";
+            this.txtpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpassword_KeyPress);
             // 
             // txtuser
             // 
@@ -211,6 +212,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtuser.Size = new System.Drawing.Size(183, 50);
             this.txtuser.TabIndex = 563;
             this.txtuser.Text = "";
+            this.txtuser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtuser_KeyPress);
             // 
             // label13
             // 

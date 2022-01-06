@@ -454,12 +454,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
                 e.KeyChar -= (char)32;
+
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
 
         private void txtMatItemDesc_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
                 e.KeyChar -= (char)32;
+
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
 
         private void cboItemClass_SelectedValueChanged(object sender, EventArgs e)

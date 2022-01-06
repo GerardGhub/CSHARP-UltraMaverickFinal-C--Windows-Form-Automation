@@ -204,7 +204,6 @@
             this.PanelHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelHeader.Controls.Add(this.btnMaximizedFinal);
             this.PanelHeader.Controls.Add(this.btnMinimizeFinal);
-            this.PanelHeader.Controls.Add(this.txtMatSideBarColor);
             this.PanelHeader.Controls.Add(this.btnNotificationsBell);
             this.PanelHeader.Controls.Add(this.btnMenu);
             this.PanelHeader.Controls.Add(this.btnCloseFinal);
@@ -261,12 +260,12 @@
             this.txtMatSideBarColor.Depth = 0;
             this.txtMatSideBarColor.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatSideBarColor.Hint = "SideBar Color";
-            this.txtMatSideBarColor.Location = new System.Drawing.Point(524, 12);
+            this.txtMatSideBarColor.Location = new System.Drawing.Point(265, 85);
             this.txtMatSideBarColor.MaxLength = 50;
             this.txtMatSideBarColor.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatSideBarColor.Multiline = false;
             this.txtMatSideBarColor.Name = "txtMatSideBarColor";
-            this.txtMatSideBarColor.Size = new System.Drawing.Size(96, 50);
+            this.txtMatSideBarColor.Size = new System.Drawing.Size(74, 50);
             this.txtMatSideBarColor.TabIndex = 12;
             this.txtMatSideBarColor.Text = "";
             this.txtMatSideBarColor.Visible = false;
@@ -1351,6 +1350,7 @@
             // 
             this.panelContenedorForm.BackColor = System.Drawing.SystemColors.Window;
             this.panelContenedorForm.Controls.Add(this.dgvParseData);
+            this.panelContenedorForm.Controls.Add(this.txtMatSideBarColor);
             this.panelContenedorForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedorForm.Location = new System.Drawing.Point(185, 44);
             this.panelContenedorForm.Name = "panelContenedorForm";

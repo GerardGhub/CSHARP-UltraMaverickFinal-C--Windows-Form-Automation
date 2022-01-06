@@ -314,6 +314,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtdepartment.Size = new System.Drawing.Size(878, 50);
             this.txtdepartment.TabIndex = 0;
             this.txtdepartment.Text = "";
+            this.txtdepartment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdepartment_KeyPress);
             // 
             // cboLocation
             // 

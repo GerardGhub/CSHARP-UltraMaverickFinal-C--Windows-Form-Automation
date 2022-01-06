@@ -262,5 +262,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
          
             
         }
+
+        private void matdescription_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

@@ -132,7 +132,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(75, 44);
+            this.matBtnSave.Size = new System.Drawing.Size(75, 33);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             // 
@@ -141,7 +141,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(87, 44);
+            this.matBtnCancel.Size = new System.Drawing.Size(87, 33);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             // 
@@ -253,6 +253,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.ThemeStyle.RowsStyle.Height = 40;
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvLotData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLotData_CellFormatting);
             this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.dgvLotData_CurrentCellChanged);
             // 
             // id

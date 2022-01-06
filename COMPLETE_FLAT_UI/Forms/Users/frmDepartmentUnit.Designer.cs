@@ -50,6 +50,13 @@ namespace ULTRAMAVERICK.Forms.Users
             this.cbodepartment = new MetroFramework.Controls.MetroComboBox();
             this.txtsection = new MaterialSkin.Controls.MaterialTextBox();
             this.dgvUnits = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.unit_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -61,13 +68,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.unit_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnits)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -283,6 +283,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtsection.TabIndex = 0;
             this.txtsection.Text = "";
             this.txtsection.TextChanged += new System.EventHandler(this.txtsection_TextChanged);
+            this.txtsection.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsection_KeyPress);
             // 
             // dgvUnits
             // 
@@ -364,7 +365,70 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUnits.ThemeStyle.RowsStyle.Height = 40;
             this.dgvUnits.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvUnits.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUnits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUnits_CellFormatting);
             this.dgvUnits.CurrentCellChanged += new System.EventHandler(this.dgvUnits_CurrentCellChanged_1);
+            // 
+            // unit_id
+            // 
+            this.unit_id.DataPropertyName = "unit_id";
+            this.unit_id.FillWeight = 40.60914F;
+            this.unit_id.HeaderText = "ID";
+            this.unit_id.MinimumWidth = 12;
+            this.unit_id.Name = "unit_id";
+            this.unit_id.ReadOnly = true;
+            // 
+            // unit_description
+            // 
+            this.unit_description.DataPropertyName = "unit_description";
+            this.unit_description.HeaderText = "UNIT";
+            this.unit_description.MinimumWidth = 12;
+            this.unit_description.Name = "unit_description";
+            this.unit_description.ReadOnly = true;
+            // 
+            // department
+            // 
+            this.department.DataPropertyName = "department";
+            this.department.FillWeight = 99.49239F;
+            this.department.HeaderText = "DEPARTMENT";
+            this.department.MinimumWidth = 12;
+            this.department.Name = "department";
+            this.department.ReadOnly = true;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.FillWeight = 99.49239F;
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.FillWeight = 99.49239F;
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.FillWeight = 99.49239F;
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.FillWeight = 99.49239F;
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
             // 
             // materialCard2
             // 
@@ -502,68 +566,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.mattxtSearch.TabIndex = 568;
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
-            // 
-            // unit_id
-            // 
-            this.unit_id.DataPropertyName = "unit_id";
-            this.unit_id.FillWeight = 40.60914F;
-            this.unit_id.HeaderText = "ID";
-            this.unit_id.MinimumWidth = 12;
-            this.unit_id.Name = "unit_id";
-            this.unit_id.ReadOnly = true;
-            // 
-            // unit_description
-            // 
-            this.unit_description.DataPropertyName = "unit_description";
-            this.unit_description.HeaderText = "UNIT";
-            this.unit_description.MinimumWidth = 12;
-            this.unit_description.Name = "unit_description";
-            this.unit_description.ReadOnly = true;
-            // 
-            // department
-            // 
-            this.department.DataPropertyName = "department";
-            this.department.FillWeight = 99.49239F;
-            this.department.HeaderText = "DEPARTMENT";
-            this.department.MinimumWidth = 12;
-            this.department.Name = "department";
-            this.department.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.FillWeight = 99.49239F;
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.FillWeight = 99.49239F;
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.FillWeight = 99.49239F;
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.FillWeight = 99.49239F;
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
             // 
             // frmDepartmentUnit
             // 

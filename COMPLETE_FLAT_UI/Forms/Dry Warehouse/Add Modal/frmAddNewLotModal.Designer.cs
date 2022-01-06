@@ -89,7 +89,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboMajorCategory.FormattingEnabled = true;
             this.cboMajorCategory.ItemHeight = 23;
             this.cboMajorCategory.Location = new System.Drawing.Point(446, 111);
-            this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1);
             this.cboMajorCategory.Name = "cboMajorCategory";
             this.cboMajorCategory.PromptText = "Major Category";
             this.cboMajorCategory.Size = new System.Drawing.Size(205, 29);
@@ -104,7 +104,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matdescription.Font = new System.Drawing.Font("Roboto", 12F);
             this.matdescription.Hint = "Lot Description";
             this.matdescription.Location = new System.Drawing.Point(444, 30);
-            this.matdescription.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.matdescription.Margin = new System.Windows.Forms.Padding(1);
             this.matdescription.MaxLength = 50;
             this.matdescription.MouseState = MaterialSkin.MouseState.OUT;
             this.matdescription.Multiline = false;
@@ -112,6 +112,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matdescription.Size = new System.Drawing.Size(205, 50);
             this.matdescription.TabIndex = 1;
             this.matdescription.Text = "";
+            this.matdescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matdescription_KeyPress);
             // 
             // matlotnumber
             // 
@@ -120,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matlotnumber.Font = new System.Drawing.Font("Roboto", 12F);
             this.matlotnumber.Hint = "Lot  Number";
             this.matlotnumber.Location = new System.Drawing.Point(214, 30);
-            this.matlotnumber.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.matlotnumber.Margin = new System.Windows.Forms.Padding(1);
             this.matlotnumber.MaxLength = 50;
             this.matlotnumber.MouseState = MaterialSkin.MouseState.OUT;
             this.matlotnumber.Multiline = false;
@@ -138,7 +139,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.DrawShadows = true;
             this.matBtnSave.HighEmphasis = true;
             this.matBtnSave.Icon = null;
-            this.matBtnSave.Location = new System.Drawing.Point(531, 207);
+            this.matBtnSave.Location = new System.Drawing.Point(593, 205);
             this.matBtnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSave.Name = "matBtnSave";
@@ -239,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matcreatedby.Font = new System.Drawing.Font("Roboto", 12F);
             this.matcreatedby.Hint = "Added By";
             this.matcreatedby.Location = new System.Drawing.Point(445, 191);
-            this.matcreatedby.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.matcreatedby.Margin = new System.Windows.Forms.Padding(1);
             this.matcreatedby.MaxLength = 50;
             this.matcreatedby.MouseState = MaterialSkin.MouseState.OUT;
             this.matcreatedby.Multiline = false;
@@ -256,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattotalsku.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattotalsku.Hint = "Total SKU";
             this.mattotalsku.Location = new System.Drawing.Point(214, 99);
-            this.mattotalsku.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.mattotalsku.Margin = new System.Windows.Forms.Padding(1);
             this.mattotalsku.MaxLength = 50;
             this.mattotalsku.MouseState = MaterialSkin.MouseState.OUT;
             this.mattotalsku.Multiline = false;
@@ -286,7 +287,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.txtcreatedBy);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmAddNewLotModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Lot ";

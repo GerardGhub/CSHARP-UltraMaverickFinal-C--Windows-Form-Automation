@@ -240,6 +240,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.Height = 40;
             this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvAVGOrderTrend.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAVGOrderTrend_CellFormatting);
             this.dgvAVGOrderTrend.CurrentCellChanged += new System.EventHandler(this.dgvAVGOrderTrend_CurrentCellChanged);
             // 
             // soar_id
@@ -372,6 +373,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtSearch.TabIndex = 600;
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
+            this.mattxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtSearch_KeyPress);
             // 
             // txtmatRemarks
             // 
@@ -389,6 +391,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtmatRemarks.Size = new System.Drawing.Size(344, 50);
             this.txtmatRemarks.TabIndex = 0;
             this.txtmatRemarks.Text = "";
+            this.txtmatRemarks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatRemarks_KeyPress);
             // 
             // panel1
             // 

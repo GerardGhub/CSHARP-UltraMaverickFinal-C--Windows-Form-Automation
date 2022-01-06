@@ -823,5 +823,20 @@ namespace ULTRAMAVERICK.Forms.Users
             }
 
         }
+
+        private void txtsection_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void dgvUnits_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check the value of the e.ColumnIndex property if you want to apply this formatting only so some rcolumns.
+            if (e.Value != null)
+            {
+                e.Value = e.Value.ToString().ToUpper();
+                e.FormattingApplied = true;
+            }
+        }
     }
 }

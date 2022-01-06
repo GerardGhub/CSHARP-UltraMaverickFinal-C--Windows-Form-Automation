@@ -318,6 +318,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.Size = new System.Drawing.Size(156, 50);
             this.txtpassword.TabIndex = 564;
             this.txtpassword.Text = "";
+            this.txtpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpassword_KeyPress);
             // 
             // txtuser
             // 
@@ -335,6 +336,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtuser.Size = new System.Drawing.Size(136, 50);
             this.txtuser.TabIndex = 563;
             this.txtuser.Text = "";
+            this.txtuser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtuser_KeyPress);
             // 
             // label13
             // 
@@ -388,6 +390,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtLastName.Size = new System.Drawing.Size(156, 50);
             this.txtLastName.TabIndex = 1;
             this.txtLastName.Text = "";
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName_KeyPress);
             // 
             // txtname
             // 
@@ -405,6 +408,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtname.Size = new System.Drawing.Size(136, 50);
             this.txtname.TabIndex = 0;
             this.txtname.Text = "";
+            this.txtname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtname_KeyPress);
             // 
             // label9
             // 

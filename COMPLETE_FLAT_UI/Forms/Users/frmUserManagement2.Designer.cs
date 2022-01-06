@@ -37,6 +37,19 @@ namespace ULTRAMAVERICK.Forms.Users
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserManagement2));
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvUsers = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type_of_approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.cmbNotif = new MaterialSkin.Controls.MaterialTextBox();
@@ -61,22 +74,9 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
             this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type_of_approver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -89,6 +89,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.textBox1);
             this.materialCard2.Controls.Add(this.dgvUsers);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -97,7 +98,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(990, 408);
+            this.materialCard2.Size = new System.Drawing.Size(990, 579);
             this.materialCard2.TabIndex = 555;
             // 
             // dgvUsers
@@ -166,7 +167,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.RowTemplate.DividerHeight = 5;
             this.dgvUsers.RowTemplate.Height = 40;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(980, 396);
+            this.dgvUsers.Size = new System.Drawing.Size(980, 567);
             this.dgvUsers.TabIndex = 577;
             this.dgvUsers.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvUsers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -190,8 +191,136 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.ThemeStyle.RowsStyle.Height = 40;
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUsers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUsers_CellFormatting);
             this.dgvUsers.CurrentCellChanged += new System.EventHandler(this.dgvUsers_CurrentCellChanged);
             this.dgvUsers.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUsers_RowPostPaint);
+            // 
+            // userfile_id
+            // 
+            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.userfile_id.DataPropertyName = "userfile_id";
+            this.userfile_id.FillWeight = 40.60914F;
+            this.userfile_id.Frozen = true;
+            this.userfile_id.HeaderText = "ID";
+            this.userfile_id.MinimumWidth = 12;
+            this.userfile_id.Name = "userfile_id";
+            this.userfile_id.ReadOnly = true;
+            this.userfile_id.Visible = false;
+            this.userfile_id.Width = 12;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.FillWeight = 99.49239F;
+            this.username.Frozen = true;
+            this.username.HeaderText = "USERNAME";
+            this.username.MinimumWidth = 12;
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.Width = 110;
+            // 
+            // employee_name
+            // 
+            this.employee_name.DataPropertyName = "employee_name";
+            this.employee_name.FillWeight = 99.49239F;
+            this.employee_name.Frozen = true;
+            this.employee_name.HeaderText = "FIRST NAME";
+            this.employee_name.MinimumWidth = 12;
+            this.employee_name.Name = "employee_name";
+            this.employee_name.ReadOnly = true;
+            this.employee_name.Width = 115;
+            // 
+            // employee_lastname
+            // 
+            this.employee_lastname.DataPropertyName = "employee_lastname";
+            this.employee_lastname.FillWeight = 99.49239F;
+            this.employee_lastname.Frozen = true;
+            this.employee_lastname.HeaderText = "LAST NAME";
+            this.employee_lastname.MinimumWidth = 12;
+            this.employee_lastname.Name = "employee_lastname";
+            this.employee_lastname.ReadOnly = true;
+            this.employee_lastname.Width = 113;
+            // 
+            // gender
+            // 
+            this.gender.DataPropertyName = "gender";
+            this.gender.HeaderText = "GENDER";
+            this.gender.MinimumWidth = 12;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Width = 91;
+            // 
+            // department_name
+            // 
+            this.department_name.DataPropertyName = "department_name";
+            this.department_name.HeaderText = "DEPARTMENT";
+            this.department_name.MinimumWidth = 12;
+            this.department_name.Name = "department_name";
+            this.department_name.ReadOnly = true;
+            this.department_name.Width = 126;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "UNIT";
+            this.Unit.MinimumWidth = 12;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Width = 66;
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "POSITION";
+            this.Position.MinimumWidth = 12;
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
+            this.Position.Width = 101;
+            // 
+            // type_of_approver
+            // 
+            this.type_of_approver.DataPropertyName = "type_of_approver";
+            this.type_of_approver.HeaderText = "REQUESTOR TYPE";
+            this.type_of_approver.MinimumWidth = 12;
+            this.type_of_approver.Name = "type_of_approver";
+            this.type_of_approver.ReadOnly = true;
+            this.type_of_approver.Width = 154;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "PASSWORD";
+            this.password.MinimumWidth = 12;
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Width = 112;
+            // 
+            // user_rights_name
+            // 
+            this.user_rights_name.DataPropertyName = "user_rights_name";
+            this.user_rights_name.HeaderText = "USER RIGHTS";
+            this.user_rights_name.MinimumWidth = 12;
+            this.user_rights_name.Name = "user_rights_name";
+            this.user_rights_name.ReadOnly = true;
+            this.user_rights_name.Width = 123;
+            // 
+            // receiving_status
+            // 
+            this.receiving_status.DataPropertyName = "receiving_status";
+            this.receiving_status.HeaderText = "NOTIFICATION";
+            this.receiving_status.MinimumWidth = 12;
+            this.receiving_status.Name = "receiving_status";
+            this.receiving_status.ReadOnly = true;
+            this.receiving_status.Width = 131;
+            // 
+            // user_section
+            // 
+            this.user_section.DataPropertyName = "user_section";
+            this.user_section.HeaderText = "LAYOUT";
+            this.user_section.MinimumWidth = 12;
+            this.user_section.Name = "user_section";
+            this.user_section.ReadOnly = true;
+            this.user_section.Width = 87;
             // 
             // mattxtSearch
             // 
@@ -573,37 +702,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1609, 558);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 18);
-            this.label2.TabIndex = 667;
-            this.label2.Text = "Items";
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1565, 544);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
-            this.lbltotalrecords.TabIndex = 668;
-            this.lbltotalrecords.Text = "76";
-            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(454, 582);
+            this.textBox1.Location = new System.Drawing.Point(816, 322);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 669;
@@ -611,141 +714,39 @@ namespace ULTRAMAVERICK.Forms.Users
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // userfile_id
+            // lbltotalrecords
             // 
-            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.userfile_id.DataPropertyName = "userfile_id";
-            this.userfile_id.FillWeight = 40.60914F;
-            this.userfile_id.Frozen = true;
-            this.userfile_id.HeaderText = "ID";
-            this.userfile_id.MinimumWidth = 12;
-            this.userfile_id.Name = "userfile_id";
-            this.userfile_id.ReadOnly = true;
-            this.userfile_id.Visible = false;
-            this.userfile_id.Width = 12;
+            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(895, 723);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
+            this.lbltotalrecords.TabIndex = 669;
+            this.lbltotalrecords.Text = "76";
             // 
-            // username
+            // label2
             // 
-            this.username.DataPropertyName = "username";
-            this.username.FillWeight = 99.49239F;
-            this.username.Frozen = true;
-            this.username.HeaderText = "USERNAME";
-            this.username.MinimumWidth = 12;
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            this.username.Width = 112;
-            // 
-            // employee_name
-            // 
-            this.employee_name.DataPropertyName = "employee_name";
-            this.employee_name.FillWeight = 99.49239F;
-            this.employee_name.Frozen = true;
-            this.employee_name.HeaderText = "FIRST NAME";
-            this.employee_name.MinimumWidth = 12;
-            this.employee_name.Name = "employee_name";
-            this.employee_name.ReadOnly = true;
-            this.employee_name.Width = 117;
-            // 
-            // employee_lastname
-            // 
-            this.employee_lastname.DataPropertyName = "employee_lastname";
-            this.employee_lastname.FillWeight = 99.49239F;
-            this.employee_lastname.Frozen = true;
-            this.employee_lastname.HeaderText = "LAST NAME";
-            this.employee_lastname.MinimumWidth = 12;
-            this.employee_lastname.Name = "employee_lastname";
-            this.employee_lastname.ReadOnly = true;
-            this.employee_lastname.Width = 115;
-            // 
-            // gender
-            // 
-            this.gender.DataPropertyName = "gender";
-            this.gender.HeaderText = "GENDER";
-            this.gender.MinimumWidth = 12;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 93;
-            // 
-            // department_name
-            // 
-            this.department_name.DataPropertyName = "department_name";
-            this.department_name.HeaderText = "DEPARTMENT";
-            this.department_name.MinimumWidth = 12;
-            this.department_name.Name = "department_name";
-            this.department_name.ReadOnly = true;
-            this.department_name.Width = 128;
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "Unit";
-            this.Unit.HeaderText = "UNIT";
-            this.Unit.MinimumWidth = 12;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Width = 68;
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.HeaderText = "POSITION";
-            this.Position.MinimumWidth = 12;
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            this.Position.Width = 103;
-            // 
-            // type_of_approver
-            // 
-            this.type_of_approver.DataPropertyName = "type_of_approver";
-            this.type_of_approver.HeaderText = "REQUESTOR TYPE";
-            this.type_of_approver.MinimumWidth = 12;
-            this.type_of_approver.Name = "type_of_approver";
-            this.type_of_approver.ReadOnly = true;
-            this.type_of_approver.Width = 156;
-            // 
-            // password
-            // 
-            this.password.DataPropertyName = "password";
-            this.password.HeaderText = "PASSWORD";
-            this.password.MinimumWidth = 12;
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Width = 114;
-            // 
-            // user_rights_name
-            // 
-            this.user_rights_name.DataPropertyName = "user_rights_name";
-            this.user_rights_name.HeaderText = "USER RIGHTS";
-            this.user_rights_name.MinimumWidth = 12;
-            this.user_rights_name.Name = "user_rights_name";
-            this.user_rights_name.ReadOnly = true;
-            this.user_rights_name.Width = 125;
-            // 
-            // receiving_status
-            // 
-            this.receiving_status.DataPropertyName = "receiving_status";
-            this.receiving_status.HeaderText = "NOTIFICATION";
-            this.receiving_status.MinimumWidth = 12;
-            this.receiving_status.Name = "receiving_status";
-            this.receiving_status.ReadOnly = true;
-            this.receiving_status.Width = 133;
-            // 
-            // user_section
-            // 
-            this.user_section.DataPropertyName = "user_section";
-            this.user_section.HeaderText = "LAYOUT";
-            this.user_section.MinimumWidth = 12;
-            this.user_section.Name = "user_section";
-            this.user_section.ReadOnly = true;
-            this.user_section.Width = 89;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(966, 739);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 670;
+            this.label2.Text = "Items";
             // 
             // frmUserManagement2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 626);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lbltotalrecords);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.mattxtSearch);
@@ -756,6 +757,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Text = "User Management";
             this.Load += new System.EventHandler(this.frmUserManagement2_Load);
             this.materialCard2.ResumeLayout(false);
+            this.materialCard2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
@@ -789,13 +791,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.ToolStripButton btnDeleteTool;
         private System.Windows.Forms.ToolStripButton btnUpdateTool;
         private System.Windows.Forms.ToolStripButton btnCancelTool;
-        private System.Windows.Forms.Label label2;
         private MaterialSkin.Controls.MaterialTextBox cbousertype;
         private MaterialSkin.Controls.MaterialTextBox cmbLocation;
         private MaterialSkin.Controls.MaterialTextBox cbodepartment;
         private MaterialSkin.Controls.MaterialTextBox cboUnit;
         private MaterialSkin.Controls.MaterialTextBox cboPosition;
-        private System.Windows.Forms.Label lbltotalrecords;
         private MaterialSkin.Controls.MaterialTextBox cboRequestorType;
         private MaterialSkin.Controls.MaterialTextBox cmbNotif;
         public System.Windows.Forms.TextBox textBox1;
@@ -812,5 +812,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn receiving_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_section;
+        private System.Windows.Forms.Label lbltotalrecords;
+        private System.Windows.Forms.Label label2;
     }
 }

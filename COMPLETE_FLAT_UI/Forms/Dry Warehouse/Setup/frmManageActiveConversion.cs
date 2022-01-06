@@ -43,6 +43,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
              
         public string sp_item_primary_id { get; set; }
 
+        public string Sp_Item_Description { get; set; }
+
         private void frmManageActivePrimaryUnit_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -237,18 +239,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void showValueCell()
         {
-            if (dgvRawMats.Rows.Count > 0)
+            if (this.dgvRawMats.Rows.Count > 0)
             {
-                if (dgvRawMats.CurrentRow != null)
+                if (this.dgvRawMats.CurrentRow != null)
                 {
-                    if (dgvRawMats.CurrentRow.Cells["item_description"].Value != null)
+                    if (this.dgvRawMats.CurrentRow.Cells["item_description"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["item_id"].Value);
+                        this.p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["item_id"].Value);
 
-                        txtmatItemDescription.Text = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
-                        MyItemCode = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
-                        txtmatid.Text = dgvRawMats.CurrentRow.Cells["item_id"].Value.ToString();
-                        sp_item_primary_unit = dgvRawMats.CurrentRow.Cells["primary_unit"].Value.ToString();
+                       this.Sp_Item_Description = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
+                        this.MyItemCode = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.txtmatid.Text = dgvRawMats.CurrentRow.Cells["item_id"].Value.ToString();
+                        this.sp_item_primary_unit = dgvRawMats.CurrentRow.Cells["primary_unit"].Value.ToString();
                     }
                 }
             }
@@ -323,23 +325,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void btnAddTool_Click(object sender, EventArgs e)
         {
-            toolStrip2.Visible = false;
-            frmAddNewUomConversion addNew = new frmAddNewUomConversion(this, conversion_qty, mattxtPrimaryUnit.Text, MyItemCode, txtmatItemDescription.Text, sp_active_pu_primary_id, txtmatid.Text, sp_item_primary_unit);
+            this.toolStrip2.Visible = false;
+            frmAddNewUomConversion addNew = new frmAddNewUomConversion(this, 
+                this.conversion_qty, 
+                this.mattxtPrimaryUnit.Text, 
+                this.MyItemCode, 
+                this.Sp_Item_Description, 
+                this.sp_active_pu_primary_id, 
+                this.txtmatid.Text, 
+                this.sp_item_primary_unit);
             addNew.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "Gerard Singian")
+            if (this.textBox1.Text == "Gerard Singian")
             {
-                toolStrip2.Visible = true;
+                this.toolStrip2.Visible = true;
             }
-            else if (textBox1.Text == "data Already Save!")
+            else if (this.textBox1.Text == "data Already Save!")
             {
 
-                SearchMethodJarVarCallingSPUnits();
+                this.SearchMethodJarVarCallingSPUnits();
 
-                doSearchInTextBoxPrimaryUnit();
+                this.doSearchInTextBoxPrimaryUnit();
             }
             else
             {

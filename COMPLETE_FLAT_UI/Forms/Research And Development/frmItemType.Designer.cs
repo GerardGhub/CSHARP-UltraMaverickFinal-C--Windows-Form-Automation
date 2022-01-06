@@ -233,6 +233,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmatItemType.Size = new System.Drawing.Size(973, 50);
             this.txtmatItemType.TabIndex = 0;
             this.txtmatItemType.Text = "";
+            this.txtmatItemType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatItemType_KeyPress);
             // 
             // metroSave
             // 

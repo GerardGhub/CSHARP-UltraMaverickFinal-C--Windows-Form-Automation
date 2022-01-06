@@ -575,5 +575,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 metroSave_Click(sender, e);
             }
         }
+
+        private void txtmatPrimaryUnit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }
