@@ -16,7 +16,7 @@ using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
-    public partial class frmMajorCategory : MaterialForm
+    public partial class frmWarehouses : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -33,7 +33,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         DataSet dSet_temp = new DataSet();
 
-        public frmMajorCategory()
+        public frmWarehouses()
         {
             InitializeComponent();
         }
@@ -648,6 +648,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtmajorCategory_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

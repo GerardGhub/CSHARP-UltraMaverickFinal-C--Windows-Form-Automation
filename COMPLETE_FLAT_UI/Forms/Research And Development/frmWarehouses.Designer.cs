@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
-    partial class frmMajorCategory
+    partial class frmWarehouses
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMajorCategory));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWarehouses));
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.txtmajorCategory = new MaterialSkin.Controls.MaterialTextBox();
@@ -105,6 +105,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmajorCategory.Size = new System.Drawing.Size(974, 50);
             this.txtmajorCategory.TabIndex = 0;
             this.txtmajorCategory.Text = "";
+            this.txtmajorCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmajorCategory_KeyPress);
             // 
             // dgvMajorCategory
             // 
@@ -396,7 +397,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
-            // frmMajorCategory
+            // frmWarehouses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -410,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.materialCard2);
             this.Margin = new System.Windows.Forms.Padding(1);
-            this.Name = "frmMajorCategory";
+            this.Name = "frmWarehouses";
             this.Text = "Warehouses";
             this.Load += new System.EventHandler(this.frmMajorCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).EndInit();

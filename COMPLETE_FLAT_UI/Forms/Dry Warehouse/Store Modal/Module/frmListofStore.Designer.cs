@@ -334,6 +334,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.btnEditTool.Name = "btnEditTool";
             this.btnEditTool.Size = new System.Drawing.Size(70, 37);
             this.btnEditTool.Text = "&Edit";
+            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
             // btnRemoveTool
             // 

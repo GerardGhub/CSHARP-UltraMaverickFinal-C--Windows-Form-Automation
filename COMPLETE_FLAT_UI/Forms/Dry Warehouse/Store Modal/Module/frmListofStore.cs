@@ -86,5 +86,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.frmListofStore_Load(sender, e);
         }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("For Development And Clarifications");
+        }
     }
 }

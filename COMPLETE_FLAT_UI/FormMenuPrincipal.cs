@@ -1014,7 +1014,7 @@ namespace COMPLETE_FLAT_UI
         private void toolStripModuleMajorCategory_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmMajorCategory fm = new frmMajorCategory();
+            frmWarehouses fm = new frmWarehouses();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -1535,6 +1535,11 @@ namespace COMPLETE_FLAT_UI
             frmAllocationModule AllocationModule = new frmAllocationModule();
             AllocationModule.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(AllocationModule);
+        }
+
+        private void PanelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

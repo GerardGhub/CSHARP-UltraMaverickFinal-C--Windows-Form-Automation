@@ -224,6 +224,7 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Size = new System.Drawing.Size(1024, 44);
             this.PanelHeader.TabIndex = 1;
+            this.PanelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelHeader_Paint);
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
             // 
             // btnMaximizedFinal
@@ -469,6 +470,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelMenu.Controls.Add(this.MainMajorData);
             this.panelMenu.Controls.Add(this.tableLayoutPanel1);
             this.panelMenu.Controls.Add(this.pbImage);
@@ -524,7 +526,7 @@
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(232, 478);
+            this.toolStrip2.Size = new System.Drawing.Size(127, 478);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -536,7 +538,7 @@
             this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolClosePanelSelection.Name = "toolClosePanelSelection";
-            this.toolClosePanelSelection.Size = new System.Drawing.Size(231, 44);
+            this.toolClosePanelSelection.Size = new System.Drawing.Size(126, 44);
             this.toolClosePanelSelection.Text = "Back";
             this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
             // 
@@ -635,7 +637,7 @@
             this.toolStripInventoryDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripInventoryDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripInventoryDry.Name = "toolStripInventoryDry";
-            this.toolStripInventoryDry.Size = new System.Drawing.Size(231, 44);
+            this.toolStripInventoryDry.Size = new System.Drawing.Size(126, 44);
             this.toolStripInventoryDry.Text = "Inventory";
             // 
             // dryWHInventoryToolStripMenuItem
@@ -658,34 +660,34 @@
             this.toolStore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStore.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStore.Name = "toolStore";
-            this.toolStore.Size = new System.Drawing.Size(231, 44);
+            this.toolStore.Size = new System.Drawing.Size(126, 44);
             this.toolStore.Text = "Store";
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // toolStripStoreArea
             // 
             this.toolStripStoreArea.Name = "toolStripStoreArea";
-            this.toolStripStoreArea.Size = new System.Drawing.Size(180, 26);
+            this.toolStripStoreArea.Size = new System.Drawing.Size(159, 26);
             this.toolStripStoreArea.Text = "Store Area";
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
             // storeRoute
             // 
             this.storeRoute.Name = "storeRoute";
-            this.storeRoute.Size = new System.Drawing.Size(180, 26);
+            this.storeRoute.Size = new System.Drawing.Size(159, 26);
             this.storeRoute.Text = "Store Route";
             this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
             // 
             // toolStores
             // 
             this.toolStores.Name = "toolStores";
-            this.toolStores.Size = new System.Drawing.Size(180, 26);
+            this.toolStores.Size = new System.Drawing.Size(159, 26);
             this.toolStores.Text = "Stores";
             this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
             // 
@@ -709,7 +711,7 @@
             this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRawMaterials.Name = "toolStripRawMaterials";
-            this.toolStripRawMaterials.Size = new System.Drawing.Size(231, 44);
+            this.toolStripRawMaterials.Size = new System.Drawing.Size(147, 44);
             this.toolStripRawMaterials.Text = "Raw Material";
             this.toolStripRawMaterials.Visible = false;
             this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
@@ -810,7 +812,7 @@
             this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownMenu.Name = "toolDropdownMenu";
-            this.toolDropdownMenu.Size = new System.Drawing.Size(231, 44);
+            this.toolDropdownMenu.Size = new System.Drawing.Size(140, 44);
             this.toolDropdownMenu.Text = "Menu";
             this.toolDropdownMenu.Visible = false;
             // 
@@ -853,7 +855,7 @@
             this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolImportDry.Name = "toolImportDry";
-            this.toolImportDry.Size = new System.Drawing.Size(231, 44);
+            this.toolImportDry.Size = new System.Drawing.Size(140, 44);
             this.toolImportDry.Text = "Import Dry";
             this.toolImportDry.Visible = false;
             this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
@@ -915,7 +917,7 @@
             this.toolReceiving.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolReceiving.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolReceiving.Name = "toolReceiving";
-            this.toolReceiving.Size = new System.Drawing.Size(231, 44);
+            this.toolReceiving.Size = new System.Drawing.Size(140, 44);
             this.toolReceiving.Text = "Receiving";
             this.toolReceiving.Visible = false;
             // 
@@ -962,7 +964,7 @@
             this.toolPreparation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolPreparation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPreparation.Name = "toolPreparation";
-            this.toolPreparation.Size = new System.Drawing.Size(231, 44);
+            this.toolPreparation.Size = new System.Drawing.Size(140, 44);
             this.toolPreparation.Text = "Preparation";
             this.toolPreparation.Visible = false;
             // 
@@ -974,7 +976,7 @@
             this.preparationToolStripMenuItem,
             this.moveOrderToolStripMenuItem});
             this.toolDryForApproval.Name = "toolDryForApproval";
-            this.toolDryForApproval.Size = new System.Drawing.Size(180, 26);
+            this.toolDryForApproval.Size = new System.Drawing.Size(131, 26);
             this.toolDryForApproval.Text = "Store";
             this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
             // 
@@ -1008,7 +1010,7 @@
             // toolDryApprovedOrder
             // 
             this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
-            this.toolDryApprovedOrder.Size = new System.Drawing.Size(180, 26);
+            this.toolDryApprovedOrder.Size = new System.Drawing.Size(131, 26);
             this.toolDryApprovedOrder.Text = "Internal";
             // 
             // toolStrip1
@@ -1137,7 +1139,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 42);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(177, 42);
             this.tableLayoutPanel1.TabIndex = 147;
             // 
             // lblFirstName
@@ -1149,7 +1151,7 @@
             this.lblFirstName.ForeColor = System.Drawing.SystemColors.InfoText;
             this.lblFirstName.Location = new System.Drawing.Point(3, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(175, 21);
+            this.lblFirstName.Size = new System.Drawing.Size(171, 21);
             this.lblFirstName.TabIndex = 5;
             this.lblFirstName.Text = "Gerard";
             this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1158,11 +1160,11 @@
             // 
             this.lblPosition.AutoSize = true;
             this.lblPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPosition.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.ForeColor = System.Drawing.SystemColors.InfoText;
             this.lblPosition.Location = new System.Drawing.Point(3, 21);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(175, 21);
+            this.lblPosition.Size = new System.Drawing.Size(171, 21);
             this.lblPosition.TabIndex = 7;
             this.lblPosition.Text = "Position";
             this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1184,7 +1186,7 @@
             this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox9.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.pictureBox9.Location = new System.Drawing.Point(9, -9057);
+            this.pictureBox9.Location = new System.Drawing.Point(9, -9061);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(43, 37);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1196,7 +1198,7 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.btnSalir.Location = new System.Drawing.Point(9, -9057);
+            this.btnSalir.Location = new System.Drawing.Point(9, -9061);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(43, 37);
             this.btnSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

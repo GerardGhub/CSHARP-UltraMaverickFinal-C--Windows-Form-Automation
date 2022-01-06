@@ -240,5 +240,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             ths.textBox1.Text = textBox1.Text;
         }
+
+        private void mattxtStoreCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void mattxtStoreName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

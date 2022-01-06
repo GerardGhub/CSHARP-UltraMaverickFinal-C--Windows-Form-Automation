@@ -64,6 +64,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matTxtRouteName.Size = new System.Drawing.Size(401, 50);
             this.matTxtRouteName.TabIndex = 0;
             this.matTxtRouteName.Text = "";
+            this.matTxtRouteName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matTxtRouteName_KeyPress);
             // 
             // textBox1
             // 

@@ -190,6 +190,15 @@ namespace COMPLETE_FLAT_UI
 
             objStorProc = xClass.g_objStoredProc.GetCollections();
             txtMaterialUsername.Select();
+            this.RoundPictureAss();
+        }
+
+        private void RoundPictureAss()
+        {
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, pictureBox1.Width - 3, pictureBox1.Height - 3);
+            Region rg = new Region(gp);
+            pictureBox1.Region = rg;
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
@@ -211,6 +220,16 @@ namespace COMPLETE_FLAT_UI
         private void MaterialLogin_Click(object sender, EventArgs e)
         {
             btnLogin_Click( sender,  e);
+        }
+
+        private void txtMaterialUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void txtMaterialPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

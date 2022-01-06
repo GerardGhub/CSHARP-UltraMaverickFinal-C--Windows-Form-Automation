@@ -405,11 +405,11 @@
     <Compile Include="Forms\Research And Development\frmItemType.Designer.cs">
       <DependentUpon>frmItemType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmMajorCategory.cs">
+    <Compile Include="Forms\Research And Development\frmWarehouses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmMajorCategory.Designer.cs">
-      <DependentUpon>frmMajorCategory.cs</DependentUpon>
+    <Compile Include="Forms\Research And Development\frmWarehouses.Designer.cs">
+      <DependentUpon>frmWarehouses.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Research And Development\frmPrimaryUnit.cs">
       <SubType>Form</SubType>
@@ -682,8 +682,8 @@
     <EmbeddedResource Include="Forms\Research And Development\frmItemType.resx">
       <DependentUpon>frmItemType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\frmMajorCategory.resx">
-      <DependentUpon>frmMajorCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Research And Development\frmWarehouses.resx">
+      <DependentUpon>frmWarehouses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Research And Development\frmPrimaryUnit.resx">
       <DependentUpon>frmPrimaryUnit.cs</DependentUpon>
@@ -897,6 +897,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_ingredients.ico" />
+    <None Include="Resources\gceERxXri.gif" />
+    <None Include="Resources\laptop_key_64px.png" />
+    <None Include="Resources\key2_64px.png" />
+    <None Include="Resources\name_64px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

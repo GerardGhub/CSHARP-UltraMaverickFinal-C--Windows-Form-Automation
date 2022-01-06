@@ -851,5 +851,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             }
         }
+
+        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void txtmatItemClass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

@@ -193,7 +193,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (modes == "add")
             {
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a new data ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
@@ -224,7 +224,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
@@ -281,6 +281,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.MetroSave();
             }
+        }
+
+        private void matTxtRouteName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

@@ -118,6 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreName.Size = new System.Drawing.Size(401, 50);
             this.mattxtStoreName.TabIndex = 1;
             this.mattxtStoreName.Text = "";
+            this.mattxtStoreName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtStoreName_KeyPress);
             // 
             // mattxtStoreCode
             // 
@@ -133,6 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreCode.Size = new System.Drawing.Size(401, 50);
             this.mattxtStoreCode.TabIndex = 0;
             this.mattxtStoreCode.Text = "";
+            this.mattxtStoreCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtStoreCode_KeyPress);
             // 
             // textBox1
             // 
@@ -169,7 +171,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 657);
+            this.ClientSize = new System.Drawing.Size(562, 642);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialButton1);

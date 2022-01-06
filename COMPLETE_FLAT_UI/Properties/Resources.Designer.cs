@@ -103,9 +103,39 @@ namespace ULTRAMAVERICK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gceERxXri {
+            get {
+                object obj = ResourceManager.GetObject("gceERxXri", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icono_cliente {
             get {
                 object obj = ResourceManager.GetObject("icono-cliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap key2_64px {
+            get {
+                object obj = ResourceManager.GetObject("key2_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap laptop_key_64px {
+            get {
+                object obj = ResourceManager.GetObject("laptop_key_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +236,16 @@ namespace ULTRAMAVERICK.Properties {
         internal static System.Drawing.Bitmap Minimize1 {
             get {
                 object obj = ResourceManager.GetObject("Minimize1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap name_64px {
+            get {
+                object obj = ResourceManager.GetObject("name_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

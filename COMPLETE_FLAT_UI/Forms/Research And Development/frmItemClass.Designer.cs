@@ -253,6 +253,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.TabIndex = 600;
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged_1);
+            this.mattxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtSearch_KeyPress);
             // 
             // txtmatItemClass
             // 
@@ -272,6 +273,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.txtmatItemClass.Size = new System.Drawing.Size(738, 50);
             this.txtmatItemClass.TabIndex = 0;
             this.txtmatItemClass.Text = "";
+            this.txtmatItemClass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatItemClass_KeyPress);
             // 
             // metroSave
             // 
