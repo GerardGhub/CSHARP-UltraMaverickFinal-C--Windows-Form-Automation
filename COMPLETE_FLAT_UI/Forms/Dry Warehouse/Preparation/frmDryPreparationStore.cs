@@ -62,6 +62,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Employee_Name { get; set; }
 
 
+
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -391,6 +392,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["route"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();

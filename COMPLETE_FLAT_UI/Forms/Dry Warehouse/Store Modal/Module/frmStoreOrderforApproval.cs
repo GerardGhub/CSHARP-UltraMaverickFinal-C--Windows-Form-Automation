@@ -351,7 +351,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.load_search();
 
-            this.TaggingConflictCategoryValidation();
+            if(this.lbltotaldata.Text == "0")
+            {
+
+            }
+            else
+            {
+                this.TaggingConflictCategoryValidation();
+            }
+  
 
 
         }
@@ -384,21 +392,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    
+                 
                 }
                 else
                 {
                     this.DoubleTaggingCategoryInformation();
-
+                    this.DoubleTaggingFound();
                 }
             }
             else
             {
                 //MessageBox.Show("Wala");
-
+                this.DoubleTaggingNotFound();
             }
 
 
+        }
+
+        private void DoubleTaggingFound()
+        {
+            this.dgvStoreOrderApproval.Enabled = false;
+            this.materialCheckboxSelectAll.Enabled = false ;
+        }
+
+        private void DoubleTaggingNotFound()
+        {
+            this.dgvStoreOrderApproval.Enabled = true;
+            this.materialCheckboxSelectAll.Enabled = true;
         }
 
         public void DoubleTaggingCategoryInformation()
@@ -464,7 +484,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (this.num == 0)
             {
-                this.bunifuPrepaDate.Enabled = false;
+                //this.bunifuPrepaDate.Enabled = false;
+                //ref will be remove
             }
             else
             {
@@ -846,7 +867,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
         {
-            this.TaggingConflictCategoryValidation();
+            if (this.lbltotaldata.Text == "0")
+            {
+
+            }
+            else
+            {
+                this.TaggingConflictCategoryValidation();
+            }
+
         }
     }
 }
