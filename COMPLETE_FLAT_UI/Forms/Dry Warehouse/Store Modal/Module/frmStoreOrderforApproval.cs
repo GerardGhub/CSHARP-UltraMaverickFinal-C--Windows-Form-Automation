@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         //Variable Declaration
         int p_id = 0;
         string Rpt_Path = "";
-     
+
 
 
 
@@ -59,7 +59,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string total_item_for_allocation { get; set; }
         public string is_issue_for_approval { get; set; }
         public string sp_StockOnHand { get; set; }
-        public string  sp_Allocated_Qty { get; set; }
+        public string sp_Allocated_Qty { get; set; }
 
 
         protected override CreateParams CreateParams
@@ -104,7 +104,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.ValidatedItemforApproval();
             this.VisibilityFalseDataGrid();
-            if(this.lbltotaldata.Text == "0")
+            if (this.lbltotaldata.Text == "0")
             {
                 this.matcmbCategory.Enabled = false;
             }
@@ -113,7 +113,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.matcmbCategory.Enabled = true;
                 this.load_search();
             }
-   
+
         }
 
         private void VisibilityFalseDataGrid()
@@ -182,25 +182,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             myglobal.global_module = "Active";
 
             this.loadCategoryDropdown();
-      
 
-        
+
+
 
             this.InitiliazeDatePickerMinDate();
             this.mode = "";
-       
 
 
 
-                //this.ConnectionInit();
-                this.dset_emp1.Clear();
 
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
-                DataView dv = new DataView(this.dset_emp1.Tables[0]);
+            //this.ConnectionInit();
+            this.dset_emp1.Clear();
 
-                this.dgvStoreOrderApproval.DataSource = dv;
-                this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-            if(this.lbltotaldata.Text == "0")
+            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+            DataView dv = new DataView(this.dset_emp1.Tables[0]);
+
+            this.dgvStoreOrderApproval.DataSource = dv;
+            this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+            if (this.lbltotaldata.Text == "0")
             {
                 this.groupColorCoding.Visible = false;
             }
@@ -208,10 +208,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.groupColorCoding.Visible = true;
             }
-          
+
             this.SaveButtonManipulator();
             this.DataGridColumnDisabledEditing();
-     
+
         }
 
 
@@ -229,7 +229,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 MessageBox.Show(ex.Message);
             }
-        
+
 
         }
 
@@ -247,8 +247,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-        
-            myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval", this.dSet);
+
+                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval", this.dSet);
 
             }
             catch (Exception ex)
@@ -260,18 +260,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
- 
+
 
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
-         
-                this.dset_emp1.Clear();
 
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+            this.dset_emp1.Clear();
 
-                this.doSearch();
-          
+            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+
+            this.doSearch();
+
 
         }
 
@@ -327,21 +327,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             //this.ConnectionInit();
             //MessageBox.Show(this.metroCmbStoreCode.Text);
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbCategory.Text,0);
-                this.dgvStoreOrderApproval.DataSource = dset.Tables[0];
-                for (int i = 0; i <= dgvStoreOrderApproval.RowCount; i++)
+            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbCategory.Text, 0);
+            this.dgvStoreOrderApproval.DataSource = dset.Tables[0];
+            for (int i = 0; i <= dgvStoreOrderApproval.RowCount; i++)
+            {
+                try
                 {
-                    try
-                    {
-                        this.dgvStoreOrderApproval.Rows[i].Cells["selected"].Value = false;
-                    }
-                    catch (Exception) { }
+                    this.dgvStoreOrderApproval.Rows[i].Cells["selected"].Value = false;
                 }
+                catch (Exception) { }
+            }
 
 
 
 
-                this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+            this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
             //MessageBox.Show(this.metroCmbStoreCode.Text);
         }
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
@@ -350,10 +350,83 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.load_search();
+
+            this.TaggingConflictCategoryValidation();
+
+
         }
 
+        private void TaggingConflictCategoryValidation()
+        {
+            //CheckIifAlreayHaveAnewRecord
+            dset2.Clear();
+            dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+           this.matcmbCategory.Text,
+            this.bunifuPrepaDate.Text,
+            "", "", "", "", "", "", 0,
+              this.matcmbCategory.Text, "", "",
+            "check_if_already_prepared_conflict_category_getcount");
 
-  
+            if (dset2.Tables[0].Rows.Count > 0)
+            {
+                //MessageBox.Show("Meron");
+
+                //Sa Meron Tayo 
+
+                //Update Status Already Repack
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+               this.matcmbCategory.Text,
+                this.bunifuPrepaDate.Text,
+                "", "", "", "", "", "", 0,
+                  this.matcmbCategory.Text, "", "",
+                "check_if_already_prepared_conflict_category");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    
+                }
+                else
+                {
+                    this.DoubleTaggingCategoryInformation();
+
+                }
+            }
+            else
+            {
+                //MessageBox.Show("Wala");
+
+            }
+
+
+        }
+
+        public void DoubleTaggingCategoryInformation()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Double tagging of category!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.DarkSlateBlue;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
 
         private void lbltotaldata_TextChanged(object sender, EventArgs e)
         {
@@ -539,6 +612,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         }
+
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -550,7 +624,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    //MessageBox.Show("Pussy")
+            
                     this.ApproveFunctionality();
                 }
                 else
@@ -768,6 +842,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             }
 
+        }
+
+        private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
+        {
+            this.TaggingConflictCategoryValidation();
         }
     }
 }

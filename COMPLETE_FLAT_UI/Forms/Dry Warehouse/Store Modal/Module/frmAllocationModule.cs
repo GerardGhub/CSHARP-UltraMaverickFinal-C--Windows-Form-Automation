@@ -469,7 +469,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             if(this.txtSoh.Text == "0")
             {
-                this.matBtnSave.Enabled = false;
+                //this.matBtnSave.Enabled = false;
+                //AutoAllocate
             }
         
             //dSet.Clear();
