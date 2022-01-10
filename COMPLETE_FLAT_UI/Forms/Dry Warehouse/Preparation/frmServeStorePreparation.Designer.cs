@@ -55,6 +55,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.gunaDgvReceivedIDInventory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.mattxttotalqtyreleased = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDgvReceivedIDInventory)).BeginInit();
@@ -63,6 +64,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.mattxttotalqtyreleased);
             this.materialCard1.Controls.Add(this.matTxtExpDate);
             this.materialCard1.Controls.Add(this.matTxtQtyRemaining);
             this.materialCard1.Controls.Add(this.matTxtQtyRelease);
@@ -121,13 +123,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matTxtQtyRelease.Depth = 0;
             this.matTxtQtyRelease.Enabled = false;
             this.matTxtQtyRelease.Font = new System.Drawing.Font("Roboto", 12F);
-            this.matTxtQtyRelease.Hint = "Qty. Release";
-            this.matTxtQtyRelease.Location = new System.Drawing.Point(31, 162);
+            this.matTxtQtyRelease.Hint = "Qty. Serve";
+            this.matTxtQtyRelease.Location = new System.Drawing.Point(388, 89);
             this.matTxtQtyRelease.MaxLength = 50;
             this.matTxtQtyRelease.MouseState = MaterialSkin.MouseState.OUT;
             this.matTxtQtyRelease.Multiline = false;
             this.matTxtQtyRelease.Name = "matTxtQtyRelease";
-            this.matTxtQtyRelease.Size = new System.Drawing.Size(202, 50);
+            this.matTxtQtyRelease.Size = new System.Drawing.Size(325, 50);
             this.matTxtQtyRelease.TabIndex = 7;
             this.matTxtQtyRelease.Text = "";
             // 
@@ -136,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.panel1.BackColor = System.Drawing.Color.Yellow;
             this.panel1.Location = new System.Drawing.Point(31, 138);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(682, 10);
+            this.panel1.Size = new System.Drawing.Size(325, 10);
             this.panel1.TabIndex = 6;
             // 
             // matTxtUOM
@@ -189,16 +191,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // 
             // mattxtQtyServe
             // 
+            this.mattxtQtyServe.BackColor = System.Drawing.Color.Yellow;
             this.mattxtQtyServe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattxtQtyServe.Depth = 0;
             this.mattxtQtyServe.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtQtyServe.Hint = "Qty. Serve";
+            this.mattxtQtyServe.Hint = "Qty.";
             this.mattxtQtyServe.Location = new System.Drawing.Point(31, 90);
             this.mattxtQtyServe.MaxLength = 50;
             this.mattxtQtyServe.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtQtyServe.Multiline = false;
             this.mattxtQtyServe.Name = "mattxtQtyServe";
-            this.mattxtQtyServe.Size = new System.Drawing.Size(682, 50);
+            this.mattxtQtyServe.Size = new System.Drawing.Size(325, 50);
             this.mattxtQtyServe.TabIndex = 2;
             this.mattxtQtyServe.Text = "";
             this.mattxtQtyServe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtQtyServe_KeyPress);
@@ -447,6 +450,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label3.Text = "TextBox for Two Way Binding";
             this.label3.Visible = false;
             // 
+            // mattxttotalqtyreleased
+            // 
+            this.mattxttotalqtyreleased.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxttotalqtyreleased.Depth = 0;
+            this.mattxttotalqtyreleased.Enabled = false;
+            this.mattxttotalqtyreleased.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mattxttotalqtyreleased.Hint = "Total Qty. Release";
+            this.mattxttotalqtyreleased.Location = new System.Drawing.Point(31, 162);
+            this.mattxttotalqtyreleased.MaxLength = 50;
+            this.mattxttotalqtyreleased.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxttotalqtyreleased.Multiline = false;
+            this.mattxttotalqtyreleased.Name = "mattxttotalqtyreleased";
+            this.mattxttotalqtyreleased.Size = new System.Drawing.Size(202, 50);
+            this.mattxttotalqtyreleased.TabIndex = 10;
+            this.mattxttotalqtyreleased.Text = "";
+            // 
             // frmServeStorePreparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,5 +512,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private Guna.UI2.WinForms.Guna2DataGridView gunaDgvReceivedIDInventory;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private MaterialSkin.Controls.MaterialTextBox mattxttotalqtyreleased;
     }
 }
