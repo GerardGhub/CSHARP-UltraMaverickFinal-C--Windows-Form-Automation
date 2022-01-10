@@ -361,7 +361,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.materialCheckboxSelectAll.Visible = false;
                 this.labelSelectedSum.Visible = false;
-
+                this.matbtnEdit.Visible = false;
             }
             else
             {

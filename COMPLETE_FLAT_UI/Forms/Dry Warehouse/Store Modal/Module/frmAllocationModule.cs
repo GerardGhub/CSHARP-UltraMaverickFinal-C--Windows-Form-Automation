@@ -514,6 +514,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["date_ordered"].Style.BackColor = Color.DarkOrange;
                     row.Cells["selected2"].Style.BackColor = Color.DarkOrange;
                 }
+                else
+                {
+
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.Orange;
+                    row.Cells["item_code_find"].Style.BackColor = Color.Orange;
+                    row.Cells["store_name"].Style.BackColor = Color.Orange;
+                    row.Cells["description_find"].Style.BackColor = Color.Orange;
+                    row.Cells["uom"].Style.BackColor = Color.Orange;
+                    row.Cells["qty"].Style.BackColor = Color.Orange;
+                    row.Cells["date_ordered"].Style.BackColor = Color.Orange;
+                    row.Cells["selected2"].Style.BackColor = Color.Orange;
+                }
             }
 
             }
