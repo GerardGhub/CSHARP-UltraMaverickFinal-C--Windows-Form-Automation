@@ -355,14 +355,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.textBox1.Text = String.Empty;
 
             this.PreparationValidationRequiredToSave();
+            this.PartialReceivingAwaitResponse();
         }
 
         private void PreparationValidationRequiredToSave()
         {
-
-
-
-
 
             //CheckIifAlreayHaveAnewRecord
             dset2.Clear();
@@ -893,7 +890,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             if (this.textBox1.Text == "ItemServe")
             {
+                this.matViewItemPrepared.Enabled = true;
                 this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
+        
+            }
+        }
+
+        private void PartialReceivingAwaitResponse()
+        {
+            //CheckIifAlreayHaveAnewRecord
+            dset3.Clear();
+            dset3 = objStorProc.sp_Store_Preparation_Logs(0,
+           this.matcmbCategory.Text,
+            this.sp_approved_preparation_date,
+            "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
+              this.sp_fox, this.sp_route, this.sp_area,
+            "show_prepared_raw_materials");
+
+            if (dset3.Tables[0].Rows.Count > 0)
+            {
+
+                this.matViewItemPrepared.Visible = true;
+
+            }
+            else
+            {
+                this.matViewItemPrepared.Visible = false;
+
             }
         }
 
@@ -1044,5 +1067,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
             }
+
+        private void matViewItemPrepared_Click(object sender, EventArgs e)
+        {
+            this.matViewItemPrepared.Enabled = false;
+            frmViewStoreItemPrepared addNew = new frmViewStoreItemPrepared(this,
+         this.sp_material_id,
+         this.mattxtScanTheBarcode.Text,
+         this.Sp_Material_Item_Description,
+         this.Sp_Unit_Of_Measure,
+         this.Sp_Converted_Qty,
+         this.sp_approved_preparation_date,
+          this.Sp_Qty_Serve,
+          this.sp_fox,
+          this.sp_route,
+          this.sp_area
+         );
+            addNew.ShowDialog();
+            //
+           
         }
+    }
 }

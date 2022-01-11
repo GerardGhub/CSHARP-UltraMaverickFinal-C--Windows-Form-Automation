@@ -171,6 +171,12 @@
     <Compile Include="Forms\Dry Warehouse\Preparation\frmServeStorePreparation.Designer.cs">
       <DependentUpon>frmServeStorePreparation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Preparation\frmViewStoreItemPrepared.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Preparation\frmViewStoreItemPrepared.Designer.cs">
+      <DependentUpon>frmViewStoreItemPrepared.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -567,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Preparation\frmServeStorePreparation.resx">
       <DependentUpon>frmServeStorePreparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Preparation\frmViewStoreItemPrepared.resx">
+      <DependentUpon>frmViewStoreItemPrepared.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.resx">
       <DependentUpon>frmActivationofPrimaryUnit.cs</DependentUpon>
