@@ -196,18 +196,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void matRadioNext_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.lbltotaldata.Text == "0")
-            {
-
-            }
-            else
-            {
-                if (this.matRadioNext.Checked == true)
-                {
-                    this.NextDatainDryStorePreparationEntry();
-                    this.matRadioNext.Checked = false;
-                }
-            }
+          
         }
 
 
@@ -268,8 +257,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             else
             {
-                if (matRadioPrevious.Checked == true)
-                {
+               
 
 
                     int prev = this.dgvStoreOrderApproval.CurrentRow.Index - 1;
@@ -285,8 +273,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                     }
 
-                    this.matRadioPrevious.Checked = false;
-                }
+             
+              
                 this.mattxtScanTheBarcode.Focus();
             }
         }
@@ -393,6 +381,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
+            //this.guna2DgvMaterialPreparation.Columns["converted_qty"].Visible = false;
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -931,6 +921,50 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             if(this.lbltotaldata.Text == "0")
             {
                 this.frmDryPreparation_Load(sender, e);
+            }
+        }
+
+        private void matRadioNext_Click(object sender, EventArgs e)
+        {
+            if (this.lbltotaldata.Text == "0")
+            {
+
+            }
+            else
+            {
+               
+                    this.NextDatainDryStorePreparationEntry();
+                
+            }
+        }
+
+        private void matRadioPrevious_Click(object sender, EventArgs e)
+        {
+            if (this.lbltotaldata.Text == "0")
+            {
+
+            }
+
+            else
+            {
+              
+
+
+                    int prev = this.dgvStoreOrderApproval.CurrentRow.Index - 1;
+                    if (prev >= 0)
+                    {
+
+                        this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[prev].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                    }
+                    else
+                    {
+                        this.FirstLineofPreparationSubject();
+                        this.mattxtScanTheBarcode.Focus();
+                        //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
+                    }
+
+               
+                this.mattxtScanTheBarcode.Focus();
             }
         }
     }

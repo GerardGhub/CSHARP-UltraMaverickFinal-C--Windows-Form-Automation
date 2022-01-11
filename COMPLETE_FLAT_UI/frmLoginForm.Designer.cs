@@ -41,13 +41,11 @@ namespace COMPLETE_FLAT_UI
             this.txtMaterialPassword = new MaterialSkin.Controls.MaterialTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.materialCard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -91,7 +89,6 @@ namespace COMPLETE_FLAT_UI
             // materialCard3
             // 
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard3.Controls.Add(this.pictureBox5);
             this.materialCard3.Controls.Add(this.txtMaterialUsername);
             this.materialCard3.Controls.Add(this.MaterialLogin);
             this.materialCard3.Controls.Add(this.pictureBox4);
@@ -205,16 +202,6 @@ namespace COMPLETE_FLAT_UI
             this.btnLogin.Visible = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ULTRAMAVERICK.Properties.Resources.gceERxXri;
-            this.pictureBox5.Location = new System.Drawing.Point(111, 336);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(79, 45);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 492;
-            this.pictureBox5.TabStop = false;
-            // 
             // frmLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,7 +225,6 @@ namespace COMPLETE_FLAT_UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +242,5 @@ namespace COMPLETE_FLAT_UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
