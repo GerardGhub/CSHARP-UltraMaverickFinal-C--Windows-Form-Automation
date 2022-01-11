@@ -398,6 +398,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     this.DoubleTaggingCategoryInformation();
                     this.DoubleTaggingFound();
+                    
                 }
             }
             else
@@ -636,6 +637,54 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
+            if (this.lbltotaldata.Text == "0")
+            {
+
+            }
+            else
+            {
+                //CheckIifAlreayHaveAnewRecord
+                dset2.Clear();
+                dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+               this.matcmbCategory.Text,
+                this.bunifuPrepaDate.Text,
+                "", "", "", "", "", "", 0,
+                  this.matcmbCategory.Text, "", "",
+                "check_if_already_prepared_conflict_category_getcount");
+
+                if (dset2.Tables[0].Rows.Count > 0)
+                {
+            
+
+                    //Update Status Already Repack
+                    dSet.Clear();
+                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                   this.matcmbCategory.Text,
+                    this.bunifuPrepaDate.Text,
+                    "", "", "", "", "", "", 0,
+                      this.matcmbCategory.Text, "", "",
+                    "check_if_already_prepared_conflict_category");
+
+                    if (dSet.Tables[0].Rows.Count > 0)
+                    {
+
+                    }
+                    else
+                    {
+                        this.DoubleTaggingCategoryInformation();
+                        this.DoubleTaggingFound();
+                        return;
+
+                    }
+                }
+                else
+                {
+               
+                    this.DoubleTaggingNotFound();
+                }
+
+            }
+
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showRawMaterialforApproval();
