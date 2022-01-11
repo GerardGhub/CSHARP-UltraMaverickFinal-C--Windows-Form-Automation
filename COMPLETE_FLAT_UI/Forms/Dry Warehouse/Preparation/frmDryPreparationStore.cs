@@ -69,30 +69,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.dset.Clear();
             this.LoadWindowsExecution();
-            //this.dset = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation");
-            //DataView dv = new DataView(this.dset.Tables[0]);
+            this.loadCategoryDropdown();
+            this.LoadStateVisibility();
+
+
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
             this.FormmLoadSearchState();
 
 
-            //this.dgvStoreOrderApproval.DataSource = dv;
-            //this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
 
             if (this.lbltotalStoreforPreparation.Text == "0")
             {
-                this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
+     
             }
             else
             {
+                this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["category"].Visible = false;
+
                 this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
 
             }
 
-            this.loadCategoryDropdown();
-            this.LoadStateVisibility();
+       
             //MessageBox.Show("" + this.Sp_AssigneD_Task_By);
         }
 
@@ -116,9 +118,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     DataView dv = new DataView(dset_emp_SearchEnginesPreparationPerStaff.Tables[0]);
                  
 
-                        dv.RowFilter = "start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0'    ";
+                        dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text+"'    ";
 
-
+                    //start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' and category = '" +this.matcmbCategory.Text+"'  or start_by_user_id = '0'
 
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
@@ -352,22 +354,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.MaterialDatagridColumnVisibilittyFalse();
             this.textBox1.Text = String.Empty;
 
-            //Validation Who Start The Preparation
-            //if(this.Sp_AssigneD_Task_By == Convert.ToInt32(this.Sp_Start_By))
-            //{
-            //    this.mattxtScanTheBarcode.Enabled = true;
-            //    this.mattxtScanTheBarcode.Focus();
-            //}
-            //else if(this.Sp_Start_By == "0")
-            //{
-            //    this.mattxtScanTheBarcode.Enabled = true;
-            //    this.mattxtScanTheBarcode.Focus();
-            //}
-            //else
-            //{
-            //    this.PreparationAlreadyStartBy();
-            //    this.mattxtScanTheBarcode.Enabled = false;
-            //}
+       
         }
 
         private void MaterialDatagridColumnVisibilittyFalse()
@@ -467,7 +454,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.loadPreparationDateDropdown();
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+       
+
+            this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
+            this.FormmLoadSearchState();
+
+
+
         }
 
         public void loadPreparationDateDropdown()
