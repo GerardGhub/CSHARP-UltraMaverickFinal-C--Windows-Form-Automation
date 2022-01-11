@@ -354,8 +354,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.MaterialDatagridColumnVisibilittyFalse();
             this.textBox1.Text = String.Empty;
 
-       
+            this.PreparationValidationRequiredToSave();
         }
+
+        private void PreparationValidationRequiredToSave()
+        {
+
+
+
+
+
+            //CheckIifAlreayHaveAnewRecord
+            dset2.Clear();
+            dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+           this.matcmbCategory.Text,
+            this.sp_approved_preparation_date,
+            "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
+              this.sp_fox, this.sp_route, this.sp_area,
+            "validate_touched_event_preparation");
+
+            if (dset2.Tables[0].Rows.Count > 0)
+            {
+       
+                this.matbtnSave.Visible = false;
+
+            }
+            else
+            {
+                this.matbtnSave.Visible = true;
+          
+            }
+
+            }
 
         private void MaterialDatagridColumnVisibilittyFalse()
         {
@@ -962,5 +992,57 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.mattxtScanTheBarcode.Focus();
             }
         }
-    }
+
+        public void SaveSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Save";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        private void matbtnSave_Click(object sender, EventArgs e)
+        {
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                dset3.Clear();
+                dset3 = objStorProc.sp_Store_Preparation_Logs(0,
+               this.matcmbCategory.Text,
+                this.sp_approved_preparation_date,
+                "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
+                  this.sp_fox, this.sp_route, this.sp_area,
+                "bulk_proceed_preparation");
+
+
+                this.SaveSuccessfully();
+                this.frmDryPreparation_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
+
+
+            }
+        }
 }
