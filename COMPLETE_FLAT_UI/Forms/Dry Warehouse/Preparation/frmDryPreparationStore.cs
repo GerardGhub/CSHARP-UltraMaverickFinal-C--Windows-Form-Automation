@@ -1087,5 +1087,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             //
            
         }
+
+        private void matcmbCategory_Click(object sender, EventArgs e)
+        {
+            this.loadCategoryDropdown();
+        }
     }
 }
