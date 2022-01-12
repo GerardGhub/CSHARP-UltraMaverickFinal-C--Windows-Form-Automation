@@ -90,6 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["route"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["primary_id1"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
@@ -160,7 +161,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            ths.textBox1.Text = textBox1.Text;
         }
 
         private void guna2DgvMaterialPreparation_DoubleClick(object sender, EventArgs e)
@@ -168,8 +169,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
+             
                     dset3.Clear();
                     dset3 = objStorProc.sp_Store_Preparation_Logs(0,
                    this.Sp_Primary_Key,
@@ -182,11 +182,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.UpdatedSuccessfully();
         
                         this.Close();
-                }
-                else
-                {
-                    return;
-                }
+             
 
             }
             else
