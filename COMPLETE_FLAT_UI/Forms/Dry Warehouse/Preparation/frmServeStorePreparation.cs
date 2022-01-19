@@ -78,6 +78,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Material_Id { get; set; }
         public string Sp_Barcode_Id { get; set; }
         public int Sp_User_ID { get; set; }
+        public int Sp_RepackIncement { get; set; }
+
+        public string TotalItemPreparedPerItemIncrementation { get; set; }
+
+        public string TotalRecordofPrepared { get; set; }
 
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
@@ -95,10 +100,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.SearchMethodJarVarCallingSPReceivingIDInventory();
             this.doSearchInTextBoxCmbRecID();
             //DataGrid Visible False
-            this.dgvStoreOrderApproval.Visible = false;
-            this.gunaDgvReceivedIDInventory.Visible = false;
+            this.DataGridVisibilyFalse();
         }
 
+        private void DataGridVisibilyFalse()
+        {
+            this.dgvStoreOrderApproval.Visible = false;
+            this.gunaDgvReceivedIDInventory.Visible = false;
+            this.dgvPreparedItemDistinct.Visible = false;
+        }
 
         private void doSearchInTextBoxCmbRecID()
         {
@@ -107,20 +117,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 if (dset_emp_SearchEnginesReceivingIDInventory.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEnginesReceivingIDInventory.Tables[0]);
-                    if (myglobal.global_module == "EMPLOYEE")
+                    if (myglobal.global_module == "BOORAT")
                     {
 
                     }
                     else if (myglobal.global_module == "Active")
                     {
-                        //Gerard Singian Developer Man
+             
 
                         dv.RowFilter = "id = '" + this.matTxtReceivingbarcodeID.Text + "'   ";
 
                     }
 
                     this.gunaDgvReceivedIDInventory.DataSource = dv;
-                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                  
                 }
             }
             catch (SyntaxErrorException)
@@ -233,7 +243,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     {
                         //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
                         this.mattxtItemCode.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
-        
+
                     }
                 }
             }
@@ -265,8 +275,67 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         }
 
+
+        DataSet SearchStoreItemPreparedWithCount = new DataSet();
+        private void SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount()
+        {
+            this.SearchStoreItemPreparedWithCount.Clear();
+            this.SearchStoreItemPreparedWithCount = objStorProc.sp_getMajorTables("SearchStoreItemPreparedWithCount");
+
+        }
+        private void doSearchSearchStoreItemPreparedWithCount()
+        {
+            try
+            {
+                if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
+                {
+
+                    //Date Conversion
+                    DateTime dt = new DateTime();
+                    string lstrDate = this.Sp_Preparation_Date;
+                    dt = Convert.ToDateTime(lstrDate);
+                    string lstrAdate = dt.ToString("yyyy-MM-dd");
+                    this.Sp_Preparation_Date = lstrAdate;
+                    MessageBox.Show(lstrAdate);
+
+                    DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
+         
+
+                        dv.RowFilter = "is_approved_prepa_date = " + lstrAdate + "   ";
+
+                    
+
+                    this.dgvPreparedItemDistinct.DataSource = dv;
+
+                    this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
+                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                }
+            }
+
+       
+
+
+
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found Type 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found Type 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+        }
+
         private void matBtnSave_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(this.Sp_Material_Id);
+            //return;
+
             if (this.mattxtQtyServe.Text == String.Empty)
             {
                 FillRequiredTextbox();
@@ -319,20 +388,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                 if (firstEntrySolution > TextBoxQuantityInputState)
                 {
-                    //MessageBox.Show("A");
-                    //return;
+      
                 }
                 else if(firstEntrySolution == TextBoxQuantityInputState)
                 {
-                    //MessageBox.Show("A1");
-                    //return;
+  
                 }
                 else
                 {
                     this.GreaterThanAllocatedQty();
                     this.mattxtQtyServe.Text = String.Empty;
                     this.mattxtQtyServe.Focus();
-                    //MessageBox.Show("B");
+
                     return;
                 }
 
@@ -349,7 +416,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 return;
             }
 
-                dSet.Clear();
+
+
+            dSet.Clear();
             dSet = objStorProc.sp_Store_Preparation_Logs(0, 
             this.Sp_Barcode_Id,
             this.Sp_Preparation_Date,
@@ -362,6 +431,130 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.sp_Fox , this.sp_Route, this.sp_Area,
             "add");
 
+
+            // Summary Execution Per Row
+            double QuantityReleasedData;
+            double ActualQuantityServe;
+            double SummaryDetailTransactionFormula;
+
+            QuantityReleasedData = double.Parse(this.matTxtQtyRelease.Text);
+            ActualQuantityServe = double.Parse(this.mattxtQtyServe.Text);
+            SummaryDetailTransactionFormula = QuantityReleasedData + ActualQuantityServe;
+
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
+             SummaryDetailTransactionFormula.ToString(),
+            this.Sp_Preparation_Date,
+            this.mattxtItemCode.Text,
+            this.matTxtDescription.Text,
+            this.matTxtOrderQty.Text,
+            this.mattxtQtyServe.Text,
+            "", this.Sp_User_ID.ToString(),
+            Convert.ToInt32(this.Sp_Material_Id),
+            this.sp_Fox, this.sp_Route, this.sp_Area,
+            "update_prepared_allocated_qty");
+
+
+            //Date Conversion
+            DateTime dt = new DateTime();
+            string lstrDate = this.Sp_Preparation_Date;
+            dt = Convert.ToDateTime(lstrDate);
+            string lstrAdate = dt.ToString("yyyy-MM-dd");
+            this.Sp_Preparation_Date = lstrAdate;
+
+            //New Entry Validation Search
+
+            this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
+            ///Search Method Functionality
+            //this.doSearchSearchStoreItemPreparedWithCount();
+            //Start Search
+
+            try
+            {
+                if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
+                {
+
+                    ////Date Conversion
+                    //DateTime dt = new DateTime();
+                    //string lstrDate = this.Sp_Preparation_Date;
+                    //dt = Convert.ToDateTime(lstrDate);
+                    //string lstrAdate = dt.ToString("yyyy-MM-dd");
+                    //this.Sp_Preparation_Date = lstrAdate;
+                    //MessageBox.Show(lstrAdate);
+
+                    DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
+
+
+                    dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "'   ";
+
+
+
+                    this.dgvPreparedItemDistinct.DataSource = dv;
+
+                    this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
+                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                }
+            }
+
+
+
+
+
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found Type 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found Type 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+            //End Search
+
+
+            //Initial Count of Repack   Incremented
+            double currentStateRepack;
+            double currentStateQty;
+
+            if(this.TotalRecordofPrepared == "0")
+            {
+                this.TotalItemPreparedPerItemIncrementation = "0";
+                currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+
+                currentStateQty = currentStateRepack + 1;
+                this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+            }
+            else
+            {
+                this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
+                currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+
+                currentStateQty = currentStateRepack + 1;
+                this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+            }
+
+      
+       
+            //Data Sets
+            
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+             this.Sp_RepackIncement.ToString(),
+            lstrAdate,
+            this.mattxtItemCode.Text,
+            this.matTxtDescription.Text,
+            this.matTxtOrderQty.Text,
+            this.mattxtQtyServe.Text,
+            "", this.Sp_User_ID.ToString(),
+            Convert.ToInt32(this.Sp_Material_Id),
+            this.sp_Fox, this.sp_Route, this.sp_Area,
+            "update_dry_orders_total_state_repack");
+            //Buje
 
             double ActualQuantityReleased;
 
@@ -551,6 +744,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.matTxtQtyRemaining.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["qty_received"].Value.ToString();
                         this.matTxtExpDate.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.mattxttotalqtyreleased.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["TOTAL_QTY_PREPARED"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+        private void dgvPreparedItemDistinct_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+            if (this.dgvPreparedItemDistinct.Rows.Count > 0)
+            {
+                if (this.dgvPreparedItemDistinct.CurrentRow != null)
+                {
+                    if (this.dgvPreparedItemDistinct.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
+                    {
+                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                      
+                        this.TotalItemPreparedPerItemIncrementation = this.dgvPreparedItemDistinct.CurrentRow.Cells["TotalPreparedPerItem"].Value.ToString();
                     }
                 }
             }
