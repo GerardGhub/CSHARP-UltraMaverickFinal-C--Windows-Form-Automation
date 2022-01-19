@@ -344,6 +344,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
 
 
+            //If the Transactiuon is Virgin hindi pa nakantot
+            if(this.matTxtQtyRelease.Text == "0")
+            {
+                double InputQtyServeUnused;
+                double Order;
+
+                InputQtyServeUnused = double.Parse(this.mattxtQtyServe.Text);
+                Order = double.Parse(this.matTxtOrderQty.Text);
+
+                if (InputQtyServeUnused > Order)
+                {
+                    GreaterThanActualRemainingQty();
+                    this.mattxtQtyServe.Text = String.Empty;
+                    this.mattxtQtyServe.Focus();
+                    return;
+                }
+
+
+                }
+
+
+            /// If You have a Existing Receiving
             double InputQtyServe;
 
             double ActualRemainingofReceivingID;
@@ -354,7 +376,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             if (InputQtyServe > ActualRemainingofReceivingID)
             {
-                //MessageBox.Show("A");
+          
                 GreaterThanActualRemainingQty();
                 this.mattxtQtyServe.Text = String.Empty;
                 this.mattxtQtyServe.Focus();
@@ -474,13 +496,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
                 {
 
-                    ////Date Conversion
-                    //DateTime dt = new DateTime();
-                    //string lstrDate = this.Sp_Preparation_Date;
-                    //dt = Convert.ToDateTime(lstrDate);
-                    //string lstrAdate = dt.ToString("yyyy-MM-dd");
-                    //this.Sp_Preparation_Date = lstrAdate;
-                    //MessageBox.Show(lstrAdate);
+         
 
                     DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
 
@@ -492,7 +508,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.dgvPreparedItemDistinct.DataSource = dv;
 
                     this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
-                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+            
                 }
             }
 
