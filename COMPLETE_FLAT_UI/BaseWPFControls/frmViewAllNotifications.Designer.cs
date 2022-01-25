@@ -62,7 +62,7 @@ namespace ULTRAMAVERICK.BaseWPFControls
             this.tabControl1.Location = new System.Drawing.Point(13, 77);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(775, 346);
+            this.tabControl1.Size = new System.Drawing.Size(1036, 346);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -71,7 +71,7 @@ namespace ULTRAMAVERICK.BaseWPFControls
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(767, 320);
+            this.tabPage1.Size = new System.Drawing.Size(1028, 320);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Logistic Checker Cancel";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@ namespace ULTRAMAVERICK.BaseWPFControls
             this.DatagridViewGuna1.RowTemplate.DividerHeight = 5;
             this.DatagridViewGuna1.RowTemplate.Height = 40;
             this.DatagridViewGuna1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatagridViewGuna1.Size = new System.Drawing.Size(761, 314);
+            this.DatagridViewGuna1.Size = new System.Drawing.Size(1022, 314);
             this.DatagridViewGuna1.TabIndex = 595;
             this.DatagridViewGuna1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.DatagridViewGuna1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -180,7 +180,7 @@ namespace ULTRAMAVERICK.BaseWPFControls
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 18F);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(701, 422);
+            this.lbltotalrecords.Location = new System.Drawing.Point(962, 422);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(27, 32);
             this.lbltotalrecords.TabIndex = 661;
@@ -193,7 +193,7 @@ namespace ULTRAMAVERICK.BaseWPFControls
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(733, 433);
+            this.label4.Location = new System.Drawing.Point(994, 433);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 662;
@@ -305,7 +305,7 @@ namespace ULTRAMAVERICK.BaseWPFControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 456);
+            this.ClientSize = new System.Drawing.Size(1061, 456);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tabControl1);
