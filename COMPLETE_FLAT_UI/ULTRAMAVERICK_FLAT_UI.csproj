@@ -140,6 +140,12 @@
     <Compile Include="Barcode Reprinting\frmBarcodeReprinting.Designer.cs">
       <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseWPFControls\frmViewAllNotifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseWPFControls\frmViewAllNotifications.Designer.cs">
+      <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\Adorner.cs" />
     <Compile Include="Class\import_drywh_rawmats.cs" />
     <Compile Include="Class\MenuColorTable.cs" />
@@ -561,6 +567,9 @@
     </Compile>
     <EmbeddedResource Include="Barcode Reprinting\frmBarcodeReprinting.resx">
       <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseWPFControls\frmViewAllNotifications.resx">
+      <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogo.resx">
       <DependentUpon>FormLogo.cs</DependentUpon>

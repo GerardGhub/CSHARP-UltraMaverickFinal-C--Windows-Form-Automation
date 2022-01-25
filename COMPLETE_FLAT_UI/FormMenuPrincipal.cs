@@ -27,6 +27,7 @@ using System.Drawing.Drawing2D;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation;
+using ULTRAMAVERICK.BaseWPFControls;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -72,8 +73,8 @@ namespace COMPLETE_FLAT_UI
         public string ImageParse { get; set; }
         public int sp_user_id { get; set; }
         public string total_receiving_dry_wh { get; set; }
-
-
+        public string TotalStoreOrderCancelatWhChecker { get; set; }
+        public double TotalCountNotificationDistinctType { get; set; }
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -274,8 +275,18 @@ namespace COMPLETE_FLAT_UI
 
         private void BadgeNotification()
         {
+            if (this.TotalStoreOrderCancelatWhChecker == "0")
+            {
+
+            }
+            else
+            {
+                this.TotalCountNotificationDistinctType = Convert.ToDouble(this.TotalStoreOrderCancelatWhChecker) + 0;
+            }
+
+
             //Header
-            Adorner.AddBadgeTo(btnNotificationsBell, "123");
+            Adorner.AddBadgeTo(btnNotificationsBell, this.TotalCountNotificationDistinctType.ToString());
             //end Header
             //Major Menu Notifications
             if (userinfo.receiving_status == "On")
@@ -287,6 +298,9 @@ namespace COMPLETE_FLAT_UI
                 //Adorner.AddBadgeTo(btnResearchAndDevelopment, "123");
                 //Adorner.AddBadgeToToolStrip(listOfReceivingToolStripMenuItem, total_receiving_dry_wh);
             }
+
+
+           
         }
         public string user_section_controlBox { get; set; }
 
@@ -361,7 +375,7 @@ namespace COMPLETE_FLAT_UI
             this.ConnectionInit();
 
             //this.Size = new Size(1300, 700); //Size of Windows
-            this.BadgeNotification();
+           
             this.RoundPictureAss();
 
             this.showReceivingData();
@@ -596,11 +610,30 @@ namespace COMPLETE_FLAT_UI
             }
 
 
-
-
+            this.CancelledforStorePreparationatWarehouseChecker();
+            this.BadgeNotification();
 
 
         }
+    
+        private void CancelledforStorePreparationatWarehouseChecker()      //method for loading available_menus
+        {
+            try
+            {
+                
+                xClass.fillDataGridView(this.dgvParseData, "Store_Order_Cancelled_by_WH_Checker", dSet);
+
+                this.TotalStoreOrderCancelatWhChecker = this.dgvParseData.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
 
         private void SubMenu()
         {
@@ -1540,6 +1573,12 @@ namespace COMPLETE_FLAT_UI
         private void PanelHeader_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnNotificationsBell_Click(object sender, EventArgs e)
+        {
+            frmViewAllNotifications ViewNotification = new frmViewAllNotifications();
+            ViewNotification.ShowDialog();
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

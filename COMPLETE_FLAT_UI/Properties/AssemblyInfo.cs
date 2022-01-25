@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("ULTRA MAVERICK DEVELOP BY GERARD SINGIAN")]
+[assembly: AssemblyTitle("ULTRA MAVERICK DEVELOP BY RDF DEVELOPERS")]
 [assembly: AssemblyDescription("FOOD MFTG")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RDF")]
 [assembly: AssemblyProduct("Ultra Maverick Food Manufacturing Corp")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright ©  2021 Gerard Singian")]
+[assembly: AssemblyTrademark("https://github.com/GerardGhub")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible como false, los tipos de este ensamblado no estarán visibles 
