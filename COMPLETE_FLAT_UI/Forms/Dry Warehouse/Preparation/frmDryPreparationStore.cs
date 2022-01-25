@@ -121,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text+"'    ";
 
                     //start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' and category = '" +this.matcmbCategory.Text+"'  or start_by_user_id = '0'
-
+              
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
                 }

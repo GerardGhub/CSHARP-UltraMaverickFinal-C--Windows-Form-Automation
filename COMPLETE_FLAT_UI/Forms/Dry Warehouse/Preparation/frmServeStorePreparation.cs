@@ -748,6 +748,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
         }
 
+
+
         private void gunaDgvReceivedIDInventory_CurrentCellChanged(object sender, EventArgs e)
         {
             if (this.gunaDgvReceivedIDInventory.Rows.Count > 0)
