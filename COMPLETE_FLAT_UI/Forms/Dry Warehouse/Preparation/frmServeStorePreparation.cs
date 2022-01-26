@@ -84,6 +84,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         public string TotalRecordofPrepared { get; set; }
 
+        public string dgvStoreOrderApproval_Primary_ID { get; set; }
+        public string dgvStoreOrderApproval_Is_wh_checker_cancel { get; set; }
+
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -241,8 +244,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value != null)
                     {
-                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                  
                         this.mattxtItemCode.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.dgvStoreOrderApproval_Primary_ID = this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value.ToString();
+                        this.dgvStoreOrderApproval_Is_wh_checker_cancel = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
+
+                        if(this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                        {
+                            this.matTxtQtyRelease.Text = "0";
+                        }
+                       
 
                     }
                 }
@@ -333,9 +344,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void matBtnSave_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(this.Sp_Material_Id);
-            //return;
-
+            
             if (this.mattxtQtyServe.Text == String.Empty)
             {
                 FillRequiredTextbox();
@@ -344,7 +353,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
 
 
-            //If the Transactiuon is Virgin hindi pa nakantot
+            //If the Transaction is Virgin hindi pa nakantot
             if(this.matTxtQtyRelease.Text == "0")
             {
                 double InputQtyServeUnused;
@@ -406,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 QuantityRelease = double.Parse(this.matTxtQtyRelease.Text);
                 firstEntrySolution = QuantityOrder - QuantityRelease;
                 TextBoxQuantityInputState = double.Parse(this.mattxtQtyServe.Text);
-                //MessageBox.Show("" + firstEntrySolution);
+                
 
                 if (firstEntrySolution > TextBoxQuantityInputState)
                 {
@@ -438,6 +447,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 return;
             }
 
+            if(this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+            {
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                this.Sp_Barcode_Id,
+                this.Sp_Preparation_Date,
+                this.mattxtItemCode.Text,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                this.sp_Fox, this.sp_Route, this.sp_Area,
+                "update_StorePreparationLogsTBL_prepared_allocated_qty");
+            }
 
 
             dSet.Clear();

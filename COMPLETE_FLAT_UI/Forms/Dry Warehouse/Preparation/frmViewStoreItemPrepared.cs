@@ -70,6 +70,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public int Sp_User_ID { get; set; }
         public string sp_approved_preparation_date { get; set; }
         public string Sp_Primary_Key { get; set; }
+        public string Is_Active { get; set; }
 
         private void frmViewStoreItemPrepared_Load(object sender, EventArgs e)
         {
@@ -94,19 +95,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
+
+            this.guna2DgvMaterialPreparation.Columns["is_prepared"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
+
             //this.guna2DgvMaterialPreparation.Columns["converted_qty"].Visible = false;
         }
 
         private void StaticWindowState()
         {
             this.Sp_Material_Id = Sp_Material_Id;
-            //this.matTxtReceivingbarcodeID.Text = this.Sp_Barcode_Id;
-            //this.matTxtDescription.Text = this.Sp_Item_Desc;
-            //this.matTxtUOM.Text = this.Sp_Unit_Of_Measure;
-            //this.matTxtOrderQty.Text = this.Sp_Converted_Qty;
+        
             this.Sp_Preparation_Date = this.Sp_Preparation_Date;
             this.Sp_User_ID = userinfo.user_id;
-            //this.matTxtQtyRelease.Text = Sp_Qty_Served;
+    
             this.sp_fox = sp_fox;
             this.sp_route = sp_route;
             this.sp_area = sp_area;
@@ -122,9 +124,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         }
 
-
+      
+      
         private void doSearchInTextBoxCmb()
         {
+            this.Is_Active = "1";
             try
             {
 
@@ -132,8 +136,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+
                  
-                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "'   ";
+     
+                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "' and is_prepared = '" + this.Is_Active + "' and is_wh_checker_cancel= '0'   ";
 
                
 

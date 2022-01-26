@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Start_By { get; set; }
         public string Sp_Employee_Name { get; set; }
 
-
+        public string Sp_Is_WH_Cancel_Status { get; set; }
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
@@ -379,7 +379,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             else
             {
                 this.matbtnSave.Visible = true;
-          
+
+
+                if (this.Sp_Is_WH_Cancel_Status == "1")
+                {
+                    this.matbtnSave.Visible = false;
+                }
+
             }
 
             }
@@ -396,6 +402,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
             //this.guna2DgvMaterialPreparation.Columns["converted_qty"].Visible = false;
         }
 
@@ -881,6 +888,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.Sp_Converted_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["converted_qty"].Value.ToString();
                         this.Sp_Qty_Serve = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Serve_Qty"].Value.ToString();
                         this.Sp_Item_Code = this.guna2DgvMaterialPreparation.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.Sp_Is_WH_Cancel_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
+                 
                     }
                 }
             }
@@ -943,26 +952,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (this.guna2DgvMaterialPreparation.Rows.Count >= 1)
-            {
-                int i = this.guna2DgvMaterialPreparation.CurrentRow.Index + 1;
-                if (i >= -1 && i < this.guna2DgvMaterialPreparation.Rows.Count)
-                    this.guna2DgvMaterialPreparation.CurrentCell = this.guna2DgvMaterialPreparation.Rows[i].Cells[0];
-                else
-                {
-
-                    //MessageBox.Show("You are in the Last Line");
-
-                    //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
-                    //timer1_Tick(sender, e);
-
-                    return;
-                }
-              
-            }
-        }
+  
 
         private void lbltotaldata_TextChanged(object sender, EventArgs e)
         {
