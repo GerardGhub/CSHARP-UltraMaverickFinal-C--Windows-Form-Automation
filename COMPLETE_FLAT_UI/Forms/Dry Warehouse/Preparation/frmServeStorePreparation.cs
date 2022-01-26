@@ -104,13 +104,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.doSearchInTextBoxCmbRecID();
             //DataGrid Visible False
             this.DataGridVisibilyFalse();
+
+
         }
 
         private void DataGridVisibilyFalse()
         {
             this.dgvStoreOrderApproval.Visible = false;
             this.gunaDgvReceivedIDInventory.Visible = false;
-            this.dgvPreparedItemDistinct.Visible = false;
+            //this.dgvPreparedItemDistinct.Visible = false;
         }
 
         private void doSearchInTextBoxCmbRecID()
@@ -298,8 +300,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             try
             {
-                if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
-                {
+                //if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
+                //{
 
                     //Date Conversion
                     DateTime dt = new DateTime();
@@ -320,7 +322,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
                     //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
-                }
+                //}
             }
 
        
@@ -525,7 +527,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
 
 
-                    dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "'   ";
+                    dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "' and fox = '"+ this.sp_Fox + "'   ";
 
 
 
@@ -563,19 +565,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             if(this.TotalRecordofPrepared == "0")
             {
-                this.TotalItemPreparedPerItemIncrementation = "0";
-                currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+                if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                {
 
-                currentStateQty = currentStateRepack + 1;
-                this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+                }
+                else
+                {
+
+                    this.TotalItemPreparedPerItemIncrementation = "0";
+                    currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+
+                    currentStateQty = currentStateRepack + 1;
+                    this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+                }
             }
             else
             {
-                this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
-                currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+                if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                {
 
-                currentStateQty = currentStateRepack + 1;
-                this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+                }
+                else
+                {
+                    this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
+                    currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+
+                    currentStateQty = currentStateRepack + 1;
+                    this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+                }
             }
 
       
@@ -800,12 +817,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
                     if (this.dgvPreparedItemDistinct.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
                     {
-                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
                       
                         this.TotalItemPreparedPerItemIncrementation = this.dgvPreparedItemDistinct.CurrentRow.Cells["TotalPreparedPerItem"].Value.ToString();
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
+            //doSearchSearchStoreItemPreparedWithCount();
+            //MessageBox.Show(this.TotalItemPreparedPerItemIncrementation);
         }
     }
 }

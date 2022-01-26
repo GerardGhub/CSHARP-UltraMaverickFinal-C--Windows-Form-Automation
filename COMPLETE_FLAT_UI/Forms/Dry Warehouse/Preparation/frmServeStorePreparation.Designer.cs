@@ -62,6 +62,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvPreparedItemDistinct = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDgvReceivedIDInventory)).BeginInit();
@@ -514,7 +515,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvPreparedItemDistinct.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvPreparedItemDistinct.EnableHeadersVisualStyles = false;
             this.dgvPreparedItemDistinct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvPreparedItemDistinct.Location = new System.Drawing.Point(426, 466);
+            this.dgvPreparedItemDistinct.Location = new System.Drawing.Point(416, 466);
             this.dgvPreparedItemDistinct.MultiSelect = false;
             this.dgvPreparedItemDistinct.Name = "dgvPreparedItemDistinct";
             this.dgvPreparedItemDistinct.ReadOnly = true;
@@ -532,7 +533,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvPreparedItemDistinct.RowTemplate.DividerHeight = 5;
             this.dgvPreparedItemDistinct.RowTemplate.Height = 40;
             this.dgvPreparedItemDistinct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPreparedItemDistinct.Size = new System.Drawing.Size(82, 35);
+            this.dgvPreparedItemDistinct.Size = new System.Drawing.Size(80, 35);
             this.dgvPreparedItemDistinct.TabIndex = 653;
             this.dgvPreparedItemDistinct.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvPreparedItemDistinct.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -558,11 +559,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvPreparedItemDistinct.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvPreparedItemDistinct.CurrentCellChanged += new System.EventHandler(this.dgvPreparedItemDistinct_CurrentCellChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(170, 412);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 655;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmServeStorePreparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 517);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvPreparedItemDistinct);
             this.Controls.Add(this.label3);
@@ -610,5 +622,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private MaterialSkin.Controls.MaterialTextBox mattxttotalqtyreleased;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2DataGridView dgvPreparedItemDistinct;
+        private System.Windows.Forms.Button button1;
     }
 }
