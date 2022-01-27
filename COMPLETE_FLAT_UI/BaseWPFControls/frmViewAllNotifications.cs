@@ -23,7 +23,7 @@ namespace ULTRAMAVERICK.BaseWPFControls
 
         private void frmViewAllNotifications_Load(object sender, EventArgs e)
         {
-            this.CancelledforStorePreparationatWarehouseChecker();
+           
         }
 
 
@@ -43,6 +43,42 @@ namespace ULTRAMAVERICK.BaseWPFControls
             }
 
 
+        }
+
+        private void DispatchingforStorePreparationatWarehouseChecker()      //method for loading available_menus
+        {
+            try
+            {
+
+                xClass.fillDataGridView(this.gunaDgvLogisticCheckerDispatching, "Store_Order_Dispatched_by_Logistic_Checker", dSet);
+
+                this.lbltotalrecords.Text = this.gunaDgvLogisticCheckerDispatching.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPage1)
+            {
+                MessageBox.Show("Tab 1");
+                this.CancelledforStorePreparationatWarehouseChecker();
+            }
+            else if (tabControl1.SelectedTab == tabPage2)
+            {
+                MessageBox.Show("Tab 2");
+                this.DispatchingforStorePreparationatWarehouseChecker();
+            }
+            else
+            {
+
+            }
         }
     }
 }
