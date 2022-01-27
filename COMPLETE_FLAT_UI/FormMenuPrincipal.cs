@@ -74,6 +74,7 @@ namespace COMPLETE_FLAT_UI
         public int sp_user_id { get; set; }
         public string total_receiving_dry_wh { get; set; }
         public string TotalStoreOrderCancelatWhChecker { get; set; }
+        public string TotalStoreOrderDistinctLogisticChecker { get; set; }
         public double TotalCountNotificationDistinctType { get; set; }
         protected override void WndProc(ref Message m)
         {
@@ -272,16 +273,26 @@ namespace COMPLETE_FLAT_UI
 
         }
 
+        private  void HeaderBadge()
+        {
+            this.TotalCountNotificationDistinctType = Convert.ToDouble(this.TotalStoreOrderCancelatWhChecker) +
+                 Convert.ToDouble(this.TotalStoreOrderDistinctLogisticChecker);
+        }
 
         private void BadgeNotification()
         {
-            if (this.TotalStoreOrderCancelatWhChecker == "0")
+            if (this.TotalStoreOrderCancelatWhChecker != "0")
             {
-
+                this.HeaderBadge();
             }
+            else if (this.TotalStoreOrderDistinctLogisticChecker != "0")
+            {
+                this.HeaderBadge();
+            }
+
             else
             {
-                this.TotalCountNotificationDistinctType = Convert.ToDouble(this.TotalStoreOrderCancelatWhChecker) + 0;
+             
             }
 
 
@@ -610,13 +621,14 @@ namespace COMPLETE_FLAT_UI
             }
 
 
-            this.CancelledforStorePreparationatWarehouseChecker();
+            this.CancelledforStorePreparationatLogisticChecker();
+            this.DispatchingforStorePreparationatLogisticChecker();
             this.BadgeNotification();
 
 
         }
     
-        private void CancelledforStorePreparationatWarehouseChecker()      //method for loading available_menus
+        private void CancelledforStorePreparationatLogisticChecker()      //method for loading available_menus
         {
             try
             {
@@ -624,6 +636,24 @@ namespace COMPLETE_FLAT_UI
                 xClass.fillDataGridView(this.dgvParseData, "Store_Order_Cancelled_by_WH_Checker", dSet);
 
                 this.TotalStoreOrderCancelatWhChecker = this.dgvParseData.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void DispatchingforStorePreparationatLogisticChecker()     
+        {
+            try
+            {
+
+                xClass.fillDataGridView(this.dgvParseData, "Store_Order_Dispatched_by_Logistic_Checker", dSet);
+
+                this.TotalStoreOrderDistinctLogisticChecker = this.dgvParseData.RowCount.ToString();
             }
             catch (Exception ex)
             {

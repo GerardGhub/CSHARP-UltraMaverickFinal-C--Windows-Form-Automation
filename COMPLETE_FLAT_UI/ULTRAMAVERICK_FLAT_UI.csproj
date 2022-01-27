@@ -892,6 +892,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Form ViewModels\" />
     <Folder Include="Forms\Login\" />
     <Folder Include="Forms\MasterList SetUP\" />
   </ItemGroup>
