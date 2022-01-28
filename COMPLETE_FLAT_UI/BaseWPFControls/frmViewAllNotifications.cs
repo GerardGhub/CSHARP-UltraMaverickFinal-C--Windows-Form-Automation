@@ -67,12 +67,12 @@ namespace ULTRAMAVERICK.BaseWPFControls
         {
             if (tabControl1.SelectedTab == tabPage1)
             {
-                MessageBox.Show("Tab 1");
+                
                 this.CancelledforStorePreparationatWarehouseChecker();
             }
             else if (tabControl1.SelectedTab == tabPage2)
             {
-                MessageBox.Show("Tab 2");
+              
                 this.DispatchingforStorePreparationatWarehouseChecker();
             }
             else

@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using Guna.UI2.WinForms;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -160,6 +161,21 @@ namespace ULTRAMAVERICK.Models
             eComboBox.DataSource = dSet.Tables[0].DefaultView;
             eComboBox.DisplayMember = dSet.Tables[0].Columns[0].ToString();
             eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+
+
+
+
+
+            g_objStoredProcFill = null;
+        }
+
+        public void fillGunaDataGridSync(Guna2DataGridView eDatagrid, string eTablename, DataSet dSet, string string_data_find, string string_data_find2, string string_data_find3, string string_data_find4)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, string_data_find, string_data_find2, string_data_find3, string_data_find4);
+
+        
 
 
 

@@ -28,6 +28,7 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation;
 using ULTRAMAVERICK.BaseWPFControls;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1609,6 +1610,14 @@ namespace COMPLETE_FLAT_UI
         {
             frmViewAllNotifications ViewNotification = new frmViewAllNotifications();
             ViewNotification.ShowDialog();
+        }
+
+        private void moveOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmStoreOrderDispatching fm = new frmStoreOrderDispatching();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

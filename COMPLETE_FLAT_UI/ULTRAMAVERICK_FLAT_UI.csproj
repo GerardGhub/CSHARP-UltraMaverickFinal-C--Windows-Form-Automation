@@ -165,6 +165,12 @@
     <Compile Include="FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Dispatching\frmStoreOrderDispatching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Dispatching\frmStoreOrderDispatching.Designer.cs">
+      <DependentUpon>frmStoreOrderDispatching.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Preparation\frmDryPreparationStore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -576,6 +582,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Dispatching\frmStoreOrderDispatching.resx">
+      <DependentUpon>frmStoreOrderDispatching.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Preparation\frmDryPreparationStore.resx">
       <DependentUpon>frmDryPreparationStore.cs</DependentUpon>
