@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,12 +37,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             InitializeComponent();
         }
 
+        public int Sp_user_id { get; set; }
         private void frmStoreOrderDispatching_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.loadPreparationDateDropdown();
             this.useStateWindowLoad();
+            this.ShowDataActivated();
+        }
+
+        private void ShowDataActivated()
+        {
+   
+            this.Sp_user_id = userinfo.user_id;
         }
 
         public void useStateWindowLoad()
@@ -55,17 +64,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.materialCheckboxSelectAll.Visible = true;
                 this.loadCategoryDropdown();
 
-                if(this.matcmbCategory.Text != String.Empty)
+                if (this.matcmbCategory.Text != String.Empty)
                 {
-                    this.loadStoreNameDropdown();
+                    this.loadPrepaDate_AND_Category();
                 }
 
-                if(this.metroCmbStoreName.Text != String.Empty)
+                if (this.metroCmbStoreName.Text != String.Empty)
                 {
                     this.loadPrepaDate_Category_StoreName_Dropdown();
                 }
             }
         }
+
+
+
+        public void loadPrepaDate_AND_Category()
+        {
+            try
+            {
+
+
+
+                this.dset.Clear();
+
+                this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major");
+
+                this.doSearch();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+        }
+
+
+
 
         public void loadPreparationDateDropdown()
         {
@@ -135,7 +172,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.dset.Clear();
 
                 this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major");
-                //DataView dv = new DataView(this.dset.Tables[0]);
+   
                 this.doSearch();
 
             }
@@ -157,9 +194,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 if (this.dset.Tables.Count > 0)
                 {
                     DataView dv = new DataView(this.dset.Tables[0]);
-                   
-                            dv.RowFilter = " is_approved_prepa_date = '" + this.matCmbPreparationDate.Text + "' and   category = '" + this.matcmbCategory.Text + "' and store_name ='" + this.metroCmbStoreName.Text + "'  ";
-              
+
+                    if (this.metroCmbStoreName.Text == String.Empty)
+                    {
+                        dv.RowFilter = " is_approved_prepa_date = '" + this.matCmbPreparationDate.Text + "' and   category = '" + this.matcmbCategory.Text + "'   ";
+
+                    }
+                    else
+                    {
+                        dv.RowFilter = " is_approved_prepa_date = '" + this.matCmbPreparationDate.Text + "' and   category = '" + this.matcmbCategory.Text + "' and store_name ='" + this.metroCmbStoreName.Text + "'  ";
+
+                    }
+
+
                     this.dgvGunaMoveItems.DataSource = dv;
                     this.lbltotaldata.Text = dgvGunaMoveItems.RowCount.ToString();
 
@@ -184,6 +231,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private void matCmbPreparationDate_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.loadCategoryDropdown();
+            if (this.matcmbCategory.Text != String.Empty)
+            {
+                this.loadPrepaDate_AND_Category();
+            }
+
         }
 
         private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
@@ -215,7 +267,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.labelSelectedSum.Text = "Selected Items: " + this.dgvGunaMoveItems.RowCount.ToString();
                 this.num = this.dgvGunaMoveItems.RowCount;
                 this.SaveButtonManipulator();
-                this.CountAllQtyOrder();
+                if(num != 0)
+                {
+                    this.matbtnEdit.Visible = true;
+                }
+          
             }
             else
             {
@@ -226,6 +282,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.num = 0;
                 this.SaveButtonManipulator();
                 this.lbltotalOrderQty.Text = "0";
+                if (num == 0)
+                {
+                    this.matbtnEdit.Visible = false;
+                }
             }
         }
 
@@ -239,10 +299,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             else if (num == 0)
             {
                 this.matbtnCancel.Visible = false;
+                this.materialLabelNoPrintPages.Visible = false;
+                this.metroCMbFilterPrintPages.Visible = false;
             }
             else
             {
-                this.matbtnCancel.Visible = true;
+                //this.matbtnCancel.Visible = true;
+                this.materialLabelNoPrintPages.Visible = true;
+                this.metroCMbFilterPrintPages.Visible = true;
             }
         }
 
@@ -287,7 +351,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         {
             if (this.num == 1)
             {
-                this.matbtnCancel.Visible = true;
+                //this.matbtnCancel.Visible = true;
                 this.matbtnEdit.Visible = true;
             }
             else
@@ -302,6 +366,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             if(this.lbltotaldata.Text != "0")
             {
                 this.dgvGunaMoveItems.Enabled = true;
+                //this.CountAllQtyOrder();
             }
             else
             {
@@ -344,6 +409,114 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.NoOfPagesforPrinting();
                 return;
             }
+
+            if (MetroFramework.MetroMessageBox.Show(this, "Print the move Order Slip? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                this.ApproveFunctionality();
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
+        private void ApproveFunctionality()
+        {
+ 
+            for (int i = 0; i <= this.dgvGunaMoveItems.RowCount - 1; i++)
+            {
+                try
+                {
+                    if (this.dgvGunaMoveItems.CurrentRow != null)
+                    {
+
+                        if (Convert.ToBoolean(this.dgvGunaMoveItems.Rows[i].Cells["selected"].Value) == true)
+                        {
+                            this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderMoveDispatching", this.matCmbPreparationDate.Text, this.Sp_user_id.ToString(), 1);
+
+                        }
+                        else
+                        {
+                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
+                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderMoveDispatching", 
+                        this.matCmbPreparationDate.Text, this.Sp_user_id.ToString(), 1);
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+
+            this.DispatchedSuccessfully();
+            this.materialCheckboxSelectAll.Checked = false;
+            this.labelSelectedSum.Visible = false;
+            //Pahinga
+            this.frmStoreOrderDispatching_Load(new object(), new System.EventArgs());
+    
+        }
+
+        public void DispatchedSuccessfully()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Resources.new_logo;
+            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Dispatched Successfully";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+        private void labelSelectedSum_TextChanged(object sender, EventArgs e)
+        {
+            if (num == 0)
+            {
+                if (this.materialCheckboxSelectAll.Checked == true)
+                {
+
+                }
+                else
+                {
+                    this.frmStoreOrderDispatching_Load(sender, e);
+                }
+
+
+
+
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void metroCmbStoreName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.loadPrepaDate_Category_StoreName_Dropdown();
         }
     }
 }
