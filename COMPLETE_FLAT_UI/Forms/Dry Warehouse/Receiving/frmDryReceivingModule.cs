@@ -623,9 +623,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             double rejecttotal;
 
 
-            orderActual = double.Parse(mattxtactualdelivery.Text);
-            currentrejectActual = double.Parse(mattxtqtyReceived.Text);
-            rejecttotal = double.Parse(mattxtqtyreject.Text);
+            orderActual = double.Parse(this.mattxtactualdelivery.Text);
+            currentrejectActual = double.Parse(this.mattxtqtyReceived.Text);
+            rejecttotal = double.Parse(this.mattxtqtyreject.Text);
 
             if (orderActual < currentrejectActual)
             {
@@ -643,17 +643,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
 
-            if (mattxtlotno.Text.Trim() == string.Empty)
+            if (this.mattxtlotno.Text.Trim() == string.Empty)
             {
                 this.FillRequiredFields();
-                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, this.mattxtcategory.Text);
                 LotSelection.ShowDialog();
                 return;
             }
-            if (mattxtLotDescription.Text.Trim() == string.Empty)
+            if (this.mattxtLotDescription.Text.Trim() == string.Empty)
             {
                 this.FillRequiredFields();
-                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, mattxtcategory.Text);
+                frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, this.mattxtcategory.Text);
                 LotSelection.ShowDialog();
                 return;
             }
@@ -665,8 +665,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             double currentreject;
        
 
-            order = double.Parse(mattxtactualdelivery.Text);
-            currentreject = double.Parse(mattxtqtyreject.Text);
+            order = double.Parse(this.mattxtactualdelivery.Text);
+            currentreject = double.Parse(this.mattxtqtyreject.Text);
      
 
             if (order < currentreject)
