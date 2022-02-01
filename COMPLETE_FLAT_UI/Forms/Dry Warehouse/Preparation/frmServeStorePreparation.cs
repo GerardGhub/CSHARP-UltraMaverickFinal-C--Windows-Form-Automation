@@ -586,7 +586,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                 {
+                    //Rekta Puyat
+                    this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
+                    currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
 
+                    currentStateQty = currentStateRepack + 1;
+                    this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
                 }
                 else
                 {
