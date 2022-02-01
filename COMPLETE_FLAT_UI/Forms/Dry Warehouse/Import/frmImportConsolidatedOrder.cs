@@ -164,7 +164,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
-            this.matbtnUpload.Visible = true;
+            this.matbtnUpload.Enabled = true;
             this.mode = "";
             dgvRawMats_CurrentCellChanged(sender, e);
 
@@ -670,14 +670,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Successfully Upload";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -735,11 +735,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void button1_Click(object sender, EventArgs e)
         {
             ErrorNotify();
-        }
-
-        private void dgvRawMats_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            this.dgvRawMats.Columns["date_ordered"].DefaultCellStyle.Format = "d"; // Short date
         }
     }
 }
