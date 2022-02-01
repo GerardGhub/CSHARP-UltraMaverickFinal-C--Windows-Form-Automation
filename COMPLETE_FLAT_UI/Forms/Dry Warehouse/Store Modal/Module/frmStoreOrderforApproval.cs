@@ -404,11 +404,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                 
+                    this.DoubleTaggingNotFound();
                 }
                 else
                 {
-                    if(num ==0)
+          
+                    if (num ==0)
                     {
 
                     }
