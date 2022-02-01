@@ -657,7 +657,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialLabelNoPrintPages.AutoSize = true;
             this.materialLabelNoPrintPages.Depth = 0;
             this.materialLabelNoPrintPages.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelNoPrintPages.Location = new System.Drawing.Point(256, 175);
+            this.materialLabelNoPrintPages.Location = new System.Drawing.Point(256, 184);
             this.materialLabelNoPrintPages.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelNoPrintPages.Name = "materialLabelNoPrintPages";
             this.materialLabelNoPrintPages.Size = new System.Drawing.Size(110, 19);

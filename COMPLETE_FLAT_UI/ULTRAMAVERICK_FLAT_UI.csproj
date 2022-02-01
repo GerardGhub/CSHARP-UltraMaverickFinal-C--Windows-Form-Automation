@@ -925,6 +925,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_ingredients.ico" />
+    <None Include="Resources\sd1.jpg" />
     <None Include="Resources\gceERxXri.gif" />
     <None Include="Resources\laptop_key_64px.png" />
     <None Include="Resources\key2_64px.png" />

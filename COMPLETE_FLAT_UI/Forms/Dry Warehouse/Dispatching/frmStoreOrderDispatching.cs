@@ -274,7 +274,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 for (int i = 0; i < this.dgvGunaMoveItems.RowCount; i++) { this.dgvGunaMoveItems.Rows[i].Cells[0].Value = true; }
                 //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
 
-                this.labelSelectedSum.Text = "Selected Items: " + this.dgvGunaMoveItems.RowCount.ToString();
+                this.labelSelectedSum.Text = "Selected Item(s): " + this.dgvGunaMoveItems.RowCount.ToString();
                 this.num = this.dgvGunaMoveItems.RowCount;
                 this.SaveButtonManipulator();
                 if(num != 0)
@@ -394,7 +394,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
+            //popup.Image = Resources.new_logo;
             popup.TitleText = "Ultra Maverick Notifications";
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(95, 7, 0, 0);

@@ -157,7 +157,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void txtFileName_TextChanged(object sender, EventArgs e)
         {
-            cbosheet.Enabled = true;
+            this.cbosheet.Enabled = true;
+        
         }
 
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)
@@ -175,7 +176,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 this.mattxtSearch_TextChanged(sender, e);
             }
-
+       
         }
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
@@ -643,26 +644,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.sd;
+            popup.TitleText = "Notifications";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Uploading Interupt Check the data to proceed";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Red;
             popup.Popup();
-
             popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
             popup.Delay = 500;
             popup.AnimationInterval = 10;
             popup.AnimationDuration = 1000;
-
-
             popup.ShowOptionsButton = true;
 
 
@@ -733,6 +730,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             }
             //
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ErrorNotify();
+        }
+
+        private void dgvRawMats_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            this.dgvRawMats.Columns["date_ordered"].DefaultCellStyle.Format = "d"; // Short date
         }
     }
 }
