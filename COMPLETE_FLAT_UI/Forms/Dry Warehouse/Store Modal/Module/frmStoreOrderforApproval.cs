@@ -107,10 +107,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (this.lbltotaldata.Text == "0")
             {
                 this.matcmbCategory.Enabled = false;
+                this.matbtnPrint.Visible = false;
             }
             else
             {
                 this.matcmbCategory.Enabled = true;
+
+                if(num != 0)
+                {
+                    this.matbtnPrint.Visible = true;
+                }
+                else
+                {
+                    this.matbtnPrint.Visible = false;
+                }
+         
+                
                 this.load_search();
             }
 
@@ -396,7 +408,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
-                    this.DoubleTaggingCategoryInformation();
+                    if(num ==0)
+                    {
+
+                    }
+                    else
+                    {
+                        this.DoubleTaggingCategoryInformation();
+                    }
+
+                   
+
+
                     this.DoubleTaggingFound();
                     
                 }
@@ -426,14 +449,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Double tagging of category!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.DarkSlateBlue;
@@ -574,6 +597,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ApprovedSuccessfully();
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
+
+        
+          
             //this.mode = "start";
             this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
             //this.ReturnFunctionality();
@@ -583,14 +609,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Approved Successfully";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -610,14 +636,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Allocation is required for " + this.total_item_for_allocation +  "record(s)";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Red;
@@ -637,12 +663,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
+
+
             if (this.lbltotaldata.Text == "0")
             {
 
             }
             else
             {
+                if (num == 0)
+                {
+                    return;
+                }
+
+
                 //CheckIifAlreayHaveAnewRecord
                 dset2.Clear();
                 dset2 = objStorProc.sp_Store_Preparation_Logs(0,
@@ -692,7 +726,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 //Start Blocked
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
             
                     this.ApproveFunctionality();
