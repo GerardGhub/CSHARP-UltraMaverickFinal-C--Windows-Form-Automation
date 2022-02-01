@@ -115,6 +115,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             //this.dgvPreparedItemDistinct.Visible = false;
         }
 
+
+
+
         private void doSearchInTextBoxCmbRecID()
         {
             try
@@ -440,7 +443,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve  the raw material? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve  the raw material? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
             }
