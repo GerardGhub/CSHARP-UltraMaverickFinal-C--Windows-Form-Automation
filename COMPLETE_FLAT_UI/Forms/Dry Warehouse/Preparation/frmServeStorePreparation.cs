@@ -574,7 +574,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
                 else
                 {
-
+                    this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
                     this.TotalItemPreparedPerItemIncrementation = "0";
                     currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
 
@@ -588,10 +588,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
                     //Rekta Puyat
                     this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
+
+
                     currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
 
-                    currentStateQty = currentStateRepack + 1;
+                    currentStateQty = currentStateRepack * 1;
                     this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+
                 }
                 else
                 {

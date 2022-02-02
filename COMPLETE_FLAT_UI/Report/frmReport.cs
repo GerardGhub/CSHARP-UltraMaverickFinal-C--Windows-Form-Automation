@@ -58,6 +58,25 @@ namespace ULTRAMAVERICK.Report
                 crV1.Refresh();
             }
 
+            if (myglobal.REPORT_NAME == "StoreMoveOrderPickSlip")
+            {
+                rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
+                //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+                rpt.Refresh();
+                string ddate = myglobal.DATE_REPORT;
+                string ddate2 = myglobal.DATE_REPORT2;
+                string ddate3 = myglobal.DATE_REPORT3;
+                //rpt.SetParameterValue("@ddate", ddate);
+                //rpt.SetParameterValue("@ddate2", ddate2);
+
+                rpt.SetParameterValue("@approved_prepa_date", ddate);
+                rpt.SetParameterValue("@category", ddate2);
+                rpt.SetParameterValue("@fox", ddate3);
+                crV1.ReportSource = rpt;
+                crV1.Refresh();
+            }
+
+
             else if (myglobal.REPORT_NAME == "DailyFGTotalProduction")
             {
                 rpt.Load(Rpt_Path + "\\DailyReportFGProduction.rpt");

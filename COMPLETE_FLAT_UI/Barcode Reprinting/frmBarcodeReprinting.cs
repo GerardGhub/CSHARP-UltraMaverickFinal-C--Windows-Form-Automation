@@ -172,10 +172,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
         }
         private void Print()
         {
-            //myglobal.Searchcategory = txtSearch.Text;
-        
-
-
+   
             for (int i = 0; i <= dgvReprinting.RowCount - 1; i++)
             {
                 try

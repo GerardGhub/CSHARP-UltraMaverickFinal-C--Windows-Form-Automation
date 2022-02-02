@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
+using ULTRAMAVERICK.Report;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 {
@@ -324,12 +325,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         double num_static_value = 0;
         private void dgvGunaMoveItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+            try
+            {
+                bool isChecked = (bool)dgvGunaMoveItems.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                CheckCount(isChecked);
+            }
+            catch (Exception ex)
+            {
 
-            bool isChecked = (bool)dgvGunaMoveItems.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-            CheckCount(isChecked);
+                MessageBox.Show(ex.Message);
+            }
 
 
+        
  
         }
 
@@ -569,7 +577,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             //    }
             //}
             dgvGunaMoveItems_CurrentCellChanged(new object(), new System.EventArgs());
-            MessageBox.Show("" + this.Sp_Selected_Item);
+            //MessageBox.Show("" + this.Sp_Selected_Item);
 
 
 
@@ -681,6 +689,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
 
 
+        }
+
+   
+
+        private void materialCard3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kulets");
+        }
+
+        private void materialButtonPrintPreview_Click(object sender, EventArgs e)
+        {
+            myglobal.REPORT_NAME = "StoreMoveOrderPickSlip";
+
+
+            //rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
+            Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
+
+            rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
+            //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+
+
+
+            rpt.Refresh();
+
+
+            //rpt.SetParameterValue("@approved_prepa_date", this.matCmbPreparationDate.Text);
+            //rpt.SetParameterValue("@category", this.matcmbCategory.Text);
+            //rpt.SetParameterValue("@fox", this.Sp_Fox);
+
+            myglobal.DATE_REPORT = this.matCmbPreparationDate.Text;
+            myglobal.DATE_REPORT2 = this.matcmbCategory.Text;
+            myglobal.DATE_REPORT3 = this.Sp_Fox;
+
+
+            crV1.ReportSource = rpt;
+            crV1.Refresh();
+
+
+
+            frmReport frmReport = new frmReport();
+            frmReport.ShowDialog();
         }
     }
 }
