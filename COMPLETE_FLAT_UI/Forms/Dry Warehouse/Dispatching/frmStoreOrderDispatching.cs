@@ -300,7 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.dset.Clear();
 
                 this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major");
-                //02/3/2022
+       
 
                 this.doSearch();
 
