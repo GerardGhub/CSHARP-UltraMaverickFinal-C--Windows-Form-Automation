@@ -75,6 +75,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.metroCMbFilterPrintPages = new MetroFramework.Controls.MetroComboBox();
             this.materialLabelNoPrintPages = new MaterialSkin.Controls.MaterialLabel();
             this.materialButtonPrintPreview = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabelFrom = new MaterialSkin.Controls.MaterialLabel();
+            this.bunifuPrepaDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.materialLabelTo = new MaterialSkin.Controls.MaterialLabel();
+            this.bunifuDateTo = new System.Windows.Forms.DateTimePicker();
             this.materialCard3.SuspendLayout();
             this.groupBoxColorGuide.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -89,12 +93,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialCard3.Controls.Add(this.materialLabelRecentLogs);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(784, 11);
+            this.materialCard3.Location = new System.Drawing.Point(881, 5);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(178, 59);
+            this.materialCard3.Size = new System.Drawing.Size(178, 28);
             this.materialCard3.TabIndex = 655;
             this.materialCard3.Click += new System.EventHandler(this.materialCard3_Click);
             this.materialCard3.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard3_Paint);
@@ -106,7 +110,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialLabelRecentLogs.AutoSize = true;
             this.materialLabelRecentLogs.Depth = 0;
             this.materialLabelRecentLogs.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelRecentLogs.Location = new System.Drawing.Point(24, 25);
+            this.materialLabelRecentLogs.Location = new System.Drawing.Point(24, 5);
             this.materialLabelRecentLogs.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelRecentLogs.Name = "materialLabelRecentLogs";
             this.materialLabelRecentLogs.Size = new System.Drawing.Size(137, 19);
@@ -183,7 +187,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.groupBoxColorGuide.Controls.Add(this.panel1);
             this.groupBoxColorGuide.Controls.Add(this.matbtnCancel);
             this.groupBoxColorGuide.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxColorGuide.Location = new System.Drawing.Point(308, 697);
+            this.groupBoxColorGuide.Location = new System.Drawing.Point(405, 697);
             this.groupBoxColorGuide.Name = "groupBoxColorGuide";
             this.groupBoxColorGuide.Size = new System.Drawing.Size(394, 62);
             this.groupBoxColorGuide.TabIndex = 671;
@@ -280,7 +284,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.lbltotalOrderQty.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalOrderQty.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalOrderQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalOrderQty.Location = new System.Drawing.Point(839, 708);
+            this.lbltotalOrderQty.Location = new System.Drawing.Point(936, 708);
             this.lbltotalOrderQty.Name = "lbltotalOrderQty";
             this.lbltotalOrderQty.Size = new System.Drawing.Size(32, 40);
             this.lbltotalOrderQty.TabIndex = 669;
@@ -311,7 +315,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(708, 722);
+            this.label2.Location = new System.Drawing.Point(805, 722);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 17);
             this.label2.TabIndex = 670;
@@ -325,7 +329,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.labelSelectedSum.BackColor = System.Drawing.Color.Transparent;
             this.labelSelectedSum.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSelectedSum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.labelSelectedSum.Location = new System.Drawing.Point(784, 168);
+            this.labelSelectedSum.Location = new System.Drawing.Point(881, 168);
             this.labelSelectedSum.Name = "labelSelectedSum";
             this.labelSelectedSum.Size = new System.Drawing.Size(32, 40);
             this.labelSelectedSum.TabIndex = 666;
@@ -340,7 +344,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
             this.lbltotaldata.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotaldata.Location = new System.Drawing.Point(920, 708);
+            this.lbltotaldata.Location = new System.Drawing.Point(1017, 708);
             this.lbltotaldata.Name = "lbltotaldata";
             this.lbltotaldata.Size = new System.Drawing.Size(32, 40);
             this.lbltotaldata.TabIndex = 664;
@@ -354,7 +358,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(965, 722);
+            this.label4.Location = new System.Drawing.Point(1062, 722);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 665;
@@ -375,7 +379,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(980, 479);
+            this.materialCard2.Size = new System.Drawing.Size(1077, 479);
             this.materialCard2.TabIndex = 659;
             // 
             // crV1
@@ -460,7 +464,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.dgvGunaMoveItems.RowTemplate.DividerHeight = 5;
             this.dgvGunaMoveItems.RowTemplate.Height = 40;
             this.dgvGunaMoveItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGunaMoveItems.Size = new System.Drawing.Size(970, 467);
+            this.dgvGunaMoveItems.Size = new System.Drawing.Size(1067, 467);
             this.dgvGunaMoveItems.TabIndex = 594;
             this.dgvGunaMoveItems.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvGunaMoveItems.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -555,6 +559,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.materialLabelTo);
+            this.materialCard1.Controls.Add(this.bunifuDateTo);
+            this.materialCard1.Controls.Add(this.materialLabelFrom);
+            this.materialCard1.Controls.Add(this.bunifuPrepaDateFrom);
             this.materialCard1.Controls.Add(this.matCmbPreparationDate);
             this.materialCard1.Controls.Add(this.materialCard3);
             this.materialCard1.Controls.Add(this.materialLabel5);
@@ -569,7 +577,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(980, 90);
+            this.materialCard1.Size = new System.Drawing.Size(1077, 90);
             this.materialCard1.TabIndex = 662;
             // 
             // matCmbPreparationDate
@@ -590,7 +598,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(800, 810);
+            this.lbltotalrecords.Location = new System.Drawing.Point(897, 810);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
             this.lbltotalrecords.TabIndex = 660;
@@ -603,7 +611,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(842, 826);
+            this.label3.Location = new System.Drawing.Point(939, 826);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 18);
             this.label3.TabIndex = 661;
@@ -687,11 +695,67 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialButtonPrintPreview.Visible = false;
             this.materialButtonPrintPreview.Click += new System.EventHandler(this.materialButtonPrintPreview_Click);
             // 
+            // materialLabelFrom
+            // 
+            this.materialLabelFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabelFrom.AutoSize = true;
+            this.materialLabelFrom.Depth = 0;
+            this.materialLabelFrom.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabelFrom.Location = new System.Drawing.Point(674, 59);
+            this.materialLabelFrom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabelFrom.Name = "materialLabelFrom";
+            this.materialLabelFrom.Size = new System.Drawing.Size(42, 19);
+            this.materialLabelFrom.TabIndex = 658;
+            this.materialLabelFrom.Text = "From:";
+            this.materialLabelFrom.Visible = false;
+            // 
+            // bunifuPrepaDateFrom
+            // 
+            this.bunifuPrepaDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuPrepaDateFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDateFrom.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.bunifuPrepaDateFrom.CustomFormat = "yyyy-MM-dd";
+            this.bunifuPrepaDateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuPrepaDateFrom.Location = new System.Drawing.Point(723, 52);
+            this.bunifuPrepaDateFrom.Name = "bunifuPrepaDateFrom";
+            this.bunifuPrepaDateFrom.Size = new System.Drawing.Size(153, 31);
+            this.bunifuPrepaDateFrom.TabIndex = 657;
+            this.bunifuPrepaDateFrom.Visible = false;
+            // 
+            // materialLabelTo
+            // 
+            this.materialLabelTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabelTo.AutoSize = true;
+            this.materialLabelTo.Depth = 0;
+            this.materialLabelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialLabelTo.Location = new System.Drawing.Point(884, 60);
+            this.materialLabelTo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabelTo.Name = "materialLabelTo";
+            this.materialLabelTo.Size = new System.Drawing.Size(24, 19);
+            this.materialLabelTo.TabIndex = 660;
+            this.materialLabelTo.Text = "To:";
+            this.materialLabelTo.Visible = false;
+            // 
+            // bunifuDateTo
+            // 
+            this.bunifuDateTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuDateTo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuDateTo.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.bunifuDateTo.CustomFormat = "yyyy-MM-dd";
+            this.bunifuDateTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuDateTo.Location = new System.Drawing.Point(917, 53);
+            this.bunifuDateTo.Name = "bunifuDateTo";
+            this.bunifuDateTo.Size = new System.Drawing.Size(153, 31);
+            this.bunifuDateTo.TabIndex = 659;
+            this.bunifuDateTo.Visible = false;
+            // 
             // frmStoreOrderDispatching
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1121, 768);
             this.Controls.Add(this.materialButtonPrintPreview);
             this.Controls.Add(this.materialLabelNoPrintPages);
             this.Controls.Add(this.metroCMbFilterPrintPages);
@@ -768,5 +832,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crV1;
         private MaterialSkin.Controls.MaterialLabel materialLabelRecentLogs;
         private MaterialSkin.Controls.MaterialButton materialButtonPrintPreview;
+        private MaterialSkin.Controls.MaterialLabel materialLabelFrom;
+        private System.Windows.Forms.DateTimePicker bunifuPrepaDateFrom;
+        private MaterialSkin.Controls.MaterialLabel materialLabelTo;
+        private System.Windows.Forms.DateTimePicker bunifuDateTo;
     }
 }

@@ -931,8 +931,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 //Do Searching Method
                 this.RecentLogsSearch();
-
-
+                this.materialLabelFrom.Visible = true;
+                this.materialLabelTo.Visible = true;
+                this.bunifuPrepaDateFrom.Visible = true;
+                this.bunifuDateTo.Visible = true;
 
                 counterstrike = 1;
             }
@@ -947,7 +949,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
 
                 this.materialLabelRecentLogs.Text = "View Recent Log(s)";
-
+                this.materialLabelFrom.Visible = false;
+                this.materialLabelTo.Visible = false;
+                this.bunifuDateTo.Visible = false;
+                this.bunifuPrepaDateFrom.Visible = false;
                 counterstrike = 0;
                 this.frmStoreOrderDispatching_Load(sender, e);
                 return;
