@@ -34,7 +34,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabelRecentLogs = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.metroCmbStoreName = new MetroFramework.Controls.MetroComboBox();
@@ -47,6 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.matbtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.lbltotalOrderQty = new System.Windows.Forms.Label();
             this.materialCheckboxSelectAll = new MaterialSkin.Controls.MaterialCheckbox();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.matCmbPreparationDate = new MetroFramework.Controls.MetroComboBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.matbtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.metroCMbFilterPrintPages = new MetroFramework.Controls.MetroComboBox();
@@ -86,31 +86,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             // 
             this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard3.Controls.Add(this.materialLabel1);
+            this.materialCard3.Controls.Add(this.materialLabelRecentLogs);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard3.Location = new System.Drawing.Point(784, 11);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
-            this.materialCard3.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard3.Size = new System.Drawing.Size(178, 59);
             this.materialCard3.TabIndex = 655;
             this.materialCard3.Click += new System.EventHandler(this.materialCard3_Click);
+            this.materialCard3.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard3_Paint);
             // 
-            // materialLabel1
+            // materialLabelRecentLogs
             // 
-            this.materialLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.materialLabelRecentLogs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(34, 25);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(126, 19);
-            this.materialLabel1.TabIndex = 657;
-            this.materialLabel1.Text = "View Recent Logs";
+            this.materialLabelRecentLogs.AutoSize = true;
+            this.materialLabelRecentLogs.Depth = 0;
+            this.materialLabelRecentLogs.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabelRecentLogs.Location = new System.Drawing.Point(24, 25);
+            this.materialLabelRecentLogs.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabelRecentLogs.Name = "materialLabelRecentLogs";
+            this.materialLabelRecentLogs.Size = new System.Drawing.Size(137, 19);
+            this.materialLabelRecentLogs.TabIndex = 657;
+            this.materialLabelRecentLogs.Text = "View Recent Log(s)";
             // 
             // materialLabel5
             // 
@@ -180,10 +181,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.groupBoxColorGuide.Controls.Add(this.materialLabel6);
             this.groupBoxColorGuide.Controls.Add(this.materialLabel4);
             this.groupBoxColorGuide.Controls.Add(this.panel1);
+            this.groupBoxColorGuide.Controls.Add(this.matbtnCancel);
             this.groupBoxColorGuide.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxColorGuide.Location = new System.Drawing.Point(174, 697);
+            this.groupBoxColorGuide.Location = new System.Drawing.Point(308, 697);
             this.groupBoxColorGuide.Name = "groupBoxColorGuide";
-            this.groupBoxColorGuide.Size = new System.Drawing.Size(528, 62);
+            this.groupBoxColorGuide.Size = new System.Drawing.Size(394, 62);
             this.groupBoxColorGuide.TabIndex = 671;
             this.groupBoxColorGuide.TabStop = false;
             this.groupBoxColorGuide.Text = "Color Coding Guide :";
@@ -251,6 +253,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(39, 29);
             this.panel1.TabIndex = 0;
+            // 
+            // matbtnCancel
+            // 
+            this.matbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnCancel.Depth = 0;
+            this.matbtnCancel.DrawShadows = true;
+            this.matbtnCancel.HighEmphasis = true;
+            this.matbtnCancel.Icon = null;
+            this.matbtnCancel.Location = new System.Drawing.Point(23, 20);
+            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnCancel.Name = "matbtnCancel";
+            this.matbtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.matbtnCancel.TabIndex = 663;
+            this.matbtnCancel.Text = "CANCEL";
+            this.matbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnCancel.UseAccentColor = false;
+            this.matbtnCancel.UseVisualStyleBackColor = true;
+            this.matbtnCancel.Visible = false;
             // 
             // lbltotalOrderQty
             // 
@@ -365,7 +386,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.crV1.Location = new System.Drawing.Point(11, 330);
             this.crV1.Margin = new System.Windows.Forms.Padding(1);
             this.crV1.Name = "crV1";
-            this.crV1.Size = new System.Drawing.Size(642, 84);
+            this.crV1.Size = new System.Drawing.Size(84, 84);
             this.crV1.TabIndex = 673;
             this.crV1.ToolPanelWidth = 1;
             // 
@@ -588,25 +609,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.label3.TabIndex = 661;
             this.label3.Text = "Items";
             // 
-            // matbtnCancel
-            // 
-            this.matbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnCancel.Depth = 0;
-            this.matbtnCancel.DrawShadows = true;
-            this.matbtnCancel.HighEmphasis = true;
-            this.matbtnCancel.Icon = null;
-            this.matbtnCancel.Location = new System.Drawing.Point(92, 718);
-            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnCancel.Name = "matbtnCancel";
-            this.matbtnCancel.Size = new System.Drawing.Size(77, 36);
-            this.matbtnCancel.TabIndex = 663;
-            this.matbtnCancel.Text = "CANCEL";
-            this.matbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnCancel.UseAccentColor = false;
-            this.matbtnCancel.UseVisualStyleBackColor = true;
-            this.matbtnCancel.Visible = false;
-            // 
             // matbtnEdit
             // 
             this.matbtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -645,7 +647,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.metroCMbFilterPrintPages.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.metroCMbFilterPrintPages.Location = new System.Drawing.Point(372, 177);
+            this.metroCMbFilterPrintPages.Location = new System.Drawing.Point(255, 178);
             this.metroCMbFilterPrintPages.Name = "metroCMbFilterPrintPages";
             this.metroCMbFilterPrintPages.Size = new System.Drawing.Size(65, 29);
             this.metroCMbFilterPrintPages.TabIndex = 657;
@@ -657,12 +659,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialLabelNoPrintPages.AutoSize = true;
             this.materialLabelNoPrintPages.Depth = 0;
             this.materialLabelNoPrintPages.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelNoPrintPages.Location = new System.Drawing.Point(256, 184);
+            this.materialLabelNoPrintPages.Location = new System.Drawing.Point(328, 184);
             this.materialLabelNoPrintPages.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelNoPrintPages.Name = "materialLabelNoPrintPages";
-            this.materialLabelNoPrintPages.Size = new System.Drawing.Size(110, 19);
+            this.materialLabelNoPrintPages.Size = new System.Drawing.Size(114, 19);
             this.materialLabelNoPrintPages.TabIndex = 657;
-            this.materialLabelNoPrintPages.Text = "No Print Pages:";
+            this.materialLabelNoPrintPages.Text = "No. Print Pages:";
             this.materialLabelNoPrintPages.Visible = false;
             // 
             // materialButtonPrintPreview
@@ -672,7 +674,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialButtonPrintPreview.DrawShadows = true;
             this.materialButtonPrintPreview.HighEmphasis = true;
             this.materialButtonPrintPreview.Icon = null;
-            this.materialButtonPrintPreview.Location = new System.Drawing.Point(451, 173);
+            this.materialButtonPrintPreview.Location = new System.Drawing.Point(100, 718);
             this.materialButtonPrintPreview.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.materialButtonPrintPreview.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintPreview.Name = "materialButtonPrintPreview";
@@ -682,6 +684,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialButtonPrintPreview.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButtonPrintPreview.UseAccentColor = false;
             this.materialButtonPrintPreview.UseVisualStyleBackColor = true;
+            this.materialButtonPrintPreview.Visible = false;
             this.materialButtonPrintPreview.Click += new System.EventHandler(this.materialButtonPrintPreview_Click);
             // 
             // frmStoreOrderDispatching
@@ -703,7 +706,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.matbtnCancel);
             this.Controls.Add(this.matbtnEdit);
             this.Controls.Add(this.textBox1);
             this.Name = "frmStoreOrderDispatching";
@@ -764,7 +766,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
         private System.Windows.Forms.DataGridViewTextBoxColumn total_state_repack;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crV1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabelRecentLogs;
         private MaterialSkin.Controls.MaterialButton materialButtonPrintPreview;
     }
 }

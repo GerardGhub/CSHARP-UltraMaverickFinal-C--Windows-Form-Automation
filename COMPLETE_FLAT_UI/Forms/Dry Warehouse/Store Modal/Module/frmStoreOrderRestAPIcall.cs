@@ -60,11 +60,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_item_code { get; set; }
         public string sp_description { get; set; }
         public string sp_uom { get; set; }
-        public string sp_qty { get; set; }  
+        public string sp_qty { get; set; }
+        public string Sp_total_count_of_RestData { get; set; }
+
+
+  
+
         private JArray GetRESTData(string uri)
         {
             var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+
+   
             var webResponse = (HttpWebResponse)webRequest.GetResponse();
+
             var reader = new StreamReader(webResponse.GetResponseStream());
             string s = reader.ReadToEnd();
             return JsonConvert.DeserializeObject<JArray>(s);
@@ -75,6 +83,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.GetStoreOrders();
             this.MainLoader();
+           
             this.objStorProc = xClass.g_objStoredProc.GetCollections();
             this.user_id = userinfo.user_id;
         }
@@ -86,7 +95,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void GetStoreOrders()
         {
             this.dgvStoreOrder.DataSource = GetRESTData("https://genus.rdfmis.ph/StoreAPI/api/orders.php?token=8AFASbzK5OH0E9OuZF5LlI9qZo8fqr1X");
-
+      
         }
 
         private void dgvStoreOrder_CurrentCellChanged(object sender, EventArgs e)
