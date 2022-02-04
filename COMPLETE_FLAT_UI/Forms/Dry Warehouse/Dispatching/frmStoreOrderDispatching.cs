@@ -921,56 +921,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         private void materialCard3_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("External" + counterstrike);
-            if (counterstrike == 0)
-            {
-                //MessageBox.Show("Sample Data"+counterstrike);
-                this.Text = "Store Order Dispatching Recent Logs";
-                this.materialLabelRecentLogs.Text = "View Current Log(s)";
-                //Preparation Date Load
-                this.loadPreparationDateDropdownRecentLogs();
-                //Load Fucking Category
-                this.loadCategoryDropdown_Recent_Logs();
 
-                this.materialLabelFrom.Visible = true;
-                this.materialLabelTo.Visible = true;
-                this.bunifuPrepaDateFrom.Visible = true;
-                this.bunifuDateTo.Visible = true;
-                this.matCmbPreparationDate.Enabled = false;
+ 
 
 
-                //Do Searching Method
-                this.RecentLogsSearch();
+                //MessageBox.Show("External" + counterstrike);
+                if (counterstrike == 0)
+                {
+                    //MessageBox.Show("Sample Data"+counterstrike);
+                    this.Text = "Store Order Dispatching Recent Logs";
+                    this.materialLabelRecentLogs.Text = "View Current Log(s)";
+                    //Preparation Date Load
+                    this.loadPreparationDateDropdownRecentLogs();
+                    //Load Fucking Category
+                    this.loadCategoryDropdown_Recent_Logs();
 
-                counterstrike = 1;
+                    this.materialLabelFrom.Visible = true;
+                    this.materialLabelTo.Visible = true;
+                    this.bunifuPrepaDateFrom.Visible = true;
+                    this.bunifuDateTo.Visible = true;
+                    this.matCmbPreparationDate.Enabled = false;
+
+
+                    //Do Searching Method
+                    this.RecentLogsSearch();
+
+                    counterstrike = 1;
+                }
+
+                if (counterstrike == 2)
+                {
+
+                    //MessageBox.Show("Sample Data 2" +counterstrike);
+                    this.Text = "Store Order Dispatching";
+
+
+
+
+                    this.materialLabelRecentLogs.Text = "View Recent Log(s)";
+                    this.materialLabelFrom.Visible = false;
+                    this.materialLabelTo.Visible = false;
+                    this.bunifuDateTo.Visible = false;
+                    this.bunifuPrepaDateFrom.Visible = false;
+                    this.matCmbPreparationDate.Enabled = true;
+                    counterstrike = 0;
+                    this.frmStoreOrderDispatching_Load(sender, e);
+                    return;
+
+                }
+                if (counterstrike == 1)
+                {
+                    counterstrike = 2;
+
+                }
             }
-
-            if (counterstrike == 2)
-            {
-
-                //MessageBox.Show("Sample Data 2" +counterstrike);
-                this.Text = "Store Order Dispatching";
-
-
-
-
-                this.materialLabelRecentLogs.Text = "View Recent Log(s)";
-                this.materialLabelFrom.Visible = false;
-                this.materialLabelTo.Visible = false;
-                this.bunifuDateTo.Visible = false;
-                this.bunifuPrepaDateFrom.Visible = false;
-                this.matCmbPreparationDate.Enabled = true;
-                counterstrike = 0;
-                this.frmStoreOrderDispatching_Load(sender, e);
-                return;
-
-            }
-            if (counterstrike == 1)
-            {
-                counterstrike = 2;
-         
-            }
-
+          
 
 
         }
@@ -1057,6 +1062,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             {
                 this.RecentLogsSearch();
             }
+        }
+
+
+
+
+        private void materialLabelRecentLogs_Click(object sender, EventArgs e)
+        {
+            this.materialCard3_Click(sender, e);
         }
     }
 }
