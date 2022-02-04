@@ -67,6 +67,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total_state_repack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.materialLabelTo = new MaterialSkin.Controls.MaterialLabel();
+            this.bunifuDateTo = new System.Windows.Forms.DateTimePicker();
+            this.materialLabelFrom = new MaterialSkin.Controls.MaterialLabel();
+            this.bunifuPrepaDateFrom = new System.Windows.Forms.DateTimePicker();
             this.matCmbPreparationDate = new MetroFramework.Controls.MetroComboBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,10 +79,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.metroCMbFilterPrintPages = new MetroFramework.Controls.MetroComboBox();
             this.materialLabelNoPrintPages = new MaterialSkin.Controls.MaterialLabel();
             this.materialButtonPrintPreview = new MaterialSkin.Controls.MaterialButton();
-            this.materialLabelFrom = new MaterialSkin.Controls.MaterialLabel();
-            this.bunifuPrepaDateFrom = new System.Windows.Forms.DateTimePicker();
-            this.materialLabelTo = new MaterialSkin.Controls.MaterialLabel();
-            this.bunifuDateTo = new System.Windows.Forms.DateTimePicker();
             this.materialCard3.SuspendLayout();
             this.groupBoxColorGuide.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -580,6 +580,64 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialCard1.Size = new System.Drawing.Size(1077, 90);
             this.materialCard1.TabIndex = 662;
             // 
+            // materialLabelTo
+            // 
+            this.materialLabelTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabelTo.AutoSize = true;
+            this.materialLabelTo.Depth = 0;
+            this.materialLabelTo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabelTo.Location = new System.Drawing.Point(884, 60);
+            this.materialLabelTo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabelTo.Name = "materialLabelTo";
+            this.materialLabelTo.Size = new System.Drawing.Size(24, 19);
+            this.materialLabelTo.TabIndex = 660;
+            this.materialLabelTo.Text = "To:";
+            this.materialLabelTo.Visible = false;
+            // 
+            // bunifuDateTo
+            // 
+            this.bunifuDateTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuDateTo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuDateTo.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.bunifuDateTo.CustomFormat = "yyyy-MM-dd";
+            this.bunifuDateTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuDateTo.Location = new System.Drawing.Point(917, 53);
+            this.bunifuDateTo.Name = "bunifuDateTo";
+            this.bunifuDateTo.Size = new System.Drawing.Size(153, 31);
+            this.bunifuDateTo.TabIndex = 659;
+            this.bunifuDateTo.Visible = false;
+            this.bunifuDateTo.ValueChanged += new System.EventHandler(this.bunifuDateTo_ValueChanged);
+            // 
+            // materialLabelFrom
+            // 
+            this.materialLabelFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabelFrom.AutoSize = true;
+            this.materialLabelFrom.Depth = 0;
+            this.materialLabelFrom.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabelFrom.Location = new System.Drawing.Point(674, 59);
+            this.materialLabelFrom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabelFrom.Name = "materialLabelFrom";
+            this.materialLabelFrom.Size = new System.Drawing.Size(42, 19);
+            this.materialLabelFrom.TabIndex = 658;
+            this.materialLabelFrom.Text = "From:";
+            this.materialLabelFrom.Visible = false;
+            // 
+            // bunifuPrepaDateFrom
+            // 
+            this.bunifuPrepaDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuPrepaDateFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDateFrom.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.bunifuPrepaDateFrom.CustomFormat = "yyyy-MM-dd";
+            this.bunifuPrepaDateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuPrepaDateFrom.Location = new System.Drawing.Point(723, 52);
+            this.bunifuPrepaDateFrom.Name = "bunifuPrepaDateFrom";
+            this.bunifuPrepaDateFrom.Size = new System.Drawing.Size(153, 31);
+            this.bunifuPrepaDateFrom.TabIndex = 657;
+            this.bunifuPrepaDateFrom.Visible = false;
+            this.bunifuPrepaDateFrom.ValueChanged += new System.EventHandler(this.bunifuPrepaDateFrom_ValueChanged);
+            // 
             // matCmbPreparationDate
             // 
             this.matCmbPreparationDate.FormattingEnabled = true;
@@ -694,62 +752,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialButtonPrintPreview.UseVisualStyleBackColor = true;
             this.materialButtonPrintPreview.Visible = false;
             this.materialButtonPrintPreview.Click += new System.EventHandler(this.materialButtonPrintPreview_Click);
-            // 
-            // materialLabelFrom
-            // 
-            this.materialLabelFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialLabelFrom.AutoSize = true;
-            this.materialLabelFrom.Depth = 0;
-            this.materialLabelFrom.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelFrom.Location = new System.Drawing.Point(674, 59);
-            this.materialLabelFrom.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabelFrom.Name = "materialLabelFrom";
-            this.materialLabelFrom.Size = new System.Drawing.Size(42, 19);
-            this.materialLabelFrom.TabIndex = 658;
-            this.materialLabelFrom.Text = "From:";
-            this.materialLabelFrom.Visible = false;
-            // 
-            // bunifuPrepaDateFrom
-            // 
-            this.bunifuPrepaDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuPrepaDateFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDateFrom.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuPrepaDateFrom.CustomFormat = "yyyy-MM-dd";
-            this.bunifuPrepaDateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuPrepaDateFrom.Location = new System.Drawing.Point(723, 52);
-            this.bunifuPrepaDateFrom.Name = "bunifuPrepaDateFrom";
-            this.bunifuPrepaDateFrom.Size = new System.Drawing.Size(153, 31);
-            this.bunifuPrepaDateFrom.TabIndex = 657;
-            this.bunifuPrepaDateFrom.Visible = false;
-            // 
-            // materialLabelTo
-            // 
-            this.materialLabelTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialLabelTo.AutoSize = true;
-            this.materialLabelTo.Depth = 0;
-            this.materialLabelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialLabelTo.Location = new System.Drawing.Point(884, 60);
-            this.materialLabelTo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabelTo.Name = "materialLabelTo";
-            this.materialLabelTo.Size = new System.Drawing.Size(24, 19);
-            this.materialLabelTo.TabIndex = 660;
-            this.materialLabelTo.Text = "To:";
-            this.materialLabelTo.Visible = false;
-            // 
-            // bunifuDateTo
-            // 
-            this.bunifuDateTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuDateTo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDateTo.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuDateTo.CustomFormat = "yyyy-MM-dd";
-            this.bunifuDateTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuDateTo.Location = new System.Drawing.Point(917, 53);
-            this.bunifuDateTo.Name = "bunifuDateTo";
-            this.bunifuDateTo.Size = new System.Drawing.Size(153, 31);
-            this.bunifuDateTo.TabIndex = 659;
-            this.bunifuDateTo.Visible = false;
             // 
             // frmStoreOrderDispatching
             // 
