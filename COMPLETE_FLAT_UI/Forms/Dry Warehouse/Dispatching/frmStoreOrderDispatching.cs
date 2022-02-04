@@ -922,7 +922,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private void materialCard3_Click(object sender, EventArgs e)
         {
 
- 
+            
 
 
                 //MessageBox.Show("External" + counterstrike);
@@ -974,8 +974,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     counterstrike = 2;
 
                 }
-            }
-          
+         
 
 
         }
