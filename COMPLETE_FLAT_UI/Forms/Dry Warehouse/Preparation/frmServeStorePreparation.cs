@@ -456,7 +456,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 dSet.Clear();
                 dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
-                this.Sp_Barcode_Id,
+                this.sp_Fox,
                 this.Sp_Preparation_Date,
                 this.mattxtItemCode.Text,
                 this.matTxtDescription.Text,
