@@ -62,6 +62,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Employee_Name { get; set; }
 
         public string Sp_Is_WH_Cancel_Status { get; set; }
+        public string Sp_Logistic_Checker_Cancelled { get; set; }
+        public string Sp_Category { get; set; }
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
@@ -483,6 +485,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
                         this.Sp_Start_By = this.dgvStoreOrderApproval.CurrentRow.Cells["start_by_user_id"].Value.ToString();
                         this.Sp_Employee_Name = this.dgvStoreOrderApproval.CurrentRow.Cells["employee_name"].Value.ToString();
+                        this.Sp_Category = this.dgvStoreOrderApproval.CurrentRow.Cells["category"].Value.ToString();
                         //this.sp_ordered_date = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
 
                     }
@@ -752,7 +755,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                      this.Sp_Qty_Serve,
                      this.sp_fox,
                      this.sp_route,
-                     this.sp_area
+                     this.sp_area,
+                     this.matcmbCategory.Text
                     );
                 addNew.ShowDialog();
                 this.mattxtScanTheBarcode.Text = String.Empty;
@@ -897,6 +901,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     }
                 }
             }
+
+
+            //BujeRard
+            if (this.Sp_Is_WH_Cancel_Status == "1")
+            {
+
+                //Date Conversion
+                DateTime dt = new DateTime();
+                string lstrDate = this.sp_approved_preparation_date;
+                dt = Convert.ToDateTime(lstrDate);
+                string lstrAdate = dt.ToString("yyyy-MM-dd");
+                this.sp_approved_preparation_date = lstrAdate;
+
+
+                MessageBox.Show(this.Sp_Category);
+
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                this.sp_fox,
+                this.sp_approved_preparation_date,
+                this.Sp_Category,
+                "",
+               "",
+                "",
+                "", "",
+                0,
+                this.sp_fox, this.Sp_Category, "",
+                "update_StorePreparationLogsTBL_prepared_allocated_qty");
+            }
+        
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

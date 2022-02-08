@@ -41,7 +41,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             string Qty_Served,
             string Fox,
             string Route,
-            string Area
+            string Area,
+            string Category
             )
         {
             InitializeComponent();
@@ -57,6 +58,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             sp_Fox = Fox;
             sp_Route = Route;
             sp_Area = Area;
+            Sp_Category = Category;
         }
 
         public string sp_Fox { get; set; }
@@ -86,6 +88,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         public string dgvStoreOrderApproval_Primary_ID { get; set; }
         public string dgvStoreOrderApproval_Is_wh_checker_cancel { get; set; }
+
+        public string Sp_Category { get; set; }
 
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
@@ -180,6 +184,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.sp_Fox = sp_Fox;
             this.sp_Route = sp_Route;
             this.sp_Area = sp_Area;
+            this.Sp_Category = Sp_Category;
         }
 
  
@@ -452,19 +457,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 return;
             }
 
-            if(this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+
+
+
+            if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
             {
                 dSet.Clear();
                 dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                 this.sp_Fox,
                 this.Sp_Preparation_Date,
-                this.mattxtItemCode.Text,
+                this.Sp_Category,
                 this.matTxtDescription.Text,
                 this.matTxtOrderQty.Text,
                 this.mattxtQtyServe.Text,
                 "", this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
-                this.sp_Fox, this.sp_Route, this.sp_Area,
+                this.sp_Fox, this.Sp_Category, this.sp_Area,
                 "update_StorePreparationLogsTBL_prepared_allocated_qty");
             }
 
@@ -479,7 +487,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.mattxtQtyServe.Text,
             "", this.Sp_User_ID.ToString(),
             Convert.ToInt32(this.Sp_Material_Id),
-            this.sp_Fox , this.sp_Route, this.sp_Area,
+            this.sp_Fox , Sp_Category, this.sp_Area,
             "add");
 
 
@@ -504,6 +512,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             Convert.ToInt32(this.Sp_Material_Id),
             this.sp_Fox, this.sp_Route, this.sp_Area,
             "update_prepared_allocated_qty");
+
+
+
+
+            //Update preparation
+            if (Convert.ToDouble(this.matTxtOrderQty.Text) == SummaryDetailTransactionFormula)
+            {
+
+   
+      
+            if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+            {
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                this.sp_Fox,
+                this.Sp_Preparation_Date,
+                this.Sp_Category,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                this.sp_Fox, this.sp_Route, this.sp_Area,
+                "update_StorePreparationLogsTBL_prepared_wh_cancell_NULL");
+            }
+
+            }
 
 
             //Date Conversion
