@@ -743,7 +743,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
 
 
-                //MessageBox.Show("A");
+                //MessageBox.Show(lbltotaldata.Text);
+                //return;
 
                 frmServeStorePreparation addNew = new frmServeStorePreparation(this,
                     this.sp_material_id,
@@ -756,7 +757,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                      this.sp_fox,
                      this.sp_route,
                      this.sp_area,
-                     this.matcmbCategory.Text
+                     this.matcmbCategory.Text,
+                     this.lbltotaldata.Text
                     );
                 addNew.ShowDialog();
                 this.mattxtScanTheBarcode.Text = String.Empty;
@@ -915,7 +917,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.sp_approved_preparation_date = lstrAdate;
 
 
-                MessageBox.Show(this.Sp_Category);
 
                 dSet.Clear();
                 dSet = objStorProc.sp_Store_Preparation_Logs(0,
@@ -928,9 +929,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 "", "",
                 0,
                 this.sp_fox, this.Sp_Category, "",
-                "update_StorePreparationLogsTBL_prepared_allocated_qty");
+                "update_StorePreparationLogsTBL_Deactivated");
             }
-        
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

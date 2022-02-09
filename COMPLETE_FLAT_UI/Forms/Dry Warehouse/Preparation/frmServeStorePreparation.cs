@@ -42,7 +42,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             string Fox,
             string Route,
             string Area,
-            string Category
+            string Category,
+            string TotalRawMaterialPreparationActive
             )
         {
             InitializeComponent();
@@ -59,6 +60,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             sp_Route = Route;
             sp_Area = Area;
             Sp_Category = Category;
+            Sp_TotalRawMaterialPreparationActive = TotalRawMaterialPreparationActive;
         }
 
         public string sp_Fox { get; set; }
@@ -90,6 +92,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string dgvStoreOrderApproval_Is_wh_checker_cancel { get; set; }
 
         public string Sp_Category { get; set; }
+        public string Sp_TotalRawMaterialPreparationActive { get; set; }
 
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
@@ -108,6 +111,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.doSearchInTextBoxCmbRecID();
             //DataGrid Visible False
             this.DataGridVisibilyFalse();
+
 
 
         }
@@ -185,6 +189,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.sp_Route = sp_Route;
             this.sp_Area = sp_Area;
             this.Sp_Category = Sp_Category;
+            this.Sp_TotalRawMaterialPreparationActive = Sp_TotalRawMaterialPreparationActive;
         }
 
  
@@ -735,6 +740,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
 
 
+            if (this.Sp_TotalRawMaterialPreparationActive == "1")
+            {
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                this.sp_Fox,
+                this.Sp_Preparation_Date,
+                this.Sp_Category,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                this.sp_Fox, this.Sp_Category, this.sp_Area,
+                "update_StorePreparationLogsTBL_DataRefactoring");
+            }
+
+
 
             this.Close();
 
@@ -757,6 +779,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.sp_Fox, this.sp_Route, this.sp_Area,
             "start_dry_orders_store_timestamp_overall");
         }
+
+
+
+
+
+
+
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
