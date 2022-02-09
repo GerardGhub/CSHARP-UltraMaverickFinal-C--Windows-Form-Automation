@@ -64,6 +64,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Is_WH_Cancel_Status { get; set; }
         public string Sp_Logistic_Checker_Cancelled { get; set; }
         public string Sp_Category { get; set; }
+        public string Sp_Data_Refactoring_Status { get; set; }
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
@@ -410,6 +411,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
             //this.guna2DgvMaterialPreparation.Columns["converted_qty"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["qty"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["data_refactoring_status"].Visible = false;
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -899,14 +901,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.Sp_Qty_Serve = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Serve_Qty"].Value.ToString();
                         this.Sp_Item_Code = this.guna2DgvMaterialPreparation.CurrentRow.Cells["item_code"].Value.ToString();
                         this.Sp_Is_WH_Cancel_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
-                 
+                        this.Sp_Data_Refactoring_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["data_refactoring_status"].Value.ToString();
+
+
                     }
                 }
             }
 
 
             //BujeRard
-            if (this.Sp_Is_WH_Cancel_Status == "1")
+            if (this.Sp_Is_WH_Cancel_Status == "1" && this.Sp_Data_Refactoring_Status != "1")
             {
 
                 //Date Conversion
