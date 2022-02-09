@@ -50,6 +50,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.date_ordered_materials = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.materialCard4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DgvMaterialPreparation)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +103,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Remaining_Qty,
             this.date_ordered_materials,
             this.is_approved_preparation_date,
-            this.conversion});
+            this.conversion,
+            this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,6 +158,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.Height = 40;
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.guna2DgvMaterialPreparation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DgvMaterialPreparation_CellContentClick);
             this.guna2DgvMaterialPreparation.CurrentCellChanged += new System.EventHandler(this.guna2DgvMaterialPreparation_CurrentCellChanged);
             this.guna2DgvMaterialPreparation.DoubleClick += new System.EventHandler(this.guna2DgvMaterialPreparation_DoubleClick);
             // 
@@ -212,6 +215,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // 
             this.item_code.DataPropertyName = "item_code";
             this.item_code.FillWeight = 66.91177F;
+            this.item_code.Frozen = true;
             this.item_code.HeaderText = "CODE";
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
@@ -222,6 +226,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // 
             this.description.DataPropertyName = "description";
             this.description.FillWeight = 66.57212F;
+            this.description.Frozen = true;
             this.description.HeaderText = "DESCRIPTION";
             this.description.MinimumWidth = 12;
             this.description.Name = "description";
@@ -231,6 +236,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // category
             // 
             this.category.DataPropertyName = "category";
+            this.category.Frozen = true;
             this.category.HeaderText = "CATEGORY";
             this.category.Name = "category";
             this.category.ReadOnly = true;
@@ -307,6 +313,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.conversion.ReadOnly = true;
             this.conversion.Width = 130;
             // 
+            // Delete
+            // 
+            this.Delete.DataPropertyName = "Delete";
+            this.Delete.HeaderText = "DELETE";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "DELETE";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 66;
+            // 
             // frmViewStoreItemPrepared
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,5 +364,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered_materials;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_preparation_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

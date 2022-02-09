@@ -947,7 +947,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         
             }
         }
-
+        //Bearer Token
         private void PartialReceivingAwaitResponse()
         {
             //CheckIifAlreayHaveAnewRecord
@@ -955,7 +955,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             dset3 = objStorProc.sp_Store_Preparation_Logs(0,
            this.matcmbCategory.Text,
             this.sp_approved_preparation_date,
-            "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
+            "ItemCode", "ItemDesc", "OrderQty", 
+            "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
               this.sp_fox, this.sp_route, this.sp_area,
             "show_prepared_raw_materials");
 
@@ -1129,6 +1130,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //PartialReceivingAwaitResponse();
         }
     }
 }

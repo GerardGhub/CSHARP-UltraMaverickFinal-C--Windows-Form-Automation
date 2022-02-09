@@ -120,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Prepared_Item");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Partial");
 
         }
 
@@ -139,7 +139,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                  
      
-                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "' and is_prepared = '" + this.Is_Active + "' and is_wh_checker_cancel= '0'   ";
+                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "' and is_wh_checker_cancel= '0' or is_prepared = '" + this.Is_Active + "'   ";
 
                
 
@@ -172,29 +172,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void guna2DgvMaterialPreparation_DoubleClick(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                //Start
+            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //{
+            //    //Start
              
-                    dset3.Clear();
-                    dset3 = objStorProc.sp_Store_Preparation_Logs(0,
-                   this.Sp_Primary_Key,
-                    this.sp_approved_preparation_date,
-                    "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
-                      this.sp_fox, this.sp_route, this.sp_area,
-                    "cancel_preparation_individual");
+            //        dset3.Clear();
+            //        dset3 = objStorProc.sp_Store_Preparation_Logs(0,
+            //       this.Sp_Primary_Key,
+            //        this.sp_approved_preparation_date,
+            //        "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
+            //          this.sp_fox, this.sp_route, this.sp_area,
+            //        "cancel_preparation_individual");
 
 
-                    this.UpdatedSuccessfully();
+            //        this.UpdatedSuccessfully();
         
-                        this.Close();
+            //            this.Close();
              
 
-            }
-            else
-            {
-                return;
-            }
+            //}
+            //else
+            //{
+            //    return;
+            //}
 
             }
 
@@ -251,6 +251,37 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void frmViewStoreItemPrepared_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.textBox1.Text = "ItemServe";
+        }
+
+        private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if(guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    //Start
+
+                    dset3.Clear();
+                    dset3 = objStorProc.sp_Store_Preparation_Logs(0,
+                   this.Sp_Primary_Key,
+                    this.sp_approved_preparation_date,
+                    "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
+                      this.sp_fox, this.sp_route, this.sp_area,
+                    "cancel_preparation_individual");
+
+
+                    this.UpdatedSuccessfully();
+
+                    this.Close();
+
+
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
     }
 }
