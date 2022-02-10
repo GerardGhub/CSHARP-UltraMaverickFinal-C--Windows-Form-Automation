@@ -256,14 +256,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Allocation Interupt Check the data to proceed";
+            popup.ContentText = "Allocation Interupt Check the data to proceed!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Red;
@@ -340,14 +340,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Allocated Successfully";
+            popup.ContentText = "Allocated Successfully!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -518,14 +518,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 else
                 {
 
-                    row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.Orange;
-                    row.Cells["item_code_find"].Style.BackColor = Color.Orange;
-                    row.Cells["store_name"].Style.BackColor = Color.Orange;
-                    row.Cells["description_find"].Style.BackColor = Color.Orange;
-                    row.Cells["uom"].Style.BackColor = Color.Orange;
-                    row.Cells["qty"].Style.BackColor = Color.Orange;
-                    row.Cells["date_ordered"].Style.BackColor = Color.Orange;
-                    row.Cells["selected2"].Style.BackColor = Color.Orange;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.Yellow;
+                    row.Cells["item_code_find"].Style.BackColor = Color.Yellow;
+                    row.Cells["store_name"].Style.BackColor = Color.Yellow;
+                    row.Cells["description_find"].Style.BackColor = Color.Yellow;
+                    row.Cells["uom"].Style.BackColor = Color.Yellow;
+                    row.Cells["qty"].Style.BackColor = Color.Yellow;
+                    row.Cells["date_ordered"].Style.BackColor = Color.Yellow;
+                    row.Cells["selected2"].Style.BackColor = Color.Yellow;
                 }
             }
 

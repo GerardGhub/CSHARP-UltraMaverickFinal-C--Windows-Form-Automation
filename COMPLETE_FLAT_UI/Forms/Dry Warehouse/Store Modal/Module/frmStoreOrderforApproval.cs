@@ -134,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
             this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
             this.dgvStoreOrderApproval.Columns["StockOnHand"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["ALLOCATION_QTY"].Visible = false;
+            //this.dgvStoreOrderApproval.Columns["ALLOCATION_QTY"].Visible = false;
             this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
             this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
             this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
@@ -301,7 +301,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dset_emp1.Tables.Count > 0)
                 {
                     DataView dv = new DataView(this.dset_emp1.Tables[0]);
-                    if (myglobal.global_module == "EMPLOYEE")
+                    if (myglobal.global_module == "GERARD SINGIAN")
                     {
 
                     }
@@ -311,10 +311,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "'  ";
                         //dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
                     }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-                        //dv.RowFilter = "visitors_lastname like '%" + txtsearch.Text + "%' or visitors_firstname like '%" + txtsearch.Text + "%'";
-                    }
+              
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
 

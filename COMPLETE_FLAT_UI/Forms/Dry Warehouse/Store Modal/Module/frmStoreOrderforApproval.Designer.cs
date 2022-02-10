@@ -73,12 +73,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ALLOCATION_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockOnHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AVERAGE_ORDER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ORDERS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ALLOCATION_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_COLUMN_ALLOCATED_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -253,12 +253,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.description,
             this.uom,
             this.qty,
+            this.ALLOCATION_QTY,
             this.StockOnHand,
             this.AVERAGE_ORDER,
             this.ORDERS,
-            this.ALLOCATION_QTY,
-            this.date_added,
-            this.TOTAL_COLUMN_ALLOCATED_QTY});
+            this.TOTAL_COLUMN_ALLOCATED_QTY,
+            this.date_added});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -654,6 +654,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.qty.Name = "qty";
             this.qty.Width = 63;
             // 
+            // ALLOCATION_QTY
+            // 
+            this.ALLOCATION_QTY.DataPropertyName = "ALLOCATION_QTY";
+            this.ALLOCATION_QTY.HeaderText = "ALLOCATED QTY";
+            this.ALLOCATION_QTY.Name = "ALLOCATION_QTY";
+            this.ALLOCATION_QTY.Width = 147;
+            // 
             // StockOnHand
             // 
             this.StockOnHand.DataPropertyName = "StockOnHand";
@@ -678,12 +685,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ORDERS.Name = "ORDERS";
             this.ORDERS.Width = 129;
             // 
-            // ALLOCATION_QTY
+            // TOTAL_COLUMN_ALLOCATED_QTY
             // 
-            this.ALLOCATION_QTY.DataPropertyName = "ALLOCATION_QTY";
-            this.ALLOCATION_QTY.HeaderText = "ALLOCATED";
-            this.ALLOCATION_QTY.Name = "ALLOCATION_QTY";
-            this.ALLOCATION_QTY.Width = 115;
+            this.TOTAL_COLUMN_ALLOCATED_QTY.DataPropertyName = "TOTAL_COLUMN_ALLOCATED_QTY";
+            this.TOTAL_COLUMN_ALLOCATED_QTY.HeaderText = "TOTAL COLUMN ALLOCATED QTY";
+            this.TOTAL_COLUMN_ALLOCATED_QTY.Name = "TOTAL_COLUMN_ALLOCATED_QTY";
+            this.TOTAL_COLUMN_ALLOCATED_QTY.Width = 259;
             // 
             // date_added
             // 
@@ -692,13 +699,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.date_added.MinimumWidth = 6;
             this.date_added.Name = "date_added";
             this.date_added.Width = 125;
-            // 
-            // TOTAL_COLUMN_ALLOCATED_QTY
-            // 
-            this.TOTAL_COLUMN_ALLOCATED_QTY.DataPropertyName = "TOTAL_COLUMN_ALLOCATED_QTY";
-            this.TOTAL_COLUMN_ALLOCATED_QTY.HeaderText = "TOTAL COLUMN ALLOCATED QTY";
-            this.TOTAL_COLUMN_ALLOCATED_QTY.Name = "TOTAL_COLUMN_ALLOCATED_QTY";
-            this.TOTAL_COLUMN_ALLOCATED_QTY.Width = 259;
             // 
             // frmStoreOrderforApproval
             // 
@@ -770,11 +770,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ALLOCATION_QTY;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOnHand;
         private System.Windows.Forms.DataGridViewTextBoxColumn AVERAGE_ORDER;
         private System.Windows.Forms.DataGridViewTextBoxColumn ORDERS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ALLOCATION_QTY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_COLUMN_ALLOCATED_QTY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
     }
 }
