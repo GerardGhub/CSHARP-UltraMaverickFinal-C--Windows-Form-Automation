@@ -88,6 +88,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.DataGridColumnDisabledEditing();
             this.DataGridHideColumn();
+            if(this.lbltotaldata.Text != "0")
+            {
+                this.bunifuPrepaDate_ValueChanged(sender, e);
+            }
         }
         private void ClearTextboxesStateMObX()
         {
