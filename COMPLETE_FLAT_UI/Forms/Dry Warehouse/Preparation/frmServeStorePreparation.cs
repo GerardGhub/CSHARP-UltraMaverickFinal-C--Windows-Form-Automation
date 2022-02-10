@@ -278,14 +278,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
+            popup.ContentText = "FILL UP THE REQUIRED FIELDS!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Crimson;
@@ -787,14 +787,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Greater than Allocated Qty";
+            popup.ContentText = "Greater than Allocated Qty!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Crimson;
@@ -814,14 +814,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Greater than Actual Remaining Qty";
+            popup.ContentText = "Greater than Actual Remaining Qty!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Crimson;
