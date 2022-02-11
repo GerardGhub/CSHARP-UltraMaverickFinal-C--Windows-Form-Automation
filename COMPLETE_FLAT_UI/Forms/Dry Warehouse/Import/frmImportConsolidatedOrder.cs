@@ -284,7 +284,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("2");
+                //MessageBox.Show("2");
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -319,7 +319,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("3");
+                //MessageBox.Show("3");
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -510,7 +510,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-                MessageBox.Show("9");
+                //MessageBox.Show("9");
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
             }
 
@@ -549,7 +549,43 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
             }
-     
+
+
+            //Check The Item Code && Subcategory if existg on the system PUSSY
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "getby_item_code_and_category");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //RawMatsAlreadyExist();
+
+
+
+
+            }
+            else
+            {
+                mode = "error";
+                MessageBox.Show("11");
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
 
 
             if (dgvRawMats.Rows.Count >= 1)
@@ -717,7 +753,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
                 }
