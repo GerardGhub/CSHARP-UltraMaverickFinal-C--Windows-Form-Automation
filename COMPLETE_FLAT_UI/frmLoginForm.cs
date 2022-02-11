@@ -151,16 +151,16 @@ namespace COMPLETE_FLAT_UI
         public void FilltextboxErrorNotifier()
         {
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Fedora Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
 
-            popup.ContentText = "Warning , Fill up the Empty Fields";
+            popup.ContentText = "Warning , Fill up the Empty Fields!";
 
             popup.ContentColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
 
             popup.ContentHoverColor = System.Drawing.Color.FromArgb(255, 255, 255);
             popup.ContentPadding = new Padding(0);
