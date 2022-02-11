@@ -152,8 +152,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "You have " + total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    frmAllocationModule fm = new frmAllocationModule();
-                    fm.ShowDialog();
+                    //frmAllocationModule fm = new frmAllocationModule();
+                    //fm.ShowDialog();
+
+                    this.Close();
+
+                    frmAllocationModule Login = new frmAllocationModule();
+                    Login.ShowDialog();
+
+                    this.Hide();
+                    frmAllocationModule sistema = new frmAllocationModule();
+                    sistema.ShowDialog();
 
                 }
                 else
@@ -355,6 +364,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (this.materialCheckboxSelectAll.Checked == true)
+            {
+                this.materialCheckboxSelectAll.Checked = false;
+                this.materialCheckboxSelectAll_CheckedChanged(sender, e);
+
+            }
+
             //this.LoadDataWithParamsOrders();
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
