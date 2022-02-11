@@ -618,7 +618,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
             if (MetroFramework.MetroMessageBox.Show(this, "Print the move Order Slip? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-
+   
                 this.ApproveFunctionality();
             }
             else
@@ -640,8 +640,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                         if (Convert.ToBoolean(this.dgvGunaMoveItems.Rows[i].Cells["selected"].Value) == true)
                         {
+                            //MessageBox.Show(this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString());
+                            //Date Conversion
+                            DateTime dt = new DateTime();
+                            string lstrDate = this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString();
+                            dt = Convert.ToDateTime(lstrDate);
+                            string lstrAdate = dt.ToString("yyyy-MM-dd");
+
+                            //MessageBox.Show(lstrAdate);
+
+
+                            //return;
                             this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString()), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString(), 
+                            dset = g_objStoredProcCollection.sp_IDGenerator_String(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString(), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString(), 
                                 dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(), this.Sp_user_id);
 
                         }
@@ -661,7 +672,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     //this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
                     //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderMoveDispatching", 
                     //    this.matCmbPreparationDate.Text, this.Sp_user_id.ToString(), 1);
-
+                    MessageBox.Show("Break Here");
                     MessageBox.Show(ex.Message);
                 }
 

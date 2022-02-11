@@ -377,7 +377,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new  raw material ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new  raw material ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
 

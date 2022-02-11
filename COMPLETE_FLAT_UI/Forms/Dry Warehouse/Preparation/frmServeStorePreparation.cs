@@ -322,7 +322,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     dt = Convert.ToDateTime(lstrDate);
                     string lstrAdate = dt.ToString("yyyy-MM-dd");
                     this.Sp_Preparation_Date = lstrAdate;
-                    MessageBox.Show(lstrAdate);
+                    //MessageBox.Show(lstrAdate);
 
                     DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
          
