@@ -401,7 +401,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         private void matCmbPreparationDate_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if(this.counterstrike == 0)
+            if (this.materialCheckboxSelectAll.Checked == true)
+            {
+                this.materialCheckboxSelectAll.Checked = false;
+                this.materialCheckboxSelectAll_CheckedChanged(sender, e);
+
+            }
+
+
+            if (this.counterstrike == 0)
             {
                 this.loadCategoryDropdown();
                 if (this.matcmbCategory.Text != String.Empty)

@@ -29,10 +29,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabelRecentLogs = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -58,14 +58,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.crV1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgvGunaMoveItems = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.is_approved_prepa_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_state_repack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabelTo = new MaterialSkin.Controls.MaterialLabel();
             this.bunifuDateTo = new System.Windows.Forms.DateTimePicker();
@@ -79,6 +71,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.metroCMbFilterPrintPages = new MetroFramework.Controls.MetroComboBox();
             this.materialLabelNoPrintPages = new MaterialSkin.Controls.MaterialLabel();
             this.materialButtonPrintPreview = new MaterialSkin.Controls.MaterialButton();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.wh_checker_move_order_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_approved_prepa_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_state_repack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard3.SuspendLayout();
             this.groupBoxColorGuide.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -411,24 +412,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.dgvGunaMoveItems.AllowUserToAddRows = false;
             this.dgvGunaMoveItems.AllowUserToDeleteRows = false;
             this.dgvGunaMoveItems.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dgvGunaMoveItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvGunaMoveItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGunaMoveItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGunaMoveItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvGunaMoveItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGunaMoveItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGunaMoveItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGunaMoveItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGunaMoveItems.ColumnHeadersHeight = 45;
             this.dgvGunaMoveItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvGunaMoveItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selected,
+            this.wh_checker_move_order_no,
             this.is_approved_prepa_date,
             this.fox,
             this.store_name,
@@ -436,14 +438,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.category,
             this.area,
             this.total_state_repack});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGunaMoveItems.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGunaMoveItems.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGunaMoveItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGunaMoveItems.Enabled = false;
             this.dgvGunaMoveItems.EnableHeadersVisualStyles = false;
@@ -451,14 +453,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.dgvGunaMoveItems.Location = new System.Drawing.Point(5, 6);
             this.dgvGunaMoveItems.MultiSelect = false;
             this.dgvGunaMoveItems.Name = "dgvGunaMoveItems";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGunaMoveItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGunaMoveItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGunaMoveItems.RowHeadersVisible = false;
             this.dgvGunaMoveItems.RowHeadersWidth = 102;
             this.dgvGunaMoveItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -491,69 +493,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.dgvGunaMoveItems.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvGunaMoveItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGunaMoveItems_CellContentClick);
             this.dgvGunaMoveItems.CurrentCellChanged += new System.EventHandler(this.dgvGunaMoveItems_CurrentCellChanged);
-            // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "*";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            // 
-            // is_approved_prepa_date
-            // 
-            this.is_approved_prepa_date.DataPropertyName = "is_approved_prepa_date";
-            this.is_approved_prepa_date.FillWeight = 66.57212F;
-            this.is_approved_prepa_date.HeaderText = "PREPARATION DATE";
-            this.is_approved_prepa_date.MinimumWidth = 12;
-            this.is_approved_prepa_date.Name = "is_approved_prepa_date";
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.HeaderText = "FOX";
-            this.fox.MinimumWidth = 6;
-            this.fox.Name = "fox";
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.MinimumWidth = 6;
-            this.store_name.Name = "store_name";
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.FillWeight = 66.91177F;
-            this.route.HeaderText = "ROUTE";
-            this.route.MinimumWidth = 12;
-            this.route.Name = "route";
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.FillWeight = 66.91177F;
-            this.category.HeaderText = "CATEGORY";
-            this.category.MinimumWidth = 12;
-            this.category.Name = "category";
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.FillWeight = 66.91177F;
-            this.area.HeaderText = "AREA";
-            this.area.MinimumWidth = 12;
-            this.area.Name = "area";
-            // 
-            // total_state_repack
-            // 
-            this.total_state_repack.DataPropertyName = "total_state_repack";
-            this.total_state_repack.HeaderText = "TOTAL ITEMS";
-            this.total_state_repack.MinimumWidth = 6;
-            this.total_state_repack.Name = "total_state_repack";
             // 
             // materialCard1
             // 
@@ -754,6 +693,75 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialButtonPrintPreview.Visible = false;
             this.materialButtonPrintPreview.Click += new System.EventHandler(this.materialButtonPrintPreview_Click);
             // 
+            // selected
+            // 
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.HeaderText = "*";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            // 
+            // wh_checker_move_order_no
+            // 
+            this.wh_checker_move_order_no.DataPropertyName = "wh_checker_move_order_no";
+            this.wh_checker_move_order_no.HeaderText = "ORDER NO.";
+            this.wh_checker_move_order_no.Name = "wh_checker_move_order_no";
+            // 
+            // is_approved_prepa_date
+            // 
+            this.is_approved_prepa_date.DataPropertyName = "is_approved_prepa_date";
+            this.is_approved_prepa_date.FillWeight = 66.57212F;
+            this.is_approved_prepa_date.HeaderText = "PREPARATION DATE";
+            this.is_approved_prepa_date.MinimumWidth = 12;
+            this.is_approved_prepa_date.Name = "is_approved_prepa_date";
+            // 
+            // fox
+            // 
+            this.fox.DataPropertyName = "fox";
+            this.fox.HeaderText = "FOX";
+            this.fox.MinimumWidth = 6;
+            this.fox.Name = "fox";
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.HeaderText = "STORE";
+            this.store_name.MinimumWidth = 6;
+            this.store_name.Name = "store_name";
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.FillWeight = 66.91177F;
+            this.route.HeaderText = "ROUTE";
+            this.route.MinimumWidth = 12;
+            this.route.Name = "route";
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.FillWeight = 66.91177F;
+            this.category.HeaderText = "CATEGORY";
+            this.category.MinimumWidth = 12;
+            this.category.Name = "category";
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.FillWeight = 66.91177F;
+            this.area.HeaderText = "AREA";
+            this.area.MinimumWidth = 12;
+            this.area.Name = "area";
+            // 
+            // total_state_repack
+            // 
+            this.total_state_repack.DataPropertyName = "total_state_repack";
+            this.total_state_repack.HeaderText = "TOTAL ITEMS";
+            this.total_state_repack.MinimumWidth = 6;
+            this.total_state_repack.Name = "total_state_repack";
+            // 
             // frmStoreOrderDispatching
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -824,14 +832,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private MetroFramework.Controls.MetroComboBox matCmbPreparationDate;
         private MetroFramework.Controls.MetroComboBox metroCMbFilterPrintPages;
         private MaterialSkin.Controls.MaterialLabel materialLabelNoPrintPages;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_prepa_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn route;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn area;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total_state_repack;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crV1;
         private MaterialSkin.Controls.MaterialLabel materialLabelRecentLogs;
         private MaterialSkin.Controls.MaterialButton materialButtonPrintPreview;
@@ -839,5 +839,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private System.Windows.Forms.DateTimePicker bunifuPrepaDateFrom;
         private MaterialSkin.Controls.MaterialLabel materialLabelTo;
         private System.Windows.Forms.DateTimePicker bunifuDateTo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_checker_move_order_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_prepa_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn route;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_state_repack;
     }
 }
