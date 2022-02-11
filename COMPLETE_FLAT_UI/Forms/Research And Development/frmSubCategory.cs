@@ -101,14 +101,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Deleted Successfully";
+            popup.ContentText = "Deleted Successfully!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -176,14 +176,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Sub Category Already Exist!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Red;
@@ -222,14 +222,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "SUCCESSFULLY UPDATE FORM INFORMATION";
+            popup.ContentText = "SUCCESSFULLY UPDATE FORM INFORMATION!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -249,14 +249,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Fill up the required fields!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Red;
