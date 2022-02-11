@@ -332,6 +332,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
             this.Margin = new System.Windows.Forms.Padding(1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddNewPartialRejectReceiving";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Receiving Rejection";
