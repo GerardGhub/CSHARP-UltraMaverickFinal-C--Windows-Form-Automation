@@ -52,6 +52,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtcreatedBy = new System.Windows.Forms.TextBox();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.txtcreatedAt = new System.Windows.Forms.TextBox();
+            this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.mattxtBufferStocks);
             this.materialCard1.Controls.Add(this.label5);
             this.materialCard1.Controls.Add(this.label4);
             this.materialCard1.Controls.Add(this.label3);
@@ -385,6 +387,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtcreatedAt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtcreatedAt.Visible = false;
             // 
+            // mattxtBufferStocks
+            // 
+            this.mattxtBufferStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtBufferStocks.Depth = 0;
+            this.mattxtBufferStocks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mattxtBufferStocks.Hint = "Buffer Stock";
+            this.mattxtBufferStocks.Location = new System.Drawing.Point(500, 156);
+            this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1);
+            this.mattxtBufferStocks.MaxLength = 50;
+            this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtBufferStocks.Multiline = false;
+            this.mattxtBufferStocks.Name = "mattxtBufferStocks";
+            this.mattxtBufferStocks.Size = new System.Drawing.Size(155, 50);
+            this.mattxtBufferStocks.TabIndex = 602;
+            this.mattxtBufferStocks.Text = "";
+            // 
             // frmAddNewItemModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,5 +453,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private MaterialSkin.Controls.MaterialTextBox mattxtBufferStocks;
     }
 }
