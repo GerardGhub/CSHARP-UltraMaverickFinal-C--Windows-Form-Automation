@@ -261,32 +261,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
 
 
-        private void UpdateNotifications()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+  
 
         private void metroSave_Click(object sender, EventArgs e)
         {
@@ -315,15 +290,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         if (tmode == "add")
                         {
                             dgvitemClass.CurrentCell = dgvitemClass[0, dgvitemClass.Rows.Count - 1];
-                            this.UpdateNotifications();
+                            this.GlobalStatePopup.CommittedSuccessFully();
                         }
                         else
                         {
-                            dgvitemClass.CurrentCell = dgvitemClass[0, temp_hid];
+                            this.dgvitemClass.CurrentCell = this.dgvitemClass[0, temp_hid];
 
                         }
                         this.matBtnCancel_Click(sender, e);
-                        this.UpdateNotifications();
+                        this.GlobalStatePopup.CommittedSuccessFully();
                     }
                     else
 
@@ -395,8 +370,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             sp_created_at,
                            sp_modified_at,
                             sp_modified_by, "edit");
-                        UpdateNotifications();
-                        showItemClassData();
+                        this.GlobalStatePopup.CommittedSuccessFully();
+                        this.showItemClassData();
                         mode = "";
                         matBtnCancel_Click(new object(), new System.EventArgs());
                         return true;
@@ -418,7 +393,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                           sp_created_at,
                          sp_modified_at,
                           sp_modified_by, "edit");
-                    UpdateNotifications();
+                    this.GlobalStatePopup.CommittedSuccessFully();
                     showItemClassData();
                     mode = "";
                     matBtnCancel_Click(new object(), new System.EventArgs());
@@ -505,63 +480,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
 
         }
-        public void InactiveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Inactive";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void ActivatedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Activated!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+  
         private void btnAddTool_Click(object sender, EventArgs e)
         {
             mode = "add";
@@ -575,7 +496,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             matBtnDelete.Visible = false;
             sp_created_at = (dNow.ToString("M/d/yyyy"));
             sp_created_by = userinfo.emp_name.ToUpper();
-            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+
             matBtnSave.Visible = true;
             txtmatItemClass.Select();
             txtmatItemClass.Focus();
@@ -616,21 +537,17 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (dgvitemClass.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the Item Class", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-
-
-
-
 
                         mode = "delete";
 
-                        if (saveMode())
+                        if (this.saveMode())
                         {
-                            InactiveSuccessfully();
-                            showItemClassData();
+                            this.GlobalStatePopup.InactiveSuccessfully();
+                            this.showItemClassData();
 
-                            matBtnCancel_Click("", e);
+                            this.matBtnCancel_Click("", e);
                         }
                     }
 
@@ -655,15 +572,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
-
-
-
-
                         this.mode = "delete";
 
                         if (this.saveMode())
                         {
-                            this.ActivatedSuccessfully();
+                            this.GlobalStatePopup.ActivatedSuccessfully();
                             this.showItemClassData();
 
                             this.matBtnCancel_Click("", e);
@@ -678,12 +591,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
 
-
-
-
                 }
             }
         }
+
+
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
@@ -764,14 +676,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 this.matBtnDelete.Text = "&InActive";
      
                 this.showItemClassData();
-                //this.SearchMethodJarVarCallingSP();
+    
             }
             else if (matRadioNotActive.Checked == true)
             {
                 this.sp_bind_selected = "0";
                 this.matBtnDelete.Text = "&Activate";
                 this.showItemClassDataInActive();
-                //this.SearchMethodJarVarCallingSP();
+        
             }
             else
             {
