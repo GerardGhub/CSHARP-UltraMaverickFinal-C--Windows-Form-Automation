@@ -129,7 +129,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void doSearchInTextBoxCmb()
         {
             this.Is_Active = "1";
-            MessageBox.Show(this.sp_fox);
+            //MessageBox.Show(this.sp_fox);
             try
             {
 

@@ -646,10 +646,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
             }
 
-      
-       
+
+
             //Data Sets
- 
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+             this.Sp_RepackIncement.ToString(),
+            lstrAdate,
+            this.mattxtItemCode.Text,
+            this.matTxtDescription.Text,
+            this.matTxtOrderQty.Text,
+            this.mattxtQtyServe.Text,
+            "", this.Sp_User_ID.ToString(),
+            Convert.ToInt32(this.Sp_Material_Id),
+            this.sp_Fox, this.sp_Route, this.sp_Area,
+            "update_dry_orders_total_state_repack");
+
 
             double ActualQuantityReleased;
 
