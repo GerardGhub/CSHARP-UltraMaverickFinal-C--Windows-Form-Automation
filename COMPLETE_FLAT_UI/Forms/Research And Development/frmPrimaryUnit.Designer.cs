@@ -46,8 +46,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.pm_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.matBtnNew = new System.Windows.Forms.ToolStripButton();
@@ -55,6 +53,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimaryUnit)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -167,7 +167,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvPrimaryUnit.RowTemplate.DividerHeight = 5;
             this.dgvPrimaryUnit.RowTemplate.Height = 40;
             this.dgvPrimaryUnit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrimaryUnit.Size = new System.Drawing.Size(982, 313);
+            this.dgvPrimaryUnit.Size = new System.Drawing.Size(982, 497);
             this.dgvPrimaryUnit.TabIndex = 593;
             this.dgvPrimaryUnit.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvPrimaryUnit.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -259,7 +259,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(992, 325);
+            this.materialCard2.Size = new System.Drawing.Size(992, 509);
             this.materialCard2.TabIndex = 620;
             // 
             // metroFinalSaving
@@ -273,32 +273,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.metroFinalSaving.UseSelectable = true;
             this.metroFinalSaving.Visible = false;
             this.metroFinalSaving.Click += new System.EventHandler(this.metroFinalSaving_Click);
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1231, 535);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
-            this.lbltotalrecords.TabIndex = 632;
-            this.lbltotalrecords.Text = "76";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1276, 550);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 18);
-            this.label2.TabIndex = 633;
-            this.label2.Text = "Items";
             // 
             // panel1
             // 
@@ -376,14 +350,40 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel.Visible = false;
             this.matBtnCancel.Click += new System.EventHandler(this.canceel_Click);
             // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(912, 725);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
+            this.lbltotalrecords.TabIndex = 635;
+            this.lbltotalrecords.Text = "76";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(961, 737);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 636;
+            this.label2.Text = "Items";
+            // 
             // frmPrimaryUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbltotalrecords);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.metroSave);
             this.Controls.Add(this.materialCard2);
@@ -411,8 +411,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private Guna.UI2.WinForms.Guna2DataGridView dgvPrimaryUnit;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
-        private System.Windows.Forms.Label lbltotalrecords;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton matBtnNew;
@@ -426,5 +424,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private System.Windows.Forms.DataGridViewTextBoxColumn pm_added_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn pm_updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn pm_updated_by;
+        private System.Windows.Forms.Label lbltotalrecords;
+        private System.Windows.Forms.Label label2;
     }
 }
