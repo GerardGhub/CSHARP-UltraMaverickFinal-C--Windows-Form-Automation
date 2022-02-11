@@ -90,6 +90,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     this.loadPrepaDate_Category_StoreName_Dropdown();
                 }
             }
+
+            if(this.lbltotaldata.Text != "0")
+            {
+                this.metroCMbFilterPrintPages.Text = "1";
+            }
         }
 
 
@@ -581,18 +586,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         }
 
 
+
+
         public void NoOfPagesforPrinting()
         {
 
             PopupNotifier popup = new PopupNotifier();
             //popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Select number of pages for printing set-up";
+            popup.ContentText = "Select number of pages for printing set-up!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.DarkSlateBlue;
@@ -665,14 +672,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 }
                 catch (Exception ex)
                 {
-
                     this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
-                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString()), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString(), dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(), this.Sp_user_id);
+                    dset = g_objStoredProcCollection.sp_IDGenerator_String(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString(), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString(),
+                        dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(), this.Sp_user_id);
+
+                    //this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
+                    //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString()), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString(), dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(), this.Sp_user_id);
 
                     //this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
                     //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderMoveDispatching", 
                     //    this.matCmbPreparationDate.Text, this.Sp_user_id.ToString(), 1);
-                    MessageBox.Show("Break Here");
+                
                     MessageBox.Show(ex.Message);
                 }
 
@@ -687,18 +697,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
     
         }
 
+
+
         public void DispatchedSuccessfully()
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Dispatched Successfully";
+            popup.ContentText = "Dispatched Successfully!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;

@@ -546,6 +546,7 @@
     <Compile Include="Models\IStoredProcedures.cs" />
     <Compile Include="Models\myclasses.cs" />
     <Compile Include="Models\myglobal.cs" />
+    <Compile Include="Models\PopupNotifierClass.cs" />
     <Compile Include="Models\StoredProcedures.cs" />
     <Compile Include="Models\userinfo.cs" />
     <Compile Include="Models\user_info.cs" />

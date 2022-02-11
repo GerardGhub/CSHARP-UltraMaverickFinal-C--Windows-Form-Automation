@@ -19,6 +19,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
     public partial class frmItemClass : MaterialForm
     {
         myclasses xClass = new myclasses();
+
+        PopupNotifierClass  GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
@@ -70,6 +72,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_Class_Major");
             //this.dgvitemClass.Columns["item_class_id"].Visible = false;
         }
+
 
         private void SearchMethodJarVarCallingSPInactive()
         {
@@ -236,76 +239,24 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
 
 
-        public void FillRequiredFields()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Fill up the required fields!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
+    
 
 
-            popup.ShowOptionsButton = true;
 
-
-        }
-
-
-        public void ItemClassAlreadyExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Data Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = objStorProc.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
+            dSet = objStorProc.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                ItemClassAlreadyExist();
-
-
-                txtmatItemClass.Focus();
+                this.GlobalStatePopup.DataAlreadyExist();
+                this.txtmatItemClass.Focus();
                 return;
             }
             else
             {
-                metroSave_Click(sender, e);
+                this.metroSave_Click(sender, e);
             }
         }
 
@@ -314,14 +265,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Successfully Save";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -348,7 +299,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (txtmatItemClass.Text.Trim() == string.Empty)
                 {
 
-                    this.FillRequiredFields();
+                 
+                    this.GlobalStatePopup.FillRequiredFields();
                     this.txtmatItemClass.Focus();
                     return;
                 }
@@ -395,26 +347,27 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
+                dSet = objStorProc.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    ItemClassAlreadyExist();
+                    this.GlobalStatePopup.DataAlreadyExist();
 
-                    txtmatItemClass.Text = string.Empty;
-                    txtmatItemClass.Focus();
+                    this.txtmatItemClass.Text = string.Empty;
+                    this.txtmatItemClass.Focus();
                     return false;
                 }
                 else
                 {
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_Item_Class(0, txtmatItemClass.Text.Trim(),
+                    dSet = objStorProc.sp_Item_Class(0, 
+                        this.txtmatItemClass.Text.Trim(),
                        
-                        sp_created_by,
-                        sp_created_at,
-                        sp_modified_at,
-                        sp_modified_by, "add");
+                        this.sp_created_by,
+                        this.sp_created_at,
+                        this.sp_modified_at,
+                        this.sp_modified_by, "add");
 
                     this.showItemClassData();
          
@@ -503,24 +456,27 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             if (txtmatItemClass.Text.Trim() == string.Empty)
             {
-                FillRequiredFields();
+               
+                this.GlobalStatePopup.FillRequiredFields();
                 txtmatItemClass.Focus();
+
+                return;
             }
             else
             {
-                if (saveMode())
+                if (this.saveMode())
                 {
-                    ItemClassAlreadyExist();
+                    this.GlobalStatePopup.DataAlreadyExist();
                     string tmode = mode;
 
                     if (tmode == "add")
                     {
-                        dgvitemClass.CurrentCell = dgvitemClass[0, dgvitemClass.Rows.Count - 1];
+                        this.dgvitemClass.CurrentCell = this.dgvitemClass[0, dgvitemClass.Rows.Count - 1];
 
                     }
                     else
                     {
-                        dgvitemClass.CurrentCell = dgvitemClass[0, temp_hid];
+                        this.dgvitemClass.CurrentCell = this.dgvitemClass[0, temp_hid];
                     }
                     matBtnCancel_Click(sender, e);
                 }
@@ -553,14 +509,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Successfully Inactive";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -582,14 +538,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
             PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications";
             popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Activated";
+            popup.ContentText = "Successfully Activated!";
             popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
             popup.ImageSize = new Size(70, 80);
             popup.BodyColor = Color.Green;
@@ -731,20 +687,25 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
+
+            if(this.txtmatItemClass.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                return;
+            }
+
             dSet.Clear();
             dSet = objStorProc.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                ItemClassAlreadyExist();
-
-
-                txtmatItemClass.Focus();
+                this.GlobalStatePopup.DataAlreadyExist();
+                this.txtmatItemClass.Focus();
                 return;
             }
             else
             {
-                metroSave_Click(sender, e);
+                this.metroSave_Click(sender, e);
             }
         }
 
