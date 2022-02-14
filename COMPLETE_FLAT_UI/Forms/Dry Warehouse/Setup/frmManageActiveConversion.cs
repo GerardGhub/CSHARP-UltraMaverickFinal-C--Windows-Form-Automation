@@ -234,7 +234,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
-            showValueCell();
+            this.showValueCell();
+            this.lbltotalConversion.Text = this.dgvActiveUnits.RowCount.ToString();
         }
 
         private void showValueCell()
@@ -251,6 +252,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.MyItemCode = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
                         this.txtmatid.Text = dgvRawMats.CurrentRow.Cells["item_id"].Value.ToString();
                         this.sp_item_primary_unit = dgvRawMats.CurrentRow.Cells["primary_unit"].Value.ToString();
+                        this.lblItemDescription.Text = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
                     }
                 }
             }
