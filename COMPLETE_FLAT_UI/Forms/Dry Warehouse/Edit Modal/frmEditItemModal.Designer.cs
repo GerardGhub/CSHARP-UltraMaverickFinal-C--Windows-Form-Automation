@@ -170,7 +170,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.txtMatItemDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatItemDesc.Depth = 0;
-            this.txtMatItemDesc.Enabled = false;
             this.txtMatItemDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemDesc.Hint = "Item Description";
             this.txtMatItemDesc.Location = new System.Drawing.Point(260, 29);

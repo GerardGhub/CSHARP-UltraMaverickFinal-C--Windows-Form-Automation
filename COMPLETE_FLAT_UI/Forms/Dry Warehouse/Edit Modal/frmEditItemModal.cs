@@ -25,6 +25,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
         public frmEditItemModal(frmDryRawMaterials frm, string created_by,
             string item_code,
             string item_description,
@@ -57,6 +59,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
         }
+
+
         public string created_by { get; set; }
         public string item_code { get; set; }
         public string item_description { get; set; }
@@ -183,32 +187,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
         }
-        public void FillRequiredTextbox()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+   
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
@@ -221,81 +200,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
         }
-        public void RawMatsAlreadyExist()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Raw Material Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public void SaveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
+      
         private void MetroSave()
         {
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the  Raw Material Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the Information?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
 
                 dSet.Clear();
                 dSet = objStorProc.sp_Raw_Materials_Dry(Convert.ToInt32(primary_key),
-                    txtMatItemCode.Text.Trim(),
-                    txtMatItemDesc.Text.Trim(),
-                    cboItemClass.Text.Trim(),
-                    cboMajorCategory.Text.Trim(),
-                    cboSubCat.Text.Trim(),
-                    cboPrimaryUnit.Text.Trim(),
-                    txtmatConversion.Text.Trim(),
-                    cboItemType.Text.Trim(),
+                    this.txtMatItemCode.Text.Trim(),
+                    this.txtMatItemDesc.Text.Trim(),
+                    this.cboItemClass.Text.Trim(),
+                    this.cboMajorCategory.Text.Trim(),
+                    this.cboSubCat.Text.Trim(),
+                    this.cboPrimaryUnit.Text.Trim(),
+                    this.txtmatConversion.Text.Trim(),
+                    this.cboItemType.Text.Trim(),
                     this.sp_created_at,
-                   this.sp_created_by,
-                    "", this.sp_created_by,
-                    float.Parse(mattxtBufferStocks.Text.Trim()),
+                    this.sp_created_by,
+                    "", 
+                    this.sp_created_by,
+                    float.Parse(this.mattxtBufferStocks.Text.Trim()),
                     "edit");
-                textBox1.Text = "data Already Save!";
-                SaveSuccessfully();
+                this.textBox1.Text = "data Already Save!";
+                this.GlobalStatePopup.CommittedSuccessFully();
                 this.Close();
         
 
@@ -312,68 +244,68 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.SelectionChangedCommiotmentManual();
             if (this.txtMatItemCode.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.txtMatItemCode.Focus();
                 return;
             }
 
             if (this.txtMatItemDesc.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.txtMatItemDesc.Focus();
                 return;
             }
 
             if (this.lblItemClassID.Text == "NULL")
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cboItemClass.Focus();
                 return;
             }
 
             if (this.lblMajorCatId.Text == "NULL")
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cboMajorCategory.Focus();
                 return;
             }
 
-            if (lblIDSubCat.Text == "NULL")
+            if (this.lblIDSubCat.Text == "NULL")
             {
-                FillRequiredTextbox();
-                cboSubCat.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboSubCat.Focus();
                 return;
             }
 
-            if (lblItemTypeID.Text == "NULL")
+            if (this.lblItemTypeID.Text == "NULL")
             {
-                FillRequiredTextbox();
-                cboItemType.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboItemType.Focus();
                 return;
             }
 
-            if (lblPrimaryUnitID.Text == "NULL")
+            if (this.lblPrimaryUnitID.Text == "NULL")
             {
-                FillRequiredTextbox();
-                cboPrimaryUnit.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboPrimaryUnit.Focus();
                 return;
             }
-            if (txtmatConversion.Text == String.Empty)
+            if (this.txtmatConversion.Text == String.Empty)
             {
-                FillRequiredTextbox();
-                txtmatConversion.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.txtmatConversion.Focus();
                 return;
             }
 
 
-            MetroSave();
+            this.MetroSave();
 
 
         }
 
         private void frmEditItemModal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            textBox1.Text = "Gerard Singian";
+            this.textBox1.Text = "Gerard Singian";
         }
 
         private void mattxtBufferStocks_KeyPress(object sender, KeyPressEventArgs e)
