@@ -47,7 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(495, 209);
+            this.materialCard1.Size = new System.Drawing.Size(495, 200);
             this.materialCard1.TabIndex = 473;
             // 
             // matTxtRouteName
@@ -56,7 +56,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matTxtRouteName.Depth = 0;
             this.matTxtRouteName.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtRouteName.Hint = "Route";
-            this.matTxtRouteName.Location = new System.Drawing.Point(40, 72);
+            this.matTxtRouteName.Location = new System.Drawing.Point(42, 72);
             this.matTxtRouteName.MaxLength = 50;
             this.matTxtRouteName.MouseState = MaterialSkin.MouseState.OUT;
             this.matTxtRouteName.Multiline = false;
@@ -105,6 +105,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialButton1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddNewRoute";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Route";
