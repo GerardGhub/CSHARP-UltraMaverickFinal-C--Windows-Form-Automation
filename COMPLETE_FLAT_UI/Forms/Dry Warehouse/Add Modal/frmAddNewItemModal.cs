@@ -24,8 +24,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
- 
-   
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
+
         public frmAddNewItemModal(frmDryRawMaterials frm, string created_by)
         {
             InitializeComponent();
@@ -195,33 +196,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
          
         }
-        public void FillRequiredTextbox()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
+ 
         private void txtmatConversion_KeyPress(object sender, KeyPressEventArgs e)
         {
             
@@ -239,62 +214,62 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             if(this.txtMatItemCode.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.txtMatItemCode.Focus();
                 return;
             }
 
             if (this.txtMatItemDesc.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.txtMatItemDesc.Focus();
                 return;
             }
 
             if (this.cboItemClass.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cboItemClass.Focus();
                 return;
             }
 
             if (cboMajorCategory.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cboMajorCategory.Focus();
                 return;
             }
 
             if (this.cboSubCat.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cboSubCat.Focus();
                 return;
             }
 
             if (this.cboItemType.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cboItemType.Focus();
                 return;
             }
 
             if (this.cboPrimaryUnit.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cboPrimaryUnit.Focus();
                 return;
             }
             if (this.txtmatConversion.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.txtmatConversion.Focus();
                 return;
             }
 
             if (this.mattxtBufferStocks.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.mattxtBufferStocks.Focus();
                 return;
             }
@@ -310,7 +285,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                this.RawMatsAlreadyExist();
+                this.GlobalStatePopup.DataAlreadyExist();
 
 
 
@@ -325,32 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
-        public void SaveSuccessfully()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
         private void MetroSave()
         {
 
@@ -390,7 +340,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     "addRMLogs");
 
                 this.textBox1.Text = "data Already Save!";
-                this.SaveSuccessfully();
+                this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmAddNewItemModal_Load(new object(), new System.EventArgs());
 
             }
@@ -403,32 +353,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
 
-        public void RawMatsAlreadyExist()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Raw Material Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
         private void txtMatItemCode_Validated(object sender, EventArgs e)
@@ -459,28 +384,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboPrimaryUnit_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cboPrimaryUnit.Text == "KILOGRAM")
+            if (this.cboPrimaryUnit.Text == "KILOGRAM")
             {
-                txtmatConversion.Enabled = false;
-                txtmatConversion.Text = "1";
+                this.txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "1";
             }
 
-            else if (cboSubCat.Text == "PACKAGING")
+            else if (this.cboSubCat.Text == "PACKAGING")
             {
-                txtmatConversion.Text = "0";
-                txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
             }
-            else if (cboSubCat.Text == "CLEANING")
+            else if (this.cboSubCat.Text == "CLEANING")
             {
-                txtmatConversion.Text = "0";
-                txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
             }
 
             else
             {
-                txtmatConversion.Text = String.Empty;
-                txtmatConversion.Enabled = true;
-                txtmatConversion.Focus();
+                this.txtmatConversion.Text = String.Empty;
+                this.txtmatConversion.Enabled = true;
+                this.txtmatConversion.Focus();
             }
         }
     }
