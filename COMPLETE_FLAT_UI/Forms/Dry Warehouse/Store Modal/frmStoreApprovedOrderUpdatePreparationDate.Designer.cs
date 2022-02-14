@@ -34,6 +34,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
+            this.lblArrayPrepaDateStatus = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(359, 43);
+            this.textBox2.Location = new System.Drawing.Point(384, 37);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(145, 20);
             this.textBox2.TabIndex = 603;
@@ -83,6 +84,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.lblArrayPrepaDateStatus);
             this.materialCard1.Controls.Add(this.bunifuPrepaDate);
             this.materialCard1.Controls.Add(this.label2);
             this.materialCard1.Controls.Add(this.matBtnSave);
@@ -100,13 +102,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuPrepaDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuPrepaDate.CustomFormat = "yyyy-M-dd";
+            this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
             this.bunifuPrepaDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.bunifuPrepaDate.Location = new System.Drawing.Point(34, 68);
             this.bunifuPrepaDate.Name = "bunifuPrepaDate";
             this.bunifuPrepaDate.Size = new System.Drawing.Size(500, 49);
             this.bunifuPrepaDate.TabIndex = 602;
+            this.bunifuPrepaDate.ValueChanged += new System.EventHandler(this.bunifuPrepaDate_ValueChanged);
+            // 
+            // lblArrayPrepaDateStatus
+            // 
+            this.lblArrayPrepaDateStatus.AutoSize = true;
+            this.lblArrayPrepaDateStatus.Location = new System.Drawing.Point(74, 167);
+            this.lblArrayPrepaDateStatus.Name = "lblArrayPrepaDateStatus";
+            this.lblArrayPrepaDateStatus.Size = new System.Drawing.Size(13, 13);
+            this.lblArrayPrepaDateStatus.TabIndex = 603;
+            this.lblArrayPrepaDateStatus.Text = "0";
+            this.lblArrayPrepaDateStatus.Visible = false;
             // 
             // frmStoreApprovedOrderUpdatePreparationDate
             // 
@@ -115,6 +128,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ClientSize = new System.Drawing.Size(601, 306);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.materialCard1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmStoreApprovedOrderUpdatePreparationDate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Upate Approved Order";
@@ -134,5 +149,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialButton matBtnSave;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.DateTimePicker bunifuPrepaDate;
+        private System.Windows.Forms.Label lblArrayPrepaDateStatus;
     }
 }

@@ -55,6 +55,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_qty { get; set; }
         public string sp_cancel_remarks { get; set; }
         public string sp_prepa_date_update { get; set; }
+ 
    
 
         private void frmAddNewStoreOrderApproved_Load(object sender, EventArgs e)
@@ -91,6 +92,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if(this.lbltotaldata.Text != "0")
             {
                 this.bunifuPrepaDate_ValueChanged(sender, e);
+                this.dgvStoreOrderApproval.Columns["selected"].ReadOnly = false;
+                this.dgvStoreOrderApproval.Enabled = true;
+
             }
         }
         private void ClearTextboxesStateMObX()
@@ -889,7 +893,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.matbtnEdit.Visible = false;
             this.matbtnCancel.Visible = false;
-            frmStoreApprovedOrderUpdatePreparationDate updatePrepaDate = new frmStoreApprovedOrderUpdatePreparationDate(this);
+        
+            frmStoreApprovedOrderUpdatePreparationDate updatePrepaDate = 
+                new frmStoreApprovedOrderUpdatePreparationDate(this, this.bunifuPrepaDate.Text, this.sp_category);
             updatePrepaDate.ShowDialog();
         }
 
