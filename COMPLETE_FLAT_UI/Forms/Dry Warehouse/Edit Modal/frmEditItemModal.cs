@@ -297,6 +297,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 return;
             }
 
+            if (this.mattxtBufferStocks.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.mattxtBufferStocks.Focus();
+                return;
+            }
 
             this.MetroSave();
 
