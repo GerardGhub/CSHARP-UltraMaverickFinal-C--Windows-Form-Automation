@@ -41,14 +41,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void WindowsRefresher()
         {
-            if (textBox1.Text == "data Already Save!")
+            if (this.textBox1.Text == "data Already Save!")
             {
-                toolStripMain.Visible = false;
+                this.toolStripMain.Visible = false;
             }
-            else if (textBox1.Text == "Gerard Singian")
+            else if (this.textBox1.Text == "Gerard Singian")
             {
-                textBox1.Text = string.Empty;
-                toolStripMain.Visible = true;
+                this.textBox1.Text = string.Empty;
+                this.toolStripMain.Visible = true;
    
             }
             else

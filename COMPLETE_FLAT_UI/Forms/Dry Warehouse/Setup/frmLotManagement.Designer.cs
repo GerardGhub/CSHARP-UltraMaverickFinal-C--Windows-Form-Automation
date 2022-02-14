@@ -52,7 +52,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroSave = new MetroFramework.Controls.MetroButton();
-            this.txtCreatedAt = new MaterialSkin.Controls.MaterialTextBox();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
@@ -328,24 +327,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.metroSave.UseSelectable = true;
             this.metroSave.Visible = false;
             // 
-            // txtCreatedAt
-            // 
-            this.txtCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedAt.Depth = 0;
-            this.txtCreatedAt.Enabled = false;
-            this.txtCreatedAt.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtCreatedAt.Hint = "Created At";
-            this.txtCreatedAt.Location = new System.Drawing.Point(461, 14);
-            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(1);
-            this.txtCreatedAt.MaxLength = 50;
-            this.txtCreatedAt.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCreatedAt.Multiline = false;
-            this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(103, 50);
-            this.txtCreatedAt.TabIndex = 614;
-            this.txtCreatedAt.Text = "";
-            this.txtCreatedAt.Visible = false;
-            // 
             // metroFinalSaving
             // 
             this.metroFinalSaving.Location = new System.Drawing.Point(378, 15);
@@ -375,11 +356,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbltotalrecords.AutoSize = true;
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(880, 727);
+            this.lbltotalrecords.Location = new System.Drawing.Point(924, 727);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(33, 36);
+            this.lbltotalrecords.Size = new System.Drawing.Size(32, 40);
             this.lbltotalrecords.TabIndex = 623;
             this.lbltotalrecords.Text = "0";
             // 
@@ -388,11 +369,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(938, 738);
+            this.label2.Location = new System.Drawing.Point(961, 738);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 18);
+            this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 624;
             this.label2.Text = "Items";
             // 
@@ -408,7 +389,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.metroSave);
-            this.Controls.Add(this.txtCreatedAt);
             this.Controls.Add(this.metroFinalSaving);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmLotManagement";
@@ -438,7 +418,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvLotData;
         private MetroFramework.Controls.MetroButton metroSave;
-        private MaterialSkin.Controls.MaterialTextBox txtCreatedAt;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
