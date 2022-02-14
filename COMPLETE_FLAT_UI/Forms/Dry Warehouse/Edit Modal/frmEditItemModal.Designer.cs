@@ -326,6 +326,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboPrimaryUnit.Size = new System.Drawing.Size(158, 21);
             this.cboPrimaryUnit.TabIndex = 594;
             this.cboPrimaryUnit.SelectionChangeCommitted += new System.EventHandler(this.cboPrimaryUnit_SelectionChangeCommitted);
+            this.cboPrimaryUnit.SelectedValueChanged += new System.EventHandler(this.cboPrimaryUnit_SelectedValueChanged);
             // 
             // cboMajorCategory
             // 

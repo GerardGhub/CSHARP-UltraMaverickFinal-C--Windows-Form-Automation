@@ -191,31 +191,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
-            lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
+            this.lblPrimaryUnitID.Text = this.cboPrimaryUnit.SelectedValue.ToString();
 
-            if (cboPrimaryUnit.Text == "Kilogram")
-            {
-                txtmatConversion.Enabled = false;
-                txtmatConversion.Text = "1";
-            }
-
-            else if (cboSubCat.Text == "Packaging")
-            {
-                txtmatConversion.Text = "0";
-                txtmatConversion.Enabled = false;
-            }
-            else if (cboSubCat.Text == "Cleaning")
-            {
-                txtmatConversion.Text = "0";
-                txtmatConversion.Enabled = false;
-            }
-
-            else
-            {
-                txtmatConversion.Text = String.Empty;
-                txtmatConversion.Enabled = true;
-                txtmatConversion.Focus();
-            }
+         
         }
         public void FillRequiredTextbox()
         {
@@ -477,6 +455,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void cboItemClass_SelectedValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboPrimaryUnit_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboPrimaryUnit.Text == "KILOGRAM")
+            {
+                txtmatConversion.Enabled = false;
+                txtmatConversion.Text = "1";
+            }
+
+            else if (cboSubCat.Text == "PACKAGING")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+            else if (cboSubCat.Text == "CLEANING")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+
+            else
+            {
+                txtmatConversion.Text = String.Empty;
+                txtmatConversion.Enabled = true;
+                txtmatConversion.Focus();
+            }
         }
     }
 }

@@ -202,18 +202,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            matBtnEdit.Visible = false;
-            matBtnNew.Visible = false;
-            frmEditItemModal mywipwh = new frmEditItemModal(this, sp_user_id,items_code, 
-                items_description,
-                items_class,
-                majors_category,
-                subs_category,
-                primarys_unit,
-                conversions,
-                items_type,
-                primarys_key,
-                Sp_Buffer_Stocks
+            this.matBtnEdit.Visible = false;
+            this.matBtnNew.Visible = false;
+            frmEditItemModal mywipwh = new frmEditItemModal(this, 
+                this.sp_user_id,items_code, 
+                this.items_description,
+                this.items_class,
+                this.majors_category,
+                this.subs_category,
+                this.primarys_unit,
+                this.conversions,
+                this.items_type,
+                this.primarys_key,
+                this.Sp_Buffer_Stocks
                 );
             mywipwh.ShowDialog();
         }

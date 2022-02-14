@@ -195,6 +195,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
    
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
+          
             lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
             lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
             lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
@@ -335,6 +336,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void mattxtBufferStocks_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void cboPrimaryUnit_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (this.cboPrimaryUnit.Text == "KILOGRAM")
+            {
+                this.txtmatConversion.Text = "1";
+                this.txtmatConversion.Enabled = false;
+            }
+            else
+            {
+                this.txtmatConversion.Text = String.Empty;
+                this.txtmatConversion.Enabled = true;
+                this.txtmatConversion.Focus();
+            }
 
         }
     }

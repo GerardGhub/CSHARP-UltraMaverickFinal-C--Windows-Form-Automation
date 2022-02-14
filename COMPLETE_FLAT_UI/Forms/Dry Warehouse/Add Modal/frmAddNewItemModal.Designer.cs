@@ -31,6 +31,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtcreatedBy = new System.Windows.Forms.TextBox();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.txtcreatedAt = new System.Windows.Forms.TextBox();
-            this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +99,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.Size = new System.Drawing.Size(679, 262);
             this.materialCard1.TabIndex = 472;
+            // 
+            // mattxtBufferStocks
+            // 
+            this.mattxtBufferStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtBufferStocks.Depth = 0;
+            this.mattxtBufferStocks.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtBufferStocks.Hint = "Buffer Stock";
+            this.mattxtBufferStocks.Location = new System.Drawing.Point(500, 156);
+            this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1);
+            this.mattxtBufferStocks.MaxLength = 50;
+            this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtBufferStocks.Multiline = false;
+            this.mattxtBufferStocks.Name = "mattxtBufferStocks";
+            this.mattxtBufferStocks.Size = new System.Drawing.Size(155, 50);
+            this.mattxtBufferStocks.TabIndex = 602;
+            this.mattxtBufferStocks.Text = "";
             // 
             // label5
             // 
@@ -255,6 +271,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboPrimaryUnit.TabIndex = 585;
             this.cboPrimaryUnit.UseSelectable = true;
             this.cboPrimaryUnit.SelectionChangeCommitted += new System.EventHandler(this.cboPrimaryUnit_SelectionChangeCommitted);
+            this.cboPrimaryUnit.SelectedValueChanged += new System.EventHandler(this.cboPrimaryUnit_SelectedValueChanged);
             // 
             // cboItemType
             // 
@@ -386,22 +403,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtcreatedAt.TabIndex = 475;
             this.txtcreatedAt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtcreatedAt.Visible = false;
-            // 
-            // mattxtBufferStocks
-            // 
-            this.mattxtBufferStocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtBufferStocks.Depth = 0;
-            this.mattxtBufferStocks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mattxtBufferStocks.Hint = "Buffer Stock";
-            this.mattxtBufferStocks.Location = new System.Drawing.Point(500, 156);
-            this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1);
-            this.mattxtBufferStocks.MaxLength = 50;
-            this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtBufferStocks.Multiline = false;
-            this.mattxtBufferStocks.Name = "mattxtBufferStocks";
-            this.mattxtBufferStocks.Size = new System.Drawing.Size(155, 50);
-            this.mattxtBufferStocks.TabIndex = 602;
-            this.mattxtBufferStocks.Text = "";
             // 
             // frmAddNewItemModal
             // 
