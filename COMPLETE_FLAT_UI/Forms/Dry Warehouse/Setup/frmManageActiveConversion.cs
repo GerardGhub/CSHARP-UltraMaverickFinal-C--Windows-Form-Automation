@@ -26,6 +26,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         DataSet dSet_temp = new DataSet();
         int p_id2 = 0;
         int p_id = 0;
+
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
         public frmManageActivePrimaryUnit()
         {
             InitializeComponent();
@@ -357,34 +360,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             }
         }
-        public void InactiveSuccessfully()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Inactive Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void btnDeleteTool_Click(object sender, EventArgs e)
         {
@@ -392,17 +368,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (dgvActiveUnits.Rows.Count > 0)
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive the primary unit conversion Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to inactive the primary unit conversion?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
                     dSet_temp.Clear();
                     dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "delete");
 
-                    InactiveSuccessfully();
+                    this.GlobalStatePopup.InactiveSuccessfully();
 
-                    SearchMethodJarVarCallingSPUnits();
+                    this.SearchMethodJarVarCallingSPUnits();
 
-                    doSearchInTextBoxPrimaryUnit();
+                    this.doSearchInTextBoxPrimaryUnit();
                 }
                 else
                 {
@@ -413,59 +389,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
-        public void ActivateSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Activate Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
 
-
-        }
-
-        public void AlreadyHaveActivateConverions()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "You already have a active Primary Unit Conversion!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-        }
 
 
         private void btnEditTool_Click(object sender, EventArgs e)
@@ -500,13 +426,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "activate_conversion");
 
 
-           
 
-                    ActivateSuccessfully();
 
-                    SearchMethodJarVarCallingSPUnits();
+                    this.GlobalStatePopup.ActivatedSuccessfully();
 
-                    doSearchInTextBoxPrimaryUnit();
+                    this.SearchMethodJarVarCallingSPUnits();
+
+                    this.doSearchInTextBoxPrimaryUnit();
                 }
                 else
                 {
