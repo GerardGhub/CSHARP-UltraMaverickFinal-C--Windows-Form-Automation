@@ -45,6 +45,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string is_active { get; set; }
         public string primarys_key { get; set; }
         public string sp_user_id { get; set; }
+        public int Sp_Buffer_Stocks { get; set; }
+
+
+
         private void frmDryRawMaterials_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
@@ -208,34 +212,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 primarys_unit,
                 conversions,
                 items_type,
-                primarys_key
+                primarys_key,
+                Sp_Buffer_Stocks
                 );
             mywipwh.ShowDialog();
         }
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
-            showValueCell();
+            this.showValueCell();
         }
 
         private void showValueCell()
         {
-            if (dgvRawMats.Rows.Count > 0)
+            if (this.dgvRawMats.Rows.Count > 0)
             {
-                if (dgvRawMats.CurrentRow != null)
+                if (this.dgvRawMats.CurrentRow != null)
                 {
-                    if (dgvRawMats.CurrentRow.Cells["item_description"].Value != null)
+                    if (this.dgvRawMats.CurrentRow.Cells["item_description"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["item_id"].Value);
-                        primarys_key = dgvRawMats.CurrentRow.Cells["item_id"].Value.ToString();
-                        items_code = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
-                        items_description = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
-                        items_class = dgvRawMats.CurrentRow.Cells["item_class"].Value.ToString();
-                        majors_category = dgvRawMats.CurrentRow.Cells["major_category"].Value.ToString();
-                        subs_category = dgvRawMats.CurrentRow.Cells["sub_category"].Value.ToString();
-                        primarys_unit = dgvRawMats.CurrentRow.Cells["primary_unit"].Value.ToString();
-                        conversions = dgvRawMats.CurrentRow.Cells["conversion"].Value.ToString();
-                        items_type = dgvRawMats.CurrentRow.Cells["item_type"].Value.ToString();
+                        this.p_id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["item_id"].Value);
+                        this.primarys_key = this.dgvRawMats.CurrentRow.Cells["item_id"].Value.ToString();
+                        this.items_code = this.dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.items_description = this.dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
+                        this.items_class = this.dgvRawMats.CurrentRow.Cells["item_class"].Value.ToString();
+                        this.majors_category = this.dgvRawMats.CurrentRow.Cells["major_category"].Value.ToString();
+                        this.subs_category = this.dgvRawMats.CurrentRow.Cells["sub_category"].Value.ToString();
+                        this.primarys_unit = this.dgvRawMats.CurrentRow.Cells["primary_unit"].Value.ToString();
+                        this.conversions = this.dgvRawMats.CurrentRow.Cells["conversion"].Value.ToString();
+                        this.items_type = this.dgvRawMats.CurrentRow.Cells["item_type"].Value.ToString();
+                        this.Sp_Buffer_Stocks = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["buffer_stock"].Value);
                     }
                 }
             }
@@ -243,17 +249,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
-            if(lbltotalrecords.Text =="0")
+            if(this.lbltotalrecords.Text =="0")
             {
               
             }
             else
             {
-                doSearchInTextBoxCmb();
+                this.doSearchInTextBoxCmb();
             }
-            if(mattxtSearch.Text == "")
+            if(this.mattxtSearch.Text == "")
             {
-                doSearchInTextBoxCmb();
+                this.doSearchInTextBoxCmb();
             }
         }
 

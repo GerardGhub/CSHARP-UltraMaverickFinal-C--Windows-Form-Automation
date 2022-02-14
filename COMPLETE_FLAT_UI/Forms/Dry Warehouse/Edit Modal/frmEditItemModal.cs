@@ -36,7 +36,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             string primary_unit,
             string conversion,
             string item_type,
-            string primary_key
+            string primary_key,
+            int buffer_stock
             )
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.conversion = conversion;
             this.item_type = item_type;
             this.primary_key = primary_key;
+            this.sp_buffer_stock = buffer_stock;
 
             //var materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
@@ -73,6 +75,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string primary_key { get; set; }
         public string sp_created_by { get; set; }
         public string sp_created_at { get; set; }
+
+        public int sp_buffer_stock { get; set; }
 
         private const int CB_SETCUEBANNER = 0x1703;
 
@@ -162,6 +166,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboPrimaryUnit.Text = primary_unit;
             this.txtmatConversion.Text = conversion;
             this.cboItemType.Text = item_type;
+            this.mattxtBufferStocks.Text = this.sp_buffer_stock.ToString();
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
