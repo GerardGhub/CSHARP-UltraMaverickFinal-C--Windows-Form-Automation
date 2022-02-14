@@ -23,6 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmAddNewArea(frmAreaManagement frm, string created_by, string area_name, string mode, int identitys )
         {
             InitializeComponent();
@@ -83,33 +84,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.Text = "Gerard Singian";
         }
 
-        public void FillRequiredTextbox()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
+      
 
         public void AlreadyExist()
         {
@@ -141,10 +116,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            if (mattxtStoreName.Text == String.Empty)
+            if (this.mattxtStoreName.Text == String.Empty)
             {
-                FillRequiredTextbox();
-               mattxtStoreName.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.mattxtStoreName.Focus();
                 return;
             }
 
@@ -152,7 +127,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             dSet.Clear();
             dSet = objStorProc.sp_tblArea(0,
-                mattxtStoreName.Text, created_by, "", "", "", "getbyname");
+                this.mattxtStoreName.Text, 
+                this.created_by, "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -171,58 +147,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        public void SaveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public void UpdatedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Updated Successfully ";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+     
+    
 
         private void MetroSave()
         {
@@ -247,7 +173,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                     textBox1.Text = "data Already Save!";
-                    this.SaveSuccessfully();
+                    this.GlobalStatePopup.CommittedSuccessFully();
                     frmAddNewArea_Load(new object(), new System.EventArgs());
 
                 }
@@ -260,22 +186,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_tblArea(sp_area_id,mattxtStoreName.Text.Trim(),
-                        created_by,
+                    dSet = objStorProc.sp_tblArea(this.sp_area_id, 
+                        this.mattxtStoreName.Text.Trim(),
+                        this.created_by,
                         "",
-                       created_by,
+                       this.created_by,
                         "",
                         "edit");
 
 
 
                     textBox1.Text = "data Already Save!";
-                    this.UpdatedSuccessfully();
+                    this.GlobalStatePopup.UpdatedSuccessfully();
                     this.Close();
                 }
 
