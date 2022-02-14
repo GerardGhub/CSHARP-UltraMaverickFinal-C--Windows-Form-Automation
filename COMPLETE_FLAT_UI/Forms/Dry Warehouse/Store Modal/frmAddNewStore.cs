@@ -25,6 +25,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
         DataSet dSet_temp = new DataSet();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
     
         Boolean ready = false;
         DataSet dSet = new DataSet();
@@ -54,11 +55,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.loadAreaDropdown();
             this.loadRouteDropdown();
+            this.WindowLoader();
+            this.ClearComponents();
         }
         private void WindowLoader()
         {
             this.sp_user_id = userinfo.user_id.ToString();
         }
+
+        private void ClearComponents()
+        {
+            this.mattxtStoreCode.Text = String.Empty;
+            this.mattxtStoreName.Text = String.Empty;
+            this.mattxtStoreCode.Focus();
+          
+        }
+
+
         public void loadAreaDropdown()
         {
 
@@ -81,90 +94,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             ths.textBox1.Text = this.textBox1.Text;
         }
-        public void FillRequiredTextbox()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
+ 
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void SaveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public void DataAlreadyExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Data Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
         private void materialButton1_Click(object sender, EventArgs e)
         {
             if (this.mattxtStoreCode.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.mattxtStoreCode.Focus();
                 return;
             }
@@ -181,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-                this.DataAlreadyExist();
+                this.GlobalStatePopup.DataAlreadyExist();
                 this.mattxtStoreCode.Text = String.Empty;
                 this.mattxtStoreCode.Focus();
                 return;
@@ -191,27 +128,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (this.mattxtStoreName.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.mattxtStoreName.Focus();
                 return;
             }
             if (this.cmbStoreArea.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cmbStoreArea.Focus();
                 return;
             }
 
             if (this.cmbStoreRoute.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.cmbStoreRoute.Focus();
                 return;
             }
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a new  store ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 dSet.Clear();
@@ -221,7 +158,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.mattxtStoreCode.Text.Trim(),
                     this.cmbStoreRoute.Text.Trim(),
                     Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "add");
-                this.SaveSuccessfully();
+                this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmAddNewStore_Load(sender, e);
             }
             else

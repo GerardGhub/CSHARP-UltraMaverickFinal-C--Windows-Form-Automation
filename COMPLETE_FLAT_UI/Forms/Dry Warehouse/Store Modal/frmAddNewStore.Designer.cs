@@ -38,6 +38,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreCode = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,11 +139,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.Crimson;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(201, 592);
+            this.textBox1.Location = new System.Drawing.Point(35, 610);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.Size = new System.Drawing.Size(262, 20);
             this.textBox1.TabIndex = 478;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
@@ -167,14 +170,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.UseVisualStyleBackColor = true;
             this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 592);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 13);
+            this.label1.TabIndex = 479;
+            this.label1.Text = "Label for Two way Binding Only : Dont remove Fucker";
+            this.label1.Visible = false;
+            // 
             // frmAddNewStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 642);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialButton1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddNewStore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Store";
@@ -198,5 +214,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MetroFramework.Controls.MetroComboBox cmbStoreArea;
         private MetroFramework.Controls.MetroComboBox cmbStoreRoute;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private System.Windows.Forms.Label label1;
     }
 }
