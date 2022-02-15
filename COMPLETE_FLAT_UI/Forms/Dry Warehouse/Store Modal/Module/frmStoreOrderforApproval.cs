@@ -124,6 +124,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
          
                 
                 this.load_search();
+                selection_mode = "0";
             }
 
         }
@@ -148,29 +149,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-
-                //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (selection_mode == "1")
                 {
-                    //frmAllocationModule fm = new frmAllocationModule();
-                    //fm.ShowDialog();
-
-                    this.Close();
-
-                    frmAllocationModule Login = new frmAllocationModule();
-                    Login.ShowDialog();
-
-                    this.Hide();
-                    frmAllocationModule sistema = new frmAllocationModule();
-                    sistema.ShowDialog();
-
                 }
                 else
                 {
-                    this.ReturnFunctionality();
-                    return;
-                }
+                    //Start
+                    if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        //frmAllocationModule fm = new frmAllocationModule();
+                        //fm.ShowDialog();
 
+                        this.Close();
+
+                        frmAllocationModule Login = new frmAllocationModule();
+                        Login.ShowDialog();
+
+                        this.Hide();
+                        frmAllocationModule sistema = new frmAllocationModule();
+                        sistema.ShowDialog();
+
+                    }
+                    else
+                    {
+                        this.ReturnFunctionality();
+                        return;
+                    }
+                }
 
             }
         }
@@ -364,6 +369,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            this.selection_mode = "1";
+
             if (this.materialCheckboxSelectAll.Checked == true)
             {
                 this.materialCheckboxSelectAll.Checked = false;
@@ -385,7 +392,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.TaggingConflictCategoryValidation();
             }
   
-
+    
 
         }
 
