@@ -41,6 +41,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         public string sp_qty_finder { get; set; }
 
         public int sp_total_row_allocated { get; set; }
+        public string Sp_Store_Name { get; set; }
+
+        public int Allocated_Quantity { get; set; }
+
+        public string UnitOfMeasure { get; set; }
+   
+
 
 
         public int user_id { get; set; }
@@ -213,6 +220,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.lblshowItemsFinder.Visible = false;
                 this.matCardFindAllocation.Visible = false;
                 this.groupBox1AdditionlOrderUI.Visible = false;
+                this.matbtnManualAllocation.Visible = false;
+                this.lbltotaldata.Visible = false;
+                this.lblitems.Visible = false;
             }
             else
             {
@@ -223,6 +233,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.lblshowItemsFinder.Visible = true;
                 this.matCardFindAllocation.Visible = true;
                 this.groupBox1AdditionlOrderUI.Visible = true;
+                
             }
         }
         private void SelectAllCheckBoxOnDataGrid()
@@ -326,6 +337,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     this.SenderTextChangedValue();
                     //this.showRawMaterialsInDryWH();
                     this.AllocatedSuccessfully();
+                    this.matBtnSave.Enabled = false;
+                    this.dgvStoreOrderApproval.Enabled = false;
+                    this.matbtnManualAllocation.Visible = true;
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     return;
                 }
@@ -334,6 +348,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             ///
             this.MethodPost();
         }
+
+
         public void AllocatedSuccessfully()
         {
 
@@ -436,10 +452,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 {
                     if (this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value != null)
                     {
-                        p_id = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["primary_id"].Value);
-                  
-                      this.sp_qty_finder = this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value.ToString();
+                        p_id = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["primary_id"].Value);                  
+                        this.sp_qty_finder = this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value.ToString();
                         this.sp_total_row_allocated = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["total_row"].Value);
+                        this.Sp_Store_Name = this.dgvFindStoreOrders.CurrentRow.Cells["store_name"].Value.ToString();
+                        this.Allocated_Quantity = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["ALLOCATION_QTY_FIND"].Value);
+                        this.UnitOfMeasure = this.dgvFindStoreOrders.CurrentRow.Cells["uom"].Value.ToString();
                     }
                 }
             }
@@ -528,5 +546,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
 
             }
+
+
+
+        private void matbtnManualAllocation_Click(object sender, EventArgs e)
+        {
+            frmManualAllocationController ManualAllocation =
+             new frmManualAllocationController(this, this.p_id, Convert.ToInt32(this.txtSoh.Text), this.Sp_Store_Name, 
+             this.Allocated_Quantity, Convert.ToInt32(this.lblqtyAllocatedFinal.Text), this.txtItemCode.Text, this.txtitemDescription.Text, this.UnitOfMeasure, Convert.ToInt32(this.sp_qty_finder)
+             );
+            ManualAllocation.ShowDialog();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Burat");
+        }
+    }
 }
