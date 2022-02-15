@@ -51,8 +51,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lblArrayPrepaDateStatus.Text = Sp_PrepaDate_BindingSource;
             this.Sp_Category = Sp_Category;
 
-            MessageBox.Show(this.Sp_Category);
-            return;
+            //MessageBox.Show(this.Sp_Category);
+            //return;
 
         }
 
@@ -74,7 +74,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                this.textBox2.Text = this.bunifuPrepaDate.Text;
+                if (mode == "good")
+                {
+                    this.textBox2.Text = this.bunifuPrepaDate.Text;
+                }
+
+              
             }
 
         
@@ -83,18 +88,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             this.TaggingConflictCategoryValidation();
-            //return;
-
-            //if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            //{
-
-
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    return;
-            //}
+       
         }
 
 
@@ -140,6 +134,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     MessageBox.Show("good");
                     this.mode = "good";
+                    if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
                 else
                 {
@@ -148,7 +151,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                     this.GlobalStatePopup.DoubleTaggingCategoryInformation();
                     this.mode = "error";
-
+            
                     //this.DoubleTaggingFound();
 
                 }
@@ -156,6 +159,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 this.mode = "good";
+                if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
                 //MessageBox.Show("Wala");
                 //this.DoubleTaggingNotFound();
             }
@@ -163,17 +175,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        //private void DoubleTaggingFound()
-        //{
-        //    this.dgvStoreOrderApproval.Enabled = false;
-        //    this.materialCheckboxSelectAll.Enabled = false;
-        //}
-
-        //private void DoubleTaggingNotFound()
-        //{
-        //    this.dgvStoreOrderApproval.Enabled = true;
-        //    this.materialCheckboxSelectAll.Enabled = true;
-        //}
 
      
     }

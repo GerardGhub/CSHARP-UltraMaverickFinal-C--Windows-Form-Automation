@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         //Variable Declaration
         int p_id = 0;
         string Rpt_Path = "";
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
 
@@ -56,7 +56,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_description { get; set; }
         public string sp_uom { get; set; }
         public string sp_qty { get; set; }
-        public string total_item_for_allocation { get; set; }
+        //public string total_item_for_allocation { get; set; }
         public string is_issue_for_approval { get; set; }
         public string sp_StockOnHand { get; set; }
         public string sp_Allocated_Qty { get; set; }
@@ -142,7 +142,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void ValidatedItemforApproval()
         {
-            if (this.total_item_for_allocation == "0")
+            if (this.GlobalStatePopup.total_item_for_allocation == "0")
             {
                 this.ReturnFunctionality();
             }
@@ -243,7 +243,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 xClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
 
-                this.total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
+                this.GlobalStatePopup.total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -428,7 +428,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
                     else
                     {
-                        this.DoubleTaggingCategoryInformation();
+                        this.GlobalStatePopup.DoubleTaggingCategoryInformation();
                     }
 
                    
@@ -459,32 +459,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCheckboxSelectAll.Enabled = true;
         }
 
-        public void DoubleTaggingCategoryInformation()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Double tagging of category!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.DarkSlateBlue;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void lbltotaldata_TextChanged(object sender, EventArgs e)
         {
@@ -608,7 +583,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             }
 
-            this.ApprovedSuccessfully();
+            this.GlobalStatePopup.ApprovedSuccessfully();
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
 
@@ -619,62 +594,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.ReturnFunctionality();
         }
 
-        public void ApprovedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Approved Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        private void AllocationiSRequiredNotify()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Allocation is required for " + this.total_item_for_allocation +  "record(s)";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
+     
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
 
@@ -719,7 +641,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
                     else
                     {
-                        this.DoubleTaggingCategoryInformation();
+                        this.GlobalStatePopup.DoubleTaggingCategoryInformation();
                         this.DoubleTaggingFound();
                         return;
 
@@ -727,6 +649,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
+               
                
                     this.DoubleTaggingNotFound();
                 }
@@ -736,7 +659,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showRawMaterialforApproval();
-            if (this.total_item_for_allocation == "0")
+            if (this.GlobalStatePopup.total_item_for_allocation == "0")
             {
                 //Start Blocked
 
@@ -758,7 +681,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                AllocationiSRequiredNotify();
+              this.GlobalStatePopup.AllocationiSRequiredNotify();
                 return;
             }
 
