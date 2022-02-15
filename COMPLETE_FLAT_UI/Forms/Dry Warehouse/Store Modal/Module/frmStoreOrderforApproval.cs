@@ -32,7 +32,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         int p_id = 0;
         string Rpt_Path = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
+        string selection_mode = "";
 
 
         public frmStoreOrderforApproval()
@@ -150,7 +150,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "You have " + total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     //frmAllocationModule fm = new frmAllocationModule();
                     //fm.ShowDialog();
