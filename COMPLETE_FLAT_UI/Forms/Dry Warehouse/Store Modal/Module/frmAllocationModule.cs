@@ -282,7 +282,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
         private void matBtnSave_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.MethodPost();
             }
@@ -291,13 +291,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 return;
             }
-            }
+
+        }
 
         private void MethodPost()
         {
-
-
-
 
             this.ComputationofAllocationQuantity();
             //this.lblAllocatedQty.Text = CurrentComputationMemory.ToString();
@@ -326,7 +324,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                     //MessageBox.Show("SuccessFully Insert");
                     this.SenderTextChangedValue();
-                    this.showRawMaterialsInDryWH();
+                    //this.showRawMaterialsInDryWH();
                     this.AllocatedSuccessfully();
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     return;
