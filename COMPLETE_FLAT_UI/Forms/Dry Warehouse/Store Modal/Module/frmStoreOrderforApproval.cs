@@ -134,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             if(lbltotaldata.Text == "0")
             {
-                MessageBox.Show("sdsds");
+                //MessageBox.Show("sdsds");
             }
         }
 

@@ -226,6 +226,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.lbltotaldata.Visible = false;
                 this.lblitems.Visible = false;
                 this.dgvStoreOrderApproval.Enabled = false;
+                this.matBtnSave.Visible = false;
             }
             else
             {
