@@ -950,7 +950,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         //Bearer Token
         private void PartialReceivingAwaitResponse()
         {
-            //CheckIifAlreayHaveAnewRecord
+            //Date Conversion
+            DateTime dt = new DateTime();
+            string lstrDate = this.sp_approved_preparation_date;
+            dt = Convert.ToDateTime(lstrDate);
+            string lstrAdate = dt.ToString("yyyy-MM-dd");
+            this.sp_approved_preparation_date = lstrAdate;
+
+            //MessageBox.Show(this.sp_approved_preparation_date);
+            //CheckIifAlreayHaveAnewRecord Buje
             dset3.Clear();
             dset3 = objStorProc.sp_Store_Preparation_Logs(0,
            this.matcmbCategory.Text,
@@ -1002,7 +1010,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             if(this.lbltotaldata.Text == "0")
             {
-                this.frmDryPreparation_Load(sender, e);
+                //this.matViewItemPrepared.Visible = false;
+                this.matcmbCategory_SelectionChangeCommitted(sender, e);
+
+                if (this.lbltotalStoreforPreparation.Text == "0")
+                {
+                    this.frmDryPreparation_Load(sender, e);
+                }
+
+              
             }
         }
 

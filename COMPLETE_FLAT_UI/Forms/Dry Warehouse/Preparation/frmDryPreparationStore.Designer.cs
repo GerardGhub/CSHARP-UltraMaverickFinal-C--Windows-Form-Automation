@@ -689,7 +689,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(233, 253);
+            this.label1.Location = new System.Drawing.Point(179, 244);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(252, 13);
             this.label1.TabIndex = 651;
@@ -830,7 +830,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.gunaDgvScanFinder.DefaultCellStyle = dataGridViewCellStyle31;
             this.gunaDgvScanFinder.EnableHeadersVisualStyles = false;
             this.gunaDgvScanFinder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.gunaDgvScanFinder.Location = new System.Drawing.Point(675, 264);
+            this.gunaDgvScanFinder.Location = new System.Drawing.Point(407, 269);
             this.gunaDgvScanFinder.MultiSelect = false;
             this.gunaDgvScanFinder.Name = "gunaDgvScanFinder";
             this.gunaDgvScanFinder.ReadOnly = true;
@@ -891,7 +891,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(567, 248);
+            this.label3.Location = new System.Drawing.Point(370, 261);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(222, 13);
             this.label3.TabIndex = 663;
