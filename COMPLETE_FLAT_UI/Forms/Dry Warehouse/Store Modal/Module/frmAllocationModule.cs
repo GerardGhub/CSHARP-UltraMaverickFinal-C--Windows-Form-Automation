@@ -338,6 +338,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     //MessageBox.Show("SuccessFully Insert");
                     this.SenderTextChangedValue();
                     //this.showRawMaterialsInDryWH();
+                    this.matbtnNewAllocate.Visible = true;
                     this.AllocatedSuccessfully();
                     this.matBtnSave.Enabled = false;
                     this.dgvStoreOrderApproval.Enabled = false;
@@ -591,8 +592,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void matbtnNewAllocate_Click(object sender, EventArgs e)
         {
-            this.matbtnNewAllocate.Visible = false;
-            this.matbtnManualAllocation.Visible = false;
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the new order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                this.matbtnNewAllocate.Visible = false;
+                this.matbtnManualAllocation.Visible = false;
+                this.frmAllocationModule_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
+
         }
     }
 }
