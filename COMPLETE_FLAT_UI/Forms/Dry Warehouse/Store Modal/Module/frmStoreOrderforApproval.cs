@@ -33,6 +33,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         string Rpt_Path = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         string selection_mode = "";
+        string modesplashScreenError = "";
 
 
         public frmStoreOrderforApproval()
@@ -103,6 +104,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.ReturnFunctionality();
 
             this.ValidatedItemforApproval();
+            if(this.modesplashScreenError == "1")
+            {
+              
+                return;
+            }
             this.VisibilityFalseDataGrid();
             if (this.lbltotaldata.Text == "0")
             {
@@ -126,7 +132,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.load_search();
                 selection_mode = "0";
             }
-
+            if(lbltotaldata.Text == "0")
+            {
+                MessageBox.Show("sdsds");
+            }
         }
 
         private void VisibilityFalseDataGrid()
@@ -160,13 +169,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         //frmAllocationModule fm = new frmAllocationModule();
                         //fm.ShowDialog();
 
-                        this.Close();
+                        //this.Close();
 
-                        frmAllocationModule Login = new frmAllocationModule();
-                        Login.ShowDialog();
-
-                        this.Hide();
+                        //frmAllocationModule Login = new frmAllocationModule();
+                        //Login.ShowDialog();
+                        this.modesplashScreenError = "1";
+                        //this.Hide();
                         frmAllocationModule sistema = new frmAllocationModule();
+                        sistema.MaximizeBox = false;
+                        sistema.MinimizeBox = false;
                         sistema.ShowDialog();
 
                     }

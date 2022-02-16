@@ -225,6 +225,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.matbtnNewAllocate.Visible = false;
                 this.lbltotaldata.Visible = false;
                 this.lblitems.Visible = false;
+                this.dgvStoreOrderApproval.Enabled = false;
             }
             else
             {
@@ -235,7 +236,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.lblshowItemsFinder.Visible = true;
                 this.matCardFindAllocation.Visible = true;
                 this.groupBox1AdditionlOrderUI.Visible = true;
-                
+                this.dgvStoreOrderApproval.Enabled = true;
+
+
             }
         }
         private void SelectAllCheckBoxOnDataGrid()

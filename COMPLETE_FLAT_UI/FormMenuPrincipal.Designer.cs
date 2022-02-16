@@ -604,8 +604,8 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolClosePanelSelection,
             this.toolDropdownUser,
-            this.toolStripInventoryDry,
             this.toolStore,
+            this.toolStripInventoryDry,
             this.toolStripRawMaterials,
             this.toolDropdownMenu,
             this.toolImportDry,
