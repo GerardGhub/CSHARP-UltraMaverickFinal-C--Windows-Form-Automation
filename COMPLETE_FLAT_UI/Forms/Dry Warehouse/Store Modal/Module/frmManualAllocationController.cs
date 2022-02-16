@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,9 +47,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void frmManualAllocationController_Load(object sender, EventArgs e)
         {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
             this.WindowLoadState();
             this.ComputationofAvailableQuantityMaster();
             this.SolidBinderofNumber();
+            this.CallInitializeComponent();
+        }
+
+
+   
+
+        private void CallInitializeComponent()
+        {
+            this.UserId = userinfo.user_id;
         }
 
         private void SolidBinderofNumber()
@@ -99,6 +112,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         public int QtyOrderPartial { get; set; }
 
         public int StoredQtyOrderPartial { get; set; }
+        public int UserId { get; set; }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -117,7 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             if (this.matTxtUpdatedBalance.Text.Contains("-"))
             {
                 this.GlobalStatePopup.GreaterThanActualRemainingQty();
-                this.mattxtBalance.Text = "0";
+                this.matTxtUpdatedBalance.Text = "0";
                 this.mattxtAllocatedQty.Text = String.Empty;
                 this.mattxtAllocatedQty.Focus();
 
@@ -126,8 +140,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
+              
+                dSet.Clear();
+                dSet = objStorProc.sp_Allocation_Logs(0,
+                    "", "", this.mattxtAllocatedQty.Text.Trim(), 
+                    this.UserId.ToString(), "", this.matTransactionID.Text.Trim(), 0, 
+                    0,
+                    "edit");
 
+                this.textBox2.Text = "Save";
                 textBox2_TextChanged(sender, e);
+                this.Close();
             }
             else
             {
@@ -156,14 +179,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                     if(CurrentQty > PartialQty)
                     {
-                        MessageBox.Show("A for Higher");
+                        //MessageBox.Show("A for Higher");
                         //For crementation
                         this.matTxtUpdatedBalance.Text = (float.Parse(this.StoredQtyOrderPartial.ToString()) - float.Parse(this.mattxtAllocatedQty.Text) + float.Parse(this.mattxtBalance.Text)).ToString();
 
                         if(this.matTxtUpdatedBalance.Text.Contains("-"))
                         {
                             this.GlobalStatePopup.GreaterThanActualRemainingQty();
-                            this.mattxtBalance.Text = "0";
+                            this.matTxtUpdatedBalance.Text = "0";
                             this.mattxtAllocatedQty.Text = String.Empty;
                             this.mattxtAllocatedQty.Focus();
 
@@ -172,7 +195,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     }
                     else
                     {
-                        MessageBox.Show("B for Lower");
+                        //MessageBox.Show("B for Lower");
                         //For Decrementation
                         this.matTxtUpdatedBalance.Text = (float.Parse(this.StoredQtyOrderPartial.ToString()) - float.Parse(this.mattxtAllocatedQty.Text)).ToString();
 
@@ -197,7 +220,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void frmManualAllocationController_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.textBox2.Text = "FormClosing";
+            if(this.textBox2.Text =="Save")
+            {
+
+            }
+            else
+            {
+             this.textBox2.Text = "FormClosing";
+            }
+      
+        }
+
+        private void mattxtBalance_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

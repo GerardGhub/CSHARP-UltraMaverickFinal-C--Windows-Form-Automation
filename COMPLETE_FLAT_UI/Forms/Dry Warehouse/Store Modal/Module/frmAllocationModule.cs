@@ -23,6 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         string mode = "";
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         int p_id = 0;
 
@@ -221,6 +222,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.matCardFindAllocation.Visible = false;
                 this.groupBox1AdditionlOrderUI.Visible = false;
                 this.matbtnManualAllocation.Visible = false;
+                this.matbtnNewAllocate.Visible = false;
                 this.lbltotaldata.Visible = false;
                 this.lblitems.Visible = false;
             }
@@ -552,6 +554,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void matbtnManualAllocation_Click(object sender, EventArgs e)
         {
             this.matbtnManualAllocation.Visible = false;
+            this.matbtnNewAllocate.Visible = false;
             frmManualAllocationController ManualAllocation =
              new frmManualAllocationController(this, this.p_id, Convert.ToInt32(this.txtSoh.Text), this.Sp_Store_Name, 
              this.Allocated_Quantity, Convert.ToInt32(this.lblqtyAllocatedFinal.Text), this.txtItemCode.Text, this.txtitemDescription.Text, this.UnitOfMeasure, Convert.ToInt32(this.sp_qty_finder)
@@ -561,7 +564,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-    
+            this.ConnectionInit();
             this.SenderTextChangedValue();
 
 
@@ -569,10 +572,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 this.matBtnSave.Enabled = false;
                 this.matbtnManualAllocation.Visible = true;
+                this.matbtnNewAllocate.Visible = true;
 
             }
+            if(this.textBox2.Text == "Save")
+            {
+                this.GlobalStatePopup.UpdatedSuccessfully();
+            }
+
             this.textBox2.Text = String.Empty;
           
+        }
+
+        private void lblAllocatedQty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void matbtnNewAllocate_Click(object sender, EventArgs e)
+        {
+            this.matbtnNewAllocate.Visible = false;
+            this.matbtnManualAllocation.Visible = false;
         }
     }
 }

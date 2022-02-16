@@ -101,6 +101,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.mattxtBalance.Size = new System.Drawing.Size(240, 50);
             this.mattxtBalance.TabIndex = 9;
             this.mattxtBalance.Text = "";
+            this.mattxtBalance.TextChanged += new System.EventHandler(this.mattxtBalance_TextChanged);
             // 
             // matTxtTotalAllocatedQty
             // 
