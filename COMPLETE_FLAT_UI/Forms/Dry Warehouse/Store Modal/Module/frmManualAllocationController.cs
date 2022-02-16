@@ -107,7 +107,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void matbtnManualAllocation_Click(object sender, EventArgs e)
         {
-      
+            if(this.mattxtAllocatedQty.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.mattxtAllocatedQty.Focus();
+                return;
+            }
+
+            if (this.matTxtUpdatedBalance.Text.Contains("-"))
+            {
+                this.GlobalStatePopup.GreaterThanActualRemainingQty();
+                this.mattxtBalance.Text = "0";
+                this.mattxtAllocatedQty.Text = String.Empty;
+                this.mattxtAllocatedQty.Focus();
+
+                return;
+            }
 
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
@@ -141,16 +156,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                     if(CurrentQty > PartialQty)
                     {
-                        MessageBox.Show("A");
+                        MessageBox.Show("A for Higher");
+                        //For crementation
+                        this.matTxtUpdatedBalance.Text = (float.Parse(this.StoredQtyOrderPartial.ToString()) - float.Parse(this.mattxtAllocatedQty.Text) + float.Parse(this.mattxtBalance.Text)).ToString();
+
+                        if(this.matTxtUpdatedBalance.Text.Contains("-"))
+                        {
+                            this.GlobalStatePopup.GreaterThanActualRemainingQty();
+                            this.mattxtBalance.Text = "0";
+                            this.mattxtAllocatedQty.Text = String.Empty;
+                            this.mattxtAllocatedQty.Focus();
+
+                            return;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("B");
+                        MessageBox.Show("B for Lower");
+                        //For Decrementation
+                        this.matTxtUpdatedBalance.Text = (float.Parse(this.StoredQtyOrderPartial.ToString()) - float.Parse(this.mattxtAllocatedQty.Text)).ToString();
+
                     }
                     return;
-                    //For Decrementation
-                    this.matTxtUpdatedBalance.Text = (float.Parse(this.StoredQtyOrderPartial.ToString()) - float.Parse(this.mattxtAllocatedQty.Text)).ToString();
-
+                 
 
                 }
 
@@ -165,6 +193,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 this.matTxtUpdatedBalance.Text = "0";
             }
+        }
+
+        private void frmManualAllocationController_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.textBox2.Text = "FormClosing";
         }
     }
 }

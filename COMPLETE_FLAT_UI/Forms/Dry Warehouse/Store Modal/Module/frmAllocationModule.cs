@@ -551,6 +551,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void matbtnManualAllocation_Click(object sender, EventArgs e)
         {
+            this.matbtnManualAllocation.Visible = false;
             frmManualAllocationController ManualAllocation =
              new frmManualAllocationController(this, this.p_id, Convert.ToInt32(this.txtSoh.Text), this.Sp_Store_Name, 
              this.Allocated_Quantity, Convert.ToInt32(this.lblqtyAllocatedFinal.Text), this.txtItemCode.Text, this.txtitemDescription.Text, this.UnitOfMeasure, Convert.ToInt32(this.sp_qty_finder)
@@ -560,7 +561,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Burat");
+    
+            this.SenderTextChangedValue();
+
+
+            if(this.lblqtyAllocatedFinal.Text !="0")
+            {
+                this.matBtnSave.Enabled = false;
+                this.matbtnManualAllocation.Visible = true;
+
+            }
+            this.textBox2.Text = String.Empty;
+          
         }
     }
 }
