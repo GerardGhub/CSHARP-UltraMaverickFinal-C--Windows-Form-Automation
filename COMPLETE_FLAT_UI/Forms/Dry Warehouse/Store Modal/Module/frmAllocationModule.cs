@@ -601,6 +601,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.matbtnNewAllocate.Visible = false;
                 this.matbtnManualAllocation.Visible = false;
+                //
+                this.lbltotalStoreOrder.Text = "0";
+             
                 this.frmAllocationModule_Load(sender, e);
             }
             else
