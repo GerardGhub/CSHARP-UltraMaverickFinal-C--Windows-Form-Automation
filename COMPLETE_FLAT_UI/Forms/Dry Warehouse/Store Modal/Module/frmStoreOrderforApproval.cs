@@ -152,7 +152,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void ValidatedItemforApproval()
         {
-            if (this.GlobalStatePopup.total_item_for_allocation == "0")
+            if (this.GlobalStatePopup.Total_item_for_allocation == "0")
             {
                 this.ReturnFunctionality();
             }
@@ -164,7 +164,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 else
                 {
                     //Start
-                    if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.Total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         //frmAllocationModule fm = new frmAllocationModule();
                         //fm.ShowDialog();
@@ -259,7 +259,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 xClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
 
-                this.GlobalStatePopup.total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
+                this.GlobalStatePopup.Total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -677,7 +677,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showRawMaterialforApproval();
-            if (this.GlobalStatePopup.total_item_for_allocation == "0")
+            if (this.GlobalStatePopup.Total_item_for_allocation == "0")
             {
                 //Start Blocked
 

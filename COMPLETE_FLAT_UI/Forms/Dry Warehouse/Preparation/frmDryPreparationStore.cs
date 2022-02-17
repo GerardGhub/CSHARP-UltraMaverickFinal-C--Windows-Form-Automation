@@ -28,6 +28,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         //Variable Declaration
         //int p_id = 0;
 
@@ -205,32 +206,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
 
 
-        public void LastLineofPreparationSubject()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "You are already reached the last line";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
         private void NextDatainDryStorePreparationEntry()
@@ -242,7 +217,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[0];
                 else
                 {
-                    this.LastLineofPreparationSubject();
+                    this.GlobalStatePopup.LastLineofPreparationSubject();
                     //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                     //timer1_Tick(sender, e);
                     this.mattxtScanTheBarcode.Focus();
@@ -273,7 +248,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     }
                     else
                     {
-                        this.FirstLineofPreparationSubject();
+                        this.GlobalStatePopup.FirstLineofPreparationSubject();
                         this.mattxtScanTheBarcode.Focus();
                         //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                     }
@@ -284,59 +259,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
         }
 
-        public void FirstLineofPreparationSubject()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "You are already reached the first line";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.DarkSlateBlue;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void PreparationAlreadyStartBy()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Preparation already start by "+this.Sp_Employee_Name+"";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.DarkSlateBlue;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+     
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
@@ -536,114 +461,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
 
 
-        private void ReceivingBarcodeIdIsnotExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Receiving ID is not exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
 
 
-        }
-
-        private void NotEnoughStockOnReceivingID()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Out of stock on receiving ID "+mattxtScanTheBarcode.Text+"!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
 
 
-        }
 
-
-        private void FeFoInformation()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FEFO method select the recommended receiving ID "+this.Sp_Receiving_ID_RecommendedFefo+"!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void FillRequiredFields()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Fill up the required fields!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
-
+  
 
         private void ScanBarcode()
         {
 
             if(this.mattxtScanTheBarcode.Text == String.Empty)
             {
-                this.FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.mattxtScanTheBarcode.Focus();
                 return;
             }
@@ -683,7 +513,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     if(this.Sp_Receiving_Actual_Remaining == "0")
                     {
-                        this.NotEnoughStockOnReceivingID();
+                        this.GlobalStatePopup.popup_barcode_identity = mattxtScanTheBarcode.Text;
+                        this.GlobalStatePopup.NotEnoughStockOnReceivingID();
                         this.mattxtScanTheBarcode.Text = String.Empty;
                         this.mattxtScanTheBarcode.Focus();
 
@@ -702,7 +533,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 else
                 {
 
-                    this.ReceivingBarcodeIdIsnotExist();
+                    this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
                     //MessageBox.Show("B");
                     //Buje Malakas
                     this.mattxtScanTheBarcode.Text = String.Empty;
@@ -716,7 +547,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
             else
             {
-                this.ReceivingBarcodeIdIsnotExist();
+                this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
                 //Buje Malakas
                 this.mattxtScanTheBarcode.Text = String.Empty;
                 this.mattxtScanTheBarcode.Focus();
@@ -741,7 +572,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
                 else
                 {
-                    this.FeFoInformation();
+                    this.GlobalStatePopup.PopperSp_Receiving_ID_RecommendedFefo = this.Sp_Receiving_ID_RecommendedFefo;
+                    this.GlobalStatePopup.FeFoInformation();
                 }
 
 
@@ -1056,7 +888,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     }
                     else
                     {
-                        this.FirstLineofPreparationSubject();
+                        this.GlobalStatePopup.FirstLineofPreparationSubject();
                         this.mattxtScanTheBarcode.Focus();
                         //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                     }
@@ -1066,37 +898,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
         }
 
-        public void SaveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+  
 
         private void matbtnSave_Click(object sender, EventArgs e)
         {
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 dset3.Clear();
                 dset3 = objStorProc.sp_Store_Preparation_Logs(0,
@@ -1107,7 +914,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 "bulk_proceed_preparation");
 
 
-                this.SaveSuccessfully();
+                this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmDryPreparation_Load(sender, e);
             }
             else
@@ -1117,6 +924,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
             }
+
+
 
         private void matViewItemPrepared_Click(object sender, EventArgs e)
         {

@@ -11,7 +11,9 @@ namespace ULTRAMAVERICK.Models
 {
     class PopupNotifierClass
     {
-        public string total_item_for_allocation { get; set; }
+        public string Total_item_for_allocation { get; set; }
+        public string Popup_barcode_identity { get; set; }
+        public string PopperSp_Receiving_ID_RecommendedFefo { get; set; }
 
 
         public void ErrorNotify()
@@ -40,6 +42,141 @@ namespace ULTRAMAVERICK.Models
         }
 
 
+
+        public void LastLineofPreparationSubject()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "You are already reached the last line!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        public void FirstLineofPreparationSubject()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "You are already reached the first line!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.DarkSlateBlue;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+        public void FeFoInformation()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "FEFO method select the recommended receiving ID " + PopperSp_Receiving_ID_RecommendedFefo + "!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+
+
+        public void NotEnoughStockOnReceivingID()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Out of stock on receiving ID " + Popup_barcode_identity + "!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+
+        public void ReceivingBarcodeIdIsnotExist()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Receiving ID is not exist!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
         public void AllocationiSRequiredNotify()
         {
        
@@ -50,7 +187,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Allocation is required for " + this.total_item_for_allocation + "record(s)";
+            popup.ContentText = "Allocation is required for " + this.Total_item_for_allocation + "record(s)";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
