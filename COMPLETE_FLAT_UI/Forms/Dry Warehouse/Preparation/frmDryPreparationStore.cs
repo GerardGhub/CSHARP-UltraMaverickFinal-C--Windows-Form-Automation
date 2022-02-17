@@ -513,7 +513,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     if(this.Sp_Receiving_Actual_Remaining == "0")
                     {
-                        this.GlobalStatePopup.popup_barcode_identity = mattxtScanTheBarcode.Text;
+                        this.GlobalStatePopup.Popup_barcode_identity = mattxtScanTheBarcode.Text;
                         this.GlobalStatePopup.NotEnoughStockOnReceivingID();
                         this.mattxtScanTheBarcode.Text = String.Empty;
                         this.mattxtScanTheBarcode.Focus();
