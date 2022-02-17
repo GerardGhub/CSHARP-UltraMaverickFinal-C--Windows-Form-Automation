@@ -429,7 +429,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
             this.FormmLoadSearchState();
 
-
+            this.sampleEnhancement();
 
         }
 
@@ -874,6 +874,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                             0,
                             this.sp_fox, this.Sp_Category, "",
                             "update_StorePreparationLogsTBL_Deactivated");
+
+                           this.matcmbCategory_SelectionChangeCommitted(new object(), new System.EventArgs());
                         }
 
                         // return;
