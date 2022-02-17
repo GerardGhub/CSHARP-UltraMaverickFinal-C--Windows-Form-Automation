@@ -299,8 +299,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
         private void matBtnSave_Click(object sender, EventArgs e)
         {
+
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
+                this.ConnectionInit();
+                this.SenderTextChangedValue();
                 this.MethodPost();
             }
             else
@@ -610,6 +613,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 return;
             }
+
+        }
+
+        private void dgvStoreOrderApproval_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
 
         }
     }

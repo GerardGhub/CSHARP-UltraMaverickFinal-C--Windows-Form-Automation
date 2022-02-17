@@ -97,7 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             }
 
-       
+          
             //MessageBox.Show("" + this.Sp_AssigneD_Task_By);
         }
 
@@ -1121,6 +1121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void matViewItemPrepared_Click(object sender, EventArgs e)
         {
             this.matViewItemPrepared.Enabled = false;
+            this.matbtnSave.Visible = false;
             frmViewStoreItemPrepared addNew = new frmViewStoreItemPrepared(this,
          this.sp_material_id,
          this.mattxtScanTheBarcode.Text,
@@ -1151,6 +1152,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void button1_Click(object sender, EventArgs e)
         {
             //PartialReceivingAwaitResponse();
+        }
+
+        private void dgvStoreOrderApproval_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            var rowIdx = (e.RowIndex + 1).ToString();
+
+            var centerFormat = new StringFormat()
+            {
+                // right alignment might actually make more sense for numbers
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+
         }
     }
 }
