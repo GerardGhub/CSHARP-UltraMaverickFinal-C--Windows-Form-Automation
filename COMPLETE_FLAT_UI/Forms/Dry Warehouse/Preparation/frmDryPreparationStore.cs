@@ -740,36 +740,166 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
             }
 
-
+            //return;
             //BujeRard
-            if (this.Sp_Is_WH_Cancel_Status == "1" && this.Sp_Data_Refactoring_Status != "1")
-            {
+            //if (this.lbltotaldata.Text != "0")
+            //{
+            //    try
+            //    {
+            //        if (this.Sp_Is_WH_Cancel_Status == "1" && this.Sp_Data_Refactoring_Status != "1")
+            //        {
 
-                //Date Conversion
-                DateTime dt = new DateTime();
-                string lstrDate = this.sp_approved_preparation_date;
-                dt = Convert.ToDateTime(lstrDate);
-                string lstrAdate = dt.ToString("yyyy-MM-dd");
-                this.sp_approved_preparation_date = lstrAdate;
+            //            //Date Conversion
+            //            DateTime dt = new DateTime();
+            //            string lstrDate = this.sp_approved_preparation_date;
+            //            dt = Convert.ToDateTime(lstrDate);
+            //            string lstrAdate = dt.ToString("yyyy-MM-dd");
+            //            this.sp_approved_preparation_date = lstrAdate;
 
 
+            //            //Sample Lang
+            //            dset2.Clear();
+            //            dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+            //            this.sp_fox,
+            //            this.sp_approved_preparation_date,
+            //            this.Sp_Category,
+            //            "",
+            //           "",
+            //            "",
+            //            "", "",
+            //            0,
+            //            this.sp_fox, this.Sp_Category, "",
+            //            "select_StorePreparationLogsTBL_Deactivated");
 
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                this.sp_fox,
-                this.sp_approved_preparation_date,
-                this.Sp_Category,
-                "",
-               "",
-                "",
-                "", "",
-                0,
-                this.sp_fox, this.Sp_Category, "",
-                "update_StorePreparationLogsTBL_Deactivated");
-            }
+            //            if (dset2.Tables[0].Rows.Count > 0)
+            //            {
+
+            //                MessageBox.Show("A");
+
+
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show("B");
+            //                dSet.Clear();
+            //                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            //                this.sp_fox,
+            //                this.sp_approved_preparation_date,
+            //                this.Sp_Category,
+            //                "",
+            //               "",
+            //                "",
+            //                "", "",
+            //                0,
+            //                this.sp_fox, this.Sp_Category, "",
+            //                "update_StorePreparationLogsTBL_Deactivated");
+            //            }
+
+            //           // return;
+            //           // //Bug Animal
+            //           // dSet.Clear();
+            //           // dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            //           // this.sp_fox,
+            //           // this.sp_approved_preparation_date,
+            //           // this.Sp_Category,
+            //           // "",
+            //           //"",
+            //           // "",
+            //           // "", "",
+            //           // 0,
+            //           // this.sp_fox, this.Sp_Category, "",
+            //           // "update_StorePreparationLogsTBL_Deactivated");
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+
+            //        MessageBox.Show(ex.Message);
+            //    }
+            //}
+
 
         }
 
+        private void sampleEnhancement()
+        {
+            if (this.lbltotaldata.Text != "0")
+            {
+                try
+                {
+                    if (this.Sp_Is_WH_Cancel_Status == "1" && this.Sp_Data_Refactoring_Status != "1")
+                    {
+
+                        //Date Conversion
+                        DateTime dt = new DateTime();
+                        string lstrDate = this.sp_approved_preparation_date;
+                        dt = Convert.ToDateTime(lstrDate);
+                        string lstrAdate = dt.ToString("yyyy-MM-dd");
+                        this.sp_approved_preparation_date = lstrAdate;
+
+
+                        //Sample Lang
+                        dset2.Clear();
+                        dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+                        this.sp_fox,
+                        this.sp_approved_preparation_date,
+                        this.Sp_Category,
+                        "",
+                       "",
+                        "",
+                        "", "",
+                        0,
+                        this.sp_fox, this.Sp_Category, "",
+                        "select_StorePreparationLogsTBL_Deactivated");
+
+                        if (dset2.Tables[0].Rows.Count > 0)
+                        {
+
+                            MessageBox.Show("A");
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("B");
+                            dSet.Clear();
+                            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                            this.sp_fox,
+                            this.sp_approved_preparation_date,
+                            this.Sp_Category,
+                            "",
+                           "",
+                            "",
+                            "", "",
+                            0,
+                            this.sp_fox, this.Sp_Category, "",
+                            "update_StorePreparationLogsTBL_Deactivated");
+                        }
+
+                        // return;
+                        // //Bug Animal
+                        // dSet.Clear();
+                        // dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                        // this.sp_fox,
+                        // this.sp_approved_preparation_date,
+                        // this.Sp_Category,
+                        // "",
+                        //"",
+                        // "",
+                        // "", "",
+                        // 0,
+                        // this.sp_fox, this.Sp_Category, "",
+                        // "update_StorePreparationLogsTBL_Deactivated");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (this.textBox1.Text == "ItemServe")
@@ -778,8 +908,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
         
             }
+            else if (this.textBox1.Text == "FormClosing")
+            {
+                this.sampleEnhancement();
+            }
+            else
+            {
+
+            }
         }
-        //Bearer Token
+        //Bearer Token  Update the Fucking Preparation Table Logs
         private void PartialReceivingAwaitResponse()
         {
             //Date Conversion

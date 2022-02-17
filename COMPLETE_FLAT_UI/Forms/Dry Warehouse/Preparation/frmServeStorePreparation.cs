@@ -30,6 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         DataSet dSet = new DataSet();
         //Variable Declaration
         int p_id = 0;
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmServeStorePreparation(frmDryPreparationStore frm,
             string Dry_Order_GUID,
@@ -93,6 +94,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         public string Sp_Category { get; set; }
         public string Sp_TotalRawMaterialPreparationActive { get; set; }
+
+
 
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
@@ -264,42 +267,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.dgvStoreOrderApproval_Primary_ID = this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value.ToString();
                         this.dgvStoreOrderApproval_Is_wh_checker_cancel = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
 
-                        if(this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
-                        {
-                            this.matTxtQtyRelease.Text = "0";
-                        }
+                        //if(this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                        //{
+                        //    this.matTxtQtyRelease.Text = "0";
+                        //} Overnight
                        
 
                     }
                 }
             }
         }
-        public void FillRequiredTextbox()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
         DataSet SearchStoreItemPreparedWithCount = new DataSet();
@@ -362,7 +340,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             
             if (this.mattxtQtyServe.Text == String.Empty)
             {
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                this.mattxtQtyServe.Focus();
                 return;
             }
@@ -379,14 +357,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                 if (InputQtyServeUnused > Order)
                 {
-                    GreaterThanActualRemainingQty();
+                    this.GlobalStatePopup.GreaterThanActualRemainingQty();
                     this.mattxtQtyServe.Text = String.Empty;
                     this.mattxtQtyServe.Focus();
                     return;
                 }
 
 
-                }
+             }
 
 
             /// If You have a Existing Receiving
@@ -401,7 +379,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             if (InputQtyServe > ActualRemainingofReceivingID)
             {
           
-                GreaterThanActualRemainingQty();
+                this.GlobalStatePopup.GreaterThanActualRemainingQty();
                 this.mattxtQtyServe.Text = String.Empty;
                 this.mattxtQtyServe.Focus();
                 return;
@@ -442,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
                 else
                 {
-                    this.GreaterThanAllocatedQty();
+                    this.GlobalStatePopup.GreaterThanAllocatedQty();
                     this.mattxtQtyServe.Text = String.Empty;
                     this.mattxtQtyServe.Focus();
 
@@ -455,293 +433,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve  the raw material? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-
-            }
-            else
-            {
-                return;
-            }
-
-
-
-
-            if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
-            {
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
-                this.sp_Fox,
-                this.Sp_Preparation_Date,
-                this.Sp_Category,
-                this.matTxtDescription.Text,
-                this.matTxtOrderQty.Text,
-                this.mattxtQtyServe.Text,
-                "", this.Sp_User_ID.ToString(),
-                Convert.ToInt32(this.Sp_Material_Id),
-                this.sp_Fox, this.Sp_Category, this.sp_Area,
-                "update_StorePreparationLogsTBL_prepared_allocated_qty");
-            }
-
-
-            dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(0, 
-            this.Sp_Barcode_Id,
-            this.Sp_Preparation_Date,
-            this.mattxtItemCode.Text, 
-            this.matTxtDescription.Text, 
-            this.matTxtOrderQty.Text,
-            this.mattxtQtyServe.Text,
-            "", this.Sp_User_ID.ToString(),
-            Convert.ToInt32(this.Sp_Material_Id),
-            this.sp_Fox , Sp_Category, this.sp_Area,
-            "add");
-
-
-            // Summary Execution Per Row
-            double QuantityReleasedData;
-            double ActualQuantityServe;
-            double SummaryDetailTransactionFormula;
-
-            QuantityReleasedData = double.Parse(this.matTxtQtyRelease.Text);
-            ActualQuantityServe = double.Parse(this.mattxtQtyServe.Text);
-            SummaryDetailTransactionFormula = QuantityReleasedData + ActualQuantityServe;
-
-            dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
-             SummaryDetailTransactionFormula.ToString(),
-            this.Sp_Preparation_Date,
-            this.mattxtItemCode.Text,
-            this.matTxtDescription.Text,
-            this.matTxtOrderQty.Text,
-            this.mattxtQtyServe.Text,
-            "", this.Sp_User_ID.ToString(),
-            Convert.ToInt32(this.Sp_Material_Id),
-            this.sp_Fox, this.sp_Route, this.sp_Area,
-            "update_prepared_allocated_qty");
-
-
-
-
-            //Update preparation
-            if (Convert.ToDouble(this.matTxtOrderQty.Text) == SummaryDetailTransactionFormula)
-            {
-
-   
-      
-            if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
-            {
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
-                this.sp_Fox,
-                this.Sp_Preparation_Date,
-                this.Sp_Category,
-                this.matTxtDescription.Text,
-                this.matTxtOrderQty.Text,
-                this.mattxtQtyServe.Text,
-                "", this.Sp_User_ID.ToString(),
-                Convert.ToInt32(this.Sp_Material_Id),
-                this.sp_Fox, this.sp_Route, this.sp_Area,
-                "update_StorePreparationLogsTBL_prepared_wh_cancell_NULL");
-            }
-
-            }
-
-
-            //Date Conversion
-            DateTime dt = new DateTime();
-            string lstrDate = this.Sp_Preparation_Date;
-            dt = Convert.ToDateTime(lstrDate);
-            string lstrAdate = dt.ToString("yyyy-MM-dd");
-            this.Sp_Preparation_Date = lstrAdate;
-
-            //New Entry Validation Search
-
-            this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
-            ///Search Method Functionality
-            //this.doSearchSearchStoreItemPreparedWithCount();
-            //Start Search
-
-            try
-            {
-                if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
-                {
-
-         
-
-                    DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
-
-
-                    dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "' and fox = '"+ this.sp_Fox + "'   ";
-
-
-
-                    this.dgvPreparedItemDistinct.DataSource = dv;
-
-                    this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
-            
-                }
-            }
-
-
-
-
-
-            catch (SyntaxErrorException)
-            {
-                MessageBox.Show("Invalid character found Type 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return;
-            }
-            catch (EvaluateException)
-            {
-                MessageBox.Show("Invalid character found Type 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return;
-            }
-
-
-            //End Search
-
-
-            //Initial Count of Repack   Incremented
-            double currentStateRepack;
-            double currentStateQty;
-
-            if(this.TotalRecordofPrepared == "0")
-            {
+              
+                //Mag miminus sya ng total Items Sa Dry Warehouse Orders Table
                 if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
-                {
-
-                }
-                else
-                {
-                    this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
-                    this.TotalItemPreparedPerItemIncrementation = "0";
-                    currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
-
-                    currentStateQty = currentStateRepack + 1;
-                    this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
-                }
-            }
-            else
-            {
-                if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
-                {
-                    //Rekta Puyat
-                    this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
-
-
-                    currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
-
-                    currentStateQty = currentStateRepack * 1;
-                    this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
-
-                }
-                else
-                {
-                    this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
-                    currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
-
-                    currentStateQty = currentStateRepack + 1;
-                    this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
-                }
-            }
-
-
-
-            //Data Sets
-            dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(0,
-             this.Sp_RepackIncement.ToString(),
-            lstrAdate,
-            this.mattxtItemCode.Text,
-            this.matTxtDescription.Text,
-            this.matTxtOrderQty.Text,
-            this.mattxtQtyServe.Text,
-            "", this.Sp_User_ID.ToString(),
-            Convert.ToInt32(this.Sp_Material_Id),
-            this.sp_Fox, this.sp_Route, this.sp_Area,
-            "update_dry_orders_total_state_repack");
-
-
-            double ActualQuantityReleased;
-
-            double ActualQuantityServed;
-
-            double ActualQuantityOrder;
-
-            double TotalQuantityServeState;
-
-
-            ActualQuantityReleased = double.Parse(this.matTxtQtyRelease.Text);
-            ActualQuantityServed = double.Parse(this.mattxtQtyServe.Text);
-            ActualQuantityOrder = double.Parse(this.matTxtOrderQty.Text);
-
-            TotalQuantityServeState = ActualQuantityReleased + ActualQuantityServed;
-
-            if(ActualQuantityOrder == TotalQuantityServeState)
-            {
-                //Update Status Already Repack
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                this.Sp_Barcode_Id,
-                this.Sp_Preparation_Date,
-                this.mattxtItemCode.Text,
-                this.matTxtDescription.Text,
-                this.matTxtOrderQty.Text,
-                this.mattxtQtyServe.Text,
-                "", this.Sp_User_ID.ToString(),
-                Convert.ToInt32(this.Sp_Material_Id),
-                  this.sp_Fox, this.sp_Route, this.sp_Area,
-                "update_dry_orders");
-
-                if (ActualQuantityReleased == 0)
-                {
-                    //Bulk Repack Based on Order
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                    this.Sp_Barcode_Id,
-                    this.Sp_Preparation_Date,
-                    this.mattxtItemCode.Text,
-                    this.matTxtDescription.Text,
-                    this.matTxtOrderQty.Text,
-                    this.mattxtQtyServe.Text,
-                    "", this.Sp_User_ID.ToString(),
-                    Convert.ToInt32(this.Sp_Material_Id),
-                    this.sp_Fox, this.sp_Route, this.sp_Area,
-                    "bulk_produce_store_timestamp");
-
-
-                    //Bulk Update Start Whole Store Repository
-                    this.BulkSaveEntryIntoStoredProc();
-                }
-            }
-        
-
-            else
-            {
-                //Update Start Time Stamp
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                this.Sp_Barcode_Id,
-                this.Sp_Preparation_Date,
-                this.mattxtItemCode.Text,
-                this.matTxtDescription.Text,
-                this.matTxtOrderQty.Text,
-                this.mattxtQtyServe.Text,
-                "", this.Sp_User_ID.ToString(),
-                Convert.ToInt32(this.Sp_Material_Id),
-                this.sp_Fox, this.sp_Route, this.sp_Area,
-                "start_dry_orders_store_timestamp");
-                
-                //Bulk Update Start Whole Store Repository
-                this.BulkSaveEntryIntoStoredProc();
-
-            }
-
-            if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
-            {
-
-                if (this.Sp_TotalRawMaterialPreparationActive == "1")
                 {
                     dSet.Clear();
                     dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
@@ -754,14 +448,315 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     "", this.Sp_User_ID.ToString(),
                     Convert.ToInt32(this.Sp_Material_Id),
                     this.sp_Fox, this.Sp_Category, this.sp_Area,
-                    "update_StorePreparationLogsTBL_DataRefactoring");
+                    "update_StorePreparationLogsTBL_prepared_allocated_qty");
                 }
 
+
+                // Commit a new Fucking animal makapal a mukha
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                this.Sp_Barcode_Id,
+                this.Sp_Preparation_Date,
+                this.mattxtItemCode.Text,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                this.sp_Fox, Sp_Category, this.sp_Area,
+                "add");
+
+         
+
+                // Summary Execution Per Row
+                double QuantityReleasedData;
+                double ActualQuantityServe;
+                double SummaryDetailTransactionFormula;
+
+                QuantityReleasedData = double.Parse(this.matTxtQtyRelease.Text);
+                ActualQuantityServe = double.Parse(this.mattxtQtyServe.Text);
+                SummaryDetailTransactionFormula = QuantityReleasedData + ActualQuantityServe;
+
+
+                //Update Prepared Allocated Quantity base on Preparation
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
+                 SummaryDetailTransactionFormula.ToString(),
+                this.Sp_Preparation_Date,
+                this.mattxtItemCode.Text,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                this.sp_Fox, this.sp_Route, this.sp_Area,
+                "update_prepared_allocated_qty");
+
+
+
+                //Update preparation
+                if (Convert.ToDouble(this.matTxtOrderQty.Text) == SummaryDetailTransactionFormula)
+                {
+
+                    if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                    {
+                        dSet.Clear();
+                        dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                        this.sp_Fox,
+                        this.Sp_Preparation_Date,
+                        this.Sp_Category,
+                        this.matTxtDescription.Text,
+                        this.matTxtOrderQty.Text,
+                        this.mattxtQtyServe.Text,
+                        "", this.Sp_User_ID.ToString(),
+                        Convert.ToInt32(this.Sp_Material_Id),
+                        this.sp_Fox, this.sp_Route, this.sp_Area,
+                        "update_StorePreparationLogsTBL_prepared_wh_cancell_NULL");
+                    }
+
+                }
+
+
+//Clear an etor sa zero
+
+                //Date Conversion
+                DateTime dt = new DateTime();
+                string lstrDate = this.Sp_Preparation_Date;
+                dt = Convert.ToDateTime(lstrDate);
+                string lstrAdate = dt.ToString("yyyy-MM-dd");
+                this.Sp_Preparation_Date = lstrAdate;
+
+                //New Entry Validation Search
+
+                this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
+                ///Search Method Functionality
+                //this.doSearchSearchStoreItemPreparedWithCount();
+                //Start Search
+
+                try
+                {
+                    if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
+                    {
+
+
+
+                        DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
+
+
+                        dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "' and fox = '" + this.sp_Fox + "'   ";
+
+
+
+                        this.dgvPreparedItemDistinct.DataSource = dv;
+
+                        this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
+
+                    }
+                }
+
+
+
+
+
+                catch (SyntaxErrorException)
+                {
+                    MessageBox.Show("Invalid character found Type 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    return;
+                }
+                catch (EvaluateException)
+                {
+                    MessageBox.Show("Invalid character found Type 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    return;
+                }
+
+
+                //End Search
+
+
+                //Initial Count of Repack   Incremented
+                double currentStateRepack;
+                double currentStateQty;
+
+                if (this.TotalRecordofPrepared == "0")
+                {
+                    if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                    {
+
+                    }
+                    else
+                    {
+                        this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
+                        this.TotalItemPreparedPerItemIncrementation = "0";
+                        currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+
+                        currentStateQty = currentStateRepack + 1;
+                        this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+                    }
+                }
+                else
+                {
+                    if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                    {
+                        //Rekta Puyat
+                        this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
+
+
+                        currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+
+                        currentStateQty = currentStateRepack * 1;
+                        this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+
+                    }
+                    else
+                    {
+                        this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
+                        currentStateRepack = double.Parse(this.TotalItemPreparedPerItemIncrementation);
+
+                        currentStateQty = currentStateRepack + 1;
+                        this.Sp_RepackIncement = Convert.ToInt32(currentStateQty);
+                    }
+                }
+
+
+
+                //Data Sets
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                 this.Sp_RepackIncement.ToString(),
+                lstrAdate,
+                this.mattxtItemCode.Text,
+                this.matTxtDescription.Text,
+                this.matTxtOrderQty.Text,
+                this.mattxtQtyServe.Text,
+                "", this.Sp_User_ID.ToString(),
+                Convert.ToInt32(this.Sp_Material_Id),
+                this.sp_Fox, this.sp_Route, this.sp_Area,
+                "update_dry_orders_total_state_repack");
+
+
+                //Clear na this
+            
+
+                double ActualQuantityReleased;
+
+                double ActualQuantityServed;
+
+                double ActualQuantityOrder;
+
+                double TotalQuantityServeState;
+
+
+                ActualQuantityReleased = double.Parse(this.matTxtQtyRelease.Text);
+                ActualQuantityServed = double.Parse(this.mattxtQtyServe.Text);
+                ActualQuantityOrder = double.Parse(this.matTxtOrderQty.Text);
+
+                TotalQuantityServeState = ActualQuantityReleased + ActualQuantityServed;
+
+                if (ActualQuantityOrder == TotalQuantityServeState)
+                {
+                    //Update Status Already Repack
+                    dSet.Clear();
+                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                    this.Sp_Barcode_Id,
+                    this.Sp_Preparation_Date,
+                    this.mattxtItemCode.Text,
+                    this.matTxtDescription.Text,
+                    this.matTxtOrderQty.Text,
+                    this.mattxtQtyServe.Text,
+                    "", this.Sp_User_ID.ToString(),
+                    Convert.ToInt32(this.Sp_Material_Id),
+                      this.sp_Fox, this.sp_Route, this.sp_Area,
+                    "update_dry_orders");
+
+                    //Clear Error
+                    ////MessageBox.Show("Catch The Fucking Error SuccessFully!");
+                    ////return;
+
+                    if (ActualQuantityReleased == 0)
+                    {
+                        //Bulk Repack Based on Order
+                        dSet.Clear();
+                        dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                        this.Sp_Barcode_Id,
+                        this.Sp_Preparation_Date,
+                        this.mattxtItemCode.Text,
+                        this.matTxtDescription.Text,
+                        this.matTxtOrderQty.Text,
+                        this.mattxtQtyServe.Text,
+                        "", this.Sp_User_ID.ToString(),
+                        Convert.ToInt32(this.Sp_Material_Id),
+                        this.sp_Fox, this.sp_Route, this.sp_Area,
+                        "bulk_produce_store_timestamp");
+
+
+                        //Bulk Update Start Whole Store Repository
+                        this.BulkSaveEntryIntoStoredProc();
+                    }
+                }
+
+
+                else
+                {
+                    //Update Start Time Stamp
+                    dSet.Clear();
+                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                    this.Sp_Barcode_Id,
+                    this.Sp_Preparation_Date,
+                    this.mattxtItemCode.Text,
+                    this.matTxtDescription.Text,
+                    this.matTxtOrderQty.Text,
+                    this.mattxtQtyServe.Text,
+                    "", this.Sp_User_ID.ToString(),
+                    Convert.ToInt32(this.Sp_Material_Id),
+                    this.sp_Fox, this.sp_Route, this.sp_Area,
+                    "start_dry_orders_store_timestamp");
+
+                    //Bulk Update Start Whole Store Repository
+                    this.BulkSaveEntryIntoStoredProc();
+
+                }
+
+                //MessageBox.Show(this.dgvStoreOrderApproval_Is_wh_checker_cancel +"Catch The Fucking Error SuccessFully!");
+                //MessageBox.Show(this.Sp_TotalRawMaterialPreparationActive);
+                //return;
+                //return;
+
+                //Update the Refactoring Data Set status DB
+                if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                {
+
+                    if (this.Sp_TotalRawMaterialPreparationActive == "1")
+                    {
+                        dSet.Clear();
+                        dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                        this.sp_Fox,
+                        this.Sp_Preparation_Date,
+                        this.Sp_Category,
+                        this.matTxtDescription.Text,
+                        this.matTxtOrderQty.Text,
+                        this.mattxtQtyServe.Text,
+                        "", this.Sp_User_ID.ToString(),
+                        Convert.ToInt32(this.Sp_Material_Id),
+                        this.sp_Fox, this.Sp_Category, this.sp_Area,
+                        "update_StorePreparationLogsTBL_DataRefactoring");
+                    }
+
+                }
+
+
+
+                this.Close();
+            }
+            else
+            {
+                return;
             }
 
 
 
-            this.Close();
+   
 
 
         }
@@ -795,64 +790,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             ths.textBox1.Text = textBox1.Text;
         }
-        public void GreaterThanAllocatedQty()
-        {
+  
 
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Greater than Allocated Qty!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void GreaterThanActualRemainingQty()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Greater than Actual Remaining Qty!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
         private void frmServeStorePreparation_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.textBox1.Text = "ItemServe";
+            if(this.mattxtQtyServe.Text == String.Empty)
+            {
+                this.textBox1.Text = "FormClosing";
+            }
+            else
+            {
+                this.textBox1.Text = "ItemServe";
+            }
+         
         }
 
         private void mattxtQtyServe_KeyPress(object sender, KeyPressEventArgs e)

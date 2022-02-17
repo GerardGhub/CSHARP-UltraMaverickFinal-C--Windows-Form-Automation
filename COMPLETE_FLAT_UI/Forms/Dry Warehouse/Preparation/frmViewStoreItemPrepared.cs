@@ -140,9 +140,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                  
      
-                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "' and is_wh_checker_cancel= '0'  ";
+                        dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "'   ";
 
-
+                    //dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "' and is_wh_checker_cancel= '0'  ";
                     //dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.Sp_Preparation_Date + "' and is_wh_checker_cancel= '0' or is_prepared = '" + this.Is_Active + "'   ";
 
 
