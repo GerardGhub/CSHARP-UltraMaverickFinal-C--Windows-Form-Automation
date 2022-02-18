@@ -266,7 +266,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matbtnManualAllocation.DrawShadows = true;
             this.matbtnManualAllocation.HighEmphasis = true;
             this.matbtnManualAllocation.Icon = null;
-            this.matbtnManualAllocation.Location = new System.Drawing.Point(420, 519);
+            this.matbtnManualAllocation.Location = new System.Drawing.Point(420, 521);
             this.matbtnManualAllocation.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnManualAllocation.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnManualAllocation.Name = "matbtnManualAllocation";
@@ -282,7 +282,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 560);
+            this.ClientSize = new System.Drawing.Size(601, 571);
             this.Controls.Add(this.matbtnManualAllocation);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.materialCard1);
@@ -290,7 +290,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.MinimizeBox = false;
             this.Name = "frmManualAllocationController";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Store Order Manual Allocation";
+            this.Text = "MANUAL ALLOCATION";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmManualAllocationController_FormClosing);
             this.Load += new System.EventHandler(this.frmManualAllocationController_Load);
             this.materialCard1.ResumeLayout(false);
