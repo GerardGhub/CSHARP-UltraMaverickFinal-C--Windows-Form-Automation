@@ -399,10 +399,10 @@
     <Compile Include="Forms\Dry Warehouse\Store Modal\frmStoreOrderActivationRemarks.Designer.cs">
       <DependentUpon>frmStoreOrderActivationRemarks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmStoreOrderforApproval.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\Major Process\frmStoreOrderforApproval.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmStoreOrderforApproval.Designer.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\Major Process\frmStoreOrderforApproval.Designer.cs">
       <DependentUpon>frmStoreOrderforApproval.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmStoreOrderRestAPIcall.cs">
@@ -704,7 +704,7 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmStoreOrderActivationRemarks.resx">
       <DependentUpon>frmStoreOrderActivationRemarks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\frmStoreOrderforApproval.resx">
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\Major Process\frmStoreOrderforApproval.resx">
       <DependentUpon>frmStoreOrderforApproval.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\frmStoreOrderRestAPIcall.resx">

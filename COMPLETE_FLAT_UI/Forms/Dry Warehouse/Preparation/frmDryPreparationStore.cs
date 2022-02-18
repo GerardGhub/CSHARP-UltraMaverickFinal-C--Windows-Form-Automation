@@ -1006,6 +1006,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.NextDatainDryStorePreparationEntry();
                 
             }
+            this.sampleEnhancement();
         }
 
         private void matRadioPrevious_Click(object sender, EventArgs e)
@@ -1036,6 +1037,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                
                 this.mattxtScanTheBarcode.Focus();
             }
+            this.sampleEnhancement();
         }
 
   

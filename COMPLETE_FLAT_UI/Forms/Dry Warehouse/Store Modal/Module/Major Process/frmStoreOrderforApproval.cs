@@ -112,11 +112,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.VisibilityFalseDataGrid();
             if (this.lbltotaldata.Text == "0")
             {
+                this.bunifuPrepaDate.Enabled = false;
                 this.matcmbCategory.Enabled = false;
                 this.matbtnPrint.Visible = false;
             }
             else
             {
+
                 this.matcmbCategory.Enabled = true;
 
                 if(num != 0)
@@ -487,6 +489,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.labelSelectedSum.Visible = false;
                 this.matbtnEdit.Visible = false;
                 this.matbtnPrint.Visible = false;
+                this.bunifuPrepaDate.Enabled = false;
             }
             else
             {

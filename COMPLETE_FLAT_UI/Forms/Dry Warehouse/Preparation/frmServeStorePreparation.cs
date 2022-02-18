@@ -431,24 +431,43 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve  the raw material? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
               
                 //Mag miminus sya ng total Items Sa Dry Warehouse Orders Table
                 if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
-                    this.sp_Fox,
-                    this.Sp_Preparation_Date,
-                    this.Sp_Category,
-                    this.matTxtDescription.Text,
-                    this.matTxtOrderQty.Text,
-                    this.mattxtQtyServe.Text,
-                    "", this.Sp_User_ID.ToString(),
-                    Convert.ToInt32(this.Sp_Material_Id),
-                    this.sp_Fox, this.Sp_Category, this.sp_Area,
-                    "update_StorePreparationLogsTBL_prepared_allocated_qty");
+                    double ActualQuantityReleasedReturnType;
+
+                    double ActualQuantityServedReturnType;
+
+                    double ActualQuantityOrderReturnType;
+
+                    double TotalQuantityServeStateReturnType;
+
+
+                    ActualQuantityReleasedReturnType = double.Parse(this.matTxtQtyRelease.Text);
+                    ActualQuantityServedReturnType = double.Parse(this.mattxtQtyServe.Text);
+                    ActualQuantityOrderReturnType = double.Parse(this.matTxtOrderQty.Text);
+
+                    TotalQuantityServeStateReturnType = ActualQuantityReleasedReturnType + ActualQuantityServedReturnType;
+
+                    if (ActualQuantityOrderReturnType == TotalQuantityServeStateReturnType)
+                    {
+
+                        dSet.Clear();
+                        dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                        this.sp_Fox,
+                        this.Sp_Preparation_Date,
+                        this.Sp_Category,
+                        this.matTxtDescription.Text,
+                        this.matTxtOrderQty.Text,
+                        this.mattxtQtyServe.Text,
+                        "", this.Sp_User_ID.ToString(),
+                        Convert.ToInt32(this.Sp_Material_Id),
+                        this.sp_Fox, this.Sp_Category, this.sp_Area,
+                        "update_StorePreparationLogsTBL_prepared_allocated_qty");
+                    }
                 }
 
 
@@ -517,7 +536,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
 
 
-//Clear an etor sa zero
+                //Clear an etor sa zero
 
                 //Date Conversion
                 DateTime dt = new DateTime();
@@ -575,7 +594,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 //End Search
 
 
-                //Initial Count of Repack   Incremented
+                //Initial Count of Repack   Incremented Bujerang
                 double currentStateRepack;
                 double currentStateQty;
 
@@ -597,6 +616,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
                 else
                 {
+                    //If you have a available fucking records
                     if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                     {
                         //Rekta Puyat
@@ -621,20 +641,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
-                //Data Sets
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                 this.Sp_RepackIncement.ToString(),
-                lstrAdate,
-                this.mattxtItemCode.Text,
-                this.matTxtDescription.Text,
-                this.matTxtOrderQty.Text,
-                this.mattxtQtyServe.Text,
-                "", this.Sp_User_ID.ToString(),
-                Convert.ToInt32(this.Sp_Material_Id),
-                this.sp_Fox, this.sp_Route, this.sp_Area,
-                "update_dry_orders_total_state_repack");
+                //Data Sets Dry Warehouse Order Total Items 2/18/2022 12:01 PM
+                if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
+                {
 
+                }
+                else
+                {
+                    dSet.Clear();
+                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                     this.Sp_RepackIncement.ToString(),
+                    lstrAdate,
+                    this.mattxtItemCode.Text,
+                    this.matTxtDescription.Text,
+                    this.matTxtOrderQty.Text,
+                    this.mattxtQtyServe.Text,
+                    "", this.Sp_User_ID.ToString(),
+                    Convert.ToInt32(this.Sp_Material_Id),
+                    this.sp_Fox, this.sp_Route, this.sp_Area,
+                    "update_dry_orders_total_state_repack");
+                }
 
                 //Clear na this
             
