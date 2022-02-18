@@ -174,7 +174,7 @@
             // 
             // metroPanel4
             // 
-            this.metroPanel4.BackColor = System.Drawing.Color.Silver;
+            this.metroPanel4.BackColor = System.Drawing.SystemColors.Window;
             this.metroPanel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel4.Controls.Add(this.pictureBox4);
             this.metroPanel4.Controls.Add(this.label1);
@@ -210,13 +210,13 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(21, 9);
+            this.label1.Location = new System.Drawing.Point(0, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 32);
+            this.label1.Size = new System.Drawing.Size(182, 32);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Store Orders";
+            this.label1.Text = "STORE ORDERS";
             // 
             // label4
             // 
@@ -234,7 +234,7 @@
             // metroPanel5
             // 
             this.metroPanel5.AutoSize = true;
-            this.metroPanel5.BackColor = System.Drawing.Color.Silver;
+            this.metroPanel5.BackColor = System.Drawing.SystemColors.Window;
             this.metroPanel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel5.Controls.Add(this.pictureBox5);
             this.metroPanel5.Controls.Add(this.label9);
@@ -268,13 +268,13 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Light", 18F);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(20, 4);
+            this.label9.Location = new System.Drawing.Point(2, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(194, 32);
+            this.label9.Size = new System.Drawing.Size(95, 32);
             this.label9.TabIndex = 11;
-            this.label9.Text = "Alert Notifications";
+            this.label9.Text = "ALERTS";
             // 
             // label5
             // 
@@ -289,7 +289,7 @@
             // 
             // metroPanel6
             // 
-            this.metroPanel6.BackColor = System.Drawing.Color.Silver;
+            this.metroPanel6.BackColor = System.Drawing.SystemColors.Window;
             this.metroPanel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel6.Controls.Add(this.pictureBox6);
             this.metroPanel6.Controls.Add(this.label10);
@@ -325,13 +325,13 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Light", 18F);
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(18, 9);
+            this.label10.Location = new System.Drawing.Point(-2, 2);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(150, 32);
+            this.label10.Size = new System.Drawing.Size(133, 32);
             this.label10.TabIndex = 10;
-            this.label10.Text = "RM Receiving";
+            this.label10.Text = "RECEIVING";
             // 
             // lbltotalReceiving
             // 
@@ -346,7 +346,7 @@
             // 
             // metroPanel7
             // 
-            this.metroPanel7.BackColor = System.Drawing.Color.Silver;
+            this.metroPanel7.BackColor = System.Drawing.SystemColors.Window;
             this.metroPanel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel7.Controls.Add(this.pictureBox7);
             this.metroPanel7.Controls.Add(this.label12);
@@ -380,13 +380,13 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Light", 18F);
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(13, 7);
+            this.label12.Location = new System.Drawing.Point(0, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 32);
+            this.label12.Size = new System.Drawing.Size(116, 32);
             this.label12.TabIndex = 9;
-            this.label12.Text = "MRS Request";
+            this.label12.Text = "MRS/PRF";
             // 
             // label13
             // 
@@ -429,7 +429,7 @@
             this.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimizeBox = false;
             this.Name = "FormLogo";
-            this.Text = "Dashboard";
+            this.Text = "DASHBOARD";
             this.Load += new System.EventHandler(this.FormLogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

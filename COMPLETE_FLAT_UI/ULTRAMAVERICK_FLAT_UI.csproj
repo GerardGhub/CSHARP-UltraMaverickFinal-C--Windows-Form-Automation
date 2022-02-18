@@ -153,16 +153,16 @@
     <Compile Include="Class\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormLogo.cs">
+    <Compile Include="Menu\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogo.designer.cs">
-      <DependentUpon>FormLogo.cs</DependentUpon>
+    <Compile Include="Menu\frmDashboard.designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMenuPrincipal.cs">
+    <Compile Include="Menu\FormMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMenuPrincipal.Designer.cs">
+    <Compile Include="Menu\FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Dispatching\frmStoreOrderDispatching.cs">
@@ -584,10 +584,10 @@
     <EmbeddedResource Include="BaseWPFControls\frmViewAllNotifications.resx">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogo.resx">
-      <DependentUpon>FormLogo.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMenuPrincipal.resx">
+    <EmbeddedResource Include="Menu\FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Dispatching\frmStoreOrderDispatching.resx">
