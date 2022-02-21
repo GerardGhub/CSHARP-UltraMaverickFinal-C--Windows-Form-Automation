@@ -52,6 +52,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.is_approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.prepa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DgvMaterialPreparation)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +70,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard4.Size = new System.Drawing.Size(895, 413);
+            this.materialCard4.Size = new System.Drawing.Size(795, 413);
             this.materialCard4.TabIndex = 658;
             // 
             // guna2DgvMaterialPreparation
@@ -106,7 +107,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.date_ordered_materials,
             this.is_approved_preparation_date,
             this.conversion,
-            this.Delete});
+            this.Delete,
+            this.prepa_id});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.RowTemplate.DividerHeight = 5;
             this.guna2DgvMaterialPreparation.RowTemplate.Height = 40;
             this.guna2DgvMaterialPreparation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DgvMaterialPreparation.Size = new System.Drawing.Size(885, 401);
+            this.guna2DgvMaterialPreparation.Size = new System.Drawing.Size(785, 401);
             this.guna2DgvMaterialPreparation.TabIndex = 595;
             this.guna2DgvMaterialPreparation.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.guna2DgvMaterialPreparation.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -171,7 +173,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
             this.lbltotaldata.Font = new System.Drawing.Font("Segoe UI Light", 18F);
             this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotaldata.Location = new System.Drawing.Point(836, 496);
+            this.lbltotaldata.Location = new System.Drawing.Point(752, 497);
             this.lbltotaldata.Name = "lbltotaldata";
             this.lbltotaldata.Size = new System.Drawing.Size(27, 32);
             this.lbltotaldata.TabIndex = 659;
@@ -184,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(868, 507);
+            this.label4.Location = new System.Drawing.Point(784, 508);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 660;
@@ -334,11 +336,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Delete.UseColumnTextForButtonValue = true;
             this.Delete.Width = 66;
             // 
+            // prepa_id
+            // 
+            this.prepa_id.DataPropertyName = "prepa_id";
+            this.prepa_id.HeaderText = "PREPA IDENTITY";
+            this.prepa_id.Name = "prepa_id";
+            this.prepa_id.ReadOnly = true;
+            this.prepa_id.Width = 145;
+            // 
             // frmViewStoreItemPrepared
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 534);
+            this.ClientSize = new System.Drawing.Size(834, 534);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbltotaldata);
@@ -379,5 +389,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_preparation_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prepa_id;
     }
 }

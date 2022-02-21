@@ -29,6 +29,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
+
         public frmViewStoreItemPrepared(frmDryPreparationStore frm,
             string Dry_Order_GUID,
             string Barcode_id,
@@ -95,10 +98,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
-
+            this.guna2DgvMaterialPreparation.Columns["prepa_identity"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_prepared"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
-
+            this.guna2DgvMaterialPreparation.Columns["Remaining_Qty"].Visible = false;
             //this.guna2DgvMaterialPreparation.Columns["converted_qty"].Visible = false;
         }
 
@@ -120,7 +123,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Partial");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Partial_Cancel");
 
         }
 
@@ -203,32 +206,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
 
 
-        public void UpdatedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "UpdatedSuccessfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+      
 
         private void guna2DgvMaterialPreparation_CurrentCellChanged(object sender, EventArgs e)
         {
@@ -245,7 +223,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["store_name"].Value != null)
                     {
 
-                        this.Sp_Primary_Key = this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
+                        this.Sp_Primary_Key = this.guna2DgvMaterialPreparation.CurrentRow.Cells["prepa_id"].Value.ToString();
 
                     }
                 }
@@ -264,7 +242,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    //Start
+                  
 
                     dset3.Clear();
                     dset3 = objStorProc.sp_Store_Preparation_Logs(0,
@@ -275,7 +253,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     "cancel_preparation_individual");
 
 
-                    this.UpdatedSuccessfully();
+                    this.GlobalStatePopup.UpdatedSuccessfully();
 
                     this.Close();
 
