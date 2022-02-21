@@ -67,6 +67,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Category { get; set; }
         public string Sp_Data_Refactoring_Status { get; set; }
 
+
+
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -194,6 +196,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
+
+
+
         private void LoadWindowsExecution()
         {
             this.dgvStoreOrderApproval.Enabled = false;
