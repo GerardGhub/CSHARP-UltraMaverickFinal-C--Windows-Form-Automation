@@ -192,6 +192,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewStore";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Store";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewStore_FormClosed);

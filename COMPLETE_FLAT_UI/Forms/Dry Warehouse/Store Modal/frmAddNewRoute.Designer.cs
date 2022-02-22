@@ -108,6 +108,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewRoute";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Route";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewRoute_FormClosed);

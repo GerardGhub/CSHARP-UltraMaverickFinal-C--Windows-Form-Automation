@@ -29,18 +29,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLotManagement));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.matBtnNew = new System.Windows.Forms.ToolStripButton();
-            this.matBtnEdit = new System.Windows.Forms.ToolStripButton();
-            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
-            this.matBtnSave = new System.Windows.Forms.ToolStripButton();
-            this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvLotData = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -56,6 +51,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.matBtnNew = new System.Windows.Forms.ToolStripButton();
+            this.matBtnEdit = new System.Windows.Forms.ToolStripButton();
+            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.matBtnSave = new System.Windows.Forms.ToolStripButton();
+            this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
+            this.matBtnViewItems = new MaterialSkin.Controls.MaterialButton();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -67,7 +68,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mattxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattxtSearch.Depth = 0;
-            this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mattxtSearch.Hint = "Search";
             this.mattxtSearch.Location = new System.Drawing.Point(1118, 83);
             this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
@@ -98,51 +99,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.toolStrip2.Size = new System.Drawing.Size(321, 36);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
-            // 
-            // matBtnNew
-            // 
-            this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
-            this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
-            this.matBtnNew.Text = "&New";
-            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
-            // 
-            // matBtnEdit
-            // 
-            this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
-            this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(71, 33);
-            this.matBtnEdit.Text = "&Edit";
-            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
-            // 
-            // matBtnDelete
-            // 
-            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
-            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
-            this.matBtnDelete.Text = "&Remove";
-            this.matBtnDelete.Visible = false;
-            // 
-            // matBtnSave
-            // 
-            this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
-            this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(75, 33);
-            this.matBtnSave.Text = "&Save";
-            this.matBtnSave.Visible = false;
-            // 
-            // matBtnCancel
-            // 
-            this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
-            this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(87, 33);
-            this.matBtnCancel.Text = "&Cancel";
-            this.matBtnCancel.Visible = false;
             // 
             // panel1
             // 
@@ -175,20 +131,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.AllowUserToAddRows = false;
             this.dgvLotData.AllowUserToDeleteRows = false;
             this.dgvLotData.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvLotData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dgvLotData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvLotData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLotData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvLotData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvLotData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLotData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLotData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvLotData.ColumnHeadersHeight = 35;
             this.dgvLotData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLotData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -199,14 +155,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.TOTALSKU,
             this.added_by,
             this.date_added});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLotData.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLotData.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvLotData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLotData.EnableHeadersVisualStyles = false;
             this.dgvLotData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -214,14 +170,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.MultiSelect = false;
             this.dgvLotData.Name = "dgvLotData";
             this.dgvLotData.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLotData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLotData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvLotData.RowHeadersVisible = false;
             this.dgvLotData.RowHeadersWidth = 102;
             this.dgvLotData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -248,7 +204,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvLotData.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvLotData.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvLotData.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvLotData.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dgvLotData.ThemeStyle.RowsStyle.Height = 40;
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -377,11 +333,76 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.TabIndex = 624;
             this.label2.Text = "Items";
             // 
+            // matBtnNew
+            // 
+            this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
+            this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnNew.Name = "matBtnNew";
+            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
+            this.matBtnNew.Text = "&New";
+            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
+            // 
+            // matBtnEdit
+            // 
+            this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
+            this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnEdit.Name = "matBtnEdit";
+            this.matBtnEdit.Size = new System.Drawing.Size(71, 33);
+            this.matBtnEdit.Text = "&Edit";
+            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
+            // 
+            // matBtnDelete
+            // 
+            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
+            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnDelete.Name = "matBtnDelete";
+            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
+            this.matBtnDelete.Text = "&Remove";
+            this.matBtnDelete.Visible = false;
+            // 
+            // matBtnSave
+            // 
+            this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
+            this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnSave.Name = "matBtnSave";
+            this.matBtnSave.Size = new System.Drawing.Size(75, 33);
+            this.matBtnSave.Text = "&Save";
+            this.matBtnSave.Visible = false;
+            // 
+            // matBtnCancel
+            // 
+            this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
+            this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnCancel.Name = "matBtnCancel";
+            this.matBtnCancel.Size = new System.Drawing.Size(87, 33);
+            this.matBtnCancel.Text = "&Cancel";
+            this.matBtnCancel.Visible = false;
+            // 
+            // matBtnViewItems
+            // 
+            this.matBtnViewItems.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnViewItems.Depth = 0;
+            this.matBtnViewItems.DrawShadows = true;
+            this.matBtnViewItems.HighEmphasis = true;
+            this.matBtnViewItems.Icon = null;
+            this.matBtnViewItems.Location = new System.Drawing.Point(28, 726);
+            this.matBtnViewItems.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matBtnViewItems.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnViewItems.Name = "matBtnViewItems";
+            this.matBtnViewItems.Size = new System.Drawing.Size(103, 36);
+            this.matBtnViewItems.TabIndex = 625;
+            this.matBtnViewItems.Text = "VIEW ITEMS";
+            this.matBtnViewItems.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnViewItems.UseAccentColor = false;
+            this.matBtnViewItems.UseVisualStyleBackColor = true;
+            this.matBtnViewItems.Click += new System.EventHandler(this.matBtnViewItems_Click);
+            // 
             // frmLotManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.matBtnViewItems);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.textBox1);
@@ -429,5 +450,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
+        private MaterialSkin.Controls.MaterialButton matBtnViewItems;
     }
 }

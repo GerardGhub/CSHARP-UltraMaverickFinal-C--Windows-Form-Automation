@@ -153,6 +153,12 @@
     <Compile Include="Class\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.Designer.cs">
+      <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -583,6 +589,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseWPFControls\frmViewAllNotifications.resx">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.resx">
+      <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>

@@ -11,6 +11,7 @@ using COMPLETE_FLAT_UI.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Setup;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -216,6 +217,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 e.Value = e.Value.ToString().ToUpper();
                 e.FormattingApplied = true;
             }
+        }
+
+        private void matBtnViewItems_Click(object sender, EventArgs e)
+        {
+
+            frmViewItemsInLotArea mywipwh = new frmViewItemsInLotArea(this, sp_lot_number, sp_description, sp_category);
+            mywipwh.ShowDialog();
+
+
         }
     }
 }
