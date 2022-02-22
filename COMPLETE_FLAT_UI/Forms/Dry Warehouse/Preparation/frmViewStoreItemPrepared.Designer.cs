@@ -70,7 +70,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard4.Size = new System.Drawing.Size(795, 413);
+            this.materialCard4.Size = new System.Drawing.Size(808, 413);
             this.materialCard4.TabIndex = 658;
             // 
             // guna2DgvMaterialPreparation
@@ -138,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.RowTemplate.DividerHeight = 5;
             this.guna2DgvMaterialPreparation.RowTemplate.Height = 40;
             this.guna2DgvMaterialPreparation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DgvMaterialPreparation.Size = new System.Drawing.Size(785, 401);
+            this.guna2DgvMaterialPreparation.Size = new System.Drawing.Size(798, 401);
             this.guna2DgvMaterialPreparation.TabIndex = 595;
             this.guna2DgvMaterialPreparation.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.guna2DgvMaterialPreparation.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -173,7 +173,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
             this.lbltotaldata.Font = new System.Drawing.Font("Segoe UI Light", 18F);
             this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotaldata.Location = new System.Drawing.Point(752, 497);
+            this.lbltotaldata.Location = new System.Drawing.Point(765, 497);
             this.lbltotaldata.Name = "lbltotaldata";
             this.lbltotaldata.Size = new System.Drawing.Size(27, 32);
             this.lbltotaldata.TabIndex = 659;
@@ -186,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(784, 508);
+            this.label4.Location = new System.Drawing.Point(797, 508);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 17);
             this.label4.TabIndex = 660;
@@ -348,7 +348,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 534);
+            this.ClientSize = new System.Drawing.Size(847, 539);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbltotaldata);
@@ -357,6 +357,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmViewStoreItemPrepared";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VIEWING OF ITEM PREPARED";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmViewStoreItemPrepared_FormClosing);

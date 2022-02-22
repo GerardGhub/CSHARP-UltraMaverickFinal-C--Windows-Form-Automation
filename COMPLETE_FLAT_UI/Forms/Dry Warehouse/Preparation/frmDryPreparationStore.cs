@@ -102,6 +102,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
           
             //MessageBox.Show("" + this.Sp_AssigneD_Task_By);
+            if(this.lbltotaldata.Text =="0")
+            {
+                this.matbtnSave.Visible = false;
+                this.matcmbCategory.Enabled = false;
+                this.mattxtScanTheBarcode.Enabled = false;
+                this.guna2DgvMaterialPreparation.DataSource = null;
+            }
         }
 
         DataSet dset_emp_SearchEnginesPreparationPerStaff = new DataSet();
@@ -284,7 +291,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 myglobal.global_module = "Active"; // Mode for Searching
             }
             this.doSearchInTextBoxCmb();
-            this.MaterialDatagridColumnVisibilittyFalse();
+            if (this.lbltotaldata.Text != "0")
+            {
+                this.MaterialDatagridColumnVisibilittyFalse(); //pako
+            }
+            if(this.lbltotaldata.Text == "0")
+            {
+                this.matbtnSave.Visible = false;
+            }
             this.textBox1.Text = String.Empty;
 
             this.PreparationValidationRequiredToSave();
@@ -328,6 +342,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void MaterialDatagridColumnVisibilittyFalse()
         {
+
             this.guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
@@ -995,7 +1010,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.frmDryPreparation_Load(sender, e);
                 }
 
-              
+                this.matbtnSave.Visible = false;
+
             }
         }
 

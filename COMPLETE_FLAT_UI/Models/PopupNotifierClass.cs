@@ -379,7 +379,7 @@ namespace ULTRAMAVERICK.Models
 
             PopupNotifier popup = new PopupNotifier();
             //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
@@ -498,11 +498,11 @@ namespace ULTRAMAVERICK.Models
 
             PopupNotifier popup = new PopupNotifier();
             //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications";
+            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Updated Successfully ";
+            popup.ContentText = "Updated Successfully!";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);

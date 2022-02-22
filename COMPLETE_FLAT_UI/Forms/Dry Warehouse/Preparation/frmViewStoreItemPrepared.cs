@@ -98,7 +98,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["prepa_identity"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["prepa_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_prepared"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Remaining_Qty"].Visible = false;
