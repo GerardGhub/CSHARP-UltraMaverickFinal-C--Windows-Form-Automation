@@ -23,7 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         DataSet dSet = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
 
@@ -70,77 +70,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
-        public void AlreadyExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Lot Number Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void FillRequiredTextbox()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+      
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             if (matlotnumber.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                this.matlotnumber.Focus();
                 return;
             }
             if (matdescription.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
-              this.matdescription.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.matdescription.Focus();
                 return;
             }
             if (cboMajorCategory.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
-               this.cboMajorCategory.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboMajorCategory.Focus();
                 return;
             }
 
@@ -150,7 +100,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-               this.AlreadyExist();
+                this.GlobalStatePopup.DataAlreadyExist();
 
                 this.matlotnumber.Text = String.Empty;
                 this.matlotnumber.Focus();
@@ -168,14 +118,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a new lot?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a data?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
 
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_lot_management(0,
                     matlotnumber.Text, matdescription.Text, lblMajorCatId.Text, matcreatedby.Text, "", matcreatedby.Text, "", "add");
-                this.SaveSuccessfully();
+                this.GlobalStatePopup.CommittedSuccessFully();
                 this.Close();
             }
             else
@@ -185,32 +135,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
 
-        public void SaveSuccessfully()
-        {
+        //public void SaveSuccessfully()
+        //{
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
+        //    PopupNotifier popup = new PopupNotifier();
+        //    popup.Image = Resources.new_logo;
+        //    popup.TitleText = "Ultra Maverick Notifications";
+        //    popup.TitleColor = Color.White;
+        //    popup.TitlePadding = new Padding(95, 7, 0, 0);
+        //    popup.TitleFont = new Font("Tahoma", 10);
+        //    popup.ContentText = "Successfully Save";
+        //    popup.ContentColor = Color.White;
+        //    popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+        //    popup.Size = new Size(350, 100);
+        //    popup.ImageSize = new Size(70, 80);
+        //    popup.BodyColor = Color.Green;
+        //    popup.Popup();
+        //    popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+        //    popup.Delay = 500;
+        //    popup.AnimationInterval = 10;
+        //    popup.AnimationDuration = 1000;
 
 
-        }
+        //    popup.ShowOptionsButton = true;
+
+
+        //}
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;

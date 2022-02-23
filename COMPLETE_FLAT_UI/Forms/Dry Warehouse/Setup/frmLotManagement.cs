@@ -33,6 +33,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         DataSet dSet_temp = new DataSet();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmLotManagement()
         {
             InitializeComponent();
@@ -44,14 +45,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_lot_number { get; set; }
         public string sp_description { get; set; }
         public string sp_category { get; set; }
+        public string Sp_Total_SKU { get; set; }
         private void frmLotManagement_Load(object sender, EventArgs e)
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInitializer();
             sp_user_id = userinfo.user_id.ToString();
             this.showLotMasterlist();
             this.LoadingrefresherOrb();
             this.SearchMethodJarVarCallingSP();
+            this.IfTheISNullOrEmpty();
+        }
+
+
+        private void ConnectionInitializer()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+        private void IfTheISNullOrEmpty()
+        {
+            if(this.lbltotalrecords.Text != "0")
+            {
+                this.matRadioActive.Checked = true;
+            }
+        
+
+       
         }
 
         private void SearchMethodJarVarCallingSP()
@@ -60,7 +79,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("lot_management_major");
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("lot_management_MajorList");
+
+        }
+
+        private void SearchMethodJarVarCallingSPForDeactivate()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("lot_management_MajorList_Deactivated");
 
         }
 
@@ -109,6 +138,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
+
+        private void showLotMasterlistDeactivated()      //method for loading available_menus
+        {
+            try
+            {
+                ready = false;
+                xClass.fillDataGridView(dgvLotData, "lot_management_deactivated", dSet);
+                ready = true;
+                lbltotalrecords.Text = dgvLotData.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+        }
+
         private void matBtnNew_Click(object sender, EventArgs e)
         {
             matBtnNew.Visible = false;
@@ -122,10 +171,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
            frmLotManagement_Load(sender, e);
         }
 
-        private void mattxtSearch_TextChanged(object sender, EventArgs e)
-        {
-            this.doSearchInTextBoxCmb();
-        }
+       
         DataSet dset_emp_SearchEngines = new DataSet();
         private void doSearchInTextBoxCmb()
         {
@@ -149,7 +195,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                        dv.RowFilter = "lot_number like '%" + mattxtSearch.Text + "%'";
+                        dv.RowFilter = "lot_number = '" + mattxtSearch.Text + "' or description like '%" + mattxtSearch.Text + "%' ";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -203,6 +249,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         sp_lot_number = dgvLotData.CurrentRow.Cells["lot_number"].Value.ToString();
                         sp_description = dgvLotData.CurrentRow.Cells["description"].Value.ToString();
                         sp_category = dgvLotData.CurrentRow.Cells["category"].Value.ToString();
+                        Sp_Total_SKU = dgvLotData.CurrentRow.Cells["TOTALSKU"].Value.ToString();
                    
                     }
                 }
@@ -226,6 +273,120 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             mywipwh.ShowDialog();
 
 
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            if(this.Sp_Total_SKU != "0")
+            {
+                this.GlobalStatePopup.ErrorNotify();
+                return;
+            }
+
+            if(this.matBtnStatuses.Text == "DEACTIVATE")
+            {
+
+        
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to Deactivate the "+sp_description+"?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_lot_management(p_id,
+                    this.sp_user_id, "LotDescription", "MajorCategoryId", "CreatedBY", "", "Sample", "", "delete");
+                this.GlobalStatePopup.UpdatedSuccessfully();
+                this.matRadioNotActive.Checked = true;
+            }
+            else
+            {
+                return;
+            }
+
+
+            }
+
+
+
+            if (this.matRadioNotActive.Checked == true)
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to Activate the " + sp_description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_lot_management(p_id,
+                        this.sp_user_id, "LotDescription", "MajorCategoryId", "CreatedBY", "", "Sample", "", "activate");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.matRadioActive.Checked = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+
+
+        }
+
+        private void mattxtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            if(this.matRadioActive.Checked == true)
+            {
+                this.SearchMethodJarVarCallingSP();
+                this.doSearchInTextBoxCmb();
+            }
+            else if(this.matRadioNotActive.Checked == true)
+            {
+                this.SearchMethodJarVarCallingSPForDeactivate();
+                this.doSearchInTextBoxCmb();
+
+            }
+         
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if(this.matRadioActive.Checked == true)
+            {
+                this.matRadioActive.Checked = false;
+            }
+            else
+            {
+                this.matRadioNotActive.Checked = true;
+                this.matBtnStatuses.Text = "ACTIVATE";
+                this.ConnectionInitializer();
+                this.showLotMasterlistDeactivated();
+                if(this.lbltotalrecords.Text == "0")
+                {
+                    this.matBtnStatuses.Visible = false;
+                }
+
+            }
+
+
+
+            //this.matRadioActive.Checked = false;
+
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if(matRadioNotActive.Checked == true)
+            {
+                this.matRadioActive.Checked = false;
+
+            }
+            else
+            {
+                this.matRadioActive.Checked = true;
+           
+
+                this.matBtnStatuses.Text = "DEACTIVATE";
+                this.frmLotManagement_Load(sender, e);
+            }
+
+             
+            
+            //this.matRadioNotActive.Checked = false;
+ 
         }
     }
 }

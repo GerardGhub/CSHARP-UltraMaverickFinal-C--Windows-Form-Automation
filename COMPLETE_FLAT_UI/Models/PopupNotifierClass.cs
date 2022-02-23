@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Uploading Interupt Check the data to proceed!";
+            popup.ContentText = "Tranasaction Interupt Check the data to proceed!";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);

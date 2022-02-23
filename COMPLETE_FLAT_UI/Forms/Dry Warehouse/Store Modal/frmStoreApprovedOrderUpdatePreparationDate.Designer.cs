@@ -33,8 +33,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label2 = new System.Windows.Forms.Label();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
             this.lblArrayPrepaDateStatus = new System.Windows.Forms.Label();
+            this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +98,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.Size = new System.Drawing.Size(555, 199);
             this.materialCard1.TabIndex = 604;
             // 
+            // lblArrayPrepaDateStatus
+            // 
+            this.lblArrayPrepaDateStatus.AutoSize = true;
+            this.lblArrayPrepaDateStatus.Location = new System.Drawing.Point(74, 167);
+            this.lblArrayPrepaDateStatus.Name = "lblArrayPrepaDateStatus";
+            this.lblArrayPrepaDateStatus.Size = new System.Drawing.Size(13, 13);
+            this.lblArrayPrepaDateStatus.TabIndex = 603;
+            this.lblArrayPrepaDateStatus.Text = "0";
+            this.lblArrayPrepaDateStatus.Visible = false;
+            // 
             // bunifuPrepaDate
             // 
             this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,16 +121,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.bunifuPrepaDate.TabIndex = 602;
             this.bunifuPrepaDate.ValueChanged += new System.EventHandler(this.bunifuPrepaDate_ValueChanged);
             // 
-            // lblArrayPrepaDateStatus
-            // 
-            this.lblArrayPrepaDateStatus.AutoSize = true;
-            this.lblArrayPrepaDateStatus.Location = new System.Drawing.Point(74, 167);
-            this.lblArrayPrepaDateStatus.Name = "lblArrayPrepaDateStatus";
-            this.lblArrayPrepaDateStatus.Size = new System.Drawing.Size(13, 13);
-            this.lblArrayPrepaDateStatus.TabIndex = 603;
-            this.lblArrayPrepaDateStatus.Text = "0";
-            this.lblArrayPrepaDateStatus.Visible = false;
-            // 
             // frmStoreApprovedOrderUpdatePreparationDate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmStoreApprovedOrderUpdatePreparationDate";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Upate Approved Order";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStoreApprovedOrderUpdatePreparationDate_FormClosing);

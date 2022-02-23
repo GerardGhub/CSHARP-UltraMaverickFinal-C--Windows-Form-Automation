@@ -35,18 +35,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Setup
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvLotData = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.matxtLotNo = new MaterialSkin.Controls.MaterialTextBox();
-            this.matTxtLotDescription = new MaterialSkin.Controls.MaterialTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lot_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lot_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.matTxtLotDescription = new MaterialSkin.Controls.MaterialTextBox();
+            this.matxtLotNo = new MaterialSkin.Controls.MaterialTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLotData)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -150,94 +150,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Setup
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // materialCard1
-            // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.matTxtLotDescription);
-            this.materialCard1.Controls.Add(this.matxtLotNo);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(18, 74);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(473, 64);
-            this.materialCard1.TabIndex = 613;
-            // 
-            // matxtLotNo
-            // 
-            this.matxtLotNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.matxtLotNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matxtLotNo.Depth = 0;
-            this.matxtLotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.matxtLotNo.Hint = "Lot No";
-            this.matxtLotNo.Location = new System.Drawing.Point(18, 8);
-            this.matxtLotNo.Margin = new System.Windows.Forms.Padding(1);
-            this.matxtLotNo.MaxLength = 50;
-            this.matxtLotNo.MouseState = MaterialSkin.MouseState.OUT;
-            this.matxtLotNo.Multiline = false;
-            this.matxtLotNo.Name = "matxtLotNo";
-            this.matxtLotNo.Size = new System.Drawing.Size(205, 50);
-            this.matxtLotNo.TabIndex = 8;
-            this.matxtLotNo.Text = "";
-            this.matxtLotNo.TextChanged += new System.EventHandler(this.matxtLotNo_TextChanged);
-            // 
-            // matTxtLotDescription
-            // 
-            this.matTxtLotDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.matTxtLotDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtLotDescription.Depth = 0;
-            this.matTxtLotDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.matTxtLotDescription.Hint = "Description";
-            this.matTxtLotDescription.Location = new System.Drawing.Point(248, 8);
-            this.matTxtLotDescription.Margin = new System.Windows.Forms.Padding(1);
-            this.matTxtLotDescription.MaxLength = 50;
-            this.matTxtLotDescription.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtLotDescription.Multiline = false;
-            this.matTxtLotDescription.Name = "matTxtLotDescription";
-            this.matTxtLotDescription.Size = new System.Drawing.Size(205, 50);
-            this.matTxtLotDescription.TabIndex = 9;
-            this.matTxtLotDescription.Text = "";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(948, 571);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
-            this.label2.TabIndex = 616;
-            this.label2.Text = "Items";
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(897, 560);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
-            this.lbltotalrecords.TabIndex = 615;
-            this.lbltotalrecords.Text = "76";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(301, 565);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 614;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            // 
             // item_code
             // 
             this.item_code.DataPropertyName = "item_code";
@@ -290,6 +202,96 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Setup
             this.date_added.Name = "date_added";
             this.date_added.ReadOnly = true;
             // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.matTxtLotDescription);
+            this.materialCard1.Controls.Add(this.matxtLotNo);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(18, 74);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(473, 64);
+            this.materialCard1.TabIndex = 613;
+            // 
+            // matTxtLotDescription
+            // 
+            this.matTxtLotDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.matTxtLotDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtLotDescription.Depth = 0;
+            this.matTxtLotDescription.Enabled = false;
+            this.matTxtLotDescription.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtLotDescription.Hint = "Description";
+            this.matTxtLotDescription.Location = new System.Drawing.Point(248, 8);
+            this.matTxtLotDescription.Margin = new System.Windows.Forms.Padding(1);
+            this.matTxtLotDescription.MaxLength = 50;
+            this.matTxtLotDescription.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtLotDescription.Multiline = false;
+            this.matTxtLotDescription.Name = "matTxtLotDescription";
+            this.matTxtLotDescription.Size = new System.Drawing.Size(205, 50);
+            this.matTxtLotDescription.TabIndex = 9;
+            this.matTxtLotDescription.Text = "";
+            // 
+            // matxtLotNo
+            // 
+            this.matxtLotNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.matxtLotNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matxtLotNo.Depth = 0;
+            this.matxtLotNo.Enabled = false;
+            this.matxtLotNo.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matxtLotNo.Hint = "Lot No";
+            this.matxtLotNo.Location = new System.Drawing.Point(18, 8);
+            this.matxtLotNo.Margin = new System.Windows.Forms.Padding(1);
+            this.matxtLotNo.MaxLength = 50;
+            this.matxtLotNo.MouseState = MaterialSkin.MouseState.OUT;
+            this.matxtLotNo.Multiline = false;
+            this.matxtLotNo.Name = "matxtLotNo";
+            this.matxtLotNo.Size = new System.Drawing.Size(205, 50);
+            this.matxtLotNo.TabIndex = 8;
+            this.matxtLotNo.Text = "";
+            this.matxtLotNo.TextChanged += new System.EventHandler(this.matxtLotNo_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(948, 571);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 616;
+            this.label2.Text = "Items";
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(897, 560);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
+            this.lbltotalrecords.TabIndex = 615;
+            this.lbltotalrecords.Text = "76";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(301, 565);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 614;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            // 
             // frmViewItemsInLotArea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,7 +307,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Setup
             this.Name = "frmViewItemsInLotArea";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "View Items for Lot Area";
+            this.Text = "List of Items on  Lot Area";
             this.Load += new System.EventHandler(this.frmViewItemsInLotArea_Load);
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLotData)).EndInit();
