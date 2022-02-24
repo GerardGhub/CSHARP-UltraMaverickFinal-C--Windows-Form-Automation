@@ -29,6 +29,7 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation;
 using ULTRAMAVERICK.BaseWPFControls;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching;
+using ULTRAMAVERICK.Forms.Lab_Test;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1616,6 +1617,14 @@ namespace COMPLETE_FLAT_UI
         {
             this.NormalSizeofSideBar();
             frmStoreOrderDispatching fm = new frmStoreOrderDispatching();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void toolStripMenuItemRMNearlyExpiryMgmt_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmDryWarehouseNearlyExpiryItems fm = new frmDryWarehouseNearlyExpiryItems();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

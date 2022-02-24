@@ -107,6 +107,13 @@
             this.rMReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rMBarcodeModuleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rMBarcodeReprintingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLabTransaction = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRMNearlyExpiryMgmt = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPreparation = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolDryForApproval = new System.Windows.Forms.ToolStripMenuItem();
             this.forApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,6 +121,13 @@
             this.preparationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDryApprovedOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDashBoard1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnUsers1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -590,7 +604,7 @@
             this.panelMenuSelection.Location = new System.Drawing.Point(5, 45);
             this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
             this.panelMenuSelection.Name = "panelMenuSelection";
-            this.panelMenuSelection.Size = new System.Drawing.Size(247, 478);
+            this.panelMenuSelection.Size = new System.Drawing.Size(247, 512);
             this.panelMenuSelection.TabIndex = 2;
             this.panelMenuSelection.Visible = false;
             this.panelMenuSelection.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuSelection_Paint);
@@ -604,18 +618,20 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolClosePanelSelection,
             this.toolDropdownUser,
-            this.toolStore,
             this.toolStripInventoryDry,
+            this.toolStore,
             this.toolStripRawMaterials,
             this.toolDropdownMenu,
             this.toolImportDry,
             this.toolReceiving,
-            this.toolPreparation});
+            this.toolStripDropDownButton1,
+            this.toolPreparation,
+            this.toolStripDropDownButton2});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(232, 478);
+            this.toolStrip2.Size = new System.Drawing.Size(232, 512);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -1042,6 +1058,62 @@
             this.rMBarcodeReprintingToolStripMenuItem.Text = "RM Barcode Reprinting";
             this.rMBarcodeReprintingToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeReprintingToolStripMenuItem_Click);
             // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem6});
+            this.toolStripDropDownButton1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.toolStripDropDownButton1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(231, 44);
+            this.toolStripDropDownButton1.Text = "Lab Test";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemLabTransaction,
+            this.toolStripMenuItemRMNearlyExpiryMgmt,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 26);
+            this.toolStripMenuItem1.Text = "Dry Warehouse";
+            // 
+            // toolStripMenuItemLabTransaction
+            // 
+            this.toolStripMenuItemLabTransaction.Name = "toolStripMenuItemLabTransaction";
+            this.toolStripMenuItemLabTransaction.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItemLabTransaction.Text = "Lab Transaction";
+            // 
+            // toolStripMenuItemRMNearlyExpiryMgmt
+            // 
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Name = "toolStripMenuItemRMNearlyExpiryMgmt";
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Text = "RM Nearly Expiry";
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Click += new System.EventHandler(this.toolStripMenuItemRMNearlyExpiryMgmt_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItem4.Text = "Preparation";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItem5.Text = "Move Order";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(183, 26);
+            this.toolStripMenuItem6.Text = "Internal";
+            // 
             // toolPreparation
             // 
             this.toolPreparation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1065,7 +1137,7 @@
             this.preparationToolStripMenuItem,
             this.moveOrderToolStripMenuItem});
             this.toolDryForApproval.Name = "toolDryForApproval";
-            this.toolDryForApproval.Size = new System.Drawing.Size(180, 26);
+            this.toolDryForApproval.Size = new System.Drawing.Size(131, 26);
             this.toolDryForApproval.Text = "Store";
             this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
             // 
@@ -1100,8 +1172,64 @@
             // toolDryApprovedOrder
             // 
             this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
-            this.toolDryApprovedOrder.Size = new System.Drawing.Size(180, 26);
+            this.toolDryApprovedOrder.Size = new System.Drawing.Size(131, 26);
             this.toolDryApprovedOrder.Text = "Internal";
+            // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem12});
+            this.toolStripDropDownButton2.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.toolStripDropDownButton2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(141, 44);
+            this.toolStripDropDownButton2.Text = "Preparation";
+            this.toolStripDropDownButton2.Visible = false;
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11});
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(131, 26);
+            this.toolStripMenuItem7.Text = "Store";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem8.Text = "For Approval";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem9.Text = "Approved Order";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem10.Text = "Preparation";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem11.Text = "Move Order";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(131, 26);
+            this.toolStripMenuItem12.Text = "Internal";
             // 
             // toolStrip1
             // 
@@ -1617,6 +1745,20 @@
         private System.Windows.Forms.ToolStripMenuItem averageOrderTrendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderCancelRemarksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLabTransaction;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRMNearlyExpiryMgmt;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
     }
 }
 

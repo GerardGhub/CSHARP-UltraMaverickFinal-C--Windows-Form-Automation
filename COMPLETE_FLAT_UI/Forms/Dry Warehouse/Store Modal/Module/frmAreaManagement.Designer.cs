@@ -59,11 +59,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbltotalrecords.AutoSize = true;
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.lbltotalrecords.Location = new System.Drawing.Point(25, 727);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
+            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
             this.lbltotalrecords.TabIndex = 578;
             this.lbltotalrecords.Text = "76";
             // 
@@ -72,11 +72,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.label2.Location = new System.Drawing.Point(82, 741);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 18);
+            this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 579;
             this.label2.Text = "Items";
             // 

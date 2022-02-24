@@ -231,6 +231,16 @@
         khJoRaHwB+GSIfoKG7jLAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="toolStripInventoryDry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVFhH7ZRdCgIxDITTfdKzLOh59MlbeBxPIiJeQO8i
+        +qjTbgrdUE2zLssi/WAekukMAX+oUpk7y8a5G/QaqCs6Fl3VAJxzh0ypSb6D62w0RFsueWBcdVsTa2Sf
+        oYNow7tiWgTvHN7xzozPhg50YWy7bQEI/PK5f5L/PpSRCY8irtcxBxT+6wD8rE7Rl4J35Gc9os+jzrcA
+        9pfoZ3TmZz2iz6OOOaBQD5jkAPzr7b147M3THCAy6Sw9FXMAyEw6S0/FHFCY5ICYkUq98LAEcwDEjFTq
+        hYclmAMKgw8YW1yvkwuPIa6vVOYE0RuqWuId6Q8nvQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="toolStore.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -245,16 +255,6 @@
         jXfGmvRCagmzkqF1xPSD4CW4xX3+yXqlBRL4izjzOl6F0ww2wu3oYw3gIFzWWClfNdrMldJkiCJjcIGi
         G/wxv7O/9lvBJjmN/1Y0YLiHDPeEJi/hpFzxNjxhyG/Ys7Bbwpu4b0il/gHOFB2Wl1Yz2wAAAABJRU5E
         rkJggg==
-</value>
-  </data>
-  <data name="toolStripInventoryDry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVFhH7ZRdCgIxDITTfdKzLOh59MlbeBxPIiJeQO8i
-        +qjTbgrdUE2zLssi/WAekukMAX+oUpk7y8a5G/QaqCs6Fl3VAJxzh0ypSb6D62w0RFsueWBcdVsTa2Sf
-        oYNow7tiWgTvHN7xzozPhg50YWy7bQEI/PK5f5L/PpSRCY8irtcxBxT+6wD8rE7Rl4J35Gc9os+jzrcA
-        9pfoZ3TmZz2iz6OOOaBQD5jkAPzr7b147M3THCAy6Sw9FXMAyEw6S0/FHFCY5ICYkUq98LAEcwDEjFTq
-        hYclmAMKgw8YW1yvkwuPIa6vVOYE0RuqWuId6Q8nvQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="toolStripRawMaterials.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -314,7 +314,33 @@
         4gEWNJYgQM0/I4q+AKVmSHLnBNqgAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="toolStripDropDownButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGlSURBVFhH7VPBLgRBFOzGiqOEE3F3YmUdiO/wPcRFnJ33
+        xhHh4uILHLgJLhKRSBBrv4B60/Wkzcya7p4le5hKXrqr5r2ql9kd02BkMWbtZ0JdYXTGOdREiXloXWN8
+        1rnUgBqSVsJbQOoW0px7kgg1I62EF37J8w5y+hJqSFoJr38ap7/EfNYQC88wCLl+f4l78PglcoaV0P4B
+        dcO2cOgwaSW8sNJiWziSB3NoFmgWGKUFWtbaHdwfpOQObSJrKoM3WAvqg8ATvX+XMVtsK0KbSJPxI9Da
+        V0gbUuSPWVMZdIg0FS31Qb2BLzvZrFF7Ii9CB0lTIL/5MX0kvO1k0xYuujVmm1oRHExdQMKP6OGHrwgX
+        XZYDbzm5BBxOWWAK5uecfwZfdHL22j9Ex/MD8HEnDwANYhcYTriAJjELDC9cQKPQBX4L74seFS6gWcgC
+        frh850tONuvgGn4IHh4uoGFM9THWcdOmA/4uOsJPwSedHAHPOKgQ1OXoKni98Bjo68e5j9rFvfdv4QKE
+        vUigXwg/w6O/DwcWGNpD6AVqD/+0TeiB4cZ8ASI05KCPHSoKAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="toolPreparation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGlSURBVFhH7VPBLgRBFOzGiqOEE3F3YmUdiO/wPcRFnJ33
+        xhHh4uILHLgJLhKRSBBrv4B60/Wkzcya7p4le5hKXrqr5r2ql9kd02BkMWbtZ0JdYXTGOdREiXloXWN8
+        1rnUgBqSVsJbQOoW0px7kgg1I62EF37J8w5y+hJqSFoJr38ap7/EfNYQC88wCLl+f4l78PglcoaV0P4B
+        dcO2cOgwaSW8sNJiWziSB3NoFmgWGKUFWtbaHdwfpOQObSJrKoM3WAvqg8ATvX+XMVtsK0KbSJPxI9Da
+        V0gbUuSPWVMZdIg0FS31Qb2BLzvZrFF7Ii9CB0lTIL/5MX0kvO1k0xYuujVmm1oRHExdQMKP6OGHrwgX
+        XZYDbzm5BBxOWWAK5uecfwZfdHL22j9Ex/MD8HEnDwANYhcYTriAJjELDC9cQKPQBX4L74seFS6gWcgC
+        frh850tONuvgGn4IHh4uoGFM9THWcdOmA/4uOsJPwSedHAHPOKgQ1OXoKni98Bjo68e5j9rFvfdv4QKE
+        vUigXwg/w6O/DwcWGNpD6AVqD/+0TeiB4cZ8ASI05KCPHSoKAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripDropDownButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGlSURBVFhH7VPBLgRBFOzGiqOEE3F3YmUdiO/wPcRFnJ33
