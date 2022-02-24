@@ -1629,6 +1629,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void toolStripMenuItemLabTransaction_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmLabTestModule fm = new frmLabTestModule();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

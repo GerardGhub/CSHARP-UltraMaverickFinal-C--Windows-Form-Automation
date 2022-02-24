@@ -43,6 +43,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if(this.lbltotalrecords.Text != "0")
             {
                 this.SearchMethodJarVarCallingSP();
+                this.matRadioActive.Checked = true;
             }
         }
 

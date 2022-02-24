@@ -771,28 +771,28 @@
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // toolStripStoreArea
             // 
             this.toolStripStoreArea.Name = "toolStripStoreArea";
-            this.toolStripStoreArea.Size = new System.Drawing.Size(180, 26);
+            this.toolStripStoreArea.Size = new System.Drawing.Size(159, 26);
             this.toolStripStoreArea.Text = "Store Area";
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
             // storeRoute
             // 
             this.storeRoute.Name = "storeRoute";
-            this.storeRoute.Size = new System.Drawing.Size(180, 26);
+            this.storeRoute.Size = new System.Drawing.Size(159, 26);
             this.storeRoute.Text = "Store Route";
             this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
             // 
             // toolStores
             // 
             this.toolStores.Name = "toolStores";
-            this.toolStores.Size = new System.Drawing.Size(180, 26);
+            this.toolStores.Size = new System.Drawing.Size(159, 26);
             this.toolStores.Text = "Stores";
             this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
             // 
@@ -1088,6 +1088,7 @@
             this.toolStripMenuItemLabTransaction.Name = "toolStripMenuItemLabTransaction";
             this.toolStripMenuItemLabTransaction.Size = new System.Drawing.Size(192, 26);
             this.toolStripMenuItemLabTransaction.Text = "Lab Transaction";
+            this.toolStripMenuItemLabTransaction.Click += new System.EventHandler(this.toolStripMenuItemLabTransaction_Click);
             // 
             // toolStripMenuItemRMNearlyExpiryMgmt
             // 
