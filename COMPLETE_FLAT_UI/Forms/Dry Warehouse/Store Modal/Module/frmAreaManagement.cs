@@ -215,17 +215,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (lbltotalrecords.Text == "0")
+            if (this.lbltotalrecords.Text == "0")
             {
 
             }
             else
             {
-                doSearchInTextBoxCmb();
+                this.doSearchInTextBoxCmb();
             }
-            if (txtSearch.Text == "")
+            if (this.txtSearch.Text == "")
             {
-                doSearchInTextBoxCmb();
+                this.doSearchInTextBoxCmb();
             }
         }
     }
