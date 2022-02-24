@@ -26,10 +26,24 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         DateTime dNow = DateTime.Now;
 
         DataSet dSet_temp = new DataSet();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmLabTestModule()
         {
             InitializeComponent();
         }
+
+        public string SpItemCode { get; set; }
+        public string SpCategory { get; set; }
+        public string SpTransactionType { get; set; }
+        public string SpQuantity { get; set; }
+        public string SpMftgDate { get; set; }
+        public string SpExpiryDate { get; set; }
+        public string SpLotNumber { get; set; }
+        public string SpLotDescription { get; set; }
+        public string SpDateOfLastUsed { get; set; }
+        public string SpExpiryDays { get; set; }
+        public string SpReceivedDate { get; set; }
+        public string SpRemarks { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -58,7 +72,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             try
             {
 
-                xClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiry", dSet);
+                xClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiryLabTestViewing", dSet);
 
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
@@ -67,9 +81,13 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
                 MessageBox.Show(ex.Message);
             }
-            //this.dgvRawMats.Columns["area_id"].Visible = false;
-            //this.dgvRawMats.Columns["is_active"].Visible = false;
-            //this.dgvRawMats.Columns["modified_at"].Visible = false;
+            this.dgvRawMats.Columns["mfg_date"].Visible = false;
+            this.dgvRawMats.Columns["date_added"].Visible = false;
+            this.dgvRawMats.Columns["exp_date"].Visible = false;
+            this.dgvRawMats.Columns["lot_description"].Visible = false;
+            this.dgvRawMats.Columns["STANDARDEXPIRYDAYS"].Visible = false;
+            this.dgvRawMats.Columns["lot_no"].Visible = false;
+
 
         }
 
@@ -125,6 +143,63 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         }
 
+        private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.showValueCell();
+        }
 
+        private void showValueCell()
+        {
+            if (dgvRawMats.Rows.Count > 0)
+            {
+                if (dgvRawMats.CurrentRow != null)
+                {
+                    if (dgvRawMats.CurrentRow.Cells["item_code"].Value != null)
+                    {
+                        p_id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["id"].Value);
+                         this.matTxtItemCode.Text = this.dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.matTxtCategory.Text = this.dgvRawMats.CurrentRow.Cells["category"].Value.ToString();
+                        this.matTxtQty.Text = this.dgvRawMats.CurrentRow.Cells["qty_received"].Value.ToString();
+                        this.matTxtMftgDate.Text = this.dgvRawMats.CurrentRow.Cells["mfg_date"].Value.ToString();
+                        this.matTxtExpiryDate.Text = this.dgvRawMats.CurrentRow.Cells["exp_date"].Value.ToString();
+                        this.matTxtExpiryDays.Text = this.dgvRawMats.CurrentRow.Cells["DAYSTOEXPIRED"].Value.ToString();
+                        this.matTxtDateAdded.Text = this.dgvRawMats.CurrentRow.Cells["date_added"].Value.ToString();
+                        this.mattxtLotNumber.Text = this.dgvRawMats.CurrentRow.Cells["lot_no"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+        private void matViewLabRecords_Click(object sender, EventArgs e)
+        {
+
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to request a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                    p_id, "BUje", "0", "0", "", "0", "0", "", "0",
+                    "0", "0", "0", "0", 
+                    "0", "0", "0", 0, 0, "dry_wh_lab_request");
+
+                this.GlobalStatePopup.CommittedSuccessFully();
+                this.frmLabTestModule_Load(sender, e);
+
+
+            }
+            else
+            {
+                return;
+            }
+
+                //End
+            }
+
+        private void matBtnNew_Click(object sender, EventArgs e)
+        {
+
+            DryWhLabTestRecentLogs fm = new DryWhLabTestRecentLogs();
+            fm.ShowDialog();
+        }
     }
 }
