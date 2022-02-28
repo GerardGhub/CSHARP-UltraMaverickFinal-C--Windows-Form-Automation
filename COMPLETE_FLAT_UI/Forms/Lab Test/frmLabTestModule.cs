@@ -196,9 +196,19 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SplblLabRequestDate = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
                         this.SpAging = this.dgvRawMats.CurrentRow.Cells["AGING"].Value.ToString();
                         this.FkReceivingID = this.dgvRawMats.CurrentRow.Cells["id"].Value.ToString();
+                        this.SpHistorical = this.dgvRawMats.CurrentRow.Cells["HISTORY"].Value.ToString();
                     }
                 }
             }
+            if(this.SpHistorical != "0")
+            {
+                this.matBtnViewLabRecords.Enabled = true;
+            }
+            else
+            {
+                this.matBtnViewLabRecords.Enabled = false;
+            }
+
 
             if(this.SpLabStatus == "LAB REQUEST")
             {
@@ -246,7 +256,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
                     this.matTxtItemCode.Text, this.SpItemDescription, this.matTxtCategory.Text, this.matTxtQty.Text,
                     SpRemainingQuantity, this.matTxtExpiryDays.Text, this.SpLabStatus, this.SpHistorical, this.SpAging,
-                    "REMARKS", FkReceivingID, this.SpUseridentity.ToString(), "dry_wh_lab_request");
+                    "REMARKS", FkReceivingID, this.SpUseridentity.ToString(), "add");
 
 
                 //Insert Logs
@@ -330,6 +340,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Cancel the lab test request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+
+          
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
+                    this.p_id.ToString(), this.SpItemDescription, this.matTxtCategory.Text, this.matTxtQty.Text,
+                    SpRemainingQuantity, this.matTxtExpiryDays.Text, this.SpLabStatus, this.SpHistorical, this.SpAging,
+                    "REMARKS", FkReceivingID, this.SpUseridentity.ToString(), "cancel");
+
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
                     p_id, "BUje", "0", "0", "", "0", "0", "", "0",
