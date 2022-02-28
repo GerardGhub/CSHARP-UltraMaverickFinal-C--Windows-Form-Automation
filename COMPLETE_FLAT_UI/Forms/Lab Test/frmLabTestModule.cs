@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
+using ULTRAMAVERICK.Wizard.Helpers;
 
 namespace ULTRAMAVERICK.Forms.Lab_Test
 {
@@ -45,6 +46,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpReceivedDate { get; set; }
         public string SpRemarks { get; set; }
         public string SpLabStatus { get; set; }
+        public string SplblLabRequestDate { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -168,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.matTxtDateAdded.Text = this.dgvRawMats.CurrentRow.Cells["date_added"].Value.ToString();
                         this.mattxtLotNumber.Text = this.dgvRawMats.CurrentRow.Cells["lot_no"].Value.ToString();
                         this.SpLabStatus = this.dgvRawMats.CurrentRow.Cells["lab_status"].Value.ToString();
-                        this.lblLabRequestDate.Text = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
+                        this.SplblLabRequestDate = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
                     }
                 }
             }
@@ -177,15 +179,24 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 this.matViewLabRecords.Enabled = false;
                 this.btnCancelLabRequest.Visible = true;
-                this.lblLabRequestDate.Visible = true;
+         
             }
             else
             {
                 this.matViewLabRecords.Enabled = true;
                 this.btnCancelLabRequest.Visible = false;
-                this.lblLabRequestDate.Visible = false;
+              
             }
-            
+
+           if(this.SpLabStatus == "LAB REQUEST")
+            {
+                WizardBalloon1.Image = Properties.Resources.completed;
+            }
+           else
+            {
+                WizardBalloon1.Image = Properties.Resources.current;
+            }
+
         }
 
         private void matViewLabRecords_Click(object sender, EventArgs e)
@@ -240,5 +251,32 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
 
             }
+
+        private void ChooseImage_MouseHover(object sender, EventArgs e)
+        {
+            this.GlobalStatePopup.BallonNotifyHover();
+        }
+
+        private void ChooseImage_MouseLeave(object sender, EventArgs e)
+        {
+            this.GlobalStatePopup.BallonNotifyHover();
+        }
+
+        private void siticoneHtmlLabel1_MouseHover(object sender, EventArgs e)
+        {
+            this.GlobalStatePopup.BallonNotifyHover();
+        }
+
+        private void siticoneHtmlLabel1_Click(object sender, EventArgs e)
+        {
+            this.GlobalStatePopup.BallonNotifyHover();
+            MessageBox.Show("Samop");
+        }
+
+        private void label1_MouseHover(object sender, EventArgs e)
+        {
+            this.GlobalStatePopup.WizzardMesage1 = this.SplblLabRequestDate;
+            this.GlobalStatePopup.BallonNotifyHover();
+        }
     }
 }

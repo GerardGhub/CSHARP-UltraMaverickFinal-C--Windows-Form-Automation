@@ -605,6 +605,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UltraMaverickDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Wizard\Helpers\Step.cs" />
     <EmbeddedResource Include="Barcode Reprinting\frmBarcodeReprinting.resx">
       <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
     </EmbeddedResource>
@@ -974,6 +975,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_ingredients.ico" />
+    <None Include="Resources\pending.png" />
+    <None Include="Resources\payment.png" />
+    <None Include="Resources\customize.png" />
+    <None Include="Resources\current.png" />
+    <None Include="Resources\confirm.png" />
+    <None Include="Resources\completed.png" />
+    <None Include="Resources\choose.png" />
     <None Include="Resources\sd1.jpg" />
     <None Include="Resources\gceERxXri.gif" />
     <None Include="Resources\laptop_key_64px.png" />
