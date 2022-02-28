@@ -102,7 +102,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (this.matRadioActive.Checked == true)
             {
                 this.ConnectionInitialization();
-                this.showRawMaterialsNearlyExpiry();
+                this.SearchMethodJarVarCallingSP();
                 this.doSearchInTextBoxCmb();
 
                 if (this.txtSearch.Text == String.Empty)
@@ -115,12 +115,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (this.matRadioNotActive.Checked == true)
             {
                 this.ConnectionInitialization();
-                this.showRawMaterialsNearlyExpiryOnLaboratory();
+                this.SearchMethodJarVarCallingSP();
                 this.doSearchInTextBoxCmb();
 
                 if (this.txtSearch.Text == String.Empty)
                 {
-                    this.showRawMaterialsNearlyExpiry();
+                    this.showRawMaterialsNearlyExpiryOnLaboratory();
                 }
             }
 
@@ -132,10 +132,20 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
-            this.dset_emp_SearchEngines.Clear();
+            if (this.matRadioActive.Checked == true)
+            {
+                this.dset_emp_SearchEngines.Clear();
+
+                this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor");
+            }
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor");
+            if (this.matRadioNotActive.Checked == true)
+            {
+                this.dset_emp_SearchEngines.Clear();
+
+                this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor_OnLaboratory");
+            }
 
         }
 
