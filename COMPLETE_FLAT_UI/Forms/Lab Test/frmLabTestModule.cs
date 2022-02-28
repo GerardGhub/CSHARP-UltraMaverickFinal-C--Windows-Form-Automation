@@ -191,10 +191,22 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
            if(this.SpLabStatus == "LAB REQUEST")
             {
                 WizardBalloon1.Image = Properties.Resources.completed;
+                this.lblPattern1.Visible = true;
             }
            else
             {
                 WizardBalloon1.Image = Properties.Resources.current;
+                this.lblPattern1.Visible = false;
+            }
+
+           //2nd Level of Request
+           if (this.lblPattern1.Visible == true)
+            {
+                WizardBalloon2.Image = Properties.Resources.current;       
+            }
+           else
+            {
+                WizardBalloon2.Image = Properties.Resources.pending;
             }
 
         }
@@ -277,6 +289,27 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         {
             this.GlobalStatePopup.WizzardMesage1 = this.SplblLabRequestDate;
             this.GlobalStatePopup.BallonNotifyHover();
+        }
+
+        private void matBtnCancel_Click(object sender, EventArgs e)
+        {
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Cancel the lab test request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                    p_id, "BUje", "0", "0", "", "0", "0", "", "0",
+                    "0", "0", "0", "0",
+                    "0", "0", "0", 0, 0, "dry_wh_lab_request_cancel_by_drywh");
+
+                this.GlobalStatePopup.CommittedSuccessFully();
+                this.frmLabTestModule_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
+
         }
     }
 }

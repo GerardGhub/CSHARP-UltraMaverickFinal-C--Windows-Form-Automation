@@ -29,12 +29,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLabTestModule));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.matTxtDateAdded = new MaterialSkin.Controls.MaterialTextBox();
@@ -46,14 +45,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.mattxtLotNumber = new MaterialSkin.Controls.MaterialTextBox();
             this.matTxtCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.matTxtItemCode = new MaterialSkin.Controls.MaterialTextBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.matViewLabRecords = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +61,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lab_result_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.matViewLabRecords = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -74,19 +74,21 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
             this.PaymentImage = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.ConfirmImage = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.CustomizeImage = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.WizardBalloon2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.WizardBalloon1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.btnCancelLabRequest = new System.Windows.Forms.Button();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPattern1 = new System.Windows.Forms.Label();
+            this.btnCancelLabRequest = new MaterialSkin.Controls.MaterialButton();
+            this.lblPattern2 = new System.Windows.Forms.Label();
+            this.lblPattern3 = new System.Windows.Forms.Label();
+            this.lblPattern4 = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PaymentImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConfirmImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomizeImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -140,7 +142,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtDateAdded.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtDateAdded.Depth = 0;
             this.matTxtDateAdded.Enabled = false;
-            this.matTxtDateAdded.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtDateAdded.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtDateAdded.Hint = "Received Date";
             this.matTxtDateAdded.Location = new System.Drawing.Point(1056, 88);
             this.matTxtDateAdded.MaxLength = 50;
@@ -156,7 +158,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtExpiryDays.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtExpiryDays.Depth = 0;
             this.matTxtExpiryDays.Enabled = false;
-            this.matTxtExpiryDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtExpiryDays.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtExpiryDays.Hint = "Expiry Days";
             this.matTxtExpiryDays.Location = new System.Drawing.Point(843, 88);
             this.matTxtExpiryDays.MaxLength = 50;
@@ -172,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.materialTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox8.Depth = 0;
             this.materialTextBox8.Enabled = false;
-            this.materialTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox8.Font = new System.Drawing.Font("Roboto", 12F);
             this.materialTextBox8.Hint = "Date of Last Used";
             this.materialTextBox8.Location = new System.Drawing.Point(843, 23);
             this.materialTextBox8.MaxLength = 50;
@@ -188,7 +190,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtExpiryDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtExpiryDate.Depth = 0;
             this.matTxtExpiryDate.Enabled = false;
-            this.matTxtExpiryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtExpiryDate.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtExpiryDate.Hint = "Expiry Date";
             this.matTxtExpiryDate.Location = new System.Drawing.Point(630, 88);
             this.matTxtExpiryDate.MaxLength = 50;
@@ -204,7 +206,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtMftgDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtMftgDate.Depth = 0;
             this.matTxtMftgDate.Enabled = false;
-            this.matTxtMftgDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtMftgDate.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtMftgDate.Hint = "Mftg. Date";
             this.matTxtMftgDate.Location = new System.Drawing.Point(630, 23);
             this.matTxtMftgDate.MaxLength = 50;
@@ -220,7 +222,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtQty.Depth = 0;
             this.matTxtQty.Enabled = false;
-            this.matTxtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtQty.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtQty.Hint = "Quantity";
             this.matTxtQty.Location = new System.Drawing.Point(419, 88);
             this.matTxtQty.MaxLength = 50;
@@ -236,7 +238,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.mattxtLotNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattxtLotNumber.Depth = 0;
             this.mattxtLotNumber.Enabled = false;
-            this.mattxtLotNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mattxtLotNumber.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtLotNumber.Hint = "Lot Number";
             this.mattxtLotNumber.Location = new System.Drawing.Point(419, 23);
             this.mattxtLotNumber.MaxLength = 50;
@@ -252,7 +254,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtCategory.Depth = 0;
             this.matTxtCategory.Enabled = false;
-            this.matTxtCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtCategory.Hint = "Category";
             this.matTxtCategory.Location = new System.Drawing.Point(204, 89);
             this.matTxtCategory.MaxLength = 50;
@@ -268,7 +270,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtItemCode.Depth = 0;
             this.matTxtItemCode.Enabled = false;
-            this.matTxtItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtItemCode.Hint = "Item Code";
             this.matTxtItemCode.Location = new System.Drawing.Point(204, 24);
             this.matTxtItemCode.MaxLength = 50;
@@ -278,6 +280,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtItemCode.Size = new System.Drawing.Size(185, 50);
             this.matTxtItemCode.TabIndex = 148;
             this.matTxtItemCode.Text = "";
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.gceERxXri;
+            this.pbImage.Location = new System.Drawing.Point(13, 34);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(165, 103);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 147;
+            this.pbImage.TabStop = false;
             // 
             // materialCard2
             // 
@@ -300,20 +314,20 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.AllowUserToAddRows = false;
             this.dgvRawMats.AllowUserToDeleteRows = false;
             this.dgvRawMats.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRawMats.ColumnHeadersHeight = 40;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -331,14 +345,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.AGING,
             this.lab_result_remarks});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -346,18 +360,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 102;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -386,6 +400,117 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 48;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 59.93546F;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 111;
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.FillWeight = 97.00433F;
+            this.item_description.HeaderText = "ITEM DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            this.item_description.ReadOnly = true;
+            this.item_description.Width = 164;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 108;
+            // 
+            // qty_received
+            // 
+            this.qty_received.DataPropertyName = "qty_received";
+            this.qty_received.FillWeight = 77.07378F;
+            this.qty_received.HeaderText = "QTY RECEIVED";
+            this.qty_received.MinimumWidth = 12;
+            this.qty_received.Name = "qty_received";
+            this.qty_received.ReadOnly = true;
+            this.qty_received.Width = 133;
+            // 
+            // remaining_qty
+            // 
+            this.remaining_qty.DataPropertyName = "remaining_qty";
+            this.remaining_qty.HeaderText = "REMAINING QTY";
+            this.remaining_qty.Name = "remaining_qty";
+            this.remaining_qty.ReadOnly = true;
+            this.remaining_qty.Width = 146;
+            // 
+            // exp_date
+            // 
+            this.exp_date.DataPropertyName = "exp_date";
+            this.exp_date.HeaderText = "EXPIRATION DATE";
+            this.exp_date.Name = "exp_date";
+            this.exp_date.ReadOnly = true;
+            this.exp_date.Width = 154;
+            // 
+            // DAYSTOEXPIRED
+            // 
+            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
+            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.ReadOnly = true;
+            this.DAYSTOEXPIRED.Width = 154;
+            // 
+            // STANDARDEXPIRYDAYS
+            // 
+            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
+            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.ReadOnly = true;
+            this.STANDARDEXPIRYDAYS.Width = 193;
+            // 
+            // lab_status
+            // 
+            this.lab_status.DataPropertyName = "lab_status";
+            this.lab_status.HeaderText = "STATUS";
+            this.lab_status.Name = "lab_status";
+            this.lab_status.ReadOnly = true;
+            this.lab_status.Width = 81;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "HISTORY";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 93;
+            // 
+            // AGING
+            // 
+            this.AGING.DataPropertyName = "AGING";
+            this.AGING.HeaderText = "AGING";
+            this.AGING.Name = "AGING";
+            this.AGING.ReadOnly = true;
+            this.AGING.Width = 80;
+            // 
+            // lab_result_remarks
+            // 
+            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
+            this.lab_result_remarks.HeaderText = "REMARKS";
+            this.lab_result_remarks.Name = "lab_result_remarks";
+            this.lab_result_remarks.ReadOnly = true;
+            this.lab_result_remarks.Width = 98;
             // 
             // lbltotalrecords
             // 
@@ -418,7 +543,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Depth = 0;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtSearch.Hint = "Search";
             this.txtSearch.Location = new System.Drawing.Point(1101, 240);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(1);
@@ -478,116 +603,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton2.UseAccentColor = false;
             this.materialButton2.UseVisualStyleBackColor = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 59.93546F;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
-            // 
-            // item_description
-            // 
-            this.item_description.DataPropertyName = "item_description";
-            this.item_description.FillWeight = 97.00433F;
-            this.item_description.HeaderText = "ITEM DESCRIPTION";
-            this.item_description.MinimumWidth = 12;
-            this.item_description.Name = "item_description";
-            this.item_description.ReadOnly = true;
-            this.item_description.Width = 166;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 110;
-            // 
-            // qty_received
-            // 
-            this.qty_received.DataPropertyName = "qty_received";
-            this.qty_received.FillWeight = 77.07378F;
-            this.qty_received.HeaderText = "QTY RECEIVED";
-            this.qty_received.MinimumWidth = 12;
-            this.qty_received.Name = "qty_received";
-            this.qty_received.ReadOnly = true;
-            this.qty_received.Width = 135;
-            // 
-            // remaining_qty
-            // 
-            this.remaining_qty.DataPropertyName = "remaining_qty";
-            this.remaining_qty.HeaderText = "REMAINING QTY";
-            this.remaining_qty.Name = "remaining_qty";
-            this.remaining_qty.ReadOnly = true;
-            this.remaining_qty.Width = 148;
-            // 
-            // exp_date
-            // 
-            this.exp_date.DataPropertyName = "exp_date";
-            this.exp_date.HeaderText = "EXPIRATION DATE";
-            this.exp_date.Name = "exp_date";
-            this.exp_date.ReadOnly = true;
-            this.exp_date.Width = 156;
-            // 
-            // DAYSTOEXPIRED
-            // 
-            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
-            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.ReadOnly = true;
-            this.DAYSTOEXPIRED.Width = 156;
-            // 
-            // STANDARDEXPIRYDAYS
-            // 
-            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
-            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.ReadOnly = true;
-            this.STANDARDEXPIRYDAYS.Width = 195;
-            // 
-            // lab_status
-            // 
-            this.lab_status.DataPropertyName = "lab_status";
-            this.lab_status.HeaderText = "STATUS";
-            this.lab_status.Name = "lab_status";
-            this.lab_status.ReadOnly = true;
-            this.lab_status.Width = 83;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "HISTORY";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 95;
-            // 
-            // AGING
-            // 
-            this.AGING.DataPropertyName = "AGING";
-            this.AGING.HeaderText = "AGING";
-            this.AGING.Name = "AGING";
-            this.AGING.ReadOnly = true;
-            this.AGING.Width = 82;
-            // 
-            // lab_result_remarks
-            // 
-            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
-            this.lab_result_remarks.HeaderText = "REMARKS";
-            this.lab_result_remarks.Name = "lab_result_remarks";
-            this.lab_result_remarks.ReadOnly = true;
             // 
             // siticoneHtmlLabel4
             // 
@@ -678,20 +693,20 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.ConfirmImage.TabIndex = 601;
             this.ConfirmImage.TabStop = false;
             // 
-            // CustomizeImage
+            // WizardBalloon2
             // 
-            this.CustomizeImage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.CustomizeImage.Enabled = false;
-            this.CustomizeImage.FillColor = System.Drawing.Color.Transparent;
-            this.CustomizeImage.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
-            this.CustomizeImage.ImageRotate = 0F;
-            this.CustomizeImage.Location = new System.Drawing.Point(420, 243);
-            this.CustomizeImage.Name = "CustomizeImage";
-            this.CustomizeImage.ShadowDecoration.Parent = this.CustomizeImage;
-            this.CustomizeImage.Size = new System.Drawing.Size(45, 45);
-            this.CustomizeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CustomizeImage.TabIndex = 600;
-            this.CustomizeImage.TabStop = false;
+            this.WizardBalloon2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon2.Enabled = false;
+            this.WizardBalloon2.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon2.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
+            this.WizardBalloon2.ImageRotate = 0F;
+            this.WizardBalloon2.Location = new System.Drawing.Point(420, 243);
+            this.WizardBalloon2.Name = "WizardBalloon2";
+            this.WizardBalloon2.ShadowDecoration.Parent = this.WizardBalloon2;
+            this.WizardBalloon2.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon2.TabIndex = 600;
+            this.WizardBalloon2.TabStop = false;
             // 
             // WizardBalloon1
             // 
@@ -708,66 +723,97 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.WizardBalloon1.TabIndex = 594;
             this.WizardBalloon1.TabStop = false;
             // 
+            // lblPattern1
+            // 
+            this.lblPattern1.AutoSize = true;
+            this.lblPattern1.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern1.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern1.Location = new System.Drawing.Point(282, 272);
+            this.lblPattern1.Name = "lblPattern1";
+            this.lblPattern1.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern1.TabIndex = 603;
+            this.lblPattern1.Text = "◙";
+            this.lblPattern1.Visible = false;
+            this.lblPattern1.MouseHover += new System.EventHandler(this.label1_MouseHover);
+            // 
             // btnCancelLabRequest
             // 
-            this.btnCancelLabRequest.BackColor = System.Drawing.SystemColors.Window;
-            this.btnCancelLabRequest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelLabRequest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelLabRequest.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelLabRequest.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelLabRequest.Image")));
-            this.btnCancelLabRequest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelLabRequest.Location = new System.Drawing.Point(347, 724);
-            this.btnCancelLabRequest.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelLabRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancelLabRequest.Depth = 0;
+            this.btnCancelLabRequest.DrawShadows = true;
+            this.btnCancelLabRequest.HighEmphasis = true;
+            this.btnCancelLabRequest.Icon = null;
+            this.btnCancelLabRequest.Location = new System.Drawing.Point(349, 723);
+            this.btnCancelLabRequest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCancelLabRequest.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelLabRequest.Name = "btnCancelLabRequest";
-            this.btnCancelLabRequest.Size = new System.Drawing.Size(79, 34);
-            this.btnCancelLabRequest.TabIndex = 593;
-            this.btnCancelLabRequest.Text = "&CANCEL";
-            this.btnCancelLabRequest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelLabRequest.UseVisualStyleBackColor = false;
-            this.btnCancelLabRequest.Visible = false;
-            this.btnCancelLabRequest.Click += new System.EventHandler(this.btnCancelLabRequest_Click);
+            this.btnCancelLabRequest.Size = new System.Drawing.Size(77, 36);
+            this.btnCancelLabRequest.TabIndex = 604;
+            this.btnCancelLabRequest.Text = "CANCEL";
+            this.btnCancelLabRequest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancelLabRequest.UseAccentColor = false;
+            this.btnCancelLabRequest.UseVisualStyleBackColor = true;
+            this.btnCancelLabRequest.Click += new System.EventHandler(this.matBtnCancel_Click);
             // 
-            // pbImage
+            // lblPattern2
             // 
-            this.pbImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.gceERxXri;
-            this.pbImage.Location = new System.Drawing.Point(13, 34);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(165, 103);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 147;
-            this.pbImage.TabStop = false;
+            this.lblPattern2.AutoSize = true;
+            this.lblPattern2.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern2.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern2.Location = new System.Drawing.Point(470, 272);
+            this.lblPattern2.Name = "lblPattern2";
+            this.lblPattern2.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern2.TabIndex = 605;
+            this.lblPattern2.Text = "◙";
+            this.lblPattern2.Visible = false;
             // 
-            // label1
+            // lblPattern3
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label1.Location = new System.Drawing.Point(282, 272);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 24);
-            this.label1.TabIndex = 603;
-            this.label1.Text = "◙";
-            this.label1.MouseHover += new System.EventHandler(this.label1_MouseHover);
+            this.lblPattern3.AutoSize = true;
+            this.lblPattern3.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern3.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern3.Location = new System.Drawing.Point(659, 272);
+            this.lblPattern3.Name = "lblPattern3";
+            this.lblPattern3.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern3.TabIndex = 606;
+            this.lblPattern3.Text = "◙";
+            this.lblPattern3.Visible = false;
+            // 
+            // lblPattern4
+            // 
+            this.lblPattern4.AutoSize = true;
+            this.lblPattern4.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern4.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern4.Location = new System.Drawing.Point(842, 272);
+            this.lblPattern4.Name = "lblPattern4";
+            this.lblPattern4.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern4.TabIndex = 607;
+            this.lblPattern4.Text = "◙";
+            this.lblPattern4.Visible = false;
             // 
             // frmLabTestModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 765);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPattern4);
+            this.Controls.Add(this.lblPattern3);
+            this.Controls.Add(this.lblPattern2);
+            this.Controls.Add(this.btnCancelLabRequest);
+            this.Controls.Add(this.lblPattern1);
             this.Controls.Add(this.PaymentImage);
             this.Controls.Add(this.ConfirmImage);
-            this.Controls.Add(this.CustomizeImage);
+            this.Controls.Add(this.WizardBalloon2);
             this.Controls.Add(this.WizardBalloon1);
             this.Controls.Add(this.siticoneHtmlLabel4);
             this.Controls.Add(this.siticoneHtmlLabel3);
             this.Controls.Add(this.siticoneHtmlLabel2);
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Controls.Add(this.siticoneSeparator1);
-            this.Controls.Add(this.btnCancelLabRequest);
             this.Controls.Add(this.materialButton2);
             this.Controls.Add(this.matViewLabRecords);
             this.Controls.Add(this.materialLabel1);
@@ -781,13 +827,13 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.Load += new System.EventHandler(this.frmLabTestModule_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PaymentImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConfirmImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomizeImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -828,16 +874,19 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGING;
         private System.Windows.Forms.DataGridViewTextBoxColumn lab_result_remarks;
-        internal System.Windows.Forms.Button btnCancelLabRequest;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox PaymentImage;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox ConfirmImage;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox CustomizeImage;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox WizardBalloon2;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox WizardBalloon1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneSeparator siticoneSeparator1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPattern1;
+        private MaterialSkin.Controls.MaterialButton btnCancelLabRequest;
+        private System.Windows.Forms.Label lblPattern2;
+        private System.Windows.Forms.Label lblPattern3;
+        private System.Windows.Forms.Label lblPattern4;
     }
 }
