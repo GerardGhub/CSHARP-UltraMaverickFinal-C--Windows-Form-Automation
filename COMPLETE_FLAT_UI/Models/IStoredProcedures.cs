@@ -375,6 +375,24 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
 
+
+        DataSet sp_dry_wh_lab_test_req_logs(
+        int lab_req_id,
+        string item_code,
+        string item_desc,
+        string category,
+        string qty_received,
+        string remaining_qty,
+        string days_to_expired,
+        string lab_status,
+        string historical,
+        string aging,
+        string remarks,
+        string fk_receiving_id,
+        string added_by,
+        string mode);
+
+
         DataSet sp_tblDryPartialReceivingRejection(
         int id,
         int index_id,

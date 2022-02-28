@@ -29,11 +29,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.matTxtDateAdded = new MaterialSkin.Controls.MaterialTextBox();
@@ -48,19 +48,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remaining_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exp_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STANDARDEXPIRYDAYS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AGING = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_result_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
@@ -81,6 +68,19 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.lblPattern2 = new System.Windows.Forms.Label();
             this.lblPattern3 = new System.Windows.Forms.Label();
             this.lblPattern4 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remaining_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exp_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STANDARDEXPIRYDAYS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AGING = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_result_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -314,21 +314,21 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.AllowUserToAddRows = false;
             this.dgvRawMats.AllowUserToDeleteRows = false;
             this.dgvRawMats.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvRawMats.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvRawMats.ColumnHeadersHeight = 45;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -345,14 +345,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.AGING,
             this.lab_result_remarks});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -360,18 +360,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 102;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -390,7 +390,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvRawMats.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvRawMats.ThemeStyle.HeaderStyle.Height = 45;
             this.dgvRawMats.ThemeStyle.ReadOnly = true;
             this.dgvRawMats.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -400,117 +400,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 48;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 59.93546F;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 111;
-            // 
-            // item_description
-            // 
-            this.item_description.DataPropertyName = "item_description";
-            this.item_description.FillWeight = 97.00433F;
-            this.item_description.HeaderText = "ITEM DESCRIPTION";
-            this.item_description.MinimumWidth = 12;
-            this.item_description.Name = "item_description";
-            this.item_description.ReadOnly = true;
-            this.item_description.Width = 164;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 108;
-            // 
-            // qty_received
-            // 
-            this.qty_received.DataPropertyName = "qty_received";
-            this.qty_received.FillWeight = 77.07378F;
-            this.qty_received.HeaderText = "QTY RECEIVED";
-            this.qty_received.MinimumWidth = 12;
-            this.qty_received.Name = "qty_received";
-            this.qty_received.ReadOnly = true;
-            this.qty_received.Width = 133;
-            // 
-            // remaining_qty
-            // 
-            this.remaining_qty.DataPropertyName = "remaining_qty";
-            this.remaining_qty.HeaderText = "REMAINING QTY";
-            this.remaining_qty.Name = "remaining_qty";
-            this.remaining_qty.ReadOnly = true;
-            this.remaining_qty.Width = 146;
-            // 
-            // exp_date
-            // 
-            this.exp_date.DataPropertyName = "exp_date";
-            this.exp_date.HeaderText = "EXPIRATION DATE";
-            this.exp_date.Name = "exp_date";
-            this.exp_date.ReadOnly = true;
-            this.exp_date.Width = 154;
-            // 
-            // DAYSTOEXPIRED
-            // 
-            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
-            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.ReadOnly = true;
-            this.DAYSTOEXPIRED.Width = 154;
-            // 
-            // STANDARDEXPIRYDAYS
-            // 
-            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
-            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.ReadOnly = true;
-            this.STANDARDEXPIRYDAYS.Width = 193;
-            // 
-            // lab_status
-            // 
-            this.lab_status.DataPropertyName = "lab_status";
-            this.lab_status.HeaderText = "STATUS";
-            this.lab_status.Name = "lab_status";
-            this.lab_status.ReadOnly = true;
-            this.lab_status.Width = 81;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "HISTORY";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 93;
-            // 
-            // AGING
-            // 
-            this.AGING.DataPropertyName = "AGING";
-            this.AGING.HeaderText = "AGING";
-            this.AGING.Name = "AGING";
-            this.AGING.ReadOnly = true;
-            this.AGING.Width = 80;
-            // 
-            // lab_result_remarks
-            // 
-            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
-            this.lab_result_remarks.HeaderText = "REMARKS";
-            this.lab_result_remarks.Name = "lab_result_remarks";
-            this.lab_result_remarks.ReadOnly = true;
-            this.lab_result_remarks.Width = 98;
             // 
             // lbltotalrecords
             // 
@@ -554,6 +443,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.txtSearch.Size = new System.Drawing.Size(205, 50);
             this.txtSearch.TabIndex = 588;
             this.txtSearch.Text = "";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
             // 
             // materialLabel1
             // 
@@ -795,6 +685,104 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.lblPattern4.Text = "◙";
             this.lblPattern4.Visible = false;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 59.93546F;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.FillWeight = 97.00433F;
+            this.item_description.HeaderText = "ITEM DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            this.item_description.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // qty_received
+            // 
+            this.qty_received.DataPropertyName = "qty_received";
+            this.qty_received.FillWeight = 77.07378F;
+            this.qty_received.HeaderText = "QTY RECEIVED";
+            this.qty_received.MinimumWidth = 12;
+            this.qty_received.Name = "qty_received";
+            this.qty_received.ReadOnly = true;
+            // 
+            // remaining_qty
+            // 
+            this.remaining_qty.DataPropertyName = "remaining_qty";
+            this.remaining_qty.HeaderText = "QTY";
+            this.remaining_qty.Name = "remaining_qty";
+            this.remaining_qty.ReadOnly = true;
+            // 
+            // exp_date
+            // 
+            this.exp_date.DataPropertyName = "exp_date";
+            this.exp_date.HeaderText = "EXPIRATION DATE";
+            this.exp_date.Name = "exp_date";
+            this.exp_date.ReadOnly = true;
+            // 
+            // DAYSTOEXPIRED
+            // 
+            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
+            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.ReadOnly = true;
+            // 
+            // STANDARDEXPIRYDAYS
+            // 
+            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
+            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.ReadOnly = true;
+            // 
+            // lab_status
+            // 
+            this.lab_status.DataPropertyName = "lab_status";
+            this.lab_status.HeaderText = "STATUS";
+            this.lab_status.Name = "lab_status";
+            this.lab_status.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "HISTORY";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // AGING
+            // 
+            this.AGING.DataPropertyName = "AGING";
+            this.AGING.HeaderText = "AGING";
+            this.AGING.Name = "AGING";
+            this.AGING.ReadOnly = true;
+            // 
+            // lab_result_remarks
+            // 
+            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
+            this.lab_result_remarks.HeaderText = "REMARKS";
+            this.lab_result_remarks.Name = "lab_result_remarks";
+            this.lab_result_remarks.ReadOnly = true;
+            // 
             // frmLabTestModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -861,19 +849,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private MaterialSkin.Controls.MaterialButton matBtnNew;
         private MaterialSkin.Controls.MaterialButton matViewLabRecords;
         private MaterialSkin.Controls.MaterialButton materialButton2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty_received;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remaining_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn exp_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DAYSTOEXPIRED;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STANDARDEXPIRYDAYS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lab_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AGING;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lab_result_remarks;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox PaymentImage;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox ConfirmImage;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox WizardBalloon2;
@@ -888,5 +863,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private System.Windows.Forms.Label lblPattern2;
         private System.Windows.Forms.Label lblPattern3;
         private System.Windows.Forms.Label lblPattern4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_received;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remaining_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exp_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DAYSTOEXPIRED;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STANDARDEXPIRYDAYS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lab_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AGING;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lab_result_remarks;
     }
 }

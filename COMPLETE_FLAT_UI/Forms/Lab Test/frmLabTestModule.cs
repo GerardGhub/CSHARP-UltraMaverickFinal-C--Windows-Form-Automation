@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,9 +35,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         }
 
         public string SpItemCode { get; set; }
+        public int SpUseridentity { get; set; }
+        public string SpItemDescription { get; set; }
         public string SpCategory { get; set; }
         public string SpTransactionType { get; set; }
         public string SpQuantity { get; set; }
+        public string SpRemainingQuantity { get; set; }
         public string SpMftgDate { get; set; }
         public string SpExpiryDate { get; set; }
         public string SpLotNumber { get; set; }
@@ -47,6 +51,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpRemarks { get; set; }
         public string SpLabStatus { get; set; }
         public string SplblLabRequestDate { get; set; }
+        public string SpHistorical { get; set; }
+        public string SpAging { get; set; }
+        public string FkReceivingID { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -54,6 +61,13 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.showRawMaterialsNearlyExpiry();
             this.WindowLoadState();
         }
+
+
+    
+
+
+
+
         private void WindowLoadState()
         {
             if (this.lbltotalrecords.Text != "0")
@@ -61,6 +75,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.SearchMethodJarVarCallingSP();
 
             }
+            this.SpUseridentity = userinfo.user_id;
         }
 
         private void ConnectionInitialization()
@@ -84,6 +99,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
                 MessageBox.Show(ex.Message);
             }
+
+            this.DataGridVisibilityFalse();
+        }
+
+        private void DataGridVisibilityFalse()
+        {
             this.dgvRawMats.Columns["mfg_date"].Visible = false;
             this.dgvRawMats.Columns["date_added"].Visible = false;
             this.dgvRawMats.Columns["exp_date"].Visible = false;
@@ -91,9 +112,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["STANDARDEXPIRYDAYS"].Visible = false;
             this.dgvRawMats.Columns["lot_no"].Visible = false;
             this.dgvRawMats.Columns["lab_request_date"].Visible = false;
-
-
+            this.dgvRawMats.Columns["qty_received"].Visible = false;
         }
+
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -108,7 +129,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryLabTestViewingMajor");
 
         }
 
@@ -122,7 +143,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
 
 
-                    dv.RowFilter = "or item_code like '%" + this.txtSearch.Text + "%' or item_description like '%" + this.txtSearch.Text + "%'   ";
+                    dv.RowFilter = "item_code like '%" + this.txtSearch.Text + "%' or item_description like '%" + this.txtSearch.Text + "%'   ";
 
 
                     this.dgvRawMats.DataSource = dv;
@@ -162,6 +183,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     {
                         p_id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["id"].Value);
                          this.matTxtItemCode.Text = this.dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.SpItemDescription = this.dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
+                        this.SpRemainingQuantity = this.dgvRawMats.CurrentRow.Cells["remaining_qty"].Value.ToString();
                         this.matTxtCategory.Text = this.dgvRawMats.CurrentRow.Cells["category"].Value.ToString();
                         this.matTxtQty.Text = this.dgvRawMats.CurrentRow.Cells["qty_received"].Value.ToString();
                         this.matTxtMftgDate.Text = this.dgvRawMats.CurrentRow.Cells["mfg_date"].Value.ToString();
@@ -171,6 +194,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.mattxtLotNumber.Text = this.dgvRawMats.CurrentRow.Cells["lot_no"].Value.ToString();
                         this.SpLabStatus = this.dgvRawMats.CurrentRow.Cells["lab_status"].Value.ToString();
                         this.SplblLabRequestDate = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
+                        this.SpAging = this.dgvRawMats.CurrentRow.Cells["AGING"].Value.ToString();
+                        this.FkReceivingID = this.dgvRawMats.CurrentRow.Cells["id"].Value.ToString();
                     }
                 }
             }
@@ -218,10 +243,19 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to request a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.dSet.Clear();
+                this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
+                    this.matTxtItemCode.Text, this.SpItemDescription, this.matTxtCategory.Text, this.matTxtQty.Text,
+                    SpRemainingQuantity, this.matTxtExpiryDays.Text, this.SpLabStatus, this.SpHistorical, this.SpAging,
+                    "REMARKS", FkReceivingID, this.SpUseridentity.ToString(), "dry_wh_lab_request");
+
+
+                //Insert Logs
+                this.dSet.Clear();
                 this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
                     p_id, "BUje", "0", "0", "", "0", "0", "", "0",
-                    "0", "0", "0", "0", 
+                    "0", "0", "0", "0",
                     "0", "0", "0", 0, 0, "dry_wh_lab_request");
+
 
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmLabTestModule_Load(sender, e);
@@ -310,6 +344,17 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 return;
             }
 
+        }
+
+        private void txtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            this.doSearchInTextBoxCmb();
+
+
+            if (this.txtSearch.Text == String.Empty)
+            {
+                this.showRawMaterialsNearlyExpiry();
+            }
         }
     }
 }
