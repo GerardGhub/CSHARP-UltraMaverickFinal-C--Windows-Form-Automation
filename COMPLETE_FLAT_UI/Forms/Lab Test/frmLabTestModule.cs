@@ -44,6 +44,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpExpiryDays { get; set; }
         public string SpReceivedDate { get; set; }
         public string SpRemarks { get; set; }
+        public string SpLabStatus { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -87,6 +88,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["lot_description"].Visible = false;
             this.dgvRawMats.Columns["STANDARDEXPIRYDAYS"].Visible = false;
             this.dgvRawMats.Columns["lot_no"].Visible = false;
+            this.dgvRawMats.Columns["lab_request_date"].Visible = false;
 
 
         }
@@ -165,9 +167,25 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.matTxtExpiryDays.Text = this.dgvRawMats.CurrentRow.Cells["DAYSTOEXPIRED"].Value.ToString();
                         this.matTxtDateAdded.Text = this.dgvRawMats.CurrentRow.Cells["date_added"].Value.ToString();
                         this.mattxtLotNumber.Text = this.dgvRawMats.CurrentRow.Cells["lot_no"].Value.ToString();
+                        this.SpLabStatus = this.dgvRawMats.CurrentRow.Cells["lab_status"].Value.ToString();
+                        this.lblLabRequestDate.Text = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
                     }
                 }
             }
+
+            if(this.SpLabStatus == "LAB REQUEST")
+            {
+                this.matViewLabRecords.Enabled = false;
+                this.btnCancelLabRequest.Visible = true;
+                this.lblLabRequestDate.Visible = true;
+            }
+            else
+            {
+                this.matViewLabRecords.Enabled = true;
+                this.btnCancelLabRequest.Visible = false;
+                this.lblLabRequestDate.Visible = false;
+            }
+            
         }
 
         private void matViewLabRecords_Click(object sender, EventArgs e)
@@ -201,5 +219,26 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             DryWhLabTestRecentLogs fm = new DryWhLabTestRecentLogs();
             fm.ShowDialog();
         }
+
+        private void btnCancelLabRequest_Click(object sender, EventArgs e)
+        {
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Cancel the lab test request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                    p_id, "BUje", "0", "0", "", "0", "0", "", "0",
+                    "0", "0", "0", "0",
+                    "0", "0", "0", 0, 0, "dry_wh_lab_request_cancel_by_drywh");
+
+                this.GlobalStatePopup.CommittedSuccessFully();
+                this.frmLabTestModule_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
+
+            }
     }
 }

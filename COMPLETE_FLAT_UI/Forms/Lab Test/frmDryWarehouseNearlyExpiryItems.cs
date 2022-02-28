@@ -74,16 +74,57 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         }
 
+        private void showRawMaterialsNearlyExpiryOnLaboratory()    //method for loading available_menus
+        {
+            try
+            {
+
+                xClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiry_OnLaboratory", dSet);
+
+                this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            //this.dgvRawMats.Columns["area_id"].Visible = false;
+            //this.dgvRawMats.Columns["is_active"].Visible = false;
+            //this.dgvRawMats.Columns["modified_at"].Visible = false;
+
+        }
+
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             //Call Store Procedure
      
+            if (this.matRadioActive.Checked == true)
+            {
+                this.ConnectionInitialization();
+                this.showRawMaterialsNearlyExpiry();
                 this.doSearchInTextBoxCmb();
 
-            if (this.txtSearch.Text == String.Empty)
-            {
-                this.showRawMaterialsNearlyExpiry();
+                if (this.txtSearch.Text == String.Empty)
+                {
+                    this.showRawMaterialsNearlyExpiry();
+                }
             }
+
+
+            if (this.matRadioNotActive.Checked == true)
+            {
+                this.ConnectionInitialization();
+                this.showRawMaterialsNearlyExpiryOnLaboratory();
+                this.doSearchInTextBoxCmb();
+
+                if (this.txtSearch.Text == String.Empty)
+                {
+                    this.showRawMaterialsNearlyExpiry();
+                }
+            }
+
+
         }
 
 
@@ -108,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
                   
 
-                        dv.RowFilter = "or item_code like '%" + this.txtSearch.Text + "%' or item_description like '%" + this.txtSearch.Text + "%'   ";
+                        dv.RowFilter = "item_code like '%" + this.txtSearch.Text + "%' or item_description like '%" + this.txtSearch.Text + "%'   ";
 
                  
                     this.dgvRawMats.DataSource = dv;
@@ -133,6 +174,16 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         }
 
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ConnectionInitialization();
+            this.showRawMaterialsNearlyExpiry();
+        }
 
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ConnectionInitialization();
+            this.showRawMaterialsNearlyExpiryOnLaboratory();
+        }
     }
 }
