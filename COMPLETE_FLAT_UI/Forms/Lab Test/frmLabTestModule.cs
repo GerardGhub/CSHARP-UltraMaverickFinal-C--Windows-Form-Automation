@@ -47,7 +47,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpLotDescription { get; set; }
         public string SpDateOfLastUsed { get; set; }
         public string SpExpiryDays { get; set; }
-        public string SpReceivedDate { get; set; }
+        public string SpRMDateLastUsedPreparation { get; set; }
         public string SpRemarks { get; set; }
         public string SpLabStatus { get; set; }
         public string SplblLabRequestDate { get; set; }
@@ -119,6 +119,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["qa_approval_date"].Visible = false;
             this.dgvRawMats.Columns["lab_result_released_date"].Visible = false;
             this.dgvRawMats.Columns["transaction_type"].Visible = false;
+            this.dgvRawMats.Columns["RM_ITEM_LAST_USED"].Visible = false;
         }
 
 
@@ -208,7 +209,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpLabResultRemarks = this.dgvRawMats.CurrentRow.Cells["lab_result_remarks"].Value.ToString();
                         this.SpQAApprovalDate = this.dgvRawMats.CurrentRow.Cells["qa_approval_date"].Value.ToString();
                         this.SpLabResultReleasedDate = this.dgvRawMats.CurrentRow.Cells["lab_result_released_date"].Value.ToString();
-
+                        this.matItemDateLastUsed.Text = this.dgvRawMats.CurrentRow.Cells["RM_ITEM_LAST_USED"].Value.ToString();
                     
                     }
                 }
@@ -468,5 +469,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
            //End of Transaction
             }
+
+        private void mattxtTransactionType_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
