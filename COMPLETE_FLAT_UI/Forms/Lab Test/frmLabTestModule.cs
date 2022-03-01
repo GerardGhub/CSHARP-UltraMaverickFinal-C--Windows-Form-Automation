@@ -118,6 +118,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["qa_approval_status"].Visible = false;
             this.dgvRawMats.Columns["qa_approval_date"].Visible = false;
             this.dgvRawMats.Columns["lab_result_released_date"].Visible = false;
+            this.dgvRawMats.Columns["transaction_type"].Visible = false;
         }
 
 
@@ -196,7 +197,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.matTxtMftgDate.Text = this.dgvRawMats.CurrentRow.Cells["mfg_date"].Value.ToString();
                         this.matTxtExpiryDate.Text = this.dgvRawMats.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.matTxtExpiryDays.Text = this.dgvRawMats.CurrentRow.Cells["DAYSTOEXPIRED"].Value.ToString();
-                        this.matTxtDateAdded.Text = this.dgvRawMats.CurrentRow.Cells["date_added"].Value.ToString();
+                        this.mattxtTransactionType.Text = this.dgvRawMats.CurrentRow.Cells["transaction_type"].Value.ToString();
                         this.mattxtLotNumber.Text = this.dgvRawMats.CurrentRow.Cells["lot_no"].Value.ToString();
                         this.SpLabStatus = this.dgvRawMats.CurrentRow.Cells["lab_status"].Value.ToString();
                         this.SplblLabRequestDate = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
@@ -445,5 +446,27 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.GlobalStatePopup.WizzardMesage3 = this.SpLabResultReleasedDate;
             this.GlobalStatePopup.BallonNotifyHover3();
         }
+
+        private void MatBtnReceived_Click(object sender, EventArgs e)
+        {
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received the Lab Result?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                    p_id, "BUje", "0", "0", "", "0", "0", "", "0",
+                    "0", "0", "0", "0",
+                    "0", "0", "0", 0, 0, "dry_wh_lab_result_received_by_drywh");
+
+                this.GlobalStatePopup.LabTestResultSuccessFullyReceived();
+                this.frmLabTestModule_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
+           //End of Transaction
+            }
     }
 }

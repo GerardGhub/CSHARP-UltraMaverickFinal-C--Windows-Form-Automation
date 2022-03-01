@@ -36,7 +36,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
-            this.matTxtDateAdded = new MaterialSkin.Controls.MaterialTextBox();
+            this.mattxtTransactionType = new MaterialSkin.Controls.MaterialTextBox();
             this.matTxtExpiryDays = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox8 = new MaterialSkin.Controls.MaterialTextBox();
             this.matTxtExpiryDate = new MaterialSkin.Controls.MaterialTextBox();
@@ -101,7 +101,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.siticoneHtmlLabelItemDesc);
             this.materialCard1.Controls.Add(this.matBtnNew);
-            this.materialCard1.Controls.Add(this.matTxtDateAdded);
+            this.materialCard1.Controls.Add(this.mattxtTransactionType);
             this.materialCard1.Controls.Add(this.matTxtExpiryDays);
             this.materialCard1.Controls.Add(this.materialTextBox8);
             this.materialCard1.Controls.Add(this.matTxtExpiryDate);
@@ -140,28 +140,28 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matBtnNew.UseVisualStyleBackColor = true;
             this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
             // 
-            // matTxtDateAdded
+            // mattxtTransactionType
             // 
-            this.matTxtDateAdded.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtDateAdded.Depth = 0;
-            this.matTxtDateAdded.Enabled = false;
-            this.matTxtDateAdded.Font = new System.Drawing.Font("Roboto", 12F);
-            this.matTxtDateAdded.Hint = "Received Date";
-            this.matTxtDateAdded.Location = new System.Drawing.Point(1056, 88);
-            this.matTxtDateAdded.MaxLength = 50;
-            this.matTxtDateAdded.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtDateAdded.Multiline = false;
-            this.matTxtDateAdded.Name = "matTxtDateAdded";
-            this.matTxtDateAdded.Size = new System.Drawing.Size(185, 50);
-            this.matTxtDateAdded.TabIndex = 156;
-            this.matTxtDateAdded.Text = "";
+            this.mattxtTransactionType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtTransactionType.Depth = 0;
+            this.mattxtTransactionType.Enabled = false;
+            this.mattxtTransactionType.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtTransactionType.Hint = "Transaction Type";
+            this.mattxtTransactionType.Location = new System.Drawing.Point(1056, 88);
+            this.mattxtTransactionType.MaxLength = 50;
+            this.mattxtTransactionType.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtTransactionType.Multiline = false;
+            this.mattxtTransactionType.Name = "mattxtTransactionType";
+            this.mattxtTransactionType.Size = new System.Drawing.Size(185, 50);
+            this.mattxtTransactionType.TabIndex = 156;
+            this.mattxtTransactionType.Text = "";
             // 
             // matTxtExpiryDays
             // 
             this.matTxtExpiryDays.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtExpiryDays.Depth = 0;
             this.matTxtExpiryDays.Enabled = false;
-            this.matTxtExpiryDays.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtExpiryDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.matTxtExpiryDays.Hint = "Expiry Days";
             this.matTxtExpiryDays.Location = new System.Drawing.Point(843, 88);
             this.matTxtExpiryDays.MaxLength = 50;
@@ -807,6 +807,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.MatBtnReceived.UseAccentColor = false;
             this.MatBtnReceived.UseVisualStyleBackColor = true;
             this.MatBtnReceived.Visible = false;
+            this.MatBtnReceived.Click += new System.EventHandler(this.MatBtnReceived_Click);
             // 
             // siticoneHtmlLabelItemDesc
             // 
@@ -881,7 +882,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private MaterialSkin.Controls.MaterialTextBox matTxtItemCode;
         private MaterialSkin.Controls.MaterialTextBox matTxtExpiryDays;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox8;
-        private MaterialSkin.Controls.MaterialTextBox matTxtDateAdded;
+        private MaterialSkin.Controls.MaterialTextBox mattxtTransactionType;
         private MaterialSkin.Controls.MaterialTextBox txtSearch;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialButton matBtnNew;
