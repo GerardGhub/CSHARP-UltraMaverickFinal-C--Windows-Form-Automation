@@ -29,11 +29,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.matTxtDateAdded = new MaterialSkin.Controls.MaterialTextBox();
@@ -48,26 +48,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.matViewLabRecords = new MaterialSkin.Controls.MaterialButton();
-            this.matBtnViewLabRecords = new MaterialSkin.Controls.MaterialButton();
-            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
-            this.PaymentImage = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.ConfirmImage = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.WizardBalloon2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.WizardBalloon1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.lblPattern1 = new System.Windows.Forms.Label();
-            this.btnCancelLabRequest = new MaterialSkin.Controls.MaterialButton();
-            this.lblPattern2 = new System.Windows.Forms.Label();
-            this.lblPattern3 = new System.Windows.Forms.Label();
-            this.lblPattern4 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,12 +61,34 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.HISTORY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lab_result_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.matViewLabRecords = new MaterialSkin.Controls.MaterialButton();
+            this.matBtnViewLabRecords = new MaterialSkin.Controls.MaterialButton();
+            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
+            this.WizardBalloon4 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.WizardBalloon3 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.WizardBalloon2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.WizardBalloon1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.lblPattern1 = new System.Windows.Forms.Label();
+            this.btnCancelLabRequest = new MaterialSkin.Controls.MaterialButton();
+            this.lblPattern2 = new System.Windows.Forms.Label();
+            this.lblPattern3 = new System.Windows.Forms.Label();
+            this.lblPattern4 = new System.Windows.Forms.Label();
+            this.MatBtnReceived = new MaterialSkin.Controls.MaterialButton();
+            this.siticoneHtmlLabelItemDesc = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PaymentImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConfirmImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon1)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +99,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.siticoneHtmlLabelItemDesc);
             this.materialCard1.Controls.Add(this.matBtnNew);
             this.materialCard1.Controls.Add(this.matTxtDateAdded);
             this.materialCard1.Controls.Add(this.matTxtExpiryDays);
@@ -115,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1279, 145);
+            this.materialCard1.Size = new System.Drawing.Size(1279, 153);
             this.materialCard1.TabIndex = 148;
             // 
             // matBtnNew
@@ -314,20 +317,20 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.AllowUserToAddRows = false;
             this.dgvRawMats.AllowUserToDeleteRows = false;
             this.dgvRawMats.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRawMats.ColumnHeadersHeight = 45;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -345,14 +348,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.AGING,
             this.lab_result_remarks});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -360,18 +363,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 102;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -400,290 +403,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1224, 721);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(32, 40);
-            this.lbltotalrecords.TabIndex = 586;
-            this.lbltotalrecords.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1270, 738);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
-            this.label2.TabIndex = 587;
-            this.label2.Text = "Items";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Depth = 0;
-            this.txtSearch.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtSearch.Hint = "Search";
-            this.txtSearch.Location = new System.Drawing.Point(1101, 240);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(1);
-            this.txtSearch.MaxLength = 50;
-            this.txtSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtSearch.Multiline = false;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(205, 50);
-            this.txtSearch.TabIndex = 588;
-            this.txtSearch.Text = "";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(34, 274);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(102, 19);
-            this.materialLabel1.TabIndex = 589;
-            this.materialLabel1.Text = "Raw Materials";
-            // 
-            // matViewLabRecords
-            // 
-            this.matViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matViewLabRecords.Depth = 0;
-            this.matViewLabRecords.DrawShadows = true;
-            this.matViewLabRecords.HighEmphasis = true;
-            this.matViewLabRecords.Icon = null;
-            this.matViewLabRecords.Location = new System.Drawing.Point(210, 723);
-            this.matViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matViewLabRecords.Name = "matViewLabRecords";
-            this.matViewLabRecords.Size = new System.Drawing.Size(115, 36);
-            this.matViewLabRecords.TabIndex = 590;
-            this.matViewLabRecords.Text = "LAB REQUEST";
-            this.matViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matViewLabRecords.UseAccentColor = false;
-            this.matViewLabRecords.UseVisualStyleBackColor = true;
-            this.matViewLabRecords.Click += new System.EventHandler(this.matViewLabRecords_Click);
-            // 
-            // matBtnViewLabRecords
-            // 
-            this.matBtnViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnViewLabRecords.Depth = 0;
-            this.matBtnViewLabRecords.DrawShadows = true;
-            this.matBtnViewLabRecords.HighEmphasis = true;
-            this.matBtnViewLabRecords.Icon = null;
-            this.matBtnViewLabRecords.Location = new System.Drawing.Point(30, 723);
-            this.matBtnViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnViewLabRecords.Name = "matBtnViewLabRecords";
-            this.matBtnViewLabRecords.Size = new System.Drawing.Size(156, 36);
-            this.matBtnViewLabRecords.TabIndex = 591;
-            this.matBtnViewLabRecords.Text = "VIEW LAB RECORDS";
-            this.matBtnViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnViewLabRecords.UseAccentColor = false;
-            this.matBtnViewLabRecords.UseVisualStyleBackColor = true;
-            // 
-            // siticoneHtmlLabel4
-            // 
-            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel4.Enabled = false;
-            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(846, 252);
-            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
-            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(43, 25);
-            this.siticoneHtmlLabel4.TabIndex = 599;
-            this.siticoneHtmlLabel4.Text = "Result";
-            // 
-            // siticoneHtmlLabel3
-            // 
-            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Enabled = false;
-            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(663, 252);
-            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(72, 25);
-            this.siticoneHtmlLabel3.TabIndex = 598;
-            this.siticoneHtmlLabel3.Text = "Laboratory";
-            // 
-            // siticoneHtmlLabel2
-            // 
-            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Enabled = false;
-            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(474, 252);
-            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(59, 25);
-            this.siticoneHtmlLabel2.TabIndex = 597;
-            this.siticoneHtmlLabel2.Text = "Approval";
-            // 
-            // siticoneHtmlLabel1
-            // 
-            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Enabled = false;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(285, 252);
-            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(54, 25);
-            this.siticoneHtmlLabel1.TabIndex = 595;
-            this.siticoneHtmlLabel1.Text = "Request";
-            // 
-            // siticoneSeparator1
-            // 
-            this.siticoneSeparator1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.siticoneSeparator1.Enabled = false;
-            this.siticoneSeparator1.FillColor = System.Drawing.Color.LightGray;
-            this.siticoneSeparator1.FillStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.siticoneSeparator1.Location = new System.Drawing.Point(239, 261);
-            this.siticoneSeparator1.Name = "siticoneSeparator1";
-            this.siticoneSeparator1.Size = new System.Drawing.Size(607, 10);
-            this.siticoneSeparator1.TabIndex = 596;
-            // 
-            // PaymentImage
-            // 
-            this.PaymentImage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.PaymentImage.Enabled = false;
-            this.PaymentImage.FillColor = System.Drawing.Color.Transparent;
-            this.PaymentImage.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
-            this.PaymentImage.ImageRotate = 0F;
-            this.PaymentImage.Location = new System.Drawing.Point(794, 243);
-            this.PaymentImage.Name = "PaymentImage";
-            this.PaymentImage.ShadowDecoration.Parent = this.PaymentImage;
-            this.PaymentImage.Size = new System.Drawing.Size(45, 45);
-            this.PaymentImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PaymentImage.TabIndex = 602;
-            this.PaymentImage.TabStop = false;
-            // 
-            // ConfirmImage
-            // 
-            this.ConfirmImage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ConfirmImage.Enabled = false;
-            this.ConfirmImage.FillColor = System.Drawing.Color.Transparent;
-            this.ConfirmImage.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
-            this.ConfirmImage.ImageRotate = 0F;
-            this.ConfirmImage.Location = new System.Drawing.Point(610, 243);
-            this.ConfirmImage.Name = "ConfirmImage";
-            this.ConfirmImage.ShadowDecoration.Parent = this.ConfirmImage;
-            this.ConfirmImage.Size = new System.Drawing.Size(45, 45);
-            this.ConfirmImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ConfirmImage.TabIndex = 601;
-            this.ConfirmImage.TabStop = false;
-            // 
-            // WizardBalloon2
-            // 
-            this.WizardBalloon2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.WizardBalloon2.Enabled = false;
-            this.WizardBalloon2.FillColor = System.Drawing.Color.Transparent;
-            this.WizardBalloon2.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
-            this.WizardBalloon2.ImageRotate = 0F;
-            this.WizardBalloon2.Location = new System.Drawing.Point(420, 243);
-            this.WizardBalloon2.Name = "WizardBalloon2";
-            this.WizardBalloon2.ShadowDecoration.Parent = this.WizardBalloon2;
-            this.WizardBalloon2.Size = new System.Drawing.Size(45, 45);
-            this.WizardBalloon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.WizardBalloon2.TabIndex = 600;
-            this.WizardBalloon2.TabStop = false;
-            // 
-            // WizardBalloon1
-            // 
-            this.WizardBalloon1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.WizardBalloon1.Enabled = false;
-            this.WizardBalloon1.FillColor = System.Drawing.Color.Transparent;
-            this.WizardBalloon1.Image = global::ULTRAMAVERICK.Properties.Resources.current;
-            this.WizardBalloon1.ImageRotate = 0F;
-            this.WizardBalloon1.Location = new System.Drawing.Point(232, 243);
-            this.WizardBalloon1.Name = "WizardBalloon1";
-            this.WizardBalloon1.ShadowDecoration.Parent = this.WizardBalloon1;
-            this.WizardBalloon1.Size = new System.Drawing.Size(45, 45);
-            this.WizardBalloon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.WizardBalloon1.TabIndex = 594;
-            this.WizardBalloon1.TabStop = false;
-            // 
-            // lblPattern1
-            // 
-            this.lblPattern1.AutoSize = true;
-            this.lblPattern1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern1.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern1.Location = new System.Drawing.Point(282, 272);
-            this.lblPattern1.Name = "lblPattern1";
-            this.lblPattern1.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern1.TabIndex = 603;
-            this.lblPattern1.Text = "◙";
-            this.lblPattern1.Visible = false;
-            this.lblPattern1.MouseHover += new System.EventHandler(this.label1_MouseHover);
-            // 
-            // btnCancelLabRequest
-            // 
-            this.btnCancelLabRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCancelLabRequest.Depth = 0;
-            this.btnCancelLabRequest.DrawShadows = true;
-            this.btnCancelLabRequest.HighEmphasis = true;
-            this.btnCancelLabRequest.Icon = null;
-            this.btnCancelLabRequest.Location = new System.Drawing.Point(349, 723);
-            this.btnCancelLabRequest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnCancelLabRequest.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancelLabRequest.Name = "btnCancelLabRequest";
-            this.btnCancelLabRequest.Size = new System.Drawing.Size(77, 36);
-            this.btnCancelLabRequest.TabIndex = 604;
-            this.btnCancelLabRequest.Text = "CANCEL";
-            this.btnCancelLabRequest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnCancelLabRequest.UseAccentColor = false;
-            this.btnCancelLabRequest.UseVisualStyleBackColor = true;
-            this.btnCancelLabRequest.Click += new System.EventHandler(this.matBtnCancel_Click);
-            // 
-            // lblPattern2
-            // 
-            this.lblPattern2.AutoSize = true;
-            this.lblPattern2.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern2.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern2.Location = new System.Drawing.Point(470, 272);
-            this.lblPattern2.Name = "lblPattern2";
-            this.lblPattern2.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern2.TabIndex = 605;
-            this.lblPattern2.Text = "◙";
-            this.lblPattern2.Visible = false;
-            // 
-            // lblPattern3
-            // 
-            this.lblPattern3.AutoSize = true;
-            this.lblPattern3.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern3.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern3.Location = new System.Drawing.Point(659, 272);
-            this.lblPattern3.Name = "lblPattern3";
-            this.lblPattern3.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern3.TabIndex = 606;
-            this.lblPattern3.Text = "◙";
-            this.lblPattern3.Visible = false;
-            // 
-            // lblPattern4
-            // 
-            this.lblPattern4.AutoSize = true;
-            this.lblPattern4.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern4.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern4.Location = new System.Drawing.Point(842, 272);
-            this.lblPattern4.Name = "lblPattern4";
-            this.lblPattern4.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern4.TabIndex = 607;
-            this.lblPattern4.Text = "◙";
-            this.lblPattern4.Visible = false;
             // 
             // id
             // 
@@ -784,18 +503,336 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.lab_result_remarks.Name = "lab_result_remarks";
             this.lab_result_remarks.ReadOnly = true;
             // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(1224, 725);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(32, 40);
+            this.lbltotalrecords.TabIndex = 586;
+            this.lbltotalrecords.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(1270, 738);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 587;
+            this.label2.Text = "Items";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Depth = 0;
+            this.txtSearch.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtSearch.Hint = "Search";
+            this.txtSearch.Location = new System.Drawing.Point(1101, 240);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(1);
+            this.txtSearch.MaxLength = 50;
+            this.txtSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtSearch.Multiline = false;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(205, 50);
+            this.txtSearch.TabIndex = 588;
+            this.txtSearch.Text = "";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(34, 274);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(102, 19);
+            this.materialLabel1.TabIndex = 589;
+            this.materialLabel1.Text = "Raw Materials";
+            // 
+            // matViewLabRecords
+            // 
+            this.matViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matViewLabRecords.Depth = 0;
+            this.matViewLabRecords.DrawShadows = true;
+            this.matViewLabRecords.HighEmphasis = true;
+            this.matViewLabRecords.Icon = null;
+            this.matViewLabRecords.Location = new System.Drawing.Point(210, 728);
+            this.matViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matViewLabRecords.Name = "matViewLabRecords";
+            this.matViewLabRecords.Size = new System.Drawing.Size(115, 36);
+            this.matViewLabRecords.TabIndex = 590;
+            this.matViewLabRecords.Text = "LAB REQUEST";
+            this.matViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matViewLabRecords.UseAccentColor = false;
+            this.matViewLabRecords.UseVisualStyleBackColor = true;
+            this.matViewLabRecords.Click += new System.EventHandler(this.matViewLabRecords_Click);
+            // 
+            // matBtnViewLabRecords
+            // 
+            this.matBtnViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnViewLabRecords.Depth = 0;
+            this.matBtnViewLabRecords.DrawShadows = true;
+            this.matBtnViewLabRecords.HighEmphasis = true;
+            this.matBtnViewLabRecords.Icon = null;
+            this.matBtnViewLabRecords.Location = new System.Drawing.Point(30, 728);
+            this.matBtnViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matBtnViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnViewLabRecords.Name = "matBtnViewLabRecords";
+            this.matBtnViewLabRecords.Size = new System.Drawing.Size(156, 36);
+            this.matBtnViewLabRecords.TabIndex = 591;
+            this.matBtnViewLabRecords.Text = "VIEW LAB RECORDS";
+            this.matBtnViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnViewLabRecords.UseAccentColor = false;
+            this.matBtnViewLabRecords.UseVisualStyleBackColor = true;
+            // 
+            // siticoneHtmlLabel4
+            // 
+            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel4.Enabled = false;
+            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(846, 252);
+            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
+            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(43, 25);
+            this.siticoneHtmlLabel4.TabIndex = 599;
+            this.siticoneHtmlLabel4.Text = "Result";
+            // 
+            // siticoneHtmlLabel3
+            // 
+            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel3.Enabled = false;
+            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(663, 252);
+            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
+            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(72, 25);
+            this.siticoneHtmlLabel3.TabIndex = 598;
+            this.siticoneHtmlLabel3.Text = "Laboratory";
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Enabled = false;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(474, 252);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(59, 25);
+            this.siticoneHtmlLabel2.TabIndex = 597;
+            this.siticoneHtmlLabel2.Text = "Approval";
+            // 
+            // siticoneHtmlLabel1
+            // 
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Enabled = false;
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(285, 252);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(54, 25);
+            this.siticoneHtmlLabel1.TabIndex = 595;
+            this.siticoneHtmlLabel1.Text = "Request";
+            // 
+            // siticoneSeparator1
+            // 
+            this.siticoneSeparator1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.siticoneSeparator1.Enabled = false;
+            this.siticoneSeparator1.FillColor = System.Drawing.Color.LightGray;
+            this.siticoneSeparator1.FillStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.siticoneSeparator1.Location = new System.Drawing.Point(239, 261);
+            this.siticoneSeparator1.Name = "siticoneSeparator1";
+            this.siticoneSeparator1.Size = new System.Drawing.Size(607, 10);
+            this.siticoneSeparator1.TabIndex = 596;
+            // 
+            // WizardBalloon4
+            // 
+            this.WizardBalloon4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon4.Enabled = false;
+            this.WizardBalloon4.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon4.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
+            this.WizardBalloon4.ImageRotate = 0F;
+            this.WizardBalloon4.Location = new System.Drawing.Point(794, 243);
+            this.WizardBalloon4.Name = "WizardBalloon4";
+            this.WizardBalloon4.ShadowDecoration.Parent = this.WizardBalloon4;
+            this.WizardBalloon4.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon4.TabIndex = 602;
+            this.WizardBalloon4.TabStop = false;
+            // 
+            // WizardBalloon3
+            // 
+            this.WizardBalloon3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon3.Enabled = false;
+            this.WizardBalloon3.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon3.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
+            this.WizardBalloon3.ImageRotate = 0F;
+            this.WizardBalloon3.Location = new System.Drawing.Point(610, 243);
+            this.WizardBalloon3.Name = "WizardBalloon3";
+            this.WizardBalloon3.ShadowDecoration.Parent = this.WizardBalloon3;
+            this.WizardBalloon3.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon3.TabIndex = 601;
+            this.WizardBalloon3.TabStop = false;
+            // 
+            // WizardBalloon2
+            // 
+            this.WizardBalloon2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon2.Enabled = false;
+            this.WizardBalloon2.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon2.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
+            this.WizardBalloon2.ImageRotate = 0F;
+            this.WizardBalloon2.Location = new System.Drawing.Point(420, 243);
+            this.WizardBalloon2.Name = "WizardBalloon2";
+            this.WizardBalloon2.ShadowDecoration.Parent = this.WizardBalloon2;
+            this.WizardBalloon2.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon2.TabIndex = 600;
+            this.WizardBalloon2.TabStop = false;
+            // 
+            // WizardBalloon1
+            // 
+            this.WizardBalloon1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon1.Enabled = false;
+            this.WizardBalloon1.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon1.Image = global::ULTRAMAVERICK.Properties.Resources.current;
+            this.WizardBalloon1.ImageRotate = 0F;
+            this.WizardBalloon1.Location = new System.Drawing.Point(232, 243);
+            this.WizardBalloon1.Name = "WizardBalloon1";
+            this.WizardBalloon1.ShadowDecoration.Parent = this.WizardBalloon1;
+            this.WizardBalloon1.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon1.TabIndex = 594;
+            this.WizardBalloon1.TabStop = false;
+            // 
+            // lblPattern1
+            // 
+            this.lblPattern1.AutoSize = true;
+            this.lblPattern1.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern1.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern1.Location = new System.Drawing.Point(282, 272);
+            this.lblPattern1.Name = "lblPattern1";
+            this.lblPattern1.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern1.TabIndex = 603;
+            this.lblPattern1.Text = "◙";
+            this.lblPattern1.Visible = false;
+            this.lblPattern1.MouseHover += new System.EventHandler(this.label1_MouseHover);
+            // 
+            // btnCancelLabRequest
+            // 
+            this.btnCancelLabRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancelLabRequest.Depth = 0;
+            this.btnCancelLabRequest.DrawShadows = true;
+            this.btnCancelLabRequest.HighEmphasis = true;
+            this.btnCancelLabRequest.Icon = null;
+            this.btnCancelLabRequest.Location = new System.Drawing.Point(349, 728);
+            this.btnCancelLabRequest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCancelLabRequest.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancelLabRequest.Name = "btnCancelLabRequest";
+            this.btnCancelLabRequest.Size = new System.Drawing.Size(77, 36);
+            this.btnCancelLabRequest.TabIndex = 604;
+            this.btnCancelLabRequest.Text = "CANCEL";
+            this.btnCancelLabRequest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancelLabRequest.UseAccentColor = false;
+            this.btnCancelLabRequest.UseVisualStyleBackColor = true;
+            this.btnCancelLabRequest.Click += new System.EventHandler(this.matBtnCancel_Click);
+            // 
+            // lblPattern2
+            // 
+            this.lblPattern2.AutoSize = true;
+            this.lblPattern2.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern2.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern2.Location = new System.Drawing.Point(470, 272);
+            this.lblPattern2.Name = "lblPattern2";
+            this.lblPattern2.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern2.TabIndex = 605;
+            this.lblPattern2.Text = "◙";
+            this.lblPattern2.Visible = false;
+            this.lblPattern2.MouseHover += new System.EventHandler(this.lblPattern2_MouseHover);
+            // 
+            // lblPattern3
+            // 
+            this.lblPattern3.AutoSize = true;
+            this.lblPattern3.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern3.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern3.Location = new System.Drawing.Point(659, 272);
+            this.lblPattern3.Name = "lblPattern3";
+            this.lblPattern3.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern3.TabIndex = 606;
+            this.lblPattern3.Text = "◙";
+            this.lblPattern3.Visible = false;
+            this.lblPattern3.MouseHover += new System.EventHandler(this.lblPattern3_MouseHover);
+            // 
+            // lblPattern4
+            // 
+            this.lblPattern4.AutoSize = true;
+            this.lblPattern4.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern4.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern4.Location = new System.Drawing.Point(842, 272);
+            this.lblPattern4.Name = "lblPattern4";
+            this.lblPattern4.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern4.TabIndex = 607;
+            this.lblPattern4.Text = "◙";
+            this.lblPattern4.Visible = false;
+            // 
+            // MatBtnReceived
+            // 
+            this.MatBtnReceived.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatBtnReceived.Depth = 0;
+            this.MatBtnReceived.DrawShadows = true;
+            this.MatBtnReceived.HighEmphasis = true;
+            this.MatBtnReceived.Icon = null;
+            this.MatBtnReceived.Location = new System.Drawing.Point(1135, 727);
+            this.MatBtnReceived.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MatBtnReceived.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatBtnReceived.Name = "MatBtnReceived";
+            this.MatBtnReceived.Size = new System.Drawing.Size(89, 36);
+            this.MatBtnReceived.TabIndex = 608;
+            this.MatBtnReceived.Text = "RECEIVED";
+            this.MatBtnReceived.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatBtnReceived.UseAccentColor = false;
+            this.MatBtnReceived.UseVisualStyleBackColor = true;
+            this.MatBtnReceived.Visible = false;
+            // 
+            // siticoneHtmlLabelItemDesc
+            // 
+            this.siticoneHtmlLabelItemDesc.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabelItemDesc.Enabled = false;
+            this.siticoneHtmlLabelItemDesc.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneHtmlLabelItemDesc.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabelItemDesc.Location = new System.Drawing.Point(17, 3);
+            this.siticoneHtmlLabelItemDesc.Name = "siticoneHtmlLabelItemDesc";
+            this.siticoneHtmlLabelItemDesc.Size = new System.Drawing.Size(45, 21);
+            this.siticoneHtmlLabelItemDesc.TabIndex = 609;
+            this.siticoneHtmlLabelItemDesc.Text = "Request";
+            // 
             // frmLabTestModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 765);
+            this.ClientSize = new System.Drawing.Size(1344, 773);
+            this.Controls.Add(this.MatBtnReceived);
             this.Controls.Add(this.lblPattern4);
             this.Controls.Add(this.lblPattern3);
             this.Controls.Add(this.lblPattern2);
             this.Controls.Add(this.btnCancelLabRequest);
             this.Controls.Add(this.lblPattern1);
-            this.Controls.Add(this.PaymentImage);
-            this.Controls.Add(this.ConfirmImage);
+            this.Controls.Add(this.WizardBalloon4);
+            this.Controls.Add(this.WizardBalloon3);
             this.Controls.Add(this.WizardBalloon2);
             this.Controls.Add(this.WizardBalloon1);
             this.Controls.Add(this.siticoneHtmlLabel4);
@@ -819,8 +856,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PaymentImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConfirmImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon1)).EndInit();
             this.ResumeLayout(false);
@@ -850,8 +887,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private MaterialSkin.Controls.MaterialButton matBtnNew;
         private MaterialSkin.Controls.MaterialButton matViewLabRecords;
         private MaterialSkin.Controls.MaterialButton matBtnViewLabRecords;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox PaymentImage;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox ConfirmImage;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox WizardBalloon4;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox WizardBalloon3;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox WizardBalloon2;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox WizardBalloon1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
@@ -877,5 +914,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private System.Windows.Forms.DataGridViewTextBoxColumn HISTORY;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGING;
         private System.Windows.Forms.DataGridViewTextBoxColumn lab_result_remarks;
+        private MaterialSkin.Controls.MaterialButton MatBtnReceived;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabelItemDesc;
     }
 }

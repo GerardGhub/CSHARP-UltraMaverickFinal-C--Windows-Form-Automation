@@ -34,10 +34,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             InitializeComponent();
         }
 
-        public string SpItemCode { get; set; }
+        public string SpQAApprovalDate { get; set; }
         public int SpUseridentity { get; set; }
         public string SpItemDescription { get; set; }
-        public string SpCategory { get; set; }
+        public string SpLabResultReleasedDate { get; set; }
         public string SpTransactionType { get; set; }
         public string SpQuantity { get; set; }
         public string SpRemainingQuantity { get; set; }
@@ -54,6 +54,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpHistorical { get; set; }
         public string SpAging { get; set; }
         public string FkReceivingID { get; set; }
+        public string SpQAApprovalStatus { get; set; }
+        public string SpLabResultRemarks { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -113,6 +115,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["lot_no"].Visible = false;
             this.dgvRawMats.Columns["lab_request_date"].Visible = false;
             this.dgvRawMats.Columns["qty_received"].Visible = false;
+            this.dgvRawMats.Columns["qa_approval_status"].Visible = false;
+            this.dgvRawMats.Columns["qa_approval_date"].Visible = false;
+            this.dgvRawMats.Columns["lab_result_released_date"].Visible = false;
         }
 
 
@@ -183,6 +188,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     {
                         p_id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["id"].Value);
                          this.matTxtItemCode.Text = this.dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.siticoneHtmlLabelItemDesc.Text = this.dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
                         this.SpItemDescription = this.dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
                         this.SpRemainingQuantity = this.dgvRawMats.CurrentRow.Cells["remaining_qty"].Value.ToString();
                         this.matTxtCategory.Text = this.dgvRawMats.CurrentRow.Cells["category"].Value.ToString();
@@ -197,6 +203,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpAging = this.dgvRawMats.CurrentRow.Cells["AGING"].Value.ToString();
                         this.FkReceivingID = this.dgvRawMats.CurrentRow.Cells["id"].Value.ToString();
                         this.SpHistorical = this.dgvRawMats.CurrentRow.Cells["HISTORY"].Value.ToString();
+                        this.SpQAApprovalStatus = this.dgvRawMats.CurrentRow.Cells["qa_approval_status"].Value.ToString();
+                        this.SpLabResultRemarks = this.dgvRawMats.CurrentRow.Cells["lab_result_remarks"].Value.ToString();
+                        this.SpQAApprovalDate = this.dgvRawMats.CurrentRow.Cells["qa_approval_date"].Value.ToString();
+                        this.SpLabResultReleasedDate = this.dgvRawMats.CurrentRow.Cells["lab_result_released_date"].Value.ToString();
+
+                    
                     }
                 }
             }
@@ -237,14 +249,61 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
            //2nd Level of Request
            if (this.lblPattern1.Visible == true)
             {
-                WizardBalloon2.Image = Properties.Resources.current;       
+                this.WizardBalloon2.Image = Properties.Resources.current;       
             }
            else
             {
-                WizardBalloon2.Image = Properties.Resources.pending;
+                this.WizardBalloon2.Image = Properties.Resources.pending;
             }
 
-        }
+           if (this.SpQAApprovalStatus == "1")
+            {
+                this.WizardBalloon2.Image = Properties.Resources.completed;
+                this.WizardBalloon3.Image = Properties.Resources.current;
+
+                this.lblPattern2.Visible = true;
+            }
+           else
+            {
+
+                this.lblPattern2.Visible = false;
+                this.WizardBalloon3.Image = Properties.Resources.pending;
+            }
+
+
+
+            if (this.SpLabStatus == "LAB REQUEST" && this.SpQAApprovalStatus == "1")
+            {
+                this.btnCancelLabRequest.Enabled = false;
+            }
+            else
+            {
+                this.btnCancelLabRequest.Enabled = true;
+            }
+
+            //3
+            if (this.SpLabResultRemarks != "0")
+            {
+                this.WizardBalloon3.Image = Properties.Resources.completed;
+                this.WizardBalloon4.Image = Properties.Resources.current;
+                this.lblPattern3.Visible = true;
+            }
+            else
+            {
+                this.lblPattern3.Visible = false;
+                this.WizardBalloon4.Image = Properties.Resources.pending;
+            }
+
+            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0")
+            {
+                this.MatBtnReceived.Visible = true;
+            }
+            else
+            {
+                this.MatBtnReceived.Visible = false;
+            }
+
+            }
 
         private void matViewLabRecords_Click(object sender, EventArgs e)
         {
@@ -373,6 +432,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 this.showRawMaterialsNearlyExpiry();
             }
+        }
+
+        private void lblPattern2_MouseHover(object sender, EventArgs e)
+        {
+            this.GlobalStatePopup.WizzardMesage2 = this.SpQAApprovalDate;
+            this.GlobalStatePopup.BallonNotifyHover2();
+        }
+
+        private void lblPattern3_MouseHover(object sender, EventArgs e)
+        {
+            this.GlobalStatePopup.WizzardMesage3 = this.SpLabResultReleasedDate;
+            this.GlobalStatePopup.BallonNotifyHover3();
         }
     }
 }
