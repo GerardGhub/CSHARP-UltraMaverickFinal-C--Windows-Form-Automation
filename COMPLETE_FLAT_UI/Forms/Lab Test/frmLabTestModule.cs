@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
-
+        public Byte[] imageByte = null;
         int p_id = 0;
 
         DateTime dNow = DateTime.Now;
@@ -44,7 +45,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpMftgDate { get; set; }
         public string SpExpiryDate { get; set; }
         public string SpLotNumber { get; set; }
-        public string SpLotDescription { get; set; }
+        public string SpItemImage { get; set; }
         public string SpDateOfLastUsed { get; set; }
         public string SpExpiryDays { get; set; }
         public string SpRMDateLastUsedPreparation { get; set; }
@@ -62,12 +63,63 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.ConnectionInitialization();
             this.showRawMaterialsNearlyExpiry();
             this.WindowLoadState();
+         
         }
 
 
-    
+
+        private void loadImage()
+        {
+            //sp_user_id = primary_key;
+
+            //dsImage = g_objStoredProcCollection.sp_employee_new(sp_user_id, "", "getImage");
+            //              imageByte = (Byte[])(dsImage.Tables[0].Rows[0]["image_employee"]);
+            try
+            {
+
+                //imageByte = System.Text.Encoding.UTF8.GetBytes(SpItemImage);
+                if (imageByte.Length == 0)
+                {
+                    loadDefaultImage();
+                }
+                else
+                {
+                    try
+                    {
+
+                        pbImage.Image = Image.FromStream(new MemoryStream(imageByte));
+
+                    }
+                    catch (Exception exception)
+                    {
+                        this.Show();
+                        MessageBox.Show(exception.Message);
+                        loadDefaultImage();
+                        //MessageBox.Show("Error  :  Image of" + txtname.Text + "  Failed To Load. \n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception) { loadDefaultImage(); }
+        }
 
 
+        private void loadDefaultImage()
+        {
+            try
+            {
+       
+                pbImage.Image = null;
+                pbImage.Refresh();
+                pbImage.BackgroundImage = new Bitmap(Properties.Resources.Buddy);
+                // Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Buddy.png");
+                imageByte = new byte[Convert.ToInt32(null)];
+             
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
 
         private void WindowLoadState()
@@ -178,6 +230,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
             this.showValueCell();
+
+   
+          
         }
 
         private void showValueCell()
@@ -210,7 +265,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpQAApprovalDate = this.dgvRawMats.CurrentRow.Cells["qa_approval_date"].Value.ToString();
                         this.SpLabResultReleasedDate = this.dgvRawMats.CurrentRow.Cells["lab_result_released_date"].Value.ToString();
                         this.matItemDateLastUsed.Text = this.dgvRawMats.CurrentRow.Cells["RM_ITEM_LAST_USED"].Value.ToString();
-                    
+                        //this.SpItemImage = this.dgvRawMats.CurrentRow.Cells["item_image"].Value.ToString();
+
                     }
                 }
             }

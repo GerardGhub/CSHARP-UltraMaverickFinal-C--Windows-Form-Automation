@@ -562,7 +562,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.lblGenderSelected);
             this.Margin = new System.Windows.Forms.Padding(1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditUser";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit User Information";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditUser_FormClosing);
