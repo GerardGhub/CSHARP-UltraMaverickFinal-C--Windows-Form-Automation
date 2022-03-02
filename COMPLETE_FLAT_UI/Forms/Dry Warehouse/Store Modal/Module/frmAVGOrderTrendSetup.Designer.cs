@@ -491,6 +491,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.metroSave);
             this.Controls.Add(this.materialCard2);
             this.Name = "frmAVGOrderTrendSetup";
+            this.Sizable = false;
             this.Text = "Average Order Trend";
             this.Load += new System.EventHandler(this.frmAVGOrderTrendSetup_Load);
             this.materialCard3.ResumeLayout(false);

@@ -289,6 +289,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmManualAllocationController";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MANUAL ALLOCATION";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmManualAllocationController_FormClosing);

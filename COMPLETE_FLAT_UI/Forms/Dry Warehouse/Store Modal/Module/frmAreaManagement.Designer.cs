@@ -332,6 +332,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialCard2);
             this.Name = "frmAreaManagement";
+            this.Sizable = false;
             this.Text = "Store Area";
             this.Load += new System.EventHandler(this.frmAreaManagement_Load);
             this.materialCard1.ResumeLayout(false);

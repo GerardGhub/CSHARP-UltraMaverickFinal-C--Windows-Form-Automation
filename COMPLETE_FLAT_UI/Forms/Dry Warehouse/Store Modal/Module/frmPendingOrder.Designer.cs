@@ -300,6 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.label4);
             this.Controls.Add(this.materialCard2);
             this.Name = "frmPendingOrder";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pending Order";
             this.Load += new System.EventHandler(this.frmPendingOrder_Load);

@@ -305,6 +305,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialCard1);
             this.Name = "frmStoreOrderRestAPIcall";
+            this.Sizable = false;
             this.Text = "Store Order REST-API";
             this.Load += new System.EventHandler(this.frmStoreOrderRestAPIcall_Load);
             this.materialCard1.ResumeLayout(false);

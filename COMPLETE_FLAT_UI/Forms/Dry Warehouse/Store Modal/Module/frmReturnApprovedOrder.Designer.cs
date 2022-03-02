@@ -117,6 +117,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmReturnApprovedOrder";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return Approved Order";
             this.Load += new System.EventHandler(this.frmReturnApprovedOrder_Load);

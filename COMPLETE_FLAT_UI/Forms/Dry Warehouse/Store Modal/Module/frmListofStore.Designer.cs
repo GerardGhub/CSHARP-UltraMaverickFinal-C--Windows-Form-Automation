@@ -390,6 +390,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);
             this.Name = "frmListofStore";
+            this.Sizable = false;
             this.Text = "List of Store";
             this.Load += new System.EventHandler(this.frmListofStore_Load);
             this.materialCard2.ResumeLayout(false);
