@@ -80,7 +80,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.DrawShadows = true;
             this.matBtnSave.HighEmphasis = true;
             this.matBtnSave.Icon = null;
-            this.matBtnSave.Location = new System.Drawing.Point(512, 207);
+            this.matBtnSave.Location = new System.Drawing.Point(572, 201);
             this.matBtnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSave.Name = "matBtnSave";

@@ -89,7 +89,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("For Development And Clarifications");
+            //MessageBox.Show("For Development And Clarifications");
+            toolStripMain.Visible = false;
+            frmEditStore addNew = new frmEditStore(this);
+            addNew.ShowDialog();
+
         }
     }
 }

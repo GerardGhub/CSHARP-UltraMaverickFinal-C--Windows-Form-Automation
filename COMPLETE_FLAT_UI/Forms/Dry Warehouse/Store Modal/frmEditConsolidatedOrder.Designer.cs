@@ -320,7 +320,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.textBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditConsolidatedOrder";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Consolidated Order";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditConsolidatedOrder_FormClosing);

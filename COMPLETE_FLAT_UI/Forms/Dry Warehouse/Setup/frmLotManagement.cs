@@ -228,7 +228,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
-           frmUpdateLotData addNew = new frmUpdateLotData(this, sp_user_id, sp_lot_number, sp_description, sp_category, p_id);
+           frmUpdateLotData addNew = new frmUpdateLotData(this, this.sp_user_id, this.sp_lot_number, this.sp_description, this.sp_category, this.p_id, this.Sp_Total_SKU);
             addNew.ShowDialog();
         }
 
@@ -245,11 +245,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
                     if (dgvLotData.CurrentRow.Cells["lot_number"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvLotData.CurrentRow.Cells["id"].Value);
-                        sp_lot_number = dgvLotData.CurrentRow.Cells["lot_number"].Value.ToString();
-                        sp_description = dgvLotData.CurrentRow.Cells["description"].Value.ToString();
-                        sp_category = dgvLotData.CurrentRow.Cells["category"].Value.ToString();
-                        Sp_Total_SKU = dgvLotData.CurrentRow.Cells["TOTALSKU"].Value.ToString();
+                        this.p_id = Convert.ToInt32(this.dgvLotData.CurrentRow.Cells["id"].Value);
+                        this.sp_lot_number = this.dgvLotData.CurrentRow.Cells["lot_number"].Value.ToString();
+                        this.sp_description = this.dgvLotData.CurrentRow.Cells["description"].Value.ToString();
+                        this.sp_category = this.dgvLotData.CurrentRow.Cells["category"].Value.ToString();
+                        this.Sp_Total_SKU = this.dgvLotData.CurrentRow.Cells["TOTALSKU"].Value.ToString();
                    
                     }
                 }
