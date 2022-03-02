@@ -32,23 +32,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.cmbStoreArea = new MetroFramework.Controls.MetroComboBox();
-            this.cmbStoreRoute = new MetroFramework.Controls.MetroComboBox();
             this.mattxtStoreName = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtStoreCode = new MaterialSkin.Controls.MaterialTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.cmbStoreRoute = new System.Windows.Forms.ComboBox();
+            this.cmbStoreArea = new System.Windows.Forms.ComboBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.materialLabel2);
-            this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.cmbStoreArea);
             this.materialCard1.Controls.Add(this.cmbStoreRoute);
+            this.materialCard1.Controls.Add(this.materialLabel2);
+            this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.mattxtStoreName);
             this.materialCard1.Controls.Add(this.mattxtStoreCode);
             this.materialCard1.Depth = 0;
@@ -85,31 +85,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel1.TabIndex = 4;
             this.materialLabel1.Text = "Store Route";
             // 
-            // cmbStoreArea
-            // 
-            this.cmbStoreArea.FormattingEnabled = true;
-            this.cmbStoreArea.ItemHeight = 23;
-            this.cmbStoreArea.Location = new System.Drawing.Point(40, 374);
-            this.cmbStoreArea.Name = "cmbStoreArea";
-            this.cmbStoreArea.Size = new System.Drawing.Size(401, 29);
-            this.cmbStoreArea.TabIndex = 3;
-            this.cmbStoreArea.UseSelectable = true;
-            // 
-            // cmbStoreRoute
-            // 
-            this.cmbStoreRoute.FormattingEnabled = true;
-            this.cmbStoreRoute.ItemHeight = 23;
-            this.cmbStoreRoute.Location = new System.Drawing.Point(40, 277);
-            this.cmbStoreRoute.Name = "cmbStoreRoute";
-            this.cmbStoreRoute.Size = new System.Drawing.Size(401, 29);
-            this.cmbStoreRoute.TabIndex = 2;
-            this.cmbStoreRoute.UseSelectable = true;
-            // 
             // mattxtStoreName
             // 
             this.mattxtStoreName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattxtStoreName.Depth = 0;
-            this.mattxtStoreName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mattxtStoreName.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtStoreName.Hint = "Store Name";
             this.mattxtStoreName.Location = new System.Drawing.Point(40, 163);
             this.mattxtStoreName.MaxLength = 50;
@@ -124,7 +104,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.mattxtStoreCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattxtStoreCode.Depth = 0;
-            this.mattxtStoreCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mattxtStoreCode.Enabled = false;
+            this.mattxtStoreCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtStoreCode.Hint = "Store Code";
             this.mattxtStoreCode.Location = new System.Drawing.Point(40, 60);
             this.mattxtStoreCode.MaxLength = 50;
@@ -157,6 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.TabIndex = 482;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // materialButton1
             // 
@@ -175,6 +157,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            // 
+            // cmbStoreRoute
+            // 
+            this.cmbStoreRoute.FormattingEnabled = true;
+            this.cmbStoreRoute.Location = new System.Drawing.Point(40, 277);
+            this.cmbStoreRoute.Name = "cmbStoreRoute";
+            this.cmbStoreRoute.Size = new System.Drawing.Size(401, 21);
+            this.cmbStoreRoute.TabIndex = 6;
+            this.cmbStoreRoute.Click += new System.EventHandler(this.cmbStoreRoute_Click);
+            // 
+            // cmbStoreArea
+            // 
+            this.cmbStoreArea.FormattingEnabled = true;
+            this.cmbStoreArea.Location = new System.Drawing.Point(40, 374);
+            this.cmbStoreArea.Name = "cmbStoreArea";
+            this.cmbStoreArea.Size = new System.Drawing.Size(401, 21);
+            this.cmbStoreArea.TabIndex = 7;
+            this.cmbStoreArea.Click += new System.EventHandler(this.cmbStoreArea_Click);
             // 
             // frmEditStore
             // 
@@ -185,10 +186,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialButton1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditStore";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Store Information";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEditStore_FormClosed);
             this.Load += new System.EventHandler(this.frmEditStore_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
@@ -202,12 +206,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MetroFramework.Controls.MetroComboBox cmbStoreArea;
-        private MetroFramework.Controls.MetroComboBox cmbStoreRoute;
         private MaterialSkin.Controls.MaterialTextBox mattxtStoreName;
         private MaterialSkin.Controls.MaterialTextBox mattxtStoreCode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
+        private System.Windows.Forms.ComboBox cmbStoreRoute;
+        private System.Windows.Forms.ComboBox cmbStoreArea;
     }
 }

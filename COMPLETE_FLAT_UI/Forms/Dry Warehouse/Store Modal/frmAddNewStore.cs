@@ -44,6 +44,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
         }
+
         public string sp_user_id { get; set; }
         public string sp_store_code { get; set; }
         public string sp_store_name { get; set; }
@@ -58,6 +59,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.WindowLoader();
             this.ClearComponents();
         }
+
+
         private void WindowLoader()
         {
             this.sp_user_id = userinfo.user_id.ToString();

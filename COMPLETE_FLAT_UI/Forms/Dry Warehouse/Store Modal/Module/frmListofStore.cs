@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
         DateTime dNow = DateTime.Now;
@@ -31,6 +32,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             InitializeComponent();
         }
 
+        public string SpStoreCode { get; set; }
+        public string SpStoreName { get; set; }
+        public string SpStoreRoute { get; set; }
+        public string SpStoreArea { get; set; }
+        public string StoreId { get; set; }
+        public string sp_user_id { get; set; }
+
         private void frmListofStore_Load(object sender, EventArgs e)
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -39,6 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.showReceivingData();
             this.WindowsRefresher();
         }
+        
         private void WindowsRefresher()
         {
             if (this.textBox1.Text == "data Already Save!")
@@ -56,6 +65,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             }
+
+            this.sp_user_id = userinfo.user_id.ToString();
         }
         private void showReceivingData()      //method for loading available_menus
         {
@@ -91,9 +102,56 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             //MessageBox.Show("For Development And Clarifications");
             toolStripMain.Visible = false;
-            frmEditStore addNew = new frmEditStore(this);
+            frmEditStore addNew = new frmEditStore(this, this.SpStoreCode, this.SpStoreName, this.SpStoreRoute, this.SpStoreArea, this.StoreId);
             addNew.ShowDialog();
 
+        }
+
+        private void dgvSubCategory_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.showValueCell();
+        }
+
+        private void showValueCell()
+        {
+            if (this.dgvSubCategory.Rows.Count > 0)
+            {
+                if (this.dgvSubCategory.CurrentRow != null)
+                {
+                    if (this.dgvSubCategory.CurrentRow.Cells["store_code"].Value != null)
+                    {
+                        this.StoreId = this.dgvSubCategory.CurrentRow.Cells["stored_id"].Value.ToString();
+                        this.SpStoreCode = this.dgvSubCategory.CurrentRow.Cells["store_code"].Value.ToString();
+                        this.SpStoreName = this.dgvSubCategory.CurrentRow.Cells["store_name"].Value.ToString();
+                        this.SpStoreRoute = this.dgvSubCategory.CurrentRow.Cells["store_route"].Value.ToString();
+                        this.SpStoreArea = this.dgvSubCategory.CurrentRow.Cells["store_area"].Value.ToString();
+
+
+                    }
+                }
+            }
+        }
+
+        private void btnRemoveTool_Click(object sender, EventArgs e)
+        {
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to inactive?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                dSet.Clear();
+                dSet = objStorProc.sp_tbl_stores(Convert.ToInt32(this.StoreId),
+                    this.SpStoreName,
+                    this.SpStoreArea,
+                    this.SpStoreCode,
+                    this.SpStoreRoute,
+                    Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "delete");
+                this.GlobalStatePopup.InactiveSuccessfully();
+                this.frmListofStore_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
