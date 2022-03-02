@@ -62,6 +62,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lbltotalRecordsActiveUnits = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.lblItemDescription = new System.Windows.Forms.Label();
             this.dgvActiveUnits = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.active_pu_primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,7 +88,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblItemDescription = new System.Windows.Forms.Label();
             this.lbltotalConversion = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
@@ -454,6 +454,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Size = new System.Drawing.Size(967, 551);
             this.materialCard1.TabIndex = 485;
             // 
+            // lblItemDescription
+            // 
+            this.lblItemDescription.AutoSize = true;
+            this.lblItemDescription.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.lblItemDescription.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lblItemDescription.Location = new System.Drawing.Point(8, 6);
+            this.lblItemDescription.Name = "lblItemDescription";
+            this.lblItemDescription.Size = new System.Drawing.Size(57, 25);
+            this.lblItemDescription.TabIndex = 568;
+            this.lblItemDescription.Text = "Items";
+            // 
             // dgvActiveUnits
             // 
             this.dgvActiveUnits.AllowUserToAddRows = false;
@@ -788,18 +800,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.tabPage2.Text = "Conversions";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblItemDescription
-            // 
-            this.lblItemDescription.AutoSize = true;
-            this.lblItemDescription.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.lblItemDescription.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblItemDescription.Location = new System.Drawing.Point(8, 6);
-            this.lblItemDescription.Name = "lblItemDescription";
-            this.lblItemDescription.Size = new System.Drawing.Size(57, 25);
-            this.lblItemDescription.TabIndex = 568;
-            this.lblItemDescription.Text = "Items";
-            // 
             // lbltotalConversion
             // 
             this.lbltotalConversion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -841,6 +841,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmManageActivePrimaryUnit";
+            this.Sizable = false;
             this.Text = "Manage Conversion";
             this.Load += new System.EventHandler(this.frmManageActivePrimaryUnit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();

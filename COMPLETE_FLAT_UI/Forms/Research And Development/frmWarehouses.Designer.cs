@@ -410,6 +410,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.materialCard2);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmWarehouses";
+            this.Sizable = false;
             this.Text = "Warehouses";
             this.Load += new System.EventHandler(this.frmMajorCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).EndInit();

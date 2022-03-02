@@ -288,6 +288,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUpdateLotData";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Lot Information";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUpdateLotData_FormClosed);

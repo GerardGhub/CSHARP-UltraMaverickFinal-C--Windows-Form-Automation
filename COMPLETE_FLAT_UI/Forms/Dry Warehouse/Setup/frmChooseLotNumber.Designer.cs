@@ -312,7 +312,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.materialCard1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmChooseLotNumber";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Available Lot Number";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmChooseLotNumber_FormClosed);

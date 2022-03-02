@@ -578,6 +578,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmServeStorePreparation";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = resources.GetString("$this.Text");
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmServeStorePreparation_FormClosing);

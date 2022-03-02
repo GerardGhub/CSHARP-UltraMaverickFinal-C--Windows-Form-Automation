@@ -361,6 +361,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDryWarehouseNearlyExpiryItems";
+            this.Sizable = false;
             this.Text = "Dry Warehouse Nearly Expiry";
             this.Load += new System.EventHandler(this.frmDryWarehouseNearlyExpiryItems_Load);
             this.materialCard1.ResumeLayout(false);

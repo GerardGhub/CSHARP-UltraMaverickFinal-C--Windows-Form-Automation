@@ -597,6 +597,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.Controls.Add(this.materialCard1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmImportPoSummary";
+            this.Sizable = false;
             this.Text = "PO Summary";
             this.Load += new System.EventHandler(this.frmImportPoSummary_Load);
             this.materialCard1.ResumeLayout(false);

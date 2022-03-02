@@ -311,6 +311,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmListofReceiving";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "List of Warehouse Receiving";
             this.Load += new System.EventHandler(this.frmListofReceiving_Load);

@@ -438,6 +438,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.metroSave);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmSubCategory";
+            this.Sizable = false;
             this.Text = "Category";
             this.Load += new System.EventHandler(this.frmSubCategory_Load);
             this.materialCard1.ResumeLayout(false);

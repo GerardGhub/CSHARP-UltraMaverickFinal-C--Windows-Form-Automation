@@ -490,6 +490,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.materialCard2);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmDryWHInventory";
+            this.Sizable = false;
             this.Text = "Dry WH Inventory";
             this.Load += new System.EventHandler(this.frmDryWHInventory_Load);
             this.materialCard2.ResumeLayout(false);

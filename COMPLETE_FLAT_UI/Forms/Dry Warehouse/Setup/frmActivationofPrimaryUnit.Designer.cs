@@ -73,7 +73,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.metroStatus.FormattingEnabled = true;
             this.metroStatus.ItemHeight = 23;
             this.metroStatus.Location = new System.Drawing.Point(30, 130);
-            this.metroStatus.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.metroStatus.Margin = new System.Windows.Forms.Padding(1);
             this.metroStatus.Name = "metroStatus";
             this.metroStatus.Size = new System.Drawing.Size(161, 29);
             this.metroStatus.TabIndex = 4;
@@ -86,7 +86,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatConversion.Hint = "Conversion";
             this.txtMatConversion.Location = new System.Drawing.Point(473, 79);
-            this.txtMatConversion.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatConversion.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatConversion.MaxLength = 50;
             this.txtMatConversion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatConversion.Multiline = false;
@@ -103,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatPrimaryUnit.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatPrimaryUnit.Hint = "Primary Unit";
             this.txtMatPrimaryUnit.Location = new System.Drawing.Point(33, 79);
-            this.txtMatPrimaryUnit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatPrimaryUnit.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatPrimaryUnit.MaxLength = 50;
             this.txtMatPrimaryUnit.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatPrimaryUnit.Multiline = false;
@@ -121,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemDesc.Hint = "Item Description";
             this.txtMatItemDesc.Location = new System.Drawing.Point(473, 24);
-            this.txtMatItemDesc.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatItemDesc.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatItemDesc.MaxLength = 50;
             this.txtMatItemDesc.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemDesc.Multiline = false;
@@ -138,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtMatItemCode.Hint = "Item Code";
             this.txtMatItemCode.Location = new System.Drawing.Point(33, 24);
-            this.txtMatItemCode.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtMatItemCode.Margin = new System.Windows.Forms.Padding(1);
             this.txtMatItemCode.MaxLength = 50;
             this.txtMatItemCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMatItemCode.Multiline = false;
@@ -153,8 +153,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 294);
             this.Controls.Add(this.materialCard1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmActivationofPrimaryUnit";
+            this.Sizable = false;
             this.Text = "Activation of Primary Unit";
             this.Load += new System.EventHandler(this.frmActivationofPrimaryUnit_Load);
             this.materialCard1.ResumeLayout(false);

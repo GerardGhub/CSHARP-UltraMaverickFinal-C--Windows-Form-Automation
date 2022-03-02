@@ -390,6 +390,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Controls.Add(this.metroFinalSaving);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmPrimaryUnit";
+            this.Sizable = false;
             this.Text = "Primary Unit";
             this.Load += new System.EventHandler(this.frmPrimaryUnit_Load);
             this.materialCard1.ResumeLayout(false);
