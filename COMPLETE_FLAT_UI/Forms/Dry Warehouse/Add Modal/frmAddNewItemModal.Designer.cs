@@ -418,6 +418,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewItemModal";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Raw Material";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewItemModal_FormClosed);

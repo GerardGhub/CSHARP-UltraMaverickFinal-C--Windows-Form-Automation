@@ -245,6 +245,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewUomConversion";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Primary Unit Conversion";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewUomConversion_FormClosed);

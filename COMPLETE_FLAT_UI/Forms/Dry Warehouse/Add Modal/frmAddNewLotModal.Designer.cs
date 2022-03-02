@@ -291,6 +291,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewLotModal";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Lot ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewLotModal_FormClosed);
