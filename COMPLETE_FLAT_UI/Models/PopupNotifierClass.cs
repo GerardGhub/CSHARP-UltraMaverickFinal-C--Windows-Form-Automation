@@ -55,7 +55,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = this.WizzardMesage4;
+            popup.ContentText = "RESULT:" + " " + this.WizzardMesage4;
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
@@ -81,7 +81,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = this.WizzardMesage3;
+            popup.ContentText = "LABORATORY:" + " " +  this.WizzardMesage3;
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
@@ -108,7 +108,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = this.WizzardMesage2;
+            popup.ContentText ="APPROVAL:" + " " + this.WizzardMesage2;
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
@@ -136,7 +136,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = this.WizzardMesage1;
+            popup.ContentText = "REQUEST:" + " " + this.WizzardMesage1;
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
