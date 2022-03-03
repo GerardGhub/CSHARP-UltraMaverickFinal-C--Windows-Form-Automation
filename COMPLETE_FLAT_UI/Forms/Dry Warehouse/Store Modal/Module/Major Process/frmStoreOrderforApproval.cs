@@ -832,8 +832,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Label Bugok
         
             this.labelSelectedSum.Visible = false;
-            //this.frmStoreOrderforApproval_Load(sender, e);
-            this.ReturnFunctionality();
+            this.frmStoreOrderforApproval_Load(sender, e);
+            //this.ReturnFunctionality();
         }
 
         private void cmbDateOrder_SelectedIndexChanged(object sender, EventArgs e)
