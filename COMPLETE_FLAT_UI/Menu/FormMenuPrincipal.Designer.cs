@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
@@ -72,6 +72,13 @@
             this.toolTypeofApprover = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPosition = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDropdownLocation = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButtonLabTest = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLabTransaction = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRMNearlyExpiryMgmt = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripInventoryDry = new System.Windows.Forms.ToolStripDropDownButton();
             this.dryWHInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStore = new System.Windows.Forms.ToolStripDropDownButton();
@@ -107,13 +114,6 @@
             this.rMReceivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rMBarcodeModuleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rMBarcodeReprintingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemLabTransaction = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemRMNearlyExpiryMgmt = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPreparation = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolDryForApproval = new System.Windows.Forms.ToolStripMenuItem();
             this.forApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -245,47 +245,47 @@
             this.dgvParseData.AllowUserToAddRows = false;
             this.dgvParseData.AllowUserToDeleteRows = false;
             this.dgvParseData.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvParseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvParseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvParseData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvParseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvParseData.ColumnHeadersHeight = 35;
             this.dgvParseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParseData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvParseData.EnableHeadersVisualStyles = false;
             this.dgvParseData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.Location = new System.Drawing.Point(622, 16);
             this.dgvParseData.MultiSelect = false;
             this.dgvParseData.Name = "dgvParseData";
             this.dgvParseData.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvParseData.RowHeadersVisible = false;
             this.dgvParseData.RowHeadersWidth = 102;
             this.dgvParseData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -600,7 +600,7 @@
             // panelMenuSelection
             // 
             this.panelMenuSelection.Controls.Add(this.toolStrip2);
-            this.panelMenuSelection.Location = new System.Drawing.Point(2, 45);
+            this.panelMenuSelection.Location = new System.Drawing.Point(-4, 45);
             this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
             this.panelMenuSelection.Name = "panelMenuSelection";
             this.panelMenuSelection.Size = new System.Drawing.Size(247, 512);
@@ -617,7 +617,7 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolClosePanelSelection,
             this.toolDropdownUser,
-            this.toolStripDropDownButton1,
+            this.toolStripDropDownButtonLabTest,
             this.toolStripInventoryDry,
             this.toolStore,
             this.toolStripRawMaterials,
@@ -731,6 +731,65 @@
             this.toolDropdownLocation.Text = "Location";
             this.toolDropdownLocation.Click += new System.EventHandler(this.toolDropdownLocation_Click);
             // 
+            // toolStripDropDownButtonLabTest
+            // 
+            this.toolStripDropDownButtonLabTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem6});
+            this.toolStripDropDownButtonLabTest.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.toolStripDropDownButtonLabTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripDropDownButtonLabTest.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonLabTest.Image")));
+            this.toolStripDropDownButtonLabTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButtonLabTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonLabTest.Name = "toolStripDropDownButtonLabTest";
+            this.toolStripDropDownButtonLabTest.Size = new System.Drawing.Size(126, 44);
+            this.toolStripDropDownButtonLabTest.Text = "Lab Test";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemLabTransaction,
+            this.toolStripMenuItemRMNearlyExpiryMgmt,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(244, 26);
+            this.toolStripMenuItem1.Text = "Dry Warehouse";
+            // 
+            // toolStripMenuItemLabTransaction
+            // 
+            this.toolStripMenuItemLabTransaction.Name = "toolStripMenuItemLabTransaction";
+            this.toolStripMenuItemLabTransaction.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItemLabTransaction.Text = "Lab Transaction";
+            this.toolStripMenuItemLabTransaction.Click += new System.EventHandler(this.toolStripMenuItemLabTransaction_Click);
+            // 
+            // toolStripMenuItemRMNearlyExpiryMgmt
+            // 
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Name = "toolStripMenuItemRMNearlyExpiryMgmt";
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Text = "RM Nearly Expiry";
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Click += new System.EventHandler(this.toolStripMenuItemRMNearlyExpiryMgmt_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItem4.Text = "Preparation";
+            this.toolStripMenuItem4.Visible = false;
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(192, 26);
+            this.toolStripMenuItem5.Text = "Move Order";
+            this.toolStripMenuItem5.Visible = false;
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(244, 26);
+            this.toolStripMenuItem6.Text = "Preparation Department";
+            // 
             // toolStripInventoryDry
             // 
             this.toolStripInventoryDry.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -770,28 +829,28 @@
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // toolStripStoreArea
             // 
             this.toolStripStoreArea.Name = "toolStripStoreArea";
-            this.toolStripStoreArea.Size = new System.Drawing.Size(180, 26);
+            this.toolStripStoreArea.Size = new System.Drawing.Size(159, 26);
             this.toolStripStoreArea.Text = "Store Area";
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
             // storeRoute
             // 
             this.storeRoute.Name = "storeRoute";
-            this.storeRoute.Size = new System.Drawing.Size(180, 26);
+            this.storeRoute.Size = new System.Drawing.Size(159, 26);
             this.storeRoute.Text = "Store Route";
             this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
             // 
             // toolStores
             // 
             this.toolStores.Name = "toolStores";
-            this.toolStores.Size = new System.Drawing.Size(180, 26);
+            this.toolStores.Size = new System.Drawing.Size(159, 26);
             this.toolStores.Text = "Stores";
             this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
             // 
@@ -1057,65 +1116,6 @@
             this.rMBarcodeReprintingToolStripMenuItem.Text = "RM Barcode Reprinting";
             this.rMBarcodeReprintingToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeReprintingToolStripMenuItem_Click);
             // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem6});
-            this.toolStripDropDownButton1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.toolStripDropDownButton1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(231, 44);
-            this.toolStripDropDownButton1.Text = "Lab Test";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemLabTransaction,
-            this.toolStripMenuItemRMNearlyExpiryMgmt,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(244, 26);
-            this.toolStripMenuItem1.Text = "Dry Warehouse";
-            // 
-            // toolStripMenuItemLabTransaction
-            // 
-            this.toolStripMenuItemLabTransaction.Name = "toolStripMenuItemLabTransaction";
-            this.toolStripMenuItemLabTransaction.Size = new System.Drawing.Size(192, 26);
-            this.toolStripMenuItemLabTransaction.Text = "Lab Transaction";
-            this.toolStripMenuItemLabTransaction.Click += new System.EventHandler(this.toolStripMenuItemLabTransaction_Click);
-            // 
-            // toolStripMenuItemRMNearlyExpiryMgmt
-            // 
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Name = "toolStripMenuItemRMNearlyExpiryMgmt";
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Size = new System.Drawing.Size(192, 26);
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Text = "RM Nearly Expiry";
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Click += new System.EventHandler(this.toolStripMenuItemRMNearlyExpiryMgmt_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(192, 26);
-            this.toolStripMenuItem4.Text = "Preparation";
-            this.toolStripMenuItem4.Visible = false;
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(192, 26);
-            this.toolStripMenuItem5.Text = "Move Order";
-            this.toolStripMenuItem5.Visible = false;
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(244, 26);
-            this.toolStripMenuItem6.Text = "Preparation Department";
-            // 
             // toolPreparation
             // 
             this.toolPreparation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1139,7 +1139,7 @@
             this.preparationToolStripMenuItem,
             this.moveOrderToolStripMenuItem});
             this.toolDryForApproval.Name = "toolDryForApproval";
-            this.toolDryForApproval.Size = new System.Drawing.Size(180, 26);
+            this.toolDryForApproval.Size = new System.Drawing.Size(131, 26);
             this.toolDryForApproval.Text = "Store";
             this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
             // 
@@ -1174,7 +1174,7 @@
             // toolDryApprovedOrder
             // 
             this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
-            this.toolDryApprovedOrder.Size = new System.Drawing.Size(180, 26);
+            this.toolDryApprovedOrder.Size = new System.Drawing.Size(131, 26);
             this.toolDryApprovedOrder.Text = "Internal";
             // 
             // toolStripDropDownButton2
@@ -1264,7 +1264,7 @@
             this.btnDashBoard1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashBoard1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDashBoard1.Name = "btnDashBoard1";
-            this.btnDashBoard1.Size = new System.Drawing.Size(136, 44);
+            this.btnDashBoard1.Size = new System.Drawing.Size(179, 44);
             this.btnDashBoard1.Text = "Dashboard";
             this.btnDashBoard1.Click += new System.EventHandler(this.btnDashBoard1_Click_1);
             // 
@@ -1328,7 +1328,7 @@
             this.btnResearchAndDevelopment1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnResearchAndDevelopment1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnResearchAndDevelopment1.Name = "btnResearchAndDevelopment1";
-            this.btnResearchAndDevelopment1.Size = new System.Drawing.Size(136, 44);
+            this.btnResearchAndDevelopment1.Size = new System.Drawing.Size(179, 44);
             this.btnResearchAndDevelopment1.Text = "R&D";
             this.btnResearchAndDevelopment1.Visible = false;
             this.btnResearchAndDevelopment1.Click += new System.EventHandler(this.btnResearchAndDevelopment1_Click);
@@ -1341,7 +1341,7 @@
             this.btnSetUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetUp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSetUp.Name = "btnSetUp";
-            this.btnSetUp.Size = new System.Drawing.Size(136, 44);
+            this.btnSetUp.Size = new System.Drawing.Size(179, 44);
             this.btnSetUp.Text = "Set - Up";
             this.btnSetUp.Click += new System.EventHandler(this.btnSetUp_Click);
             // 
@@ -1728,7 +1728,7 @@
         private System.Windows.Forms.ToolStripMenuItem averageOrderTrendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderCancelRemarksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonLabTest;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLabTransaction;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRMNearlyExpiryMgmt;

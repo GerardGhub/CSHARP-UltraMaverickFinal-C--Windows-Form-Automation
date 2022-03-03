@@ -719,7 +719,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.matbtnPrint);
             this.Controls.Add(this.materialCard2);
             this.Name = "frmStoreOrderforApproval";
-            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ORDER APPROVAL";
             this.Load += new System.EventHandler(this.frmStoreOrderforApproval_Load);

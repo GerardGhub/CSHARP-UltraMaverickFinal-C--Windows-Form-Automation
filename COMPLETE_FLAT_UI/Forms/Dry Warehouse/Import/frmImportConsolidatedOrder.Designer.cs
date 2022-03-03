@@ -586,7 +586,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialCard2);
             this.Name = "frmImportConsolidatedOrder";
-            this.Sizable = false;
             this.Text = "Import Consolidated Order";
             this.Load += new System.EventHandler(this.frmImportConsolidatedOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();

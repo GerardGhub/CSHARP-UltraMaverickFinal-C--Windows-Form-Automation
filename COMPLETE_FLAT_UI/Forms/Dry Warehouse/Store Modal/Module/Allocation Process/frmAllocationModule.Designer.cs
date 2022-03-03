@@ -820,7 +820,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
             this.Name = "frmAllocationModule";
-            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STORE ORDER ALLOCATION";
             this.Load += new System.EventHandler(this.frmAllocationModule_Load);

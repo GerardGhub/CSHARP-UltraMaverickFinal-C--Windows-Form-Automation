@@ -129,6 +129,13 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.SearchMethodJarVarCallingSP();
 
             }
+            else
+            {
+                this.MatBtnReceived.Visible = false;
+                this.matBtnViewLabRecords.Visible = false;
+                this.matViewLabRecords.Visible = false;
+                this.btnCancelLabRequest.Visible = false;
+            }
             this.SpUseridentity = userinfo.user_id;
         }
 

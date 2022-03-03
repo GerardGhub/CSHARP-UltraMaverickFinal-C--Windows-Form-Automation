@@ -794,7 +794,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.matbtnCancel);
             this.Controls.Add(this.matbtnEdit);
             this.Name = "frmNewStoreOrderApproved";
-            this.Sizable = false;
             this.Text = "Store Order Approved";
             this.Load += new System.EventHandler(this.frmAddNewStoreOrderApproved_Load);
             this.materialCard2.ResumeLayout(false);

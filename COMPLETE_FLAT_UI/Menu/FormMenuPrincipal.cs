@@ -1370,6 +1370,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStore.Visible = false;
             toolStripRawMaterials.Visible = false;
             toolImportDry.Visible = false;
+            this.toolStripDropDownButtonLabTest.Visible = false;
             this.timeSubMenuIn.Start();
        
         }
@@ -1387,7 +1388,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStripRawMaterials.Visible = false;
             this.toolStripInventoryDry.Visible = true;
             this.toolStore.Visible = false;
-
+            this.toolStripDropDownButtonLabTest.Visible = true;
             this.timeSubMenuIn.Start();
 
         }
@@ -1510,6 +1511,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStore.Visible = true;
             this.toolStripInventoryDry.Visible = false;
             this.toolReceiving.Visible = false;
+            this.toolStripDropDownButtonLabTest.Visible = false;
             this.timeSubMenuIn.Start();
         }
 

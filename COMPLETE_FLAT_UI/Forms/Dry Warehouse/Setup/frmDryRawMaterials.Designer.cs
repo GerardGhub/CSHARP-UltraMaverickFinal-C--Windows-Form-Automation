@@ -451,7 +451,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.materialCard1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmDryRawMaterials";
-            this.Sizable = false;
             this.Text = "Dry Raw Materials";
             this.Load += new System.EventHandler(this.frmDryRawMaterials_Load);
             this.materialCard1.ResumeLayout(false);
