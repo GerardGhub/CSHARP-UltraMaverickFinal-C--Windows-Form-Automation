@@ -18,6 +18,7 @@ namespace ULTRAMAVERICK.Models
         public string WizzardMesage2 { get; set; }
         public string WizzardMesage3 { get; set; }
         public string WizzardMesage4 { get; set; }
+        public string ItemDescription { get; set; }
 
 
 
@@ -582,7 +583,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Committed Successfully";
+            popup.ContentText = "Your Data Has Been Successfully Saved";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
@@ -630,6 +631,207 @@ namespace ULTRAMAVERICK.Models
 
         }
 
+
+        public void QCReceiverAlreadyApproved()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+          
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Item Already Approved on QC Supervisor for receiving!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        public void LessThanQtyReceived()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Less Than Qty Received";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+
+        public void InvalidQuantity()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+   
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Invalid Quantity!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        public void RMNotExistReceiving()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+ 
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "No Item for Receiving";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Red;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+
+        public void SuccessfullyReceived()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Successfully Received";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        public void ItemFoundforReceiving()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "For Receiving '" + this.ItemDescription + "'";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Green;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
+
+
+        public void RawMaterialNotExist()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            //popup.Image = Resources.new_logo;
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Item Not Exist!";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.Crimson;
+            popup.Popup();
+
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+
+
+            popup.ShowOptionsButton = true;
+
+
+        }
 
         public void UpdatedSuccessfully()
         {

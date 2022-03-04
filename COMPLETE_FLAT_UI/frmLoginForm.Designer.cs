@@ -216,6 +216,7 @@ namespace COMPLETE_FLAT_UI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLoginForm";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
             this.Load += new System.EventHandler(this.frmLoginForm_Load);

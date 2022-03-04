@@ -30,10 +30,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
    
         myclasses myClass = new myclasses();
         string mode = "";
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmImportPoSummary()
         {
             InitializeComponent();
         }
+
+
         public string Item_id_main { get; set; }
         public string Item_code_main { get; set; }
         public string Item_description_main { get; set; }
@@ -366,7 +369,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                     if (mode == "error")
                     {
-                        this.ErrorNotify();
+                        this.GlobalStatePopup.ErrorNotify();
                     }
                     else
                     {
@@ -475,14 +478,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                     if (mode == "error")
                     {
-                        this.ErrorNotify();
+                        this.GlobalStatePopup.ErrorNotify();
                     }
                     else
                     {
 
                         this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                         this.saveMode();  //Update All Data here
-                        this.SavedNotify();
+                        this.GlobalStatePopup.CommittedSuccessFully();
                     }
 
         
@@ -515,9 +518,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
 
 
-                this.SavedNotify();
+                this.GlobalStatePopup.CommittedSuccessFully();
 
-                matbtnUpload.Visible = false;
+                this.matbtnUpload.Visible = false;
 
 
 
@@ -554,64 +557,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         }
 
-        private void ErrorNotify()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Uploading Interupt Check the data to proceed";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
+      
 
 
-            popup.ShowOptionsButton = true;
 
-
-        }
-
-
-        private void SavedNotify()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Uploaded Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
         private void matbtnUpload_Click(object sender, EventArgs e)

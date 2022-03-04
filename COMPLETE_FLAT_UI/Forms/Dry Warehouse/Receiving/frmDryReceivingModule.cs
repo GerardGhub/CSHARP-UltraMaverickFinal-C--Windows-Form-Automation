@@ -28,6 +28,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         string Rpt_Path = "";
      
         ReportDocument rpt = new ReportDocument();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmDryReceivingModule()
         {
             InitializeComponent();
@@ -98,92 +99,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
-        private void RMNotExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Item Not Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
+    
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        private void RMNotExistReceiving()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "No Item for Receiving";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        private void QCReceiverAlreadyApproved()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Item Already Approved on QC Supervisor for receiving!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
@@ -266,14 +184,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     if(totalRecords == "0")
                     {
-                        this.RMNotExistReceiving();
+                        this.GlobalStatePopup.RMNotExistReceiving();
                         this.mattxtbarcode.Text = String.Empty;
                         this.mattxtbarcode.Focus();
                     }
                     else
                     {
                         this.mattxtbarcode.Text = String.Empty;
-                        this.ItemFoundforReceiving();
+                      this.mattxtitemdesc.Text =  this.GlobalStatePopup.ItemDescription;
+                       this.GlobalStatePopup.ItemFoundforReceiving();
                         this.materialCard2.Visible = true;
                         this.materialCard3.Visible = true;
                         this.mattxtReceived.Visible = true;
@@ -289,7 +208,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 }
                 else
                 {
-                    this.RMNotExistReceiving();
+                    this.GlobalStatePopup.RMNotExistReceiving();
                     this.mattxtbarcode.Text = String.Empty;
                     this.mattxtbarcode.Focus();
                     return;
@@ -299,7 +218,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 }
             else
             {
-                this.RMNotExist();
+                this.GlobalStatePopup.RawMaterialNotExist();
                 this.mattxtbarcode.Text = String.Empty;
                 this.mattxtbarcode.Focus();
                 return;
@@ -309,32 +228,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
-        private void ItemFoundforReceiving()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "For Receiving '"+mattxtitemdesc.Text+"'";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void dgvMajorCategory_CurrentCellChanged(object sender, EventArgs e)
         {
@@ -492,128 +386,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             
         }
-        public void FillRequiredFields()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Fill up the required fields!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void InvalidQuantity()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Invalid Quantity!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
+   
 
         private void mattxtReceived_Click(object sender, EventArgs e)
         {
 
         }
 
-        public void LessThanQtyReceived()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Less Than Qty Received";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void InvalidQtyReceived()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Invalid Qty Received";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+  
 
         private void mattxtReceived_Click_1(object sender, EventArgs e)
         {
 
             if (this.mattxtqtyReceived.Text.Trim() == string.Empty)
             {
-                this.FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
       
                 return;
             }
 
             if(this.mattxtqtyReceived.Text == "0")
             {
-                this.InvalidQuantity();
+                this.GlobalStatePopup.InvalidQuantity();
 
                 return;
             }
@@ -631,7 +427,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 // code
 
-                this.LessThanQtyReceived();
+                this.GlobalStatePopup.LessThanQtyReceived();
                 this.mattxtqtyReceived.Text = String.Empty;
                 this.mattxtqtyReceived.Focus();
                 return;
@@ -645,14 +441,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (this.mattxtlotno.Text.Trim() == string.Empty)
             {
-                this.FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
                 frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, this.mattxtcategory.Text);
                 LotSelection.ShowDialog();
                 return;
             }
             if (this.mattxtLotDescription.Text.Trim() == string.Empty)
             {
-                this.FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
                 frmChooseLotNumber LotSelection = new frmChooseLotNumber(this, this.mattxtcategory.Text);
                 LotSelection.ShowDialog();
                 return;
@@ -673,7 +469,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 // code
   
-                this.LessThanQtyReceived();
+                this.GlobalStatePopup.LessThanQtyReceived();
                 this.btnAddRejetModal_Click(sender, e);
                 return;
             }
@@ -686,13 +482,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //proceess of repack kupra
             if (currentreject == 0)
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
-
-
-                    //this.SummaryComputation();  11/19/2021
                     this.SummaryComputation(); //Inject 11/25/2021
 
                
@@ -709,7 +502,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_wh_re_qa'");
 
-
+                    //MessageBox.Show(p_id.ToString());
+                    //return;
                     //Commit the Data on The Database Stored procedure
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
@@ -731,7 +525,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_timer_dispossal");
                     }
 
-                        this.SaveSuccessfully();
+                    this.GlobalStatePopup.SuccessfullyReceived();
                     this.showLatestID();
                     //this.SummaryComputation();
 
@@ -800,7 +594,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                    this.SaveSuccessfully();
+                    this.GlobalStatePopup.SuccessfullyReceived();
                     this.showLatestID();
                     //this.SummaryComputation();
 
@@ -876,32 +670,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             rpt.PrintToPrinter(printDialog.PrinterSettings.Copies, printDialog.PrinterSettings.Collate, printDialog.PrinterSettings.ToPage, printDialog.PrinterSettings.ToPage);
 
         }
-        public void SaveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Received";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+  
 
         private void btnAddRejetModal_Click(object sender, EventArgs e)
         {
@@ -909,7 +678,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //Notify the User if the Transactioin already approve by QC Superviosr
             if (this.sp_warehouse_reject_approval == "1")
             {
-                this.QCReceiverAlreadyApproved();
+                this.GlobalStatePopup.QCReceiverAlreadyApproved();
             }
            
                 frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text, p_id, Convert.ToInt32(mattxtponumber.Text), sp_projection_id);
