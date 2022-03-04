@@ -824,7 +824,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show("Kupal");
+           
             this.materialCheckboxSelectAll.Text = "Select All";
             //Reset the NUmber 
             this.textBox1.Text = String.Empty;
