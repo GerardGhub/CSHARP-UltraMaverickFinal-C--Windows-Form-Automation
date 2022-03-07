@@ -372,6 +372,7 @@ namespace ULTRAMAVERICK.Models
         string qty_reject,
         int po_number,
         int added_by_userid,
+        string is_expiry_received,
         string mode);
 
 
