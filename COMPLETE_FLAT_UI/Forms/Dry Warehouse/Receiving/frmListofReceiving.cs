@@ -37,7 +37,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
             this.showReceivingData();
-        }
+    
+        
+
+            }
+
+
 
         private void showReceivingData()      //method for loading available_menus
         {

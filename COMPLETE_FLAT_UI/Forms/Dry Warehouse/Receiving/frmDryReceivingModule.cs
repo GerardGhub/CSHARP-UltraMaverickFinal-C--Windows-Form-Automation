@@ -164,6 +164,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
+
+
         private void scanBarcode()
         {
 
@@ -191,7 +193,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     else
                     {
                         this.mattxtbarcode.Text = String.Empty;
-                      this.mattxtitemdesc.Text =  this.GlobalStatePopup.ItemDescription;
+                        this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
                        this.GlobalStatePopup.ItemFoundforReceiving();
                         this.materialCard2.Visible = true;
                         this.materialCard3.Visible = true;
@@ -496,11 +498,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_timer_dispossal");
 
-                    //Second Summary of Queryy Disposal of Rejection Remarks RE == QA
+                    //Second Summary of Queryy Disposal of Rejection Remarks RE == QA  ON NA 3/4/2022
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_wh_re_qa'");
+                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), "rejected_status_wh_re_qa");
+
+
+
 
                     //MessageBox.Show(p_id.ToString());
                     //return;
@@ -683,11 +688,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
            
                 frmAddNewPartialRejectReceiving showModal = new frmAddNewPartialRejectReceiving(this, mattxtitemdesc.Text, mattxtactualdelivery.Text, p_id, Convert.ToInt32(mattxtponumber.Text), sp_projection_id);
                 showModal.ShowDialog();
-          
-        
-
-    
-
         }
 
         private void dgvReceivedID_CurrentCellChanged(object sender, EventArgs e)
@@ -752,6 +752,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
-       
+        private void matbtnCancel_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.frmDryReceivingModule_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
+
+
+            }
     }
 }
