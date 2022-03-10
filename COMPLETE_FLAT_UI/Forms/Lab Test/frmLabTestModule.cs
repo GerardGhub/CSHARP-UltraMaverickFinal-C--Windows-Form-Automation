@@ -476,7 +476,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
                     p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                     "0", "0", "0", "0",
-                    "0", "0", "0", 0, 0, "dry_wh_lab_request_cancel_by_drywh");
+                    "0", "0", "0", 0, 0, "0", "dry_wh_lab_request_cancel_by_drywh");
 
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmLabTestModule_Load(sender, e);
@@ -521,7 +521,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
                     p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                     "0", "0", "0", "0",
-                    "0", "0", "0", 0, 0, "dry_wh_lab_result_received_by_drywh");
+                    "0", "0", "0", 0, 0,"0", "dry_wh_lab_result_received_by_drywh");
 
                 this.GlobalStatePopup.LabTestResultSuccessFullyReceived();
                 this.frmLabTestModule_Load(sender, e);

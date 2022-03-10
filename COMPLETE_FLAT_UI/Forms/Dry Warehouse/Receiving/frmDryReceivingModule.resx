@@ -117,6 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBoxExpiry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAOCSURBVFhH7ZdbSJNhGMe9U2EX2oHKmxASooPVhXeZO2gHEgKhKLropougLjpA4dxyrdJWWloS
+        iN2USsMydQdnOdmiFtE8zDYHLtPwEIiEpo1t6ren953P5z7dtznX7CL6wXMxvud5/v/vsOd934T/xMLr
+        3pp0Y/+TMwbno0tFevGBQq1wu6JBKMDLa0OTvVRodNW8tY0ZPAM/PgIbMq2YDYbEJxIKRYtwG5b9OfU9
+        dzPMA0/trgnLomgYA9zwyTXiB4q2Q+uwTWxoHZVXHeNGhk+YjZ6RN2ByPYPnnQq4achfbmTiuk4iwnar
+        Q+eovB/urrnBZZ6ZCxi6ZzzJNeEp0omPY9vo0PdVXY5GnAYfc4wPmnvLuSZm5RpRDraPTHNf2Q7nuDni
+        Y+dGJN5/fcE1MVb4SrIeZcJT1ynV9Y2beMX4YiX0jqqgCY34IcrwI9McTCeJvmJ9HjTaSuHbZDevKDdW
+        gr6OMuMp1oSXzI2tKBeKTCtRsm57RzvADwz89I7D0GQXrziNaLCNtgefApkTKBcKuWinSbfbjgHjnw8U
+        MwwDWVlZcO78WbD2t8dkYN4/F+iJBmwotxSFVrgBE6Ch+xaWAvh8PlAqlZCamhqIouJr4Bh5x2vA6/WC
+        1WrFX0tRdylZA37eASXVC/eyBsxf6rEsiNvthoqKCkhLSwOBQAAXr1yA2qbHYDKZoLq6GvLz8yEpKQkS
+        ExNhamoKq4KYXLWsAZC2SDJRNohUIz7CJnQNG7AslOnpaSgpKYGUlBTYuX9TIEg5JCcnQ0FBAajVavB4
+        PJgdpGu4ddGATC85vKDKgWuge7gNy8JjsVggM2cL7MreDCqVCmZmZvAKPysakGtFe9gEs6sOyyLjdDrB
+        brfjr8jQ9YLtL9fn7kbZIOE+wnix4kdIIRe7aRJd1ejCEi/oMFIaji4Y0EisKBeKTCeSo8vAIIoX3EFU
+        pJNIUS4UdhTTxPKO03F5CqsaxRSSVIbJ0NhzB9vEzsue0sW7Jx+6CmXCU9iavZGsCd/Zog+Djdhq9cS0
+        HFPkLbn7SIGbLdZ8rgg8ymjh2ZD8opMW20cH2cGcIIVetgl9j7ZRY8TvIm5bMhY6nEjxEKdZ4C9KN6B0
+        tlOxyJtS0SDv3F8N9L3RnQxpOLu0ecSIz7aci0yblyHXiW7QQUIE/MsEaazNwYQPegyjxzF6LPtrR7N/
+        lISE3+u+lOt9SwR+AAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="major_category_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -135,7 +157,6 @@
   <metadata name="mc_updated_by.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAddRejetModal.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAW5JREFUOE+l

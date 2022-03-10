@@ -59,6 +59,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     
         }
 
+
+
         private void showLatestID()      
         {
             try
@@ -76,6 +78,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         }
+
+
 
         private void firstLoad()
         {
@@ -113,6 +117,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
 
         }
+
+        DataSet dset_emp_SearchEnginesNearlyExpiry = new DataSet();
+        private void SearchMethodJarVarCallingSPNearlyExpiry()
+        {
+            myglobal.global_module = "Active"; // Mode for Searching
+            dset_emp_SearchEnginesNearlyExpiry.Clear();
+
+
+            dset_emp_SearchEnginesNearlyExpiry = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_NearlyExpiry");
+
+        }
+
 
         private void doSearchInTextBoxCmb()
         {
@@ -159,6 +175,51 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
+        private void doSearchInTextBoxCmbNearlyExpiry()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEnginesNearlyExpiry.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEnginesNearlyExpiry.Tables[0]);
+
+                    if (myglobal.global_module == "Active")
+                    {
+
+
+                        //Gerard Singian Developer Man
+
+
+
+
+                        dv.RowFilter = "item_code = '" + mattxtbarcode.Text + "'";
+
+                    }
+
+                    this.dgvMajorCategory.DataSource = dv;
+                    totalRecords = dgvMajorCategory.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
 
 
         private void scanBarcode()
@@ -181,7 +242,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     if(totalRecords == "0")
                     {
-                        this.GlobalStatePopup.RMNotExistReceiving();
+                        this.scanBarcodeNearlyExpiry();
+                        //MessageBox.Show("Buje");
+                        //return;
+                        //this.GlobalStatePopup.RMNotExistReceiving();
                         this.mattxtbarcode.Text = String.Empty;
                         this.mattxtbarcode.Focus();
                     }
@@ -205,6 +269,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 }
                 else
                 {
+            
                     this.GlobalStatePopup.RMNotExistReceiving();
                     this.mattxtbarcode.Text = String.Empty;
                     this.mattxtbarcode.Focus();
@@ -225,6 +290,73 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
+
+        private void scanBarcodeNearlyExpiry()
+        {
+
+            dSet.Clear();
+            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+                mattxtbarcode.Text, "", "", "", "", "", "", "", "", "", "", "", 0, "getdetailsforBulkInsertItemCode");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //RawMatsAlreadyExist();
+                dSet.Clear();
+                dSet = objStorProc.sp_Raw_Materials_Dry(0,
+                    mattxtbarcode.Text, "", "", "", "", "", "", "", "", "", "", "", 0, "getRMforReceivingDryWH");
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.SearchMethodJarVarCallingSPNearlyExpiry();
+                    this.doSearchInTextBoxCmbNearlyExpiry();
+
+                    if (totalRecords == "0")
+                    {
+                        //MessageBox.Show("Buje");
+                        //return;
+                        this.GlobalStatePopup.RMNotExistReceiving();
+                        this.mattxtbarcode.Text = String.Empty;
+                        this.mattxtbarcode.Focus();
+                    }
+                    else
+                    {
+                        this.mattxtbarcode.Text = String.Empty;
+                        this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
+                        this.GlobalStatePopup.ItemFoundforReceiving();
+                        this.materialCard2.Visible = true;
+                        this.materialCard3.Visible = true;
+                        this.mattxtReceived.Visible = true;
+                        this.matbtnCancel.Visible = true;
+
+                        //Remove Some Data
+                        this.mattxtqtyReceived.Text = String.Empty;
+                        this.mattxtlotno.Text = String.Empty;
+                        this.mattxtLotDescription.Text = String.Empty;
+                        //mattxtqtyreject.Text = String.Empty;
+                        this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
+                    }
+                }
+                else
+                {
+
+                    this.GlobalStatePopup.RMNotExistReceiving();
+                    this.mattxtbarcode.Text = String.Empty;
+                    this.mattxtbarcode.Focus();
+                    return;
+                }
+
+
+            }
+            else
+            {
+                this.GlobalStatePopup.RawMaterialNotExist();
+                this.mattxtbarcode.Text = String.Empty;
+                this.mattxtbarcode.Focus();
+                return;
+
+            }
+
+
+        }
 
 
         private void dgvMajorCategory_CurrentCellChanged(object sender, EventArgs e)
@@ -396,6 +528,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
   
+        private void StateLoadofExpiryItemAcceptance()
+        {
+            if (this.SP_ExpirationSetPoint < Convert.ToInt32(this.matdaysExpiry.Text))
+            {
+                //MessageBox.Show("Inside!");
+                numExpirableItems = 0;
+                this.pictureBoxExpiry.Visible = false;
+
+            }
+            else
+            {
+                numExpirableItems = 1;
+                this.pictureBoxExpiry.Visible = true;
+
+                //MessageBox.Show("Outside" + this.SP_ExpirationSetPoint);
+            }
+        }
+
 
         private void mattxtReceived_Click_1(object sender, EventArgs e)
         {
@@ -508,18 +658,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     //MessageBox.Show(p_id.ToString());
                     //return;
                     //Computation Master Data
-                  
-                    if (this.SP_ExpirationSetPoint < Convert.ToInt32(this.matdaysExpiry.Text))
-                    {
-                        //MessageBox.Show("Inside!");
-                        numExpirableItems = 0;
 
-                    }
-                    else
-                    {
-                        numExpirableItems = 1;
-                        //MessageBox.Show("Outside" + this.SP_ExpirationSetPoint);
-                    }
+                    this.StateLoadofExpiryItemAcceptance();
 
                     //Commit the Data on The Database Stored procedure
 
@@ -568,7 +708,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                 //totalSum = qtyReceiving - rejected;
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure " +
-                    "you want to received the Qty '"+mattxtqtyreject.Text+"' ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    "you want to received the Qty '"+this.mattxtqtyReceived.Text+"' ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
@@ -588,6 +728,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
                         mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "rejected_status_wh_re_qa'");
+
+                    //Conversion Master Details
+                    this.StateLoadofExpiryItemAcceptance();
+
 
 
                     //Commit Data on The Database Stored Procedure

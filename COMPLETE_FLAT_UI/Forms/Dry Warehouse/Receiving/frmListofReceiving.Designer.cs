@@ -29,10 +29,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbltotaldata = new System.Windows.Forms.Label();
@@ -49,8 +49,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.PrimaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblgrandtotaldata = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
+            this.materialCard3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbltotalrecords
@@ -113,12 +117,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Controls.Add(this.dgvSubCategory);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(12, 74);
+            this.materialCard2.Location = new System.Drawing.Point(14, 138);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(996, 632);
+            this.materialCard2.Size = new System.Drawing.Size(996, 568);
             this.materialCard2.TabIndex = 631;
             // 
             // dgvSubCategory
@@ -126,20 +130,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvSubCategory.AllowUserToAddRows = false;
             this.dgvSubCategory.AllowUserToDeleteRows = false;
             this.dgvSubCategory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubCategory.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvSubCategory.ColumnHeadersHeight = 45;
             this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -151,14 +155,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.expected_delivery,
             this.actual_delivery,
             this.PrimaryID});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvSubCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubCategory.EnableHeadersVisualStyles = false;
             this.dgvSubCategory.GridColor = System.Drawing.SystemColors.Window;
@@ -166,20 +170,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvSubCategory.MultiSelect = false;
             this.dgvSubCategory.Name = "dgvSubCategory";
             this.dgvSubCategory.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvSubCategory.RowHeadersVisible = false;
             this.dgvSubCategory.RowHeadersWidth = 50;
             this.dgvSubCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSubCategory.RowTemplate.DividerHeight = 5;
             this.dgvSubCategory.RowTemplate.Height = 40;
             this.dgvSubCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubCategory.Size = new System.Drawing.Size(986, 620);
+            this.dgvSubCategory.Size = new System.Drawing.Size(986, 556);
             this.dgvSubCategory.TabIndex = 593;
             this.dgvSubCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -273,11 +278,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             // lblgrandtotaldata
             // 
+            this.lblgrandtotaldata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblgrandtotaldata.AutoSize = true;
             this.lblgrandtotaldata.BackColor = System.Drawing.Color.Transparent;
             this.lblgrandtotaldata.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblgrandtotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblgrandtotaldata.Location = new System.Drawing.Point(16, 712);
+            this.lblgrandtotaldata.Location = new System.Drawing.Point(908, 719);
             this.lblgrandtotaldata.Name = "lblgrandtotaldata";
             this.lblgrandtotaldata.Size = new System.Drawing.Size(46, 40);
             this.lblgrandtotaldata.TabIndex = 670;
@@ -285,15 +291,66 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(19, 747);
+            this.label3.Location = new System.Drawing.Point(960, 737);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 17);
             this.label3.TabIndex = 671;
             this.label3.Text = "Items";
+            // 
+            // materialCard3
+            // 
+            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.matRadioActive);
+            this.materialCard3.Controls.Add(this.matRadioNotActive);
+            this.materialCard3.Depth = 0;
+            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard3.Location = new System.Drawing.Point(739, 72);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard3.Name = "materialCard3";
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard3.Size = new System.Drawing.Size(271, 59);
+            this.materialCard3.TabIndex = 672;
+            // 
+            // matRadioActive
+            // 
+            this.matRadioActive.AutoSize = true;
+            this.matRadioActive.Depth = 0;
+            this.matRadioActive.Location = new System.Drawing.Point(13, 14);
+            this.matRadioActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioActive.Name = "matRadioActive";
+            this.matRadioActive.Ripple = true;
+            this.matRadioActive.Size = new System.Drawing.Size(103, 37);
+            this.matRadioActive.TabIndex = 597;
+            this.matRadioActive.TabStop = true;
+            this.matRadioActive.Text = "Receiving";
+            this.matRadioActive.UseVisualStyleBackColor = true;
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
+            // 
+            // matRadioNotActive
+            // 
+            this.matRadioNotActive.AutoSize = true;
+            this.matRadioNotActive.Depth = 0;
+            this.matRadioNotActive.Location = new System.Drawing.Point(131, 14);
+            this.matRadioNotActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioNotActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioNotActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioNotActive.Name = "matRadioNotActive";
+            this.matRadioNotActive.Ripple = true;
+            this.matRadioNotActive.Size = new System.Drawing.Size(127, 37);
+            this.matRadioNotActive.TabIndex = 598;
+            this.matRadioNotActive.TabStop = true;
+            this.matRadioNotActive.Text = "Nearly Expiry";
+            this.matRadioNotActive.UseVisualStyleBackColor = true;
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
             // 
             // frmListofReceiving
             // 
@@ -301,6 +358,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.lblgrandtotaldata);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbltotaldata);
@@ -310,12 +368,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmListofReceiving";
-            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "List of Warehouse Receiving";
             this.Load += new System.EventHandler(this.frmListofReceiving_Load);
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
+            this.materialCard3.ResumeLayout(false);
+            this.materialCard3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,5 +398,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn expected_delivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn actual_delivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryID;
+        private MaterialSkin.Controls.MaterialCard materialCard3;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
     }
 }

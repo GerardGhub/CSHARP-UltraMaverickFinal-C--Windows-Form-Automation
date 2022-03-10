@@ -31,12 +31,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             InitializeComponent();
         }
 
-        private void frmListofReceiving_Load(object sender, EventArgs e)
+        private void OpenConnection()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+        private void frmListofReceiving_Load(object sender, EventArgs e)
+        {
+            this.OpenConnection();
 
-            this.showReceivingData();
+            this.matRadioActive.Checked = true;
+
+            if (this.matRadioActive.Checked == true)
+            {
+                this.showReceivingData();
+            }
+      
     
         
 
@@ -63,5 +73,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
+        private void showReceivingDataNearlyExpiry()      //method for loading available_menus
+        {
+            try
+            {
+
+                this.xClass.fillDataGridView(this.dgvSubCategory, "Po_Receiving_Warehouse_Nearly_Expiry", dSet);
+
+                this.lblgrandtotaldata.Text = this.dgvSubCategory.RowCount.ToString();
+                this.dgvSubCategory.Columns["PrimaryID"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioNotActive.Checked == true)
+            {
+                this.matRadioNotActive.Checked = false;
+                this.matRadioActive.Checked = true;
+                this.OpenConnection();
+                this.showReceivingData();
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.matRadioActive.Checked = false;
+                this.matRadioNotActive.Checked = true;
+                this.OpenConnection();
+                this.showReceivingDataNearlyExpiry();
+            }
+        }
     }
 }
