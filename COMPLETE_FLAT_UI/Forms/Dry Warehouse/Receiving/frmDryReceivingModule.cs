@@ -362,6 +362,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void dgvMajorCategory_CurrentCellChanged(object sender, EventArgs e)
         {
             this.showValueCell();
+            //Nearly Expiry Item Iconic Buto
+            this.StateLoadofExpiryItemAcceptanceOnBarcoding();
         }
 
         private void showValueCell()
@@ -527,6 +529,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
+
+
   
         private void StateLoadofExpiryItemAcceptance()
         {
@@ -534,13 +538,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 //MessageBox.Show("Inside!");
                 numExpirableItems = 0;
-                this.pictureBoxExpiry.Visible = false;
+         
 
             }
             else
             {
                 numExpirableItems = 1;
-                this.pictureBoxExpiry.Visible = true;
+             
 
                 //MessageBox.Show("Outside" + this.SP_ExpirationSetPoint);
             }
@@ -910,6 +914,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         }
+
+
+
+
+
+        private void StateLoadofExpiryItemAcceptanceOnBarcoding()
+        {
+            if (this.SP_ExpirationSetPoint < Convert.ToInt32(this.matdaysExpiry.Text))
+            {
+                //MessageBox.Show("Inside!");
+        
+
+                this.pictureBoxExpiry.Visible = false;
+                //MessageBox.Show("A");
+
+            }
+            else
+            {
+
+                this.pictureBoxExpiry.Visible = true;
+                //MessageBox.Show("AB");
+
+                //MessageBox.Show("Outside" + this.SP_ExpirationSetPoint);
+            }
+        }
+
+
+
 
         private void matbtnCancel_Click(object sender, EventArgs e)
         {

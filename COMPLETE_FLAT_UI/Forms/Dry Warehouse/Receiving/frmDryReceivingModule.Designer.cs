@@ -29,6 +29,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDryReceivingModule));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,10 +38,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDryReceivingModule));
             this.mattxtbarcode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBoxExpiry = new System.Windows.Forms.PictureBox();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.mattxtexpirydate = new MetroFramework.Controls.MetroDateTime();
@@ -80,13 +81,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.crV1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.dgvReceivedID = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBoxExpiry = new System.Windows.Forms.PictureBox();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExpiry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).BeginInit();
             this.materialCard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivedID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExpiry)).BeginInit();
             this.SuspendLayout();
             // 
             // mattxtbarcode
@@ -149,6 +149,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.TabIndex = 1;
             this.materialCard2.Visible = false;
             this.materialCard2.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard2_Paint);
+            // 
+            // pictureBoxExpiry
+            // 
+            this.pictureBoxExpiry.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxExpiry.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxExpiry.Image")));
+            this.pictureBoxExpiry.Location = new System.Drawing.Point(671, 211);
+            this.pictureBoxExpiry.Name = "pictureBoxExpiry";
+            this.pictureBoxExpiry.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxExpiry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxExpiry.TabIndex = 595;
+            this.pictureBoxExpiry.TabStop = false;
+            this.pictureBoxExpiry.Visible = false;
             // 
             // bunifuCustomLabel2
             // 
@@ -361,7 +373,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matdaysExpiry.MouseState = MaterialSkin.MouseState.OUT;
             this.matdaysExpiry.Multiline = false;
             this.matdaysExpiry.Name = "matdaysExpiry";
-            this.matdaysExpiry.Size = new System.Drawing.Size(180, 50);
+            this.matdaysExpiry.Size = new System.Drawing.Size(215, 50);
             this.matdaysExpiry.TabIndex = 7;
             this.matdaysExpiry.Text = "";
             // 
@@ -859,17 +871,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.id.ReadOnly = true;
             this.id.Width = 12;
             // 
-            // pictureBoxExpiry
-            // 
-            this.pictureBoxExpiry.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxExpiry.Image")));
-            this.pictureBoxExpiry.Location = new System.Drawing.Point(685, 203);
-            this.pictureBoxExpiry.Name = "pictureBoxExpiry";
-            this.pictureBoxExpiry.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxExpiry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxExpiry.TabIndex = 595;
-            this.pictureBoxExpiry.TabStop = false;
-            this.pictureBoxExpiry.Visible = false;
-            // 
             // frmDryReceivingModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -891,11 +892,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.ResumeLayout(false);
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExpiry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).EndInit();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivedID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExpiry)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
