@@ -73,8 +73,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
+
+
+
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
+            this.CheckTheForApprovalRadioButton();
 
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
@@ -96,14 +100,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.Close();
             }
 
+
             this.DataRefresher();
 
 
             this.showRawMaterialforApproval();
 
             //this.ReturnFunctionality();
+            //Validate the Data Functionality 
+   
+                this.ValidatedItemforApproval();
+      
 
-            this.ValidatedItemforApproval();
+
+
+
             if(this.modesplashScreenError == "1")
             {
               
@@ -140,6 +151,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
+
+        private void CheckTheForApprovalRadioButton()
+        {
+            if (this.matRadioForAllocation.Checked == false && this.matRadioForApproval.Checked == false)
+            {
+                this.matRadioForApproval.Checked = true;
+            }
+          
+        }
+
+
         private void VisibilityFalseDataGrid()
         {
             this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
@@ -151,6 +173,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
             this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
         }
+
+
 
         private void ValidatedItemforApproval()
         {
@@ -165,29 +189,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
+
                     //Start
-                    if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.Total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        //frmAllocationModule fm = new frmAllocationModule();
-                        //fm.ShowDialog();
+                    //if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.Total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    //{
 
-                        //this.Close();
 
-                        //frmAllocationModule Login = new frmAllocationModule();
-                        //Login.ShowDialog();
-                        this.modesplashScreenError = "1";
-                        //this.Hide();
-                        frmAllocationModule sistema = new frmAllocationModule();
-                        sistema.MaximizeBox = false;
-                        sistema.MinimizeBox = false;
-                        sistema.ShowDialog();
+                    //    //frmAllocationModule Login = new frmAllocationModule();
+                    //    //Login.ShowDialog();
+                    //    this.modesplashScreenError = "1";
+                    //    //this.Hide();
+                    //    frmAllocationModule sistema = new frmAllocationModule();
+                    //    sistema.MaximizeBox = false;
+                    //    sistema.MinimizeBox = false;
+                    //    sistema.ShowDialog();
 
-                    }
-                    else
-                    {
-                        this.ReturnFunctionality();
-                        return;
-                    }
+                    //}
+                    //else
+                    //{
+                    //    this.ReturnFunctionality();
+                    //    return;
+                    //}
+
+                    this.GlobalStatePopup.YouHaveItemForAllocation();
+                    this.ReturnFunctionality();
+
+                        //END
+              
                 }
 
             }
@@ -220,8 +248,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.DataRefresher();
             myglobal.global_module = "Active";
 
-            this.loadCategoryDropdown();
 
+            //Functionality Viewing of the Data Binding Source
+            if(this.matRadioForApproval.Checked == true)
+            {
+                this.loadCategoryDropdown();
+            }
+            else if (this.matRadioForAllocation.Checked == true)
+            {
+                this.loadCategoryDropdownForAllocation();
+            }
+           
+
+          
 
 
 
@@ -288,6 +327,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                 myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval", this.dSet);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+        }
+
+
+
+        public void loadCategoryDropdownForAllocation()
+        {
+            try
+            {
+
+
+                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_For_Allocation", this.dSet);
 
             }
             catch (Exception ex)
@@ -680,6 +739,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showRawMaterialforApproval();
+            if(this.matRadioForAllocation.Checked == true)
+            {
+
+            }
+            else if(this.matRadioForApproval.Checked == true)
+            {
+
+            }
             if (this.GlobalStatePopup.Total_item_for_allocation == "0")
             {
                 //Start Blocked
@@ -848,6 +915,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (Convert.ToDouble(row.Cells["ORDERS"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value))
                 {
                     //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+                    row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                     row.Cells["qty"].Style.BackColor = Color.DarkOrange;
                 }
                 else
@@ -859,6 +928,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
                 {
                     //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+                    row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                     row.Cells["qty"].Style.BackColor = Color.Crimson;
                 }
 
@@ -873,6 +944,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
+                    row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                     row.Cells["qty"].Style.BackColor = Color.Crimson;
                 }
 
@@ -889,6 +962,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
                     else
                     {
+                        row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                         row.Cells["qty"].Style.BackColor = Color.DarkOrange;
                     }
 
@@ -917,6 +992,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.TaggingConflictCategoryValidation();
             }
 
+        }
+
+        private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
+        {
+            this.frmStoreOrderforApproval_Load(sender, e);
+        }
+
+        private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
+        {
+            this.frmStoreOrderforApproval_Load(sender, e);
         }
     }
 }
