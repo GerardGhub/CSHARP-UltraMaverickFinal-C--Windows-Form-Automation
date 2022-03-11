@@ -29,11 +29,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -128,20 +128,20 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.AllowUserToAddRows = false;
             this.dgvRawMats.AllowUserToDeleteRows = false;
             this.dgvRawMats.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRawMats.ColumnHeadersHeight = 30;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -154,14 +154,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.DAYSTOEXPIRED,
             this.STANDARDEXPIRYDAYS});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -169,18 +169,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 102;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -318,16 +318,16 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             // 
             this.matRadioActive.AutoSize = true;
             this.matRadioActive.Depth = 0;
-            this.matRadioActive.Location = new System.Drawing.Point(9, 14);
+            this.matRadioActive.Location = new System.Drawing.Point(152, 14);
             this.matRadioActive.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioActive.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioActive.MouseState = MaterialSkin.MouseState.HOVER;
             this.matRadioActive.Name = "matRadioActive";
             this.matRadioActive.Ripple = true;
-            this.matRadioActive.Size = new System.Drawing.Size(127, 37);
+            this.matRadioActive.Size = new System.Drawing.Size(112, 37);
             this.matRadioActive.TabIndex = 597;
             this.matRadioActive.TabStop = true;
-            this.matRadioActive.Text = "Nearly Expiry";
+            this.matRadioActive.Text = "Laboratory";
             this.matRadioActive.UseVisualStyleBackColor = true;
             this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
             // 
@@ -335,16 +335,16 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             // 
             this.matRadioNotActive.AutoSize = true;
             this.matRadioNotActive.Depth = 0;
-            this.matRadioNotActive.Location = new System.Drawing.Point(147, 14);
+            this.matRadioNotActive.Location = new System.Drawing.Point(6, 14);
             this.matRadioNotActive.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioNotActive.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioNotActive.MouseState = MaterialSkin.MouseState.HOVER;
             this.matRadioNotActive.Name = "matRadioNotActive";
             this.matRadioNotActive.Ripple = true;
-            this.matRadioNotActive.Size = new System.Drawing.Size(112, 37);
+            this.matRadioNotActive.Size = new System.Drawing.Size(127, 37);
             this.matRadioNotActive.TabIndex = 598;
             this.matRadioNotActive.TabStop = true;
-            this.matRadioNotActive.Text = "Laboratory";
+            this.matRadioNotActive.Text = "Nearly Expiry";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
             this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
             // 
@@ -361,7 +361,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDryWarehouseNearlyExpiryItems";
-            this.Sizable = false;
             this.Text = "Dry Warehouse Nearly Expiry";
             this.Load += new System.EventHandler(this.frmDryWarehouseNearlyExpiryItems_Load);
             this.materialCard1.ResumeLayout(false);

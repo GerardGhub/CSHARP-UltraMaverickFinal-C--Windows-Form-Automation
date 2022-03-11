@@ -364,6 +364,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.showValueCell();
             //Nearly Expiry Item Iconic Buto
             this.StateLoadofExpiryItemAcceptanceOnBarcoding();
+
+
+            //For Non Expirable Itemss
+            if(this.matdaysExpiry.Text == "0")
+            {
+                this.pictureBoxExpiry.Visible = false;
+            }
         }
 
         private void showValueCell()
