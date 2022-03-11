@@ -482,10 +482,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioNotActive.MouseState = MaterialSkin.MouseState.HOVER;
             this.matRadioNotActive.Name = "matRadioNotActive";
             this.matRadioNotActive.Ripple = true;
-            this.matRadioNotActive.Size = new System.Drawing.Size(103, 37);
+            this.matRadioNotActive.Size = new System.Drawing.Size(91, 37);
             this.matRadioNotActive.TabIndex = 598;
             this.matRadioNotActive.TabStop = true;
-            this.matRadioNotActive.Text = "In - Active";
+            this.matRadioNotActive.Text = "InActive";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
             this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
             // 
