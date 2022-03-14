@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "You have:" + " " + this.Total_item_for_allocation +"Item for Allocation";
+            popup.ContentText = "You have " + " " + this.Total_item_for_allocation +"" + " item for allocation";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);
@@ -356,7 +356,7 @@ namespace ULTRAMAVERICK.Models
             popup.TitleColor = Color.White;
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Allocation is required for" + " "  +   this.Total_item_for_allocation + "record(s)";
+            popup.ContentText = "Allocation is required for" + " "  +   this.Total_item_for_allocation + "" + " record(s)";
             popup.ContentColor = Color.White;
             popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
             popup.Size = new Size(350, 100);

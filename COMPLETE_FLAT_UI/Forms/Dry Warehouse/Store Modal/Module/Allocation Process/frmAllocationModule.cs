@@ -513,6 +513,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["qty"].Style.BackColor = Color.DarkOrange;
                     row.Cells["date_ordered"].Style.BackColor = Color.DarkOrange;
                     row.Cells["selected2"].Style.BackColor = Color.DarkOrange;
+
+
+                    row.Cells["store_name"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["item_code_find"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["description_find"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["date_ordered"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+
+
+                    row.Cells["store_name"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["item_code_find"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["uom"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                 }
                 else
                 {
@@ -525,6 +543,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["qty"].Style.BackColor = Color.Yellow;
                     row.Cells["date_ordered"].Style.BackColor = Color.Yellow;
                     row.Cells["selected2"].Style.BackColor = Color.Yellow;
+
+
+
+                    row.Cells["store_name"].Style.SelectionBackColor = Color.Yellow;
+                    row.Cells["item_code_find"].Style.SelectionBackColor = Color.Yellow;
+                    row.Cells["description_find"].Style.SelectionBackColor = Color.Yellow;
+                    row.Cells["uom"].Style.SelectionBackColor = Color.Yellow;
+                    row.Cells["date_ordered"].Style.SelectionBackColor = Color.Yellow;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionBackColor = Color.Yellow;
+                    row.Cells["qty"].Style.SelectionBackColor = Color.Yellow;
+
+
+                    row.Cells["store_name"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["item_code_find"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["uom"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                 }
             }
 

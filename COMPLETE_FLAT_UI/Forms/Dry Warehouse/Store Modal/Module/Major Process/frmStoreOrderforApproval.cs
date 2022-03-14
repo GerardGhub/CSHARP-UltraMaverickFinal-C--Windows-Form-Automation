@@ -553,7 +553,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 this.materialCheckboxSelectAll.Visible = true;
+
+                if(this.matRadioForAllocation.Checked == true)
+                {
+                    this.bunifuPrepaDate.Enabled = true;
+                    this.dgvStoreOrderApproval.Enabled = true;
+                }
             }
+
+
+
         }
         int num = 0;
         private void dgvReprinting_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -741,19 +750,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.showRawMaterialforApproval();
             if(this.matRadioForAllocation.Checked == true)
             {
+                //Start
+                if (this.GlobalStatePopup.Total_item_for_allocation == "0")
+                {
+                    //Start Blocked
 
+                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+                        this.ApproveFunctionality();
+                    }
+                    else
+                    {
+
+                        return;
+                    }
+
+
+                    //End Blocked Peru
+
+
+                }
+                else
+                {
+                    this.GlobalStatePopup.AllocationiSRequiredNotify();
+                    return;
+                }
+
+                //End
             }
             else if(this.matRadioForApproval.Checked == true)
-            {
-
-            }
-            if (this.GlobalStatePopup.Total_item_for_allocation == "0")
             {
                 //Start Blocked
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-            
+
                     this.ApproveFunctionality();
                 }
                 else
@@ -764,16 +796,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                 //End Blocked Peru
-
-
-            }
-            else
-            {
-              this.GlobalStatePopup.AllocationiSRequiredNotify();
-                return;
             }
 
-        
+
+
         }
 
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
