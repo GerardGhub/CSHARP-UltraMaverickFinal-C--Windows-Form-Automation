@@ -89,6 +89,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         }
 
+
+
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)
         {
@@ -664,8 +666,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     {
 
                         this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
-                        //this.saveMode();  //Update All Data here
-                        this.GlobalStatePopup.CommittedSuccessFully();
+                     
+                        this.GlobalStatePopup.ImportSuccessFully();
                         frmImportConsolidatedOrder_Load(new object(), new System.EventArgs());
                     }
 

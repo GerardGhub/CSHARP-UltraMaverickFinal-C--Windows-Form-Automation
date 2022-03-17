@@ -166,7 +166,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.Sp_pr_date = dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
                     this.Sp_unit_price = dgvRawMats.CurrentRow.Cells["unit_price"].Value.ToString();
                     this.Sp_supplier = dgvRawMats.CurrentRow.Cells["supplier"].Value.ToString();
-
                     this.Sp_qty_delivered = dgvRawMats.CurrentRow.Cells["qty_delivered"].Value.ToString();
                     this.Sp_qty_billed = dgvRawMats.CurrentRow.Cells["qty_billed"].Value.ToString();
                     if (this.lbltotalrecords.Text == "0")
@@ -485,7 +484,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                         this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                         this.saveMode();  //Update All Data here
-                        this.GlobalStatePopup.CommittedSuccessFully();
+                        this.GlobalStatePopup.ImportSuccessFully();
                     }
 
         
@@ -496,6 +495,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             this.InsertDataPerRow();
         }
+
 
         private string m_ConnectionString = ULTRAMAVERICK.Properties.Settings.Default.hr_application_conn2;
         private void SaveinDatabase()
@@ -518,7 +518,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
 
 
-                this.GlobalStatePopup.CommittedSuccessFully();
+                this.GlobalStatePopup.ImportSuccessFully();
 
                 this.matbtnUpload.Visible = false;
 
@@ -632,13 +632,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     else if (myglobal.global_module == "Active")
                     {
 
-
-                        //Gerard Singian Developer Man
-
-                   
-
-
-                        //dv.RowFilter = "item_code = '" + mattxtSearch.Text + "'";
                         dv.RowFilter = "item_code = '" + Item_code_main + "' ";
 
                     }
