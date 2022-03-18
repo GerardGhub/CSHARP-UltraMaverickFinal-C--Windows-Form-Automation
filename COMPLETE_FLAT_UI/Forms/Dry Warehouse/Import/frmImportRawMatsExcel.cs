@@ -31,6 +31,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         string mode = "";
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
         public frmImportRawMatsExcel()
         {
             InitializeComponent();
@@ -125,10 +127,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         Import_dry_rawMat.item_type = dt.Rows[i]["ITEM TYPE"].ToString();
                         Import_dry_rawMat.item_class = dt.Rows[i]["ITEM CLASS"].ToString();
                         Import_dry_rawMat.major_category = dt.Rows[i]["MAJOR CATEGORY"].ToString();
-                        Import_dry_rawMat.sub_category = dt.Rows[i]["SUB CATEGORY"].ToString();
-             
+                        Import_dry_rawMat.sub_category = dt.Rows[i]["SUB CATEGORY"].ToString();             
                         Import_dry_rawMat.conversion = dt.Rows[i]["CONVERSION"].ToString();
-
                      
                         Import_dry_rawMats.Add(Import_dry_rawMat);
                     }
@@ -164,13 +164,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     sub_category_main = dgvRawMats.CurrentRow.Cells["sub_category"].Value.ToString();
                     primary_unit_main = dgvRawMats.CurrentRow.Cells["primary_unit"].Value.ToString();
 
-                    if(lbltotalrecords.Text =="0")
+                    if(this.lbltotalrecords.Text =="0")
                     {
 
                     }
                         else
                     {
-                       mat_row_number = Convert.ToInt32(dgvRawMats.CurrentCell.RowIndex).ToString();
+                       this.mat_row_number = Convert.ToInt32(this.dgvRawMats.CurrentCell.RowIndex).ToString();
                     }
 
 
@@ -180,14 +180,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         }
 
+
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            CallOthers();
+            this.CallOthers();
 
            
-            matbtnUpload.Visible = true;
-            mode = "";
-            dgvRawMats_CurrentCellChanged(sender, e);
+            this.matbtnUpload.Visible = true;
+            this.mode = "";
+            this.dgvRawMats_CurrentCellChanged(sender, e);
         }
 
         private void SaveMethod1()
@@ -199,8 +200,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
@@ -356,22 +355,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                     if (mode == "error")
                     {
-                        ErrorNotify();
+                        this.GlobalStatePopup.ErrorNotify();
                     }
                     else
-                    {
-                  
-                        //btnimport_Click(sender, e);
-                        SaveinDatabase();
+                    {         
+                        this.SaveinDatabase();
                     }
 
-                    //MessageBox.Show("Your reach the limit ");
+      
                     this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                     return;
                 }
             }
 
-            SaveMethod1();
+            this.SaveMethod1();
         }
 
         private string m_ConnectionString = ULTRAMAVERICK.Properties.Settings.Default.hr_application_conn2;
@@ -395,18 +392,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
 
 
-                SavedNotify();
-              
-                matbtnUpload.Visible = false;
-
-
-
-
-
-                saveMode();
-
-
-
+                this.GlobalStatePopup.ImportSuccessFully();              
+                this.matbtnUpload.Visible = false;
+                this.saveMode();
 
             }
             catch (Exception ex)
@@ -433,12 +421,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void matbtnUpload_Click(object sender, EventArgs e)
         {
 
-            if(lbltotalrecords.Text =="0")
+            if(this.lbltotalrecords.Text =="0")
             {
                 //return;
             }
 
-            if (cbosheet.Text.Trim() == string.Empty)
+            if (this.cbosheet.Text.Trim() == string.Empty)
             {
             }
             else
@@ -446,7 +434,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
 
-                matbtnUpload.Visible = false;
+                this.matbtnUpload.Visible = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to import a new  raw materials ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -473,64 +461,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         }
 
 
-        private void ErrorNotify()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Uploading Interupt Check the data to proceed";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-
-        private void SavedNotify()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Raw Materials Successfully Upload";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+ 
 
         private void dgvRawMats_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {

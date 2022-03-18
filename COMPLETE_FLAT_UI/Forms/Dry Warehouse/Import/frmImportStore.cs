@@ -403,7 +403,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
+              
 
                 mode = "error";
 
@@ -477,14 +477,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
               
             }
 
-
-          
-       
-
-
-          
-
-
             dSet.Clear();
             dSet = objStorProc.sp_tbl_stores(0,
                 sp_store_name,
@@ -554,7 +546,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import a new Store? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
                 }

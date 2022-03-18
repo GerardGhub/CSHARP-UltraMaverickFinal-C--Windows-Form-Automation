@@ -273,7 +273,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void matBtnSave_Click(object sender, EventArgs e)
         {
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //Allocation Validation if < 0 of the quantity
+            if(this.txtSoh.Text == "0")
+            {
+                this.GlobalStatePopup.NotEnoughStock();
+                return;
+            }
+
+
+            if (MetroFramework.MetroMessageBox.Show(this, "Do you want to allocate?", "Confirmation", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.ConnectionInit();
                 this.SenderTextChangedValue();

@@ -169,7 +169,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
-            this.matbtnUpload.Enabled = true;
+            this.matbtnUpload.Visible = true;
             this.mode = "";
             dgvRawMats_CurrentCellChanged(sender, e);
 
@@ -649,11 +649,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
 
-            if (dgvRawMats.Rows.Count >= 1)
+            if (this.dgvRawMats.Rows.Count >= 1)
             {
-                int i = dgvRawMats.CurrentRow.Index + 1;
-                if (i >= -1 && i < dgvRawMats.Rows.Count)
-                    dgvRawMats.CurrentCell = dgvRawMats.Rows[i].Cells[0];
+                int i = this.dgvRawMats.CurrentRow.Index + 1;
+                if (i >= -1 && i < this.dgvRawMats.Rows.Count)
+                    this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[i].Cells[0];
                 else
                 {
 
