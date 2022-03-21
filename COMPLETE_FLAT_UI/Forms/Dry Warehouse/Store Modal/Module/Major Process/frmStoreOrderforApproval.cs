@@ -28,13 +28,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
+
         //Variable Declaration
         int p_id = 0;
         string Rpt_Path = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         string selection_mode = "";
         string modesplashScreenError = "";
-
+   
 
         public frmStoreOrderforApproval()
         {
@@ -57,7 +58,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_description { get; set; }
         public string sp_uom { get; set; }
         public string sp_qty { get; set; }
-        //public string total_item_for_allocation { get; set; }
+    
         public string is_issue_for_approval { get; set; }
         public string sp_StockOnHand { get; set; }
         public string sp_Allocated_Qty { get; set; }
@@ -149,6 +150,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 //MessageBox.Show("sdsds");
             }
+
+
         }
 
 
@@ -190,26 +193,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 else
                 {
 
-                    //Start
-                    //if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.Total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    //{
+                 
 
 
-                    //    //frmAllocationModule Login = new frmAllocationModule();
-                    //    //Login.ShowDialog();
-                    //    this.modesplashScreenError = "1";
-                    //    //this.Hide();
-                    //    frmAllocationModule sistema = new frmAllocationModule();
-                    //    sistema.MaximizeBox = false;
-                    //    sistema.MinimizeBox = false;
-                    //    sistema.ShowDialog();
+                        //Start Enabled for Sir Visoy 3/17/2021  JP
+                        if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.Total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
 
-                    //}
-                    //else
-                    //{
-                    //    this.ReturnFunctionality();
-                    //    return;
-                    //}
+                            //this.modesplashScreenError = "1";
+
+                            frmAllocationModule sistema = new frmAllocationModule();
+                            sistema.MaximizeBox = false;
+                            sistema.MinimizeBox = false;
+                            sistema.ShowDialog();
+
+                        }
+                        else
+                        {
+                            //this.ReturnFunctionality();
+                            //return;
+                        }
+                      
+                    
 
                     this.GlobalStatePopup.YouHaveItemForAllocation();
                     this.ReturnFunctionality();
@@ -1024,6 +1029,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.frmStoreOrderforApproval_Load(sender, e);
         }
+
+
 
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
         {
