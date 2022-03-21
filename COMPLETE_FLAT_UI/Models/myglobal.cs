@@ -30,6 +30,9 @@ namespace ULTRAMAVERICK.Models
         public static string DATE_REPORT3;
         public static string DATE_REPORT4;
 
+        public string message_window_occur_for_approval_store_module = "";
+
+
 
 
         public static int with_date = 0;

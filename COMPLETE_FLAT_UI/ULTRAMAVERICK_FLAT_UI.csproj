@@ -168,6 +168,7 @@
     <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditStore.Designer.cs">
       <DependentUpon>frmEditStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\Major Process\Class Form\frmNewStoreOrderApprovedClasses.cs" />
     <Compile Include="Forms\Lab Test\DryWhLabTestRecentLogs.cs">
       <SubType>Form</SubType>
     </Compile>

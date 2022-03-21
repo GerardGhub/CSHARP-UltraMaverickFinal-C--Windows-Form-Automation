@@ -1639,6 +1639,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void allocationModule_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmAllocationModule AllocationModule = new frmAllocationModule();
+            AllocationModule.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(AllocationModule);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

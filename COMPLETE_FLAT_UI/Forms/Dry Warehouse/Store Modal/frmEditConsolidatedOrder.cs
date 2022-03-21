@@ -23,6 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
+        frmNewStoreOrderApproved FormClass = new frmNewStoreOrderApproved();
 
         public frmEditConsolidatedOrder(frmStoreOrderforApproval frm, 
             int primary_id,

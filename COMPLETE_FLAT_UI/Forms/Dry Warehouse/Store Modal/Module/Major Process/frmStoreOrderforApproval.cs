@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Major_Process.Class_Form;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -26,13 +27,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
-        DataSet dset3 = new DataSet();
+
         DataSet dSet = new DataSet();
 
         //Variable Declaration
         int p_id = 0;
+
+
         string Rpt_Path = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        frmNewStoreOrderApprovedClasses FormClass = new frmNewStoreOrderApprovedClasses();
+        myglobal GlobalVariable = new myglobal();
         string selection_mode = "";
         string modesplashScreenError = "";
    
@@ -41,27 +46,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             InitializeComponent();
         }
-        public int sp_user_id { get; set; }
-        public string mode { get; set; }
-
-
-        //Class Binding to oTher window
-
-        public int sp_order_id { get; set; }
-        public string sp_date_ordered { get; set; }
-        public string sp_fox { get; set; }
-        public string sp_store_name { get; set; }
-        public string sp_route { get; set; }
-        public string sp_area { get; set; }
-        public string sp_category { get; set; }
-        public string sp_item_code { get; set; }
-        public string sp_description { get; set; }
-        public string sp_uom { get; set; }
-        public string sp_qty { get; set; }
-    
-        public string is_issue_for_approval { get; set; }
-        public string sp_StockOnHand { get; set; }
-        public string sp_Allocated_Qty { get; set; }
+  
 
 
         protected override CreateParams CreateParams
@@ -171,7 +156,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
             this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
             this.dgvStoreOrderApproval.Columns["StockOnHand"].Visible = false;
-            //this.dgvStoreOrderApproval.Columns["ALLOCATION_QTY"].Visible = false;
             this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
             this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
             this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
@@ -193,9 +177,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 else
                 {
 
-                 
 
 
+                    if (this.GlobalVariable.message_window_occur_for_approval_store_module != "1")
+                    {
                         //Start Enabled for Sir Visoy 3/17/2021  JP
                         if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.Total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
@@ -212,15 +197,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         {
                             //this.ReturnFunctionality();
                             //return;
+                            this.GlobalStatePopup.YouHaveItemForAllocation();
+                            this.ReturnFunctionality();
                         }
-                      
+                    }
                     
 
-                    this.GlobalStatePopup.YouHaveItemForAllocation();
-                    this.ReturnFunctionality();
+                    //this.GlobalStatePopup.YouHaveItemForAllocation();
+                    //this.ReturnFunctionality();
+                    this.GlobalVariable.message_window_occur_for_approval_store_module = "1";
+                    //END
 
-                        //END
-              
                 }
 
             }
@@ -270,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             this.InitiliazeDatePickerMinDate();
-            this.mode = "";
+            this.FormClass.mode = "";
 
 
 
@@ -381,7 +368,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void DataRefresher()
         {
             this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
-            sp_user_id = userinfo.user_id;
+            this.FormClass.sp_user_id = userinfo.user_id;
         }
 
 
@@ -569,6 +556,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         }
+
+
         int num = 0;
         private void dgvReprinting_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -587,12 +576,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     
         }
 
+
+
         private void StateChangeOnTaggingPreparationDate()
         {
             if (this.num == 0)
             {
-                //this.bunifuPrepaDate.Enabled = false;
-                //ref will be remove
+    
             }
             else
             {
@@ -642,7 +632,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void ApproveFunctionality()
         {
-            //myglobal.Searchcategory = txtSearch.Text;
+ 
 
 
 
@@ -656,7 +646,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.FormClass.sp_user_id.ToString(), 1);
 
                         }
                         else
@@ -670,7 +660,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
                     this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.sp_user_id.ToString(), 1);
+                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.FormClass.sp_user_id.ToString(), 1);
 
                     MessageBox.Show(ex.Message);
                 }
@@ -870,19 +860,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             frmEditConsolidatedOrder mywipwh = new frmEditConsolidatedOrder(this, 
                 p_id,
-                sp_order_id,
-                sp_date_ordered,
-                sp_fox,
-                sp_store_name,
-                sp_route,
-                sp_area,
-                sp_category,
-                sp_item_code,
-                sp_description,
-                sp_uom,
-                sp_qty,
-                sp_StockOnHand,
-                sp_Allocated_Qty
+                this.FormClass.sp_order_id,
+                this.FormClass.sp_date_ordered,
+                this.FormClass.sp_fox,
+                this.FormClass.sp_store_name,
+                this.FormClass.sp_route,
+                this.FormClass.sp_area,
+                this.FormClass.sp_category,
+                this.FormClass.sp_item_code,
+                this.FormClass.sp_description,
+                this.FormClass.sp_uom,
+                this.FormClass.sp_qty,
+                this.FormClass.sp_StockOnHand,
+                this.FormClass.sp_Allocated_Qty
                 );
             mywipwh.ShowDialog();
         }
@@ -901,19 +891,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value != null)
                     {
                         p_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
-                       this.sp_order_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["order_id"].Value);
-                        this.sp_date_ordered = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
-                        this.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
-                        this.sp_store_name = this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value.ToString();
-                        this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
-                        this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
-                        this.sp_category = this.dgvStoreOrderApproval.CurrentRow.Cells["category"].Value.ToString();
-                        this.sp_item_code = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
-                        this.sp_description = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
-                        this.sp_uom = this.dgvStoreOrderApproval.CurrentRow.Cells["uom"].Value.ToString();
-                        this.sp_qty = this.dgvStoreOrderApproval.CurrentRow.Cells["qty"].Value.ToString();
-                        this.sp_StockOnHand = this.dgvStoreOrderApproval.CurrentRow.Cells["StockOnHand"].Value.ToString();
-                        this.sp_Allocated_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["ALLOCATION_QTY"].Value.ToString();
+                       this.FormClass.sp_order_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["order_id"].Value);
+                        this.FormClass.sp_date_ordered = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
+                        this.FormClass.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
+                        this.FormClass.sp_store_name = this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value.ToString();
+                        this.FormClass.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
+                        this.FormClass.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
+                        this.FormClass.sp_category = this.dgvStoreOrderApproval.CurrentRow.Cells["category"].Value.ToString();
+                        this.FormClass.sp_item_code = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.FormClass.sp_description = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
+                        this.FormClass.sp_uom = this.dgvStoreOrderApproval.CurrentRow.Cells["uom"].Value.ToString();
+                        this.FormClass.sp_qty = this.dgvStoreOrderApproval.CurrentRow.Cells["qty"].Value.ToString();
+                        this.FormClass.sp_StockOnHand = this.dgvStoreOrderApproval.CurrentRow.Cells["StockOnHand"].Value.ToString();
+                        this.FormClass.sp_Allocated_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["ALLOCATION_QTY"].Value.ToString();
                         
                     }
                 }
