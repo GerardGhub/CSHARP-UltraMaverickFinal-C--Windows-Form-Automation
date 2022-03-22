@@ -117,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matTxtTotalAllocatedQty.Name = "matTxtTotalAllocatedQty";
             this.matTxtTotalAllocatedQty.Size = new System.Drawing.Size(240, 50);
             this.matTxtTotalAllocatedQty.TabIndex = 8;
-            this.matTxtTotalAllocatedQty.Text = "";
+            this.matTxtTotalAllocatedQty.Text = " ";
             // 
             // mattxtAllocatedQty
             // 
@@ -150,6 +150,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matTxtQtyOrder.Size = new System.Drawing.Size(240, 50);
             this.matTxtQtyOrder.TabIndex = 6;
             this.matTxtQtyOrder.Text = "";
+            this.matTxtQtyOrder.TextChanged += new System.EventHandler(this.matTxtQtyOrder_TextChanged);
             // 
             // matTxtUom
             // 
@@ -249,9 +250,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(382, 31);
+            this.textBox2.Location = new System.Drawing.Point(444, 34);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(145, 20);
             this.textBox2.TabIndex = 604;

@@ -23,7 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         myclasses xClass = new myclasses();
         DataSet dset2 = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        string mode = "";
+       
 
         public frmManualAllocationController(frmAllocationModule frm, int store_order_key, 
             float StockOnHand, string Store_Name, int Allocated_Quantity, 
@@ -130,12 +130,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
             if (this.matTxtUpdatedBalance.Text.Contains("-"))
             {
-                this.GlobalStatePopup.GreaterThanActualRemainingQty();
-                this.matTxtUpdatedBalance.Text = "0";
-                this.mattxtAllocatedQty.Text = String.Empty;
-                this.mattxtAllocatedQty.Focus();
+                this.GlobalStatePopup.GreaterThanActualRemainingQtyInformation();
+                //this.matTxtUpdatedBalance.Text = "0";
+                //this.mattxtAllocatedQty.Text = String.Empty;
+                //this.mattxtAllocatedQty.Focus();
 
-                return;
+                //return;
             }
 
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -149,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     "edit");
 
                 this.textBox2.Text = "Save";
-                textBox2_TextChanged(sender, e);
+                this.textBox2_TextChanged(sender, e);
                 this.Close();
             }
             else
@@ -183,19 +183,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                         //For crementation
                         this.matTxtUpdatedBalance.Text = (float.Parse(this.StoredQtyOrderPartial.ToString()) - float.Parse(this.mattxtAllocatedQty.Text) + float.Parse(this.mattxtBalance.Text)).ToString();
 
-                        if(this.matTxtUpdatedBalance.Text.Contains("-"))
-                        {
-                            this.GlobalStatePopup.GreaterThanActualRemainingQty();
-                            this.matTxtUpdatedBalance.Text = "0";
-                            this.mattxtAllocatedQty.Text = String.Empty;
-                            this.mattxtAllocatedQty.Focus();
+                        //Remove Start
+                        //if(this.matTxtUpdatedBalance.Text.Contains("-"))
+                        //{
+                        //    this.GlobalStatePopup.GreaterThanActualRemainingQty();
+                        //    this.matTxtUpdatedBalance.Text = "0";
+                        //    this.mattxtAllocatedQty.Text = String.Empty;
+                        //    this.mattxtAllocatedQty.Focus();
 
-                            return;
-                        }
+                        //    return;
+                        //}
+                        //Remove End
                     }
                     else
                     {
-                        //MessageBox.Show("B for Lower");
+             
                         //For Decrementation
                         this.matTxtUpdatedBalance.Text = (float.Parse(this.StoredQtyOrderPartial.ToString()) - float.Parse(this.mattxtAllocatedQty.Text)).ToString();
 
@@ -232,6 +234,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
 
         private void mattxtBalance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void matTxtQtyOrder_TextChanged(object sender, EventArgs e)
         {
 
         }

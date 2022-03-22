@@ -732,5 +732,60 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 }
             }
         }
+
+        private void lblqtyAllocatedFinal_TextChanged(object sender, EventArgs e)
+        {
+    
+
+            double StockOnHand;
+            double AllocatedQty;
+
+            StockOnHand = double.Parse(this.txtSoh.Text);
+            AllocatedQty = double.Parse(this.lblqtyAllocatedFinal.Text);
+
+
+            if (AllocatedQty > StockOnHand)
+            {
+             
+                this.matbtnNewAllocate.Enabled = false;
+                if (this.lblAllocatedQty.Text.Contains("-"))
+                {
+                    this.GlobalStatePopup.GreaterThanActualRemainingQty();
+
+
+                    return;
+                }
+                else
+                {
+                    this.GlobalStatePopup.GreaterThanActualRemainingQty();
+
+                    return;
+                }
+            }
+            else
+            {
+            
+                this.matbtnNewAllocate.Enabled = true;
+            }
+
+
+            //Ending
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+
+            double StockOnHand;
+            double AllocatedQty;
+
+            StockOnHand = double.Parse(this.txtSoh.Text);
+            AllocatedQty = double.Parse(this.lblqtyAllocatedFinal.Text);
+
+            MessageBox.Show(StockOnHand.ToString());
+            MessageBox.Show(AllocatedQty.ToString());
+
+        }
+
+        ///
     }
 }

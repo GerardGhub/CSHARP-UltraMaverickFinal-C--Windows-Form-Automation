@@ -384,9 +384,9 @@
             this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label12.Location = new System.Drawing.Point(0, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 32);
+            this.label12.Size = new System.Drawing.Size(126, 32);
             this.label12.TabIndex = 9;
-            this.label12.Text = "MRS/PRF";
+            this.label12.Text = "INTERNAL";
             // 
             // label13
             // 
