@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Allocation_Process.Class;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -24,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         DataSet dSet = new DataSet();
         string mode = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
+        frmAllocationModuleClasses FormClass = new frmAllocationModuleClasses();
         int p_id = 0;
 
         DateTime dNow = DateTime.Now;
@@ -37,21 +38,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             InitializeComponent();
         }
 
-        public string sp_item_code { get; set; }
-        public string sp_item_description { get; set; }
-        public string sp_qty_finder { get; set; }
 
-        public int sp_total_row_allocated { get; set; }
-        public string Sp_Store_Name { get; set; }
-
-        public int Allocated_Quantity { get; set; }
-
-        public string UnitOfMeasure { get; set; }
-   
-
-
-
-        public int user_id { get; set; }
+       
 
         private void frmAllocationModule_Load(object sender, EventArgs e)
         {
@@ -64,7 +52,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void CallInitializeComponent()
         {
-            this.user_id = userinfo.user_id;
+            this.FormClass.user_id = userinfo.user_id;
         }
 
         private void ConnectionInit()
@@ -91,13 +79,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvStoreOrderApproval.Columns["total_row"].Visible = false;
             this.dgvStoreOrderApproval.Columns["GRANDTOTAL_COL_QTY"].Visible = false;
             this.dgvStoreOrderApproval.Columns["COUNT_ORDER"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["p_nearly_expiry_desc"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["is_expirable"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["DAYSTOEXPIRED"].Visible = false;
         }
+
+
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
             this.showDataGridDataValueChanged();
        
         }
+
+
+
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
@@ -122,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["route"].Visible = false;
             this.dgvFindStoreOrders.Columns["primary_id"].Visible = false;
             this.dgvFindStoreOrders.Columns["total_row"].Visible = false;
-            //this.dgvFindStoreOrders.Columns["selecteds"].Visible = false;
+
         }
 
 
@@ -380,7 +376,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.txtItemCode.Text.Trim(), 
                 this.txtitemDescription.Text.Trim(), 
                 this.lblAllocatedQty.Text.Trim(), 
-                this.user_id.ToString(), "", 
+                this.FormClass.user_id.ToString(), "", 
                 p_id.ToString(), 
                 Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()),
                 Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
@@ -391,7 +387,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 dSet.Clear();
                 dSet = objStorProc.sp_Allocation_Logs(p_id,
-                    this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), this.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()), Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
+                    this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), 
+                    this.FormClass.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()), Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
                     "delete");
             }
 
@@ -399,7 +396,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
             dSet.Clear();
             dSet = objStorProc.sp_Allocation_Logs(0,
-                this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), this.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()), Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
+                this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), 
+                this.FormClass.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()), Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
                 "add");
         }
 
@@ -414,7 +412,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             double StockOnHandQty;
 
  
-            orderActual = double.Parse(this.sp_qty_finder);
+            orderActual = double.Parse(this.FormClass.sp_qty_finder);
             totalOrderQuantity = double.Parse(this.txtQtyOrder.Text);
             StockOnHandQty = double.Parse(this.txtSoh.Text);
             totalPercentage = orderActual / totalOrderQuantity * StockOnHandQty;
@@ -445,11 +443,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     if (this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value != null)
                     {
                         p_id = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["primary_id"].Value);                  
-                        this.sp_qty_finder = this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value.ToString();
-                        this.sp_total_row_allocated = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["total_row"].Value);
-                        this.Sp_Store_Name = this.dgvFindStoreOrders.CurrentRow.Cells["store_name"].Value.ToString();
-                        this.Allocated_Quantity = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["ALLOCATION_QTY_FIND"].Value);
-                        this.UnitOfMeasure = this.dgvFindStoreOrders.CurrentRow.Cells["uom"].Value.ToString();
+                        this.FormClass.sp_qty_finder = this.dgvFindStoreOrders.CurrentRow.Cells["qty"].Value.ToString();
+                        this.FormClass.sp_total_row_allocated = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["total_row"].Value);
+                        this.FormClass.Sp_Store_Name = this.dgvFindStoreOrders.CurrentRow.Cells["store_name"].Value.ToString();
+                        this.FormClass.Allocated_Quantity = Convert.ToInt32(this.dgvFindStoreOrders.CurrentRow.Cells["ALLOCATION_QTY_FIND"].Value);
+                        this.FormClass.UnitOfMeasure = this.dgvFindStoreOrders.CurrentRow.Cells["uom"].Value.ToString();
                     }
                 }
             }
@@ -466,7 +464,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.matBtnSave.Enabled = true;
             }
 
-            if (this.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
+            if (this.FormClass.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
             {
      
             }
@@ -481,17 +479,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 //AutoAllocate
             }
         
-            //dSet.Clear();
-            //dSet = objStorProc.sp_avg_order_trend(0, this.txtmatavgdescription.Text.Trim(),
-            //    Convert.ToInt32(this.txtmatAverageqty.Text.Trim()), "", "", "", "", "check_if_already_have_activated_data");
-
-            //if (dSet.Tables[0].Rows.Count > 0)
-            //{
-            //    this.AlreadyHaveActivatedData();
-            //    //Buje Malakas
-
-            //    return;
-            //}
+    
 
 
         }
@@ -583,8 +571,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matbtnManualAllocation.Visible = false;
             this.matbtnNewAllocate.Visible = false;
             frmManualAllocationController ManualAllocation =
-             new frmManualAllocationController(this, this.p_id, Convert.ToInt32(this.txtSoh.Text), this.Sp_Store_Name, 
-             this.Allocated_Quantity, Convert.ToInt32(this.lblqtyAllocatedFinal.Text), this.txtItemCode.Text, this.txtitemDescription.Text, this.UnitOfMeasure, Convert.ToInt32(this.sp_qty_finder)
+             new frmManualAllocationController(this, this.p_id, Convert.ToInt32(this.txtSoh.Text), this.FormClass.Sp_Store_Name, 
+             this.FormClass.Allocated_Quantity, Convert.ToInt32(this.lblqtyAllocatedFinal.Text), this.txtItemCode.Text, this.txtitemDescription.Text, 
+             this.FormClass.UnitOfMeasure, Convert.ToInt32(this.FormClass.sp_qty_finder)
              );
             ManualAllocation.ShowDialog();
         }
@@ -638,6 +627,110 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void dgvStoreOrderApproval_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
 
+        }
+
+        private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
+            {
+                if (Convert.ToDouble(row.Cells["DAYSTOEXPIRED"].Value) < Convert.ToDouble(row.Cells["p_nearly_expiry_desc"].Value) && Convert.ToString(row.Cells["is_expirable"].Value) == "1")
+                {
+                    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
+
+                    row.Cells["item_code"].Style.BackColor = Color.Crimson;
+                    row.Cells["description"].Style.BackColor = Color.Crimson;
+                    row.Cells["sub_category"].Style.BackColor = Color.Crimson;
+                    row.Cells["ORDERS"].Style.BackColor = Color.Crimson;
+                    row.Cells["StockOnHand"].Style.BackColor = Color.Crimson;
+                    row.Cells["Allocation_qty"].Style.BackColor = Color.Crimson;
+                    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.Crimson;
+
+
+
+
+
+                    row.Cells["item_code"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["description"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["sub_category"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["ORDERS"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["StockOnHand"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.Crimson;
+
+
+
+
+
+                    row.Cells["item_code"].Style.SelectionForeColor = Color.White;
+                    row.Cells["description"].Style.SelectionForeColor = Color.White;
+                    row.Cells["sub_category"].Style.SelectionForeColor = Color.White;
+                    row.Cells["ORDERS"].Style.SelectionForeColor = Color.White;
+                    row.Cells["StockOnHand"].Style.SelectionForeColor = Color.White;
+                    row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.White;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
+                }
+
+                //if (Convert.ToString(row.Cells["is_expirable"].Value) == "0")
+                //{
+                //    row.Cells["item_code"].Style.BackColor = Color.Red; 
+                //    row.Cells["description"].Style.BackColor = Color.White;
+                //    row.Cells["sub_category"].Style.BackColor = Color.White;
+                //    row.Cells["ORDERS"].Style.BackColor = Color.White;
+                //    row.Cells["StockOnHand"].Style.BackColor = Color.White;
+                //    row.Cells["Allocation_qty"].Style.BackColor = Color.White;
+                //    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.White;
+
+                //    row.Cells["item_code"].Style.SelectionBackColor = Color.Red;
+                //    row.Cells["description"].Style.SelectionBackColor = Color.White;
+                //    row.Cells["sub_category"].Style.SelectionBackColor = Color.White;
+                //    row.Cells["ORDERS"].Style.SelectionBackColor = Color.White;
+                //    row.Cells["StockOnHand"].Style.SelectionBackColor = Color.White;
+                //    row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.White;
+                //    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.White;
+
+
+                //    row.Cells["item_code"].Style.SelectionForeColor = Color.Black;
+                //    row.Cells["description"].Style.SelectionForeColor = Color.Black;
+                //    row.Cells["sub_category"].Style.SelectionForeColor = Color.Black;
+                //    row.Cells["ORDERS"].Style.SelectionForeColor = Color.Black;
+                //    row.Cells["StockOnHand"].Style.SelectionForeColor = Color.Black;
+                //    row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.Black;
+                //    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.Black;
+       
+                //}
+
+                else
+                {
+
+                    row.Cells["item_code"].Style.BackColor = Color.White;
+                    row.Cells["description"].Style.BackColor = Color.White;
+                    row.Cells["sub_category"].Style.BackColor = Color.White;
+                    row.Cells["ORDERS"].Style.BackColor = Color.White;
+                    row.Cells["StockOnHand"].Style.BackColor = Color.White;
+                    row.Cells["Allocation_qty"].Style.BackColor = Color.White;
+                    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.White;
+
+
+
+
+                    row.Cells["item_code"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["description"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["sub_category"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["ORDERS"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["StockOnHand"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.DarkSlateGray;
+
+
+                    row.Cells["item_code"].Style.SelectionForeColor = Color.White;
+                    row.Cells["description"].Style.SelectionForeColor = Color.White;
+                    row.Cells["sub_category"].Style.SelectionForeColor = Color.White;
+                    row.Cells["ORDERS"].Style.SelectionForeColor = Color.White;
+                    row.Cells["StockOnHand"].Style.SelectionForeColor = Color.White;
+                    row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.White;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
+                }
+            }
         }
     }
 }
