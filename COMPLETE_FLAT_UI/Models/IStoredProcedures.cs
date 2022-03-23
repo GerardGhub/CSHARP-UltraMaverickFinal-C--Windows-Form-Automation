@@ -448,6 +448,17 @@ namespace ULTRAMAVERICK.Models
         string modified_by,
         string modified_at,
         string mode);
+
+        DataSet sp_tblRegion(int region_id,
+        string region_description,
+        string is_active,
+        string added_by,
+        string date_added,
+        string modified_by,
+        string modified_at,
+        string mode);
+
+
         DataSet sp_tbl_stores(
         int stored_id,
         string store_name,

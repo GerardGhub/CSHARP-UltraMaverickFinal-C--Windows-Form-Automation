@@ -1647,6 +1647,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(AllocationModule);
         }
 
+        private void regionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmRegion RegionForm = new frmRegion();
+            RegionForm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(RegionForm);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

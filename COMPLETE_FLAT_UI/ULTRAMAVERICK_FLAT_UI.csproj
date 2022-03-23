@@ -162,13 +162,25 @@
     <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.Designer.cs">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditStore.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRegion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditStore.Designer.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRegion.Designer.cs">
+      <DependentUpon>frmAddNewRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditStore.Designer.cs">
       <DependentUpon>frmEditStore.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\Allocation Process\Class\frmAllocationModuleClasses.cs" />
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmRegion.Designer.cs">
+      <DependentUpon>frmRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\Major Process\Class Form\frmNewStoreOrderApprovedClasses.cs" />
     <Compile Include="Forms\Lab Test\DryWhLabTestRecentLogs.cs">
       <SubType>Form</SubType>
@@ -368,22 +380,22 @@
     <Compile Include="Forms\Dry Warehouse\Import\frmImportStore.Designer.cs">
       <DependentUpon>frmImportStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewArea.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewArea.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewArea.Designer.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewArea.Designer.cs">
       <DependentUpon>frmAddNewArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewRoute.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRoute.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewRoute.Designer.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRoute.Designer.cs">
       <DependentUpon>frmAddNewRoute.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewStore.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmAddNewStore.Designer.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewStore.Designer.cs">
       <DependentUpon>frmAddNewStore.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmAVGOrderTrendSetup.cs">
@@ -392,16 +404,16 @@
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmAVGOrderTrendSetup.Designer.cs">
       <DependentUpon>frmAVGOrderTrendSetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditArea.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditArea.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditArea.Designer.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditArea.Designer.cs">
       <DependentUpon>frmEditArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditConsolidatedOrder.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditConsolidatedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Store Modal\frmEditConsolidatedOrder.Designer.cs">
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditConsolidatedOrder.Designer.cs">
       <DependentUpon>frmEditConsolidatedOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmListofStore.cs">
@@ -623,8 +635,14 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.resx">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmEditStore.resx">
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRegion.resx">
+      <DependentUpon>frmAddNewRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditStore.resx">
       <DependentUpon>frmEditStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\frmRegion.resx">
+      <DependentUpon>frmRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Lab Test\DryWhLabTestRecentLogs.resx">
       <DependentUpon>DryWhLabTestRecentLogs.cs</DependentUpon>
@@ -725,19 +743,19 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportStore.resx">
       <DependentUpon>frmImportStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAddNewArea.resx">
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewArea.resx">
       <DependentUpon>frmAddNewArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAddNewRoute.resx">
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRoute.resx">
       <DependentUpon>frmAddNewRoute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmAddNewStore.resx">
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewStore.resx">
       <DependentUpon>frmAddNewStore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\frmAVGOrderTrendSetup.resx">
       <DependentUpon>frmAVGOrderTrendSetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\frmEditConsolidatedOrder.resx">
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Edit Modals\frmEditConsolidatedOrder.resx">
       <DependentUpon>frmEditConsolidatedOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\frmListofStore.resx">

@@ -74,6 +74,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matTxtRouteName.Focus();
 
         }
+
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
@@ -94,7 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (modes == "add")
             {
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
@@ -125,21 +128,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_tblRoute(sp_route_id, matTxtRouteName.Text.Trim(),
-                        created_by,
+                    dSet = objStorProc.sp_tblRoute(this.sp_route_id, 
+                        this.matTxtRouteName.Text.Trim(),
+                        this.created_by,
                         "",
-                       created_by,
+                       this.created_by,
                         "",
                         "edit");
 
 
 
-                    textBox1.Text = "data Already Save!";
+                    this.textBox1.Text = "data Already Save!";
                     this.GlobalStatePopup.UpdatedSuccessfully();
                     this.Close();
                 }

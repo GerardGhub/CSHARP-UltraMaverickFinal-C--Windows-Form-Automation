@@ -9,11 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals;
 using ULTRAMAVERICK.Models;
 
-namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
+namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 {
-    public partial class frmStoreRoute : MaterialForm
+    public partial class frmRegion : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -25,8 +26,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dSet_temp = new DataSet();
 
 
-
-        public frmStoreRoute()
+        public frmRegion()
         {
             InitializeComponent();
         }
@@ -34,7 +34,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_user_id { get; set; }
         public string sp_area_name { get; set; }
         public string sp_typeof_mode { get; set; }
-        private void frmStoreRoute_Load(object sender, EventArgs e)
+
+        private void frmRegion_Load(object sender, EventArgs e)
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
@@ -44,13 +45,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.LoadingrefresherOrb();
 
             this.SearchMethodJarVarCallingSP();
+
+
         }
+
 
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("tblRouteSpMajor");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("tblRegionSpMajor");
 
         }
 
@@ -59,19 +63,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-                xClass.fillDataGridView(dgvRawMats, "tblRouteSpMinor", dSet);
+                xClass.fillDataGridView(this.dgvRegion, "tblRegionSpMinor", dSet);
 
-                lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                this.lbltotalrecords.Text = this.dgvRegion.RowCount.ToString();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-            this.dgvRawMats.Columns["route_id"].Visible = false;
-            this.dgvRawMats.Columns["is_active"].Visible = false;
-            //this.dgvRawMats.Columns["modified_at"].Visible = false;
-            //this.dgvRawMats.Columns["modified_by"].Visible = false;
+            //this.dgvRegion.Columns["route_id"].Visible = false;
+            //this.dgvRegion.Columns["is_active"].Visible = false;
+            ////this.dgvRawMats.Columns["modified_at"].Visible = false;
+            ////this.dgvRawMats.Columns["modified_by"].Visible = false;
         }
 
         private void LoadingrefresherOrb()
@@ -108,20 +112,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void matBtnNew_Click(object sender, EventArgs e)
-        {
-            this.sp_typeof_mode = "add";
 
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            frmAddNewRoute addNew = new frmAddNewRoute(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
-            addNew.ShowDialog();
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            frmStoreRoute_Load(sender, e);
-        }
+
 
         private void doSearchInTextBoxCmb()
         {
@@ -140,15 +133,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
                         //Gerard Singian Developer Man
 
-                        dv.RowFilter = "route_name like '%" + txtSearch.Text + "%'";
+                        dv.RowFilter = "region_description  like '%" + txtSearch.Text + "%'";
 
                     }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-
-                    }
-                    dgvRawMats.DataSource = dv;
-                    lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+    
+                    this.dgvRegion.DataSource = dv;
+                    this.lbltotalrecords.Text = this.dgvRegion.RowCount.ToString();
                 }
             }
             catch (SyntaxErrorException)
@@ -172,6 +162,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
+   
+    
+
+  
+
+        private void showValueCell()
+        {
+            if (this.dgvRegion.Rows.Count > 0)
+            {
+                if (this.dgvRegion.CurrentRow != null)
+                {
+                    if (this.dgvRegion.CurrentRow.Cells["region_description"].Value != null)
+                    {
+                        this.p_id = Convert.ToInt32(dgvRegion.CurrentRow.Cells["region_id"].Value);
+                        sp_area_name = dgvRegion.CurrentRow.Cells["region_description"].Value.ToString();
+
+
+                    }
+                }
+            }
+        }
+
+        private void dgvRawMats_CurrentCellChanged_1(object sender, EventArgs e)
+        {
+            this.showValueCell();
+        }
+
+        private void matBtnEdit_Click(object sender, EventArgs e)
+        {
+            this.sp_typeof_mode = "edit";
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+            frmAddNewRegion UpdateModal = new frmAddNewRegion(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
+            UpdateModal.ShowDialog();
+        }
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (lbltotalrecords.Text == "0")
@@ -188,34 +214,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void matBtnEdit_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            this.sp_typeof_mode = "edit";
+            this.frmRegion_Load(sender, e);
+        }
+
+        private void matBtnNew_Click(object sender, EventArgs e)
+        {
+            this.sp_typeof_mode = "add";
+
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
-            frmAddNewRoute addNew = new frmAddNewRoute(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
+            frmAddNewRegion addNew = new frmAddNewRegion(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
             addNew.ShowDialog();
-        }
-
-        private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
-        {
-            this.showValueCell();
-        }
-        private void showValueCell()
-        {
-            if (this.dgvRawMats.Rows.Count > 0)
-            {
-                if (this.dgvRawMats.CurrentRow != null)
-                {
-                    if (this.dgvRawMats.CurrentRow.Cells["route_name"].Value != null)
-                    {
-                        this.p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["route_id"].Value);
-                        sp_area_name = dgvRawMats.CurrentRow.Cells["route_name"].Value.ToString();
-
-
-                    }
-                }
-            }
         }
     }
 }
