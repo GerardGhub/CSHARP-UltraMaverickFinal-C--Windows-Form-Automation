@@ -60,12 +60,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
 
-
-
-        private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
+        private void ConnectionOpen()
         {
-            this.CheckTheForApprovalRadioButton();
-
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             if (myClass.g_objStoredProc.getConnected() == true)
@@ -85,6 +81,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 MessageBox.Show("Unable to connect in sql server", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
+        }
+
+        private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
+        {
+            this.CheckTheForApprovalRadioButton();
+
+            this.ConnectionOpen();
 
 
             this.DataRefresher();
@@ -152,13 +155,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void VisibilityFalseDataGrid()
         {
-            this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["StockOnHand"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
+            if (this.lbltotaldata.Text != "0")
+            {
+                this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["StockOnHand"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
+            }
+
+
         }
 
 
@@ -1017,7 +1025,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
-            this.frmStoreOrderforApproval_Load(sender, e);
+            MessageBox.Show("Pukenism");
+           if(this.matRadioForApproval.Checked == true)
+            {
+                this.matRadioForAllocation.Checked = true;
+            }
+            this.ConnectionOpen();
+
+
+            this.DataRefresher();
+
+            //this.frmStoreOrderforApproval_Load(sender, e);
         }
 
 
