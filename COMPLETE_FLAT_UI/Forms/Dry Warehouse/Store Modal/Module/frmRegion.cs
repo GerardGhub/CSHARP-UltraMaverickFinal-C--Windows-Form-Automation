@@ -72,10 +72,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 MessageBox.Show(ex.Message);
             }
-            //this.dgvRegion.Columns["route_id"].Visible = false;
-            //this.dgvRegion.Columns["is_active"].Visible = false;
-            ////this.dgvRawMats.Columns["modified_at"].Visible = false;
-            ////this.dgvRawMats.Columns["modified_by"].Visible = false;
+           
         }
 
         private void LoadingrefresherOrb()
@@ -93,10 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             else
             {
-
-
             }
-
             myglobal.global_module = "Active"; // Mode for Searching
 
         }
@@ -125,14 +119,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-                    if (myglobal.global_module == "EMPLOYEE")
+                 
+                    if (myglobal.global_module == "Active")
                     {
-
-                    }
-                    else if (myglobal.global_module == "Active")
-                    {
-                        //Gerard Singian Developer Man
-
+          
                         dv.RowFilter = "region_description  like '%" + txtSearch.Text + "%'";
 
                     }
@@ -154,18 +144,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 return;
             }
 
-
-
-
         }
-
-
-
-
-   
-    
-
-  
 
         private void showValueCell()
         {

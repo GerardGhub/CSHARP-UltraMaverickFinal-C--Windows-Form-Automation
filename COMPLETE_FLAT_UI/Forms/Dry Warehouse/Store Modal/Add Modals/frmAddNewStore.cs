@@ -56,6 +56,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.loadAreaDropdown();
             this.loadRouteDropdown();
+            this.loadRegionDropdown();
             this.WindowLoader();
             this.ClearComponents();
         }
@@ -72,6 +73,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreName.Text = String.Empty;
             this.mattxtStoreCode.Focus();
           
+        }
+
+        public void loadRegionDropdown()
+        {
+
+            myClass.fillComboBoxDepartment(this.metroCmbRegion, "tblRegion_dropdown", dSet);
+
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
 

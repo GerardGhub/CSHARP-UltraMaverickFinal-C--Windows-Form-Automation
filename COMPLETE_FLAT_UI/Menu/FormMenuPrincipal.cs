@@ -1655,6 +1655,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(RegionForm);
         }
 
+        private void syncConsolidatedOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmSyncConsolidatedOrder SyncOrderForm = new frmSyncConsolidatedOrder();
+            SyncOrderForm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(SyncOrderForm);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

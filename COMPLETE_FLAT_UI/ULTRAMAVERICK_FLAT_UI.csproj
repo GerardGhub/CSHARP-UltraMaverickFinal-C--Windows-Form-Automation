@@ -162,6 +162,12 @@
     <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.Designer.cs">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\AddNewConsolidatedOrderSync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\AddNewConsolidatedOrderSync.Designer.cs">
+      <DependentUpon>AddNewConsolidatedOrderSync.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRegion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmRegion.Designer.cs">
       <DependentUpon>frmRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmSyncConsolidatedOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Store Modal\Module\frmSyncConsolidatedOrder.Designer.cs">
+      <DependentUpon>frmSyncConsolidatedOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Store Modal\Module\Major Process\Class Form\frmNewStoreOrderApprovedClasses.cs" />
     <Compile Include="Forms\Lab Test\DryWhLabTestRecentLogs.cs">
@@ -635,6 +647,9 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.resx">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Add Modals\AddNewConsolidatedOrderSync.resx">
+      <DependentUpon>AddNewConsolidatedOrderSync.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Add Modals\frmAddNewRegion.resx">
       <DependentUpon>frmAddNewRegion.cs</DependentUpon>
     </EmbeddedResource>
@@ -643,6 +658,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\frmRegion.resx">
       <DependentUpon>frmRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Store Modal\Module\frmSyncConsolidatedOrder.resx">
+      <DependentUpon>frmSyncConsolidatedOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Lab Test\DryWhLabTestRecentLogs.resx">
       <DependentUpon>DryWhLabTestRecentLogs.cs</DependentUpon>

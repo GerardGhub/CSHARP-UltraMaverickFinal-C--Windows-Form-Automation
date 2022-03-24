@@ -458,6 +458,17 @@ namespace ULTRAMAVERICK.Models
         string modified_at,
         string mode);
 
+        DataSet sp_TblStoreOrderManageSyncing(
+             int id,
+             string time_from_desc,
+             string time_from_to,
+             string added_by,
+             string date_added,
+             string updated_by,
+             string updated_at,
+             string mode);
+
+
 
         DataSet sp_tbl_stores(
         int stored_id,

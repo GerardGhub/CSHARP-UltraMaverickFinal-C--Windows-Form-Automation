@@ -85,6 +85,7 @@
             this.toolStripStoreArea = new System.Windows.Forms.ToolStripMenuItem();
             this.storeRoute = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStores = new System.Windows.Forms.ToolStripMenuItem();
+            this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripRawMaterials = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripModuleItemClass = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripModuleMajorCategory = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +156,7 @@
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
-            this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syncConsolidatedOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -601,7 +602,7 @@
             // panelMenuSelection
             // 
             this.panelMenuSelection.Controls.Add(this.toolStrip2);
-            this.panelMenuSelection.Location = new System.Drawing.Point(4, 45);
+            this.panelMenuSelection.Location = new System.Drawing.Point(1, 45);
             this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
             this.panelMenuSelection.Name = "panelMenuSelection";
             this.panelMenuSelection.Size = new System.Drawing.Size(247, 512);
@@ -817,36 +818,44 @@
             this.toolStripStoreArea,
             this.storeRoute,
             this.toolStores,
-            this.regionToolStripMenuItem});
+            this.regionToolStripMenuItem,
+            this.syncConsolidatedOrderToolStripMenuItem});
             this.toolStore.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.toolStore.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStore.Image = ((System.Drawing.Image)(resources.GetObject("toolStore.Image")));
             this.toolStore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStore.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStore.Name = "toolStore";
-            this.toolStore.Size = new System.Drawing.Size(231, 44);
+            this.toolStore.Size = new System.Drawing.Size(126, 44);
             this.toolStore.Text = "Store";
             // 
             // toolStripStoreArea
             // 
             this.toolStripStoreArea.Name = "toolStripStoreArea";
-            this.toolStripStoreArea.Size = new System.Drawing.Size(180, 26);
+            this.toolStripStoreArea.Size = new System.Drawing.Size(246, 26);
             this.toolStripStoreArea.Text = "Store Area";
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
             // storeRoute
             // 
             this.storeRoute.Name = "storeRoute";
-            this.storeRoute.Size = new System.Drawing.Size(180, 26);
+            this.storeRoute.Size = new System.Drawing.Size(246, 26);
             this.storeRoute.Text = "Store Route";
             this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
             // 
             // toolStores
             // 
             this.toolStores.Name = "toolStores";
-            this.toolStores.Size = new System.Drawing.Size(180, 26);
+            this.toolStores.Size = new System.Drawing.Size(246, 26);
             this.toolStores.Text = "Stores";
             this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
+            // 
+            // regionToolStripMenuItem
+            // 
+            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.regionToolStripMenuItem.Text = "Region";
+            this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
             // toolStripRawMaterials
             // 
@@ -1579,12 +1588,12 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
-            // regionToolStripMenuItem
+            // syncConsolidatedOrderToolStripMenuItem
             // 
-            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.regionToolStripMenuItem.Text = "Region";
-            this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
+            this.syncConsolidatedOrderToolStripMenuItem.Name = "syncConsolidatedOrderToolStripMenuItem";
+            this.syncConsolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(289, 26);
+            this.syncConsolidatedOrderToolStripMenuItem.Text = "Sync Consolidated Order Setter";
+            this.syncConsolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.syncConsolidatedOrderToolStripMenuItem_Click);
             // 
             // FormMenuPrincipal
             // 
@@ -1752,6 +1761,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripMenuItem allocationModule;
         private System.Windows.Forms.ToolStripMenuItem regionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem syncConsolidatedOrderToolStripMenuItem;
     }
 }
 
