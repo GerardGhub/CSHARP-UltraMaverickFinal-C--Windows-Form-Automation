@@ -14,7 +14,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 {
-    public partial class frmSyncConsolidatedOrder : MaterialForm
+    public partial class frmSyncConsolidatedOrderSetUp : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         DateTime dNow = DateTime.Now;
         DataSet dSet_temp = new DataSet();
 
-        public frmSyncConsolidatedOrder()
+        public frmSyncConsolidatedOrderSetUp()
         {
             InitializeComponent();
         }

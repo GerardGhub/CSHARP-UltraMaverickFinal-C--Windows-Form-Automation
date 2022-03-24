@@ -15,7 +15,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
 {
     public partial class AddNewConsolidatedOrderSync : MaterialForm
     {
-        frmSyncConsolidatedOrder ths;
+        frmSyncConsolidatedOrderSetUp ths;
         myclasses xClass = new myclasses();
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
@@ -23,7 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
         IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
-        public AddNewConsolidatedOrderSync(frmSyncConsolidatedOrder frm, string created_by, string area_name, string mode, int identitys)
+        public AddNewConsolidatedOrderSync(frmSyncConsolidatedOrderSetUp frm, string created_by, string area_name, string mode, int identitys)
         {
             InitializeComponent();
             ths = frm;

@@ -326,7 +326,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialCard2);
             this.Name = "frmStoreRoute";
-            this.Sizable = false;
             this.Text = "Store Route";
             this.Load += new System.EventHandler(this.frmStoreRoute_Load);
             this.materialCard1.ResumeLayout(false);

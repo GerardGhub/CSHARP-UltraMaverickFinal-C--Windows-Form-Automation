@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 {
-    partial class frmSyncConsolidatedOrder
+    partial class frmSyncConsolidatedOrderSetUp
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvRegion = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time_from_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time_from_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +50,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegion)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -240,11 +240,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvRegion.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRegion.CurrentCellChanged += new System.EventHandler(this.dgvRegion_CurrentCellChanged);
             // 
+            // materialCard2
+            // 
+            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.dgvRegion);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(17, 154);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(973, 571);
+            this.materialCard2.TabIndex = 585;
+            // 
             // id
             // 
             this.id.DataPropertyName = "id";
             this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "REGION ID";
+            this.id.HeaderText = "ID";
             this.id.MinimumWidth = 12;
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -300,24 +317,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.updated_at.Name = "updated_at";
             this.updated_at.ReadOnly = true;
             // 
-            // materialCard2
-            // 
-            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.dgvRegion);
-            this.materialCard2.Depth = 0;
-            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(17, 154);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(973, 571);
-            this.materialCard2.TabIndex = 585;
-            // 
-            // frmSyncConsolidatedOrder
+            // frmSyncConsolidatedOrderSetUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -326,7 +326,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialCard2);
-            this.Name = "frmSyncConsolidatedOrder";
+            this.Name = "frmSyncConsolidatedOrderSetUp";
             this.Text = "Sync Consolidated Order";
             this.Load += new System.EventHandler(this.frmSyncConsolidatedOrder_Load);
             this.materialCard1.ResumeLayout(false);

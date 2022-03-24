@@ -1658,7 +1658,7 @@ namespace COMPLETE_FLAT_UI
         private void syncConsolidatedOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmSyncConsolidatedOrder SyncOrderForm = new frmSyncConsolidatedOrder();
+            frmSyncConsolidatedOrderSetUp SyncOrderForm = new frmSyncConsolidatedOrderSetUp();
             SyncOrderForm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(SyncOrderForm);
         }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -64,6 +65,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string Sp_total_count_of_RestData { get; set; }
 
 
+        public string DateFrom { get; set; }
+        public string DateTo { get; set; }
+
   
 
         private JArray GetRESTData(string uri)
@@ -86,8 +90,57 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
            
             this.objStorProc = xClass.g_objStoredProc.GetCollections();
             this.user_id = userinfo.user_id;
+            this.showCutOffStoreOrders();
+            this.matlblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            this.matlblTime.Visible = false;
+            this.ValidateTheFuckingCutOfftimeWithButtonControlls();
         }
 
+        private void ValidateTheFuckingCutOfftimeWithButtonControlls()
+        {
+            
+            TimeSpan start;
+            TimeSpan now;
+            TimeSpan end;
+            start = DateTime.ParseExact(DateFrom, "h:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
+            end = DateTime.ParseExact(DateTo, "hh:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
+            now = DateTime.ParseExact(this.matlblTime.Text, "hh:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
+
+        
+            if ((now > start) && (now < end))
+            {
+                //match found
+                //MessageBox.Show("Pukenism");
+                this.matbtnUpload.Enabled = true;
+            }
+            else
+
+            {
+                //MessageBox.Show("Bilatnism");
+                this.matbtnUpload.Enabled = false;
+            }
+        }
+
+
+        private void showCutOffStoreOrders()    //method for loading available_menus
+        {
+            try
+            {
+
+                xClass.fillDataGridView(this.dgvStoreOrdersCutOff, "TblStoreOrderManageSyncingSpMinor", dSet);
+
+                this.lbltotalrecords.Text = this.dgvStoreOrdersCutOff.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            this.dgvStoreOrdersCutOff.Columns["is_active"].Visible = false;
+            this.dgvStoreOrdersCutOff.Columns["added_by"].Visible = false;
+            this.dgvStoreOrdersCutOff.Columns["date_added"].Visible = false;
+        }
         private void  MainLoader()
         {
             this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
@@ -162,9 +215,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matbtnUpload_Click(object sender, EventArgs e)
         {
-            
+  
+           
+            //Start
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
                 this.SaveMethod1();
-            
+            }
+            else
+            {
+                return;
+            }
+            //End
+
         }
         private void SavedNotify()
         {
@@ -260,10 +323,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void SaveMethod1()
         {
-
-   
-
-
             //Check The store if existg on the system
             dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(0,
@@ -620,7 +679,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                         this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
                         //this.InsertDataPerRow();
-                        MessageBox.Show("OK");
+                        //MessageBox.Show("OK");
                         frmStoreOrderRestAPIcall_Load(new object(), new System.EventArgs());
                     }
 
@@ -633,6 +692,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.SaveMethod1();
         }
 
+        private void dgvStoreOrdersCutOff_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.dgvStoreOrdersCutOff.Rows.Count > 0)
+            {
+                if (this.dgvStoreOrdersCutOff.CurrentRow != null)
+                {
+                    if (this.dgvStoreOrdersCutOff.CurrentRow.Cells["time_from_desc"].Value != null)
+                    {
+                       
+                        this.DateFrom = this.dgvStoreOrdersCutOff.CurrentRow.Cells["time_from_desc"].Value.ToString();
+                        this.DateTo = this.dgvStoreOrdersCutOff.CurrentRow.Cells["time_from_to"].Value.ToString();
 
+
+                    }
+                }
+            }
+        }
     }
 }
