@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 MessageBox.Show(ex.Message);
             }
-
+            this.dgvRegion.Columns["id"].Visible = false;
             this.dgvRegion.Columns["is_active"].Visible = false;
         }
 

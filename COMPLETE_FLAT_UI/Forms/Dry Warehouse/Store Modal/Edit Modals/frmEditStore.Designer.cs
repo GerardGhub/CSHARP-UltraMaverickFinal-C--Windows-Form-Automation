@@ -68,7 +68,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // metroCmbRegion
             // 
             this.metroCmbRegion.FormattingEnabled = true;
-            this.metroCmbRegion.Location = new System.Drawing.Point(40, 446);
+            this.metroCmbRegion.Location = new System.Drawing.Point(45, 446);
             this.metroCmbRegion.Name = "metroCmbRegion";
             this.metroCmbRegion.Size = new System.Drawing.Size(401, 21);
             this.metroCmbRegion.TabIndex = 10;
@@ -79,7 +79,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(42, 421);
+            this.materialLabel3.Location = new System.Drawing.Point(47, 421);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(50, 19);
@@ -89,7 +89,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // cmbStoreArea
             // 
             this.cmbStoreArea.FormattingEnabled = true;
-            this.cmbStoreArea.Location = new System.Drawing.Point(40, 374);
+            this.cmbStoreArea.Location = new System.Drawing.Point(45, 374);
             this.cmbStoreArea.Name = "cmbStoreArea";
             this.cmbStoreArea.Size = new System.Drawing.Size(401, 21);
             this.cmbStoreArea.TabIndex = 7;
@@ -98,7 +98,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // cmbStoreRoute
             // 
             this.cmbStoreRoute.FormattingEnabled = true;
-            this.cmbStoreRoute.Location = new System.Drawing.Point(40, 277);
+            this.cmbStoreRoute.Location = new System.Drawing.Point(45, 277);
             this.cmbStoreRoute.Name = "cmbStoreRoute";
             this.cmbStoreRoute.Size = new System.Drawing.Size(401, 21);
             this.cmbStoreRoute.TabIndex = 6;
@@ -109,7 +109,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(43, 352);
+            this.materialLabel2.Location = new System.Drawing.Point(48, 352);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(74, 19);
@@ -121,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(42, 255);
+            this.materialLabel1.Location = new System.Drawing.Point(47, 255);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(83, 19);
@@ -134,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreName.Depth = 0;
             this.mattxtStoreName.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtStoreName.Hint = "Store Name";
-            this.mattxtStoreName.Location = new System.Drawing.Point(40, 163);
+            this.mattxtStoreName.Location = new System.Drawing.Point(45, 163);
             this.mattxtStoreName.MaxLength = 50;
             this.mattxtStoreName.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtStoreName.Multiline = false;
@@ -150,7 +150,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreCode.Enabled = false;
             this.mattxtStoreCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtStoreCode.Hint = "Store Code";
-            this.mattxtStoreCode.Location = new System.Drawing.Point(40, 60);
+            this.mattxtStoreCode.Location = new System.Drawing.Point(45, 60);
             this.mattxtStoreCode.MaxLength = 50;
             this.mattxtStoreCode.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtStoreCode.Multiline = false;
