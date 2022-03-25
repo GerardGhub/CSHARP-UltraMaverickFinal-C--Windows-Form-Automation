@@ -30,6 +30,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.metroCmbRegion = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.cmbStoreArea = new MetroFramework.Controls.MetroComboBox();
@@ -39,8 +41,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.metroCmbRegion = new MetroFramework.Controls.MetroComboBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(495, 488);
             this.materialCard1.TabIndex = 476;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(44, 410);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(50, 19);
+            this.materialLabel3.TabIndex = 7;
+            this.materialLabel3.Text = "Region";
+            // 
+            // metroCmbRegion
+            // 
+            this.metroCmbRegion.FormattingEnabled = true;
+            this.metroCmbRegion.ItemHeight = 23;
+            this.metroCmbRegion.Location = new System.Drawing.Point(42, 432);
+            this.metroCmbRegion.Name = "metroCmbRegion";
+            this.metroCmbRegion.Size = new System.Drawing.Size(401, 29);
+            this.metroCmbRegion.TabIndex = 6;
+            this.metroCmbRegion.UseSelectable = true;
             // 
             // materialLabel2
             // 
@@ -97,6 +119,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.cmbStoreArea.Name = "cmbStoreArea";
             this.cmbStoreArea.Size = new System.Drawing.Size(401, 29);
             this.cmbStoreArea.TabIndex = 3;
+            this.cmbStoreArea.UseCustomBackColor = true;
             this.cmbStoreArea.UseSelectable = true;
             // 
             // cmbStoreRoute
@@ -183,28 +206,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label1.TabIndex = 479;
             this.label1.Text = "Label for Two way Binding Only : Dont remove Fucker";
             this.label1.Visible = false;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(44, 410);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(50, 19);
-            this.materialLabel3.TabIndex = 7;
-            this.materialLabel3.Text = "Region";
-            // 
-            // metroCmbRegion
-            // 
-            this.metroCmbRegion.FormattingEnabled = true;
-            this.metroCmbRegion.ItemHeight = 23;
-            this.metroCmbRegion.Location = new System.Drawing.Point(42, 432);
-            this.metroCmbRegion.Name = "metroCmbRegion";
-            this.metroCmbRegion.Size = new System.Drawing.Size(401, 29);
-            this.metroCmbRegion.TabIndex = 6;
-            this.metroCmbRegion.UseSelectable = true;
             // 
             // frmAddNewStore
             // 

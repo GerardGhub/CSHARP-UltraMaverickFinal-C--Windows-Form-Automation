@@ -83,9 +83,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
+
+
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
             this.CheckTheForApprovalRadioButton();
+
+
+
+
 
             this.ConnectionOpen();
 
@@ -137,6 +143,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if(lbltotaldata.Text == "0")
             {
                 //MessageBox.Show("sdsds");
+            }
+            else
+            {
+                this.GlobalVariable.for_approval_store_module_formLoad = "1";
             }
 
 
@@ -1025,7 +1035,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Pukenism");
+           
            if(this.matRadioForApproval.Checked == true)
             {
                 this.matRadioForAllocation.Checked = true;
@@ -1034,7 +1044,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             this.DataRefresher();
+            this.showRawMaterialforApproval();
 
+            //Functionality Viewing of the Data Binding Source
+            if (this.matRadioForApproval.Checked == true)
+            {
+                this.loadCategoryDropdown();        
+            }
+            else if (this.matRadioForAllocation.Checked == true)
+            {
+                this.loadCategoryDropdownForAllocation();
+            }
+            this.matcmbPackaging_SelectionChangeCommitted(sender, e);
             //this.frmStoreOrderforApproval_Load(sender, e);
         }
 
@@ -1042,7 +1063,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
         {
-            this.frmStoreOrderforApproval_Load(sender, e);
+
+            if (this.matRadioForAllocation.Checked == true)
+            {
+                this.matRadioForAllocation.Checked = false;
+
+                //this.matRadioForApproval.Checked = true;
+            }
+            this.ConnectionOpen();
+
+
+            ////this.DataRefresher();
+
+
+            //Functionality Viewing of the Data Binding Source
+            if (this.matRadioForApproval.Checked == true)
+            {
+                this.loadCategoryDropdown();
+            }
+            else if (this.matRadioForAllocation.Checked == true)
+            {
+                this.loadCategoryDropdownForAllocation();
+            }
+            if (this.GlobalVariable.for_approval_store_module_formLoad == "1")
+            {
+                g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+                objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+                this.load_search();
+            }
+     
+            //this.matcmbPackaging_SelectionChangeCommitted(sender, e);
+            //this.showRawMaterialforApproval();
+            //this.frmStoreOrderforApproval_Load(sender, e);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         frmListofStore ths;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmEditStore(frmListofStore frm, string store_code, string store_name, 
-            string store_route, string store_area, string store_id)
+            string store_route, string store_area, string store_id, string region)
         {
             InitializeComponent();
             ths = frm;
@@ -36,6 +36,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.SpStoreRoute = store_route;
             this.SpStoreArea = store_area;
             this.Sp_Store_Id = store_id;
+            this.SpRegion = region;
         }
 
         public string SpStoreCode { get; set; }
@@ -44,12 +45,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string SpStoreArea { get; set; }
         public string sp_user_id { get; set; }
         public string Sp_Store_Id { get; set; }
+        public string SpRegion { get; set; }
 
         private void frmEditStore_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.BindDataintoTextBox();
+            //this.loadRegionDropdown();
+        }
+
+
+        public void loadRegionDropdown()
+        {
+
+            myClass.fillComboBoxDepartment(this.metroCmbRegion, "tblRegion_dropdown", dSet);
+
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
         public void loadRouteDropdown()
@@ -80,6 +93,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.cmbStoreArea.Text = this.SpStoreArea;
             this.sp_user_id = userinfo.user_id.ToString();
             this.Sp_Store_Id = this.Sp_Store_Id;
+            this.metroCmbRegion.Text = this.SpRegion;
         }
 
 
@@ -149,9 +163,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.cmbStoreArea.Text.Trim(),
                     this.mattxtStoreCode.Text.Trim(),
                     this.cmbStoreRoute.Text.Trim(),
-                    Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "edit");
+                    Convert.ToString(sp_user_id), "", 
+                    Convert.ToString(sp_user_id), "", 
+                    this.metroCmbRegion.Text, "edit");
                 this.GlobalStatePopup.UpdatedSuccessfully();
-                this.frmEditStore_Load(sender, e);
+                this.Close();
+                
             }
             else
             {
@@ -174,6 +191,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void cmbStoreArea_Click(object sender, EventArgs e)
         {
             this.loadAreaDropdown();
+        }
+
+        private void metroCmbRegion_Click(object sender, EventArgs e)
+        {
+            this.loadRegionDropdown();
         }
     }
 }

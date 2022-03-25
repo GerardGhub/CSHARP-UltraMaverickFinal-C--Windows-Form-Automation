@@ -122,11 +122,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //Check The store if existg on the system
             dSet.Clear();
             dSet = objStorProc.sp_tbl_stores(0,
-                sp_store_name,
-                sp_store_area,
-                mattxtStoreCode.Text.Trim(),
-                sp_store_route,
-                Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "getbystorecode");
+                this.sp_store_name,
+                this.sp_store_area,
+                this.mattxtStoreCode.Text.Trim(),
+                this.sp_store_route,
+                Convert.ToString(sp_user_id), "", 
+                Convert.ToString(sp_user_id), "",
+                this.metroCmbRegion.Text,
+                "getbystorecode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -170,8 +173,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.cmbStoreArea.Text.Trim(),
                     this.mattxtStoreCode.Text.Trim(),
                     this.cmbStoreRoute.Text.Trim(),
-                    Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "add");
+                    Convert.ToString(sp_user_id), "",
+                    Convert.ToString(sp_user_id), "", this.metroCmbRegion.Text, "add");
                 this.GlobalStatePopup.CommittedSuccessFully();
+                this.textBox1.Text = "Gerard Singian";
+                this.textBox1.Text = String.Empty;
                 this.frmAddNewStore_Load(sender, e);
             }
             else

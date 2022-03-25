@@ -30,6 +30,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.metroCmbRegion = new System.Windows.Forms.ComboBox();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.cmbStoreArea = new System.Windows.Forms.ComboBox();
+            this.cmbStoreRoute = new System.Windows.Forms.ComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.mattxtStoreName = new MaterialSkin.Controls.MaterialTextBox();
@@ -37,14 +41,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            this.cmbStoreRoute = new System.Windows.Forms.ComboBox();
-            this.cmbStoreArea = new System.Windows.Forms.ComboBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.metroCmbRegion);
+            this.materialCard1.Controls.Add(this.materialLabel3);
             this.materialCard1.Controls.Add(this.cmbStoreArea);
             this.materialCard1.Controls.Add(this.cmbStoreRoute);
             this.materialCard1.Controls.Add(this.materialLabel2);
@@ -58,8 +62,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(495, 488);
+            this.materialCard1.Size = new System.Drawing.Size(495, 515);
             this.materialCard1.TabIndex = 480;
+            // 
+            // metroCmbRegion
+            // 
+            this.metroCmbRegion.FormattingEnabled = true;
+            this.metroCmbRegion.Location = new System.Drawing.Point(40, 446);
+            this.metroCmbRegion.Name = "metroCmbRegion";
+            this.metroCmbRegion.Size = new System.Drawing.Size(401, 21);
+            this.metroCmbRegion.TabIndex = 10;
+            this.metroCmbRegion.Click += new System.EventHandler(this.metroCmbRegion_Click);
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(42, 421);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(50, 19);
+            this.materialLabel3.TabIndex = 9;
+            this.materialLabel3.Text = "Region";
+            // 
+            // cmbStoreArea
+            // 
+            this.cmbStoreArea.FormattingEnabled = true;
+            this.cmbStoreArea.Location = new System.Drawing.Point(40, 374);
+            this.cmbStoreArea.Name = "cmbStoreArea";
+            this.cmbStoreArea.Size = new System.Drawing.Size(401, 21);
+            this.cmbStoreArea.TabIndex = 7;
+            this.cmbStoreArea.Click += new System.EventHandler(this.cmbStoreArea_Click);
+            // 
+            // cmbStoreRoute
+            // 
+            this.cmbStoreRoute.FormattingEnabled = true;
+            this.cmbStoreRoute.Location = new System.Drawing.Point(40, 277);
+            this.cmbStoreRoute.Name = "cmbStoreRoute";
+            this.cmbStoreRoute.Size = new System.Drawing.Size(401, 21);
+            this.cmbStoreRoute.TabIndex = 6;
+            this.cmbStoreRoute.Click += new System.EventHandler(this.cmbStoreRoute_Click);
             // 
             // materialLabel2
             // 
@@ -119,7 +162,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 580);
+            this.label1.Location = new System.Drawing.Point(34, 604);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(262, 13);
             this.label1.TabIndex = 483;
@@ -132,7 +175,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(34, 598);
+            this.textBox1.Location = new System.Drawing.Point(34, 622);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(262, 20);
             this.textBox1.TabIndex = 482;
@@ -147,7 +190,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(461, 580);
+            this.materialButton1.Location = new System.Drawing.Point(461, 604);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -159,29 +202,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.UseVisualStyleBackColor = true;
             this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
-            // cmbStoreRoute
-            // 
-            this.cmbStoreRoute.FormattingEnabled = true;
-            this.cmbStoreRoute.Location = new System.Drawing.Point(40, 277);
-            this.cmbStoreRoute.Name = "cmbStoreRoute";
-            this.cmbStoreRoute.Size = new System.Drawing.Size(401, 21);
-            this.cmbStoreRoute.TabIndex = 6;
-            this.cmbStoreRoute.Click += new System.EventHandler(this.cmbStoreRoute_Click);
-            // 
-            // cmbStoreArea
-            // 
-            this.cmbStoreArea.FormattingEnabled = true;
-            this.cmbStoreArea.Location = new System.Drawing.Point(40, 374);
-            this.cmbStoreArea.Name = "cmbStoreArea";
-            this.cmbStoreArea.Size = new System.Drawing.Size(401, 21);
-            this.cmbStoreArea.TabIndex = 7;
-            this.cmbStoreArea.Click += new System.EventHandler(this.cmbStoreArea_Click);
-            // 
             // frmEditStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 642);
+            this.ClientSize = new System.Drawing.Size(562, 655);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -213,5 +238,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private System.Windows.Forms.ComboBox cmbStoreRoute;
         private System.Windows.Forms.ComboBox cmbStoreArea;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.ComboBox metroCmbRegion;
     }
 }

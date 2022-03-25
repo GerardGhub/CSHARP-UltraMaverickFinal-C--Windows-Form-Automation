@@ -38,6 +38,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string SpStoreArea { get; set; }
         public string StoreId { get; set; }
         public string sp_user_id { get; set; }
+        public string SpRegion { get; set; }
 
         private void frmListofStore_Load(object sender, EventArgs e)
         {
@@ -73,9 +74,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-                this.xClass.fillDataGridView(dgvSubCategory, "tbl_stores_major", dSet);
+                this.xClass.fillDataGridView(this.dgvSubCategory, "tbl_stores_major", dSet);
 
-                this.lbltotaldata.Text = dgvSubCategory.RowCount.ToString();
+                this.lbltotaldata.Text = this.dgvSubCategory.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -102,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             //MessageBox.Show("For Development And Clarifications");
             toolStripMain.Visible = false;
-            frmEditStore addNew = new frmEditStore(this, this.SpStoreCode, this.SpStoreName, this.SpStoreRoute, this.SpStoreArea, this.StoreId);
+            frmEditStore addNew = new frmEditStore(this, this.SpStoreCode, this.SpStoreName, this.SpStoreRoute, this.SpStoreArea, this.StoreId, this.SpRegion);
             addNew.ShowDialog();
 
         }
@@ -125,7 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.SpStoreName = this.dgvSubCategory.CurrentRow.Cells["store_name"].Value.ToString();
                         this.SpStoreRoute = this.dgvSubCategory.CurrentRow.Cells["store_route"].Value.ToString();
                         this.SpStoreArea = this.dgvSubCategory.CurrentRow.Cells["store_area"].Value.ToString();
-
+                        this.SpRegion = this.dgvSubCategory.CurrentRow.Cells["region"].Value.ToString();
 
                     }
                 }
@@ -144,7 +145,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.SpStoreArea,
                     this.SpStoreCode,
                     this.SpStoreRoute,
-                    Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "delete");
+                    Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "", "delete");
                 this.GlobalStatePopup.InactiveSuccessfully();
                 this.frmListofStore_Load(sender, e);
             }

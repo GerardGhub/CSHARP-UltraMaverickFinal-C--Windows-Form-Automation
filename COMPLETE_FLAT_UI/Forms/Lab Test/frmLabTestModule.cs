@@ -164,6 +164,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.DataGridVisibilityFalse();
         }
 
+
+
         private void DataGridVisibilityFalse()
         {
             this.dgvRawMats.Columns["mfg_date"].Visible = false;

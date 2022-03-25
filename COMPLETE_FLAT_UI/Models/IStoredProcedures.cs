@@ -480,6 +480,7 @@ namespace ULTRAMAVERICK.Models
         string date_added,
         string modified_by,
         string modified_date,
+        string region,
         string mode);
 
         DataSet sp_dry_wh_orders(

@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Models
         public static string DATE_REPORT4;
 
         public string message_window_occur_for_approval_store_module = "";
-
+        public string for_approval_store_module_formLoad = "";
 
 
 
