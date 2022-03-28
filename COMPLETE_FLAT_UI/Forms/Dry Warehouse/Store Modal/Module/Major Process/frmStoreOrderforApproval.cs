@@ -149,9 +149,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.GlobalVariable.for_approval_store_module_formLoad = "1";
             }
 
-
+            this.loadAreaDropdown();
         }
 
+
+        public void loadAreaDropdown()
+        {
+            try
+            {
+
+
+                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_ApprovalAreaBinding", this.dSet, this.matcmbCategory.Text, "", this.matcmbCategory.Text, "");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+        }
 
         private void CheckTheForApprovalRadioButton()
         {
@@ -473,8 +491,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.TaggingConflictCategoryValidation();
             }
-  
-    
+
+            this.loadAreaDropdown();
 
         }
 
@@ -1095,6 +1113,55 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.matcmbPackaging_SelectionChangeCommitted(sender, e);
             //this.showRawMaterialforApproval();
             //this.frmStoreOrderforApproval_Load(sender, e);
+        }
+
+        private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.FindAreaLocation();
+        }
+
+        private void FindAreaLocation()
+        {
+            //this.ConnectionInit();
+            this.dset_emp1.Clear();
+
+            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+
+
+            try
+            {
+                if (this.dset_emp1.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(this.dset_emp1.Tables[0]);
+                    if (myglobal.global_module == "GERARD SINGIAN")
+                    {
+
+                    }
+                    else if (myglobal.global_module == "Active")
+                    {
+
+                        dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "' and area = '" + this.cmbArea.Text + "'  ";
+                        //dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
+                    }
+
+                    this.dgvStoreOrderApproval.DataSource = dv;
+                    this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+
+                    //gerard
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 20.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
         }
     }
 }
