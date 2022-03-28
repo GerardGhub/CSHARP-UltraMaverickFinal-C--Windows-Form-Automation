@@ -90,9 +90,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.CheckTheForApprovalRadioButton();
 
 
-
-
-
             this.ConnectionOpen();
 
 
@@ -150,6 +147,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
 
             this.loadAreaDropdown();
+          
         }
 
 
@@ -707,7 +705,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
 
-        
+            //MessageBox.Show("Puke");
           
             //this.mode = "start";
             this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
@@ -761,11 +759,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
                     else
                     {
-                        this.GlobalStatePopup.DoubleTaggingCategoryInformation();
-                        this.DoubleTaggingFound();
-                        return;
+                        if (dSet.Tables.Count.ToString() == "1")
+                        {
+
+                            MessageBox.Show(dSet.Tables.Count.ToString());
+                        }
+
+
+                            if (dSet.Tables.Count.ToString() == "2")
+                        {
+
+                            MessageBox.Show(dSet.Tables.Count.ToString());
+                            this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                            this.DoubleTaggingFound();
+                            return;
+                        }
+                        //Remove the Current Validation
 
                     }
+
+
+
                 }
                 else
                 {
@@ -971,10 +985,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 if (Convert.ToDouble(row.Cells["ORDERS"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value))
                 {
-                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
-                    row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
-                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                    if (this.matRadioForAllocation.Checked == true)
+                    {
+                        row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
+                        row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                    }
                 }
                 else
                 {
@@ -1011,27 +1027,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
+                    if (this.matRadioForAllocation.Checked == true)
+                    {
 
-                    if (Convert.ToDouble(row.Cells["ORDERS"].Value) == Convert.ToDouble(row.Cells["TOTAL_COLUMN_ALLOCATED_QTY"].Value))
-                    {
-                        //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
-                        row.Cells["qty"].Style.BackColor = Color.White;
-                    }
-                    else
-                    {
-                        row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
-                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
-                        row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                   
+
+                        if (Convert.ToDouble(row.Cells["ORDERS"].Value) == Convert.ToDouble(row.Cells["TOTAL_COLUMN_ALLOCATED_QTY"].Value))
+                        {
+
+                            row.Cells["qty"].Style.BackColor = Color.White;
+                        }
+                        else
+                        {
+                            row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                            row.Cells["qty"].Style.SelectionForeColor = Color.Black;
+                            row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                        }
                     }
 
                 }
 
-                //else if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
-                //{
-                //    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
-                //    row.Cells["qty"].Style.BackColor = Color.White;
-                //}
 
 
             }
