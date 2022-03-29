@@ -149,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-                    this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                    this.GlobalStatePopup.TripleTaggingCategoryInformation();
                     this.mode = "error";
             
                     //this.DoubleTaggingFound();

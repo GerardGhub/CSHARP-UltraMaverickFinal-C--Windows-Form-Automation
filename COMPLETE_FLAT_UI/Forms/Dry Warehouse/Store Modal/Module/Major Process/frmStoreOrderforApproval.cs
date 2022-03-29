@@ -507,10 +507,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (dset2.Tables[0].Rows.Count > 0)
             {
-                //MessageBox.Show("Meron");
-
-                //Sa Meron Tayo 
-
+                
                 //Update Status Already Repack
                 dSet.Clear();
                 dSet = objStorProc.sp_Store_Preparation_Logs(0,
@@ -533,24 +530,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
                     else
                     {
-                        this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                        this.GlobalStatePopup.TripleTaggingCategoryInformation();
                     }
 
-                   
 
-
-                    this.DoubleTaggingFound();
+                    if (dSet.Tables.Count.ToString() == "2")
+                    {
+                        this.DoubleTaggingFound(); // Add additional Braces
+                    }
+                       
                     
                 }
             }
             else
             {
-                //MessageBox.Show("Wala");
+                
                 this.DoubleTaggingNotFound();
             }
 
 
         }
+
+
 
         private void DoubleTaggingFound()
         {
@@ -705,8 +706,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
 
-            //MessageBox.Show("Puke");
-          
+     
             //this.mode = "start";
             this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
             //this.ReturnFunctionality();
@@ -755,22 +755,39 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
+                        if (dSet.Tables[0].Rows.Count.ToString() == "1")
+                        {
+
+                            this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                            //MessageBox.Show(dSet.Tables.Count.ToString());
+                        }
+
+
+                        if (dSet.Tables[0].Rows.Count.ToString() == "2")
+                        {
+
+                            //MessageBox.Show(dSet.Tables.Count.ToString());
+                            this.GlobalStatePopup.TripleTaggingCategoryInformation();
+                            this.DoubleTaggingFound();
+                            return;
+                        }
 
                     }
                     else
                     {
-                        if (dSet.Tables.Count.ToString() == "1")
+                        if (dSet.Tables[0].Rows.Count.ToString() == "1")
                         {
 
-                            MessageBox.Show(dSet.Tables.Count.ToString());
+                            this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                            //MessageBox.Show(dSet.Tables.Count.ToString());
                         }
 
 
-                            if (dSet.Tables.Count.ToString() == "2")
+                            if (dSet.Tables[0].Rows.Count.ToString() == "2")
                         {
 
-                            MessageBox.Show(dSet.Tables.Count.ToString());
-                            this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                            //MessageBox.Show(dSet.Tables.Count.ToString());
+                            this.GlobalStatePopup.TripleTaggingCategoryInformation();
                             this.DoubleTaggingFound();
                             return;
                         }
@@ -1178,6 +1195,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 return;
             }
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            //Start
+            //Update Status Already Repack
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+           this.matcmbCategory.Text,
+            this.bunifuPrepaDate.Text,
+            "", "", "", "", "", "", 0,
+              this.matcmbCategory.Text, "", "",
+            "check_if_already_prepared_conflict_category");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                if (dSet.Tables.Count.ToString() == "0")
+                {
+
+                    this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                    MessageBox.Show(dSet.Tables.Count.ToString());
+                }
+
+
+                if (dSet.Tables.Count.ToString() == "1")
+                {
+
+                    MessageBox.Show(dSet.Tables.Count.ToString());
+                    this.GlobalStatePopup.TripleTaggingCategoryInformation();
+                    this.DoubleTaggingFound();
+                    return;
+                }
+
+            }
+            MessageBox.Show("Pussy Lover" + dSet.Tables[0].Rows.Count.ToString());
+            //End
         }
     }
 }
