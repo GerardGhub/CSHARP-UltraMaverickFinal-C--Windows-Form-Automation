@@ -64,7 +64,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.cmbDateOrder = new MetroFramework.Controls.MetroComboBox();
+            this.cmbArea = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.metroCmbStoreCode = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -420,13 +420,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.materialCard3);
             this.materialCard1.Controls.Add(this.materialLabel5);
-            this.materialCard1.Controls.Add(this.cmbDateOrder);
+            this.materialCard1.Controls.Add(this.cmbArea);
             this.materialCard1.Controls.Add(this.materialLabel3);
             this.materialCard1.Controls.Add(this.metroCmbStoreCode);
             this.materialCard1.Controls.Add(this.materialLabel2);
             this.materialCard1.Controls.Add(this.matcmbCategory);
-            this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.bunifuPrepaDate);
+            this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(21, 83);
@@ -501,16 +501,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel5.TabIndex = 584;
             this.materialLabel5.Text = "Preparation Date:";
             // 
-            // cmbDateOrder
+            // cmbArea
             // 
-            this.cmbDateOrder.FormattingEnabled = true;
-            this.cmbDateOrder.ItemHeight = 23;
-            this.cmbDateOrder.Location = new System.Drawing.Point(210, 40);
-            this.cmbDateOrder.Name = "cmbDateOrder";
-            this.cmbDateOrder.Size = new System.Drawing.Size(182, 29);
-            this.cmbDateOrder.TabIndex = 583;
-            this.cmbDateOrder.UseSelectable = true;
-            this.cmbDateOrder.SelectionChangeCommitted += new System.EventHandler(this.cmbDateOrder_SelectionChangeCommitted);
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.ItemHeight = 23;
+            this.cmbArea.Location = new System.Drawing.Point(429, 41);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(182, 29);
+            this.cmbArea.TabIndex = 583;
+            this.cmbArea.UseSelectable = true;
+            this.cmbArea.SelectionChangeCommitted += new System.EventHandler(this.cmbDateOrder_SelectionChangeCommitted);
             // 
             // materialLabel3
             // 
@@ -534,14 +534,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.metroCmbStoreCode.TabIndex = 579;
             this.metroCmbStoreCode.UseSelectable = true;
             this.metroCmbStoreCode.SelectionChangeCommitted += new System.EventHandler(this.metroCmbStoreCode_SelectionChangeCommitted);
-            this.metroCmbStoreCode.Validated += new System.EventHandler(this.metroCmbStoreCode_Validated);
             // 
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(443, 16);
+            this.materialLabel2.Location = new System.Drawing.Point(221, 16);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(68, 19);
@@ -552,7 +551,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.matcmbCategory.FormattingEnabled = true;
             this.matcmbCategory.ItemHeight = 23;
-            this.matcmbCategory.Location = new System.Drawing.Point(442, 41);
+            this.matcmbCategory.Location = new System.Drawing.Point(220, 41);
             this.matcmbCategory.Name = "matcmbCategory";
             this.matcmbCategory.Size = new System.Drawing.Size(182, 29);
             this.matcmbCategory.TabIndex = 577;
@@ -564,13 +563,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(210, 13);
+            this.materialLabel1.Location = new System.Drawing.Point(429, 14);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(80, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
             this.materialLabel1.TabIndex = 575;
-            this.materialLabel1.Text = "Order Date:";
+            this.materialLabel1.Text = "Area:";
             // 
             // bunifuPrepaDate
             // 
@@ -820,7 +819,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckboxSelectAll;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MetroFramework.Controls.MetroComboBox cmbDateOrder;
+        private MetroFramework.Controls.MetroComboBox cmbArea;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MetroFramework.Controls.MetroComboBox metroCmbStoreCode;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;

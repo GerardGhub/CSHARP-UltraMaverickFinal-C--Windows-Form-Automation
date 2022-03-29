@@ -193,7 +193,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text,this.metroCmbStoreCode.Text);
+                //myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text,this.metroCmbStoreCode.Text);
+                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Area", this.dSet, this.bunifuPrepaDate.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
 
             }
             catch (Exception ex)
@@ -322,19 +323,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
                         if (this.mode == "Search1")
                         {
-                            dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'     ";
+                            dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and category = '" + this.matcmbCategory.Text + "'     ";
                         }
-                         else if(this.mode == "Search2")
+                         else if(this.mode == "Search2") // for Fucking Category dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "'  ";
                         {
-                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "'  ";
+                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'  ";
                         }
                         else if (this.mode == "Search3")
                         {
-                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "' and   category = '" + this.matcmbCategory.Text + "'  ";
+                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   area = '" + this.cmbArea.Text + "' and   category = '" + this.matcmbCategory.Text + "'  ";
                         }
                         else if (this.mode == "Search4")
                         {
-                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "' and   category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  ";
+                            dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and area = '" + this.cmbArea.Text + "' and   category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  ";
                         }
                         else
                         {
@@ -409,7 +410,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
+                myClass.fillComboBoxStoreOrderApprovalSync(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbArea.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
 
             }
             catch (Exception ex)
@@ -427,7 +428,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSyncStore(this.metroCmbStoreCode, "tblStore_dropdown_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
+                myClass.fillComboBoxStoreOrderApprovalSyncStore(this.metroCmbStoreCode, "tblStore_dropdown_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbArea.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
 
             }
             catch (Exception ex)
@@ -472,23 +473,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void cmbDateOrder_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.ConnectionInit();
-            this.loadCategoryDropdown();
-            this.mode = "Search2";
+            //this.ConnectionInit();
+            //this.loadCategoryDropdown();
+            //this.mode = "Search2";
 
-            this.load_search();
-            this.checkIfAlreadyPrepared();
-        }
+            //this.load_search();
+            //this.checkIfAlreadyPrepared();
 
-        private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-          
             this.ConnectionInit();
             this.loadStoreDropdown();
             this.mode = "Search3";
 
             this.load_search();
             this.checkIfAlreadyPrepared();
+
+        }
+
+        private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            this.mode = "Search1";
+            this.ConnectionInit();
+
+
+            this.loadDateOrderDropdown(); //Puke
+
+
+            this.load_search();
+            this.checkIfAlreadyPrepared();
+
+
+            //this.ConnectionInit();
+            //this.loadStoreDropdown();
+            //this.mode = "Search3";
+
+            //this.load_search();
+            //this.checkIfAlreadyPrepared();
 
 
 
@@ -506,11 +526,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
         {
-            this.mode = "Search1";
+            //this.mode = "Search1";
+            //this.ConnectionInit();
+
+
+            ////this.loadDateOrderDropdown(); //Puke
+
+
+            //this.load_search();
+            //this.checkIfAlreadyPrepared();
+
+
             this.ConnectionInit();
-            this.loadDateOrderDropdown();
+            this.loadCategoryDropdown();
+            this.mode = "Search2";
+
             this.load_search();
             this.checkIfAlreadyPrepared();
+
 
 
         }
@@ -558,11 +591,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void dgvStoreOrderApproval_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
    
-        }
-
-        private void metroCmbStoreCode_Validated(object sender, EventArgs e)
-        {
-            
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
