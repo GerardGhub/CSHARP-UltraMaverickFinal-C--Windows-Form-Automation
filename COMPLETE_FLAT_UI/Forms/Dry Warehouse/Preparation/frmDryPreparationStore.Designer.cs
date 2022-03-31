@@ -46,6 +46,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.cmbArea = new MetroFramework.Controls.MetroComboBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioPrevious = new MaterialSkin.Controls.MaterialButton();
@@ -113,6 +115,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.cmbArea);
+            this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.materialLabel5);
             this.materialCard1.Controls.Add(this.materialCard3);
             this.materialCard1.Controls.Add(this.matCmbPreparationDate);
@@ -128,12 +132,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard1.Size = new System.Drawing.Size(986, 73);
             this.materialCard1.TabIndex = 649;
             // 
+            // cmbArea
+            // 
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.ItemHeight = 23;
+            this.cmbArea.Location = new System.Drawing.Point(246, 30);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(182, 29);
+            this.cmbArea.TabIndex = 658;
+            this.cmbArea.UseSelectable = true;
+            this.cmbArea.SelectionChangeCommitted += new System.EventHandler(this.cmbArea_SelectionChangeCommitted);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(246, 4);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
+            this.materialLabel1.TabIndex = 657;
+            this.materialLabel1.Text = "Area:";
+            // 
             // materialLabel5
             // 
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(236, 5);
+            this.materialLabel5.Location = new System.Drawing.Point(507, 6);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(124, 19);
@@ -223,7 +251,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             // 
             this.matCmbPreparationDate.FormattingEnabled = true;
             this.matCmbPreparationDate.ItemHeight = 23;
-            this.matCmbPreparationDate.Location = new System.Drawing.Point(233, 31);
+            this.matCmbPreparationDate.Location = new System.Drawing.Point(504, 32);
             this.matCmbPreparationDate.Name = "matCmbPreparationDate";
             this.matCmbPreparationDate.Size = new System.Drawing.Size(224, 29);
             this.matCmbPreparationDate.TabIndex = 579;
@@ -303,8 +331,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStoreOrderApproval.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -350,8 +378,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             this.dgvStoreOrderApproval.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvStoreOrderApproval_RowPostPaint);
             // 
@@ -492,8 +520,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DgvMaterialPreparation.DefaultCellStyle = dataGridViewCellStyle7;
             this.guna2DgvMaterialPreparation.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -539,8 +567,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.Height = 40;
-            this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
             this.guna2DgvMaterialPreparation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DgvMaterialPreparation_CellContentClick);
             this.guna2DgvMaterialPreparation.CurrentCellChanged += new System.EventHandler(this.guna2DgvMaterialPreparation_CurrentCellChanged);
             // 
@@ -1054,5 +1082,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn route;
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalItemsOrder;
+        private MetroFramework.Controls.MetroComboBox cmbArea;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

@@ -130,11 +130,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
                     DataView dv = new DataView(dset_emp_SearchEnginesPreparationPerStaff.Tables[0]);
                  
+                    if (this.cmbArea.Text == String.Empty)
+                    {
+                        dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
 
-                        dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text+"'    ";
+                    }
+                    else
+                    {
+                        dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'  and area = '" + this.cmbArea.Text + "'    ";
+
+                    }
 
                     //start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' and category = '" +this.matcmbCategory.Text+"'  or start_by_user_id = '0'
-              
+
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
                 }
@@ -449,9 +457,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
             this.FormmLoadSearchState();
 
-            this.sampleEnhancement();
+            // attached the Area
 
+            this.sampleEnhancement();
+            this.loadAreaDropdown();
+            if (this.cmbArea.Text == String.Empty)
+            {
+
+            }
+            else
+            {
+                this.FormmLoadSearchState();
+            }
         }
+        public void loadAreaDropdown()
+        {
+            try
+            {
+
+
+                //myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text,this.metroCmbStoreCode.Text);
+                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Already_Approved_AreaData", this.dSet, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, "");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+        }
+
 
         public void loadPreparationDateDropdown()
         {
@@ -875,13 +912,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         if (dset2.Tables[0].Rows.Count > 0)
                         {
 
-                            MessageBox.Show("A");
+                            //MessageBox.Show("A");
 
 
                         }
                         else
                         {
-                            MessageBox.Show("B");
+                            //MessageBox.Show("B");
                             dSet.Clear();
                             dSet = objStorProc.sp_Store_Preparation_Logs(0,
                             this.sp_fox,
@@ -1141,6 +1178,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
 
+        }
+
+        private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.FormmLoadSearchState();
         }
     }
 }

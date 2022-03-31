@@ -580,8 +580,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 this.materialCheckboxSelectAll.Visible = true;
+                this.matcmbCategory.Enabled = true;
 
-                if(this.matRadioForAllocation.Checked == true)
+                if (this.matRadioForAllocation.Checked == true)
                 {
                     this.bunifuPrepaDate.Enabled = true;
                     this.dgvStoreOrderApproval.Enabled = true;

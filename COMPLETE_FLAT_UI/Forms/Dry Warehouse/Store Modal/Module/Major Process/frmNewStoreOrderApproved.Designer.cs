@@ -69,8 +69,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.metroCmbStoreCode = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCheckboxSelectAll = new MaterialSkin.Controls.MaterialCheckbox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -209,8 +209,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStoreOrderApproval.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -256,8 +256,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvStoreOrderApproval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellContentClick);
             this.dgvStoreOrderApproval.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStoreOrderApproval_CellFormatting);
             this.dgvStoreOrderApproval.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellValueChanged);
@@ -558,19 +558,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matcmbCategory.UseSelectable = true;
             this.matcmbCategory.SelectionChangeCommitted += new System.EventHandler(this.matcmbPackaging_SelectionChangeCommitted);
             // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(429, 14);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
-            this.materialLabel1.TabIndex = 575;
-            this.materialLabel1.Text = "Area:";
-            // 
             // bunifuPrepaDate
             // 
             this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -583,6 +570,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 31);
             this.bunifuPrepaDate.TabIndex = 574;
             this.bunifuPrepaDate.ValueChanged += new System.EventHandler(this.bunifuPrepaDate_ValueChanged);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(429, 14);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
+            this.materialLabel1.TabIndex = 575;
+            this.materialLabel1.Text = "Area:";
             // 
             // materialCheckboxSelectAll
             // 

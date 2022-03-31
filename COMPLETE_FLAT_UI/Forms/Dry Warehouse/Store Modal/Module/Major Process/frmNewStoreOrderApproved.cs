@@ -187,7 +187,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        public void loadDateOrderDropdown()
+        public void loadAreaDropdown()
         {
             try
             {
@@ -484,6 +484,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.loadStoreDropdown();
             this.mode = "Search3";
 
+            if (this.metroCmbStoreCode.Text != String.Empty)
+            {
+                this.metroCmbStoreCode.SelectedIndex = -1;
+            }
+
+
             this.load_search();
             this.checkIfAlreadyPrepared();
 
@@ -492,11 +498,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
+           
+
+
             this.mode = "Search1";
             this.ConnectionInit();
 
 
-            this.loadDateOrderDropdown(); //Puke
+            this.loadAreaDropdown(); //Puke
+
+
+            if (this.metroCmbStoreCode.Text != String.Empty)
+            {
+                this.metroCmbStoreCode.SelectedIndex = -1;
+
+            }
+
+            if (this.cmbArea.Text != String.Empty)
+            {
+
+
+                this.cmbArea.SelectedIndex = -1;
+            }
 
 
             this.load_search();
@@ -540,6 +563,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.loadCategoryDropdown();
             this.mode = "Search2";
+
+            if (this.matcmbCategory.Text != String.Empty)
+            {
+                this.matcmbCategory.SelectedIndex = -1;
+
+            }
+
+            if (this.metroCmbStoreCode.Text != String.Empty)
+            {
+                this.metroCmbStoreCode.SelectedIndex = -1;
+
+            }
+
+            if (this.cmbArea.Text != String.Empty)
+            {
+
+
+                this.cmbArea.SelectedIndex = -1;
+            }
+
 
             this.load_search();
             this.checkIfAlreadyPrepared();

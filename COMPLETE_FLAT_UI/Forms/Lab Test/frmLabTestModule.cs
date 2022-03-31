@@ -295,6 +295,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.btnCancelLabRequest.Visible = true;
          
             }
+           else if (this.SpLabStatus == "LAB APPROVED")
+            {
+                this.matViewLabRecords.Enabled = false;
+                this.btnCancelLabRequest.Visible = true;
+
+            }
+            else if (this.SpLabStatus == "LAB RESULT")
+            {
+                this.matViewLabRecords.Enabled = false;
+                this.btnCancelLabRequest.Visible = true;
+
+            }
             else
             {
                 this.matViewLabRecords.Enabled = true;
@@ -307,7 +319,17 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 WizardBalloon1.Image = Properties.Resources.completed;
                 this.lblPattern1.Visible = true;
             }
-           else
+            else if (this.SpLabStatus == "LAB APPROVED")
+            {
+                WizardBalloon1.Image = Properties.Resources.completed;
+                this.lblPattern1.Visible = true;
+            }
+            else if (this.SpLabStatus == "LAB RESULT")
+            {
+                WizardBalloon1.Image = Properties.Resources.completed;
+                this.lblPattern1.Visible = true;
+            }
+            else
             {
                 WizardBalloon1.Image = Properties.Resources.current;
                 this.lblPattern1.Visible = false;
@@ -340,6 +362,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
 
             if (this.SpLabStatus == "LAB REQUEST" && this.SpQAApprovalStatus == "1")
+            {
+                this.btnCancelLabRequest.Enabled = false;
+            }
+            else if (this.SpLabStatus == "LAB APPROVED" && this.SpQAApprovalStatus == "1")
+            {
+                this.btnCancelLabRequest.Enabled = false;
+            }
+            else if (this.SpLabStatus == "LAB RESULT" && this.SpQAApprovalStatus == "1")
             {
                 this.btnCancelLabRequest.Enabled = false;
             }

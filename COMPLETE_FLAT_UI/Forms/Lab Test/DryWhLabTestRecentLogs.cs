@@ -204,6 +204,16 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 WizardBalloon1.Image = Properties.Resources.completed;
                 this.lblPattern1.Visible = true;
             }
+            else if (this.SpLabStatus == "LAB APPROVED")
+            {
+                WizardBalloon1.Image = Properties.Resources.completed;
+                this.lblPattern1.Visible = true;
+            }
+            else if (this.SpLabStatus == "LAB RESULT")
+            {
+                WizardBalloon1.Image = Properties.Resources.completed;
+                this.lblPattern1.Visible = true;
+            }
             else
             {
                 WizardBalloon1.Image = Properties.Resources.current;
