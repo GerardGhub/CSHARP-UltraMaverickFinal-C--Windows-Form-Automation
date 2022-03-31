@@ -84,6 +84,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.lblPattern3 = new System.Windows.Forms.Label();
             this.lblPattern4 = new System.Windows.Forms.Label();
             this.MatBtnReceived = new MaterialSkin.Controls.MaterialButton();
+            this.txtLabAccessCode = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -100,11 +102,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.siticoneHtmlLabel5);
+            this.materialCard1.Controls.Add(this.txtLabAccessCode);
             this.materialCard1.Controls.Add(this.siticoneHtmlLabelItemDesc);
             this.materialCard1.Controls.Add(this.matBtnNew);
             this.materialCard1.Controls.Add(this.mattxtTransactionType);
             this.materialCard1.Controls.Add(this.matTxtExpiryDays);
-            this.materialCard1.Controls.Add(this.matItemDateLastUsed);
             this.materialCard1.Controls.Add(this.matTxtExpiryDate);
             this.materialCard1.Controls.Add(this.matTxtMftgDate);
             this.materialCard1.Controls.Add(this.matTxtQty);
@@ -193,7 +196,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matItemDateLastUsed.Enabled = false;
             this.matItemDateLastUsed.Font = new System.Drawing.Font("Roboto", 12F);
             this.matItemDateLastUsed.Hint = "Date of Last Used";
-            this.matItemDateLastUsed.Location = new System.Drawing.Point(843, 23);
+            this.matItemDateLastUsed.Location = new System.Drawing.Point(960, 227);
             this.matItemDateLastUsed.MaxLength = 50;
             this.matItemDateLastUsed.MouseState = MaterialSkin.MouseState.OUT;
             this.matItemDateLastUsed.Multiline = false;
@@ -201,6 +204,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matItemDateLastUsed.Size = new System.Drawing.Size(185, 50);
             this.matItemDateLastUsed.TabIndex = 154;
             this.matItemDateLastUsed.Text = "";
+            this.matItemDateLastUsed.Visible = false;
             // 
             // matTxtExpiryDate
             // 
@@ -271,7 +275,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.matTxtCategory.Depth = 0;
             this.matTxtCategory.Enabled = false;
-            this.matTxtCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matTxtCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.matTxtCategory.Hint = "Category";
             this.matTxtCategory.Location = new System.Drawing.Point(204, 89);
             this.matTxtCategory.MaxLength = 50;
@@ -565,7 +569,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.Location = new System.Drawing.Point(34, 274);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -823,6 +827,45 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.MatBtnReceived.Visible = false;
             this.MatBtnReceived.Click += new System.EventHandler(this.MatBtnReceived_Click);
             // 
+            // txtLabAccessCode
+            // 
+            this.txtLabAccessCode.BackColor = System.Drawing.Color.Black;
+            this.txtLabAccessCode.BorderRadius = 10;
+            this.txtLabAccessCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtLabAccessCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLabAccessCode.DefaultText = "";
+            this.txtLabAccessCode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtLabAccessCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtLabAccessCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLabAccessCode.DisabledState.Parent = this.txtLabAccessCode;
+            this.txtLabAccessCode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLabAccessCode.FillColor = System.Drawing.Color.Yellow;
+            this.txtLabAccessCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLabAccessCode.FocusedState.Parent = this.txtLabAccessCode;
+            this.txtLabAccessCode.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtLabAccessCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLabAccessCode.HoverState.Parent = this.txtLabAccessCode;
+            this.txtLabAccessCode.Location = new System.Drawing.Point(848, 35);
+            this.txtLabAccessCode.Name = "txtLabAccessCode";
+            this.txtLabAccessCode.PasswordChar = '\0';
+            this.txtLabAccessCode.PlaceholderText = "";
+            this.txtLabAccessCode.SelectedText = "";
+            this.txtLabAccessCode.ShadowDecoration.Parent = this.txtLabAccessCode;
+            this.txtLabAccessCode.Size = new System.Drawing.Size(180, 36);
+            this.txtLabAccessCode.TabIndex = 609;
+            // 
+            // siticoneHtmlLabel5
+            // 
+            this.siticoneHtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel5.Enabled = false;
+            this.siticoneHtmlLabel5.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneHtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel5.Location = new System.Drawing.Point(848, 11);
+            this.siticoneHtmlLabel5.Name = "siticoneHtmlLabel5";
+            this.siticoneHtmlLabel5.Size = new System.Drawing.Size(90, 21);
+            this.siticoneHtmlLabel5.TabIndex = 610;
+            this.siticoneHtmlLabel5.Text = "Lab Access Code";
+            // 
             // frmLabTestModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -831,6 +874,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.Controls.Add(this.MatBtnReceived);
             this.Controls.Add(this.lblPattern4);
             this.Controls.Add(this.lblPattern3);
+            this.Controls.Add(this.matItemDateLastUsed);
             this.Controls.Add(this.lblPattern2);
             this.Controls.Add(this.btnCancelLabRequest);
             this.Controls.Add(this.lblPattern1);
@@ -919,5 +963,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private System.Windows.Forms.DataGridViewTextBoxColumn lab_result_remarks;
         private MaterialSkin.Controls.MaterialButton MatBtnReceived;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabelItemDesc;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLabAccessCode;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel5;
     }
 }

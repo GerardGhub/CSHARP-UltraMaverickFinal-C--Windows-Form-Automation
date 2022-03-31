@@ -405,6 +405,13 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void matViewLabRecords_Click(object sender, EventArgs e)
         {
 
+
+            if(this.txtLabAccessCode.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.txtLabAccessCode.Focus();
+                return;
+            }
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to request a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
