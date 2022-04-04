@@ -112,7 +112,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
 
 
-            if (this.matRadioNotActive.Checked == true)
+            if (this.matRadioNearlyExpiry.Checked == true)
             {
                 this.ConnectionInitialization();
                 this.SearchMethodJarVarCallingSP();
@@ -140,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
 
 
-            if (this.matRadioNotActive.Checked == true)
+            if (this.matRadioNearlyExpiry.Checked == true)
             {
                 this.dset_emp_SearchEngines.Clear();
 

@@ -138,7 +138,7 @@ namespace COMPLETE_FLAT_UI
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::ULTRAMAVERICK.Properties.Resources.laptop_key_64px;
+            this.pictureBox3.Image = global::ULTRAMAVERICK.Properties.Resources.icons8_key_64;
             this.pictureBox3.Location = new System.Drawing.Point(46, 259);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(59, 50);
@@ -148,7 +148,7 @@ namespace COMPLETE_FLAT_UI
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::ULTRAMAVERICK.Properties.Resources.name_64px;
+            this.pictureBox2.Image = global::ULTRAMAVERICK.Properties.Resources.icons8_user_64;
             this.pictureBox2.Location = new System.Drawing.Point(46, 179);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(59, 50);

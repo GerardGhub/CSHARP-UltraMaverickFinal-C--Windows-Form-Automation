@@ -148,22 +148,16 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 {
                     if (dgvRawMats.CurrentRow.Cells["item_code"].Value != null)
                     {
-                        p_id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["id"].Value);
+                        p_id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["fk_receiving_id"].Value);
                         //this.matTxtItemCode.Text = this.dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
                         //this.siticoneHtmlLabelItemDesc.Text = this.dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
-                        this.SpItemDescription = this.dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
+                        this.SpItemDescription = this.dgvRawMats.CurrentRow.Cells["item_desc"].Value.ToString();
                         this.SpRemainingQuantity = this.dgvRawMats.CurrentRow.Cells["remaining_qty"].Value.ToString();
-                        //this.matTxtCategory.Text = this.dgvRawMats.CurrentRow.Cells["category"].Value.ToString();
-                        //this.matTxtQty.Text = this.dgvRawMats.CurrentRow.Cells["qty_received"].Value.ToString();
-                        //this.matTxtMftgDate.Text = this.dgvRawMats.CurrentRow.Cells["mfg_date"].Value.ToString();
-                        //this.matTxtExpiryDate.Text = this.dgvRawMats.CurrentRow.Cells["exp_date"].Value.ToString();
-                        //this.matTxtExpiryDays.Text = this.dgvRawMats.CurrentRow.Cells["DAYSTOEXPIRED"].Value.ToString();
-                        //this.mattxtTransactionType.Text = this.dgvRawMats.CurrentRow.Cells["transaction_type"].Value.ToString();
-                        //this.mattxtLotNumber.Text = this.dgvRawMats.CurrentRow.Cells["lot_no"].Value.ToString();
+           
                         this.SpLabStatus = this.dgvRawMats.CurrentRow.Cells["lab_status"].Value.ToString();
                         this.SplblLabRequestDate = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
                         this.SpAging = this.dgvRawMats.CurrentRow.Cells["AGING"].Value.ToString();
-                        this.FkReceivingID = this.dgvRawMats.CurrentRow.Cells["id"].Value.ToString();
+                        this.FkReceivingID = this.dgvRawMats.CurrentRow.Cells["fk_receiving_id"].Value.ToString();
                         this.SpHistorical = this.dgvRawMats.CurrentRow.Cells["HISTORY"].Value.ToString();
                         this.SpQAApprovalStatus = this.dgvRawMats.CurrentRow.Cells["qa_approval_status"].Value.ToString();
                         this.SpLabResultRemarks = this.dgvRawMats.CurrentRow.Cells["lab_result_remarks"].Value.ToString();
@@ -216,8 +210,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
             else
             {
-                WizardBalloon1.Image = Properties.Resources.current;
-                this.lblPattern1.Visible = false;
+                //WizardBalloon1.Image = Properties.Resources.current;
+                //this.lblPattern1.Visible = false;
+                WizardBalloon1.Image = Properties.Resources.completed;
+                this.lblPattern1.Visible = true;
             }
 
             //2nd Level of Request

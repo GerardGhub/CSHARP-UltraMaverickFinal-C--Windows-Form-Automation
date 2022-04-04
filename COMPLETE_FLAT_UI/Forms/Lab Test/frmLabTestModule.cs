@@ -37,6 +37,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         public string SpQAApprovalDate { get; set; }
         public int SpUseridentity { get; set; }
+        public string SpFirstName { get; set; }
         public string SpItemDescription { get; set; }
         public string SpLabResultReleasedDate { get; set; }
         public string SpTransactionType { get; set; }
@@ -57,6 +58,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string FkReceivingID { get; set; }
         public string SpQAApprovalStatus { get; set; }
         public string SpLabResultRemarks { get; set; }
+        public string ExtendedShelfLife { get; set; }
+        public string SpDepartment { get; set; }
+        public string SpQAApprovalBy { get; set; }
+        public string SpLabResultReleasedBy { get; set; }
+        public string SpLabSubRemarks { get; set; }
+        public string SpLaboratoryProcedure { get; set; }
+        public string SpLabAccessCode { get; set; }
+        public string SpLabRequestBy { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -67,7 +76,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         }
 
 
-
+        
         private void loadImage()
         {
             //sp_user_id = primary_key;
@@ -137,6 +146,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.btnCancelLabRequest.Visible = false;
             }
             this.SpUseridentity = userinfo.user_id;
+            this.SpFirstName = userinfo.emp_name + userinfo.emp_lastname;
+            this.SpDepartment = userinfo.department;
         }
 
         private void ConnectionInitialization()
@@ -181,6 +192,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["lab_result_released_date"].Visible = false;
             this.dgvRawMats.Columns["transaction_type"].Visible = false;
             this.dgvRawMats.Columns["RM_ITEM_LAST_USED"].Visible = false;
+            this.dgvRawMats.Columns["qa_approval_by"].Visible = false;
+            this.dgvRawMats.Columns["lab_result_released_by"].Visible = false;
+            this.dgvRawMats.Columns["lab_access_code"].Visible = false;
+            this.dgvRawMats.Columns["lab_request_by"].Visible = false;
         }
 
 
@@ -195,8 +210,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-
-
             this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryLabTestViewingMajor");
 
         }
@@ -274,6 +287,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpQAApprovalDate = this.dgvRawMats.CurrentRow.Cells["qa_approval_date"].Value.ToString();
                         this.SpLabResultReleasedDate = this.dgvRawMats.CurrentRow.Cells["lab_result_released_date"].Value.ToString();
                         this.matItemDateLastUsed.Text = this.dgvRawMats.CurrentRow.Cells["RM_ITEM_LAST_USED"].Value.ToString();
+                        this.ExtendedShelfLife = this.dgvRawMats.CurrentRow.Cells["lab_exp_date_extension"].Value.ToString();
+                        this.SpQAApprovalBy = this.dgvRawMats.CurrentRow.Cells["qa_approval_by"].Value.ToString();
+                        this.SpLabResultReleasedBy = this.dgvRawMats.CurrentRow.Cells["lab_result_released_by"].Value.ToString();
+                        this.SpLabSubRemarks = this.dgvRawMats.CurrentRow.Cells["lab_sub_remarks"].Value.ToString();
+                        this.SpLaboratoryProcedure = this.dgvRawMats.CurrentRow.Cells["laboratory_procedure"].Value.ToString();
+                        this.txtLabAccessCode.Text = this.dgvRawMats.CurrentRow.Cells["lab_access_code"].Value.ToString();
+                        this.SpLabRequestBy = this.dgvRawMats.CurrentRow.Cells["lab_request_by"].Value.ToString();
+
                         //this.SpItemImage = this.dgvRawMats.CurrentRow.Cells["item_image"].Value.ToString();
 
                     }
@@ -417,17 +438,29 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
-                    this.matTxtItemCode.Text, this.SpItemDescription, this.matTxtCategory.Text, this.matTxtQty.Text,
-                    SpRemainingQuantity, this.matTxtExpiryDays.Text, this.SpLabStatus, this.SpHistorical, this.SpAging,
-                    "REMARKS", FkReceivingID, this.SpUseridentity.ToString(), "add");
+                    this.matTxtItemCode.Text, 
+                    this.SpItemDescription, 
+                    this.matTxtCategory.Text, 
+                    this.matTxtQty.Text,
+                    this.SpRemainingQuantity, 
+                    this.matTxtExpiryDays.Text, 
+                    this.SpLabStatus, 
+                    this.SpHistorical, 
+                    this.SpAging,
+                    "REMARKS", 
+                    this.FkReceivingID, 
+                    this.SpUseridentity.ToString(), "add");
 
 
                 //Insert Logs
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
-                    p_id, "BUje", "0", "0", "", "0", "0", "", "0",
-                    "0", "0", "0", "0",
-                    "0", "0", "0", 0, 0, "", "dry_wh_lab_request");
+                p_id, 
+                this.SpFirstName, 
+                this.txtLabAccessCode.Text, 
+                this.SpHistorical, this.SpDepartment, "0", "0", "", "0",
+                "0", "0", "0", "0",
+                "0", "0", "0", 0, 0, "", "dry_wh_lab_request");
 
 
                 this.GlobalStatePopup.CommittedSuccessFully();
@@ -557,11 +590,25 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
-                    p_id, "BUje", "0", "0", "", "0", "0", "", "0",
-                    "0", "0", "0", "0",
-                    "0", "0", "0", 0, 0,"0", "dry_wh_lab_result_received_by_drywh");
-
+                this.dSet = objStorProc.sp_tblDryWHReceiving(
+                    p_id,
+                    p_id,
+                    this.SpFirstName, 
+                    this.ExtendedShelfLife,
+                    this.SpQAApprovalBy,
+                    "1",
+                    this.SpQAApprovalDate,
+                    this.SpLabResultReleasedBy,
+                    this.SpLabResultReleasedDate,
+                    this.SpLabResultRemarks,
+                    this.SpLabSubRemarks,
+                    this.ExtendedShelfLife,
+                    this.SpLaboratoryProcedure,
+                    this.SplblLabRequestDate,
+                    this.SpLabRequestBy,
+                    this.SpLabRequestBy,
+                    "0", 0, 0,"0", "dry_wh_lab_result_received_by_drywh");
+                
                 this.GlobalStatePopup.LabTestResultSuccessFullyReceived();
                 this.frmLabTestModule_Load(sender, e);
             }

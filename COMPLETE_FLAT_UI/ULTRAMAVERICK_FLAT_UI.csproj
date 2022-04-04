@@ -1022,6 +1022,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_ingredients.ico" />
+    <None Include="Resources\icons8_key_64.png" />
+    <None Include="Resources\icons8_user_64.png" />
+    <None Include="Resources\icons8_user_filled_32.png" />
     <None Include="Resources\pending.png" />
     <None Include="Resources\payment.png" />
     <None Include="Resources\customize.png" />
