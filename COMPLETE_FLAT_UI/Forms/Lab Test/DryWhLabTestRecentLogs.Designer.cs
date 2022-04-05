@@ -49,12 +49,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.materialLabelTo = new MaterialSkin.Controls.MaterialLabel();
-            this.bunifuDateTo = new System.Windows.Forms.DateTimePicker();
-            this.materialLabelFrom = new MaterialSkin.Controls.MaterialLabel();
-            this.bunifuPrepaDateFrom = new System.Windows.Forms.DateTimePicker();
             this.fk_receiving_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +65,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.lab_sub_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lab_request_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qa_approval_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.materialLabelTo = new MaterialSkin.Controls.MaterialLabel();
+            this.bunifuDateTo = new System.Windows.Forms.DateTimePicker();
+            this.materialLabelFrom = new MaterialSkin.Controls.MaterialLabel();
+            this.bunifuPrepaDateFrom = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon2)).BeginInit();
@@ -365,6 +365,142 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             // 
+            // fk_receiving_id
+            // 
+            this.fk_receiving_id.DataPropertyName = "fk_receiving_id";
+            this.fk_receiving_id.FillWeight = 40.60914F;
+            this.fk_receiving_id.HeaderText = "ID";
+            this.fk_receiving_id.MinimumWidth = 12;
+            this.fk_receiving_id.Name = "fk_receiving_id";
+            this.fk_receiving_id.ReadOnly = true;
+            this.fk_receiving_id.Width = 48;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 59.93546F;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 102;
+            // 
+            // item_desc
+            // 
+            this.item_desc.DataPropertyName = "item_desc";
+            this.item_desc.FillWeight = 97.00433F;
+            this.item_desc.HeaderText = "ITEM DESCRIPTION";
+            this.item_desc.MinimumWidth = 12;
+            this.item_desc.Name = "item_desc";
+            this.item_desc.ReadOnly = true;
+            this.item_desc.Width = 149;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 108;
+            // 
+            // qty_received
+            // 
+            this.qty_received.DataPropertyName = "qty_received";
+            this.qty_received.FillWeight = 77.07378F;
+            this.qty_received.HeaderText = "QTY RECEIVED";
+            this.qty_received.MinimumWidth = 12;
+            this.qty_received.Name = "qty_received";
+            this.qty_received.ReadOnly = true;
+            this.qty_received.Width = 121;
+            // 
+            // remaining_qty
+            // 
+            this.remaining_qty.DataPropertyName = "remaining_qty";
+            this.remaining_qty.HeaderText = "QTY";
+            this.remaining_qty.Name = "remaining_qty";
+            this.remaining_qty.ReadOnly = true;
+            this.remaining_qty.Width = 61;
+            // 
+            // exp_date
+            // 
+            this.exp_date.DataPropertyName = "exp_date";
+            this.exp_date.HeaderText = "EXPIRATION DATE";
+            this.exp_date.Name = "exp_date";
+            this.exp_date.ReadOnly = true;
+            this.exp_date.Width = 140;
+            // 
+            // DAYSTOEXPIRED
+            // 
+            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
+            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.ReadOnly = true;
+            this.DAYSTOEXPIRED.Width = 140;
+            // 
+            // STANDARDEXPIRYDAYS
+            // 
+            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
+            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.ReadOnly = true;
+            this.STANDARDEXPIRYDAYS.Width = 150;
+            // 
+            // lab_status
+            // 
+            this.lab_status.DataPropertyName = "lab_status";
+            this.lab_status.HeaderText = "STATUS";
+            this.lab_status.Name = "lab_status";
+            this.lab_status.ReadOnly = true;
+            this.lab_status.Width = 81;
+            // 
+            // HISTORY
+            // 
+            this.HISTORY.DataPropertyName = "HISTORY";
+            this.HISTORY.HeaderText = "HISTORY";
+            this.HISTORY.Name = "HISTORY";
+            this.HISTORY.ReadOnly = true;
+            this.HISTORY.Width = 93;
+            // 
+            // AGING
+            // 
+            this.AGING.DataPropertyName = "AGING";
+            this.AGING.HeaderText = "AGING";
+            this.AGING.Name = "AGING";
+            this.AGING.ReadOnly = true;
+            this.AGING.Width = 80;
+            // 
+            // lab_result_remarks
+            // 
+            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
+            this.lab_result_remarks.HeaderText = "REMARKS";
+            this.lab_result_remarks.Name = "lab_result_remarks";
+            this.lab_result_remarks.ReadOnly = true;
+            this.lab_result_remarks.Width = 98;
+            // 
+            // lab_sub_remarks
+            // 
+            this.lab_sub_remarks.DataPropertyName = "lab_sub_remarks";
+            this.lab_sub_remarks.HeaderText = "SUB REMARKS";
+            this.lab_sub_remarks.Name = "lab_sub_remarks";
+            this.lab_sub_remarks.ReadOnly = true;
+            this.lab_sub_remarks.Width = 118;
+            // 
+            // lab_request_by
+            // 
+            this.lab_request_by.DataPropertyName = "lab_request_by";
+            this.lab_request_by.HeaderText = "REQUEST BY";
+            this.lab_request_by.Name = "lab_request_by";
+            this.lab_request_by.ReadOnly = true;
+            this.lab_request_by.Width = 107;
+            // 
+            // qa_approval_by
+            // 
+            this.qa_approval_by.DataPropertyName = "qa_approval_by";
+            this.qa_approval_by.HeaderText = "APPROVED BY";
+            this.qa_approval_by.Name = "qa_approval_by";
+            this.qa_approval_by.ReadOnly = true;
+            this.qa_approval_by.Width = 121;
+            // 
             // lbltotalrecords
             // 
             this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -372,7 +508,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(895, 554);
+            this.lbltotalrecords.Location = new System.Drawing.Point(890, 554);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(32, 40);
             this.lbltotalrecords.TabIndex = 623;
@@ -444,141 +580,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.bunifuPrepaDateFrom.Size = new System.Drawing.Size(153, 31);
             this.bunifuPrepaDateFrom.TabIndex = 661;
             this.bunifuPrepaDateFrom.ValueChanged += new System.EventHandler(this.bunifuPrepaDateFrom_ValueChanged);
-            // 
-            // fk_receiving_id
-            // 
-            this.fk_receiving_id.DataPropertyName = "fk_receiving_id";
-            this.fk_receiving_id.FillWeight = 40.60914F;
-            this.fk_receiving_id.HeaderText = "ID";
-            this.fk_receiving_id.MinimumWidth = 12;
-            this.fk_receiving_id.Name = "fk_receiving_id";
-            this.fk_receiving_id.ReadOnly = true;
-            this.fk_receiving_id.Width = 50;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 59.93546F;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
-            // 
-            // item_desc
-            // 
-            this.item_desc.DataPropertyName = "item_desc";
-            this.item_desc.FillWeight = 97.00433F;
-            this.item_desc.HeaderText = "ITEM DESCRIPTION";
-            this.item_desc.MinimumWidth = 12;
-            this.item_desc.Name = "item_desc";
-            this.item_desc.ReadOnly = true;
-            this.item_desc.Width = 166;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 110;
-            // 
-            // qty_received
-            // 
-            this.qty_received.DataPropertyName = "qty_received";
-            this.qty_received.FillWeight = 77.07378F;
-            this.qty_received.HeaderText = "QTY RECEIVED";
-            this.qty_received.MinimumWidth = 12;
-            this.qty_received.Name = "qty_received";
-            this.qty_received.ReadOnly = true;
-            this.qty_received.Width = 135;
-            // 
-            // remaining_qty
-            // 
-            this.remaining_qty.DataPropertyName = "remaining_qty";
-            this.remaining_qty.HeaderText = "QTY";
-            this.remaining_qty.Name = "remaining_qty";
-            this.remaining_qty.ReadOnly = true;
-            this.remaining_qty.Width = 63;
-            // 
-            // exp_date
-            // 
-            this.exp_date.DataPropertyName = "exp_date";
-            this.exp_date.HeaderText = "EXPIRATION DATE";
-            this.exp_date.Name = "exp_date";
-            this.exp_date.ReadOnly = true;
-            this.exp_date.Width = 156;
-            // 
-            // DAYSTOEXPIRED
-            // 
-            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
-            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.ReadOnly = true;
-            this.DAYSTOEXPIRED.Width = 156;
-            // 
-            // STANDARDEXPIRYDAYS
-            // 
-            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
-            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.ReadOnly = true;
-            this.STANDARDEXPIRYDAYS.Width = 195;
-            // 
-            // lab_status
-            // 
-            this.lab_status.DataPropertyName = "lab_status";
-            this.lab_status.HeaderText = "STATUS";
-            this.lab_status.Name = "lab_status";
-            this.lab_status.ReadOnly = true;
-            this.lab_status.Width = 83;
-            // 
-            // HISTORY
-            // 
-            this.HISTORY.DataPropertyName = "HISTORY";
-            this.HISTORY.HeaderText = "HISTORY";
-            this.HISTORY.Name = "HISTORY";
-            this.HISTORY.ReadOnly = true;
-            this.HISTORY.Width = 95;
-            // 
-            // AGING
-            // 
-            this.AGING.DataPropertyName = "AGING";
-            this.AGING.HeaderText = "AGING";
-            this.AGING.Name = "AGING";
-            this.AGING.ReadOnly = true;
-            this.AGING.Width = 82;
-            // 
-            // lab_result_remarks
-            // 
-            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
-            this.lab_result_remarks.HeaderText = "REMARKS";
-            this.lab_result_remarks.Name = "lab_result_remarks";
-            this.lab_result_remarks.ReadOnly = true;
-            // 
-            // lab_sub_remarks
-            // 
-            this.lab_sub_remarks.DataPropertyName = "lab_sub_remarks";
-            this.lab_sub_remarks.HeaderText = "SUB REMARKS";
-            this.lab_sub_remarks.Name = "lab_sub_remarks";
-            this.lab_sub_remarks.ReadOnly = true;
-            this.lab_sub_remarks.Width = 131;
-            // 
-            // lab_request_by
-            // 
-            this.lab_request_by.DataPropertyName = "lab_request_by";
-            this.lab_request_by.HeaderText = "REQUEST BY";
-            this.lab_request_by.Name = "lab_request_by";
-            this.lab_request_by.ReadOnly = true;
-            this.lab_request_by.Width = 119;
-            // 
-            // qa_approval_by
-            // 
-            this.qa_approval_by.DataPropertyName = "qa_approval_by";
-            this.qa_approval_by.HeaderText = "APPROVED BY";
-            this.qa_approval_by.Name = "qa_approval_by";
-            this.qa_approval_by.ReadOnly = true;
-            this.qa_approval_by.Width = 134;
             // 
             // DryWhLabTestRecentLogs
             // 

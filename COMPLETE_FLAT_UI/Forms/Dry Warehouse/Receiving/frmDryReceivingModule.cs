@@ -46,7 +46,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_warehouse_reject_approval { get; set; }
         public int sp_projection_id { get; set; }
         public int SP_ExpirationSetPoint { get; set; }
-        
+        public string SpPoDate { get; set; }
+        public string SpPrNo { get; set; }
+        public string SpPRDate { get; set; }
+
+
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
             this.firstLoad();
@@ -393,6 +397,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtqtyuom.Text = dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
                         this.mattxtponumber.Text = dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
                         this.SP_ExpirationSetPoint = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["EXPIRATIONSETPOINT"].Value);
+                        this.SpPoDate = dgvMajorCategory.CurrentRow.Cells["po_date"].Value.ToString();
+                        this.SpPRDate = dgvMajorCategory.CurrentRow.Cells["pr_date"].Value.ToString();
+                        this.SpPrNo = dgvMajorCategory.CurrentRow.Cells["pr_number"].Value.ToString();
+
+
 
                         this.mattxtqtyreject.Text = this.dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
                         if (this.totalRecords == "1")
@@ -654,20 +663,57 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     //Second Summary of Queryy Disposal of Rejection Remarks
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "rejected_status_timer_dispossal");
+                        p_id,
+                        this.mattxtitemcode.Text,
+                        this.mattxtitemdesc.Text,
+                        this.sp_receiving_qty.ToString(), "",
+                        this.sp_added_by,
+                        this.sp_added_by, "",
+                        this.mattxtSupplier.Text,
+                        this.mattxtlotno.Text,
+                        this.mattxtLotDescription.Text,
+                        this.mattxtmfgdate.Text,
+                        this.mattxtexpirydate.Text,
+                        this.mattxtcategory.Text,
+                        this.mattxtqtyuom.Text,
+                        this.mattxtqtyreject.Text, 
+                        Convert.ToInt32(this.mattxtponumber.Text), 
+                        Convert.ToInt32(sp_added_by_userid),
+                        this.numExpirableItems.ToString(), 
+                        this.SpPoDate,
+                        this.SpPrNo,
+                        this.SpPRDate,
+                        "rejected_status_timer_dispossal");
 
                     //Second Summary of Queryy Disposal of Rejection Remarks RE == QA  ON NA 3/4/2022
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "rejected_status_wh_re_qa");
+                        p_id,
+                        this.mattxtitemcode.Text,
+                        this.mattxtitemdesc.Text,
+                        this.sp_receiving_qty.ToString(), "",
+                        this.sp_added_by,
+                        this.sp_added_by, "",
+                        this.mattxtSupplier.Text,
+                        this.mattxtlotno.Text,
+                        this.mattxtLotDescription.Text,
+                        this.mattxtmfgdate.Text,
+                        this.mattxtexpirydate.Text,
+                        this.mattxtcategory.Text,
+                        this.mattxtqtyuom.Text,
+                        this.mattxtqtyreject.Text,
+                        Convert.ToInt32(this.mattxtponumber.Text),
+                        Convert.ToInt32(sp_added_by_userid), 
+                        numExpirableItems.ToString(),
+                        this.SpPoDate,
+                        this.SpPrNo,
+                        this.SpPRDate,
+                        
+                        "rejected_status_wh_re_qa");
 
 
 
 
-                    //MessageBox.Show(p_id.ToString());
-                    //return;
                     //Computation Master Data
 
                     this.StateLoadofExpiryItemAcceptance();
@@ -676,22 +722,74 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "add");
+                        p_id, mattxtitemcode.Text, 
+                        this.mattxtitemdesc.Text, 
+                        this.sp_receiving_qty.ToString(), "", 
+                        this.sp_added_by, sp_added_by, "", 
+                        this.mattxtSupplier.Text,
+                        this.mattxtlotno.Text, 
+                        this.mattxtLotDescription.Text, 
+                        this.mattxtmfgdate.Text, mattxtexpirydate.Text, 
+                        this.mattxtcategory.Text, mattxtqtyuom.Text, 
+                        this.mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), 
+                        Convert.ToInt32(sp_added_by_userid), 
+                        this.numExpirableItems.ToString(),
+                        this.SpPoDate, 
+                        this.SpPrNo, 
+                        this.SpPRDate,
+                        "add");
                     if (this.sp_warehouse_reject_approval =="1")
                     {
 
                   
-                        this.dSet.Clear();
-                        this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                            p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                            mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "updated_rejected_partial");
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    p_id, mattxtitemcode.Text, 
+                    this.mattxtitemdesc.Text,
+                    this.sp_receiving_qty.ToString(), "",
+                    this.sp_added_by, sp_added_by, "", 
+                    this.mattxtSupplier.Text,
+                    this.mattxtlotno.Text, 
+                    this.mattxtLotDescription.Text, 
+                    this.mattxtmfgdate.Text,
+                    this.mattxtexpirydate.Text,
+                    this.mattxtcategory.Text,
+                    this.mattxtqtyuom.Text,
+                    this.mattxtqtyreject.Text, 
+                    Convert.ToInt32(mattxtponumber.Text), 
+                    Convert.ToInt32(sp_added_by_userid),
+                    this.numExpirableItems.ToString(),
+                    this.SpPoDate,
+                    this.SpPrNo,
+                    this.SpPRDate,
+                    "updated_rejected_partial");
 
                         //Second Summary of Queryy Disposal of Rejection Remarks
                         this.dSet.Clear();
                         this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                            p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                            mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "rejected_status_timer_dispossal");
+                            p_id,
+                            this.mattxtitemcode.Text,
+                            this.mattxtitemdesc.Text,
+                            this.sp_receiving_qty.ToString(), "",
+                            this.sp_added_by,
+                            this.sp_added_by, "",
+                            this.mattxtSupplier.Text,
+                            this.mattxtlotno.Text,
+                            this.mattxtLotDescription.Text,
+                            this.mattxtmfgdate.Text,
+                            this.mattxtexpirydate.Text,
+                            this.mattxtcategory.Text,
+                            this.mattxtqtyuom.Text,
+                            this.mattxtqtyreject.Text, 
+                            Convert.ToInt32(this.mattxtponumber.Text), 
+                            Convert.ToInt32(sp_added_by_userid),
+                            this.numExpirableItems.ToString(),
+                            this.SpPoDate,
+                            this.SpPrNo,
+                            this.SpPRDate,
+
+
+                            "rejected_status_timer_dispossal");
                     }
 
                     this.GlobalStatePopup.SuccessfullyReceived();
@@ -731,14 +829,54 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     //Second Summary of Queryy Disposal of Rejection Remarks
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "rejected_status_timer_dispossal");
+                        p_id,
+                        this.mattxtitemcode.Text,
+                        this.mattxtitemdesc.Text,
+                        this.sp_receiving_qty.ToString(), "",
+                        this.sp_added_by,
+                        this.sp_added_by, "", 
+                        this.mattxtSupplier.Text,
+                        this.mattxtlotno.Text,
+                        this.mattxtLotDescription.Text, 
+                        this.mattxtmfgdate.Text, 
+                        this.mattxtexpirydate.Text, 
+                        this.mattxtcategory.Text, 
+                        this.mattxtqtyuom.Text, 
+                        this.mattxtqtyreject.Text, 
+                        Convert.ToInt32(this.mattxtponumber.Text), 
+                        Convert.ToInt32(sp_added_by_userid),
+                        this.numExpirableItems.ToString(),
+                        this.SpPoDate,
+                        this.SpPrNo,
+                        this.SpPRDate,
+                        "rejected_status_timer_dispossal");
+
+
 
                     //Second Summary of Queryy Disposal of Rejection Remarks RE == QA
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "rejected_status_wh_re_qa'");
+                        p_id,
+                        this.mattxtitemcode.Text, 
+                        this.mattxtitemdesc.Text, 
+                        this.sp_receiving_qty.ToString(), "", 
+                        this.sp_added_by, 
+                        this.sp_added_by, "", 
+                        this.mattxtSupplier.Text,
+                        this.mattxtlotno.Text, 
+                        this.mattxtLotDescription.Text, 
+                        this.mattxtmfgdate.Text, 
+                        this.mattxtexpirydate.Text, 
+                        this.mattxtcategory.Text, 
+                        this.mattxtqtyuom.Text, 
+                        this.mattxtqtyreject.Text, 
+                        Convert.ToInt32(this.mattxtponumber.Text), 
+                        Convert.ToInt32(sp_added_by_userid),
+                        this.numExpirableItems.ToString(),
+                        this.SpPoDate,
+                        this.SpPrNo,
+                        this.SpPRDate,
+                        "rejected_status_wh_re_qa'");
 
                     //Conversion Master Details
                     this.StateLoadofExpiryItemAcceptance();
@@ -748,8 +886,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     //Commit Data on The Database Stored Procedure
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "add");
+                        p_id,
+                        this.mattxtitemcode.Text,
+                        this.mattxtitemdesc.Text,
+                        this.sp_receiving_qty.ToString(), "",
+                        this.sp_added_by,
+                        this.sp_added_by, "",
+                        this.mattxtSupplier.Text,
+                        this.mattxtlotno.Text,
+                        this.mattxtLotDescription.Text, 
+                        this.mattxtmfgdate.Text, 
+                        this.mattxtexpirydate.Text, 
+                        this.mattxtcategory.Text, 
+                        this.mattxtqtyuom.Text, 
+                        this.mattxtqtyreject.Text, 
+                        Convert.ToInt32(mattxtponumber.Text), 
+                        Convert.ToInt32(sp_added_by_userid),
+                        this.numExpirableItems.ToString(),
+                        this.SpPoDate,
+                        this.SpPrNo,
+                        this.SpPRDate,
+                        "add");
 
                     if (this.sp_warehouse_reject_approval == "1")
                     {
@@ -757,8 +914,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                         this.dSet.Clear();
                         this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                            p_id, mattxtitemcode.Text, mattxtitemdesc.Text, sp_receiving_qty.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                            mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "updated_rejected_partial");
+                            p_id,
+                            this.mattxtitemcode.Text,
+                            this.mattxtitemdesc.Text,
+                            this.sp_receiving_qty.ToString(), "",
+                            this.sp_added_by,
+                            this.sp_added_by, "",
+                            this.mattxtSupplier.Text,
+                            this.mattxtlotno.Text,
+                            this.mattxtLotDescription.Text,
+                            this.mattxtmfgdate.Text,
+                            this.mattxtexpirydate.Text,
+                            this.mattxtcategory.Text,
+                            this.mattxtqtyuom.Text,
+                            this.mattxtqtyreject.Text, 
+                            Convert.ToInt32(this.mattxtponumber.Text), 
+                            Convert.ToInt32(sp_added_by_userid), 
+                            numExpirableItems.ToString(),
+                            this.SpPoDate,
+                            this.SpPrNo,
+                            this.SpPoDate,
+                            "updated_rejected_partial");
 
 
 
@@ -787,8 +963,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, mattxtitemdesc.Text, qtyReturnSummary.ToString(), "", sp_added_by, sp_added_by, "", mattxtSupplier.Text,
-                        mattxtlotno.Text, mattxtLotDescription.Text, mattxtmfgdate.Text, mattxtexpirydate.Text, mattxtcategory.Text, mattxtqtyuom.Text, mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), Convert.ToInt32(sp_added_by_userid), numExpirableItems.ToString(), "rejectComeback");
+                        p_id,
+                        this.mattxtitemcode.Text,
+                        this.mattxtitemdesc.Text,
+                        qtyReturnSummary.ToString(), "",
+                        this.sp_added_by, sp_added_by, "",
+                        this.mattxtSupplier.Text,
+                        this.mattxtlotno.Text,
+                        this.mattxtLotDescription.Text,
+                        this.mattxtmfgdate.Text,
+                        this.mattxtexpirydate.Text,
+                        this.mattxtcategory.Text,
+                        this.mattxtqtyuom.Text, 
+                        this.mattxtqtyreject.Text, 
+                        Convert.ToInt32(mattxtponumber.Text), 
+                        Convert.ToInt32(sp_added_by_userid),
+                        this.numExpirableItems.ToString(),
+                        this.SpPoDate,
+                        this.SpPrNo,
+                        this.SpPRDate,
+                        "rejectComeback");
                     this.frmDryReceivingModule_Load(sender, e);
                 }
                 else
