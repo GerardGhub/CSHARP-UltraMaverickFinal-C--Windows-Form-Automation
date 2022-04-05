@@ -67,6 +67,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpLabAccessCode { get; set; }
         public string SpLabRequestBy { get; set; }
 
+        public int SpPoNumber { get; set; }
+        public int SpPrNumber { get; set; }
+        public string SpPoDate { get; set; }
+        public string SpPrDate { get; set; }
+
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
             this.ConnectionInitialization();
@@ -196,6 +201,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["lab_result_released_by"].Visible = false;
             this.dgvRawMats.Columns["lab_access_code"].Visible = false;
             this.dgvRawMats.Columns["lab_request_by"].Visible = false;
+            this.dgvRawMats.Columns["po_date"].Visible = false;
+            this.dgvRawMats.Columns["po_number"].Visible = false;
+            this.dgvRawMats.Columns["pr_date"].Visible = false;
+            this.dgvRawMats.Columns["pr_no"].Visible = false;
         }
 
 
@@ -294,7 +303,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpLaboratoryProcedure = this.dgvRawMats.CurrentRow.Cells["laboratory_procedure"].Value.ToString();
                         this.txtLabAccessCode.Text = this.dgvRawMats.CurrentRow.Cells["lab_access_code"].Value.ToString();
                         this.SpLabRequestBy = this.dgvRawMats.CurrentRow.Cells["lab_request_by"].Value.ToString();
-
+                        this.SpPoNumber = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["po_number"].Value);
+                        this.SpPrNumber = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["pr_no"].Value);
+                        this.SpPoDate = this.dgvRawMats.CurrentRow.Cells["po_date"].Value.ToString();
+                        this.SpPrDate = this.dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
                         //this.SpItemImage = this.dgvRawMats.CurrentRow.Cells["item_image"].Value.ToString();
 
                     }
@@ -615,9 +627,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     this.SplblLabRequestDate,
                     this.SpLabRequestBy,
                     this.SpLabRequestBy,
-                    "0", 0, 0,"0",
-                    "",
-                    "",
+                    this.SpPoNumber.ToString(),
+                    0, 
+                    0,
+                    this.SpPoDate,
+                    this.SpPrNumber.ToString(),
+                    this.SpPrDate,
                     "",
                    
                     
