@@ -670,34 +670,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
                 }
 
-                //if (Convert.ToString(row.Cells["is_expirable"].Value) == "0")
-                //{
-                //    row.Cells["item_code"].Style.BackColor = Color.Red; 
-                //    row.Cells["description"].Style.BackColor = Color.White;
-                //    row.Cells["sub_category"].Style.BackColor = Color.White;
-                //    row.Cells["ORDERS"].Style.BackColor = Color.White;
-                //    row.Cells["StockOnHand"].Style.BackColor = Color.White;
-                //    row.Cells["Allocation_qty"].Style.BackColor = Color.White;
-                //    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.White;
-
-                //    row.Cells["item_code"].Style.SelectionBackColor = Color.Red;
-                //    row.Cells["description"].Style.SelectionBackColor = Color.White;
-                //    row.Cells["sub_category"].Style.SelectionBackColor = Color.White;
-                //    row.Cells["ORDERS"].Style.SelectionBackColor = Color.White;
-                //    row.Cells["StockOnHand"].Style.SelectionBackColor = Color.White;
-                //    row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.White;
-                //    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.White;
-
-
-                //    row.Cells["item_code"].Style.SelectionForeColor = Color.Black;
-                //    row.Cells["description"].Style.SelectionForeColor = Color.Black;
-                //    row.Cells["sub_category"].Style.SelectionForeColor = Color.Black;
-                //    row.Cells["ORDERS"].Style.SelectionForeColor = Color.Black;
-                //    row.Cells["StockOnHand"].Style.SelectionForeColor = Color.Black;
-                //    row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.Black;
-                //    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.Black;
-       
-                //}
+             
 
                 else
                 {

@@ -33,19 +33,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             InitializeComponent();
         }
-        public string item_id_main { get; set; }
-        public string item_code_main { get; set; }
-        public string item_description_main { get; set; }
-        public string item_type_main { get; set; }
-        public string item_class_main { get; set; }
-        public string major_category_main { get; set; }
-        public string sub_category_main { get; set; }
-        public string primary_unit_main { get; set; }
-        public string conversion_main { get; set; }
+     
+
         public string mat_row_number { get; set; }
         public int user_id { get; set; }
 
-        public string sp_user_id { get; set; }
 
 
         //Expirable

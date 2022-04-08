@@ -394,6 +394,10 @@ namespace ULTRAMAVERICK.Models
         string remarks,
         string fk_receiving_id,
         string added_by,
+        string bbd,
+        string lab_access_code,
+        int po_number,
+        int pr_number,
         string mode);
 
 

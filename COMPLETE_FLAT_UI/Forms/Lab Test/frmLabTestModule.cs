@@ -71,6 +71,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public int SpPrNumber { get; set; }
         public string SpPoDate { get; set; }
         public string SpPrDate { get; set; }
+        public string SpLabCancelledRemarks { get; set; }
+        public string SpQASupervisorApprovalStatus { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -205,6 +207,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["po_number"].Visible = false;
             this.dgvRawMats.Columns["pr_date"].Visible = false;
             this.dgvRawMats.Columns["pr_no"].Visible = false;
+            this.dgvRawMats.Columns["lab_cancel_remarks"].Visible = false;
         }
 
 
@@ -282,7 +285,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.matTxtCategory.Text = this.dgvRawMats.CurrentRow.Cells["category"].Value.ToString();
                         this.matTxtQty.Text = this.dgvRawMats.CurrentRow.Cells["qty_received"].Value.ToString();
                         this.matTxtMftgDate.Text = this.dgvRawMats.CurrentRow.Cells["mfg_date"].Value.ToString();
-                        this.matTxtExpiryDate.Text = this.dgvRawMats.CurrentRow.Cells["exp_date"].Value.ToString();
+                        this.matTxtExpiryDate.Text = this.dgvRawMats.CurrentRow.Cells["lab_exp_date_extension"].Value.ToString();
                         this.matTxtExpiryDays.Text = this.dgvRawMats.CurrentRow.Cells["DAYSTOEXPIRED"].Value.ToString();
                         this.mattxtTransactionType.Text = this.dgvRawMats.CurrentRow.Cells["transaction_type"].Value.ToString();
                         this.mattxtLotNumber.Text = this.dgvRawMats.CurrentRow.Cells["lot_no"].Value.ToString();
@@ -307,6 +310,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpPrNumber = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["pr_no"].Value);
                         this.SpPoDate = this.dgvRawMats.CurrentRow.Cells["po_date"].Value.ToString();
                         this.SpPrDate = this.dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
+                        this.SpLabCancelledRemarks = this.dgvRawMats.CurrentRow.Cells["lab_cancel_remarks"].Value.ToString();
+                        this.SpQASupervisorApprovalStatus = this.dgvRawMats.CurrentRow.Cells["qa_supervisor_is_approve_status"].Value.ToString();
                         //this.SpItemImage = this.dgvRawMats.CurrentRow.Cells["item_image"].Value.ToString();
 
                     }
@@ -410,6 +415,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 this.btnCancelLabRequest.Enabled = true;
             }
+            //Jerusalem IF i forget you fire not gonna
+            if(this.SpLabCancelledRemarks == "CANCELLED")
+            {
+                this.btnCancelLabRequest.Enabled = true;
+            }
 
             //3
             if (this.SpLabResultRemarks != "0")
@@ -424,7 +434,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.WizardBalloon4.Image = Properties.Resources.pending;
             }
 
-            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0")
+            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0" && this.SpQASupervisorApprovalStatus == "1")
             {
                 this.MatBtnReceived.Visible = true;
             }
@@ -450,18 +460,23 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
-                    this.matTxtItemCode.Text, 
+                    this.matTxtItemCode.Text.Trim(), 
                     this.SpItemDescription, 
-                    this.matTxtCategory.Text, 
+                    this.matTxtCategory.Text.Trim(), 
                     this.matTxtQty.Text,
                     this.SpRemainingQuantity, 
-                    this.matTxtExpiryDays.Text, 
+                    this.matTxtExpiryDays.Text.Trim(), 
                     this.SpLabStatus, 
                     this.SpHistorical, 
                     this.SpAging,
                     "REMARKS", 
                     this.FkReceivingID, 
-                    this.SpUseridentity.ToString(), "add");
+                    this.SpUseridentity.ToString(),
+                    this.matTxtExpiryDate.Text.Trim(),
+                    this.txtLabAccessCode.Text.Trim(),
+                    this.SpPoNumber,
+                    this.SpPrNumber,
+                    "add");
 
 
                 //Insert Logs
@@ -555,23 +570,57 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (MetroFramework.MetroMessageBox.Show(this, "Cancel the lab test request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
 
-          
-                this.dSet.Clear();
-                this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
-                    this.p_id.ToString(), this.SpItemDescription, this.matTxtCategory.Text, this.matTxtQty.Text,
-                    SpRemainingQuantity, this.matTxtExpiryDays.Text, this.SpLabStatus, this.SpHistorical, this.SpAging,
-                    "REMARKS", FkReceivingID, this.SpUseridentity.ToString(), "cancel");
+                if (this.SpLabCancelledRemarks == "CANCELLED")
+                {
+                    
 
                 this.dSet.Clear();
                 this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
-                    p_id, "BUje", "0", "0", "", "0", "0", "", "0",
-                    "0", "0", "0", "0",
-                    "0", "0", "0", 0, 0, "0",
-                    "","","",
-                    "dry_wh_lab_request_cancel_by_drywh");
+                p_id, "BUje", "0", "0", "", "0", "0", "", "0",
+                "0", "0", "0", "0",
+                "0", "0", "0", 0, 0, "0",
+                "", "", "",
+                "dry_wh_lab_request_cancel_by_qa_resetall");
 
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmLabTestModule_Load(sender, e);
+
+                }
+                else
+                {
+
+
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
+                this.p_id.ToString(),
+                this.SpItemDescription,
+                this.matTxtCategory.Text.Trim(),
+                this.matTxtQty.Text.Trim(),
+                SpRemainingQuantity,
+                this.matTxtExpiryDays.Text.Trim(),
+                this.SpLabStatus,
+                this.SpHistorical,
+                this.SpAging,
+                "REMARKS",
+                FkReceivingID,
+                this.SpUseridentity.ToString(),
+                this.matTxtExpiryDate.Text.Trim(),
+                this.txtLabAccessCode.Text.Trim(),
+                this.SpPoNumber,
+                this.SpPrNumber,
+                "cancel");
+
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                p_id, "BUje", "0", "0", "", "0", "0", "", "0",
+                "0", "0", "0", "0",
+                "0", "0", "0", 0, 0, "0",
+                "", "", "",
+                "dry_wh_lab_request_cancel_by_drywh");
+
+                this.GlobalStatePopup.CommittedSuccessFully();
+                this.frmLabTestModule_Load(sender, e);
+                }
             }
             else
             {
@@ -650,6 +699,128 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void mattxtTransactionType_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void matBtnViewLabRecords_Click(object sender, EventArgs e)
+        {
+            frmLabTestHistoricalPerReceivingID ViewLabHistory =
+             new frmLabTestHistoricalPerReceivingID(this, this.p_id);
+            ViewLabHistory.ShowDialog();
+        }
+
+        private void dgvRawMats_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dgvRawMats.Rows)
+            {
+                if (Convert.ToString(row.Cells["lab_cancel_remarks"].Value) == "CANCELLED")
+                {
+
+
+                    row.Cells["item_code"].Style.BackColor = Color.Crimson;
+                    row.Cells["item_description"].Style.BackColor = Color.Crimson;
+                    row.Cells["category"].Style.BackColor = Color.Crimson;
+                    row.Cells["qty_received"].Style.BackColor = Color.Crimson;
+                    row.Cells["exp_date"].Style.BackColor = Color.Crimson;
+                    row.Cells["remaining_qty"].Style.BackColor = Color.Crimson;
+                    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.Crimson;
+                    row.Cells["lab_status"].Style.BackColor = Color.Crimson;
+                    row.Cells["HISTORY"].Style.BackColor = Color.Crimson;
+                    row.Cells["lab_exp_date_extension"].Style.BackColor = Color.Crimson;
+                    row.Cells["lab_sub_remarks"].Style.BackColor = Color.Crimson;
+                    row.Cells["laboratory_procedure"].Style.BackColor = Color.Crimson;
+                    row.Cells["AGING"].Style.BackColor = Color.Crimson;
+                    row.Cells["lab_result_remarks"].Style.BackColor = Color.Crimson;
+
+
+                    row.Cells["item_code"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["item_description"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["category"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["qty_received"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["exp_date"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["remaining_qty"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["lab_status"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["HISTORY"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["lab_exp_date_extension"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["lab_sub_remarks"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["laboratory_procedure"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["AGING"].Style.SelectionBackColor = Color.Crimson;
+                    row.Cells["lab_result_remarks"].Style.SelectionBackColor = Color.Crimson;
+
+
+                    row.Cells["item_code"].Style.SelectionForeColor = Color.White;
+                    row.Cells["item_description"].Style.SelectionForeColor = Color.White;
+                    row.Cells["category"].Style.SelectionForeColor = Color.White;
+                    row.Cells["qty_received"].Style.SelectionForeColor = Color.White;
+                    row.Cells["exp_date"].Style.SelectionForeColor = Color.White;
+                    row.Cells["remaining_qty"].Style.SelectionForeColor = Color.White;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_status"].Style.SelectionForeColor = Color.White;
+                    row.Cells["HISTORY"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_exp_date_extension"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_sub_remarks"].Style.SelectionForeColor = Color.White;
+                    row.Cells["laboratory_procedure"].Style.SelectionForeColor = Color.White;
+                    row.Cells["AGING"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_result_remarks"].Style.SelectionForeColor = Color.White;
+                }
+
+
+
+                else
+                {
+
+                    row.Cells["item_code"].Style.BackColor = Color.White;
+                    row.Cells["item_description"].Style.BackColor = Color.White;
+                    row.Cells["category"].Style.BackColor = Color.White;
+                    row.Cells["qty_received"].Style.BackColor = Color.White;
+                    row.Cells["exp_date"].Style.BackColor = Color.White;
+                    row.Cells["remaining_qty"].Style.BackColor = Color.White;
+                    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.White;
+                    row.Cells["lab_status"].Style.BackColor = Color.White;
+                    row.Cells["HISTORY"].Style.BackColor = Color.White;
+                    row.Cells["lab_exp_date_extension"].Style.BackColor = Color.White;
+                    row.Cells["lab_sub_remarks"].Style.BackColor = Color.White;
+                    row.Cells["laboratory_procedure"].Style.BackColor = Color.White;
+                    row.Cells["AGING"].Style.BackColor = Color.White;
+                    row.Cells["lab_result_remarks"].Style.BackColor = Color.White;
+
+
+
+                    row.Cells["item_code"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["item_description"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["category"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["qty_received"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["exp_date"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["remaining_qty"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["lab_status"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["HISTORY"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["lab_exp_date_extension"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["lab_sub_remarks"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["laboratory_procedure"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["AGING"].Style.SelectionBackColor = Color.DarkSlateGray;
+                    row.Cells["lab_result_remarks"].Style.SelectionBackColor = Color.DarkSlateGray;
+
+
+                    row.Cells["item_code"].Style.SelectionForeColor = Color.White;
+                    row.Cells["item_description"].Style.SelectionForeColor = Color.White;
+                    row.Cells["category"].Style.SelectionForeColor = Color.White;
+                    row.Cells["qty_received"].Style.SelectionForeColor = Color.White;
+                    row.Cells["exp_date"].Style.SelectionForeColor = Color.White;
+                    row.Cells["remaining_qty"].Style.SelectionForeColor = Color.White;
+                    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_status"].Style.SelectionForeColor = Color.White;
+                    row.Cells["HISTORY"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_exp_date_extension"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_sub_remarks"].Style.SelectionForeColor = Color.White;
+                    row.Cells["laboratory_procedure"].Style.SelectionForeColor = Color.White;
+                    row.Cells["AGING"].Style.SelectionForeColor = Color.White;
+                    row.Cells["lab_result_remarks"].Style.SelectionForeColor = Color.White;
+                }
+            }
+
 
         }
     }

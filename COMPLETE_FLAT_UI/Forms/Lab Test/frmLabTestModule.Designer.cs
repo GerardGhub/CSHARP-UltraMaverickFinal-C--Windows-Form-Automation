@@ -52,27 +52,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matItemDateLastUsed = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.matViewLabRecords = new MaterialSkin.Controls.MaterialButton();
-            this.matBtnViewLabRecords = new MaterialSkin.Controls.MaterialButton();
-            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
-            this.WizardBalloon4 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.WizardBalloon3 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.WizardBalloon2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.WizardBalloon1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.lblPattern1 = new System.Windows.Forms.Label();
-            this.btnCancelLabRequest = new MaterialSkin.Controls.MaterialButton();
-            this.lblPattern2 = new System.Windows.Forms.Label();
-            this.lblPattern3 = new System.Windows.Forms.Label();
-            this.lblPattern4 = new System.Windows.Forms.Label();
-            this.MatBtnReceived = new MaterialSkin.Controls.MaterialButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +68,27 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.lab_result_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lab_sub_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.laboratory_procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.matViewLabRecords = new MaterialSkin.Controls.MaterialButton();
+            this.matBtnViewLabRecords = new MaterialSkin.Controls.MaterialButton();
+            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
+            this.lblPattern1 = new System.Windows.Forms.Label();
+            this.btnCancelLabRequest = new MaterialSkin.Controls.MaterialButton();
+            this.lblPattern2 = new System.Windows.Forms.Label();
+            this.lblPattern3 = new System.Windows.Forms.Label();
+            this.lblPattern4 = new System.Windows.Forms.Label();
+            this.MatBtnReceived = new MaterialSkin.Controls.MaterialButton();
+            this.WizardBalloon4 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.WizardBalloon3 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.WizardBalloon2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.WizardBalloon1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -465,313 +465,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.ThemeStyle.RowsStyle.Height = 40;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
+            this.dgvRawMats.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRawMats_CellFormatting);
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1224, 725);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(32, 40);
-            this.lbltotalrecords.TabIndex = 586;
-            this.lbltotalrecords.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1270, 738);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
-            this.label2.TabIndex = 587;
-            this.label2.Text = "Items";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Depth = 0;
-            this.txtSearch.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtSearch.Hint = "Search";
-            this.txtSearch.Location = new System.Drawing.Point(1101, 240);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(1);
-            this.txtSearch.MaxLength = 50;
-            this.txtSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtSearch.Multiline = false;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(205, 50);
-            this.txtSearch.TabIndex = 588;
-            this.txtSearch.Text = "";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(34, 274);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(102, 19);
-            this.materialLabel1.TabIndex = 589;
-            this.materialLabel1.Text = "Raw Materials";
-            // 
-            // matViewLabRecords
-            // 
-            this.matViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matViewLabRecords.Depth = 0;
-            this.matViewLabRecords.DrawShadows = true;
-            this.matViewLabRecords.HighEmphasis = true;
-            this.matViewLabRecords.Icon = null;
-            this.matViewLabRecords.Location = new System.Drawing.Point(210, 728);
-            this.matViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matViewLabRecords.Name = "matViewLabRecords";
-            this.matViewLabRecords.Size = new System.Drawing.Size(115, 36);
-            this.matViewLabRecords.TabIndex = 590;
-            this.matViewLabRecords.Text = "LAB REQUEST";
-            this.matViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matViewLabRecords.UseAccentColor = false;
-            this.matViewLabRecords.UseVisualStyleBackColor = true;
-            this.matViewLabRecords.Click += new System.EventHandler(this.matViewLabRecords_Click);
-            // 
-            // matBtnViewLabRecords
-            // 
-            this.matBtnViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnViewLabRecords.Depth = 0;
-            this.matBtnViewLabRecords.DrawShadows = true;
-            this.matBtnViewLabRecords.HighEmphasis = true;
-            this.matBtnViewLabRecords.Icon = null;
-            this.matBtnViewLabRecords.Location = new System.Drawing.Point(30, 728);
-            this.matBtnViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnViewLabRecords.Name = "matBtnViewLabRecords";
-            this.matBtnViewLabRecords.Size = new System.Drawing.Size(156, 36);
-            this.matBtnViewLabRecords.TabIndex = 591;
-            this.matBtnViewLabRecords.Text = "VIEW LAB RECORDS";
-            this.matBtnViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnViewLabRecords.UseAccentColor = false;
-            this.matBtnViewLabRecords.UseVisualStyleBackColor = true;
-            // 
-            // siticoneHtmlLabel4
-            // 
-            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel4.Enabled = false;
-            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(846, 252);
-            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
-            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(72, 25);
-            this.siticoneHtmlLabel4.TabIndex = 599;
-            this.siticoneHtmlLabel4.Text = "Warehouse";
-            // 
-            // siticoneHtmlLabel3
-            // 
-            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Enabled = false;
-            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(663, 252);
-            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(70, 25);
-            this.siticoneHtmlLabel3.TabIndex = 598;
-            this.siticoneHtmlLabel3.Text = "Lab Result";
-            // 
-            // siticoneHtmlLabel2
-            // 
-            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Enabled = false;
-            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(474, 252);
-            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(59, 25);
-            this.siticoneHtmlLabel2.TabIndex = 597;
-            this.siticoneHtmlLabel2.Text = "Approval";
-            // 
-            // siticoneHtmlLabel1
-            // 
-            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Enabled = false;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.siticoneHtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(285, 252);
-            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(54, 25);
-            this.siticoneHtmlLabel1.TabIndex = 595;
-            this.siticoneHtmlLabel1.Text = "Request";
-            // 
-            // siticoneSeparator1
-            // 
-            this.siticoneSeparator1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.siticoneSeparator1.Enabled = false;
-            this.siticoneSeparator1.FillColor = System.Drawing.Color.LightGray;
-            this.siticoneSeparator1.FillStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.siticoneSeparator1.Location = new System.Drawing.Point(239, 261);
-            this.siticoneSeparator1.Name = "siticoneSeparator1";
-            this.siticoneSeparator1.Size = new System.Drawing.Size(607, 10);
-            this.siticoneSeparator1.TabIndex = 596;
-            // 
-            // WizardBalloon4
-            // 
-            this.WizardBalloon4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.WizardBalloon4.Enabled = false;
-            this.WizardBalloon4.FillColor = System.Drawing.Color.Transparent;
-            this.WizardBalloon4.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
-            this.WizardBalloon4.ImageRotate = 0F;
-            this.WizardBalloon4.Location = new System.Drawing.Point(794, 243);
-            this.WizardBalloon4.Name = "WizardBalloon4";
-            this.WizardBalloon4.ShadowDecoration.Parent = this.WizardBalloon4;
-            this.WizardBalloon4.Size = new System.Drawing.Size(45, 45);
-            this.WizardBalloon4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.WizardBalloon4.TabIndex = 602;
-            this.WizardBalloon4.TabStop = false;
-            // 
-            // WizardBalloon3
-            // 
-            this.WizardBalloon3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.WizardBalloon3.Enabled = false;
-            this.WizardBalloon3.FillColor = System.Drawing.Color.Transparent;
-            this.WizardBalloon3.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
-            this.WizardBalloon3.ImageRotate = 0F;
-            this.WizardBalloon3.Location = new System.Drawing.Point(610, 243);
-            this.WizardBalloon3.Name = "WizardBalloon3";
-            this.WizardBalloon3.ShadowDecoration.Parent = this.WizardBalloon3;
-            this.WizardBalloon3.Size = new System.Drawing.Size(45, 45);
-            this.WizardBalloon3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.WizardBalloon3.TabIndex = 601;
-            this.WizardBalloon3.TabStop = false;
-            // 
-            // WizardBalloon2
-            // 
-            this.WizardBalloon2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.WizardBalloon2.Enabled = false;
-            this.WizardBalloon2.FillColor = System.Drawing.Color.Transparent;
-            this.WizardBalloon2.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
-            this.WizardBalloon2.ImageRotate = 0F;
-            this.WizardBalloon2.Location = new System.Drawing.Point(420, 243);
-            this.WizardBalloon2.Name = "WizardBalloon2";
-            this.WizardBalloon2.ShadowDecoration.Parent = this.WizardBalloon2;
-            this.WizardBalloon2.Size = new System.Drawing.Size(45, 45);
-            this.WizardBalloon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.WizardBalloon2.TabIndex = 600;
-            this.WizardBalloon2.TabStop = false;
-            // 
-            // WizardBalloon1
-            // 
-            this.WizardBalloon1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.WizardBalloon1.Enabled = false;
-            this.WizardBalloon1.FillColor = System.Drawing.Color.Transparent;
-            this.WizardBalloon1.Image = global::ULTRAMAVERICK.Properties.Resources.current;
-            this.WizardBalloon1.ImageRotate = 0F;
-            this.WizardBalloon1.Location = new System.Drawing.Point(232, 243);
-            this.WizardBalloon1.Name = "WizardBalloon1";
-            this.WizardBalloon1.ShadowDecoration.Parent = this.WizardBalloon1;
-            this.WizardBalloon1.Size = new System.Drawing.Size(45, 45);
-            this.WizardBalloon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.WizardBalloon1.TabIndex = 594;
-            this.WizardBalloon1.TabStop = false;
-            // 
-            // lblPattern1
-            // 
-            this.lblPattern1.AutoSize = true;
-            this.lblPattern1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern1.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern1.Location = new System.Drawing.Point(282, 272);
-            this.lblPattern1.Name = "lblPattern1";
-            this.lblPattern1.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern1.TabIndex = 603;
-            this.lblPattern1.Text = "◙";
-            this.lblPattern1.Visible = false;
-            this.lblPattern1.MouseHover += new System.EventHandler(this.label1_MouseHover);
-            // 
-            // btnCancelLabRequest
-            // 
-            this.btnCancelLabRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCancelLabRequest.Depth = 0;
-            this.btnCancelLabRequest.DrawShadows = true;
-            this.btnCancelLabRequest.HighEmphasis = true;
-            this.btnCancelLabRequest.Icon = null;
-            this.btnCancelLabRequest.Location = new System.Drawing.Point(349, 728);
-            this.btnCancelLabRequest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnCancelLabRequest.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancelLabRequest.Name = "btnCancelLabRequest";
-            this.btnCancelLabRequest.Size = new System.Drawing.Size(77, 36);
-            this.btnCancelLabRequest.TabIndex = 604;
-            this.btnCancelLabRequest.Text = "CANCEL";
-            this.btnCancelLabRequest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnCancelLabRequest.UseAccentColor = false;
-            this.btnCancelLabRequest.UseVisualStyleBackColor = true;
-            this.btnCancelLabRequest.Click += new System.EventHandler(this.matBtnCancel_Click);
-            // 
-            // lblPattern2
-            // 
-            this.lblPattern2.AutoSize = true;
-            this.lblPattern2.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern2.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern2.Location = new System.Drawing.Point(470, 272);
-            this.lblPattern2.Name = "lblPattern2";
-            this.lblPattern2.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern2.TabIndex = 605;
-            this.lblPattern2.Text = "◙";
-            this.lblPattern2.Visible = false;
-            this.lblPattern2.MouseHover += new System.EventHandler(this.lblPattern2_MouseHover);
-            // 
-            // lblPattern3
-            // 
-            this.lblPattern3.AutoSize = true;
-            this.lblPattern3.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern3.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern3.Location = new System.Drawing.Point(659, 272);
-            this.lblPattern3.Name = "lblPattern3";
-            this.lblPattern3.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern3.TabIndex = 606;
-            this.lblPattern3.Text = "◙";
-            this.lblPattern3.Visible = false;
-            this.lblPattern3.MouseHover += new System.EventHandler(this.lblPattern3_MouseHover);
-            // 
-            // lblPattern4
-            // 
-            this.lblPattern4.AutoSize = true;
-            this.lblPattern4.BackColor = System.Drawing.Color.Transparent;
-            this.lblPattern4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPattern4.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPattern4.Location = new System.Drawing.Point(842, 272);
-            this.lblPattern4.Name = "lblPattern4";
-            this.lblPattern4.Size = new System.Drawing.Size(23, 24);
-            this.lblPattern4.TabIndex = 607;
-            this.lblPattern4.Text = "◙";
-            this.lblPattern4.Visible = false;
-            // 
-            // MatBtnReceived
-            // 
-            this.MatBtnReceived.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MatBtnReceived.Depth = 0;
-            this.MatBtnReceived.DrawShadows = true;
-            this.MatBtnReceived.HighEmphasis = true;
-            this.MatBtnReceived.Icon = null;
-            this.MatBtnReceived.Location = new System.Drawing.Point(1135, 727);
-            this.MatBtnReceived.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.MatBtnReceived.MouseState = MaterialSkin.MouseState.HOVER;
-            this.MatBtnReceived.Name = "MatBtnReceived";
-            this.MatBtnReceived.Size = new System.Drawing.Size(89, 36);
-            this.MatBtnReceived.TabIndex = 608;
-            this.MatBtnReceived.Text = "RECEIVED";
-            this.MatBtnReceived.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.MatBtnReceived.UseAccentColor = false;
-            this.MatBtnReceived.UseVisualStyleBackColor = true;
-            this.MatBtnReceived.Visible = false;
-            this.MatBtnReceived.Click += new System.EventHandler(this.MatBtnReceived_Click);
             // 
             // id
             // 
@@ -892,6 +587,313 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.laboratory_procedure.HeaderText = "PROCEDURE";
             this.laboratory_procedure.Name = "laboratory_procedure";
             this.laboratory_procedure.ReadOnly = true;
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(1224, 725);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(32, 40);
+            this.lbltotalrecords.TabIndex = 586;
+            this.lbltotalrecords.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(1270, 738);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 587;
+            this.label2.Text = "Items";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Depth = 0;
+            this.txtSearch.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtSearch.Hint = "Search";
+            this.txtSearch.Location = new System.Drawing.Point(1101, 240);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(1);
+            this.txtSearch.MaxLength = 50;
+            this.txtSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtSearch.Multiline = false;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(205, 50);
+            this.txtSearch.TabIndex = 588;
+            this.txtSearch.Text = "";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(34, 274);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(102, 19);
+            this.materialLabel1.TabIndex = 589;
+            this.materialLabel1.Text = "Raw Materials";
+            // 
+            // matViewLabRecords
+            // 
+            this.matViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matViewLabRecords.Depth = 0;
+            this.matViewLabRecords.DrawShadows = true;
+            this.matViewLabRecords.HighEmphasis = true;
+            this.matViewLabRecords.Icon = null;
+            this.matViewLabRecords.Location = new System.Drawing.Point(210, 728);
+            this.matViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matViewLabRecords.Name = "matViewLabRecords";
+            this.matViewLabRecords.Size = new System.Drawing.Size(115, 36);
+            this.matViewLabRecords.TabIndex = 590;
+            this.matViewLabRecords.Text = "LAB REQUEST";
+            this.matViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matViewLabRecords.UseAccentColor = false;
+            this.matViewLabRecords.UseVisualStyleBackColor = true;
+            this.matViewLabRecords.Click += new System.EventHandler(this.matViewLabRecords_Click);
+            // 
+            // matBtnViewLabRecords
+            // 
+            this.matBtnViewLabRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnViewLabRecords.Depth = 0;
+            this.matBtnViewLabRecords.DrawShadows = true;
+            this.matBtnViewLabRecords.HighEmphasis = true;
+            this.matBtnViewLabRecords.Icon = null;
+            this.matBtnViewLabRecords.Location = new System.Drawing.Point(30, 728);
+            this.matBtnViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matBtnViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnViewLabRecords.Name = "matBtnViewLabRecords";
+            this.matBtnViewLabRecords.Size = new System.Drawing.Size(156, 36);
+            this.matBtnViewLabRecords.TabIndex = 591;
+            this.matBtnViewLabRecords.Text = "VIEW LAB RECORDS";
+            this.matBtnViewLabRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnViewLabRecords.UseAccentColor = false;
+            this.matBtnViewLabRecords.UseVisualStyleBackColor = true;
+            this.matBtnViewLabRecords.Click += new System.EventHandler(this.matBtnViewLabRecords_Click);
+            // 
+            // siticoneHtmlLabel4
+            // 
+            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel4.Enabled = false;
+            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(846, 252);
+            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
+            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(72, 25);
+            this.siticoneHtmlLabel4.TabIndex = 599;
+            this.siticoneHtmlLabel4.Text = "Warehouse";
+            // 
+            // siticoneHtmlLabel3
+            // 
+            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel3.Enabled = false;
+            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(663, 252);
+            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
+            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(70, 25);
+            this.siticoneHtmlLabel3.TabIndex = 598;
+            this.siticoneHtmlLabel3.Text = "Lab Result";
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Enabled = false;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(474, 252);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(59, 25);
+            this.siticoneHtmlLabel2.TabIndex = 597;
+            this.siticoneHtmlLabel2.Text = "Approval";
+            // 
+            // siticoneHtmlLabel1
+            // 
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Enabled = false;
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.siticoneHtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(285, 252);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(54, 25);
+            this.siticoneHtmlLabel1.TabIndex = 595;
+            this.siticoneHtmlLabel1.Text = "Request";
+            // 
+            // siticoneSeparator1
+            // 
+            this.siticoneSeparator1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.siticoneSeparator1.Enabled = false;
+            this.siticoneSeparator1.FillColor = System.Drawing.Color.LightGray;
+            this.siticoneSeparator1.FillStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.siticoneSeparator1.Location = new System.Drawing.Point(239, 261);
+            this.siticoneSeparator1.Name = "siticoneSeparator1";
+            this.siticoneSeparator1.Size = new System.Drawing.Size(607, 10);
+            this.siticoneSeparator1.TabIndex = 596;
+            // 
+            // lblPattern1
+            // 
+            this.lblPattern1.AutoSize = true;
+            this.lblPattern1.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern1.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern1.Location = new System.Drawing.Point(282, 272);
+            this.lblPattern1.Name = "lblPattern1";
+            this.lblPattern1.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern1.TabIndex = 603;
+            this.lblPattern1.Text = "◙";
+            this.lblPattern1.Visible = false;
+            this.lblPattern1.MouseHover += new System.EventHandler(this.label1_MouseHover);
+            // 
+            // btnCancelLabRequest
+            // 
+            this.btnCancelLabRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancelLabRequest.Depth = 0;
+            this.btnCancelLabRequest.DrawShadows = true;
+            this.btnCancelLabRequest.HighEmphasis = true;
+            this.btnCancelLabRequest.Icon = null;
+            this.btnCancelLabRequest.Location = new System.Drawing.Point(349, 728);
+            this.btnCancelLabRequest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCancelLabRequest.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancelLabRequest.Name = "btnCancelLabRequest";
+            this.btnCancelLabRequest.Size = new System.Drawing.Size(77, 36);
+            this.btnCancelLabRequest.TabIndex = 604;
+            this.btnCancelLabRequest.Text = "CANCEL";
+            this.btnCancelLabRequest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancelLabRequest.UseAccentColor = false;
+            this.btnCancelLabRequest.UseVisualStyleBackColor = true;
+            this.btnCancelLabRequest.Click += new System.EventHandler(this.matBtnCancel_Click);
+            // 
+            // lblPattern2
+            // 
+            this.lblPattern2.AutoSize = true;
+            this.lblPattern2.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern2.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern2.Location = new System.Drawing.Point(470, 272);
+            this.lblPattern2.Name = "lblPattern2";
+            this.lblPattern2.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern2.TabIndex = 605;
+            this.lblPattern2.Text = "◙";
+            this.lblPattern2.Visible = false;
+            this.lblPattern2.MouseHover += new System.EventHandler(this.lblPattern2_MouseHover);
+            // 
+            // lblPattern3
+            // 
+            this.lblPattern3.AutoSize = true;
+            this.lblPattern3.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern3.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern3.Location = new System.Drawing.Point(659, 272);
+            this.lblPattern3.Name = "lblPattern3";
+            this.lblPattern3.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern3.TabIndex = 606;
+            this.lblPattern3.Text = "◙";
+            this.lblPattern3.Visible = false;
+            this.lblPattern3.MouseHover += new System.EventHandler(this.lblPattern3_MouseHover);
+            // 
+            // lblPattern4
+            // 
+            this.lblPattern4.AutoSize = true;
+            this.lblPattern4.BackColor = System.Drawing.Color.Transparent;
+            this.lblPattern4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPattern4.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblPattern4.Location = new System.Drawing.Point(842, 272);
+            this.lblPattern4.Name = "lblPattern4";
+            this.lblPattern4.Size = new System.Drawing.Size(23, 24);
+            this.lblPattern4.TabIndex = 607;
+            this.lblPattern4.Text = "◙";
+            this.lblPattern4.Visible = false;
+            // 
+            // MatBtnReceived
+            // 
+            this.MatBtnReceived.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatBtnReceived.Depth = 0;
+            this.MatBtnReceived.DrawShadows = true;
+            this.MatBtnReceived.HighEmphasis = true;
+            this.MatBtnReceived.Icon = null;
+            this.MatBtnReceived.Location = new System.Drawing.Point(1135, 727);
+            this.MatBtnReceived.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MatBtnReceived.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatBtnReceived.Name = "MatBtnReceived";
+            this.MatBtnReceived.Size = new System.Drawing.Size(89, 36);
+            this.MatBtnReceived.TabIndex = 608;
+            this.MatBtnReceived.Text = "RECEIVED";
+            this.MatBtnReceived.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatBtnReceived.UseAccentColor = false;
+            this.MatBtnReceived.UseVisualStyleBackColor = true;
+            this.MatBtnReceived.Visible = false;
+            this.MatBtnReceived.Click += new System.EventHandler(this.MatBtnReceived_Click);
+            // 
+            // WizardBalloon4
+            // 
+            this.WizardBalloon4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon4.Enabled = false;
+            this.WizardBalloon4.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon4.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
+            this.WizardBalloon4.ImageRotate = 0F;
+            this.WizardBalloon4.Location = new System.Drawing.Point(794, 243);
+            this.WizardBalloon4.Name = "WizardBalloon4";
+            this.WizardBalloon4.ShadowDecoration.Parent = this.WizardBalloon4;
+            this.WizardBalloon4.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon4.TabIndex = 602;
+            this.WizardBalloon4.TabStop = false;
+            // 
+            // WizardBalloon3
+            // 
+            this.WizardBalloon3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon3.Enabled = false;
+            this.WizardBalloon3.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon3.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
+            this.WizardBalloon3.ImageRotate = 0F;
+            this.WizardBalloon3.Location = new System.Drawing.Point(610, 243);
+            this.WizardBalloon3.Name = "WizardBalloon3";
+            this.WizardBalloon3.ShadowDecoration.Parent = this.WizardBalloon3;
+            this.WizardBalloon3.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon3.TabIndex = 601;
+            this.WizardBalloon3.TabStop = false;
+            // 
+            // WizardBalloon2
+            // 
+            this.WizardBalloon2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon2.Enabled = false;
+            this.WizardBalloon2.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon2.Image = global::ULTRAMAVERICK.Properties.Resources.pending;
+            this.WizardBalloon2.ImageRotate = 0F;
+            this.WizardBalloon2.Location = new System.Drawing.Point(420, 243);
+            this.WizardBalloon2.Name = "WizardBalloon2";
+            this.WizardBalloon2.ShadowDecoration.Parent = this.WizardBalloon2;
+            this.WizardBalloon2.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon2.TabIndex = 600;
+            this.WizardBalloon2.TabStop = false;
+            // 
+            // WizardBalloon1
+            // 
+            this.WizardBalloon1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WizardBalloon1.Enabled = false;
+            this.WizardBalloon1.FillColor = System.Drawing.Color.Transparent;
+            this.WizardBalloon1.Image = global::ULTRAMAVERICK.Properties.Resources.current;
+            this.WizardBalloon1.ImageRotate = 0F;
+            this.WizardBalloon1.Location = new System.Drawing.Point(232, 243);
+            this.WizardBalloon1.Name = "WizardBalloon1";
+            this.WizardBalloon1.ShadowDecoration.Parent = this.WizardBalloon1;
+            this.WizardBalloon1.Size = new System.Drawing.Size(45, 45);
+            this.WizardBalloon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.WizardBalloon1.TabIndex = 594;
+            this.WizardBalloon1.TabStop = false;
             // 
             // frmLabTestModule
             // 
