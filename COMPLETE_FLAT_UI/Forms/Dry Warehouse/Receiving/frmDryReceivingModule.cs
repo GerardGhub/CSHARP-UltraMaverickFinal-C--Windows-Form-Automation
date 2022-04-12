@@ -50,6 +50,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string SpPrNo { get; set; }
         public string SpPRDate { get; set; }
 
+        public string SpFK_Sub_Category_SubCategoryDesc { get; set; }
+        public int SpFK_Sub_Category_IsExpirable { get; set; }
+
 
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
@@ -115,10 +118,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void SearchMethodJarVarCallingSP()
         {
             myglobal.global_module = "Active"; // Mode for Searching
-            dset_emp_SearchEngines.Clear();
+            this.dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
 
         }
 
@@ -385,28 +388,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
                     if (this.dgvMajorCategory.CurrentRow.Cells["item_code"].Value != null)
                     {
-                        this.p_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["PrimaryID"].Value);
-                        this.sp_projection_id = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["ProjectID"].Value);
-                        this.mattxtitemcode.Text = dgvMajorCategory.CurrentRow.Cells["item_code"].Value.ToString();
-                        this.mattxtitemdesc.Text = dgvMajorCategory.CurrentRow.Cells["item_description"].Value.ToString();
-                        this.mattxtSupplier.Text = dgvMajorCategory.CurrentRow.Cells["Supplier"].Value.ToString();
-                        this.mattxtmfgdate.Text = dgvMajorCategory.CurrentRow.Cells["mfg_date"].Value.ToString();
-                        this.mattxtexpirydate.Text = dgvMajorCategory.CurrentRow.Cells["expiration_date"].Value.ToString();
-                        this.matdaysExpiry.Text = dgvMajorCategory.CurrentRow.Cells["DaysToExpired"].Value.ToString();
-                        this.mattxtcategory.Text = dgvMajorCategory.CurrentRow.Cells["major_category"].Value.ToString();
-                        this.mattxtqtyuom.Text = dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
-                        this.mattxtponumber.Text = dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
-                        this.SP_ExpirationSetPoint = Convert.ToInt32(dgvMajorCategory.CurrentRow.Cells["EXPIRATIONSETPOINT"].Value);
-                        this.SpPoDate = dgvMajorCategory.CurrentRow.Cells["po_date"].Value.ToString();
-                        this.SpPRDate = dgvMajorCategory.CurrentRow.Cells["pr_date"].Value.ToString();
-                        this.SpPrNo = dgvMajorCategory.CurrentRow.Cells["pr_number"].Value.ToString();
-
-
+                        this.p_id = Convert.ToInt32(this.dgvMajorCategory.CurrentRow.Cells["PrimaryID"].Value);
+                        this.sp_projection_id = Convert.ToInt32(this.dgvMajorCategory.CurrentRow.Cells["ProjectID"].Value);
+                        this.mattxtitemcode.Text = this.dgvMajorCategory.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.mattxtitemdesc.Text = this.dgvMajorCategory.CurrentRow.Cells["item_description"].Value.ToString();
+                        this.mattxtSupplier.Text = this.dgvMajorCategory.CurrentRow.Cells["Supplier"].Value.ToString();
+                        this.mattxtmfgdate.Text = this.dgvMajorCategory.CurrentRow.Cells["mfg_date"].Value.ToString();
+                        this.mattxtexpirydate.Text = this.dgvMajorCategory.CurrentRow.Cells["expiration_date"].Value.ToString();
+                        this.matdaysExpiry.Text = this.dgvMajorCategory.CurrentRow.Cells["DaysToExpired"].Value.ToString();
+                        this.mattxtcategory.Text = this.dgvMajorCategory.CurrentRow.Cells["major_category"].Value.ToString();
+                        this.mattxtqtyuom.Text = this.dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
+                        this.mattxtponumber.Text = this.dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
+                        this.SP_ExpirationSetPoint = Convert.ToInt32(this.dgvMajorCategory.CurrentRow.Cells["EXPIRATIONSETPOINT"].Value);
+                        this.SpPoDate = this.dgvMajorCategory.CurrentRow.Cells["po_date"].Value.ToString();
+                        this.SpPRDate = this.dgvMajorCategory.CurrentRow.Cells["pr_date"].Value.ToString();
+                        this.SpPrNo = this.dgvMajorCategory.CurrentRow.Cells["pr_number"].Value.ToString();
+                        this.matbtnSubCategory.Text = this.dgvMajorCategory.CurrentRow.Cells["sub_category"].Value.ToString();
+                        this.SpFK_Sub_Category_IsExpirable = Convert.ToInt32(this.dgvMajorCategory.CurrentRow.Cells["is_expirable"].Value);
 
                         this.mattxtqtyreject.Text = this.dgvMajorCategory.CurrentRow.Cells["totalreject"].Value.ToString();
                         if (this.totalRecords == "1")
                         {
-                            this.mattxtsoh.Text = dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
+                            this.mattxtsoh.Text = this.dgvMajorCategory.CurrentRow.Cells["total_received"].Value.ToString();
 
                             
                         }
@@ -683,6 +686,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPoDate,
                         this.SpPrNo,
                         this.SpPRDate,
+                        this.matbtnSubCategory.Text.Trim(),
+                        this.SpFK_Sub_Category_IsExpirable,
                         "rejected_status_timer_dispossal");
 
                     //Second Summary of Queryy Disposal of Rejection Remarks RE == QA  ON NA 3/4/2022
@@ -708,7 +713,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPoDate,
                         this.SpPrNo,
                         this.SpPRDate,
-                        
+                        this.matbtnSubCategory.Text.Trim(),
+                        this.SpFK_Sub_Category_IsExpirable,
                         "rejected_status_wh_re_qa");
 
 
@@ -737,6 +743,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPoDate, 
                         this.SpPrNo, 
                         this.SpPRDate,
+                        this.matbtnSubCategory.Text.Trim(),
+                        this.SpFK_Sub_Category_IsExpirable,
                         "add");
                     if (this.sp_warehouse_reject_approval =="1")
                     {
@@ -762,6 +770,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.SpPoDate,
                     this.SpPrNo,
                     this.SpPRDate,
+                    this.matbtnSubCategory.Text.Trim(),
+                    this.SpFK_Sub_Category_IsExpirable,
                     "updated_rejected_partial");
 
                         //Second Summary of Queryy Disposal of Rejection Remarks
@@ -787,7 +797,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             this.SpPoDate,
                             this.SpPrNo,
                             this.SpPRDate,
-
+                            this.matbtnSubCategory.Text.Trim(),
+                            this.SpFK_Sub_Category_IsExpirable,
 
                             "rejected_status_timer_dispossal");
                     }
@@ -849,6 +860,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPoDate,
                         this.SpPrNo,
                         this.SpPRDate,
+                        this.matbtnSubCategory.Text.Trim(),
+                        this.SpFK_Sub_Category_IsExpirable,
                         "rejected_status_timer_dispossal");
 
 
@@ -876,6 +889,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPoDate,
                         this.SpPrNo,
                         this.SpPRDate,
+                        this.matbtnSubCategory.Text.Trim(),
+                        this.SpFK_Sub_Category_IsExpirable,
                         "rejected_status_wh_re_qa'");
 
                     //Conversion Master Details
@@ -906,6 +921,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPoDate,
                         this.SpPrNo,
                         this.SpPRDate,
+                        this.matbtnSubCategory.Text.Trim(),
+                        this.SpFK_Sub_Category_IsExpirable,
                         "add");
 
                     if (this.sp_warehouse_reject_approval == "1")
@@ -934,6 +951,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             this.SpPoDate,
                             this.SpPrNo,
                             this.SpPoDate,
+                            this.matbtnSubCategory.Text.Trim(),
+                            this.SpFK_Sub_Category_IsExpirable,
                             "updated_rejected_partial");
 
 
@@ -982,6 +1001,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPoDate,
                         this.SpPrNo,
                         this.SpPRDate,
+                           this.matbtnSubCategory.Text.Trim(),
+                        this.SpFK_Sub_Category_IsExpirable,
                         "rejectComeback");
                     this.frmDryReceivingModule_Load(sender, e);
                 }

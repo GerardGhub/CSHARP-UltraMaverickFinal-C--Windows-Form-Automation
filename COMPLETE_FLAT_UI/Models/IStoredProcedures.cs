@@ -376,6 +376,8 @@ namespace ULTRAMAVERICK.Models
         string po_date,
         string pr_no,
         string pr_date,
+        string FK_Sub_Category_SubCategoryDesc,
+        int FK_Sub_Category_IsExpirable,
         string mode);
 
 

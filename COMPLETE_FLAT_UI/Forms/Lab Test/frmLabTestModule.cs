@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -72,16 +73,99 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpPoDate { get; set; }
         public string SpPrDate { get; set; }
         public string SpLabCancelledRemarks { get; set; }
-        public string SpQASupervisorApprovalStatus { get; set; }
+        public bool SpQASupervisorApprovalStatus { get; set; }
+        public int Year { get; }
+        public string monthName { get; set; }
+        public string SpTotalLabtestRecords { get; set; }
+        public string SpTotalLabtestRecordsCount { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
             this.ConnectionInitialization();
             this.showRawMaterialsNearlyExpiry();
             this.WindowLoadState();
-         
+        
+        }
+        private void AutoGeneratingLabAccessCode()
+        {
+            DateTime myDateTime = DateTime.Now;
+            string year = myDateTime.Year.ToString();
+
+            string sMonth = DateTime.Now.ToString("MM");
+
+
+            int monthNumber = Convert.ToInt32(sMonth); //1-12  
+            if (sMonth == "01")
+            {
+                monthName = "A";
+            }
+            else if (sMonth == "02")
+            {
+                monthName = "B";
+            }
+            else if (sMonth == "03")
+            {
+                monthName = "C";
+            }
+            else if (sMonth == "04")
+            {
+                monthName = "D";
+            }
+            else if (sMonth == "05")
+            {
+                monthName = "E";
+            }
+            else if (sMonth == "06")
+            {
+                monthName = "F";
+            }
+            else if (sMonth == "07")
+            {
+                monthName = "G";
+            }
+            else if (sMonth == "08")
+            {
+                monthName = "H";
+            }
+            else if (sMonth == "09")
+            {
+                monthName = "I";
+            }
+            else if (sMonth == "10")
+            {
+                monthName = "J";
+            }
+            else if (sMonth == "11")
+            {
+                monthName = "K";
+            }
+            else if (sMonth == "12")
+            {
+                monthName = "L";
+            }
+
+
+            //string monthName = new DateTimeFormatInfo().GetMonthName(monthNumber);
+            if(this.txtLabAccessCode.Text == String.Empty)
+            {
+                if (this.matViewLabRecords.Visible == true)
+                {
+                    this.txtLabAccessCode.Text = year.ToString() + "-" + monthName + "-" + SpTotalLabtestRecordsCount;
+
+                }
+
+            }
+          
+
+       
+          
+
         }
 
+        private void AlphaVeticalSequence()
+        {
+
+        }
 
         
         private void loadImage()
@@ -208,6 +292,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["pr_date"].Visible = false;
             this.dgvRawMats.Columns["pr_no"].Visible = false;
             this.dgvRawMats.Columns["lab_cancel_remarks"].Visible = false;
+            this.dgvRawMats.Columns["qa_supervisor_is_approve_status"].Visible = false;
+            this.dgvRawMats.Columns["TotalLabtestRecords"].Visible = false;
+            this.dgvRawMats.Columns["TotalLabtestRecordsCount"].Visible = false;
         }
 
 
@@ -264,9 +351,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
             this.showValueCell();
+            //this.AutoGeneratingLabAccessCode();
 
-   
-          
+
+
         }
 
         private void showValueCell()
@@ -311,8 +399,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpPoDate = this.dgvRawMats.CurrentRow.Cells["po_date"].Value.ToString();
                         this.SpPrDate = this.dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
                         this.SpLabCancelledRemarks = this.dgvRawMats.CurrentRow.Cells["lab_cancel_remarks"].Value.ToString();
-                        this.SpQASupervisorApprovalStatus = this.dgvRawMats.CurrentRow.Cells["qa_supervisor_is_approve_status"].Value.ToString();
+                        if (this.lbltotalrecords.Text != "0")
+                        {
+                            this.SpQASupervisorApprovalStatus = Convert.ToBoolean(this.dgvRawMats.CurrentRow.Cells["qa_supervisor_is_approve_status"].Value);
+                        }
+
                         //this.SpItemImage = this.dgvRawMats.CurrentRow.Cells["item_image"].Value.ToString();
+                        this.SpTotalLabtestRecords = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecords"].Value.ToString();
+                        this.SpTotalLabtestRecordsCount = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecordsCount"].Value.ToString();
 
                     }
                 }
@@ -434,7 +528,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.WizardBalloon4.Image = Properties.Resources.pending;
             }
 
-            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0" && this.SpQASupervisorApprovalStatus == "1")
+            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0" && this.SpQASupervisorApprovalStatus == true)
             {
                 this.MatBtnReceived.Visible = true;
             }
@@ -443,13 +537,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.MatBtnReceived.Visible = false;
             }
 
-            }
+            //if (this.SpQASupervisorApprovalStatus == "true")
+            //{
+            //    this.MatBtnReceived.Visible = true;
+            //}
+
+        }
 
         private void matViewLabRecords_Click(object sender, EventArgs e)
         {
+            this.AutoGeneratingLabAccessCode();
 
-
-            if(this.txtLabAccessCode.Text == String.Empty)
+            if (this.txtLabAccessCode.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 this.txtLabAccessCode.Focus();
@@ -485,10 +584,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 p_id, 
                 this.SpFirstName, 
                 this.txtLabAccessCode.Text, 
-                this.SpHistorical, this.SpDepartment, "0", "0", "", "0",
+                this.SpHistorical,
+                this.SpDepartment,
+                 this.matTxtExpiryDate.Text.Trim(), "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "",
-                "", "", "",
+                "", "", "", "", 0,
                 
                 "dry_wh_lab_request");
 
@@ -523,7 +624,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                     "0", "0", "0", "0",
                     "0", "0", "0", 0, 0,"0",
-                    "","","",
+                    "","","", "", 0,
                     
                     "dry_wh_lab_request_cancel_by_drywh");
 
@@ -579,7 +680,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "0",
-                "", "", "",
+                "", "", "","", 0,
                 "dry_wh_lab_request_cancel_by_qa_resetall");
 
                 this.GlobalStatePopup.CommittedSuccessFully();
@@ -615,7 +716,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "0",
-                "", "", "",
+                "", "", "","",0,
                 "dry_wh_lab_request_cancel_by_drywh");
 
                 this.GlobalStatePopup.CommittedSuccessFully();
@@ -683,8 +784,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     this.SpPrNumber.ToString(),
                     this.SpPrDate,
                     "",
-                   
-                    
+                    "",
+                        0,
+
                     "dry_wh_lab_result_received_by_drywh");
                 
                 this.GlobalStatePopup.LabTestResultSuccessFullyReceived();
@@ -822,6 +924,21 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
 
 
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            this.AutoGeneratingLabAccessCode();
+        }
+
+        private void materialButton1_Click_1(object sender, EventArgs e)
+        {
+         
+            MessageBox.Show(this.SpQASupervisorApprovalStatus.ToString());
+            if (this.SpQASupervisorApprovalStatus == true)
+            {
+                this.MatBtnReceived.Visible = true;
+            }
         }
     }
 }

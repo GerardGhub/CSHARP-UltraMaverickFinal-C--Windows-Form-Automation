@@ -81,6 +81,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.crV1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.dgvReceivedID = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matbtnSubCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExpiry)).BeginInit();
@@ -125,6 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.matbtnSubCategory);
             this.materialCard2.Controls.Add(this.pictureBoxExpiry);
             this.materialCard2.Controls.Add(this.bunifuCustomLabel2);
             this.materialCard2.Controls.Add(this.bunifuCustomLabel1);
@@ -409,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtitemdesc.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtitemdesc.Multiline = false;
             this.mattxtitemdesc.Name = "mattxtitemdesc";
-            this.mattxtitemdesc.Size = new System.Drawing.Size(708, 50);
+            this.mattxtitemdesc.Size = new System.Drawing.Size(463, 50);
             this.mattxtitemdesc.TabIndex = 4;
             this.mattxtitemdesc.Text = "";
             // 
@@ -871,6 +873,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.id.ReadOnly = true;
             this.id.Width = 12;
             // 
+            // matbtnSubCategory
+            // 
+            this.matbtnSubCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.matbtnSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matbtnSubCategory.Depth = 0;
+            this.matbtnSubCategory.Enabled = false;
+            this.matbtnSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.matbtnSubCategory.Hint = "Sub Category";
+            this.matbtnSubCategory.Location = new System.Drawing.Point(501, 90);
+            this.matbtnSubCategory.Margin = new System.Windows.Forms.Padding(1);
+            this.matbtnSubCategory.MaxLength = 50;
+            this.matbtnSubCategory.MouseState = MaterialSkin.MouseState.OUT;
+            this.matbtnSubCategory.Multiline = false;
+            this.matbtnSubCategory.Name = "matbtnSubCategory";
+            this.matbtnSubCategory.Size = new System.Drawing.Size(215, 50);
+            this.matbtnSubCategory.TabIndex = 596;
+            this.matbtnSubCategory.Text = "";
+            // 
             // frmDryReceivingModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -947,5 +967,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBoxExpiry;
+        private MaterialSkin.Controls.MaterialTextBox matbtnSubCategory;
     }
 }
