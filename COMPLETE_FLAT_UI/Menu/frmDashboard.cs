@@ -45,7 +45,9 @@ namespace COMPLETE_FLAT_UI
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.showReceivingData();
             dataGridView1.Visible = false;
-         
+
+
+       
 
         }
         private void showReceivingData()      //method for loading available_menus

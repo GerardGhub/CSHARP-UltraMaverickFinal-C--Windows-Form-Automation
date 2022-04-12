@@ -78,6 +78,8 @@ namespace COMPLETE_FLAT_UI
         public string TotalStoreOrderCancelatWhChecker { get; set; }
         public string TotalStoreOrderDistinctLogisticChecker { get; set; }
         public double TotalCountNotificationDistinctType { get; set; }
+
+        public string TotalLabTestReceivingViewing { get; set; }
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -275,10 +277,15 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        private  void HeaderBadge()
+        private  void HeaderBadge() //Header Badge
         {
+            if(this.TotalStoreOrderCancelatWhChecker != "0")
+            {
+                this.TotalStoreOrderCancelatWhChecker = "1";
+            }
             this.TotalCountNotificationDistinctType = Convert.ToDouble(this.TotalStoreOrderCancelatWhChecker) +
-                 Convert.ToDouble(this.TotalStoreOrderDistinctLogisticChecker);
+                 Convert.ToDouble(this.TotalStoreOrderDistinctLogisticChecker) +
+            Convert.ToDouble(this.TotalLabTestReceivingViewing);
         }
 
         private void BadgeNotification()
@@ -291,7 +298,10 @@ namespace COMPLETE_FLAT_UI
             {
                 this.HeaderBadge();
             }
-
+            else if (this.TotalLabTestReceivingViewing != "0")
+            {
+                this.HeaderBadge();
+            }
             else
             {
              
@@ -625,11 +635,34 @@ namespace COMPLETE_FLAT_UI
 
             this.CancelledforStorePreparationatLogisticChecker();
             this.DispatchingforStorePreparationatLogisticChecker();
+            this.showLabTestForReceiving();
             this.BadgeNotification();
-
+            //MessageBox.Show(this.TotalLabTestReceivingViewing);
+            //bool v = Adorner.AddBadgeTos(btnDashBoard1, "123");
 
         }
-    
+
+        private void showLabTestForReceiving()    //method for loading available_menus
+        {
+            // Try this Fuck!!
+            dSet.Clear();
+            try
+            {
+
+                xClass.fillDataGridView(this.dgvParseData, "DryWarehouseLabTestReceivingViewing", dSet);
+
+                this.TotalLabTestReceivingViewing = this.dgvParseData.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            
+        }
+
+
         private void CancelledforStorePreparationatLogisticChecker()      //method for loading available_menus
         {
             try
@@ -1661,6 +1694,12 @@ namespace COMPLETE_FLAT_UI
             frmSyncConsolidatedOrderSetUp SyncOrderForm = new frmSyncConsolidatedOrderSetUp();
             SyncOrderForm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(SyncOrderForm);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.showLabTestForReceiving();
+            MessageBox.Show(TotalLabTestReceivingViewing);
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

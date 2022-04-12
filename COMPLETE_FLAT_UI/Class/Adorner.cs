@@ -12,6 +12,7 @@ namespace ULTRAMAVERICK.Class
     {
 
         private static List<Control> controls = new List<Control>();
+        private static List<ToolStripDropDownButton> controlsdropdown = new List<ToolStripDropDownButton>();
         private static List<ToolStripMenuItem> ToolStripMenuItems = new List<ToolStripMenuItem>();
 
         static public bool AddBadgeTo(Control ctl, string Text)
@@ -29,7 +30,26 @@ namespace ULTRAMAVERICK.Class
             return true;
         }
 
-   
+
+        //static public bool AddBadgeTos(ToolStripDropDownButton ctl, string Text)
+        //{
+        //    //if (controlsdropdown.Contains(ctl)) return false;
+
+        //    //Badge badge = new Badge();
+        //    //badge.AutoSize = true;
+        //    //badge.Text = Text;
+        //    //badge.BackColor = Color.Transparent;
+        //    //controlsdropdown.Add(ctl);
+        //    //ctl.Container.Add(badge);
+        //    //SetPosition(badge, ctl);
+
+        //    //return true;
+        //}
+
+        private static void SetPosition(Badge badge, ToolStripDropDownButton ctl)
+        {
+            throw new NotImplementedException();
+        }
 
         static public bool RemoveBadgeFrom(Control ctl)
         {
