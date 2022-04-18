@@ -121,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("caPo_Receiving_Warehouse_CheckingBinding");
 
         }
 
@@ -232,6 +232,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void scanBarcode()
         {
 
+            //Check the Item Code if exist on the fucking system
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
                 mattxtbarcode.Text, "", "", "", "", "", "", "", "", "", "", "",0, "getdetailsforBulkInsertItemCode");

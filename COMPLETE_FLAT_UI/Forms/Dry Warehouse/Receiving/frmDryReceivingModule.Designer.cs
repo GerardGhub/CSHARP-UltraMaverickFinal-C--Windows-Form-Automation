@@ -41,6 +41,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtbarcode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.matbtnSubCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.pictureBoxExpiry = new System.Windows.Forms.PictureBox();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -81,7 +82,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.crV1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.dgvReceivedID = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matbtnSubCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExpiry)).BeginInit();
@@ -151,6 +151,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.TabIndex = 1;
             this.materialCard2.Visible = false;
             this.materialCard2.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard2_Paint);
+            // 
+            // matbtnSubCategory
+            // 
+            this.matbtnSubCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.matbtnSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matbtnSubCategory.Depth = 0;
+            this.matbtnSubCategory.Enabled = false;
+            this.matbtnSubCategory.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matbtnSubCategory.Hint = "Sub Category";
+            this.matbtnSubCategory.Location = new System.Drawing.Point(501, 90);
+            this.matbtnSubCategory.Margin = new System.Windows.Forms.Padding(1);
+            this.matbtnSubCategory.MaxLength = 50;
+            this.matbtnSubCategory.MouseState = MaterialSkin.MouseState.OUT;
+            this.matbtnSubCategory.Multiline = false;
+            this.matbtnSubCategory.Name = "matbtnSubCategory";
+            this.matbtnSubCategory.Size = new System.Drawing.Size(215, 50);
+            this.matbtnSubCategory.TabIndex = 596;
+            this.matbtnSubCategory.Text = "";
             // 
             // pictureBoxExpiry
             // 
@@ -872,24 +890,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Width = 12;
-            // 
-            // matbtnSubCategory
-            // 
-            this.matbtnSubCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.matbtnSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matbtnSubCategory.Depth = 0;
-            this.matbtnSubCategory.Enabled = false;
-            this.matbtnSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.matbtnSubCategory.Hint = "Sub Category";
-            this.matbtnSubCategory.Location = new System.Drawing.Point(501, 90);
-            this.matbtnSubCategory.Margin = new System.Windows.Forms.Padding(1);
-            this.matbtnSubCategory.MaxLength = 50;
-            this.matbtnSubCategory.MouseState = MaterialSkin.MouseState.OUT;
-            this.matbtnSubCategory.Multiline = false;
-            this.matbtnSubCategory.Name = "matbtnSubCategory";
-            this.matbtnSubCategory.Size = new System.Drawing.Size(215, 50);
-            this.matbtnSubCategory.TabIndex = 596;
-            this.matbtnSubCategory.Text = "";
             // 
             // frmDryReceivingModule
             // 

@@ -47,9 +47,71 @@ namespace COMPLETE_FLAT_UI
             dataGridView1.Visible = false;
 
 
-       
+            this.GetStoreOrder();
+            this.GetLabTestTransactions();
+        }
+        private void GetStoreOrder()
+        {
+            //double StoreOrder;
+            //double StoreOrderApproval;
+            double Preparation;
+            double MoveOrder;
+            double MoveOrderApproval;
+            double Dispatching;
+
+            //StoreOrder = double.Parse("10");
+            //StoreOrderApproval = double.Parse("10");
+            Preparation = double.Parse("10");
+            MoveOrder = double.Parse("4");
+            MoveOrderApproval = double.Parse("3");
+            Dispatching = double.Parse("1");
+
+            chart4.Series["Series1"].Points.Clear();
+
+
+            //chart4.Series["Series1"].Points.AddXY("Store Order", StoreOrder);
+
+            //chart4.Series["Series1"].Points.AddXY("Store Order Approval", StoreOrderApproval);
+
+            chart4.Series["Series1"].Points.AddXY("Preparation", Preparation);
+
+            chart4.Series["Series1"].Points.AddXY("Move Order", MoveOrder);
+            chart4.Series["Series1"].Points.AddXY("Move Order Approval", MoveOrderApproval);
+            chart4.Series["Series1"].Points.AddXY("Dispatching", Dispatching);
 
         }
+
+        private void GetLabTestTransactions()
+        {
+            double StoreOrder;
+            double StoreOrderApproval;
+            double Preparation;
+            double MoveOrder;
+            double MoveOrderApproval;
+            double Dispatching;
+
+            StoreOrder = double.Parse("10");
+            StoreOrderApproval = double.Parse("7");
+            Preparation = double.Parse("5");
+            MoveOrder = double.Parse("4");
+            MoveOrderApproval = double.Parse("3");
+            Dispatching = double.Parse("1");
+
+            this.chartTopLabTransaction.Series["Series1"].Points.Clear();
+
+
+            this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Nearly Expiry", StoreOrder);
+
+            this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Request", StoreOrderApproval);
+
+            this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Approved", Preparation);
+
+            this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Result", MoveOrder);
+            this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Result Approval", MoveOrderApproval);
+            this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Result Received", Dispatching);
+
+        }
+
         private void showReceivingData()      //method for loading available_menus
         {
             try
@@ -74,6 +136,86 @@ namespace COMPLETE_FLAT_UI
         }
 
         private void materialCard1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void materialCard2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartGrossRevenue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroPanel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbltotalReceiving_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

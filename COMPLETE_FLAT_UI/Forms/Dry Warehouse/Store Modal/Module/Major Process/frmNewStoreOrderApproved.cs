@@ -705,6 +705,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.materialCheckboxSelectAll.Text = "UnSelect ALL";
                 for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) { this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true; }
                 //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
+                if(this.lbltotaldata.Text != "0")
+                {
+                    this.matbtnEdit.Visible = true;
+                }
 
                 this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
                 this.num = this.dgvStoreOrderApproval.RowCount;
@@ -715,11 +719,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.materialCheckboxSelectAll.Text = "Select ALL";
                 //this.labelSelectedSum.Visible = false;
+         
                 for (int i = 0; i < dgvStoreOrderApproval.RowCount; i++) { dgvStoreOrderApproval.Rows[i].Cells[0].Value = false; }
                 this.labelSelectedSum.Text = "Selected Items: " + 0;
                 this.num = 0;
                 this.SaveButtonManipulator();
                 this.lbltotalOrderQty.Text = "0";
+                if (this.num == 0)
+                {
+                    this.matbtnEdit.Visible = false;
+                }
             }
         }
 
