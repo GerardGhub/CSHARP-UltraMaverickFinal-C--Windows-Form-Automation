@@ -111,7 +111,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -140,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
@@ -155,7 +155,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -178,14 +177,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvRawMats.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.dgvRawMats.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvRawMats.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.ThemeStyle.HeaderStyle.Height = 30;
             this.dgvRawMats.ThemeStyle.ReadOnly = true;
             this.dgvRawMats.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvRawMats.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvRawMats.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.ThemeStyle.RowsStyle.Height = 40;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
@@ -199,7 +198,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.pr_number.HeaderText = "PR NUMBER";
             this.pr_number.Name = "pr_number";
             this.pr_number.ReadOnly = true;
-            this.pr_number.Width = 117;
+            this.pr_number.Width = 122;
             // 
             // pr_date
             // 
@@ -207,7 +206,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.pr_date.HeaderText = "PR DATE";
             this.pr_date.Name = "pr_date";
             this.pr_date.ReadOnly = true;
-            this.pr_date.Width = 92;
+            this.pr_date.Width = 97;
             // 
             // po_number
             // 
@@ -215,7 +214,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.po_number.HeaderText = "PO NUMBER";
             this.po_number.Name = "po_number";
             this.po_number.ReadOnly = true;
-            this.po_number.Width = 120;
+            this.po_number.Width = 123;
             // 
             // po_date
             // 
@@ -223,7 +222,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.po_date.HeaderText = "PO DATE";
             this.po_date.Name = "po_date";
             this.po_date.ReadOnly = true;
-            this.po_date.Width = 95;
+            this.po_date.Width = 98;
             // 
             // item_code
             // 
@@ -232,7 +231,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 113;
+            this.item_code.Width = 116;
             // 
             // item_description
             // 
@@ -241,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_description.MinimumWidth = 12;
             this.item_description.Name = "item_description";
             this.item_description.ReadOnly = true;
-            this.item_description.Width = 166;
+            this.item_description.Width = 175;
             // 
             // qty_order
             // 
@@ -249,7 +248,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.qty_order.HeaderText = "QTY ORDERED";
             this.qty_order.Name = "qty_order";
             this.qty_order.ReadOnly = true;
-            this.qty_order.Width = 135;
+            this.qty_order.Width = 140;
             // 
             // qty_delivered
             // 
@@ -257,7 +256,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.qty_delivered.HeaderText = "QTY DELIVERED";
             this.qty_delivered.Name = "qty_delivered";
             this.qty_delivered.ReadOnly = true;
-            this.qty_delivered.Width = 143;
+            this.qty_delivered.Width = 151;
             // 
             // qty_billed
             // 
@@ -265,7 +264,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.qty_billed.HeaderText = "QTY BILLED";
             this.qty_billed.Name = "qty_billed";
             this.qty_billed.ReadOnly = true;
-            this.qty_billed.Width = 113;
+            this.qty_billed.Width = 121;
             // 
             // qty_uom
             // 
@@ -273,7 +272,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.qty_uom.HeaderText = "UOM";
             this.qty_uom.Name = "qty_uom";
             this.qty_uom.ReadOnly = true;
-            this.qty_uom.Width = 70;
+            this.qty_uom.Width = 69;
             // 
             // unit_price
             // 
@@ -281,7 +280,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.unit_price.HeaderText = "UNIT PRICE";
             this.unit_price.Name = "unit_price";
             this.unit_price.ReadOnly = true;
-            this.unit_price.Width = 112;
+            this.unit_price.Width = 116;
             // 
             // supplier
             // 
@@ -289,7 +288,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.supplier.HeaderText = "VENDOR NAME";
             this.supplier.Name = "supplier";
             this.supplier.ReadOnly = true;
-            this.supplier.Width = 142;
+            this.supplier.Width = 144;
             // 
             // Active
             // 
@@ -297,7 +296,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.Active.HeaderText = "ACTIVE";
             this.Active.Name = "Active";
             this.Active.ReadOnly = true;
-            this.Active.Width = 85;
+            this.Active.Width = 87;
             // 
             // PrimaryID
             // 
@@ -305,7 +304,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.PrimaryID.HeaderText = "PrimaryID";
             this.PrimaryID.Name = "PrimaryID";
             this.PrimaryID.ReadOnly = true;
-            this.PrimaryID.Width = 101;
+            this.PrimaryID.Width = 104;
             // 
             // created_by
             // 
@@ -313,7 +312,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.created_by.HeaderText = "created_by";
             this.created_by.Name = "created_by";
             this.created_by.ReadOnly = true;
-            this.created_by.Width = 108;
+            this.created_by.Width = 110;
             // 
             // created_at
             // 
@@ -321,7 +320,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.created_at.HeaderText = "created_at";
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
-            this.created_at.Width = 105;
+            this.created_at.Width = 107;
             // 
             // drymaterialsBindingSource
             // 
@@ -360,11 +359,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(20, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 610;
             this.label4.Text = "Sheet :";
             // 
@@ -373,24 +372,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbltotalrecords.AutoSize = true;
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.lbltotalrecords.Location = new System.Drawing.Point(921, 21);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
+            this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 608;
-            this.lbltotalrecords.Text = "76";
+            this.lbltotalrecords.Text = "0";
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.label2.Location = new System.Drawing.Point(924, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 609;
             this.label2.Text = "Items";
             // 
