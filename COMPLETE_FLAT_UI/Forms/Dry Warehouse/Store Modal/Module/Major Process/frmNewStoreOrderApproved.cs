@@ -986,7 +986,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //MessageBox.Show(this.sp_prepa_date_update);
             this.UpdatePreparationDate();
 
-
+            this.num =0;
+            this.labelSelectedSum.Text = "Selected Items:0";
             this.frmAddNewStoreOrderApproved_Load(sender, e);
         }
 
