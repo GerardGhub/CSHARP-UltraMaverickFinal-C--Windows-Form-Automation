@@ -119,7 +119,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (dset2.Tables[0].Rows.Count > 0)
             {
-             
+               
 
                 //Update Status Already Repack
                 dSet.Clear();
@@ -132,7 +132,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    MessageBox.Show("good");
+                 
+                    //MessageBox.Show(dSet.Tables.Count.ToString());
+                    if (dSet.Tables[0].Rows.Count.ToString() == "1")
+                    {
+
+                        this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                        //MessageBox.Show(dSet.Tables.Count.ToString());
+                    }
+
+
+                    if (dSet.Tables[0].Rows.Count.ToString() == "2")
+                    {
+
+                        //MessageBox.Show(dSet.Tables.Count.ToString());
+                        this.GlobalStatePopup.TripleTaggingCategoryInformation();
+                        this.mode = "error";
+                        return;
+                    }
+
+
                     this.mode = "good";
                     if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
@@ -148,11 +167,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
 
+                    //if (dSet.Tables[0].Rows.Count.ToString() == "1")
+                    //{
+
+                    //    this.GlobalStatePopup.DoubleTaggingCategoryInformation();
+                    //    //MessageBox.Show(dSet.Tables.Count.ToString());
+                    //}
+
+
+                    //if (dSet.Tables[0].Rows.Count.ToString() == "2")
+                    //{
+
+                    //    //MessageBox.Show(dSet.Tables.Count.ToString());
+                    //    this.GlobalStatePopup.TripleTaggingCategoryInformation();
+                    //    this.mode = "error";
+                    //    return;
+                    //}
+
 
                     this.GlobalStatePopup.TripleTaggingCategoryInformation();
                     this.mode = "error";
-            
-                    //this.DoubleTaggingFound();
+
+                    //this.DoubleTaggingFound(); wla talaga itu!
 
                 }
             }

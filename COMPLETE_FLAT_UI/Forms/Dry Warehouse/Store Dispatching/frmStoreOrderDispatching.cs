@@ -1021,7 +1021,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 counterstrike = 0;
                 //
               
-                    MessageBox.Show("Buje");
+                    //MessageBox.Show("Buje");
                 
 
                     this.frmStoreOrderDispatching_Load(sender, e);
