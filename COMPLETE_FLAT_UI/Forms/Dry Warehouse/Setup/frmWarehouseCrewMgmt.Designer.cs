@@ -34,7 +34,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnAddTool = new System.Windows.Forms.ToolStripButton();
@@ -79,6 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -170,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -194,10 +194,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.user_section});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -218,8 +218,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvUsers.RowHeadersVisible = false;
             this.dgvUsers.RowHeadersWidth = 102;
             this.dgvUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsers.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUsers.RowTemplate.DividerHeight = 5;
             this.dgvUsers.RowTemplate.Height = 40;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -235,18 +233,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvUsers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvUsers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.dgvUsers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUsers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.ThemeStyle.HeaderStyle.Height = 40;
             this.dgvUsers.ThemeStyle.ReadOnly = true;
             this.dgvUsers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvUsers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvUsers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUsers.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dgvUsers.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvUsers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUsers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.dgvUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             // 
             // userfile_id
             // 
@@ -270,7 +268,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.username.MinimumWidth = 12;
             this.username.Name = "username";
             this.username.ReadOnly = true;
-            this.username.Width = 110;
+            this.username.Width = 117;
             // 
             // employee_name
             // 
@@ -281,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.employee_name.MinimumWidth = 12;
             this.employee_name.Name = "employee_name";
             this.employee_name.ReadOnly = true;
-            this.employee_name.Width = 115;
+            this.employee_name.Width = 125;
             // 
             // employee_lastname
             // 
@@ -291,7 +289,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.employee_lastname.MinimumWidth = 12;
             this.employee_lastname.Name = "employee_lastname";
             this.employee_lastname.ReadOnly = true;
-            this.employee_lastname.Width = 113;
+            this.employee_lastname.Width = 121;
             // 
             // gender
             // 
@@ -300,7 +298,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.gender.MinimumWidth = 12;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
-            this.gender.Width = 91;
+            this.gender.Width = 95;
             // 
             // department_name
             // 
@@ -309,7 +307,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.department_name.MinimumWidth = 12;
             this.department_name.Name = "department_name";
             this.department_name.ReadOnly = true;
-            this.department_name.Width = 126;
+            this.department_name.Width = 136;
             // 
             // Unit
             // 
@@ -318,7 +316,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Unit.MinimumWidth = 12;
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
-            this.Unit.Width = 66;
+            this.Unit.Width = 69;
             // 
             // Position
             // 
@@ -327,7 +325,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Position.MinimumWidth = 12;
             this.Position.Name = "Position";
             this.Position.ReadOnly = true;
-            this.Position.Width = 101;
+            this.Position.Width = 105;
             // 
             // type_of_approver
             // 
@@ -336,7 +334,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.type_of_approver.MinimumWidth = 12;
             this.type_of_approver.Name = "type_of_approver";
             this.type_of_approver.ReadOnly = true;
-            this.type_of_approver.Width = 154;
+            this.type_of_approver.Width = 167;
             // 
             // password
             // 
@@ -345,7 +343,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.password.MinimumWidth = 12;
             this.password.Name = "password";
             this.password.ReadOnly = true;
-            this.password.Width = 112;
+            this.password.Width = 119;
             // 
             // user_rights_name
             // 
@@ -354,7 +352,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.user_rights_name.MinimumWidth = 12;
             this.user_rights_name.Name = "user_rights_name";
             this.user_rights_name.ReadOnly = true;
-            this.user_rights_name.Width = 123;
+            this.user_rights_name.Width = 133;
             // 
             // receiving_status
             // 
@@ -363,7 +361,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.receiving_status.MinimumWidth = 12;
             this.receiving_status.Name = "receiving_status";
             this.receiving_status.ReadOnly = true;
-            this.receiving_status.Width = 131;
+            this.receiving_status.Width = 138;
             // 
             // user_section
             // 
@@ -372,29 +370,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.user_section.MinimumWidth = 12;
             this.user_section.Name = "user_section";
             this.user_section.ReadOnly = true;
-            this.user_section.Width = 87;
+            this.user_section.Width = 93;
             // 
             // lbltotalrecords
             // 
             this.lbltotalrecords.AutoSize = true;
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.lbltotalrecords.Location = new System.Drawing.Point(19, 545);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
+            this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 668;
-            this.lbltotalrecords.Text = "76";
+            this.lbltotalrecords.Text = "0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.label2.Location = new System.Drawing.Point(22, 580);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 669;
             this.label2.Text = "Items";
             // 

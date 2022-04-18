@@ -49,7 +49,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.materialCard1.Controls.Add(this.textBox1);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(32, 91);
+            this.materialCard1.Location = new System.Drawing.Point(32, 90);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
@@ -63,23 +63,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.bunifuTimeFromTo.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.bunifuTimeFromTo.CustomFormat = "yyyy-MM-dd";
             this.bunifuTimeFromTo.Enabled = false;
-            this.bunifuTimeFromTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuTimeFromTo.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTimeFromTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.bunifuTimeFromTo.Location = new System.Drawing.Point(256, 77);
             this.bunifuTimeFromTo.Name = "bunifuTimeFromTo";
             this.bunifuTimeFromTo.ShowUpDown = true;
-            this.bunifuTimeFromTo.Size = new System.Drawing.Size(222, 44);
+            this.bunifuTimeFromTo.Size = new System.Drawing.Size(222, 46);
             this.bunifuTimeFromTo.TabIndex = 608;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(256, 24);
+            this.label2.Location = new System.Drawing.Point(256, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 37);
+            this.label2.Size = new System.Drawing.Size(44, 23);
             this.label2.TabIndex = 607;
             this.label2.Text = "TO :";
             // 
@@ -88,23 +88,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.bunifuTimeFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTimeFrom.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.bunifuTimeFrom.CustomFormat = "yyyy-MM-dd";
-            this.bunifuTimeFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuTimeFrom.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.bunifuTimeFrom.Location = new System.Drawing.Point(17, 77);
             this.bunifuTimeFrom.Name = "bunifuTimeFrom";
             this.bunifuTimeFrom.ShowUpDown = true;
-            this.bunifuTimeFrom.Size = new System.Drawing.Size(222, 44);
+            this.bunifuTimeFrom.Size = new System.Drawing.Size(222, 46);
             this.bunifuTimeFrom.TabIndex = 606;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(17, 24);
+            this.label1.Location = new System.Drawing.Point(17, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 37);
+            this.label1.Size = new System.Drawing.Size(73, 23);
             this.label1.TabIndex = 605;
             this.label1.Text = "FROM :";
             // 

@@ -78,12 +78,12 @@ namespace ULTRAMAVERICK.Forms.Users
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstParentMenu.BackColor = System.Drawing.SystemColors.Control;
             this.lstParentMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstParentMenu.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstParentMenu.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstParentMenu.FormattingEnabled = true;
-            this.lstParentMenu.ItemHeight = 20;
+            this.lstParentMenu.ItemHeight = 18;
             this.lstParentMenu.Location = new System.Drawing.Point(8, 87);
             this.lstParentMenu.Name = "lstParentMenu";
-            this.lstParentMenu.Size = new System.Drawing.Size(927, 340);
+            this.lstParentMenu.Size = new System.Drawing.Size(927, 324);
             this.lstParentMenu.TabIndex = 152;
             this.lstParentMenu.Click += new System.EventHandler(this.lstParentMenu_Click);
             this.lstParentMenu.SelectedIndexChanged += new System.EventHandler(this.lstParentMenu_SelectedIndexChanged);
@@ -230,17 +230,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(733, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 599;
             this.label1.Text = "Department:";
             // 
             // cboDepartmentMaterial
             // 
             this.cboDepartmentMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboDepartmentMaterial.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartmentMaterial.FormattingEnabled = true;
             this.cboDepartmentMaterial.Location = new System.Drawing.Point(736, 36);
             this.cboDepartmentMaterial.Margin = new System.Windows.Forms.Padding(1);
@@ -430,7 +431,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -451,7 +452,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("materialBtnNew.Image")));
             this.materialBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.materialBtnNew.Name = "materialBtnNew";
-            this.materialBtnNew.Size = new System.Drawing.Size(74, 37);
+            this.materialBtnNew.Size = new System.Drawing.Size(75, 37);
             this.materialBtnNew.Text = "&New";
             this.materialBtnNew.Click += new System.EventHandler(this.btnAddTool_Click_1);
             // 
@@ -460,7 +461,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnEDit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEDit.Image")));
             this.matBtnEDit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnEDit.Name = "matBtnEDit";
-            this.matBtnEDit.Size = new System.Drawing.Size(70, 37);
+            this.matBtnEDit.Size = new System.Drawing.Size(72, 37);
             this.matBtnEDit.Text = "&Edit";
             this.matBtnEDit.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
@@ -469,7 +470,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(92, 37);
+            this.matBtnDelete.Size = new System.Drawing.Size(94, 37);
             this.matBtnDelete.Text = "&Remove";
             this.matBtnDelete.Click += new System.EventHandler(this.btnDeleteTool_Click_1);
             // 
@@ -478,7 +479,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(74, 37);
+            this.matBtnSave.Size = new System.Drawing.Size(77, 37);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             this.matBtnSave.Click += new System.EventHandler(this.btnUpdateTool_Click_1);
@@ -488,7 +489,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(83, 37);
+            this.matBtnCancel.Size = new System.Drawing.Size(88, 37);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             this.matBtnCancel.Click += new System.EventHandler(this.btnCancelTool_Click_1);
@@ -498,24 +499,24 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbltotalrecords.AutoSize = true;
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.lbltotalrecords.Location = new System.Drawing.Point(877, 729);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(46, 40);
+            this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 584;
-            this.lbltotalrecords.Text = "76";
+            this.lbltotalrecords.Text = "0";
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
             this.label3.Location = new System.Drawing.Point(929, 741);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 17);
+            this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 585;
             this.label3.Text = "Items";
             // 
