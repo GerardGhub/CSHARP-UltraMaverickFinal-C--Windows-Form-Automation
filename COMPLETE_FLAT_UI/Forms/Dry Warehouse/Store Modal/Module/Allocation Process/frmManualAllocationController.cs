@@ -131,11 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             if (this.matTxtUpdatedBalance.Text.Contains("-"))
             {
                 this.GlobalStatePopup.GreaterThanActualRemainingQtyInformation();
-                //this.matTxtUpdatedBalance.Text = "0";
-                //this.mattxtAllocatedQty.Text = String.Empty;
-                //this.mattxtAllocatedQty.Focus();
-
-                //return;
+          
             }
 
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -143,8 +139,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
               
                 dSet.Clear();
                 dSet = objStorProc.sp_Allocation_Logs(0,
-                    "", "", this.mattxtAllocatedQty.Text.Trim(), 
-                    this.UserId.ToString(), "", this.matTransactionID.Text.Trim(), 0, 
+                    "",
+                    "", 
+                    this.mattxtAllocatedQty.Text.Trim(), 
+                    this.UserId.ToString(), 
+                    "", 
+                    this.matTransactionID.Text.Trim(), 
+                    0, 
                     0,
                     "edit");
 

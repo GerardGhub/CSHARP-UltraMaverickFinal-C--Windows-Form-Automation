@@ -235,8 +235,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.groupBox1AdditionlOrderUI.Visible = true;
                 this.dgvStoreOrderApproval.Enabled = true;
 
-
+                this.AllocationDataGridReadOnly();
             }
+        }
+
+        private void AllocationDataGridReadOnly()
+        {
+            this.dgvFindStoreOrders.Columns["store_name"].ReadOnly = true;
+            this.dgvFindStoreOrders.Columns["description_find"].ReadOnly = true;
+            this.dgvFindStoreOrders.Columns["item_code_find"].ReadOnly = true;
+            this.dgvFindStoreOrders.Columns["uom"].ReadOnly = true;
+            this.dgvFindStoreOrders.Columns["qty"].ReadOnly = true;
+            this.dgvFindStoreOrders.Columns["date_ordered"].ReadOnly = true;
         }
         private void SelectAllCheckBoxOnDataGrid()
         {
@@ -607,6 +617,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void matbtnNewAllocate_Click(object sender, EventArgs e)
         {
+            if (this.lblqtyAllocatedFinal.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                return;
+            }
+
+            if (this.lblvariance.Text.Contains("-"))
+            {
+                this.GlobalStatePopup.GreaterThanActualRemainingQtyInformation();
+            }
+
+            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //{
+
+            //    dSet.Clear();
+            //    dSet = objStorProc.sp_Allocation_Logs(0,
+            //        "",
+            //        "",
+            //        this.mattxtAllocatedQty.Text.Trim(),
+            //        this.UserId.ToString(),
+            //        "",
+            //        this.matTransactionID.Text.Trim(),
+            //        0,
+            //        0,
+            //        "edit");
+
+            //    this.textBox2.Text = "Save";
+            //    this.textBox2_TextChanged(sender, e);
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    return;
+            //}
+
+
+
+            return;
+            
+            
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the new order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
@@ -756,6 +806,135 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
             MessageBox.Show(StockOnHand.ToString());
             MessageBox.Show(AllocatedQty.ToString());
+
+        }
+
+
+
+        private void dgvFindStoreOrders_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("Pukk 2");
+        }
+
+        private void dgvFindStoreOrders_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Pukk 2");
+            //this.SumofTotalAllocatedDataGridView();
+            ////For Decrementation
+            //this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+
+       
+
+            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //{
+
+            //    dSet.Clear();
+            //    dSet = objStorProc.sp_Allocation_Logs(0,
+            //        "",
+            //        "",
+            //        this.FormClass.Allocated_Quantity.ToString(),
+            //        this.FormClass.user_id.ToString(),
+            //        "",
+            //        this.p_id.ToString(),
+            //        0,
+            //        0,
+            //        "edit");
+            //    this.GlobalStatePopup.UpdatedSuccessfully();
+            //    this.ConnectionInit();
+            //    this.doSearchInTextBox();
+            //    //this.textBox2.Text = "Save";
+            //    //this.textBox2_TextChanged(sender, e);
+            //    //this.Close();
+            //}
+            //else
+            //{
+            //    return;
+            //}
+
+        }
+
+   
+
+        private void dgvFindStoreOrders_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvFindStoreOrders_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("Enter");
+        }
+
+        private void dgvFindStoreOrders_KeyDown(object sender, KeyEventArgs e)
+        {
+           if(this.matbtnNewAllocate.Visible == true)
+            {
+                if (e.KeyData == Keys.Enter)
+                {
+                    MessageBox.Show("Enter Pusssa");
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        this.ConnectionInit();
+                        dSet.Clear();
+                        dSet = objStorProc.sp_Allocation_Logs(0,
+                            "",
+                            "",
+                            this.FormClass.Allocated_Quantity.ToString(),
+                            this.FormClass.user_id.ToString(),
+                            "",
+                            this.p_id.ToString(),
+                            0,
+                            0,
+                            "edit");
+                        this.GlobalStatePopup.UpdatedSuccessfully();
+                        this.ConnectionInit();
+                        this.doSearchInTextBox();
+                        //this.textBox2.Text = "Save";
+                        //this.textBox2_TextChanged(sender, e);
+                        //this.Close();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
+            }
+
+
+        }
+
+        private void dgvFindStoreOrders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            this.SumofTotalAllocatedDataGridView();
+            //For Decrementation
+            this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+
+            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //{
+
+            //    dSet.Clear();
+            //    dSet = objStorProc.sp_Allocation_Logs(0,
+            //        "",
+            //        "",
+            //        this.FormClass.Allocated_Quantity.ToString(),
+            //        this.FormClass.user_id.ToString(),
+            //        "",
+            //        this.p_id.ToString(),
+            //        0,
+            //        0,
+            //        "edit");
+            //    this.GlobalStatePopup.UpdatedSuccessfully();
+            //    this.ConnectionInit();
+            //    this.doSearchInTextBox();
+            //    //this.textBox2.Text = "Save";
+            //    //this.textBox2_TextChanged(sender, e);
+            //    //this.Close();
+            //}
+            //else
+            //{
+            //    return;
+            //}
 
         }
 
