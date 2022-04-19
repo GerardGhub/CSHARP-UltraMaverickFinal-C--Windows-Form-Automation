@@ -675,8 +675,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
  
 
-
-
             for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
             {
                 try
@@ -712,7 +710,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
 
-     
+            //Reset the array count
+            this.num = 0;
+            this.matbtnEdit.Visible = false;
             //this.mode = "start";
             this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
             //this.ReturnFunctionality();
