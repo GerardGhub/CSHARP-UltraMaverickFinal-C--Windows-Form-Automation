@@ -133,7 +133,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["RM_ITEM_LAST_USED"].Visible = false;
             this.dgvRawMats.Columns["lab_result_received_by"].Visible = false;
             this.dgvRawMats.Columns["lab_result_received_date"].Visible = false;
-            this.dgvRawMats.Columns["is_received_status "].Visible = false;
+            this.dgvRawMats.Columns["is_received_status"].Visible = false;
         }
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)

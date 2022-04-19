@@ -87,6 +87,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void frmStoreOrderforApproval_Load(object sender, EventArgs e)
         {
+          
             this.CheckTheForApprovalRadioButton();
 
 
@@ -341,6 +342,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void InitiliazeDatePickerMinDate()
         {
             this.bunifuPrepaDate.MinDate = DateTime.Now;
+            this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
         }
 
 
@@ -718,8 +720,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
      
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
-
-
+            
             if (this.lbltotaldata.Text == "0")
             {
 
