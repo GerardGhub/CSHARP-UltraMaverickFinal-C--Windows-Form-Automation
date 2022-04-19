@@ -119,9 +119,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             myglobal.global_module = "Active"; // Mode for Searching
             this.dset_emp_SearchEngines.Clear();
-
-
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("caPo_Receiving_Warehouse_CheckingBinding");
+            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
 
         }
 
