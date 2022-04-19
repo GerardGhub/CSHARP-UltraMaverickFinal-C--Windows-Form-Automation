@@ -30,6 +30,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         DataSet dSet = new DataSet();
 
+        DataSet dSetCategoryPartialValidation = new DataSet();
+
+
         //Variable Declaration
         int p_id = 0;
 
@@ -720,13 +723,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
      
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
-            
+            //Code for Approval on The Preparation Date 
             if (this.lbltotaldata.Text == "0")
             {
 
             }
             else
             {
+                //Array count anakputa ka
                 if (num == 0)
                 {
                     return;
@@ -736,16 +740,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 //CheckIifAlreayHaveAnewRecord
                 dset2.Clear();
                 dset2 = objStorProc.sp_Store_Preparation_Logs(0,
-               this.matcmbCategory.Text,
+                this.matcmbCategory.Text,
                 this.bunifuPrepaDate.Text,
-                "", "", "", "", "", "", 0,
-                  this.matcmbCategory.Text, "", "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                this.matcmbCategory.Text,
+                "",
+                "",
                 "check_if_already_prepared_conflict_category_getcount");
 
                 if (dset2.Tables[0].Rows.Count > 0)
                 {
-            
 
+                    //MessageBox.Show(dSet.Tables.Count.ToString());
                     //Update Status Already Repack
                     dSet.Clear();
                     dSet = objStorProc.sp_Store_Preparation_Logs(0,
@@ -757,35 +769,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
-                        if (dSet.Tables[0].Rows.Count.ToString() == "1")
+                        //Data Set for Validation
+                        //Validate that Partial tagging is allowed on the fucking system
+                        dSetCategoryPartialValidation.Clear();
+                        dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
+                       this.matcmbCategory.Text,
+                        this.bunifuPrepaDate.Text,
+                        "", "", "", "", "", "", 0,
+                          this.matcmbCategory.Text, "", "",
+                        "check_if_already_prepared_conflict_category_validation");
+                        if (dSetCategoryPartialValidation.Tables[0].Rows.Count > 0)
                         {
 
-                            this.GlobalStatePopup.DoubleTaggingCategoryInformation();
-                            //MessageBox.Show(dSet.Tables.Count.ToString());
                         }
-
-
-                        if (dSet.Tables[0].Rows.Count.ToString() == "2")
+                        else
                         {
 
-                            //MessageBox.Show(dSet.Tables.Count.ToString());
-                            this.GlobalStatePopup.TripleTaggingCategoryInformation();
-                            this.DoubleTaggingFound();
-                            return;
+
+                            if (dSet.Tables[0].Rows.Count.ToString() == "3")
+                            {
+
+                                //MessageBox.Show(dSet.Tables.Count.ToString());
+                                this.GlobalStatePopup.TripleTaggingCategoryInformation();
+                                //MessageBox.Show(dSet.Tables.Count.ToString() + "3500 Category");
+                                this.DoubleTaggingFound();
+                                return;
+                            }
                         }
 
                     }
                     else
                     {
-                        if (dSet.Tables[0].Rows.Count.ToString() == "1")
-                        {
+                        
 
-                            this.GlobalStatePopup.DoubleTaggingCategoryInformation();
-                            //MessageBox.Show(dSet.Tables.Count.ToString());
-                        }
-
-
-                            if (dSet.Tables[0].Rows.Count.ToString() == "2")
+                            if (dSet.Tables[0].Rows.Count.ToString() == "3")
                         {
 
                             //MessageBox.Show(dSet.Tables.Count.ToString());
@@ -811,15 +828,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+       
             this.showRawMaterialforApproval();
-            if(this.matRadioForAllocation.Checked == true)
+     
+            if (this.matRadioForAllocation.Checked == true)
             {
+        
                 //Start
                 if (this.GlobalStatePopup.Total_item_for_allocation == "0")
                 {
                     //Start Blocked
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         this.ApproveFunctionality();
@@ -846,20 +866,75 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else if(this.matRadioForApproval.Checked == true)
             {
                 //Start Blocked
+          
+                dSet.Clear();
+                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+               this.matcmbCategory.Text,
+                this.bunifuPrepaDate.Text,
+                "", "", "", "", "", "", 0,
+                  this.matcmbCategory.Text, "", "",
+                "check_if_already_prepared_conflict_category");
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (dSet.Tables[0].Rows.Count > 0)
                 {
 
-                    this.ApproveFunctionality();
+                    if (dSet.Tables[0].Rows.Count.ToString() == "1")
+                    {
+                        if (MetroFramework.MetroMessageBox.Show(this, "You have 1 existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+
+                            this.ApproveFunctionality();
+                        }
+                        else
+                        {
+
+                            return;
+                        }
+                    }
+                    else if (dSet.Tables[0].Rows.Count.ToString() == "2")
+                    {
+                        if (MetroFramework.MetroMessageBox.Show(this, "You have 2 existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+
+                            this.ApproveFunctionality();
+                        }
+                        else
+                        {
+
+                            return;
+                        }
+                    }
+                    else
+                    {
+
+                        if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+
+                            this.ApproveFunctionality();
+                        }
+                        else
+                        {
+
+                            return;
+                        }
+                    }
+
                 }
                 else
                 {
+                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
 
-                    return;
+                        this.ApproveFunctionality();
+                    }
+                    else
+                    {
+
+                        return;
+                    }
                 }
 
-
-                //End Blocked Peru
+                //End Blocked Loop ElseIf
             }
 
 

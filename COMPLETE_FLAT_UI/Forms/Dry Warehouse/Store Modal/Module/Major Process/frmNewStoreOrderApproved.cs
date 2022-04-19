@@ -124,6 +124,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.Columns["date_added"].Visible = false;
             this.dgvStoreOrderApproval.Columns["is_approved_by"].Visible = false;
             this.dgvStoreOrderApproval.Columns["is_approved_date"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["qty_original"].Visible = false;
         }
         private void LoadDataActivatedforPreparation()
         {
@@ -526,12 +527,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.checkIfAlreadyPrepared();
 
 
-            //this.ConnectionInit();
-            //this.loadStoreDropdown();
-            //this.mode = "Search3";
-
-            //this.load_search();
-            //this.checkIfAlreadyPrepared();
 
 
 
@@ -597,6 +592,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
                 CheckCount(isChecked);
+                if(num == 0)
+                {
+                  this.materialCheckboxSelectAll.Checked = false;
+                }
             }
             catch (Exception ex)
             {
@@ -612,13 +611,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 if(this.materialCheckboxSelectAll.Checked == true)
                 {
-
+                   
                 }
                 else
                 {
                     this.frmAddNewStoreOrderApproved_Load(sender, e);
                 }
-         
 
 
 
@@ -689,47 +687,71 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             int sum = 0;
             for (int i = 0; i < this.dgvStoreOrderApproval.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(this.dgvStoreOrderApproval.Rows[i].Cells["qty"].Value);
+                sum += Convert.ToInt32(this.dgvStoreOrderApproval.Rows[i].Cells["qty_original"].Value);
             }
+            //MessageBox.Show(sum.ToString());
             this.lbltotalOrderQty.Text = sum.ToString();
         }
 
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
         {
-       
-
-
-            if (this.materialCheckboxSelectAll.Checked == true)
+            try
             {
-                this.labelSelectedSum.Visible = true;
-                this.materialCheckboxSelectAll.Text = "UnSelect ALL";
-                for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) { this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true; }
-                //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
-                if(this.lbltotaldata.Text != "0")
+                //Start of the code block
+
+
+                if (this.materialCheckboxSelectAll.Checked == true)
                 {
-                    this.matbtnEdit.Visible = true;
+                   
+                    this.labelSelectedSum.Visible = true;
+                    this.materialCheckboxSelectAll.Text = "UnSelect ALL";
+                    for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) { this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true; }
+                    //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
+                    if (this.lbltotaldata.Text != "0")
+                    {
+                        this.matbtnEdit.Visible = true;
+                    }
+
+                    this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
+                    this.num = this.dgvStoreOrderApproval.RowCount;
+                
+                    this.SaveButtonManipulator();
+                    //MessageBox.Show("You are the masarap");
+                    //return;
+                    this.CountAllQtyOrder();
+                    
+                }
+                else
+                //{
+
+                //}
+
+
+                {
+                    this.materialCheckboxSelectAll.Text = "Select ALL";
+                    //this.labelSelectedSum.Visible = false;
+
+                    for (int i = 0; i < dgvStoreOrderApproval.RowCount; i++) { dgvStoreOrderApproval.Rows[i].Cells[0].Value = false; }
+                    this.labelSelectedSum.Text = "Selected Items: " + 0;
+                    this.num = 0;
+                    this.SaveButtonManipulator();
+                    this.lbltotalOrderQty.Text = "0";
+                    if (this.num == 0)
+                    {
+                        this.matbtnEdit.Visible = false;
+                    }
                 }
 
-                this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
-                this.num = this.dgvStoreOrderApproval.RowCount;
-                this.SaveButtonManipulator();
-                this.CountAllQtyOrder();
+
+                //End of the code block
             }
-            else
+            catch (Exception ex)
             {
-                this.materialCheckboxSelectAll.Text = "Select ALL";
-                //this.labelSelectedSum.Visible = false;
-         
-                for (int i = 0; i < dgvStoreOrderApproval.RowCount; i++) { dgvStoreOrderApproval.Rows[i].Cells[0].Value = false; }
-                this.labelSelectedSum.Text = "Selected Items: " + 0;
-                this.num = 0;
-                this.SaveButtonManipulator();
-                this.lbltotalOrderQty.Text = "0";
-                if (this.num == 0)
-                {
-                    this.matbtnEdit.Visible = false;
-                }
+
+                MessageBox.Show(ex.Message);
             }
+
+
         }
 
         private void matbtnCancel_Click(object sender, EventArgs e)

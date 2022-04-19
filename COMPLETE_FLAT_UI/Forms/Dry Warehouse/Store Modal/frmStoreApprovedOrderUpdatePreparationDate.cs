@@ -24,7 +24,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dset2 = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         string mode = "";
-
+        DataSet dSetCategoryPartialValidation = new DataSet();
         public frmStoreApprovedOrderUpdatePreparationDate(frmNewStoreOrderApproved frm, string current_preparation_date, string category)
         {
             InitializeComponent();
@@ -88,8 +88,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matBtnSave_Click(object sender, EventArgs e)
         {
-            this.TaggingConflictCategoryValidation();
-       
+            if(this.Sp_PrepaDate_BindingSource == this.bunifuPrepaDate.Text.Trim())
+            {
+
+            }
+            else
+            {
+                this.TaggingConflictCategoryValidation();
+
+            }
+
         }
 
 
@@ -108,8 +116,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void TaggingConflictCategoryValidation()
         {
 
-          
-
 
                 //CheckIifAlreayHaveAnewRecord
 
@@ -118,8 +124,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dset2 = objStorProc.sp_Store_Preparation_Logs(0,
            this.Sp_Category,
             this.bunifuPrepaDate.Text,
-            "", "", "", "", "", "", 0,
-              this.Sp_Category, "", "",
+            "",
+            "",
+            "", 
+            "",
+            "",
+            "", 
+            0,
+            this.Sp_Category,
+            "",
+            "",
             "check_if_already_prepared_conflict_category_getcount_storeApproved");
 
             if (dset2.Tables[0].Rows.Count > 0)
@@ -142,7 +156,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (dSet.Tables[0].Rows.Count.ToString() == "1")
                     {
 
-                        if (MetroFramework.MetroMessageBox.Show(this, "You have an existing category tagged, Do you want to proceed? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (MetroFramework.MetroMessageBox.Show(this, "You have 1 existing category tagged, Do you want to proceed? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
 
                             this.mode = "good";
@@ -155,60 +169,111 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             return;
                         }
 
-                        //this.GlobalStatePopup.DoubleTaggingCategoryInformation();
-                        //MessageBox.Show(dSet.Tables.Count.ToString());
-                    }
-
-                   
-
-                    if (dSet.Tables[0].Rows.Count.ToString() == "2")
-                    {
-
-                        //MessageBox.Show(dSet.Tables.Count.ToString());
-                        this.GlobalStatePopup.TripleTaggingCategoryInformation();
-                        this.mode = "error";
-                        return;
+                       
                     }
                     if (dSet.Tables[0].Rows.Count.ToString() == "1")
                     {
-                        this.Close();
-                    }
-                    else
-                    {
 
-                        this.mode = "good";
-                        if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date 1? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (MetroFramework.MetroMessageBox.Show(this, "You have 1 existing category tagged, Do you want to proceed? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
 
+                            this.mode = "good";
+
                             this.Close();
+
                         }
                         else
                         {
                             return;
                         }
+
+
                     }
+                    if (dSet.Tables[0].Rows.Count.ToString() == "2")
+                    {
+
+                        if (MetroFramework.MetroMessageBox.Show(this, "You have 2 existing category tagged, Do you want to proceed? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+
+                            this.mode = "good";
+
+                            this.Close();
+
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+
+                    }
+
+
+                    //Data Set for Validation
+                    //Validate that Partial tagging is allowed on the fucking system
+                    dSetCategoryPartialValidation.Clear();
+                    dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
+                   this.Sp_Category,
+                    this.bunifuPrepaDate.Text,
+                    "", "", "", "", "", "", 0,
+                      this.Sp_Category, "", "",
+                    "check_if_already_prepared_conflict_category_validation");
+                    if (dSet.Tables[0].Rows.Count > 0)
+                    {
+
+                        if (MetroFramework.MetroMessageBox.Show(this, "You have an existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+
+                            this.mode = "good";
+
+                            this.Close();
+
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+
+                    }
+                    else
+                    {
+
+
+                        if (dSet.Tables[0].Rows.Count.ToString() == "3")
+                        {
+
+                            //MessageBox.Show(dSet.Tables.Count.ToString());
+                            this.GlobalStatePopup.TripleTaggingCategoryInformation();
+                            this.mode = "error";
+                            return;
+                        }
+
+                    }
+                    //if (dSet.Tables[0].Rows.Count.ToString() == "1")
+                    //{
+                    //    this.Close();
+                    //}
+                    //else
+                    //{
+
+                    //    this.mode = "good";
+                    //    if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date 1? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    //    {
+
+                    //        this.Close();
+                    //    }
+                    //    else
+                    //    {
+                    //        return;
+                    //    }
+                    //}
                 }
                 else
                 {
 
 
-                    //if (dSet.Tables[0].Rows.Count.ToString() == "1")
-                    //{
-
-                    //    this.GlobalStatePopup.DoubleTaggingCategoryInformation();
-                    //    //MessageBox.Show(dSet.Tables.Count.ToString());
-                    //}
-
-
-                    //if (dSet.Tables[0].Rows.Count.ToString() == "2")
-                    //{
-
-                    //    //MessageBox.Show(dSet.Tables.Count.ToString());
-                    //    this.GlobalStatePopup.TripleTaggingCategoryInformation();
-                    //    this.mode = "error";
-                    //    return;
-                    //}
-
+  
 
                     this.GlobalStatePopup.TripleTaggingCategoryInformation();
                     this.mode = "error";
@@ -220,7 +285,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 this.mode = "good";
-                if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date 2 ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
                     this.Close();
