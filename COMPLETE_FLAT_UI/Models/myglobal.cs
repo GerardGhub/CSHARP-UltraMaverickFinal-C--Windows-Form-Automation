@@ -32,7 +32,7 @@ namespace ULTRAMAVERICK.Models
 
         public string message_window_occur_for_approval_store_module = "";
         public string for_approval_store_module_formLoad = "";
-
+        public string AllocationStatusMode="0";
 
 
         public static int with_date = 0;

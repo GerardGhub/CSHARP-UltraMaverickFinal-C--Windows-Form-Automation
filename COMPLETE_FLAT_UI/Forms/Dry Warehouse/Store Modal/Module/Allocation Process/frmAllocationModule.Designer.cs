@@ -88,6 +88,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matbtnNewAllocate = new MaterialSkin.Controls.MaterialButton();
             this.lblvariance = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.idDbms = new MaterialSkin.Controls.MaterialLabel();
+            this.sample = new MaterialSkin.Controls.MaterialButton();
+            this.lblqty2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
@@ -409,6 +412,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             // matCardFindAllocation
             // 
             this.matCardFindAllocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.matCardFindAllocation.Controls.Add(this.lblqty2);
+            this.matCardFindAllocation.Controls.Add(this.idDbms);
             this.matCardFindAllocation.Controls.Add(this.dgvFindStoreOrders);
             this.matCardFindAllocation.Depth = 0;
             this.matCardFindAllocation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -509,7 +514,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFindStoreOrders_CellEndEdit);
             this.dgvFindStoreOrders.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvFindStoreOrders_CellFormatting);
             this.dgvFindStoreOrders.CurrentCellChanged += new System.EventHandler(this.dgvFindStoreOrders_CurrentCellChanged);
-            this.dgvFindStoreOrders.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvFindStoreOrders_CurrentCellDirtyStateChanged);
+            this.dgvFindStoreOrders.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvFindStoreOrders_CurrentCellDirtyStateChanged_1);
+            this.dgvFindStoreOrders.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvFindStoreOrders_EditingControlShowing);
             this.dgvFindStoreOrders.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvFindStoreOrders_RowPostPaint);
             this.dgvFindStoreOrders.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvFindStoreOrders_KeyDown);
             // 
@@ -850,11 +856,55 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.label2.TabIndex = 654;
             this.label2.Text = "Variance";
             // 
+            // idDbms
+            // 
+            this.idDbms.AutoSize = true;
+            this.idDbms.Depth = 0;
+            this.idDbms.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.idDbms.Location = new System.Drawing.Point(60, 173);
+            this.idDbms.MouseState = MaterialSkin.MouseState.HOVER;
+            this.idDbms.Name = "idDbms";
+            this.idDbms.Size = new System.Drawing.Size(110, 19);
+            this.idDbms.TabIndex = 597;
+            this.idDbms.Text = "Aditional Order:";
+            // 
+            // sample
+            // 
+            this.sample.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.sample.Depth = 0;
+            this.sample.DrawShadows = true;
+            this.sample.HighEmphasis = true;
+            this.sample.Icon = null;
+            this.sample.Location = new System.Drawing.Point(349, 711);
+            this.sample.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.sample.MouseState = MaterialSkin.MouseState.HOVER;
+            this.sample.Name = "sample";
+            this.sample.Size = new System.Drawing.Size(82, 36);
+            this.sample.TabIndex = 655;
+            this.sample.Text = "Manual";
+            this.sample.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.sample.UseAccentColor = false;
+            this.sample.UseVisualStyleBackColor = true;
+            this.sample.Click += new System.EventHandler(this.sample_Click);
+            // 
+            // lblqty2
+            // 
+            this.lblqty2.AutoSize = true;
+            this.lblqty2.Depth = 0;
+            this.lblqty2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblqty2.Location = new System.Drawing.Point(90, 232);
+            this.lblqty2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblqty2.Name = "lblqty2";
+            this.lblqty2.Size = new System.Drawing.Size(110, 19);
+            this.lblqty2.TabIndex = 598;
+            this.lblqty2.Text = "Aditional Order:";
+            // 
             // frmAllocationModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 768);
+            this.Controls.Add(this.sample);
             this.Controls.Add(this.lblvariance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.matbtnNewAllocate);
@@ -878,6 +928,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).EndInit();
             this.matCardFindAllocation.ResumeLayout(false);
+            this.matCardFindAllocation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindStoreOrders)).EndInit();
             this.groupBox1AdditionlOrderUI.ResumeLayout(false);
             this.groupBox1AdditionlOrderUI.PerformLayout();
@@ -939,5 +990,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private System.Windows.Forms.DataGridViewTextBoxColumn is_expirable;
         private System.Windows.Forms.Label lblvariance;
         private System.Windows.Forms.Label label2;
+        private MaterialSkin.Controls.MaterialLabel idDbms;
+        private MaterialSkin.Controls.MaterialButton sample;
+        private MaterialSkin.Controls.MaterialLabel lblqty2;
     }
 }
