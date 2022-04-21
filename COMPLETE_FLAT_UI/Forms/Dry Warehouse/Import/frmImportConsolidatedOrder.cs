@@ -700,7 +700,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import ? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to upload? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
                 }

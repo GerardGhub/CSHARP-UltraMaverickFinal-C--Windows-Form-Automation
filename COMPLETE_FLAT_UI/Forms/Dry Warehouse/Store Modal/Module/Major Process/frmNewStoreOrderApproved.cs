@@ -27,6 +27,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         //Variable Declaration
         int p_id = 0;
 
@@ -842,7 +843,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 //End
             }
 
-            this.CancelledSuccessfully();
+            this.GlobalStatePopup.CancelledSuccessfully();
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
             //this.mode = "start";
@@ -850,32 +851,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.frmAddNewStoreOrderApproved_Load(new object(), new System.EventArgs());
         }
 
-        public void CancelledSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Approved Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void matRadioActive_CheckedChanged(object sender, EventArgs e)
         {
@@ -997,7 +972,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnCancel.Visible = false;
         
             frmStoreApprovedOrderUpdatePreparationDate updatePrepaDate = 
-                new frmStoreApprovedOrderUpdatePreparationDate(this, this.bunifuPrepaDate.Text, this.sp_category);
+                new frmStoreApprovedOrderUpdatePreparationDate(this, 
+                this.bunifuPrepaDate.Text, 
+                this.sp_category);
             updatePrepaDate.ShowDialog();
         }
 
@@ -1024,32 +1001,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
 
-        public void UnabledToCancelItemAlreadyPrepared()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Unable to modify item already prepared!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Crimson;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void checkIfAlreadyPrepared()
         {
@@ -1058,13 +1009,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dSet = objStorProc.sp_Store_Preparation_Logs(0,
             "",
             this.bunifuPrepaDate.Text,
-            "", "", "", "", "", "", 0,
-              this.matcmbCategory.Text, "", this.metroCmbStoreCode.Text,
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            0,
+              this.matcmbCategory.Text,
+              "",
+              this.metroCmbStoreCode.Text,
             "check_if_already_prepared");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                this.UnabledToCancelItemAlreadyPrepared();
+                this.GlobalStatePopup.UnabledToCancelItemAlreadyPrepared();
                 this.dgvStoreOrderApproval.Enabled = false;
             }
             else
@@ -1096,13 +1055,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dSet = objStorProc.sp_Store_Preparation_Logs(0,
             "",
             this.bunifuPrepaDate.Text,
-            "","","","","","",0,
-              this.matcmbCategory.Text, "", this.metroCmbStoreCode.Text,
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            0,
+              this.matcmbCategory.Text, "", 
+              this.metroCmbStoreCode.Text,
             "check_if_already_prepared");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                this.UnabledToCancelItemAlreadyPrepared();
+                this.GlobalStatePopup.UnabledToCancelItemAlreadyPrepared();
             }
             else
             {
