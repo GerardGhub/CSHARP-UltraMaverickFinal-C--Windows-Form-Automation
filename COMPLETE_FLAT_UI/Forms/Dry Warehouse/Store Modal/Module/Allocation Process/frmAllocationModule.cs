@@ -237,6 +237,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.AllocationDataGridReadOnly();
             }
+
+            this.lblqtyAllocatedFinal.Visible = false;
+            this.lbldataLabel.Visible = false;
         }
 
         private void AllocationDataGridReadOnly()
@@ -247,6 +250,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["uom"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["qty"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["date_ordered"].ReadOnly = true;
+            this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
         }
         private void SelectAllCheckBoxOnDataGrid()
         {
@@ -341,7 +345,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     this.AllocatedSuccessfully();
                     this.matBtnSave.Enabled = false;
                     this.dgvStoreOrderApproval.Enabled = false;
-                    this.matbtnManualAllocation.Visible = true;
+                    //this.matbtnManualAllocation.Visible = true; alisin muna daw eto april 21 manual allocation fucking Modal
+                    this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = false;
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     ////For Decrementation
                     this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
@@ -545,7 +550,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 {
                     // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
-                    row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.DarkOrange;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.WhiteSmoke;
                     row.Cells["item_code_find"].Style.BackColor = Color.DarkOrange;
                     row.Cells["store_name"].Style.BackColor = Color.DarkOrange;
                     row.Cells["description_find"].Style.BackColor = Color.DarkOrange;
@@ -560,7 +565,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["description_find"].Style.SelectionBackColor = Color.DarkOrange;
                     row.Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
                     row.Cells["date_ordered"].Style.SelectionBackColor = Color.DarkOrange;
-                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionBackColor = Color.DarkOrange;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionBackColor = Color.WhiteSmoke;
                     row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
 
 
@@ -569,7 +574,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
                     row.Cells["uom"].Style.SelectionForeColor = Color.Black;
                     row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Red;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.Font = new Font("Roboto", 10, FontStyle.Bold);
                     row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                 }
                 else
@@ -704,6 +710,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.matbtnNewAllocate.Visible = false;
                 this.matbtnManualAllocation.Visible = false;
+                this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
                 //
                 this.lbltotalStoreOrder.Text = "0";
              
@@ -846,19 +853,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
  
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
-        {
-
-            double StockOnHand;
-            double AllocatedQty;
-
-            StockOnHand = double.Parse(this.txtSoh.Text);
-            AllocatedQty = double.Parse(this.lblqtyAllocatedFinal.Text);
-
-            MessageBox.Show(StockOnHand.ToString());
-            MessageBox.Show(AllocatedQty.ToString());
-
-        }
+     
 
 
 
@@ -906,45 +901,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         }
 
-        private void dgvFindStoreOrders_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            MessageBox.Show("Enter");
-        }
-
+      
         private void dgvFindStoreOrders_KeyDown(object sender, KeyEventArgs e)
         {
-           //if(this.matbtnNewAllocate.Visible == true)
-           // {
-                //if (e.KeyData == Keys.Enter)
-                //{
-                //    MessageBox.Show("Enter Pusssa");
-                //    //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                //    //{
-                //    MessageBox.Show("Data Executed!");
-                //        this.ConnectionInit();
-                //        dSet.Clear();
-                //        dSet = objStorProc.sp_Allocation_Logs(0,
-                //            "",
-                //            "",
-                //            this.FormClass.Allocated_Quantity.ToString(),
-                //            this.FormClass.user_id.ToString(),
-                //            "",
-                //            this.p_id.ToString(),
-                //            0,
-                //            0,
-                //            "edit");
-                //        this.GlobalStatePopup.UpdatedSuccessfully();
-                //        this.ConnectionInit();
-                //        this.doSearchInTextBox();
-                   
-                //    //}
-                //    //else
-                //    //{
-                //    //    return;
-                //    //}
-                //}
-
-            //}
+           
 
 
         }
@@ -1054,20 +1014,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
 
-                MessageBox.Show("1");
+                //MessageBox.Show("1");
 
 
 
-                //this.doSearchInTextBox();
-
-                //this.SumofTotalAllocatedDataGridView();
-
-                //this.showDataGridDataValueChangedFinder();
-                //double StockOnHandQty;
-                //StockOnHandQty = double.Parse(this.txtSoh.Text);
-
-                //if (StockOnHandQty > Convert.ToDouble(this.FormClass.Allocated_Quantity))
-                //{
                 this.ConnectionInit();
                     this.doSearchInTextBox();
 
@@ -1088,54 +1038,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 MessageBox.Show(ex.Message);
             }
 
-            //}
-        
-
-
-            //if (this.matbtnNewAllocate.Visible == true)
-            //{
-            //    double StockOnHandQty;
-
-
-
-
-            //    foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
-            //    {
-            //        StockOnHandQty = double.Parse(this.txtSoh.Text);
-            //        if (StockOnHandQty > Convert.ToDouble(row.Cells["ALLOCATION_QTY_FIND"].Value))
-            //        {
-            //            //MessageBox.Show("Yes");
-            //           // Consume the limit
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("No");
-
-            //            this.ConnectionInit();
-            //            dSet.Clear();
-            //            dSet = objStorProc.sp_Allocation_Logs(0,
-            //                "",
-            //                "",
-            //                this.FormClass.Allocated_Quantity.ToString(),
-            //                this.FormClass.user_id.ToString(),
-            //                "",
-            //                this.p_id.ToString(),
-            //                0,
-            //                0,
-            //                "edit");
-            //            this.GlobalStatePopup.UpdatedSuccessfully();
-            //            this.ConnectionInit();
-            //            this.doSearchInTextBox();
-            //        }
-            //    }
-
-
-
-
-
-
-
-            //}
+          
 
         }
 
@@ -1194,25 +1097,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
         }
 
-        private void lblqty2_TextChanged(object sender, EventArgs e)
-        {
-            //foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
-            //{
-            //    if (row.Cells["ALLOCATION_QTY_FIND"].Value.ToString() == string.Empty)
-            //    {
-            //        return;
-            //    }
-            //}
-            //this.SumofTotalAllocatedDataGridView();
-            ////For Decrementation
-            //this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
-        }
-
-        private void lbltotalStoreOrder_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvFindStoreOrders_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
