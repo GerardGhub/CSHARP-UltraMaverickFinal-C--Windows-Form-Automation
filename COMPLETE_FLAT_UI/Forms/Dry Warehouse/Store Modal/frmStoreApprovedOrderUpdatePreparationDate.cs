@@ -24,6 +24,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dset2 = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         string mode = "";
+        string modeprestine = "";
         DataSet dSetCategoryPartialValidation = new DataSet();
         public frmStoreApprovedOrderUpdatePreparationDate(frmNewStoreOrderApproved frm, string current_preparation_date, string category)
         {
@@ -50,7 +51,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.lblArrayPrepaDateStatus.Text = Sp_PrepaDate_BindingSource;
             this.Sp_Category = Sp_Category;
-
+            this.modeprestine = "";
             //MessageBox.Show(this.Sp_Category);
             //return;
 
@@ -69,9 +70,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void frmStoreApprovedOrderUpdatePreparationDate_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(this.bunifuPrepaDate.Text == lblArrayPrepaDateStatus.Text)
+            if(this.bunifuPrepaDate.Text == this.lblArrayPrepaDateStatus.Text)
             {
-
+                this.textBox2.Text = "resetform";
             }
             else
             {
@@ -160,7 +161,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         {
 
                             this.mode = "good";
-          
+                            this.modeprestine = "executed";
                             this.Close();
 
                         }
@@ -171,32 +172,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                        
                     }
-                    if (dSet.Tables[0].Rows.Count.ToString() == "1")
-                    {
-
-                        if (MetroFramework.MetroMessageBox.Show(this, "You have 1 existing category tagged, Do you want to proceed? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-
-                            this.mode = "good";
-
-                            this.Close();
-
-                        }
-                        else
-                        {
-                            return;
-                        }
-
-
-                    }
-                    if (dSet.Tables[0].Rows.Count.ToString() == "2")
+            
+                   else if (dSet.Tables[0].Rows.Count.ToString() == "2")
                     {
 
                         if (MetroFramework.MetroMessageBox.Show(this, "You have 2 existing category tagged, Do you want to proceed? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
 
                             this.mode = "good";
-
+                            this.modeprestine = "executed";
                             this.Close();
 
                         }
@@ -218,21 +202,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     "", "", "", "", "", "", 0,
                       this.Sp_Category, "", "",
                     "check_if_already_prepared_conflict_category_validation");
-                    if (dSet.Tables[0].Rows.Count > 0)
+                    if (dSetCategoryPartialValidation.Tables[0].Rows.Count > 0)
                     {
 
-                        if (MetroFramework.MetroMessageBox.Show(this, "You have an existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (modeprestine !="executed")
                         {
+                            if (MetroFramework.MetroMessageBox.Show(this, "You have an existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
 
-                            this.mode = "good";
+                                this.mode = "good";
 
-                            this.Close();
+                                this.Close();
 
+                            }
+                            else
+                            {
+                                return;
+                            }
                         }
-                        else
-                        {
-                            return;
-                        }
+
+                         
 
 
                     }
@@ -250,24 +239,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         }
 
                     }
-                    //if (dSet.Tables[0].Rows.Count.ToString() == "1")
-                    //{
-                    //    this.Close();
-                    //}
-                    //else
-                    //{
-
-                    //    this.mode = "good";
-                    //    if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date 1? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    //    {
-
-                    //        this.Close();
-                    //    }
-                    //    else
-                    //    {
-                    //        return;
-                    //    }
-                    //}
+               
                 }
                 else
                 {

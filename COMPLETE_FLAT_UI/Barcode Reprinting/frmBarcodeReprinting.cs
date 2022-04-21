@@ -218,11 +218,11 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
 
             rpt.Load(Rpt_Path + "\\DryReceivingBarcodeReprint.rpt");
-                //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
 
 
-                rpt.Refresh();
+            rpt.Refresh();
             
      
 

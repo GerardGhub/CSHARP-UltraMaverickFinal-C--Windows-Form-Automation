@@ -1038,7 +1038,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             PrintDialog printDialog = new PrintDialog();
             rpt.Load(Rpt_Path + "\\DryReceivingBarcode.rpt");
 
-            //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
             //MessageBox.Show(sp_final_id);
             rpt.Refresh();
             myglobal.DATE_REPORT2 = sp_final_id;

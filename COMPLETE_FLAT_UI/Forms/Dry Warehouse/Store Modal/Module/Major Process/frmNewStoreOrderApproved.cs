@@ -1003,14 +1003,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            //IS For Preparation POPUP
-            this.sp_prepa_date_update = this.textBox2.Text;
-            //MessageBox.Show(this.sp_prepa_date_update);
-            this.UpdatePreparationDate();
+            if(this.textBox2.Text =="resetform")
+            {
+                this.num = 0;
+                this.labelSelectedSum.Text = "Selected Items:0";
+                this.frmAddNewStoreOrderApproved_Load(sender, e);
+            }
+            else
+            {
+                //IS For Preparation POPUP
+                this.sp_prepa_date_update = this.textBox2.Text;
+                //MessageBox.Show(this.sp_prepa_date_update);
+                this.UpdatePreparationDate();
 
-            this.num =0;
-            this.labelSelectedSum.Text = "Selected Items:0";
-            this.frmAddNewStoreOrderApproved_Load(sender, e);
+                this.num = 0;
+                this.labelSelectedSum.Text = "Selected Items:0";
+                this.frmAddNewStoreOrderApproved_Load(sender, e);
+            }
+
         }
 
 

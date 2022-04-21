@@ -61,14 +61,13 @@ namespace ULTRAMAVERICK.Report
             if (myglobal.REPORT_NAME == "StoreMoveOrderPickSlip")
             {
                 rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
-                //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+                rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
                 rpt.Refresh();
                 string ddate = myglobal.DATE_REPORT;
                 string ddate2 = myglobal.DATE_REPORT2;
                 string ddate3 = myglobal.DATE_REPORT3;
                 string ddate4 = myglobal.DATE_REPORT4;
-                //rpt.SetParameterValue("@ddate", ddate);
-                //rpt.SetParameterValue("@ddate2", ddate2);
+      
 
                 rpt.SetParameterValue("@approved_prepa_date", ddate);
                 rpt.SetParameterValue("@category", ddate2);
@@ -979,7 +978,7 @@ namespace ULTRAMAVERICK.Report
             else if (myglobal.REPORT_NAME == "DryReceivingBarcodeReprint")
             {
                 rpt.Load(Rpt_Path + "\\DryReceivingBarcodeReprint.rpt");
-                //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+                rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
                 ////////rpt.SetDatabaseLogon("sa", "Nescafe3in1");
                 rpt.Refresh();
 
@@ -1093,22 +1092,12 @@ namespace ULTRAMAVERICK.Report
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
             }
-            else if (myglobal.REPORT_NAME == "IDFGReprintBulkreprint")
-            {
-                rpt.Load(Rpt_Path + "\\MainFgBulkPrintingReprint.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                ////////rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-
-
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
+         
             else if (myglobal.REPORT_NAME == "MicroBook")
             {
                 rpt.Load(Rpt_Path + "\\DrybarcodeModule.rpt");
-                //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                ////////rpt.SetDatabaseLogon("sa", "Nescafe3in1");
+                rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+             
                 rpt.Refresh();
 
                 //crV1.SelectionFormula = "{Command.rp_item_description} like '*" + myglobal.Searchcategory + "*' or  {Command.rp_classification} like '*" + myglobal.Searchcategory + "*'or  {Command.rp_item_code} like '*" + myglobal.Searchcategory + "*' or  {Command.rp_mfg_date} like '*" + myglobal.Searchcategory + "*'  AND  {Command.rp_expiry_date} like '*" + myglobal.Filter + "*'";

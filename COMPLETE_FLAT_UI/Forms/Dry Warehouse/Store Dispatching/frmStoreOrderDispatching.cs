@@ -632,6 +632,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             }
             else
             {
+                this.materialLabelNoPrintPages.Visible = false;
+                this.metroCMbFilterPrintPages.Visible = false;
                 this.dgvGunaMoveItems.Enabled = false;
             }
         }
@@ -700,33 +702,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 {
 
                     MessageBox.Show("Error");
-                    //this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
-                    //dset = g_objStoredProcCollection.sp_IDGenerator_String(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString(), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString(),
-                    //    dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(), this.Sp_user_id);
-
-                   
-                    //this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
-                    //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString()), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_approved_prepa_date"].Value.ToString(), dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(), this.Sp_user_id);
-
-                    //this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
-                    //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvGunaMoveItems.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderMoveDispatching", 
-                    //    this.matCmbPreparationDate.Text, this.Sp_user_id.ToString(), 1);
+             
                 
                     MessageBox.Show(ex.Message);
                 }
 
             }
 
-            //MessageBox.Show("Manok");
+
    
             this.ForLoopProcessAutoPrint();
-            //this.GlobalStatePopup.DispatchedSuccessfully();
-       
-            //this.materialCheckboxSelectAll.Checked = false;
-            //this.labelSelectedSum.Visible = false;
-       
-            ////Pahinga
-            //this.frmStoreOrderDispatching_Load(new object(), new System.EventArgs());
+
     
         }
 
@@ -867,8 +853,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             PrintDialog printDialog = new PrintDialog();
             rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
 
-            //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-            //MessageBox.Show(sp_final_id);
+            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+        
             this.sp_final_id = "01/12/2022";
             rpt.Refresh();
             myglobal.DATE_REPORT2 = sp_final_id;
@@ -1083,7 +1069,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
 
             rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
-            //rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
             rpt.Refresh();
 
