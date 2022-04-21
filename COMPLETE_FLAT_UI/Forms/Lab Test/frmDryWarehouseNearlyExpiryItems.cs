@@ -88,9 +88,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
                 MessageBox.Show(ex.Message);
             }
-            //this.dgvRawMats.Columns["area_id"].Visible = false;
-            //this.dgvRawMats.Columns["is_active"].Visible = false;
-            //this.dgvRawMats.Columns["modified_at"].Visible = false;
+  
 
         }
 

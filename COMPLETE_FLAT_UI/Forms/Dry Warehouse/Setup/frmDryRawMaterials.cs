@@ -46,6 +46,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string primarys_key { get; set; }
         public string sp_user_id { get; set; }
         public int Sp_Buffer_Stocks { get; set; }
+        public string SpExpirationDaysPrompting { get; set; }
 
 
 
@@ -243,6 +244,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.conversions = this.dgvRawMats.CurrentRow.Cells["conversion"].Value.ToString();
                         this.items_type = this.dgvRawMats.CurrentRow.Cells["item_type"].Value.ToString();
                         this.Sp_Buffer_Stocks = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["buffer_stock"].Value);
+                        this.SpExpirationDaysPrompting = this.dgvRawMats.CurrentRow.Cells["expiration_prompting"].Value.ToString();
                     }
                 }
             }

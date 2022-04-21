@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
@@ -250,7 +251,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["uom"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["qty"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["date_ordered"].ReadOnly = true;
-            this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
+            //this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
         }
         private void SelectAllCheckBoxOnDataGrid()
         {
@@ -346,7 +347,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     this.matBtnSave.Enabled = false;
                     this.dgvStoreOrderApproval.Enabled = false;
                     //this.matbtnManualAllocation.Visible = true; alisin muna daw eto april 21 manual allocation fucking Modal
-                    this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = false;
+                    //this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = false;
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     ////For Decrementation
                     this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
@@ -710,7 +711,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.matbtnNewAllocate.Visible = false;
                 this.matbtnManualAllocation.Visible = false;
-                this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
+                //this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
                 //
                 this.lbltotalStoreOrder.Text = "0";
              
@@ -857,49 +858,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
 
-        private void dgvFindStoreOrders_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            //MessageBox.Show("Pukk 2");
-            //this.SumofTotalAllocatedDataGridView();
-            ////For Decrementation
-            //this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
-
-       
-
-            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            //{
-
-            //    dSet.Clear();
-            //    dSet = objStorProc.sp_Allocation_Logs(0,
-            //        "",
-            //        "",
-            //        this.FormClass.Allocated_Quantity.ToString(),
-            //        this.FormClass.user_id.ToString(),
-            //        "",
-            //        this.p_id.ToString(),
-            //        0,
-            //        0,
-            //        "edit");
-            //    this.GlobalStatePopup.UpdatedSuccessfully();
-            //    this.ConnectionInit();
-            //    this.doSearchInTextBox();
-            //    //this.textBox2.Text = "Save";
-            //    //this.textBox2_TextChanged(sender, e);
-            //    //this.Close();
-            //}
-            //else
-            //{
-            //    return;
-            //}
-
-        }
 
    
-
-        private void dgvFindStoreOrders_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
 
       
         private void dgvFindStoreOrders_KeyDown(object sender, KeyEventArgs e)
@@ -1014,9 +974,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
 
-                //MessageBox.Show("1");
 
-
+                int sleepTime = 200; // in mills
+                Task.Delay(sleepTime).Wait();
+                // or
+                Thread.Sleep(sleepTime);
+                //MessageBox.Show("s");
 
                 this.ConnectionInit();
                     this.doSearchInTextBox();
@@ -1079,23 +1042,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
         }
 
-        private void materialButton1_Click_1(object sender, EventArgs e)
-        {
-            foreach  (DataGridViewRow row in dgvFindStoreOrders.Rows)
-            {
-                //this.dgvFindStoreOrders_CurrentCellChanged(sender, e);
-
-                try
-                {
-                    MessageBox.Show(row.Cells["primary_id"].Value.ToString());
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
+       
 
 
 
