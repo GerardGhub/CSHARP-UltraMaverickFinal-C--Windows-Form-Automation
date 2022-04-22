@@ -230,12 +230,12 @@ namespace ULTRAMAVERICK.Forms.Users
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstTypeofApprovers.BackColor = System.Drawing.SystemColors.Control;
             this.lstTypeofApprovers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstTypeofApprovers.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstTypeofApprovers.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstTypeofApprovers.FormattingEnabled = true;
-            this.lstTypeofApprovers.ItemHeight = 20;
+            this.lstTypeofApprovers.ItemHeight = 18;
             this.lstTypeofApprovers.Location = new System.Drawing.Point(5, 10);
             this.lstTypeofApprovers.Name = "lstTypeofApprovers";
-            this.lstTypeofApprovers.Size = new System.Drawing.Size(917, 240);
+            this.lstTypeofApprovers.Size = new System.Drawing.Size(917, 234);
             this.lstTypeofApprovers.TabIndex = 152;
             this.lstTypeofApprovers.Click += new System.EventHandler(this.lstTypeofApprovers_Click);
             this.lstTypeofApprovers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lstTypeofApprovers_DrawItem);
@@ -322,7 +322,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard2.Controls.Add(this.lstTypeofApprovers);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(48, 219);
+            this.materialCard2.Location = new System.Drawing.Point(72, 378);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
@@ -337,7 +337,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1426, 709);
+            this.lbltotalrecords.Location = new System.Drawing.Point(1426, 822);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
             this.lbltotalrecords.TabIndex = 578;
@@ -350,7 +350,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(1468, 725);
+            this.label3.Location = new System.Drawing.Point(1468, 838);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 18);
             this.label3.TabIndex = 579;
@@ -438,7 +438,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1024, 542);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.dgv_table);

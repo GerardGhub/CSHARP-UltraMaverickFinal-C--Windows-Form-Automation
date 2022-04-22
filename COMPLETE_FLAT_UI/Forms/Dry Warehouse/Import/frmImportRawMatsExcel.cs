@@ -521,13 +521,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 this.matbtnUpload.Visible = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to import a new  raw materials ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to upload a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     SaveMethod1();
                 }
                 else
                 {
-                    matbtnUpload.Visible = true;
+                    this.matbtnUpload.Visible = true;
                     return;
                 }
 
@@ -566,7 +566,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void txtFileName_TextChanged(object sender, EventArgs e)
         {
-            cbosheet.Enabled = true;
+            this.cbosheet.Enabled = true;
         }
     }
 }

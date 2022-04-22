@@ -53,11 +53,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(6, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 37);
+            this.label2.Size = new System.Drawing.Size(119, 33);
             this.label2.TabIndex = 600;
             this.label2.Text = "Reason :";
             // 
@@ -83,12 +83,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // cboReason
             // 
             this.cboReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboReason.Font = new System.Drawing.Font("Segoe UI Light", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReason.Font = new System.Drawing.Font("Roboto", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboReason.FormattingEnabled = true;
             this.cboReason.Location = new System.Drawing.Point(15, 61);
             this.cboReason.Margin = new System.Windows.Forms.Padding(1);
             this.cboReason.Name = "cboReason";
-            this.cboReason.Size = new System.Drawing.Size(519, 55);
+            this.cboReason.Size = new System.Drawing.Size(519, 50);
             this.cboReason.TabIndex = 599;
             // 
             // materialCard1

@@ -267,10 +267,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.Columns["id"].Visible = false;
             this.dgvLotData.Columns["index_id"].Visible = false;
             this.dgvLotData.Columns["po_number"].Visible = false;
-            //this.dgvLotData.Columns["date_added"].Visible = false;
 
-            //this.dgvLotData.Columns[1].Width = 128;
-            //this.SumofTotalReject();
         }
 
         public void FillRequiredTextbox()
@@ -315,8 +312,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 this.AlreadyExist();
 
-                //this.metroCmbRejectRemarks.Text = String.Empty;
-                //this.metroCmbRejectRemarks.Focus();
+             
                 double orderScope1;
                 double currentrejectScope1;
                 double qtyRejectScope1;
@@ -359,7 +355,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
          
                 totalSummaryofReject = totalExistingReject + QtyRejectCommits;
            
-                if (MetroFramework.MetroMessageBox.Show(this, "You already have same reject/remark, Are you sure you want to update an existing reject '"+totalSummaryofReject+"'?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "You already have same reject/remark, Are you sure you want to update an existing reject '"+totalSummaryofReject+"'?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                  
                     this.dSet.Clear();
@@ -406,7 +402,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 //return;
             }
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a reject?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save new reject?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
              
@@ -509,7 +505,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void dgvLotData_DoubleClick(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you remove the reject?  ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you remove the reject?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.dSet.Clear();
                 //MessageBox.Show(sp_primary_key.ToString());

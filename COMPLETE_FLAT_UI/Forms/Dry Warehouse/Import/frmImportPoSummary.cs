@@ -596,12 +596,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void matbtnUpload_Click(object sender, EventArgs e)
         {
-            if (lbltotalrecords.Text == "0")
+            if (this.lbltotalrecords.Text == "0")
             {
                 //return;
             }
 
-            if (cbosheet.Text.Trim() == string.Empty)
+            if (this.cbosheet.Text.Trim() == string.Empty)
             {
             }
             else
@@ -617,7 +617,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
                 else
                 {
-                    matbtnUpload.Visible = true;
+                    this.matbtnUpload.Visible = true;
                     return;
                 }
 
@@ -664,10 +664,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         dv.RowFilter = "item_code = '" + Item_code_main + "' ";
 
                     }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-
-                    }
+                
                     dgvUnits.DataSource = dv;
              
                 }
@@ -695,15 +692,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void dgvUnits_CurrentCellChanged(object sender, EventArgs e)
         {
 
-            if (dgvUnits.CurrentRow != null)
+            if (this.dgvUnits.CurrentRow != null)
             {
-                if (dgvUnits.CurrentRow.Cells["item_code"].Value != null)
+                if (this.dgvUnits.CurrentRow.Cells["item_code"].Value != null)
                 {
-                    Sp_item_class = dgvUnits.CurrentRow.Cells["item_class"].Value.ToString();
-                    Sp_item_type = dgvUnits.CurrentRow.Cells["item_type"].Value.ToString();
-                    Sp_major_category = dgvUnits.CurrentRow.Cells["major_category"].Value.ToString();
-                    Sp_sub_category = dgvUnits.CurrentRow.Cells["sub_category"].Value.ToString();
-                    Sp_is_expirable = dgvUnits.CurrentRow.Cells["is_expirable"].Value.ToString();
+                    this.Sp_item_class = this.dgvUnits.CurrentRow.Cells["item_class"].Value.ToString();
+                    this.Sp_item_type = this.dgvUnits.CurrentRow.Cells["item_type"].Value.ToString();
+                    this.Sp_major_category = this.dgvUnits.CurrentRow.Cells["major_category"].Value.ToString();
+                    this.Sp_sub_category = this.dgvUnits.CurrentRow.Cells["sub_category"].Value.ToString();
+                    this.Sp_is_expirable = this.dgvUnits.CurrentRow.Cells["is_expirable"].Value.ToString();
 
                 }
             }

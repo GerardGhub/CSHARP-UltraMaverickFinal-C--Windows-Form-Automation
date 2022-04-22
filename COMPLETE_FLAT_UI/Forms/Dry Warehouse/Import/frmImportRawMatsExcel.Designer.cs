@@ -72,12 +72,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard1.Controls.Add(this.dgvRawMats);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(19, 99);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard1.Location = new System.Drawing.Point(25, 122);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(986, 519);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard1.Size = new System.Drawing.Size(1315, 639);
             this.materialCard1.TabIndex = 0;
             // 
             // dgvRawMats
@@ -126,7 +126,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvRawMats.Location = new System.Drawing.Point(5, 6);
+            this.dgvRawMats.Location = new System.Drawing.Point(7, 7);
+            this.dgvRawMats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
@@ -142,7 +143,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(976, 507);
+            this.dgvRawMats.Size = new System.Drawing.Size(1301, 625);
             this.dgvRawMats.TabIndex = 5;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -189,8 +190,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.matBtnBrowse.DrawShadows = true;
             this.matBtnBrowse.HighEmphasis = true;
             this.matBtnBrowse.Icon = null;
-            this.matBtnBrowse.Location = new System.Drawing.Point(805, 22);
-            this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matBtnBrowse.Location = new System.Drawing.Point(1100, 27);
+            this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.matBtnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnBrowse.Name = "matBtnBrowse";
             this.matBtnBrowse.Size = new System.Drawing.Size(80, 36);
@@ -208,13 +209,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.txtFileName.Enabled = false;
             this.txtFileName.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtFileName.Hint = "File Name";
-            this.txtFileName.Location = new System.Drawing.Point(26, 14);
+            this.txtFileName.Location = new System.Drawing.Point(35, 17);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(1);
             this.txtFileName.MaxLength = 50;
             this.txtFileName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtFileName.Multiline = false;
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(286, 50);
+            this.txtFileName.Size = new System.Drawing.Size(381, 50);
             this.txtFileName.TabIndex = 2;
             this.txtFileName.Text = "";
             this.txtFileName.TextChanged += new System.EventHandler(this.txtFileName_TextChanged);
@@ -224,11 +225,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.cbosheet.Enabled = false;
             this.cbosheet.FormattingEnabled = true;
             this.cbosheet.ItemHeight = 23;
-            this.cbosheet.Location = new System.Drawing.Point(27, 81);
+            this.cbosheet.Location = new System.Drawing.Point(36, 100);
             this.cbosheet.Margin = new System.Windows.Forms.Padding(1);
             this.cbosheet.Name = "cbosheet";
             this.cbosheet.PromptText = "Sheet";
-            this.cbosheet.Size = new System.Drawing.Size(285, 29);
+            this.cbosheet.Size = new System.Drawing.Size(379, 29);
             this.cbosheet.TabIndex = 3;
             this.cbosheet.UseSelectable = true;
             this.cbosheet.SelectedIndexChanged += new System.EventHandler(this.cbosheet_SelectedIndexChanged);
@@ -248,12 +249,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard2.Controls.Add(this.cbosheet);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(17, 630);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Location = new System.Drawing.Point(23, 775);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(988, 123);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard2.Size = new System.Drawing.Size(1317, 151);
             this.materialCard2.TabIndex = 4;
             // 
             // label4
@@ -262,9 +263,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(25, 66);
+            this.label4.Location = new System.Drawing.Point(33, 81);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.Size = new System.Drawing.Size(49, 17);
             this.label4.TabIndex = 610;
             this.label4.Text = "Sheet :";
             // 
@@ -275,9 +277,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(925, 21);
+            this.lbltotalrecords.Location = new System.Drawing.Point(1233, 26);
+            this.lbltotalrecords.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(47, 35);
+            this.lbltotalrecords.Size = new System.Drawing.Size(62, 44);
             this.lbltotalrecords.TabIndex = 608;
             this.lbltotalrecords.Text = "76";
             // 
@@ -288,9 +291,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(928, 57);
+            this.label2.Location = new System.Drawing.Point(1237, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 609;
             this.label2.Text = "Items";
             // 
@@ -302,8 +306,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.matbtnUpload.DrawShadows = true;
             this.matbtnUpload.HighEmphasis = true;
             this.matbtnUpload.Icon = null;
-            this.matbtnUpload.Location = new System.Drawing.Point(806, 73);
-            this.matbtnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnUpload.Location = new System.Drawing.Point(1101, 90);
+            this.matbtnUpload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.matbtnUpload.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnUpload.Name = "matbtnUpload";
             this.matbtnUpload.Size = new System.Drawing.Size(78, 36);
@@ -411,9 +415,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             // frmImportRawMatsExcel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1365, 945);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
             this.Margin = new System.Windows.Forms.Padding(1);

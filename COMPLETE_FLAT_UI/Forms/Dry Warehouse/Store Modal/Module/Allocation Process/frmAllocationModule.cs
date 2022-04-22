@@ -979,12 +979,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 Task.Delay(sleepTime).Wait();
                 // or
                 Thread.Sleep(sleepTime);
-                MessageBox.Show("s");
+                //MessageBox.Show("s");
 
 
 
-                this.ConnectionInit();
-                this.doSearchInTextBox();
+                //this.ConnectionInit();
+                //this.doSearchInTextBox();
 
 
 

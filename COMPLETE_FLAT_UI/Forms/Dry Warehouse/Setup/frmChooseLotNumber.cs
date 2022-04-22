@@ -183,7 +183,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void matbtnSelect_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to select the lot area?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to select the lot area?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 mode = "true";
                 this.Close();

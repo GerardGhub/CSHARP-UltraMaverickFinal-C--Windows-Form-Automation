@@ -86,6 +86,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.WindowLoadState();
         
         }
+
+
         private void AutoGeneratingLabAccessCode()
         {
             DateTime myDateTime = DateTime.Now;
@@ -295,6 +297,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["qa_supervisor_is_approve_status"].Visible = false;
             this.dgvRawMats.Columns["TotalLabtestRecords"].Visible = false;
             this.dgvRawMats.Columns["TotalLabtestRecordsCount"].Visible = false;
+            this.dgvRawMats.Columns["expiration_prompting"].Visible = false;
         }
 
 

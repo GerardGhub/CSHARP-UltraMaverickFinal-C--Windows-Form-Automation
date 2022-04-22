@@ -40,6 +40,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemDesc = new MaterialSkin.Controls.MaterialTextBox();
             this.txtMatItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.txtExpirationDaysPrompting = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtBufferStocks = new MaterialSkin.Controls.MaterialTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboMajorCategory = new System.Windows.Forms.ComboBox();
             this.cboSubCat = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtExpirationDaysPrompting = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,12 +146,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(29, 199);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 17);
+            this.label4.Size = new System.Drawing.Size(88, 17);
             this.label4.TabIndex = 584;
             this.label4.Text = "Primary Unit:";
             // 
@@ -233,13 +233,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(27, 85);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(7);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(7);
             this.materialCard1.Size = new System.Drawing.Size(1173, 355);
             this.materialCard1.TabIndex = 477;
             this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
+            // 
+            // txtExpirationDaysPrompting
+            // 
+            this.txtExpirationDaysPrompting.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtExpirationDaysPrompting.Depth = 0;
+            this.txtExpirationDaysPrompting.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtExpirationDaysPrompting.Hint = "Initial Expiration";
+            this.txtExpirationDaysPrompting.Location = new System.Drawing.Point(29, 269);
+            this.txtExpirationDaysPrompting.Margin = new System.Windows.Forms.Padding(1);
+            this.txtExpirationDaysPrompting.MaxLength = 50;
+            this.txtExpirationDaysPrompting.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtExpirationDaysPrompting.Multiline = false;
+            this.txtExpirationDaysPrompting.Name = "txtExpirationDaysPrompting";
+            this.txtExpirationDaysPrompting.Size = new System.Drawing.Size(304, 50);
+            this.txtExpirationDaysPrompting.TabIndex = 602;
+            this.txtExpirationDaysPrompting.Text = "";
+            this.txtExpirationDaysPrompting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExpirationDaysPrompting_KeyPress);
             // 
             // mattxtBufferStocks
             // 
@@ -263,12 +280,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(810, 110);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 17);
+            this.label5.Size = new System.Drawing.Size(72, 17);
             this.label5.TabIndex = 600;
             this.label5.Text = "Item Type:";
             // 
@@ -276,7 +293,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(810, 31);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -289,12 +306,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(391, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 17);
+            this.label2.Size = new System.Drawing.Size(103, 17);
             this.label2.TabIndex = 598;
             this.label2.Text = "Sub Categgory:";
             // 
@@ -302,12 +319,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(32, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 17);
+            this.label1.Size = new System.Drawing.Size(115, 17);
             this.label1.TabIndex = 597;
             this.label1.Text = "Major Categgory:";
             // 
@@ -367,30 +384,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(709, 451);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(193, 23);
             this.textBox1.TabIndex = 476;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // txtExpirationDaysPrompting
-            // 
-            this.txtExpirationDaysPrompting.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtExpirationDaysPrompting.Depth = 0;
-            this.txtExpirationDaysPrompting.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtExpirationDaysPrompting.Hint = "Initial Expiration";
-            this.txtExpirationDaysPrompting.Location = new System.Drawing.Point(29, 269);
-            this.txtExpirationDaysPrompting.Margin = new System.Windows.Forms.Padding(1);
-            this.txtExpirationDaysPrompting.MaxLength = 50;
-            this.txtExpirationDaysPrompting.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtExpirationDaysPrompting.Multiline = false;
-            this.txtExpirationDaysPrompting.Name = "txtExpirationDaysPrompting";
-            this.txtExpirationDaysPrompting.Size = new System.Drawing.Size(304, 50);
-            this.txtExpirationDaysPrompting.TabIndex = 602;
-            this.txtExpirationDaysPrompting.Text = "";
-            this.txtExpirationDaysPrompting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExpirationDaysPrompting_KeyPress);
             // 
             // frmEditItemModal
             // 
