@@ -251,7 +251,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["uom"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["qty"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["date_ordered"].ReadOnly = true;
-            //this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
+            if(this.matBtnSave.Enabled == true)
+            {
+                this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
+            }
+
         }
         private void SelectAllCheckBoxOnDataGrid()
         {
@@ -347,8 +351,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     this.matBtnSave.Enabled = false;
                     this.dgvStoreOrderApproval.Enabled = false;
                     //this.matbtnManualAllocation.Visible = true; alisin muna daw eto april 21 manual allocation fucking Modal
-                    //this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = false;
-                    this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
+                    if (this.matBtnSave.Enabled == false)
+                    {
+                        this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = false;
+                    }
+                        this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     ////For Decrementation
                     this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
@@ -711,9 +718,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.matbtnNewAllocate.Visible = false;
                 this.matbtnManualAllocation.Visible = false;
-                //this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
-                //
-                this.lbltotalStoreOrder.Text = "0";
+                if (this.matBtnSave.Enabled == true)
+                {
+                    this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].ReadOnly = true;
+                }
+                    //
+                    this.lbltotalStoreOrder.Text = "0";
              
                 this.frmAllocationModule_Load(sender, e);
             }
@@ -975,10 +985,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
 
 
-                int sleepTime = 300; // in mills
-                Task.Delay(sleepTime).Wait();
-                // or
-                Thread.Sleep(sleepTime);
+                //int sleepTime = 300; // in mills
+                //Task.Delay(sleepTime).Wait();
+                //// or
+                //Thread.Sleep(sleepTime);
                 //MessageBox.Show("s");
 
 
@@ -1006,7 +1016,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 MessageBox.Show(ex.Message);
             }
 
-          
+            //int sleepTime = 500; // in mills
+            //Task.Delay(sleepTime).Wait();
+            //// or
+            //Thread.Sleep(sleepTime);
+            //MessageBox.Show("s");
+            //int sum = 0;
+            //for (int i = 0; i < dgvFindStoreOrders.Rows.Count; ++i)
+            //{
+            //    sum += Convert.ToInt32(dgvFindStoreOrders.Rows[i].Cells["ALLOCATION_QTY_FIND"].Value);
+            //}
+            //this.label1.Text = sum.ToString();
+            //////For Decrementation
+            //this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+
 
         }
 
@@ -1059,6 +1082,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     "0";
                 e.Cancel = true;
             }
+        }
+
+        private void dgvFindStoreOrders_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            this.SumofTotalAllocatedDataGridView();
+
+            this.showDataGridDataValueChangedFinder();
+
+            ////For Decrementation
+            this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+
         }
 
         ///
