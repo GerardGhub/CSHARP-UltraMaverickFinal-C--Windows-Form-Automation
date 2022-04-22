@@ -254,7 +254,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                Item_code_main, Item_type_main, Item_class_main, Major_category_main, Sub_category_main, Primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertItemCode");
+                Item_code_main,
+                Item_type_main,
+                Item_class_main,
+                Major_category_main,
+                Sub_category_main,
+                Primary_unit_main,
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "",
+                "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -283,7 +297,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 Item_class_main, 
                 Major_category_main, 
                 Sub_category_main, 
-                Primary_unit_main, "", "", "", "", "", "",0, "getPoNumber");
+                Primary_unit_main,
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "",
+                "getPoNumber");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -339,7 +362,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 Item_class_main, 
                 Major_category_main, 
                 Sub_category_main, 
-                Primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertPrimaryUnit");
+                Primary_unit_main,
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,"",
+                "getdetailsforBulkInsertPrimaryUnit");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -397,7 +428,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 Item_class_main, 
                 Major_category_main, 
                 Sub_category_main, 
-                Primary_unit_main, "", "", "", "", "", "",0, "getdetailsforBulkInsertItemCode");
+                Primary_unit_main, "", "", "", "", "", "",0,"", "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -425,7 +456,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 Item_class_main, 
                 Major_category_main, 
                 Sub_category_main, 
-                Primary_unit_main, "", "", "", "", "", "",0, "getPoNumber");
+                Primary_unit_main, "", "", "", "", "", "",0,"", "getPoNumber");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -551,7 +582,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 Item_class_main, 
                 Major_category_main, 
                 Sub_category_main, 
-                Primary_unit_main, "", "", "", "", "", Sp_user_id,0, "final_save_bulk_data_status_POSummary");
+                Primary_unit_main, "", "", "", "", "", Sp_user_id,0,"", "final_save_bulk_data_status_POSummary");
 
             return false;
 
@@ -576,13 +607,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
 
-
-
-                matbtnUpload.Visible = false;
+                this.matbtnUpload.Visible = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to upload?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
                 }
@@ -657,9 +686,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
 
 
-
-
         }
+
+
+
 
 
         private void dgvUnits_CurrentCellChanged(object sender, EventArgs e)

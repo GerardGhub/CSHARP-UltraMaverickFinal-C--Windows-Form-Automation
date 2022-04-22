@@ -893,15 +893,50 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
                     else if (dSet.Tables[0].Rows.Count.ToString() == "2")
                     {
-                        if (MetroFramework.MetroMessageBox.Show(this, "You have 2 existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
 
-                            this.ApproveFunctionality();
+                        //Data Set for Validation
+                        //Validate that Partial tagging is allowed on the fucking system
+                        dSetCategoryPartialValidation.Clear();
+                        dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
+                       this.matcmbCategory.Text,
+                        this.bunifuPrepaDate.Text,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        0,
+                          this.matcmbCategory.Text,
+                          "",
+                          "",
+                        "check_if_already_prepared_conflict_category_validation");
+                        if (dSetCategoryPartialValidation.Tables[0].Rows.Count > 0)
+                        {
+                            if (MetroFramework.MetroMessageBox.Show(this, "You have 30 existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+
+                                this.ApproveFunctionality();
+                            }
+                            else
+                            {
+
+                                return;
+                            }
                         }
                         else
                         {
 
-                            return;
+                            if (MetroFramework.MetroMessageBox.Show(this, "You have 2 existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+
+                                this.ApproveFunctionality();
+                            }
+                            else
+                            {
+
+                                return;
+                            }
                         }
                     }
                     else

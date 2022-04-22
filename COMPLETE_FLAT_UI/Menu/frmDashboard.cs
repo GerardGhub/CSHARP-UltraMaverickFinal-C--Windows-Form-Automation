@@ -20,7 +20,7 @@ namespace COMPLETE_FLAT_UI
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
+        string mode = "";
 
 
         DateTime dNow = DateTime.Now;
@@ -32,6 +32,7 @@ namespace COMPLETE_FLAT_UI
         {
             InitializeComponent();
         }
+        public string SpCategoryPreparation { get; set; }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -41,15 +42,77 @@ namespace COMPLETE_FLAT_UI
         private void FormLogo_Load(object sender, EventArgs e)
         {
             //pictureBox1.Padding = new Padding(0);
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             this.showReceivingData();
             dataGridView1.Visible = false;
 
 
-            this.GetStoreOrder();
+
+
+
             this.GetLabTestTransactions();
+            //Hello
+        
+            //this.load_search();
+    
         }
+        
+        DataSet dset_emp1 = new DataSet();
+        private void load_search()
+        {
+         
+            this.dset_emp1.Clear();
+
+            this.dset_emp1 = objStorProc.sp_getMajorTables("StoreOrderDashboard");
+            this.mode = "Search1";
+            this.doSearch();
+            this.GetStoreOrder();
+
+        }
+
+        private void doSearch()
+        {
+            try
+            {
+                if (this.dset_emp1.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(this.dset_emp1.Tables[0]);
+                   
+                        if (this.mode == "Search1")
+                        {
+                            dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'  ";
+                        }
+                       
+                 
+                    this.dataGridView1.DataSource = dv;
+                    //this.lbltotaldata.Text = dataGridView1.RowCount.ToString();
+
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 20.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            //END
+        }
+
+
+
+
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+
         private void GetStoreOrder()
         {
             //double StoreOrder;
@@ -61,7 +124,7 @@ namespace COMPLETE_FLAT_UI
 
             //StoreOrder = double.Parse("10");
             //StoreOrderApproval = double.Parse("10");
-            Preparation = double.Parse("10");
+            Preparation = double.Parse(this.SpCategoryPreparation);
             MoveOrder = double.Parse("4");
             MoveOrderApproval = double.Parse("3");
             Dispatching = double.Parse("1");
@@ -218,6 +281,30 @@ namespace COMPLETE_FLAT_UI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
+        {
+            this.load_search();
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.mode == "Search1")
+            {
+                if (this.dataGridView1.Rows.Count > 0)
+                {
+                    if (this.dataGridView1.CurrentRow != null)
+                    {
+                        if (this.dataGridView1.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
+                        {
+
+                            this.SpCategoryPreparation = this.dataGridView1.CurrentRow.Cells["Preparation"].Value.ToString();
+
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -215,7 +215,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.conversions,
                 this.items_type,
                 this.primarys_key,
-                this.Sp_Buffer_Stocks
+                this.Sp_Buffer_Stocks,
+                this.SpExpirationDaysPrompting
                 );
             mywipwh.ShowDialog();
         }

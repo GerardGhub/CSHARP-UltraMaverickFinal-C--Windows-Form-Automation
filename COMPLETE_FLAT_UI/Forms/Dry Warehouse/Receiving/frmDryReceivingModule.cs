@@ -233,14 +233,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //Check the Item Code if exist on the fucking system
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                mattxtbarcode.Text, "", "", "", "", "", "", "", "", "", "", "",0, "getdetailsforBulkInsertItemCode");
+                mattxtbarcode.Text,
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "",
+                "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
                 dSet.Clear();
                 dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                    mattxtbarcode.Text, "", "", "", "", "", "", "", "", "", "", "",0, "getRMforReceivingDryWH");
+                    mattxtbarcode.Text,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    0,
+                    "",
+                    "getRMforReceivingDryWH");
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
                     this.SearchMethodJarVarCallingSP();
@@ -302,14 +330,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                mattxtbarcode.Text, "", "", "", "", "", "", "", "", "", "", "", 0, "getdetailsforBulkInsertItemCode");
+                mattxtbarcode.Text,
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "",
+                "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
                 dSet.Clear();
                 dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                    mattxtbarcode.Text, "", "", "", "", "", "", "", "", "", "", "", 0, "getRMforReceivingDryWH");
+                    mattxtbarcode.Text,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    0,
+                    "",
+                    "getRMforReceivingDryWH");
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
                     this.SearchMethodJarVarCallingSPNearlyExpiry();

@@ -684,7 +684,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     try
                     {
                         this.dgvFindStoreOrders_CurrentCellChanged(sender, e);
-                        MessageBox.Show(row.Cells["primary_id"].Value.ToString());
+                        //MessageBox.Show(row.Cells["primary_id"].Value.ToString());
                         dSet.Clear();
                         dSet = objStorProc.sp_Allocation_Logs(0,
                             "",
@@ -975,16 +975,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
 
 
-                int sleepTime = 200; // in mills
+                int sleepTime = 300; // in mills
                 Task.Delay(sleepTime).Wait();
                 // or
                 Thread.Sleep(sleepTime);
-                //MessageBox.Show("s");
+                MessageBox.Show("s");
+
+
 
                 this.ConnectionInit();
-                    this.doSearchInTextBox();
+                this.doSearchInTextBox();
 
-                    this.SumofTotalAllocatedDataGridView();
+
+
+
+                this.SumofTotalAllocatedDataGridView();
 
                     this.showDataGridDataValueChangedFinder();
 

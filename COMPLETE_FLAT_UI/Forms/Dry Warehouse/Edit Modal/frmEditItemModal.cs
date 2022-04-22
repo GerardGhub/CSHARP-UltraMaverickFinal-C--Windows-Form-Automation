@@ -37,7 +37,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             string conversion,
             string item_type,
             string primary_key,
-            int buffer_stock
+            int buffer_stock,
+            string expiration_days_prompting
             )
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_type = item_type;
             this.primary_key = primary_key;
             this.sp_buffer_stock = buffer_stock;
-
+            this.SpExpirationPrompting = expiration_days_prompting;
             //var materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
             //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -77,6 +78,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_created_at { get; set; }
 
         public int sp_buffer_stock { get; set; }
+
+        public string SpExpirationPrompting { get; set; }
 
         private const int CB_SETCUEBANNER = 0x1703;
 
@@ -167,6 +170,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Text = conversion;
             this.cboItemType.Text = item_type;
             this.mattxtBufferStocks.Text = this.sp_buffer_stock.ToString();
+            this.txtExpirationDaysPrompting.Text = SpExpirationPrompting;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -212,7 +216,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the Information?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the Information?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
 
@@ -231,6 +235,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     "", 
                     this.sp_created_by,
                     float.Parse(this.mattxtBufferStocks.Text.Trim()),
+                    this.txtExpirationDaysPrompting.Text.Trim(),
                     "edit");
                 this.textBox1.Text = "data Already Save!";
                 this.GlobalStatePopup.CommittedSuccessFully();
@@ -352,6 +357,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.txtmatConversion.Enabled = true;
                 this.txtmatConversion.Focus();
             }
+
+        }
+
+        private void txtExpirationDaysPrompting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+            e.Handled = true;
+            }
+
+        
+
+        }
+
+        private void txtmatConversion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+            e.Handled = true;
+            }
+
+    
+        }
+
+        private void materialCard1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

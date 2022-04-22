@@ -526,6 +526,7 @@ namespace ULTRAMAVERICK.Models
         string updated_at,
         string updated_by,
         float buffer_stock,
+        string expiration_prompting,
         string mode);
 
         DataSet sp_projects(
