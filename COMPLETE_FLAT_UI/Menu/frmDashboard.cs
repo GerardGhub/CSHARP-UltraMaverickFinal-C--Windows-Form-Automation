@@ -21,7 +21,7 @@ namespace COMPLETE_FLAT_UI
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         string mode = "";
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         DateTime dNow = DateTime.Now;
 
@@ -33,6 +33,11 @@ namespace COMPLETE_FLAT_UI
             InitializeComponent();
         }
         public string SpCategoryPreparation { get; set; }
+        public string SpMoveOrder { get; set; }
+
+        public string SpMoveOrderApproved { get; set; }
+        public string SpMoveOrderSlipDispatch { get; set; }
+        public string SPRowCountOfStoreDatagrid { get; set; }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -86,7 +91,14 @@ namespace COMPLETE_FLAT_UI
                  
                     this.dataGridView1.DataSource = dv;
                     //this.lbltotaldata.Text = dataGridView1.RowCount.ToString();
+                    this.SPRowCountOfStoreDatagrid = dataGridView1.RowCount.ToString();
+                    if (this.SPRowCountOfStoreDatagrid == "0")
+                    {
+                        this.GlobalStatePopup.NoDataFound();
 
+
+                        return;
+                    }
                 }
             }
             catch (SyntaxErrorException)
@@ -115,26 +127,20 @@ namespace COMPLETE_FLAT_UI
 
         private void GetStoreOrder()
         {
-            //double StoreOrder;
-            //double StoreOrderApproval;
+         
             double Preparation;
             double MoveOrder;
             double MoveOrderApproval;
             double Dispatching;
 
-            //StoreOrder = double.Parse("10");
-            //StoreOrderApproval = double.Parse("10");
+      
             Preparation = double.Parse(this.SpCategoryPreparation);
-            MoveOrder = double.Parse("4");
-            MoveOrderApproval = double.Parse("3");
-            Dispatching = double.Parse("1");
+            MoveOrder = double.Parse(this.SpMoveOrder);
+            MoveOrderApproval = double.Parse(this.SpMoveOrderApproved);
+            Dispatching = double.Parse(this.SpMoveOrderSlipDispatch);
 
             chart4.Series["Series1"].Points.Clear();
 
-
-            //chart4.Series["Series1"].Points.AddXY("Store Order", StoreOrder);
-
-            //chart4.Series["Series1"].Points.AddXY("Store Order Approval", StoreOrderApproval);
 
             chart4.Series["Series1"].Points.AddXY("Preparation", Preparation);
 
@@ -300,7 +306,9 @@ namespace COMPLETE_FLAT_UI
                         {
 
                             this.SpCategoryPreparation = this.dataGridView1.CurrentRow.Cells["Preparation"].Value.ToString();
-
+                            this.SpMoveOrder = this.dataGridView1.CurrentRow.Cells["MoveOrder"].Value.ToString();
+                            this.SpMoveOrderApproved = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipCheckerApproved"].Value.ToString();
+                            this.SpMoveOrderSlipDispatch = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipDispatch"].Value.ToString();
                         }
                     }
                 }
