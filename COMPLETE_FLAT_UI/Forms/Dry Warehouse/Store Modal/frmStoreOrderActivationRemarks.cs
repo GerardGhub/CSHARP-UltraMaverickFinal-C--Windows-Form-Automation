@@ -28,7 +28,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         int temp_hid = 0;
         DateTime dNow = DateTime.Now;
         Boolean ready = false;
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         DataSet dSet_temp = new DataSet();
         public frmStoreOrderActivationRemarks()
@@ -145,70 +145,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtmatRemarks.Select();
             this.txtmatRemarks.Focus();
         }
-        public void FillRequiredFields()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Fill up the required fields!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public void DataAlreadyExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Data Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+      
+        
 
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             if (this.txtmatRemarks.Text == String.Empty)
             {
-                this.FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.txtmatRemarks.Focus();
                 return;
             }
             else if (this.matcmbType.Text == String.Empty)
             {
-                this.FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.matcmbType.Focus();
                 return;
             }
@@ -220,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                this.DataAlreadyExist();
+                this.GlobalStatePopup.DataAlreadyExist();
 
                 this.txtmatRemarks.Text = String.Empty;
                 this.matcmbType.Text = String.Empty;
@@ -234,32 +184,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void UpdateNotifications()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
         private void SaveProcessClicker()
         {
             //Start
@@ -267,7 +191,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 if (this.txtmatRemarks.Text.Trim() == string.Empty)
                 {
-                    this.FillRequiredFields();
+                    this.GlobalStatePopup.FillRequiredFields();
                     this.txtmatRemarks.Focus();
                     return;
                 }
@@ -281,7 +205,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         if (tmode == "add")
                         {
                             dgvAVGOrderTrend.CurrentCell = dgvAVGOrderTrend[0, dgvAVGOrderTrend.Rows.Count - 1];
-                            this.UpdateNotifications();
+                            this.GlobalStatePopup.CommittedSuccessFully();
                         }
                         else
                         {
@@ -289,7 +213,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                         }
                         this.matBtnCancel_Click(new object(), new System.EventArgs());
-                        this.UpdateNotifications();
+                        this.GlobalStatePopup.CommittedSuccessFully();
                     }
                     else
 
@@ -308,14 +232,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (this.txtmatRemarks.Text.Trim() == string.Empty)
             {
-                this.FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.txtmatRemarks.Focus();
             }
             else
             {
                 if (this.saveMode())
                 {
-                    this.DataAlreadyExist();
+                    this.GlobalStatePopup.DataAlreadyExist();
                     string tmode = mode;
 
                     if (tmode == "add")
@@ -342,12 +266,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_store_order_activation_remarks(0, this.txtmatRemarks.Text.Trim(), 
-                    this.matcmbType.Text.Trim(), "", "", "", "", "getbyname");
+                dSet = objStorProc.sp_store_order_activation_remarks(0, 
+                    this.txtmatRemarks.Text.Trim(), 
+                    this.matcmbType.Text.Trim(),
+                    "",
+                    "",
+                    "",
+                    "",
+                    "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    this.DataAlreadyExist();
+                    this.GlobalStatePopup.DataAlreadyExist();
 
                     this.txtmatRemarks.Text = string.Empty;
                     this.txtmatRemarks.Focus();
@@ -394,19 +324,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
                     if (tmpID == p_id)
                     {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_store_order_activation_remarks(p_id,
-                            this.txtmatRemarks.Text.Trim(),
-                            this.matcmbType.Text.Trim(),
-                            this.sp_added_by,
-                            this.sp_date_added,
-                           this.sp_updated_by,
-                            this.sp_updated_date, "edit");
-                        this.UpdateNotifications();
-                        this.ShowDataStoreOrderActivationRemarks();
-                        this.mode = "";
-                        matBtnCancel_Click(new object(), new System.EventArgs());
-                        return true;
+                    dSet.Clear();
+                    dSet = objStorProc.sp_store_order_activation_remarks(p_id,
+                    this.txtmatRemarks.Text.Trim(),
+                    this.matcmbType.Text.Trim(),
+                    this.sp_added_by,
+                    this.sp_date_added,
+                    this.sp_updated_by,
+                    this.sp_updated_date,
+                    "edit");
+                    this.GlobalStatePopup.CommittedSuccessFully();
+                    this.ShowDataStoreOrderActivationRemarks();
+                    this.mode = "";
+                    matBtnCancel_Click(new object(), new System.EventArgs());
+                    return true;
                     }
                     else
                     {
@@ -418,18 +349,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_store_order_activation_remarks(p_id,
-                        this.txtmatRemarks.Text.Trim(),
-                        this.matcmbType.Text.Trim(),
-                        this.sp_added_by,
-                        this.sp_date_added,
-                       this.sp_updated_by,
-                        this.sp_updated_date, "edit");
-                    this.UpdateNotifications();
-                    this.ShowDataStoreOrderActivationRemarks();
-                    this.mode = "";
-                    matBtnCancel_Click(new object(), new System.EventArgs());
+                dSet.Clear();
+                dSet = objStorProc.sp_store_order_activation_remarks(p_id,
+                this.txtmatRemarks.Text.Trim(),
+                this.matcmbType.Text.Trim(),
+                this.sp_added_by,
+                this.sp_date_added,
+                this.sp_updated_by,
+                this.sp_updated_date, "edit");
+                this.GlobalStatePopup.UpdatedSuccessfully();
+                this.ShowDataStoreOrderActivationRemarks();
+                this.mode = "";
+                matBtnCancel_Click(new object(), new System.EventArgs());
                 }
             }
             else if (this.mode == "delete")
@@ -440,28 +371,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.sp_bind_selected == "1")
                 {
 
-                    dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_store_order_activation_remarks(p_id, 
-                        this.txtmatRemarks.Text.Trim(),
-                        this.matcmbType.Text.Trim(), "", "", this.sp_updated_by, this.sp_updated_date, "delete");
+                dSet_temp.Clear();
+                dSet_temp = objStorProc.sp_store_order_activation_remarks(p_id, 
+                this.txtmatRemarks.Text.Trim(),
+                this.matcmbType.Text.Trim(),
+                "",
+                "",
+                this.sp_updated_by, 
+                this.sp_updated_date,
+                "delete");
 
-                    return true;
+                return true;
                 }
                 else
                 {
-                    dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_store_order_activation_remarks(p_id, 
-                        this.txtmatRemarks.Text.Trim(),
-                        this.matcmbType.Text.Trim(), "", "", 
-                        this.sp_updated_by, 
-                        this.sp_updated_date, 
-                        "delete_activation");
-                    this.matRadioActive.Checked = true;
-                    return true;
+                dSet_temp.Clear();
+                dSet_temp = objStorProc.sp_store_order_activation_remarks(p_id, 
+                this.txtmatRemarks.Text.Trim(),
+                this.matcmbType.Text.Trim(), "", "", 
+                this.sp_updated_by, 
+                this.sp_updated_date, 
+                "delete_activation");
+                this.matRadioActive.Checked = true;
+                return true;
                 }
             }
             return false;
         }
+
+
 
         private void matBtnCancel_Click(object sender, EventArgs e)
         {
@@ -492,11 +430,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.sp_updated_date = (dNow.ToString("M/d/yyyy"));
             this.sp_updated_by = userinfo.emp_name.ToUpper();
             //Button Controls Visibility
-            matBtnDelete.Visible = false;
-            matBtnCancel.Visible = true;
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            matBtnSave.Visible = true;
+            this.matBtnDelete.Visible = false;
+            this.matBtnCancel.Visible = true;
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+            this.matBtnSave.Visible = true;
             //Button Enabled and TextBox
             this.txtmatRemarks.Enabled = true;
             this.matcmbType.Enabled = true;
@@ -550,65 +488,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             }
         }
-        public void InactiveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Inactive";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+      
 
 
 
-        public void ActivatedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Activated";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+     
         private void matBtnDelete_Click(object sender, EventArgs e)
         {
             //Start
@@ -617,14 +501,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the information?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         mode = "delete";
 
                         if (this.saveMode())
                         {
-                            this.InactiveSuccessfully();
+                            this.GlobalStatePopup.InactiveSuccessfully();
                             this.ShowDataStoreOrderActivationRemarks();
                             this.matBtnCancel_Click("", e);
                         }
@@ -643,14 +527,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the information", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         this.mode = "delete";
 
                         if (this.saveMode())
                         {
-                            this.ActivatedSuccessfully();
+                            this.GlobalStatePopup.ActivatedSuccessfully();
                             this.ShowDataStoreOrderActivationRemarks();
 
                             this.matBtnCancel_Click("", e);

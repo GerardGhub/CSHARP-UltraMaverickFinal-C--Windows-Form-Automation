@@ -52,8 +52,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lblArrayPrepaDateStatus.Text = Sp_PrepaDate_BindingSource;
             this.Sp_Category = Sp_Category;
             this.modeprestine = "";
-            //MessageBox.Show(this.Sp_Category);
-            //return;
+          
 
         }
 
@@ -207,7 +206,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                         if (modeprestine !="executed")
                         {
-                            if (MetroFramework.MetroMessageBox.Show(this, "You have an existing category tagged, Do you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            if (MetroFramework.MetroMessageBox.Show(this, "Update the Preparation Date?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                             {
 
                                 this.mode = "good";
