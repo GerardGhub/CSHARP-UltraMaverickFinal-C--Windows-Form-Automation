@@ -283,7 +283,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 return;
             }
 
-            if(this.matBtnStatuses.Text == "DEACTIVATE")
+            if(this.matBtnStatuses.Text=="DEACTIVATE")
             {
 
         
@@ -296,7 +296,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.GlobalStatePopup.UpdatedSuccessfully();
                 this.matRadioNotActive.Checked = true;
             }
-            else
+                else if (this.matRadioNotActive.Checked == true)
+                {
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to Activate the " + sp_description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        this.dSet.Clear();
+                        this.dSet = objStorProc.sp_lot_management(p_id,
+                            this.sp_user_id, "LotDescription", "MajorCategoryId", "CreatedBY", "", "Sample", "", "activate");
+                        this.GlobalStatePopup.UpdatedSuccessfully();
+                        this.matRadioActive.Checked = true;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            //End of Else if fucking Sh!t
+                else
             {
                 return;
             }
@@ -306,21 +322,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-            if (this.matRadioNotActive.Checked == true)
-            {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to Activate the " + sp_description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    this.dSet.Clear();
-                    this.dSet = objStorProc.sp_lot_management(p_id,
-                        this.sp_user_id, "LotDescription", "MajorCategoryId", "CreatedBY", "", "Sample", "", "activate");
-                    this.GlobalStatePopup.UpdatedSuccessfully();
-                    this.matRadioActive.Checked = true;
-                }
-                else
-                {
-                    return;
-                }
-            }
+
 
 
 
