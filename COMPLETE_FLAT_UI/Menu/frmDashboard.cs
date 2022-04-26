@@ -49,19 +49,14 @@ namespace COMPLETE_FLAT_UI
             //pictureBox1.Padding = new Padding(0);
             this.ConnectionInit();
             this.showReceivingData();
-            dataGridView1.Visible = false;
-
-
-
-
-
+            this.dataGridView1.Visible = false;
             this.GetLabTestTransactions();
             //Hello
-        
-            //this.load_search();
-    
+
+            this.load_search();
+
         }
-        
+
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
@@ -71,7 +66,12 @@ namespace COMPLETE_FLAT_UI
             this.dset_emp1 = objStorProc.sp_getMajorTables("StoreOrderDashboard");
             this.mode = "Search1";
             this.doSearch();
-            this.GetStoreOrder();
+            if(this.SPRowCountOfStoreDatagrid != "0")
+            {
+                this.GetStoreOrder();
+                //this.bunifuPrepaDate_ValueChanged(this, new EventArgs());
+            }
+           
 
         }
 
@@ -87,11 +87,12 @@ namespace COMPLETE_FLAT_UI
                         {
                             dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'  ";
                         }
-                       
-                 
+                                      
                     this.dataGridView1.DataSource = dv;
-                    //this.lbltotaldata.Text = dataGridView1.RowCount.ToString();
+                
                     this.SPRowCountOfStoreDatagrid = dataGridView1.RowCount.ToString();
+                    //MessageBox.Show(this.SPRowCountOfStoreDatagrid);
+                    //return;
                     if (this.SPRowCountOfStoreDatagrid == "0")
                     {
                         this.GlobalStatePopup.NoDataFound();
@@ -140,13 +141,11 @@ namespace COMPLETE_FLAT_UI
             Dispatching = double.Parse(this.SpMoveOrderSlipDispatch);
 
             chart4.Series["Series1"].Points.Clear();
-
-
-            chart4.Series["Series1"].Points.AddXY("Preparation", Preparation);
-
-            chart4.Series["Series1"].Points.AddXY("Move Order", MoveOrder);
-            chart4.Series["Series1"].Points.AddXY("Move Order Approval", MoveOrderApproval);
-            chart4.Series["Series1"].Points.AddXY("Dispatching", Dispatching);
+            //Initialization of the fucking system
+            chart4.Series["Series1"].Points.AddXY("Preparation ("+Preparation+")", Preparation);
+            chart4.Series["Series1"].Points.AddXY("Move Order (" + MoveOrder + ")", MoveOrder);
+            chart4.Series["Series1"].Points.AddXY("Move Order Approval (" + MoveOrderApproval + ")", MoveOrderApproval);
+            chart4.Series["Series1"].Points.AddXY("Dispatching (" + Dispatching + ")", Dispatching);
 
         }
 
@@ -186,9 +185,9 @@ namespace COMPLETE_FLAT_UI
             try
             {
            
-                this.xClass.fillDataGridView(dataGridView1, "Po_Receiving_Warehouse", dSet);
+                this.xClass.fillDataGridView(this.dataGridView1, "Po_Receiving_Warehouse", dSet);
           
-                this.lbltotalReceiving.Text = dataGridView1.RowCount.ToString();
+                this.lbltotalReceiving.Text = this.dataGridView1.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -284,35 +283,37 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+      
 
         private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
         {
+            this.ConnectionInit();
             this.load_search();
         }
 
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (this.mode == "Search1")
+            if (this.SPRowCountOfStoreDatagrid != "0")
             {
-                if (this.dataGridView1.Rows.Count > 0)
+                if (this.mode == "Search1")
                 {
-                    if (this.dataGridView1.CurrentRow != null)
+                    if (this.dataGridView1.Rows.Count > 0)
                     {
-                        if (this.dataGridView1.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
+                        if (this.dataGridView1.CurrentRow != null)
                         {
+                            if (this.dataGridView1.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
+                            {
 
-                            this.SpCategoryPreparation = this.dataGridView1.CurrentRow.Cells["Preparation"].Value.ToString();
-                            this.SpMoveOrder = this.dataGridView1.CurrentRow.Cells["MoveOrder"].Value.ToString();
-                            this.SpMoveOrderApproved = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipCheckerApproved"].Value.ToString();
-                            this.SpMoveOrderSlipDispatch = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipDispatch"].Value.ToString();
+                                this.SpCategoryPreparation = this.dataGridView1.CurrentRow.Cells["Preparation"].Value.ToString();
+                                this.SpMoveOrder = this.dataGridView1.CurrentRow.Cells["MoveOrder"].Value.ToString();
+                                this.SpMoveOrderApproved = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipCheckerApproved"].Value.ToString();
+                                this.SpMoveOrderSlipDispatch = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipDispatch"].Value.ToString();
+                            }
                         }
                     }
                 }
             }
+            //End of Transactions
         }
     }
 }

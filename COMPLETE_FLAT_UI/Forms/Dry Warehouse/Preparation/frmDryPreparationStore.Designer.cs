@@ -52,8 +52,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioPrevious = new MaterialSkin.Controls.MaterialButton();
             this.matRadioNext = new MaterialSkin.Controls.MaterialButton();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.matCmbPreparationDate = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
@@ -100,8 +98,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matViewItemPrepared = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard4.SuspendLayout();
@@ -175,8 +171,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard3.Controls.Add(this.matRadioPrevious);
             this.materialCard3.Controls.Add(this.matRadioNext);
-            this.materialCard3.Controls.Add(this.pictureBox4);
-            this.materialCard3.Controls.Add(this.pictureBox1);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard3.Location = new System.Drawing.Point(743, 5);
@@ -226,26 +220,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matRadioNext.UseAccentColor = false;
             this.matRadioNext.UseVisualStyleBackColor = true;
             this.matRadioNext.Click += new System.EventHandler(this.matRadioNext_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ULTRAMAVERICK.Properties.Resources.gceERxXri;
-            this.pictureBox4.Location = new System.Drawing.Point(123, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(79, 45);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 658;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ULTRAMAVERICK.Properties.Resources.gceERxXri;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 660;
-            this.pictureBox1.TabStop = false;
             // 
             // matCmbPreparationDate
             // 
@@ -1016,8 +990,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.materialCard1.PerformLayout();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).EndInit();
             this.materialCard4.ResumeLayout(false);
@@ -1059,9 +1031,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn codes;
         private System.Windows.Forms.Label label5;
         private MaterialSkin.Controls.MaterialButton matRadioNext;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private MaterialSkin.Controls.MaterialButton matRadioPrevious;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialButton matbtnSave;
         private MaterialSkin.Controls.MaterialButton matViewItemPrepared;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
