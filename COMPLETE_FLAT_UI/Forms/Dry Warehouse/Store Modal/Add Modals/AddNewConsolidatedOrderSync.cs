@@ -74,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
         {
             this.bunifuTimeFrom.Format = DateTimePickerFormat.Time;
             this.bunifuTimeFromTo.Format = DateTimePickerFormat.Time;
-            this.bunifuTimeFromTo.Text = "11:59:00 pm";
+            this.bunifuTimeFromTo.Text = "03:00:00 pm";
         }
 
         private void AddNewConsolidatedOrderSync_FormClosed(object sender, FormClosedEventArgs e)

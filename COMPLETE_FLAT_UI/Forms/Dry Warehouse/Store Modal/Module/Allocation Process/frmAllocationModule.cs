@@ -526,13 +526,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             if(this.lbltotalStoreOrder.Text == "0")
             {
                 this.lblvariancedesc.Visible = false;
-                    this.lblvariancedesc.Visible = false;
-
+                this.lblvariancedesc.Visible = false;
+                this.lblvariance.Visible = false;
             }
             else
             {
                 this.lblvariancedesc.Visible = true;
                 this.lblvariancedesc.Visible = true;
+                this.lblvariance.Visible = true;
             }
 
         }
