@@ -97,7 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["Count"].Visible = false;
+                //this.dgvStoreOrderApproval.Columns["Count"].Visible = false;
             }
 
           
@@ -298,7 +298,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
             ////top to bottom
-            this.CurrentCellChangeofDgvStoreOrderApproval();
+            if(this.lbltotalStoreforPreparation.Text != "0")
+            {
+                this.CurrentCellChangeofDgvStoreOrderApproval();
+         
+
 
 
 
@@ -328,6 +332,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.PreparationValidationRequiredToSave();
             this.PartialReceivingAwaitResponse();
 
+                //ending for Loop
+            }
 
         }
 
@@ -419,7 +425,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         //else
                         //{
                     
-                            dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' ";
+                            dv.RowFilter = "fox = '" + this.sp_fox + "' " +
+                            "and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' " +
+                            "and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' and category = '" + this.matcmbCategory.Text + "' ";
 
                     
 
@@ -492,14 +500,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
-            if (this.cmbArea.Text == String.Empty)
-            {
+            //if (this.cmbArea.Text == String.Empty)
+            //{
 
-            }
-            else
-            {
-                this.FormmLoadSearchState();
-            }
+            //}
+            //else
+            //{
+            //    this.FormmLoadSearchState();
+            //}
         }
 
 
@@ -1190,7 +1198,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void matcmbCategory_Click(object sender, EventArgs e)
         {
 
-            this.loadCategoryDropdown();
+            //this.loadCategoryDropdown();
         }
 
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1205,18 +1213,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void dgvStoreOrderApproval_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            //var grid = sender as DataGridView;
-            //var rowIdx = (e.RowIndex + 1).ToString();
+            var grid = sender as DataGridView;
+            var rowIdx = (e.RowIndex + 1).ToString();
 
-            //var centerFormat = new StringFormat()
-            //{
-            //    // right alignment might actually make more sense for numbers
-            //    Alignment = StringAlignment.Center,
-            //    LineAlignment = StringAlignment.Center
-            //};
+            var centerFormat = new StringFormat()
+            {
+                // right alignment might actually make more sense for numbers
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
 
-            //var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            //e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
 
         }
 
@@ -1236,6 +1244,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
+        {
+            matcmbCategory.Enabled = true;
+        }
+
+        private void materialButton1_Click_1(object sender, EventArgs e)
         {
             matcmbCategory.Enabled = true;
         }

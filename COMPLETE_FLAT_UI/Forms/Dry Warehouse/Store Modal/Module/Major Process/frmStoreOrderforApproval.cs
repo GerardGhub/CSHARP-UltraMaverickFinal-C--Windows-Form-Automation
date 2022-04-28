@@ -350,7 +350,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-
+        //Trace it 4/26/20211
         public void loadCategoryDropdown()
         {
             try
@@ -449,27 +449,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             //END
         }
-        private void LoadDataWithParamsOrders()
-        {
-            //this.ConnectionInit();
-            //MessageBox.Show(this.metroCmbStoreCode.Text);
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchStoreOrderforApproval", "All", this.matcmbCategory.Text, 0);
-            this.dgvStoreOrderApproval.DataSource = dset.Tables[0];
-            for (int i = 0; i <= dgvStoreOrderApproval.RowCount; i++)
-            {
-                try
-                {
-                    this.dgvStoreOrderApproval.Rows[i].Cells["selected"].Value = false;
-                }
-                catch (Exception) { }
-            }
-
-
-
-
-            this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-            //MessageBox.Show(this.metroCmbStoreCode.Text);
-        }
+     
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.selection_mode = "1";

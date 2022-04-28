@@ -61,10 +61,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             // 
             this.bunifuTimeFromTo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTimeFromTo.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuTimeFromTo.CustomFormat = "yyyy-MM-dd";
+            this.bunifuTimeFromTo.Checked = false;
+            this.bunifuTimeFromTo.CustomFormat = "hh:mm:ss";
             this.bunifuTimeFromTo.Enabled = false;
             this.bunifuTimeFromTo.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTimeFromTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuTimeFromTo.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.bunifuTimeFromTo.Location = new System.Drawing.Point(256, 77);
             this.bunifuTimeFromTo.Name = "bunifuTimeFromTo";
             this.bunifuTimeFromTo.ShowUpDown = true;

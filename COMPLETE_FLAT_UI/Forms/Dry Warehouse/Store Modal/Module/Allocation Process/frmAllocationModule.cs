@@ -584,6 +584,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["uom"].Style.SelectionForeColor = Color.Black;
                     row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
                     row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Red;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.ForeColor = Color.Red;
                     row.Cells["ALLOCATION_QTY_FIND"].Style.Font = new Font("Roboto", 10, FontStyle.Bold);
                     row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                 }
@@ -615,7 +616,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
                     row.Cells["uom"].Style.SelectionForeColor = Color.Black;
                     row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Crimson;
                     row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                 }
             }

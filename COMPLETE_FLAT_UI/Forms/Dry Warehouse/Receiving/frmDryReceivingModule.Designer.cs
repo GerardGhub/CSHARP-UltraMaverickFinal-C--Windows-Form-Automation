@@ -115,7 +115,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.mattxtbarcode);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(23, 78);
+            this.materialCard1.Location = new System.Drawing.Point(32, 78);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
@@ -142,7 +142,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Controls.Add(this.materialLabel1);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(22, 142);
+            this.materialCard2.Location = new System.Drawing.Point(31, 142);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
@@ -185,31 +185,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(254, 202);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(60, 13);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(62, 13);
             this.bunifuCustomLabel2.TabIndex = 31;
             this.bunifuCustomLabel2.Text = "Expiry Date";
             // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(10, 202);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(59, 13);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(67, 13);
             this.bunifuCustomLabel1.TabIndex = 30;
             this.bunifuCustomLabel1.Text = "MFTG. Date";
             // 
             // mattxtexpirydate
             // 
+            this.mattxtexpirydate.CalendarFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mattxtexpirydate.Enabled = false;
             this.mattxtexpirydate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.mattxtexpirydate.Location = new System.Drawing.Point(256, 223);
             this.mattxtexpirydate.MinimumSize = new System.Drawing.Size(0, 29);
             this.mattxtexpirydate.Name = "mattxtexpirydate";
-            this.mattxtexpirydate.Size = new System.Drawing.Size(213, 30);
+            this.mattxtexpirydate.Size = new System.Drawing.Size(213, 29);
             this.mattxtexpirydate.TabIndex = 29;
             // 
             // dgvMajorCategory
@@ -352,13 +353,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             // mattxtmfgdate
             // 
+            this.mattxtmfgdate.CalendarFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mattxtmfgdate.CalendarMonthBackground = System.Drawing.SystemColors.ControlDark;
             this.mattxtmfgdate.Enabled = false;
             this.mattxtmfgdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.mattxtmfgdate.Location = new System.Drawing.Point(8, 223);
             this.mattxtmfgdate.MinimumSize = new System.Drawing.Size(0, 29);
             this.mattxtmfgdate.Name = "mattxtmfgdate";
-            this.mattxtmfgdate.Size = new System.Drawing.Size(215, 30);
+            this.mattxtmfgdate.Size = new System.Drawing.Size(215, 29);
             this.mattxtmfgdate.TabIndex = 28;
             // 
             // mattxtcategory
@@ -501,7 +503,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard3.Controls.Add(this.materialLabel2);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(22, 419);
+            this.materialCard3.Location = new System.Drawing.Point(31, 419);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
@@ -744,7 +746,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtReceived.DrawShadows = true;
             this.mattxtReceived.HighEmphasis = true;
             this.mattxtReceived.Icon = null;
-            this.mattxtReceived.Location = new System.Drawing.Point(570, 673);
+            this.mattxtReceived.Location = new System.Drawing.Point(579, 673);
             this.mattxtReceived.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.mattxtReceived.MouseState = MaterialSkin.MouseState.HOVER;
             this.mattxtReceived.Name = "mattxtReceived";
@@ -764,7 +766,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matbtnCancel.DrawShadows = true;
             this.matbtnCancel.HighEmphasis = true;
             this.matbtnCancel.Icon = null;
-            this.matbtnCancel.Location = new System.Drawing.Point(669, 673);
+            this.matbtnCancel.Location = new System.Drawing.Point(678, 673);
             this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnCancel.Name = "matbtnCancel";
@@ -782,7 +784,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(318, 31);
+            this.textBox1.Location = new System.Drawing.Point(327, 31);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 595;
@@ -795,7 +797,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.crV1.ActiveViewIndex = -1;
             this.crV1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crV1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crV1.Location = new System.Drawing.Point(654, 31);
+            this.crV1.Location = new System.Drawing.Point(663, 31);
             this.crV1.Margin = new System.Windows.Forms.Padding(1);
             this.crV1.Name = "crV1";
             this.crV1.Size = new System.Drawing.Size(92, 47);
@@ -836,7 +838,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvReceivedID.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvReceivedID.EnableHeadersVisualStyles = false;
             this.dgvReceivedID.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvReceivedID.Location = new System.Drawing.Point(598, 25);
+            this.dgvReceivedID.Location = new System.Drawing.Point(607, 25);
             this.dgvReceivedID.MultiSelect = false;
             this.dgvReceivedID.Name = "dgvReceivedID";
             this.dgvReceivedID.ReadOnly = true;
@@ -895,7 +897,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 768);
+            this.ClientSize = new System.Drawing.Size(792, 768);
             this.Controls.Add(this.dgvReceivedID);
             this.Controls.Add(this.crV1);
             this.Controls.Add(this.textBox1);

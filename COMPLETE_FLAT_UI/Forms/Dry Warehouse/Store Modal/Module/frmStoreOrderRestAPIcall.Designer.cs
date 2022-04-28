@@ -183,7 +183,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.date_ordered.MinimumWidth = 12;
             this.date_ordered.Name = "date_ordered";
             this.date_ordered.ReadOnly = true;
-            this.date_ordered.Width = 128;
+            this.date_ordered.Width = 126;
             // 
             // id
             // 
@@ -192,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 49;
+            this.id.Width = 47;
             // 
             // store_code
             // 
@@ -201,7 +201,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.store_code.HeaderText = "STORE CODE";
             this.store_code.Name = "store_code";
             this.store_code.ReadOnly = true;
-            this.store_code.Width = 129;
+            this.store_code.Width = 127;
             // 
             // store_name
             // 
@@ -210,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.store_name.MinimumWidth = 12;
             this.store_name.Name = "store_name";
             this.store_name.ReadOnly = true;
-            this.store_name.Width = 84;
+            this.store_name.Width = 82;
             // 
             // route
             // 
@@ -218,7 +218,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.route.HeaderText = "ROUTE";
             this.route.Name = "route";
             this.route.ReadOnly = true;
-            this.route.Width = 84;
+            this.route.Width = 82;
             // 
             // area
             // 
@@ -226,7 +226,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.area.HeaderText = "AREA";
             this.area.Name = "area";
             this.area.ReadOnly = true;
-            this.area.Width = 73;
+            this.area.Width = 71;
             // 
             // category
             // 
@@ -234,7 +234,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.category.HeaderText = "CATEGORY";
             this.category.Name = "category";
             this.category.ReadOnly = true;
-            this.category.Width = 114;
+            this.category.Width = 112;
             // 
             // item_code
             // 
@@ -242,7 +242,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.item_code.HeaderText = "ITEM CODE";
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 116;
+            this.item_code.Width = 114;
             // 
             // description
             // 
@@ -250,7 +250,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.description.HeaderText = "DESCRIPTION";
             this.description.Name = "description";
             this.description.ReadOnly = true;
-            this.description.Width = 134;
+            this.description.Width = 132;
             // 
             // uom
             // 
@@ -258,7 +258,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.uom.HeaderText = "UOM";
             this.uom.Name = "uom";
             this.uom.ReadOnly = true;
-            this.uom.Width = 69;
+            this.uom.Width = 67;
             // 
             // qty
             // 
@@ -266,7 +266,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.qty.HeaderText = "QUANTITY ORDER";
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
-            this.qty.Width = 165;
+            this.qty.Width = 163;
             // 
             // lbltotalrecords
             // 
@@ -510,6 +510,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialCard1);
+            this.MaximizeBox = false;
             this.Name = "frmStoreOrderRestAPIcall";
             this.Text = "Store Order REST-API";
             this.Load += new System.EventHandler(this.frmStoreOrderRestAPIcall_Load);

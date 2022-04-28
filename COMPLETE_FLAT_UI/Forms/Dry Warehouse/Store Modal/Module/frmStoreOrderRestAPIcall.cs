@@ -98,27 +98,37 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void ValidateTheFuckingCutOfftimeWithButtonControlls()
         {
-            
-            TimeSpan start;
-            TimeSpan now;
-            TimeSpan end;
-            start = DateTime.ParseExact(DateFrom, "h:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
-            end = DateTime.ParseExact(DateTo, "hh:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
-            now = DateTime.ParseExact(this.matlblTime.Text, "hh:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
 
-        
-            if ((now > start) && (now < end))
+            try
             {
-                //match found
-                //MessageBox.Show("Pukenism");
-                this.matbtnUpload.Enabled = true;
-            }
-            else
+                TimeSpan start;
+                TimeSpan now;
+                TimeSpan end;
+                start = DateTime.ParseExact(DateFrom, "h:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
+                end = DateTime.ParseExact(DateTo, "hh:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
+                now = DateTime.ParseExact(this.matlblTime.Text, "hh:mm:ss tt", CultureInfo.InvariantCulture).TimeOfDay;
 
-            {
-                //MessageBox.Show("Bilatnism");
-                this.matbtnUpload.Enabled = false;
+
+                if ((now > start) && (now < end))
+                {
+                    //match found
+                    //MessageBox.Show("Pukenism");
+                    this.matbtnUpload.Enabled = true;
+                }
+                else
+
+                {
+                    //MessageBox.Show("Bilatnism");
+                    this.matbtnUpload.Enabled = false;
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+         
         }
 
 

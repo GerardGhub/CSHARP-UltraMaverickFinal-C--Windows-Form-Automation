@@ -353,6 +353,23 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
+
+
+
+
+            foreach (DataGridViewRow row in dgvRawMats.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.ColumnIndex == 0) //Set your Column Index
+                    {
+                       row.Cells["RowSelectedCheckBox"].Value = false;
+
+                    }
+
+                  
+                }
+            }
             this.showValueCell();
             //this.AutoGeneratingLabAccessCode();
 
@@ -410,7 +427,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         //this.SpItemImage = this.dgvRawMats.CurrentRow.Cells["item_image"].Value.ToString();
                         this.SpTotalLabtestRecords = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecords"].Value.ToString();
                         this.SpTotalLabtestRecordsCount = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecordsCount"].Value.ToString();
-
+                        dgvRawMats.CurrentRow.Cells["RowSelectedCheckBox"].Value = true;
                     }
                 }
             }
@@ -518,9 +535,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.btnCancelLabRequest.Enabled = true;
             }
 
-            //3
-            if (this.SpLabResultRemarks != "0")
+            //3this.SpLabResultRemarks != "0" 
+            if (this.SpLabResultRemarks != "N/A")
             {
+           
                 this.WizardBalloon3.Image = Properties.Resources.completed;
                 this.WizardBalloon4.Image = Properties.Resources.current;
                 this.lblPattern3.Visible = true;
@@ -924,6 +942,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     row.Cells["AGING"].Style.SelectionForeColor = Color.White;
                     row.Cells["lab_result_remarks"].Style.SelectionForeColor = Color.White;
                 }
+
+                if (Convert.ToString(row.Cells["lab_result_remarks"].Value) == "0" )
+                {
+                    row.Cells["lab_result_remarks"].Value = "N/A";
+                    //row.Cells["lab_result_remarks"].Visible.Equals(false);
+                }
+           
+
             }
 
 
