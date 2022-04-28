@@ -702,6 +702,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     if (ActualQuantityReleased == 0)
                     {
+                        //MessageBox.Show(this.Sp_Material_Id.ToString());
+                        //return;
+                        //hjgj
                         //Bulk Repack Based on Order
                         dSet.Clear();
                         dSet = objStorProc.sp_Store_Preparation_Logs(0,
@@ -711,9 +714,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.matTxtDescription.Text,
                         this.matTxtOrderQty.Text,
                         this.mattxtQtyServe.Text,
-                        "", this.Sp_User_ID.ToString(),
+                        "",
+                        this.Sp_User_ID.ToString(),
                         Convert.ToInt32(this.Sp_Material_Id),
-                        this.sp_Fox, this.sp_Route, this.sp_Area,
+                        this.sp_Fox,
+                        this.sp_Route, 
+                        this.sp_Area,
                         "bulk_produce_store_timestamp");
 
 
@@ -734,11 +740,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.matTxtDescription.Text,
                     this.matTxtOrderQty.Text,
                     this.mattxtQtyServe.Text,
-                    "", this.Sp_User_ID.ToString(),
+                    "",
+                    this.Sp_User_ID.ToString(),
                     Convert.ToInt32(this.Sp_Material_Id),
-                    this.sp_Fox, this.sp_Route, this.sp_Area,
+                    this.sp_Fox,
+                    this.sp_Route,
+                    this.sp_Area,
                     "start_dry_orders_store_timestamp");
-
+                
                     //Bulk Update Start Whole Store Repository
                     this.BulkSaveEntryIntoStoredProc();
 
@@ -789,7 +798,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void BulkSaveEntryIntoStoredProc()
         {
-            //Bulk Update Start Whole Store Repository
+            //Bulk Update Start Whole Store Repository   Remove Error on 04/28/2022
             dSet.Clear();
             dSet = objStorProc.sp_Store_Preparation_Logs(0,
             this.Sp_Barcode_Id,
@@ -798,9 +807,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matTxtDescription.Text,
             this.matTxtOrderQty.Text,
             this.mattxtQtyServe.Text,
-            "", this.Sp_User_ID.ToString(),
+            this.Sp_Category,
+            this.Sp_User_ID.ToString(),
             Convert.ToInt32(this.Sp_Material_Id),
-            this.sp_Fox, this.sp_Route, this.sp_Area,
+            this.sp_Fox,
+            this.sp_Route,
+            this.sp_Area,
             "start_dry_orders_store_timestamp_overall");
         }
 

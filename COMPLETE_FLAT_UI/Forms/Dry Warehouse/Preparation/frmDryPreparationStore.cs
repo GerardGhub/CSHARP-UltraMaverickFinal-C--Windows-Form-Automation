@@ -122,6 +122,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void FormmLoadSearchState()
         {
+       
             try
             {
 
@@ -132,16 +133,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     try
                     {
+           
+
                         //Start
                         if (this.cmbArea.Text == String.Empty)
                         {
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
-
+                            //MessageBox.Show("Meron" + this.Sp_AssigneD_Task_By +"");
                         }
                         else
                         {
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'  and area = '" + this.cmbArea.Text + "'    ";
-
+                            //MessageBox.Show("Wala");
                         }
 
                         //start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' and category = '" +this.matcmbCategory.Text+"'  or start_by_user_id = '0'
@@ -297,11 +300,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
+            //return;
             ////top to bottom
-            if(this.lbltotalStoreforPreparation.Text != "0")
-            {
+            //if(this.lbltotalStoreforPreparation.Text != "0")
+            //{
                 this.CurrentCellChangeofDgvStoreOrderApproval();
-         
+
 
 
 
@@ -318,7 +322,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 myglobal.global_module = "Active"; // Mode for Searching
             }
+      
             this.doSearchInTextBoxCmb();
+            return;
             if (this.lbltotaldata.Text != "0")
             {
                 this.MaterialDatagridColumnVisibilittyFalse(); //pako
@@ -333,7 +339,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.PartialReceivingAwaitResponse();
 
                 //ending for Loop
-            }
+            
 
         }
 
@@ -425,12 +431,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         //else
                         //{
                     
-                            dv.RowFilter = "fox = '" + this.sp_fox + "' " +
-                            "and route = '" + this.sp_route + "' and area = '" + this.sp_area + "' " +
-                            "and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' and category = '" + this.matcmbCategory.Text + "' ";
+                            dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "'   " + 
+                            "and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  ";
 
-                    
 
+                        //and category = '" + this.matcmbCategory.Text + "'
                     }
 
                     this.guna2DgvMaterialPreparation.DataSource = dv;
@@ -1198,7 +1203,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void matcmbCategory_Click(object sender, EventArgs e)
         {
 
-            //this.loadCategoryDropdown();
+            this.loadCategoryDropdown();
         }
 
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
