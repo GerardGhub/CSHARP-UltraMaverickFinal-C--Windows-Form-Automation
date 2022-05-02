@@ -30,6 +30,8 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation;
 using ULTRAMAVERICK.BaseWPFControls;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching;
 using ULTRAMAVERICK.Forms.Lab_Test;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Miscellaneous;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1152,7 +1154,7 @@ namespace COMPLETE_FLAT_UI
         private void toolModuleRawMaterialsDry_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmDryRawMaterials fm = new frmDryRawMaterials();
+            frmDryMiscellaneouseIssue fm = new frmDryMiscellaneouseIssue();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -1399,10 +1401,16 @@ namespace COMPLETE_FLAT_UI
 
             //Research And Development
             toolPreparation.Visible = false;
+            //Receiving Collection
             this.toolReceiving.Visible = false;
+            //Store Collection
             this.toolStore.Visible = false;
+            //Raw Materials Per Items
             toolStripRawMaterials.Visible = false;
+            //Import Collection
             toolImportDry.Visible = false;
+            //Miscellaneouse Receipt
+            this.toolStripMoveOrder.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
             this.timeSubMenuIn.Start();
        
@@ -1411,16 +1419,23 @@ namespace COMPLETE_FLAT_UI
         private void btnDryWarehouse1_Click(object sender, EventArgs e)
         {
             this.panelMenuSelection.Visible = true;
-
+            //Raw Material Collection
             this.toolStripRawMaterials.Visible = false;
             this.SubMenu();
             this.toolDropdownMenu.Visible = false;
+            //User Data Collection
             this.toolDropdownUser.Visible = false;
             //Research And Development
+            //RM Preparation
             this.toolPreparation.Visible = true;
+            //Raw Materials Collection
             this.toolStripRawMaterials.Visible = false;
+            //Inventory Viewing
             this.toolStripInventoryDry.Visible = true;
+            //Store Collections
             this.toolStore.Visible = false;
+            //Miscellaneouse Receipt
+            this.toolStripMoveOrder.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = true;
             this.timeSubMenuIn.Start();
 
@@ -1541,7 +1556,10 @@ namespace COMPLETE_FLAT_UI
             toolPreparation.Visible = false;
             this.toolStripRawMaterials.Visible = true;
             this.toolImportDry.Visible = false;
+            //Store Collection
             this.toolStore.Visible = true;
+            //Miscellaneouse Receipt
+            this.toolStripMoveOrder.Visible = true;
             this.toolStripInventoryDry.Visible = false;
             this.toolReceiving.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
@@ -1700,6 +1718,22 @@ namespace COMPLETE_FLAT_UI
         {
             this.showLabTestForReceiving();
             MessageBox.Show(TotalLabTestReceivingViewing);
+        }
+
+        private void tSReceipt_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmDryWarehouses Warehouses = new frmDryWarehouses();
+            Warehouses.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(Warehouses);
+        }
+
+        private void TsIssue_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmDryMiscellanouseIssue DryIssue = new frmDryMiscellanouseIssue();
+            DryIssue.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(DryIssue);
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

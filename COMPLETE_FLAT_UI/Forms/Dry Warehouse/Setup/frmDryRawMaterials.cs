@@ -14,7 +14,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
-    public partial class frmDryRawMaterials : MaterialForm
+    public partial class frmDryMiscellaneouseIssue : MaterialForm
     {
         myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         DataSet dSet_temp = new DataSet();
-        public frmDryRawMaterials()
+        public frmDryMiscellaneouseIssue()
         {
             InitializeComponent();
         }

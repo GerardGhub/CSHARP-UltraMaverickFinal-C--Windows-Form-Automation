@@ -18,7 +18,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmAddNewItemModal : MaterialForm
     {
-        frmDryRawMaterials ths;
+        frmDryMiscellaneouseIssue ths;
         myclasses xClass = new myclasses();
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
@@ -27,7 +27,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
-        public frmAddNewItemModal(frmDryRawMaterials frm, string created_by)
+        public frmAddNewItemModal(frmDryMiscellaneouseIssue frm, string created_by)
         {
             InitializeComponent();
             ths = frm;

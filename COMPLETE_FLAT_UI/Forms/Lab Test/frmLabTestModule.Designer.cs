@@ -50,6 +50,24 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matItemDateLastUsed = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.RowSelectedCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remaining_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exp_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STANDARDEXPIRYDAYS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HISTORY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AGING = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_exp_date_extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_result_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_sub_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.laboratory_procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qa_supervisor_is_approve_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
@@ -71,24 +89,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.WizardBalloon3 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.WizardBalloon2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.WizardBalloon1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.RowSelectedCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_received = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remaining_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exp_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STANDARDEXPIRYDAYS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HISTORY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AGING = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_exp_date_extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_result_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_sub_remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.laboratory_procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qa_supervisor_is_approve_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -355,7 +355,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -443,6 +443,157 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRawMats.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRawMats_CellFormatting);
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
+            // 
+            // RowSelectedCheckBox
+            // 
+            this.RowSelectedCheckBox.DataPropertyName = "RowSelectedCheckBox";
+            this.RowSelectedCheckBox.HeaderText = "*";
+            this.RowSelectedCheckBox.Name = "RowSelectedCheckBox";
+            this.RowSelectedCheckBox.ReadOnly = true;
+            this.RowSelectedCheckBox.Width = 22;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 49;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 59.93546F;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 106;
+            // 
+            // item_description
+            // 
+            this.item_description.DataPropertyName = "item_description";
+            this.item_description.FillWeight = 97.00433F;
+            this.item_description.HeaderText = "DESCRIPTION";
+            this.item_description.MinimumWidth = 12;
+            this.item_description.Name = "item_description";
+            this.item_description.ReadOnly = true;
+            this.item_description.Width = 134;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 114;
+            // 
+            // qty_received
+            // 
+            this.qty_received.DataPropertyName = "qty_received";
+            this.qty_received.FillWeight = 77.07378F;
+            this.qty_received.HeaderText = "QTY RECEIVED";
+            this.qty_received.MinimumWidth = 12;
+            this.qty_received.Name = "qty_received";
+            this.qty_received.ReadOnly = true;
+            this.qty_received.Width = 129;
+            // 
+            // remaining_qty
+            // 
+            this.remaining_qty.DataPropertyName = "remaining_qty";
+            this.remaining_qty.HeaderText = "QTY";
+            this.remaining_qty.Name = "remaining_qty";
+            this.remaining_qty.ReadOnly = true;
+            this.remaining_qty.Width = 65;
+            // 
+            // exp_date
+            // 
+            this.exp_date.DataPropertyName = "exp_date";
+            this.exp_date.HeaderText = "EXPIRATION DATE";
+            this.exp_date.Name = "exp_date";
+            this.exp_date.ReadOnly = true;
+            this.exp_date.Width = 150;
+            // 
+            // DAYSTOEXPIRED
+            // 
+            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.HeaderText = "EXPIRY DAYS";
+            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.ReadOnly = true;
+            this.DAYSTOEXPIRED.Width = 120;
+            // 
+            // STANDARDEXPIRYDAYS
+            // 
+            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
+            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
+            this.STANDARDEXPIRYDAYS.ReadOnly = true;
+            this.STANDARDEXPIRYDAYS.Width = 161;
+            // 
+            // lab_status
+            // 
+            this.lab_status.DataPropertyName = "lab_status";
+            this.lab_status.HeaderText = "STATUS";
+            this.lab_status.Name = "lab_status";
+            this.lab_status.ReadOnly = true;
+            this.lab_status.Width = 92;
+            // 
+            // HISTORY
+            // 
+            this.HISTORY.DataPropertyName = "HISTORY";
+            this.HISTORY.HeaderText = "HISTORY";
+            this.HISTORY.Name = "HISTORY";
+            this.HISTORY.ReadOnly = true;
+            // 
+            // AGING
+            // 
+            this.AGING.DataPropertyName = "AGING";
+            this.AGING.HeaderText = "AGING";
+            this.AGING.Name = "AGING";
+            this.AGING.ReadOnly = true;
+            this.AGING.Width = 81;
+            // 
+            // lab_exp_date_extension
+            // 
+            this.lab_exp_date_extension.DataPropertyName = "lab_exp_date_extension";
+            this.lab_exp_date_extension.HeaderText = "EXTENSION DATE";
+            this.lab_exp_date_extension.Name = "lab_exp_date_extension";
+            this.lab_exp_date_extension.ReadOnly = true;
+            this.lab_exp_date_extension.Width = 148;
+            // 
+            // lab_result_remarks
+            // 
+            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
+            this.lab_result_remarks.HeaderText = "REMARKS";
+            this.lab_result_remarks.Name = "lab_result_remarks";
+            this.lab_result_remarks.ReadOnly = true;
+            this.lab_result_remarks.Width = 107;
+            // 
+            // lab_sub_remarks
+            // 
+            this.lab_sub_remarks.DataPropertyName = "lab_sub_remarks";
+            this.lab_sub_remarks.HeaderText = "SUB REMARKS";
+            this.lab_sub_remarks.Name = "lab_sub_remarks";
+            this.lab_sub_remarks.ReadOnly = true;
+            this.lab_sub_remarks.Width = 129;
+            // 
+            // laboratory_procedure
+            // 
+            this.laboratory_procedure.DataPropertyName = "laboratory_procedure";
+            this.laboratory_procedure.HeaderText = "PROCEDURE";
+            this.laboratory_procedure.Name = "laboratory_procedure";
+            this.laboratory_procedure.ReadOnly = true;
+            this.laboratory_procedure.Width = 124;
+            // 
+            // qa_supervisor_is_approve_status
+            // 
+            this.qa_supervisor_is_approve_status.DataPropertyName = "qa_supervisor_is_approve_status";
+            this.qa_supervisor_is_approve_status.HeaderText = "APPROVAL STATUS";
+            this.qa_supervisor_is_approve_status.Name = "qa_supervisor_is_approve_status";
+            this.qa_supervisor_is_approve_status.ReadOnly = true;
+            this.qa_supervisor_is_approve_status.Width = 159;
             // 
             // lbltotalrecords
             // 
@@ -750,140 +901,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.WizardBalloon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.WizardBalloon1.TabIndex = 594;
             this.WizardBalloon1.TabStop = false;
-            // 
-            // RowSelectedCheckBox
-            // 
-            this.RowSelectedCheckBox.DataPropertyName = "RowSelectedCheckBox";
-            this.RowSelectedCheckBox.HeaderText = "*";
-            this.RowSelectedCheckBox.Name = "RowSelectedCheckBox";
-            this.RowSelectedCheckBox.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 59.93546F;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            // 
-            // item_description
-            // 
-            this.item_description.DataPropertyName = "item_description";
-            this.item_description.FillWeight = 97.00433F;
-            this.item_description.HeaderText = "DESCRIPTION";
-            this.item_description.MinimumWidth = 12;
-            this.item_description.Name = "item_description";
-            this.item_description.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // qty_received
-            // 
-            this.qty_received.DataPropertyName = "qty_received";
-            this.qty_received.FillWeight = 77.07378F;
-            this.qty_received.HeaderText = "QTY RECEIVED";
-            this.qty_received.MinimumWidth = 12;
-            this.qty_received.Name = "qty_received";
-            this.qty_received.ReadOnly = true;
-            // 
-            // remaining_qty
-            // 
-            this.remaining_qty.DataPropertyName = "remaining_qty";
-            this.remaining_qty.HeaderText = "QTY";
-            this.remaining_qty.Name = "remaining_qty";
-            this.remaining_qty.ReadOnly = true;
-            // 
-            // exp_date
-            // 
-            this.exp_date.DataPropertyName = "exp_date";
-            this.exp_date.HeaderText = "EXPIRATION DATE";
-            this.exp_date.Name = "exp_date";
-            this.exp_date.ReadOnly = true;
-            // 
-            // DAYSTOEXPIRED
-            // 
-            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.HeaderText = "EXPIRY DAYS";
-            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.ReadOnly = true;
-            // 
-            // STANDARDEXPIRYDAYS
-            // 
-            this.STANDARDEXPIRYDAYS.DataPropertyName = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.HeaderText = "STANDARD EXPIRY DAY";
-            this.STANDARDEXPIRYDAYS.Name = "STANDARDEXPIRYDAYS";
-            this.STANDARDEXPIRYDAYS.ReadOnly = true;
-            // 
-            // lab_status
-            // 
-            this.lab_status.DataPropertyName = "lab_status";
-            this.lab_status.HeaderText = "STATUS";
-            this.lab_status.Name = "lab_status";
-            this.lab_status.ReadOnly = true;
-            // 
-            // HISTORY
-            // 
-            this.HISTORY.DataPropertyName = "HISTORY";
-            this.HISTORY.HeaderText = "HISTORY";
-            this.HISTORY.Name = "HISTORY";
-            this.HISTORY.ReadOnly = true;
-            // 
-            // AGING
-            // 
-            this.AGING.DataPropertyName = "AGING";
-            this.AGING.HeaderText = "AGING";
-            this.AGING.Name = "AGING";
-            this.AGING.ReadOnly = true;
-            // 
-            // lab_exp_date_extension
-            // 
-            this.lab_exp_date_extension.DataPropertyName = "lab_exp_date_extension";
-            this.lab_exp_date_extension.HeaderText = "EXTENSION DATE";
-            this.lab_exp_date_extension.Name = "lab_exp_date_extension";
-            this.lab_exp_date_extension.ReadOnly = true;
-            // 
-            // lab_result_remarks
-            // 
-            this.lab_result_remarks.DataPropertyName = "lab_result_remarks";
-            this.lab_result_remarks.HeaderText = "REMARKS";
-            this.lab_result_remarks.Name = "lab_result_remarks";
-            this.lab_result_remarks.ReadOnly = true;
-            // 
-            // lab_sub_remarks
-            // 
-            this.lab_sub_remarks.DataPropertyName = "lab_sub_remarks";
-            this.lab_sub_remarks.HeaderText = "SUB REMARKS";
-            this.lab_sub_remarks.Name = "lab_sub_remarks";
-            this.lab_sub_remarks.ReadOnly = true;
-            // 
-            // laboratory_procedure
-            // 
-            this.laboratory_procedure.DataPropertyName = "laboratory_procedure";
-            this.laboratory_procedure.HeaderText = "PROCEDURE";
-            this.laboratory_procedure.Name = "laboratory_procedure";
-            this.laboratory_procedure.ReadOnly = true;
-            // 
-            // qa_supervisor_is_approve_status
-            // 
-            this.qa_supervisor_is_approve_status.DataPropertyName = "qa_supervisor_is_approve_status";
-            this.qa_supervisor_is_approve_status.HeaderText = "APPROVAL STATUS";
-            this.qa_supervisor_is_approve_status.Name = "qa_supervisor_is_approve_status";
-            this.qa_supervisor_is_approve_status.ReadOnly = true;
             // 
             // frmLabTestModule
             // 

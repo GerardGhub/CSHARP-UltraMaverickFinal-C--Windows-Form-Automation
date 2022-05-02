@@ -787,16 +787,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         private void NextDatainDryStorePreparationEntry()
         {
-            //for (int i = 0; i <= this.dgvGunaMoveItems.RowCount - 1; i++)
-            //{
-            //    if (Convert.ToBoolean(this.dgvGunaMoveItems.Rows[i].Cells["selected"].Value) == true)
-            //    {
-            //        this.PrintingProcess();
-            //    }
-            //}
+          
             dgvGunaMoveItems_CurrentCellChanged(new object(), new System.EventArgs());
-            //MessageBox.Show("" + this.Sp_Selected_Item);
-
+   
 
 
             if (this.Sp_Selected_Item == "selected")
@@ -808,6 +801,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 }
                 else if(this.metroCMbFilterPrintPages.Text == "1")
                 {
+                    this.PrintingProcess();
+                }
+                else if (this.metroCMbFilterPrintPages.Text == "3")
+                {
+                    this.PrintingProcess();
+                    this.PrintingProcess();
                     this.PrintingProcess();
                 }
                 else
@@ -931,10 +930,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 }
                     else
                     {
-                    //dv2.RowFilter = " is_approved_prepa_date = '" + this.matCmbPreparationDate.Text + "' and   category = '" + this.matcmbCategory.Text + "' and store_name ='" + this.metroCmbStoreName.Text + "' or is_approved_prepa_date >= #" + this.bunifuPrepaDateFrom.Text + "# AND is_approved_prepa_date <= #" + this.bunifuDateTo.Text + "#  ";
-
-                    //dv2.RowFilter = " is_approved_prepa_date >= #" + bunifuPrepaDateFrom.Text + "# AND is_approved_prepa_date <= #" + bunifuDateTo.Text + "#  and   category = '" + this.matcmbCategory.Text + "' and store_name ='" + this.metroCmbStoreName.Text + "' or is_approved_prepa_date >= #" + this.bunifuPrepaDateFrom.Text + "# AND is_approved_prepa_date <= #" + this.bunifuDateTo.Text + "#  ";
-                    //MessageBox.Show("false");
+        
                     dv2.RowFilter = " is_wh_approved_date >= #" + bunifuPrepaDateFrom.Text + "# AND is_wh_approved_date <= #" + bunifuDateTo.Text + "# ";
 
                     }

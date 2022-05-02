@@ -324,7 +324,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
       
             this.doSearchInTextBoxCmb();
-            return;
+            //return;
             if (this.lbltotaldata.Text != "0")
             {
                 this.MaterialDatagridColumnVisibilittyFalse(); //pako
@@ -432,7 +432,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         //{
                     
                             dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "'   " + 
-                            "and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  ";
+                            "and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  and category = '" + this.Sp_Category + "'  ";
 
 
                         //and category = '" + this.matcmbCategory.Text + "'

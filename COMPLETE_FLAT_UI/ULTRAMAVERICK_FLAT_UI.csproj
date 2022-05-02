@@ -156,6 +156,30 @@
     <Compile Include="Class\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.Designer.cs">
+      <DependentUpon>frmDryMiscellanouseIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.Designer.cs">
+      <DependentUpon>frmDryMiscellanouseReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmCustomers.Designer.cs">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.Designer.cs">
+      <DependentUpon>frmDryWarehouses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -649,6 +673,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseWPFControls\frmViewAllNotifications.resx">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.resx">
+      <DependentUpon>frmDryMiscellanouseIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.resx">
+      <DependentUpon>frmDryMiscellanouseReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmCustomers.resx">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.resx">
+      <DependentUpon>frmDryWarehouses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.resx">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>

@@ -19,7 +19,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmEditItemModal : MaterialForm
     {
         //Constructor bugok
-        frmDryRawMaterials ths;
+        frmDryMiscellaneouseIssue ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         myclasses xClass = new myclasses();
@@ -27,7 +27,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
-        public frmEditItemModal(frmDryRawMaterials frm, string created_by,
+        public frmEditItemModal(frmDryMiscellaneouseIssue frm, string created_by,
             string item_code,
             string item_description,
             string item_class,

@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
-    partial class frmDryRawMaterials
+    partial class frmDryMiscellaneouseIssue
     {
         /// <summary>
         /// Required designer variable.
