@@ -283,6 +283,15 @@ namespace ULTRAMAVERICK.Models
         string item_updated_by,
         string mode);
 
+
+        DataSet sp_Tblwarehouses(int wh_id,
+            string wh_description,
+            string wh_account_title,
+            string wh_added_by,
+            string wh_date_added,
+            string mode);
+
+
         DataSet sp_Allocation_Logs(int allocation_id,
             string a_item_code,
             string a_item_desc,

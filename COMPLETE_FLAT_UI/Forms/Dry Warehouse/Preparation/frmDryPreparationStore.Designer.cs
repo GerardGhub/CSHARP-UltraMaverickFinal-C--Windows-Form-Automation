@@ -986,6 +986,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Controls.Add(this.label4);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
+            this.MaximizeBox = false;
             this.Name = "frmDryPreparationStore";
             this.Text = "DRY WAREHOUSE PREPARATION STORE";
             this.Load += new System.EventHandler(this.frmDryPreparation_Load);

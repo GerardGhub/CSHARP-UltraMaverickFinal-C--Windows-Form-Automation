@@ -73,5 +73,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 e.FormattingApplied = true;
             }
         }
+
+        private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvRawMats.ClearSelection();
+        }
     }
 }

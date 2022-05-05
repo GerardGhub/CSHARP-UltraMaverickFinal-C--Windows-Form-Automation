@@ -1731,9 +1731,9 @@ namespace COMPLETE_FLAT_UI
         private void TsIssue_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmDryMiscellanouseIssue DryIssue = new frmDryMiscellanouseIssue();
-            DryIssue.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(DryIssue);
+            frmCustomers Customer = new frmCustomers();
+            Customer.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(Customer);
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

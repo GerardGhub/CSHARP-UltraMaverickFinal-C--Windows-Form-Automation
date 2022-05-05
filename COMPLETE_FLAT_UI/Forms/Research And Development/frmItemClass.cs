@@ -534,10 +534,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             if (this.sp_bind_selected == "1")
             {
 
-                if (dgvitemClass.Rows.Count > 0)
+                if (this.dgvitemClass.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the Item Class", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Inactive the masterlist", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         mode = "delete";
@@ -569,7 +569,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (dgvitemClass.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the Item Class", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Activate the masterlist?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         this.mode = "delete";

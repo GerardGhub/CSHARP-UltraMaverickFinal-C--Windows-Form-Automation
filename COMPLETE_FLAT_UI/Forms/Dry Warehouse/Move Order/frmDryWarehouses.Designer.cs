@@ -38,14 +38,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.dgvitemClass = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.item_class_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_class_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtmatItemClass = new MaterialSkin.Controls.MaterialTextBox();
+            this.dgvWarehousing = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txtmatDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -57,10 +51,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.txtmatAccountTitle = new MaterialSkin.Controls.MaterialTextBox();
             this.metroSave = new MetroFramework.Controls.MetroButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.wh_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wh_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wh_account_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wh_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wh_date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wh_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wh_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWarehousing)).BeginInit();
             this.panel1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -111,6 +113,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matRadioActive.TabStop = true;
             this.matRadioActive.Text = "Active";
             this.matRadioActive.UseVisualStyleBackColor = true;
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
             // 
             // matRadioNotActive
             // 
@@ -128,18 +131,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matRadioNotActive.TabStop = true;
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
             // 
-            // dgvitemClass
+            // dgvWarehousing
             // 
-            this.dgvitemClass.AllowUserToAddRows = false;
-            this.dgvitemClass.AllowUserToDeleteRows = false;
-            this.dgvitemClass.AllowUserToResizeRows = false;
+            this.dgvWarehousing.AllowUserToAddRows = false;
+            this.dgvWarehousing.AllowUserToDeleteRows = false;
+            this.dgvWarehousing.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvitemClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvitemClass.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvitemClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvitemClass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvWarehousing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvWarehousing.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvWarehousing.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvWarehousing.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvWarehousing.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,16 +151,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvitemClass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvitemClass.ColumnHeadersHeight = 35;
-            this.dgvitemClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvitemClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.item_class_id,
-            this.item_class_desc,
-            this.item_added_at,
-            this.item_added_by,
-            this.item_updated_at,
-            this.item_updated_by});
+            this.dgvWarehousing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvWarehousing.ColumnHeadersHeight = 35;
+            this.dgvWarehousing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvWarehousing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.wh_id,
+            this.wh_description,
+            this.wh_account_title,
+            this.wh_added_by,
+            this.wh_date_added,
+            this.wh_updated_by,
+            this.wh_updated_at});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,14 +169,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvitemClass.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvitemClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvitemClass.EnableHeadersVisualStyles = false;
-            this.dgvitemClass.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvitemClass.Location = new System.Drawing.Point(5, 6);
-            this.dgvitemClass.MultiSelect = false;
-            this.dgvitemClass.Name = "dgvitemClass";
-            this.dgvitemClass.ReadOnly = true;
+            this.dgvWarehousing.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvWarehousing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWarehousing.EnableHeadersVisualStyles = false;
+            this.dgvWarehousing.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvWarehousing.Location = new System.Drawing.Point(5, 6);
+            this.dgvWarehousing.MultiSelect = false;
+            this.dgvWarehousing.Name = "dgvWarehousing";
+            this.dgvWarehousing.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,109 +184,56 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvitemClass.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvitemClass.RowHeadersVisible = false;
-            this.dgvitemClass.RowHeadersWidth = 102;
-            this.dgvitemClass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvitemClass.RowTemplate.DividerHeight = 5;
-            this.dgvitemClass.RowTemplate.Height = 40;
-            this.dgvitemClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvitemClass.Size = new System.Drawing.Size(965, 452);
-            this.dgvitemClass.TabIndex = 593;
-            this.dgvitemClass.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvitemClass.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.Height = 35;
-            this.dgvitemClass.ThemeStyle.ReadOnly = true;
-            this.dgvitemClass.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvitemClass.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvitemClass.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dgvitemClass.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvitemClass.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            this.dgvitemClass.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
+            this.dgvWarehousing.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvWarehousing.RowHeadersVisible = false;
+            this.dgvWarehousing.RowHeadersWidth = 102;
+            this.dgvWarehousing.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvWarehousing.RowTemplate.DividerHeight = 5;
+            this.dgvWarehousing.RowTemplate.Height = 40;
+            this.dgvWarehousing.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvWarehousing.Size = new System.Drawing.Size(965, 452);
+            this.dgvWarehousing.TabIndex = 593;
+            this.dgvWarehousing.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
+            this.dgvWarehousing.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvWarehousing.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvWarehousing.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvWarehousing.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvWarehousing.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvWarehousing.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvWarehousing.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvWarehousing.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.dgvWarehousing.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.dgvWarehousing.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvWarehousing.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvWarehousing.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvWarehousing.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvWarehousing.ThemeStyle.ReadOnly = true;
+            this.dgvWarehousing.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvWarehousing.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvWarehousing.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvWarehousing.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvWarehousing.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvWarehousing.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.dgvWarehousing.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
+            this.dgvWarehousing.CurrentCellChanged += new System.EventHandler(this.dgvitemClass_CurrentCellChanged);
+            this.dgvWarehousing.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvitemClass_DataBindingComplete);
             // 
-            // item_class_id
+            // txtmatDescription
             // 
-            this.item_class_id.DataPropertyName = "item_class_id";
-            this.item_class_id.FillWeight = 40.60914F;
-            this.item_class_id.HeaderText = "ID";
-            this.item_class_id.MinimumWidth = 12;
-            this.item_class_id.Name = "item_class_id";
-            this.item_class_id.ReadOnly = true;
-            // 
-            // item_class_desc
-            // 
-            this.item_class_desc.DataPropertyName = "item_class_desc";
-            this.item_class_desc.FillWeight = 99.49239F;
-            this.item_class_desc.HeaderText = "ITEM CLASS";
-            this.item_class_desc.MinimumWidth = 12;
-            this.item_class_desc.Name = "item_class_desc";
-            this.item_class_desc.ReadOnly = true;
-            // 
-            // item_added_at
-            // 
-            this.item_added_at.DataPropertyName = "item_added_at";
-            this.item_added_at.FillWeight = 99.49239F;
-            this.item_added_at.HeaderText = "CREATED DATE";
-            this.item_added_at.MinimumWidth = 12;
-            this.item_added_at.Name = "item_added_at";
-            this.item_added_at.ReadOnly = true;
-            // 
-            // item_added_by
-            // 
-            this.item_added_by.DataPropertyName = "item_added_by";
-            this.item_added_by.FillWeight = 99.49239F;
-            this.item_added_by.HeaderText = "CREATED BY";
-            this.item_added_by.MinimumWidth = 12;
-            this.item_added_by.Name = "item_added_by";
-            this.item_added_by.ReadOnly = true;
-            // 
-            // item_updated_at
-            // 
-            this.item_updated_at.DataPropertyName = "item_updated_at";
-            this.item_updated_at.FillWeight = 99.49239F;
-            this.item_updated_at.HeaderText = "UPDATED DATE";
-            this.item_updated_at.MinimumWidth = 12;
-            this.item_updated_at.Name = "item_updated_at";
-            this.item_updated_at.ReadOnly = true;
-            // 
-            // item_updated_by
-            // 
-            this.item_updated_by.DataPropertyName = "item_updated_by";
-            this.item_updated_by.HeaderText = "UPDATED BY";
-            this.item_updated_by.MinimumWidth = 12;
-            this.item_updated_by.Name = "item_updated_by";
-            this.item_updated_by.ReadOnly = true;
-            // 
-            // txtmatItemClass
-            // 
-            this.txtmatItemClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtmatItemClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmatItemClass.Depth = 0;
-            this.txtmatItemClass.Enabled = false;
-            this.txtmatItemClass.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmatItemClass.Hint = "Item Class";
-            this.txtmatItemClass.Location = new System.Drawing.Point(14, 16);
-            this.txtmatItemClass.Margin = new System.Windows.Forms.Padding(1);
-            this.txtmatItemClass.MaxLength = 50;
-            this.txtmatItemClass.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmatItemClass.Multiline = false;
-            this.txtmatItemClass.Name = "txtmatItemClass";
-            this.txtmatItemClass.Size = new System.Drawing.Size(738, 50);
-            this.txtmatItemClass.TabIndex = 0;
-            this.txtmatItemClass.Text = "";
+            this.txtmatDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmatDescription.Depth = 0;
+            this.txtmatDescription.Enabled = false;
+            this.txtmatDescription.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtmatDescription.Hint = "Description";
+            this.txtmatDescription.Location = new System.Drawing.Point(14, 16);
+            this.txtmatDescription.Margin = new System.Windows.Forms.Padding(1);
+            this.txtmatDescription.MaxLength = 50;
+            this.txtmatDescription.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtmatDescription.Multiline = false;
+            this.txtmatDescription.Name = "txtmatDescription";
+            this.txtmatDescription.Size = new System.Drawing.Size(349, 50);
+            this.txtmatDescription.TabIndex = 0;
+            this.txtmatDescription.Text = "";
             // 
             // lbltotalrecords
             // 
@@ -333,6 +285,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matBtnNew.Name = "matBtnNew";
             this.matBtnNew.Size = new System.Drawing.Size(75, 33);
             this.matBtnNew.Text = "&New";
+            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
             // 
             // matBtnEdit
             // 
@@ -341,6 +294,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matBtnEdit.Name = "matBtnEdit";
             this.matBtnEdit.Size = new System.Drawing.Size(72, 33);
             this.matBtnEdit.Text = "&Edit";
+            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
             // 
             // matBtnDelete
             // 
@@ -349,6 +303,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matBtnDelete.Name = "matBtnDelete";
             this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
             this.matBtnDelete.Text = "&InActive";
+            this.matBtnDelete.Click += new System.EventHandler(this.matBtnDelete_Click);
             // 
             // matBtnSave
             // 
@@ -358,6 +313,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matBtnSave.Size = new System.Drawing.Size(77, 44);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
+            this.matBtnSave.Click += new System.EventHandler(this.matBtnSave_Click);
             // 
             // matBtnCancel
             // 
@@ -367,6 +323,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matBtnCancel.Size = new System.Drawing.Size(88, 44);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
+            this.matBtnCancel.Click += new System.EventHandler(this.matBtnCancel_Click);
             // 
             // mattxtSearch
             // 
@@ -384,6 +341,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
             this.mattxtSearch.TabIndex = 600;
             this.mattxtSearch.Text = "";
+            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
             // metroFinalSaving
             // 
@@ -395,14 +353,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.metroFinalSaving.Text = "Saving";
             this.metroFinalSaving.UseSelectable = true;
             this.metroFinalSaving.Visible = false;
+            this.metroFinalSaving.Click += new System.EventHandler(this.metroFinalSaving_Click);
             // 
             // materialCard1
             // 
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.txtmatAccountTitle);
             this.materialCard1.Controls.Add(this.mattxtSearch);
-            this.materialCard1.Controls.Add(this.txtmatItemClass);
+            this.materialCard1.Controls.Add(this.txtmatDescription);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(25, 73);
@@ -412,6 +372,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.Size = new System.Drawing.Size(975, 87);
             this.materialCard1.TabIndex = 611;
+            // 
+            // txtmatAccountTitle
+            // 
+            this.txtmatAccountTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmatAccountTitle.Depth = 0;
+            this.txtmatAccountTitle.Enabled = false;
+            this.txtmatAccountTitle.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtmatAccountTitle.Hint = "Account Title";
+            this.txtmatAccountTitle.Location = new System.Drawing.Point(378, 15);
+            this.txtmatAccountTitle.Margin = new System.Windows.Forms.Padding(1);
+            this.txtmatAccountTitle.MaxLength = 50;
+            this.txtmatAccountTitle.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtmatAccountTitle.Multiline = false;
+            this.txtmatAccountTitle.Name = "txtmatAccountTitle";
+            this.txtmatAccountTitle.Size = new System.Drawing.Size(349, 50);
+            this.txtmatAccountTitle.TabIndex = 601;
+            this.txtmatAccountTitle.Text = "";
             // 
             // metroSave
             // 
@@ -423,13 +400,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.metroSave.Text = "Add";
             this.metroSave.UseSelectable = true;
             this.metroSave.Visible = false;
+            this.metroSave.Click += new System.EventHandler(this.metroSave_Click);
             // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.dgvitemClass);
+            this.materialCard2.Controls.Add(this.dgvWarehousing);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard2.Location = new System.Drawing.Point(25, 244);
@@ -440,7 +418,66 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.materialCard2.Size = new System.Drawing.Size(975, 464);
             this.materialCard2.TabIndex = 610;
             // 
-            // frmWarehouses
+            // wh_id
+            // 
+            this.wh_id.DataPropertyName = "wh_id";
+            this.wh_id.FillWeight = 40.60914F;
+            this.wh_id.HeaderText = "ID";
+            this.wh_id.MinimumWidth = 12;
+            this.wh_id.Name = "wh_id";
+            this.wh_id.ReadOnly = true;
+            // 
+            // wh_description
+            // 
+            this.wh_description.DataPropertyName = "wh_description";
+            this.wh_description.FillWeight = 99.49239F;
+            this.wh_description.HeaderText = "DESCRIPTION";
+            this.wh_description.MinimumWidth = 12;
+            this.wh_description.Name = "wh_description";
+            this.wh_description.ReadOnly = true;
+            // 
+            // wh_account_title
+            // 
+            this.wh_account_title.DataPropertyName = "wh_account_title";
+            this.wh_account_title.FillWeight = 99.49239F;
+            this.wh_account_title.HeaderText = "ACCOUNT TITLE";
+            this.wh_account_title.MinimumWidth = 12;
+            this.wh_account_title.Name = "wh_account_title";
+            this.wh_account_title.ReadOnly = true;
+            // 
+            // wh_added_by
+            // 
+            this.wh_added_by.DataPropertyName = "wh_added_by";
+            this.wh_added_by.FillWeight = 99.49239F;
+            this.wh_added_by.HeaderText = "CREATED BY";
+            this.wh_added_by.MinimumWidth = 12;
+            this.wh_added_by.Name = "wh_added_by";
+            this.wh_added_by.ReadOnly = true;
+            // 
+            // wh_date_added
+            // 
+            this.wh_date_added.DataPropertyName = "wh_date_added";
+            this.wh_date_added.FillWeight = 99.49239F;
+            this.wh_date_added.HeaderText = "DATE ADDED";
+            this.wh_date_added.MinimumWidth = 12;
+            this.wh_date_added.Name = "wh_date_added";
+            this.wh_date_added.ReadOnly = true;
+            // 
+            // wh_updated_by
+            // 
+            this.wh_updated_by.DataPropertyName = "wh_updated_by";
+            this.wh_updated_by.HeaderText = "UPDATED BY";
+            this.wh_updated_by.Name = "wh_updated_by";
+            this.wh_updated_by.ReadOnly = true;
+            // 
+            // wh_updated_at
+            // 
+            this.wh_updated_at.DataPropertyName = "wh_updated_at";
+            this.wh_updated_at.HeaderText = "UPDATED DATE";
+            this.wh_updated_at.Name = "wh_updated_at";
+            this.wh_updated_at.ReadOnly = true;
+            // 
+            // frmDryWarehouses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -454,12 +491,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.Controls.Add(this.metroSave);
             this.Controls.Add(this.materialCard2);
             this.MaximizeBox = false;
-            this.Name = "frmWarehouses";
+            this.Name = "frmDryWarehouses";
             this.Text = "Warehouses";
             this.Load += new System.EventHandler(this.frmWarehouses_Load);
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWarehousing)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -477,14 +514,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
         private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvitemClass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_class_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_class_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_added_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_added_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_updated_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_updated_by;
-        private MaterialSkin.Controls.MaterialTextBox txtmatItemClass;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvWarehousing;
+        private MaterialSkin.Controls.MaterialTextBox txtmatDescription;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip2;
@@ -498,5 +529,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MetroFramework.Controls.MetroButton metroSave;
         private MaterialSkin.Controls.MaterialCard materialCard2;
+        private MaterialSkin.Controls.MaterialTextBox txtmatAccountTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_account_title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_added_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_date_added;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_updated_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wh_updated_at;
     }
 }

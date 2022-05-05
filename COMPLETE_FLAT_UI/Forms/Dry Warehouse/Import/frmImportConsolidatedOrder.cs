@@ -719,5 +719,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             this.GlobalStatePopup.ErrorNotify();
         }
+
+        private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            this.dgvRawMats.ClearSelection();
+        }
     }
 }

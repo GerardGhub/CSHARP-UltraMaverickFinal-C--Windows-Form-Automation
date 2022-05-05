@@ -187,6 +187,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRawMats.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRawMats_CellFormatting);
+            this.dgvRawMats.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvRawMats_DataBindingComplete);
             // 
             // item_id
             // 
@@ -197,7 +198,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_id.MinimumWidth = 12;
             this.item_id.Name = "item_id";
             this.item_id.ReadOnly = true;
-            this.item_id.Width = 90;
+            this.item_id.Width = 81;
             // 
             // item_code
             // 
@@ -208,7 +209,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 116;
+            this.item_code.Width = 104;
             // 
             // Item_description
             // 
@@ -219,7 +220,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Item_description.MinimumWidth = 12;
             this.Item_description.Name = "Item_description";
             this.Item_description.ReadOnly = true;
-            this.Item_description.Width = 175;
+            this.Item_description.Width = 157;
             // 
             // item_class
             // 
@@ -229,7 +230,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_class.MinimumWidth = 12;
             this.item_class.Name = "item_class";
             this.item_class.ReadOnly = true;
-            this.item_class.Width = 124;
+            this.item_class.Width = 112;
             // 
             // major_category
             // 
@@ -239,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.major_category.MinimumWidth = 12;
             this.major_category.Name = "major_category";
             this.major_category.ReadOnly = true;
-            this.major_category.Width = 172;
+            this.major_category.Width = 155;
             // 
             // sub_category
             // 
@@ -249,7 +250,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sub_category.MinimumWidth = 12;
             this.sub_category.Name = "sub_category";
             this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 148;
+            this.sub_category.Width = 133;
             // 
             // conversion
             // 
@@ -259,7 +260,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.conversion.MinimumWidth = 12;
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
-            this.conversion.Width = 131;
+            this.conversion.Width = 129;
             // 
             // item_type
             // 
@@ -269,7 +270,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_type.MinimumWidth = 12;
             this.item_type.Name = "item_type";
             this.item_type.ReadOnly = true;
-            this.item_type.Width = 114;
+            this.item_type.Width = 103;
             // 
             // created_at
             // 
@@ -279,7 +280,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
             this.created_at.Visible = false;
-            this.created_at.Width = 134;
+            this.created_at.Width = 130;
             // 
             // created_by
             // 
@@ -289,7 +290,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_by.Name = "created_by";
             this.created_by.ReadOnly = true;
             this.created_by.Visible = false;
-            this.created_by.Width = 116;
+            this.created_by.Width = 113;
             // 
             // updated_at
             // 
@@ -299,7 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_at.Name = "updated_at";
             this.updated_at.ReadOnly = true;
             this.updated_at.Visible = false;
-            this.updated_at.Width = 137;
+            this.updated_at.Width = 132;
             // 
             // updated_by
             // 
@@ -309,7 +310,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_by.Name = "updated_by";
             this.updated_by.ReadOnly = true;
             this.updated_by.Visible = false;
-            this.updated_by.Width = 119;
+            this.updated_by.Width = 115;
             // 
             // SOH
             // 
@@ -318,7 +319,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.SOH.MinimumWidth = 12;
             this.SOH.Name = "SOH";
             this.SOH.ReadOnly = true;
-            this.SOH.Width = 158;
+            this.SOH.Width = 103;
             // 
             // RESERVED
             // 
@@ -327,7 +328,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.RESERVED.MinimumWidth = 12;
             this.RESERVED.Name = "RESERVED";
             this.RESERVED.ReadOnly = true;
-            this.RESERVED.Width = 233;
+            this.RESERVED.Width = 210;
             // 
             // buffer_stock
             // 
@@ -336,7 +337,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.buffer_stock.MinimumWidth = 12;
             this.buffer_stock.Name = "buffer_stock";
             this.buffer_stock.ReadOnly = true;
-            this.buffer_stock.Width = 156;
+            this.buffer_stock.Width = 140;
             // 
             // TOTAL_RECEIVED
             // 
@@ -345,7 +346,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.TOTAL_RECEIVED.MinimumWidth = 12;
             this.TOTAL_RECEIVED.Name = "TOTAL_RECEIVED";
             this.TOTAL_RECEIVED.ReadOnly = true;
-            this.TOTAL_RECEIVED.Width = 106;
+            this.TOTAL_RECEIVED.Width = 104;
             // 
             // Column5
             // 
@@ -353,7 +354,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column5.MinimumWidth = 12;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 96;
+            this.Column5.Width = 94;
             // 
             // Column6
             // 
@@ -361,7 +362,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column6.MinimumWidth = 12;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 77;
+            this.Column6.Width = 75;
             // 
             // Column7
             // 
@@ -369,7 +370,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column7.MinimumWidth = 12;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 133;
+            this.Column7.Width = 120;
             // 
             // Column8
             // 
@@ -377,7 +378,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column8.MinimumWidth = 12;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 184;
+            this.Column8.Width = 166;
             // 
             // primary_unit
             // 
@@ -386,7 +387,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.primary_unit.MinimumWidth = 12;
             this.primary_unit.Name = "primary_unit";
             this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 69;
+            this.primary_unit.Width = 67;
             // 
             // Column10
             // 
@@ -394,7 +395,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column10.MinimumWidth = 12;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 117;
+            this.Column10.Width = 105;
             // 
             // QA_RECEIVING
             // 
@@ -403,7 +404,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.QA_RECEIVING.MinimumWidth = 12;
             this.QA_RECEIVING.Name = "QA_RECEIVING";
             this.QA_RECEIVING.ReadOnly = true;
-            this.QA_RECEIVING.Width = 137;
+            this.QA_RECEIVING.Width = 123;
             // 
             // Column12
             // 
@@ -411,7 +412,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column12.MinimumWidth = 12;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            this.Column12.Width = 190;
+            this.Column12.Width = 171;
             // 
             // Column13
             // 
@@ -419,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Column13.MinimumWidth = 12;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            this.Column13.Width = 152;
+            this.Column13.Width = 137;
             // 
             // materialCard1
             // 

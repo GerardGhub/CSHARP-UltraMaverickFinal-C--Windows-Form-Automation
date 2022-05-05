@@ -50,6 +50,7 @@ namespace COMPLETE_FLAT_UI
                 return;
 
             }
+
             if (txtMaterialPassword.Text.Trim() == string.Empty)
             {
                 FilltextboxErrorNotifier();

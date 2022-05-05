@@ -66,10 +66,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             try
             {
-                ready = false;
-                xClass.fillDataGridView(dgvitemClass, "Item_Class", dSet);
-                ready = true;
-                lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
+                this.ready = false;
+                xClass.fillDataGridView(dgvitemClass, "tblCustomersMinorSpActive", dSet);
+                this.ready = true;
+                this.lbltotalrecords.Text = this.dgvitemClass.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -91,5 +91,91 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         }
 
+        private void dgvitemClass_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            this.dgvitemClass.ClearSelection();
+        }
+
+
+        private void showWarehouseMasterData()      //method for loading available_menus
+        {
+            try
+            {
+                this.ready = false;
+                this.xClass.fillDataGridView(this.dgvitemClass, "MoveOrder_Customers_Active", dSet);
+                this.ready = true;
+                this.lbltotalrecords.Text = this.dgvitemClass.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void showWarehouseMasterDataInActive()      //method for loading available_menus
+        {
+            try
+            {
+                ready = false;
+                xClass.fillDataGridView(dgvitemClass, "MoveOrder_Customers_Inactive", dSet);
+                ready = true;
+                lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
+                this.matBtnDelete.Text = "&InActive";
+
+                this.showWarehouseMasterData();
+
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+                this.matBtnDelete.Text = "&Activate";
+                this.showWarehouseMasterDataInActive();
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void dgvitemClass_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.dgvitemClass.Rows.Count > 0)
+            {
+                if (this.dgvitemClass.CurrentRow != null)
+                {
+                    if (this.dgvitemClass.CurrentRow.Cells["cust_name"].Value != null)
+                    {
+                        this.p_id = Convert.ToInt32(this.dgvitemClass.CurrentRow.Cells["cust_id"].Value);
+                        this.txtmatItemClass.Text = this.dgvitemClass.CurrentRow.Cells["cust_name"].Value.ToString();
+                   
+                    }
+                }
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
