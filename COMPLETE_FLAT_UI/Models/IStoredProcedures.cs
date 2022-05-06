@@ -538,6 +538,21 @@ namespace ULTRAMAVERICK.Models
         string expiration_prompting,
         string mode);
 
+
+        DataSet sp_tblCustomers(
+        int cust_id,
+        string cust_name,
+        string cust_type,
+        string cust_company,
+        string cust_mobile,
+        string cust_leadman,
+        string cust_address,
+        string cust_added_by,
+        string cust_date_added,
+        string cust_updated_by,
+        string cust_date_updated,
+        string mode);
+
         DataSet sp_projects(
         int primaryid,
         string projectid,

@@ -30,10 +30,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomers));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
@@ -50,9 +50,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.txtmatItemClass = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.dgvitemClass = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.metroSave = new MetroFramework.Controls.MetroButton();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.dgvCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cust_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,11 +62,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.cust_date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_date_updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroSave = new MetroFramework.Controls.MetroButton();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.materialCard2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,6 +177,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.matBtnNew.Name = "matBtnNew";
             this.matBtnNew.Size = new System.Drawing.Size(75, 33);
             this.matBtnNew.Text = "&New";
+            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
             // 
             // toolStrip2
             // 
@@ -248,6 +249,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
             this.mattxtSearch.TabIndex = 600;
             this.mattxtSearch.Text = "";
+            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
             // txtmatItemClass
             // 
@@ -285,28 +287,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.materialCard1.Size = new System.Drawing.Size(975, 87);
             this.materialCard1.TabIndex = 603;
             // 
-            // dgvitemClass
+            // dgvCustomers
             // 
-            this.dgvitemClass.AllowUserToAddRows = false;
-            this.dgvitemClass.AllowUserToDeleteRows = false;
-            this.dgvitemClass.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvitemClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvitemClass.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvitemClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvitemClass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvitemClass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvitemClass.ColumnHeadersHeight = 40;
-            this.dgvitemClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvitemClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCustomers.AllowUserToAddRows = false;
+            this.dgvCustomers.AllowUserToDeleteRows = false;
+            this.dgvCustomers.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCustomers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvCustomers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCustomers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCustomers.ColumnHeadersHeight = 40;
+            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cust_id,
             this.cust_name,
             this.cust_type,
@@ -318,88 +320,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.cust_date_added,
             this.cust_updated_by,
             this.cust_date_updated});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvitemClass.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvitemClass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvitemClass.EnableHeadersVisualStyles = false;
-            this.dgvitemClass.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvitemClass.Location = new System.Drawing.Point(5, 6);
-            this.dgvitemClass.MultiSelect = false;
-            this.dgvitemClass.Name = "dgvitemClass";
-            this.dgvitemClass.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvitemClass.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvitemClass.RowHeadersVisible = false;
-            this.dgvitemClass.RowHeadersWidth = 102;
-            this.dgvitemClass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvitemClass.RowTemplate.DividerHeight = 5;
-            this.dgvitemClass.RowTemplate.Height = 40;
-            this.dgvitemClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvitemClass.Size = new System.Drawing.Size(965, 452);
-            this.dgvitemClass.TabIndex = 593;
-            this.dgvitemClass.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvitemClass.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvitemClass.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvitemClass.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvitemClass.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvitemClass.ThemeStyle.ReadOnly = true;
-            this.dgvitemClass.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvitemClass.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvitemClass.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvitemClass.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dgvitemClass.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvitemClass.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            this.dgvitemClass.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
-            this.dgvitemClass.CurrentCellChanged += new System.EventHandler(this.dgvitemClass_CurrentCellChanged);
-            this.dgvitemClass.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvitemClass_DataBindingComplete);
-            // 
-            // metroSave
-            // 
-            this.metroSave.Location = new System.Drawing.Point(402, 188);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(1);
-            this.metroSave.Name = "metroSave";
-            this.metroSave.Size = new System.Drawing.Size(68, 20);
-            this.metroSave.TabIndex = 604;
-            this.metroSave.Text = "Add";
-            this.metroSave.UseSelectable = true;
-            this.metroSave.Visible = false;
-            // 
-            // materialCard2
-            // 
-            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.dgvitemClass);
-            this.materialCard2.Depth = 0;
-            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(24, 252);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(975, 464);
-            this.materialCard2.TabIndex = 602;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCustomers.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCustomers.EnableHeadersVisualStyles = false;
+            this.dgvCustomers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvCustomers.Location = new System.Drawing.Point(5, 6);
+            this.dgvCustomers.MultiSelect = false;
+            this.dgvCustomers.Name = "dgvCustomers";
+            this.dgvCustomers.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCustomers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvCustomers.RowHeadersVisible = false;
+            this.dgvCustomers.RowHeadersWidth = 102;
+            this.dgvCustomers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvCustomers.RowTemplate.DividerHeight = 5;
+            this.dgvCustomers.RowTemplate.Height = 40;
+            this.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCustomers.Size = new System.Drawing.Size(965, 452);
+            this.dgvCustomers.TabIndex = 593;
+            this.dgvCustomers.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
+            this.dgvCustomers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCustomers.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvCustomers.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvCustomers.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvCustomers.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvCustomers.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvCustomers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvCustomers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.dgvCustomers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.dgvCustomers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCustomers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvCustomers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCustomers.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvCustomers.ThemeStyle.ReadOnly = true;
+            this.dgvCustomers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCustomers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvCustomers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCustomers.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvCustomers.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvCustomers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.dgvCustomers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
+            this.dgvCustomers.CurrentCellChanged += new System.EventHandler(this.dgvitemClass_CurrentCellChanged);
+            this.dgvCustomers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvitemClass_DataBindingComplete);
             // 
             // cust_id
             // 
@@ -489,6 +464,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.cust_date_updated.Name = "cust_date_updated";
             this.cust_date_updated.ReadOnly = true;
             // 
+            // metroSave
+            // 
+            this.metroSave.Location = new System.Drawing.Point(402, 188);
+            this.metroSave.Margin = new System.Windows.Forms.Padding(1);
+            this.metroSave.Name = "metroSave";
+            this.metroSave.Size = new System.Drawing.Size(68, 20);
+            this.metroSave.TabIndex = 604;
+            this.metroSave.Text = "Add";
+            this.metroSave.UseSelectable = true;
+            this.metroSave.Visible = false;
+            // 
+            // materialCard2
+            // 
+            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.dgvCustomers);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(24, 252);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(975, 464);
+            this.materialCard2.TabIndex = 602;
+            // 
             // frmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,7 +515,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.materialCard1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvitemClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.materialCard2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -538,7 +540,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
         private MaterialSkin.Controls.MaterialTextBox txtmatItemClass;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvitemClass;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvCustomers;
         private MetroFramework.Controls.MetroButton metroSave;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_id;
