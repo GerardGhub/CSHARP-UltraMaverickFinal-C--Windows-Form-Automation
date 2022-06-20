@@ -644,6 +644,7 @@
     <Compile Include="frmLoginForm.Designer.cs">
       <DependentUpon>frmLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\View Models\MenuClasses.cs" />
     <Compile Include="Models\IStoredProcedures.cs" />
     <Compile Include="Models\myclasses.cs" />
     <Compile Include="Models\myglobal.cs" />

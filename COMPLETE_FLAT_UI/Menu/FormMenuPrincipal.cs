@@ -32,6 +32,7 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching;
 using ULTRAMAVERICK.Forms.Lab_Test;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Miscellaneous;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
+using ULTRAMAVERICK.Menu.View_Models;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -40,7 +41,7 @@ namespace COMPLETE_FLAT_UI
 
 
         ReportDocument rpt = new ReportDocument();
-        //string Rpt_Path = "";
+   
         //Constructor
         public Byte[] imageByte = null;
         myclasses xClass = new myclasses();
@@ -48,8 +49,8 @@ namespace COMPLETE_FLAT_UI
         DataSet dset_rights = new DataSet();
         DataSet dSet = new DataSet();
         int rights_id = 0;
-        bool ready = false;
         myclasses myClass = new myclasses();
+        readonly MenuClasses Menu = new MenuClasses();
         DataSet dsImage = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
         public FormMenuPrincipal()
@@ -73,15 +74,7 @@ namespace COMPLETE_FLAT_UI
         private int tolerance = 15;
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
-        private Rectangle sizeGripRectangle;
-        public string ImageParse { get; set; }
-        public int sp_user_id { get; set; }
-        public string total_receiving_dry_wh { get; set; }
-        public string TotalStoreOrderCancelatWhChecker { get; set; }
-        public string TotalStoreOrderDistinctLogisticChecker { get; set; }
-        public double TotalCountNotificationDistinctType { get; set; }
 
-        public string TotalLabTestReceivingViewing { get; set; }
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -89,7 +82,7 @@ namespace COMPLETE_FLAT_UI
                 case WM_NCHITTEST:
                     base.WndProc(ref m);
                     var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
-                    if (sizeGripRectangle.Contains(hitPoint))
+                    if (this.Menu.sizeGripRectangle.Contains(hitPoint))
                         m.Result = new IntPtr(HTBOTTOMRIGHT);
                     break;
                 default:
@@ -112,9 +105,9 @@ namespace COMPLETE_FLAT_UI
             base.OnSizeChanged(e);
             var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
 
-            sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
+            this.Menu.sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
 
-            region.Exclude(sizeGripRectangle);
+            region.Exclude(this.Menu.sizeGripRectangle);
             this.panelContenedorPrincipal.Region = region;
             this.Invalidate();
         }
@@ -123,11 +116,11 @@ namespace COMPLETE_FLAT_UI
         {
 
             SolidBrush blueBrush = new SolidBrush(Color.FromArgb(55, 61, 69));
-            e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
+            e.Graphics.FillRectangle(blueBrush, this.Menu.sizeGripRectangle);
 
             base.OnPaint(e);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
+            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, this.Menu.sizeGripRectangle);
         }
        
         //METODO PARA ARRASTRAR EL FORMULARIO---------------------------------------------------------------------
@@ -281,26 +274,27 @@ namespace COMPLETE_FLAT_UI
 
         private  void HeaderBadge() //Header Badge
         {
-            if(this.TotalStoreOrderCancelatWhChecker != "0")
+            if(this.Menu.TotalStoreOrderCancelatWhChecker != "0")
             {
-                this.TotalStoreOrderCancelatWhChecker = "1";
+                this.Menu.TotalStoreOrderCancelatWhChecker = "1";
             }
-            this.TotalCountNotificationDistinctType = Convert.ToDouble(this.TotalStoreOrderCancelatWhChecker) +
-                 Convert.ToDouble(this.TotalStoreOrderDistinctLogisticChecker) +
-            Convert.ToDouble(this.TotalLabTestReceivingViewing);
+            this.Menu.TotalCountNotificationDistinctType = 
+            Convert.ToDouble(this.Menu.TotalStoreOrderCancelatWhChecker) +
+            Convert.ToDouble(this.Menu.TotalStoreOrderDistinctLogisticChecker) +
+            Convert.ToDouble(this.Menu.TotalLabTestReceivingViewing);
         }
 
         private void BadgeNotification()
         {
-            if (this.TotalStoreOrderCancelatWhChecker != "0")
+            if (this.Menu.TotalStoreOrderCancelatWhChecker != "0")
             {
                 this.HeaderBadge();
             }
-            else if (this.TotalStoreOrderDistinctLogisticChecker != "0")
+            else if (this.Menu.TotalStoreOrderDistinctLogisticChecker != "0")
             {
                 this.HeaderBadge();
             }
-            else if (this.TotalLabTestReceivingViewing != "0")
+            else if (this.Menu.TotalLabTestReceivingViewing != "0")
             {
                 this.HeaderBadge();
             }
@@ -311,7 +305,8 @@ namespace COMPLETE_FLAT_UI
 
 
             //Header
-            Adorner.AddBadgeTo(btnNotificationsBell, this.TotalCountNotificationDistinctType.ToString());
+            Adorner.AddBadgeTo(btnNotificationsBell, 
+            this.Menu.TotalCountNotificationDistinctType.ToString());
             //end Header
             //Major Menu Notifications
             if (userinfo.receiving_status == "On")
@@ -341,12 +336,11 @@ namespace COMPLETE_FLAT_UI
         {
             try
             {
-                ready = false;
-                pbImage.Image = null;
-                pbImage.Refresh();
-                pbImage.BackgroundImage = new Bitmap(ULTRAMAVERICK.Properties.Resources.Buddy);
-                // Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Buddy.png");
-                imageByte = new byte[Convert.ToInt32(null)];
+
+                this.pbImage.Image = null;
+                this.pbImage.Refresh();
+                this.pbImage.BackgroundImage = new Bitmap(ULTRAMAVERICK.Properties.Resources.Buddy);
+                this.imageByte = new byte[Convert.ToInt32(null)];
         
             }
             catch (Exception)
@@ -357,30 +351,30 @@ namespace COMPLETE_FLAT_UI
 
         private void loadImage()
         {
-            sp_user_id = userinfo.user_id;
+            this.Menu.sp_user_id = userinfo.user_id;
 
-            dsImage = g_objStoredProcCollection.sp_employee_new(sp_user_id, "", "getImage");
+            this.dsImage = g_objStoredProcCollection.sp_employee_new(this.Menu.sp_user_id, "", "getImage");
             //              imageByte = (Byte[])(dsImage.Tables[0].Rows[0]["image_employee"]);
             try
             {
 
-                imageByte = (Byte[])(dsImage.Tables[0].Rows[0]["image_employee"]);
-                if (imageByte.Length == 0)
+                this.imageByte = (Byte[])(this.dsImage.Tables[0].Rows[0]["image_employee"]);
+                if (this.imageByte.Length == 0)
                 {
-                    loadDefaultImage();
+                    this.loadDefaultImage();
                 }
                 else
                 {
                     try
                     {
 
-                        pbImage.Image = Image.FromStream(new MemoryStream(imageByte));
+                        this.pbImage.Image = Image.FromStream(new MemoryStream(imageByte));
              
                     }
                     catch (Exception exception)
                     {
                         this.Show();
-                        loadDefaultImage();
+                        this.loadDefaultImage();
                         MessageBox.Show("Error  :  Image of" + lblFirstName.Text + "  Failed To Load. \n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -414,18 +408,18 @@ namespace COMPLETE_FLAT_UI
             this.lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();// loading logo
                               //rights here
-         ImageParse = userinfo.image_employee;
-            if(ImageParse == String.Empty)
+            this.Menu.ImageParse = userinfo.image_employee;
+            if(this.Menu.ImageParse == String.Empty)
             {
-                loadDefaultImage();
+                this.loadDefaultImage();
             }
             else
             {
-                loadImage();
+                this.loadImage();
             }
-            rights_id = userinfo.user_rights_id;
+            this.rights_id = userinfo.user_rights_id;
 
-            user_section_controlBox = userinfo.user_section;
+            this.user_section_controlBox = userinfo.user_section;
           
             if (user_section_controlBox == "Office")
             {
@@ -651,9 +645,9 @@ namespace COMPLETE_FLAT_UI
             try
             {
 
-                xClass.fillDataGridView(this.dgvParseData, "DryWarehouseLabTestReceivingViewing", dSet);
+                xClass.fillDataGridView(this.dgvParseData, "DryWarehouseLabTestReceivingViewing", this.dSet);
 
-                this.TotalLabTestReceivingViewing = this.dgvParseData.RowCount.ToString();
+                this.Menu.TotalLabTestReceivingViewing = this.dgvParseData.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -672,7 +666,7 @@ namespace COMPLETE_FLAT_UI
                 
                 xClass.fillDataGridView(this.dgvParseData, "Store_Order_Cancelled_by_WH_Checker", dSet);
 
-                this.TotalStoreOrderCancelatWhChecker = this.dgvParseData.RowCount.ToString();
+                this.Menu.TotalStoreOrderCancelatWhChecker = this.dgvParseData.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -688,9 +682,9 @@ namespace COMPLETE_FLAT_UI
             try
             {
 
-                xClass.fillDataGridView(this.dgvParseData, "Store_Order_Dispatched_by_Logistic_Checker", dSet);
+                xClass.fillDataGridView(this.dgvParseData, "Store_Order_Dispatched_by_Logistic_Checker", this.dSet);
 
-                this.TotalStoreOrderDistinctLogisticChecker = this.dgvParseData.RowCount.ToString();
+                this.Menu.TotalStoreOrderDistinctLogisticChecker = this.dgvParseData.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -750,10 +744,9 @@ namespace COMPLETE_FLAT_UI
         {
             try
             {
-                this.ready = false;
-                this.xClass.fillDataGridView(dgvParseData, "Po_Receiving_Warehouse", dSet);
-                this.ready = true;
-               this.total_receiving_dry_wh = dgvParseData.RowCount.ToString();
+
+               this.xClass.fillDataGridView(dgvParseData, "Po_Receiving_Warehouse", this.dSet);       
+               this.Menu.total_receiving_dry_wh = dgvParseData.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -1717,7 +1710,7 @@ namespace COMPLETE_FLAT_UI
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.showLabTestForReceiving();
-            MessageBox.Show(TotalLabTestReceivingViewing);
+            MessageBox.Show(this.Menu.TotalLabTestReceivingViewing);
         }
 
         private void tSReceipt_Click(object sender, EventArgs e)

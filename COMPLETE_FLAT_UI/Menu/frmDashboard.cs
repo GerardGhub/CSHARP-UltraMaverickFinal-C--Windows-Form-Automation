@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using ULTRAMAVERICK.Menu.View_Models;
 using ULTRAMAVERICK.Models;
 
 namespace COMPLETE_FLAT_UI
@@ -22,7 +23,7 @@ namespace COMPLETE_FLAT_UI
         DataSet dSet = new DataSet();
         string mode = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
+       DashboardClasses Menu = new DashboardClasses();
         DateTime dNow = DateTime.Now;
 
 
@@ -32,17 +33,8 @@ namespace COMPLETE_FLAT_UI
         {
             InitializeComponent();
         }
-        public string SpCategoryPreparation { get; set; }
-        public string SpMoveOrder { get; set; }
-
-        public string SpMoveOrderApproved { get; set; }
-        public string SpMoveOrderSlipDispatch { get; set; }
-        public string SPRowCountOfStoreDatagrid { get; set; }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+     
+      
 
         private void FormLogo_Load(object sender, EventArgs e)
         {
@@ -66,7 +58,7 @@ namespace COMPLETE_FLAT_UI
             this.dset_emp1 = objStorProc.sp_getMajorTables("StoreOrderDashboard");
             this.mode = "Search1";
             this.doSearch();
-            if(this.SPRowCountOfStoreDatagrid != "0")
+            if(this.Menu.SPRowCountOfStoreDatagrid != "0")
             {
                 this.GetStoreOrder();
                 //this.bunifuPrepaDate_ValueChanged(this, new EventArgs());
@@ -89,11 +81,10 @@ namespace COMPLETE_FLAT_UI
                         }
                                       
                     this.dataGridView1.DataSource = dv;
+
+                    this.Menu.SPRowCountOfStoreDatagrid = dataGridView1.RowCount.ToString();
                 
-                    this.SPRowCountOfStoreDatagrid = dataGridView1.RowCount.ToString();
-                    //MessageBox.Show(this.SPRowCountOfStoreDatagrid);
-                    //return;
-                    if (this.SPRowCountOfStoreDatagrid == "0")
+                    if (this.Menu.SPRowCountOfStoreDatagrid == "0")
                     {
                         this.GlobalStatePopup.NoDataFound();
 
@@ -135,10 +126,10 @@ namespace COMPLETE_FLAT_UI
             double Dispatching;
 
       
-            Preparation = double.Parse(this.SpCategoryPreparation);
-            MoveOrder = double.Parse(this.SpMoveOrder);
-            MoveOrderApproval = double.Parse(this.SpMoveOrderApproved);
-            Dispatching = double.Parse(this.SpMoveOrderSlipDispatch);
+            Preparation = double.Parse(this.Menu.SpCategoryPreparation);
+            MoveOrder = double.Parse(this.Menu.SpMoveOrder);
+            MoveOrderApproval = double.Parse(this.Menu.SpMoveOrderApproved);
+            Dispatching = double.Parse(this.Menu.SpMoveOrderSlipDispatch);
 
             chart4.Series["Series1"].Points.Clear();
             //Initialization of the fucking system
@@ -198,15 +189,7 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        private void metroPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void materialCard1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+    
 
         private void materialCard2_Paint(object sender, PaintEventArgs e)
         {
@@ -293,7 +276,7 @@ namespace COMPLETE_FLAT_UI
 
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (this.SPRowCountOfStoreDatagrid != "0")
+            if (this.Menu.SPRowCountOfStoreDatagrid != "0")
             {
                 if (this.mode == "Search1")
                 {
@@ -304,10 +287,10 @@ namespace COMPLETE_FLAT_UI
                             if (this.dataGridView1.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
                             {
 
-                                this.SpCategoryPreparation = this.dataGridView1.CurrentRow.Cells["Preparation"].Value.ToString();
-                                this.SpMoveOrder = this.dataGridView1.CurrentRow.Cells["MoveOrder"].Value.ToString();
-                                this.SpMoveOrderApproved = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipCheckerApproved"].Value.ToString();
-                                this.SpMoveOrderSlipDispatch = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipDispatch"].Value.ToString();
+                                this.Menu.SpCategoryPreparation = this.dataGridView1.CurrentRow.Cells["Preparation"].Value.ToString();
+                                this.Menu.SpMoveOrder = this.dataGridView1.CurrentRow.Cells["MoveOrder"].Value.ToString();
+                                this.Menu.SpMoveOrderApproved = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipCheckerApproved"].Value.ToString();
+                                this.Menu.SpMoveOrderSlipDispatch = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipDispatch"].Value.ToString();
                             }
                         }
                     }
