@@ -168,6 +168,12 @@
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.Designer.cs">
       <DependentUpon>frmInternalForScheduling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.Designer.cs">
+      <DependentUpon>ViewItemsInternalOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -692,6 +698,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.resx">
       <DependentUpon>frmInternalForScheduling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.resx">
+      <DependentUpon>ViewItemsInternalOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.resx">
       <DependentUpon>frmDryMiscellanouseIssue.cs</DependentUpon>

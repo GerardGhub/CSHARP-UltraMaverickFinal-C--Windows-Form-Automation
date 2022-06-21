@@ -51,15 +51,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.materialCheckboxSelectAll = new MaterialSkin.Controls.MaterialCheckbox();
-            this.cmbArea = new MetroFramework.Controls.MetroComboBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioForApproval = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioForAllocation = new MaterialSkin.Controls.MaterialRadioButton();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
-            this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.label3 = new System.Windows.Forms.Label();
             this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
@@ -69,8 +65,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_req_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_requested_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL_ITEMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ViewItems = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupColorCoding.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindDataForAlocation)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -222,6 +219,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.textBox1.TabIndex = 656;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // matbtnEdit
             // 
@@ -326,8 +324,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.department_id,
             this.mrs_req_desc,
             this.mrs_requested_by,
-            this.fox,
-            this.mrs_requested_date});
+            this.TOTAL_ITEMS,
+            this.mrs_requested_date,
+            this.ViewItems});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -380,6 +379,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.Height = 40;
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
+            this.dgvStoreOrderApproval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellContentClick);
+            this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             // 
             // materialCheckboxSelectAll
             // 
@@ -398,29 +399,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialCheckboxSelectAll.UseVisualStyleBackColor = true;
             this.materialCheckboxSelectAll.Visible = false;
             this.materialCheckboxSelectAll.CheckedChanged += new System.EventHandler(this.materialCheckboxSelectAll_CheckedChanged);
-            // 
-            // cmbArea
-            // 
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.ItemHeight = 23;
-            this.cmbArea.Location = new System.Drawing.Point(258, 41);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(182, 29);
-            this.cmbArea.TabIndex = 647;
-            this.cmbArea.UseSelectable = true;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(258, 14);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
-            this.materialLabel1.TabIndex = 646;
-            this.materialLabel1.Text = "Area:";
             // 
             // materialCard3
             // 
@@ -474,18 +452,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matRadioForAllocation.UseVisualStyleBackColor = true;
             this.matRadioForAllocation.CheckedChanged += new System.EventHandler(this.matRadioForAllocation_CheckedChanged);
             // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(503, 14);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(124, 19);
-            this.materialLabel5.TabIndex = 584;
-            this.materialLabel5.Text = "Preparation Date:";
-            // 
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
@@ -509,30 +475,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matcmbCategory.UseSelectable = true;
             this.matcmbCategory.SelectionChangeCommitted += new System.EventHandler(this.matcmbCategory_SelectionChangeCommitted);
             // 
-            // bunifuPrepaDate
-            // 
-            this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
-            this.bunifuPrepaDate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuPrepaDate.Location = new System.Drawing.Point(503, 39);
-            this.bunifuPrepaDate.Name = "bunifuPrepaDate";
-            this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 33);
-            this.bunifuPrepaDate.TabIndex = 574;
-            // 
             // materialCard1
             // 
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.cmbArea);
-            this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.materialCard3);
-            this.materialCard1.Controls.Add(this.materialLabel5);
             this.materialCard1.Controls.Add(this.materialLabel2);
             this.materialCard1.Controls.Add(this.matcmbCategory);
-            this.materialCard1.Controls.Add(this.bunifuPrepaDate);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(22, 72);
@@ -596,6 +546,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.selected.Name = "selected";
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
+            this.selected.Visible = false;
             // 
             // mrs_id
             // 
@@ -627,13 +578,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mrs_requested_by.MinimumWidth = 12;
             this.mrs_requested_by.Name = "mrs_requested_by";
             // 
-            // fox
+            // TOTAL_ITEMS
             // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.FillWeight = 66.57212F;
-            this.fox.HeaderText = "TOTAL ITEM";
-            this.fox.MinimumWidth = 12;
-            this.fox.Name = "fox";
+            this.TOTAL_ITEMS.DataPropertyName = "TOTAL_ITEMS";
+            this.TOTAL_ITEMS.FillWeight = 66.57212F;
+            this.TOTAL_ITEMS.HeaderText = "TOTAL ITEM";
+            this.TOTAL_ITEMS.MinimumWidth = 12;
+            this.TOTAL_ITEMS.Name = "TOTAL_ITEMS";
             // 
             // mrs_requested_date
             // 
@@ -641,6 +592,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mrs_requested_date.HeaderText = "DATE ORDERED";
             this.mrs_requested_date.MinimumWidth = 6;
             this.mrs_requested_date.Name = "mrs_requested_date";
+            // 
+            // ViewItems
+            // 
+            this.ViewItems.DataPropertyName = "ViewItems";
+            this.ViewItems.HeaderText = "VIEW ITEMS";
+            this.ViewItems.Name = "ViewItems";
+            this.ViewItems.Text = "VIEW";
+            this.ViewItems.UseColumnTextForButtonValue = true;
             // 
             // frmInternalForScheduling
             // 
@@ -692,15 +651,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckboxSelectAll;
-        private MetroFramework.Controls.MetroComboBox cmbArea;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialRadioButton matRadioForApproval;
         private MaterialSkin.Controls.MaterialRadioButton matRadioForAllocation;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MetroFramework.Controls.MetroComboBox matcmbCategory;
-        private System.Windows.Forms.DateTimePicker bunifuPrepaDate;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialButton matbtnPrint;
@@ -710,7 +665,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn department_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_req_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_requested_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_ITEMS;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_requested_date;
+        private System.Windows.Forms.DataGridViewButtonColumn ViewItems;
     }
 }

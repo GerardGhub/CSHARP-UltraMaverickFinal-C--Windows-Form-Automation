@@ -42,6 +42,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         string modesplashScreenError = "";
 
 
+        public string Sp_department_id { get; set; }
+        public string Sp_mrs_req_desc { get; set; }
+        public string Sp_mrs_requested_by { get; set; }
+        public string Sp_mrs_requested_date { get; set; }
+        public string Sp_total_items { get; set; }
+
         public frmInternalForScheduling()
         {
             InitializeComponent();
@@ -98,7 +104,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.VisibilityFalseDataGrid();
             if (this.lbltotaldata.Text == "0")
             {
-                this.bunifuPrepaDate.Enabled = false;
                 this.matcmbCategory.Enabled = false;
                 this.matbtnPrint.Visible = false;
             }
@@ -129,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.GlobalVariable.for_approval_store_module_formLoad = "1";
             }
 
-            this.loadAreaDropdown();
+       
 
         }
 
@@ -190,23 +195,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //END
         }
 
-        public void loadAreaDropdown()
-        {
-            try
-            {
-
-
-                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_ApprovalAreaBinding", this.dSet, this.matcmbCategory.Text, "", this.matcmbCategory.Text, "");
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
-        }
+   
 
 
 
@@ -248,7 +237,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
 
-            this.InitiliazeDatePickerMinDate();
+            //this.InitiliazeDatePickerMinDate();
             this.FormClass.mode = "";
 
 
@@ -276,30 +265,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         }
 
-        private void InitiliazeDatePickerMinDate()
-        {
-            this.bunifuPrepaDate.MinDate = DateTime.Now;
-            this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
-        }
+        //private void InitiliazeDatePickerMinDate()
+        //{
+        //    this.bunifuPrepaDate.MinDate = DateTime.Now;
+        //    this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
+        //}
 
         private void DataGridColumnDisabledEditing()
         {
-            this.dgvStoreOrderApproval.Columns["primary_id"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["order_id"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["fox"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["store_name"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["route"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["area"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["category"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["item_code"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["description"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["uom"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["qty"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["date_added"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["StockOnHand"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["ALLOCATION_QTY"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["ORDERS"].ReadOnly = true;
-            this.dgvStoreOrderApproval.Columns["date_ordered"].ReadOnly = true;
+            if (this.dgvStoreOrderApproval.Rows.Count > 0)
+            {
+
+
+                this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
+                this.dgvStoreOrderApproval.Columns["department_id"].ReadOnly = true;
+                this.dgvStoreOrderApproval.Columns["mrs_req_desc"].ReadOnly = true;
+                this.dgvStoreOrderApproval.Columns["mrs_requested_by"].ReadOnly = true;
+                this.dgvStoreOrderApproval.Columns["mrs_requested_date"].ReadOnly = true;
+                this.dgvStoreOrderApproval.Columns["TOTAL_ITEMS"].ReadOnly = true;
+            }
         }
 
 
@@ -487,6 +471,69 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvStoreOrderApproval_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                //TODO - Button Clicked - Execute Code Here
+                //MessageBox.Show("Sample" + this.Sp_mrs_req_desc);
+                this.dgvStoreOrderApproval.Enabled = false;
+                //this.matbtnSave.Visible = false;
+                ViewItemsInternalOrder addNew = 
+            new ViewItemsInternalOrder(this,
+             this.p_id,
+             this.Sp_department_id,
+             this.Sp_mrs_req_desc,
+             this.Sp_mrs_requested_by,
+             this.Sp_mrs_requested_date,
+             this.Sp_total_items
+             );
+                addNew.ShowDialog();
+                
+            }
+        }
+
+        private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.showDataGridDataValueChanged();
+        }
+
+
+
+        private void showDataGridDataValueChanged()
+        {
+            if (this.dgvStoreOrderApproval.Rows.Count > 0)
+            {
+                if (this.dgvStoreOrderApproval.CurrentRow != null)
+                {
+                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["department_id"].Value != null)
+                    {
+                        p_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_id"].Value);
+
+                        this.Sp_department_id = this.dgvStoreOrderApproval.CurrentRow.Cells["department_id"].Value.ToString();
+                        this.Sp_mrs_req_desc = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_req_desc"].Value.ToString();
+                        this.Sp_mrs_requested_by = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_by"].Value.ToString();
+                        this.Sp_mrs_requested_date = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_date"].Value.ToString();
+                        this.Sp_total_items = this.dgvStoreOrderApproval.CurrentRow.Cells["TOTAL_ITEMS"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox1.Text == "TouchedScreen")
+            {
+                this.dgvStoreOrderApproval.Enabled = true;
+                this.textBox1.Text = String.Empty;
+            }
+
+          
         }
     }
 }
