@@ -102,8 +102,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.showRawMaterialforApproval();
 
-            //this.ReturnFunctionality();
-            //Validate the Data Functionality 
+       
    
                 this.ValidatedItemforApproval();
       
@@ -1289,40 +1288,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
-        {
-            //Start
-            //Update Status Already Repack
-            dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(0,
-           this.matcmbCategory.Text,
-            this.bunifuPrepaDate.Text,
-            "", "", "", "", "", "", 0,
-              this.matcmbCategory.Text, "", "",
-            "check_if_already_prepared_conflict_category");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                if (dSet.Tables.Count.ToString() == "0")
-                {
-
-                    this.GlobalStatePopup.DoubleTaggingCategoryInformation();
-                    MessageBox.Show(dSet.Tables.Count.ToString());
-                }
-
-
-                if (dSet.Tables.Count.ToString() == "1")
-                {
-
-                    MessageBox.Show(dSet.Tables.Count.ToString());
-                    this.GlobalStatePopup.TripleTaggingCategoryInformation();
-                    this.DoubleTaggingFound();
-                    return;
-                }
-
-            }
-            MessageBox.Show("Pussy Lover" + dSet.Tables[0].Rows.Count.ToString());
-            //End
-        }
+       
     }
 }

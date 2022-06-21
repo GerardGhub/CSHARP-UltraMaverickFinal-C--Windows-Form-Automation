@@ -23,7 +23,7 @@ namespace COMPLETE_FLAT_UI
         DataSet dSet = new DataSet();
         string mode = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-       DashboardClasses Menu = new DashboardClasses();
+        DashboardClasses Menu = new DashboardClasses();
         DateTime dNow = DateTime.Now;
 
 
@@ -42,9 +42,7 @@ namespace COMPLETE_FLAT_UI
             this.ConnectionInit();
             this.showReceivingData();
             this.dataGridView1.Visible = false;
-            this.GetLabTestTransactions();
-            //Hello
-
+            this.GetLabTestTransactions();       
             this.load_search();
 
         }
@@ -296,7 +294,7 @@ namespace COMPLETE_FLAT_UI
                     }
                 }
             }
-            //End of Transactions
+            
         }
     }
 }

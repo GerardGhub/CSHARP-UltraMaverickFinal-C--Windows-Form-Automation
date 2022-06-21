@@ -33,6 +33,7 @@ using ULTRAMAVERICK.Forms.Lab_Test;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Miscellaneous;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
 using ULTRAMAVERICK.Menu.View_Models;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1727,6 +1728,15 @@ namespace COMPLETE_FLAT_UI
             frmCustomers Customer = new frmCustomers();
             Customer.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(Customer);
+        }
+
+        private void readyForSchedulingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            this.NormalSizeofSideBar();
+            frmInternalForScheduling Scheduling = new frmInternalForScheduling();
+            Scheduling.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(Scheduling);
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
