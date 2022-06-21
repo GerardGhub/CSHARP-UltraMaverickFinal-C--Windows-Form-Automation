@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,7 +67,51 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //SideLine
             this.DataGridColumnDisabledEditing();
             this.SelectAllRecords();
+
         }
+
+
+        private void ApproveFunctionality()
+        {
+            this.ConnectionState();
+
+            for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
+            {
+                try
+                {
+                    if (dgvStoreOrderApproval.CurrentRow != null)
+                    {
+
+                        if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
+                        {
+                            this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_transact_no"].Value.ToString()), "DryWhSupervisorApprovedMRS", this.bunifuPrepaDate.Text, userinfo.user_id.ToString(), 1);
+
+                        }
+                        else
+                        {
+                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+           
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+
+            this.GlobalStatePopup.ApprovedSuccessfully();
+
+
+            this.ViewItemsInternalOrder_Load(new object(), new System.EventArgs());
+            //this.ReturnFunctionality();
+            this.Close();
+        }
+
 
         private void SelectAllRecords()
         {
@@ -79,14 +124,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (this.dgvStoreOrderApproval.Rows.Count > 0)
             {
 
-
+                this.dgvStoreOrderApproval.Columns["selected"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_transact_no"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_code"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_description"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_uom"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_order_qty"].ReadOnly = true;
-              
+
+
+
+             
             }
         }
 
@@ -169,6 +217,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void ViewItemsInternalOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.textBox1.Text = "TouchedScreen";
+        }
+
+        private void matbtnPrint_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                this.ApproveFunctionality();
+                //MessageBox.Show("Approve na ba?");
+            }
+            else
+            {
+
+                return;
+            }
         }
     }
 }

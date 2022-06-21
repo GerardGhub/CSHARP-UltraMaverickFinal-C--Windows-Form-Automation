@@ -29,16 +29,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
             this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
+            this.txtDescription = new MaterialSkin.Controls.MaterialTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRequestedDate = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtTotalItems = new MaterialSkin.Controls.MaterialTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_transact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,11 +52,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mrs_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDescription = new MaterialSkin.Controls.MaterialTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtRequestedDate = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtTotalItems = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
@@ -60,13 +60,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.label1);
             this.materialCard1.Controls.Add(this.txtTotalItems);
             this.materialCard1.Controls.Add(this.txtRequestedDate);
             this.materialCard1.Controls.Add(this.label3);
             this.materialCard1.Controls.Add(this.textBox1);
             this.materialCard1.Controls.Add(this.txtDescription);
             this.materialCard1.Controls.Add(this.matbtnPrint);
-            this.materialCard1.Controls.Add(this.materialLabel5);
             this.materialCard1.Controls.Add(this.bunifuPrepaDate);
             this.materialCard1.Controls.Add(this.materialCard2);
             this.materialCard1.Depth = 0;
@@ -100,20 +100,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.AllowUserToAddRows = false;
             this.dgvStoreOrderApproval.AllowUserToDeleteRows = false;
             this.dgvStoreOrderApproval.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStoreOrderApproval.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStoreOrderApproval.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvStoreOrderApproval.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStoreOrderApproval.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStoreOrderApproval.ColumnHeadersHeight = 45;
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -125,28 +125,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mrs_uom,
             this.mrs_order_qty,
             this.mrs_requested_date});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStoreOrderApproval.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStoreOrderApproval.EnableHeadersVisualStyles = false;
             this.dgvStoreOrderApproval.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvStoreOrderApproval.Location = new System.Drawing.Point(5, 6);
             this.dgvStoreOrderApproval.MultiSelect = false;
             this.dgvStoreOrderApproval.Name = "dgvStoreOrderApproval";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStoreOrderApproval.RowHeadersVisible = false;
             this.dgvStoreOrderApproval.RowHeadersWidth = 102;
             this.dgvStoreOrderApproval.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -178,18 +178,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(22, 503);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(124, 19);
-            this.materialLabel5.TabIndex = 648;
-            this.materialLabel5.Text = "Preparation Date:";
-            // 
             // bunifuPrepaDate
             // 
             this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,7 +185,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
             this.bunifuPrepaDate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuPrepaDate.Location = new System.Drawing.Point(159, 496);
+            this.bunifuPrepaDate.Location = new System.Drawing.Point(735, 16);
             this.bunifuPrepaDate.Name = "bunifuPrepaDate";
             this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 33);
             this.bunifuPrepaDate.TabIndex = 647;
@@ -219,6 +207,88 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matbtnPrint.UseAccentColor = false;
             this.matbtnPrint.UseVisualStyleBackColor = true;
+            this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescription.Depth = 0;
+            this.txtDescription.Enabled = false;
+            this.txtDescription.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtDescription.Hint = "DESCRIPTION";
+            this.txtDescription.Location = new System.Drawing.Point(26, 2);
+            this.txtDescription.MaxLength = 50;
+            this.txtDescription.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtDescription.Multiline = false;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(215, 50);
+            this.txtDescription.TabIndex = 651;
+            this.txtDescription.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(423, 502);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.TabIndex = 664;
+            this.label3.Text = "TextBox for Two Way Binding";
+            this.label3.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(577, 504);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 663;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtRequestedDate
+            // 
+            this.txtRequestedDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRequestedDate.Depth = 0;
+            this.txtRequestedDate.Enabled = false;
+            this.txtRequestedDate.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtRequestedDate.Hint = "REQUESTED DATE";
+            this.txtRequestedDate.Location = new System.Drawing.Point(255, 2);
+            this.txtRequestedDate.MaxLength = 50;
+            this.txtRequestedDate.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtRequestedDate.Multiline = false;
+            this.txtRequestedDate.Name = "txtRequestedDate";
+            this.txtRequestedDate.Size = new System.Drawing.Size(215, 50);
+            this.txtRequestedDate.TabIndex = 665;
+            this.txtRequestedDate.Text = "";
+            // 
+            // txtTotalItems
+            // 
+            this.txtTotalItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalItems.Depth = 0;
+            this.txtTotalItems.Enabled = false;
+            this.txtTotalItems.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtTotalItems.Hint = "TOTAL ITEMS";
+            this.txtTotalItems.Location = new System.Drawing.Point(485, 2);
+            this.txtTotalItems.MaxLength = 50;
+            this.txtTotalItems.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtTotalItems.Multiline = false;
+            this.txtTotalItems.Name = "txtTotalItems";
+            this.txtTotalItems.Size = new System.Drawing.Size(215, 50);
+            this.txtTotalItems.TabIndex = 666;
+            this.txtTotalItems.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(767, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 15);
+            this.label1.TabIndex = 667;
+            this.label1.Text = "Preparation Date:";
             // 
             // selected
             // 
@@ -281,77 +351,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mrs_requested_date.MinimumWidth = 6;
             this.mrs_requested_date.Name = "mrs_requested_date";
             // 
-            // txtDescription
-            // 
-            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescription.Depth = 0;
-            this.txtDescription.Enabled = false;
-            this.txtDescription.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtDescription.Hint = "DESCRIPTION";
-            this.txtDescription.Location = new System.Drawing.Point(26, 2);
-            this.txtDescription.MaxLength = 50;
-            this.txtDescription.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtDescription.Multiline = false;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(293, 50);
-            this.txtDescription.TabIndex = 651;
-            this.txtDescription.Text = "";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(423, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 13);
-            this.label3.TabIndex = 664;
-            this.label3.Text = "TextBox for Two Way Binding";
-            this.label3.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(577, 504);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 663;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // txtRequestedDate
-            // 
-            this.txtRequestedDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRequestedDate.Depth = 0;
-            this.txtRequestedDate.Enabled = false;
-            this.txtRequestedDate.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtRequestedDate.Hint = "REQUESTED DATE";
-            this.txtRequestedDate.Location = new System.Drawing.Point(331, 2);
-            this.txtRequestedDate.MaxLength = 50;
-            this.txtRequestedDate.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtRequestedDate.Multiline = false;
-            this.txtRequestedDate.Name = "txtRequestedDate";
-            this.txtRequestedDate.Size = new System.Drawing.Size(293, 50);
-            this.txtRequestedDate.TabIndex = 665;
-            this.txtRequestedDate.Text = "";
-            // 
-            // txtTotalItems
-            // 
-            this.txtTotalItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTotalItems.Depth = 0;
-            this.txtTotalItems.Enabled = false;
-            this.txtTotalItems.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtTotalItems.Hint = "TOTAL ITEMS";
-            this.txtTotalItems.Location = new System.Drawing.Point(636, 2);
-            this.txtTotalItems.MaxLength = 50;
-            this.txtTotalItems.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtTotalItems.Multiline = false;
-            this.txtTotalItems.Name = "txtTotalItems";
-            this.txtTotalItems.Size = new System.Drawing.Size(293, 50);
-            this.txtTotalItems.TabIndex = 666;
-            this.txtTotalItems.Text = "";
-            // 
             // ViewItemsInternalOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,9 +375,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.DateTimePicker bunifuPrepaDate;
         private MaterialSkin.Controls.MaterialButton matbtnPrint;
+        private MaterialSkin.Controls.MaterialTextBox txtDescription;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox textBox1;
+        private MaterialSkin.Controls.MaterialTextBox txtTotalItems;
+        private MaterialSkin.Controls.MaterialTextBox txtRequestedDate;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_transact_no;
@@ -387,10 +391,5 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_order_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_requested_date;
-        private MaterialSkin.Controls.MaterialTextBox txtDescription;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox1;
-        private MaterialSkin.Controls.MaterialTextBox txtTotalItems;
-        private MaterialSkin.Controls.MaterialTextBox txtRequestedDate;
     }
 }

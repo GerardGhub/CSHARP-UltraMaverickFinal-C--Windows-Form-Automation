@@ -531,9 +531,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.dgvStoreOrderApproval.Enabled = true;
                 this.textBox1.Text = String.Empty;
+                this.loadCategoryDropdown();
+                this.matcmbCategory_SelectionChangeCommitted(sender, e);
             }
 
           
+        }
+
+        private void matbtnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
