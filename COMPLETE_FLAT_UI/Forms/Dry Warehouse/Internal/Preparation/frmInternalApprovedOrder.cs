@@ -63,7 +63,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string Sp_mrs_requested_by { get; set; }
         public string Sp_mrs_requested_date { get; set; }
         public string Sp_total_items { get; set; }
-
+        public string Sp_preparation_date { get; set; }
 
         private void frmInternalApprovedOrder_Load(object sender, EventArgs e)
         {
@@ -111,28 +111,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (this.dgvStoreOrderApproval.Rows.Count > 0)
             {
 
-                this.dgvStoreOrderApproval.Columns["route"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["area"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["date_added"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["is_approved_by"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["is_approved_date"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["qty_original"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["DateDiff"].Visible = false;
             }
         }
 
-        private void DataGridColumnDisabledEditing()
-        {
-            if (this.dgvStoreOrderApproval.Rows.Count > 0)
-            {
-
-                this.dgvStoreOrderApproval.Columns["mris_id"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["department_id"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_req_desc"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_requested_by"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["TOTAL_ITEMS"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_requested_date"].ReadOnly = true;
-            }
-        }
+  
 
 
         private void DesignerSerializationVisibilityOninit()
@@ -217,18 +201,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         {
                             dv.RowFilter = "is_wh_preparation_date = '" + this.bunifuPrepaDate.Text + "'    ";
                         }
-                        //else if (this.mode == "Search2") // for Fucking Category dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "'  ";
-                        //{
-                        //    dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'  ";
-                        //}
-                        //else if (this.mode == "Search3")
-                        //{
-                        //    dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'   ";
-                        //}
-                        //else if (this.mode == "Search4")
-                        //{
-                        //    dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'  ";
-                        //}
+                    
                         else
                         {
                             //dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'     ";
@@ -334,6 +307,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.Sp_mrs_requested_by = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_by"].Value.ToString();
                         this.Sp_mrs_requested_date = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_date"].Value.ToString();
                         this.Sp_total_items = this.dgvStoreOrderApproval.CurrentRow.Cells["TOTAL_ITEMS"].Value.ToString();
+                        this.Sp_mrs_requested_date = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_date"].Value.ToString();
+                        this.Sp_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_preparation_date"].Value.ToString();
+
                     }
                 }
             
@@ -368,28 +344,76 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (1 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 0 == Convert.ToDouble(row.Cells["DateDiff"].Value))
                 {
 
-                    row.Cells["DateDiff"].Style.BackColor = Color.Green;
-                    row.Cells["selected"].Style.BackColor = Color.Green;
+                    row.Cells["is_wh_preparation_date"].Style.BackColor = Color.Green;
+                    row.Cells["is_wh_preparation_date"].Style.SelectionBackColor = Color.Green;
+               
 
                 }
                 else if (2 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 3 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 4 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 5 == Convert.ToDouble(row.Cells["DateDiff"].Value))
                 {
-                    row.Cells["DateDiff"].Style.BackColor = Color.Yellow;
-                    row.Cells["selected"].Style.BackColor = Color.Yellow;
-               
+                    row.Cells["is_wh_preparation_date"].Style.BackColor = Color.Yellow;
+                    row.Cells["is_wh_preparation_date"].Style.SelectionBackColor = Color.Yellow;
+                    row.Cells["is_wh_preparation_date"].Style.SelectionForeColor = Color.Black;
+
                 }
 
                 else
                 {
 
-                    row.Cells["DateDiff"].Style.BackColor = Color.White;
-                    row.Cells["selected"].Style.BackColor = Color.White;
+                    row.Cells["is_wh_preparation_date"].Style.BackColor = Color.White;
+                    row.Cells["is_wh_preparation_date"].Style.SelectionBackColor = Color.White;
+                    row.Cells["is_wh_preparation_date"].Style.SelectionForeColor = Color.Black;
 
                 }
             }
         }
 
+        private void dgvStoreOrderApproval_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Start
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                //TODO - Button Clicked - Execute Code Here
+                //MessageBox.Show("Sample" + this.Sp_mrs_req_desc);
+                this.dgvStoreOrderApproval.Enabled = false;
+                //this.matbtnSave.Visible = false;
+                ViewApprovedItemsInternalOrder addNew =
+            new ViewApprovedItemsInternalOrder(this,
+             this.p_id,
+             this.Sp_department_id,
+             this.Sp_mrs_req_desc,
+             this.Sp_mrs_requested_by,
+             this.Sp_mrs_requested_date,
+             this.Sp_total_items,
+             this.Sp_preparation_date
+             );
+                addNew.ShowDialog();
+
+            }
+
+            //End
 
 
+
+        }
+
+        private void materialCard1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox1.Text == "TouchedScreen")
+            {
+                this.dgvStoreOrderApproval.Enabled = true;
+                this.textBox1.Text = String.Empty;
+                this.ConnectionInit();
+                this.bunifuPrepaDate_ValueChanged(sender, e);
+            }
+        }
     }
     }

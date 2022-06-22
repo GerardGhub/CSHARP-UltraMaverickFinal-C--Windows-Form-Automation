@@ -105,21 +105,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (this.lbltotaldata.Text == "0")
             {
                 this.matcmbCategory.Enabled = false;
-                this.matbtnPrint.Visible = false;
+      
             }
             else
             {
 
                 this.matcmbCategory.Enabled = true;
 
-                if (num != 0)
-                {
-                    this.matbtnPrint.Visible = true;
-                }
-                else
-                {
-                    this.matbtnPrint.Visible = false;
-                }
+          
 
 
                 this.load_search();
@@ -260,7 +253,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.groupColorCoding.Visible = true;
             }
 
-            this.SaveButtonManipulator();
+          
             this.DataGridColumnDisabledEditing();
 
         }
@@ -287,21 +280,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
 
-        private void SaveButtonManipulator()
-        {
-            if (this.labelSelectedSum.Text == "0")
-            {
-                this.matbtnPrint.Visible = false;
-            }
-            else if (num == 0)
-            {
-                this.matbtnPrint.Visible = false;
-            }
-            else
-            {
-                this.matbtnPrint.Visible = true;
-            }
-        }
+      
 
 
         private void ValidatedItemforApproval()

@@ -439,7 +439,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 MessageBox.Show(ex.Message);
             }
 
-            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+
         }
 
         private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -452,14 +452,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     row.Cells["DateDiff"].Style.BackColor = Color.Green;
                     row.Cells["selected"].Style.BackColor = Color.Green;
 
-                    //dgvStoreOrderApproval.Rows[Convert.ToInt32(row.Cells["DateDiff"].Value)].DefaultCellStyle.BackColor = Color.Green;
+
                 }
                 else if (2 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 3 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 4 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 5 == Convert.ToDouble(row.Cells["DateDiff"].Value))
                 {
                     row.Cells["DateDiff"].Style.BackColor = Color.Yellow;
                     row.Cells["selected"].Style.BackColor = Color.Yellow;
-                    //this.dgvStoreOrderApproval.Rows[Convert.ToInt32(row.Cells["DateDiff"].Value)].DefaultCellStyle.BackColor = Color.Yellow;
-
+                
                 }
      
             else
@@ -475,12 +474,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void cmbDateOrder_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //this.ConnectionInit();
-            //this.loadCategoryDropdown();
-            //this.mode = "Search2";
 
-            //this.load_search();
-            //this.checkIfAlreadyPrepared();
 
             this.ConnectionInit();
             this.loadStoreDropdown();

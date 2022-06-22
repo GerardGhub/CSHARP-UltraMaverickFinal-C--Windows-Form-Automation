@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 {
-    partial class ViewItemsInternalOrder
+    partial class ViewApprovedItemsInternalOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -33,51 +33,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotalItems = new MaterialSkin.Controls.MaterialTextBox();
             this.txtRequestedDate = new MaterialSkin.Controls.MaterialTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtDescription = new MaterialSkin.Controls.MaterialTextBox();
-            this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
+            this.matBtnAction = new MaterialSkin.Controls.MaterialButton();
             this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
+            this.mrs_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_transact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_transact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCard1.SuspendLayout();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
+            this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // materialCard1
+            // mrs_requested_date
             // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.label1);
-            this.materialCard1.Controls.Add(this.txtTotalItems);
-            this.materialCard1.Controls.Add(this.txtRequestedDate);
-            this.materialCard1.Controls.Add(this.label3);
-            this.materialCard1.Controls.Add(this.textBox1);
-            this.materialCard1.Controls.Add(this.txtDescription);
-            this.materialCard1.Controls.Add(this.matbtnPrint);
-            this.materialCard1.Controls.Add(this.bunifuPrepaDate);
-            this.materialCard1.Controls.Add(this.materialCard2);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(22, 80);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(953, 536);
-            this.materialCard1.TabIndex = 0;
+            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
+            this.mrs_requested_date.HeaderText = "RESERVED QTY";
+            this.mrs_requested_date.MinimumWidth = 6;
+            this.mrs_requested_date.Name = "mrs_requested_date";
             // 
             // label1
             // 
@@ -160,24 +145,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.txtDescription.TabIndex = 651;
             this.txtDescription.Text = "";
             // 
-            // matbtnPrint
+            // matBtnAction
             // 
-            this.matbtnPrint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnPrint.Depth = 0;
-            this.matbtnPrint.DrawShadows = true;
-            this.matbtnPrint.HighEmphasis = true;
-            this.matbtnPrint.Icon = null;
-            this.matbtnPrint.Location = new System.Drawing.Point(847, 494);
-            this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnPrint.Name = "matbtnPrint";
-            this.matbtnPrint.Size = new System.Drawing.Size(87, 36);
-            this.matbtnPrint.TabIndex = 650;
-            this.matbtnPrint.Text = "APPROVE";
-            this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnPrint.UseAccentColor = false;
-            this.matbtnPrint.UseVisualStyleBackColor = true;
-            this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
+            this.matBtnAction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnAction.Depth = 0;
+            this.matBtnAction.DrawShadows = true;
+            this.matBtnAction.HighEmphasis = true;
+            this.matBtnAction.Icon = null;
+            this.matBtnAction.Location = new System.Drawing.Point(847, 494);
+            this.matBtnAction.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matBtnAction.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnAction.Name = "matBtnAction";
+            this.matBtnAction.Size = new System.Drawing.Size(77, 36);
+            this.matBtnAction.TabIndex = 650;
+            this.matBtnAction.Text = "CANCEL";
+            this.matBtnAction.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnAction.UseAccentColor = false;
+            this.matBtnAction.UseVisualStyleBackColor = true;
             // 
             // bunifuPrepaDate
             // 
@@ -190,6 +174,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.bunifuPrepaDate.Name = "bunifuPrepaDate";
             this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 33);
             this.bunifuPrepaDate.TabIndex = 647;
+            this.bunifuPrepaDate.ValueChanged += new System.EventHandler(this.bunifuPrepaDate_ValueChanged);
+            // 
+            // mrs_uom
+            // 
+            this.mrs_uom.DataPropertyName = "mrs_uom";
+            this.mrs_uom.FillWeight = 66.57212F;
+            this.mrs_uom.HeaderText = "UOM";
+            this.mrs_uom.MinimumWidth = 12;
+            this.mrs_uom.Name = "mrs_uom";
+            // 
+            // mrs_item_description
+            // 
+            this.mrs_item_description.DataPropertyName = "mrs_item_description";
+            this.mrs_item_description.HeaderText = "DESCRIPTION";
+            this.mrs_item_description.Name = "mrs_item_description";
+            // 
+            // mrs_item_code
+            // 
+            this.mrs_item_code.DataPropertyName = "mrs_item_code";
+            this.mrs_item_code.FillWeight = 66.57212F;
+            this.mrs_item_code.HeaderText = "ITEM CODE";
+            this.mrs_item_code.MinimumWidth = 12;
+            this.mrs_item_code.Name = "mrs_item_code";
+            // 
+            // mrs_transact_no
+            // 
+            this.mrs_transact_no.DataPropertyName = "mrs_transact_no";
+            this.mrs_transact_no.HeaderText = "MRS ID";
+            this.mrs_transact_no.Name = "mrs_transact_no";
             // 
             // materialCard2
             // 
@@ -309,34 +322,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mrs_id.MinimumWidth = 12;
             this.mrs_id.Name = "mrs_id";
             // 
-            // mrs_transact_no
-            // 
-            this.mrs_transact_no.DataPropertyName = "mrs_transact_no";
-            this.mrs_transact_no.HeaderText = "MRS ID";
-            this.mrs_transact_no.Name = "mrs_transact_no";
-            // 
-            // mrs_item_code
-            // 
-            this.mrs_item_code.DataPropertyName = "mrs_item_code";
-            this.mrs_item_code.FillWeight = 66.57212F;
-            this.mrs_item_code.HeaderText = "ITEM CODE";
-            this.mrs_item_code.MinimumWidth = 12;
-            this.mrs_item_code.Name = "mrs_item_code";
-            // 
-            // mrs_item_description
-            // 
-            this.mrs_item_description.DataPropertyName = "mrs_item_description";
-            this.mrs_item_description.HeaderText = "DESCRIPTION";
-            this.mrs_item_description.Name = "mrs_item_description";
-            // 
-            // mrs_uom
-            // 
-            this.mrs_uom.DataPropertyName = "mrs_uom";
-            this.mrs_uom.FillWeight = 66.57212F;
-            this.mrs_uom.HeaderText = "UOM";
-            this.mrs_uom.MinimumWidth = 12;
-            this.mrs_uom.Name = "mrs_uom";
-            // 
             // mrs_order_qty
             // 
             this.mrs_order_qty.DataPropertyName = "mrs_order_qty";
@@ -345,53 +330,68 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mrs_order_qty.MinimumWidth = 12;
             this.mrs_order_qty.Name = "mrs_order_qty";
             // 
-            // mrs_requested_date
+            // materialCard1
             // 
-            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
-            this.mrs_requested_date.HeaderText = "RESERVED QTY";
-            this.mrs_requested_date.MinimumWidth = 6;
-            this.mrs_requested_date.Name = "mrs_requested_date";
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.label1);
+            this.materialCard1.Controls.Add(this.txtTotalItems);
+            this.materialCard1.Controls.Add(this.txtRequestedDate);
+            this.materialCard1.Controls.Add(this.label3);
+            this.materialCard1.Controls.Add(this.textBox1);
+            this.materialCard1.Controls.Add(this.txtDescription);
+            this.materialCard1.Controls.Add(this.matBtnAction);
+            this.materialCard1.Controls.Add(this.bunifuPrepaDate);
+            this.materialCard1.Controls.Add(this.materialCard2);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(22, 84);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(953, 536);
+            this.materialCard1.TabIndex = 1;
             // 
-            // ViewItemsInternalOrder
+            // ViewApprovedItemsInternalOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 630);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
-            this.Name = "ViewItemsInternalOrder";
+            this.Name = "ViewApprovedItemsInternalOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "View Items Internal Order";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewItemsInternalOrder_FormClosing);
-            this.Load += new System.EventHandler(this.ViewItemsInternalOrder_Load);
-            this.materialCard1.ResumeLayout(false);
-            this.materialCard1.PerformLayout();
+            this.Text = "View Approved Items Internal Order";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewApprovedItemsInternalOrder_FormClosing);
+            this.Load += new System.EventHandler(this.ViewApprovedItemsInternalOrder_Load);
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).EndInit();
+            this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialCard materialCard2;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
-        private System.Windows.Forms.DateTimePicker bunifuPrepaDate;
-        private MaterialSkin.Controls.MaterialButton matbtnPrint;
-        private MaterialSkin.Controls.MaterialTextBox txtDescription;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_requested_date;
+        private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialTextBox txtTotalItems;
         private MaterialSkin.Controls.MaterialTextBox txtRequestedDate;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox textBox1;
+        private MaterialSkin.Controls.MaterialTextBox txtDescription;
+        private MaterialSkin.Controls.MaterialButton matBtnAction;
+        private System.Windows.Forms.DateTimePicker bunifuPrepaDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_uom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_transact_no;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_transact_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_order_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_requested_date;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
     }
 }

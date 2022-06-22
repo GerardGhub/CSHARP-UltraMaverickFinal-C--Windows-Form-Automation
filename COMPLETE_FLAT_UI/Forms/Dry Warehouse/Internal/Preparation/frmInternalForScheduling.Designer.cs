@@ -42,20 +42,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvFindDataForAlocation = new Guna.UI2.WinForms.Guna2DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
             this.labelSelectedSum = new System.Windows.Forms.Label();
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_req_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_requested_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TOTAL_ITEMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_active = new System.Windows.Forms.DataGridViewButtonColumn();
             this.materialCheckboxSelectAll = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioForApproval = new MaterialSkin.Controls.MaterialRadioButton();
@@ -64,8 +55,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.label3 = new System.Windows.Forms.Label();
-            this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
             this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_req_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_requested_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL_ITEMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupColorCoding.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindDataForAlocation)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -195,26 +193,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // matbtnEdit
-            // 
-            this.matbtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnEdit.Depth = 0;
-            this.matbtnEdit.DrawShadows = true;
-            this.matbtnEdit.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matbtnEdit.HighEmphasis = true;
-            this.matbtnEdit.Icon = null;
-            this.matbtnEdit.Location = new System.Drawing.Point(130, 711);
-            this.matbtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnEdit.Name = "matbtnEdit";
-            this.matbtnEdit.Size = new System.Drawing.Size(53, 36);
-            this.matbtnEdit.TabIndex = 655;
-            this.matbtnEdit.Text = "EDIT";
-            this.matbtnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnEdit.UseAccentColor = false;
-            this.matbtnEdit.UseVisualStyleBackColor = true;
-            this.matbtnEdit.Visible = false;
             // 
             // labelSelectedSum
             // 
@@ -358,69 +336,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellContentClick);
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "*";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            this.selected.Visible = false;
-            // 
-            // mrs_id
-            // 
-            this.mrs_id.DataPropertyName = "mrs_id";
-            this.mrs_id.FillWeight = 66.91177F;
-            this.mrs_id.HeaderText = "MRS ID";
-            this.mrs_id.MinimumWidth = 12;
-            this.mrs_id.Name = "mrs_id";
-            // 
-            // department_id
-            // 
-            this.department_id.DataPropertyName = "department_id";
-            this.department_id.FillWeight = 66.57212F;
-            this.department_id.HeaderText = "DEPARTMENT";
-            this.department_id.MinimumWidth = 12;
-            this.department_id.Name = "department_id";
-            // 
-            // mrs_req_desc
-            // 
-            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
-            this.mrs_req_desc.HeaderText = "DESCRIPTION";
-            this.mrs_req_desc.Name = "mrs_req_desc";
-            // 
-            // mrs_requested_by
-            // 
-            this.mrs_requested_by.DataPropertyName = "mrs_requested_by";
-            this.mrs_requested_by.FillWeight = 66.57212F;
-            this.mrs_requested_by.HeaderText = "REQUESTED BY";
-            this.mrs_requested_by.MinimumWidth = 12;
-            this.mrs_requested_by.Name = "mrs_requested_by";
-            // 
-            // TOTAL_ITEMS
-            // 
-            this.TOTAL_ITEMS.DataPropertyName = "TOTAL_ITEMS";
-            this.TOTAL_ITEMS.FillWeight = 66.57212F;
-            this.TOTAL_ITEMS.HeaderText = "TOTAL ITEM";
-            this.TOTAL_ITEMS.MinimumWidth = 12;
-            this.TOTAL_ITEMS.Name = "TOTAL_ITEMS";
-            // 
-            // mrs_requested_date
-            // 
-            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
-            this.mrs_requested_date.HeaderText = "REQUESTED DATE";
-            this.mrs_requested_date.Name = "mrs_requested_date";
-            // 
-            // is_active
-            // 
-            this.is_active.DataPropertyName = "is_active";
-            this.is_active.HeaderText = "VIEW ITEMS";
-            this.is_active.Name = "is_active";
-            this.is_active.Text = "VIEW";
-            this.is_active.UseColumnTextForButtonValue = true;
-            // 
             // materialCheckboxSelectAll
             // 
             this.materialCheckboxSelectAll.AutoSize = true;
@@ -545,25 +460,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.label3.TabIndex = 647;
             this.label3.Text = "Items";
             // 
-            // matbtnPrint
-            // 
-            this.matbtnPrint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnPrint.Depth = 0;
-            this.matbtnPrint.DrawShadows = true;
-            this.matbtnPrint.HighEmphasis = true;
-            this.matbtnPrint.Icon = null;
-            this.matbtnPrint.Location = new System.Drawing.Point(22, 711);
-            this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnPrint.Name = "matbtnPrint";
-            this.matbtnPrint.Size = new System.Drawing.Size(87, 36);
-            this.matbtnPrint.TabIndex = 649;
-            this.matbtnPrint.Text = "APPROVE";
-            this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnPrint.UseAccentColor = false;
-            this.matbtnPrint.UseVisualStyleBackColor = true;
-            this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
-            // 
             // lbltotalrecords
             // 
             this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -577,6 +473,69 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.lbltotalrecords.TabIndex = 646;
             this.lbltotalrecords.Text = "76";
             // 
+            // selected
+            // 
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.HeaderText = "*";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            this.selected.Visible = false;
+            // 
+            // mrs_id
+            // 
+            this.mrs_id.DataPropertyName = "mrs_id";
+            this.mrs_id.FillWeight = 66.91177F;
+            this.mrs_id.HeaderText = "MRS ID";
+            this.mrs_id.MinimumWidth = 12;
+            this.mrs_id.Name = "mrs_id";
+            // 
+            // department_id
+            // 
+            this.department_id.DataPropertyName = "department_id";
+            this.department_id.FillWeight = 66.57212F;
+            this.department_id.HeaderText = "DEPARTMENT";
+            this.department_id.MinimumWidth = 12;
+            this.department_id.Name = "department_id";
+            // 
+            // mrs_req_desc
+            // 
+            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
+            this.mrs_req_desc.HeaderText = "DESCRIPTION";
+            this.mrs_req_desc.Name = "mrs_req_desc";
+            // 
+            // mrs_requested_by
+            // 
+            this.mrs_requested_by.DataPropertyName = "mrs_requested_by";
+            this.mrs_requested_by.FillWeight = 66.57212F;
+            this.mrs_requested_by.HeaderText = "REQUESTED BY";
+            this.mrs_requested_by.MinimumWidth = 12;
+            this.mrs_requested_by.Name = "mrs_requested_by";
+            // 
+            // TOTAL_ITEMS
+            // 
+            this.TOTAL_ITEMS.DataPropertyName = "TOTAL_ITEMS";
+            this.TOTAL_ITEMS.FillWeight = 66.57212F;
+            this.TOTAL_ITEMS.HeaderText = "TOTAL ITEM";
+            this.TOTAL_ITEMS.MinimumWidth = 12;
+            this.TOTAL_ITEMS.Name = "TOTAL_ITEMS";
+            // 
+            // mrs_requested_date
+            // 
+            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
+            this.mrs_requested_date.HeaderText = "REQUESTED DATE";
+            this.mrs_requested_date.Name = "mrs_requested_date";
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "is_active";
+            this.is_active.HeaderText = "VIEW ITEMS";
+            this.is_active.Name = "is_active";
+            this.is_active.Text = "VIEW";
+            this.is_active.UseColumnTextForButtonValue = true;
+            // 
             // frmInternalForScheduling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,7 +544,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.Controls.Add(this.groupColorCoding);
             this.Controls.Add(this.dgvFindDataForAlocation);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.matbtnEdit);
             this.Controls.Add(this.labelSelectedSum);
             this.Controls.Add(this.lbltotaldata);
             this.Controls.Add(this.label4);
@@ -593,7 +551,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.Controls.Add(this.materialCheckboxSelectAll);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.matbtnPrint);
             this.Controls.Add(this.lbltotalrecords);
             this.Name = "frmInternalForScheduling";
             this.Text = "READY FOR SCHEDULING";
@@ -618,7 +575,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvFindDataForAlocation;
         public System.Windows.Forms.TextBox textBox1;
-        private MaterialSkin.Controls.MaterialButton matbtnEdit;
         private System.Windows.Forms.Label labelSelectedSum;
         private System.Windows.Forms.Label lbltotaldata;
         private System.Windows.Forms.Label label4;
@@ -632,7 +588,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private MetroFramework.Controls.MetroComboBox matcmbCategory;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.Label label3;
-        private MaterialSkin.Controls.MaterialButton matbtnPrint;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_id;

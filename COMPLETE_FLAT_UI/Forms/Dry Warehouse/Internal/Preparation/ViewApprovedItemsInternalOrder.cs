@@ -1,5 +1,4 @@
-﻿using COMPLETE_FLAT_UI.Models;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +12,9 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 {
-    public partial class ViewItemsInternalOrder : MaterialForm
+    public partial class ViewApprovedItemsInternalOrder : MaterialForm
     {
-        frmInternalForScheduling ths;
+        frmInternalApprovedOrder ths;
 
         myclasses myClass = new myclasses();
         myclasses xClass = new myclasses();
@@ -27,15 +26,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
-
-        public ViewItemsInternalOrder(frmInternalForScheduling frm,
+        private bool dateChanged = false;
+        public ViewApprovedItemsInternalOrder(frmInternalApprovedOrder frm,
             int sp_mrs_id,
             string sp_department_id,
             string sp_mrs_req_desc,
             string sp_mrs_requested_by,
             string sp_mrs_requested_date,
-            string sp_total_items)
+            string sp_total_items,
+            string sp_preparation_date)
         {
             InitializeComponent();
             ths = frm;
@@ -46,7 +45,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             ctrl_bind_mrs_req_by = sp_mrs_requested_by;
             ctrl_bind_mrs_req_date = sp_mrs_requested_date;
             ctrl_bind_total_items = sp_total_items;
+            ctrl_bind_is_preparation_date = sp_preparation_date;
         }
+
 
         public int ctrl_bind_mrs { get; set; }
         public string ctrl_bind_department_id { get; set; }
@@ -54,9 +55,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string ctrl_bind_mrs_req_by { get; set; }
         public string ctrl_bind_mrs_req_date { get; set; }
         public string ctrl_bind_total_items { get; set; }
+        public string ctrl_bind_is_preparation_date { get; set; }
 
-
-    private void ViewItemsInternalOrder_Load(object sender, EventArgs e)
+        private void ViewApprovedItemsInternalOrder_Load(object sender, EventArgs e)
         {
             this.StaticWindowState();
             this.InitiliazeDatePickerMinDate();
@@ -67,51 +68,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //SideLine
             this.DataGridColumnDisabledEditing();
             this.SelectAllRecords();
-
+            this.bunifuPrepaDate.ValueChanged += new System.EventHandler(bunifuPrepaDate_ValueChanged);
         }
-
-
-        private void ApproveFunctionality()
-        {
-            this.ConnectionState();
-
-            for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
-            {
-                try
-                {
-                    if (dgvStoreOrderApproval.CurrentRow != null)
-                    {
-
-                        if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
-                        {
-                            this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_transact_no"].Value.ToString()), "DryWhSupervisorApprovedMRS", this.bunifuPrepaDate.Text, userinfo.user_id.ToString(), 1);
-
-                        }
-                        else
-                        {
-                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
-
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-
-           
-                    MessageBox.Show(ex.Message);
-                }
-
-            }
-
-            this.GlobalStatePopup.ApprovedSuccessfully();
-
-
-            this.ViewItemsInternalOrder_Load(new object(), new System.EventArgs());
-            //this.ReturnFunctionality();
-            this.Close();
-        }
-
 
         private void SelectAllRecords()
         {
@@ -131,12 +89,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.dgvStoreOrderApproval.Columns["mrs_item_description"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_uom"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_order_qty"].ReadOnly = true;
-
-
-
-             
             }
         }
+
 
 
         //@ 1st Generation
@@ -150,7 +105,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void doSearchInTextBoxCmb()
         {
-            
+
             try
             {
 
@@ -177,9 +132,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
 
 
-
-
         }
+
+
 
         private void ConnectionState()
         {
@@ -190,7 +145,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void InitiliazeDatePickerMinDate()
         {
             this.bunifuPrepaDate.MinDate = DateTime.Now;
-            this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
+            //this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
         }
 
         private void StaticWindowState()
@@ -198,34 +153,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.txtDescription.Text = ctrl_bind_mrs_req_desc;
             this.txtRequestedDate.Text = ctrl_bind_mrs_req_date;
             this.txtTotalItems.Text = ctrl_bind_total_items;
-   
+            this.bunifuPrepaDate.Text = ctrl_bind_is_preparation_date;
+            
 
         }
-
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
+      
+
         }
 
-        private void ViewItemsInternalOrder_FormClosing(object sender, FormClosingEventArgs e)
+        private void ViewApprovedItemsInternalOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.textBox1.Text = "TouchedScreen";
         }
 
-        private void matbtnPrint_Click(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
+            //this.bunifuPrepaDate.Text = "2022-06-28";
+            MessageBox.Show(ctrl_bind_is_preparation_date);
+            this.bunifuPrepaDate.Value.ToString(ctrl_bind_is_preparation_date);
+        }
 
-                this.ApproveFunctionality();
-                //MessageBox.Show("Approve na ba?");
-            }
-            else
+        private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
+        {
+            dateChanged = true;
+            //Here you can do stuff that needs to be done when the value changes
+            //Example: Here you can check if the value has changed since you opened the form:
+            if (dateChanged)
             {
+                //The date has been changed - do what I need to do
+                if(this.bunifuPrepaDate.Text == ctrl_bind_is_preparation_date)
+                {
+                    this.matBtnAction.Text = "CANCEL";
+                }
+                else
+                {
+                    MessageBox.Show("Sure Ka? ");
+                    this.matBtnAction.Text = "UPDATE";
+                }
 
-                return;
             }
+           
+
+        }
+
+        private void bunifuPrepaDate_Validated(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sure Ka? ");
+        }
+
+        private void bunifuPrepaDate_Validating(object sender, CancelEventArgs e)
+        {
+            MessageBox.Show("Sure Ka? ");
         }
     }
 }
