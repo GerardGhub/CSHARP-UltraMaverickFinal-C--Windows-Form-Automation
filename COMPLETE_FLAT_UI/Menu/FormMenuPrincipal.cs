@@ -1739,6 +1739,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(Scheduling);
         }
 
+        private void approvedScheduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmInternalApprovedOrder ApprovedScheduled = new frmInternalApprovedOrder();
+            ApprovedScheduled.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(ApprovedScheduled);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

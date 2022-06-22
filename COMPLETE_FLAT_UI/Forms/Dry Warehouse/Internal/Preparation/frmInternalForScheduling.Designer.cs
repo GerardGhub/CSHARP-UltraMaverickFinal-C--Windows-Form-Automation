@@ -48,6 +48,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_req_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_requested_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL_ITEMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewButtonColumn();
             this.materialCheckboxSelectAll = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioForApproval = new MaterialSkin.Controls.MaterialRadioButton();
@@ -58,14 +66,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.label3 = new System.Windows.Forms.Label();
             this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
             this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_req_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_requested_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TOTAL_ITEMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_active = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupColorCoding.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindDataForAlocation)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -229,6 +229,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.labelSelectedSum.TabIndex = 654;
             this.labelSelectedSum.Text = "0";
             this.labelSelectedSum.Visible = false;
+            this.labelSelectedSum.TextChanged += new System.EventHandler(this.labelSelectedSum_TextChanged);
             // 
             // lbltotaldata
             // 
@@ -357,6 +358,69 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellContentClick);
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             // 
+            // selected
+            // 
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.HeaderText = "*";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            this.selected.Visible = false;
+            // 
+            // mrs_id
+            // 
+            this.mrs_id.DataPropertyName = "mrs_id";
+            this.mrs_id.FillWeight = 66.91177F;
+            this.mrs_id.HeaderText = "MRS ID";
+            this.mrs_id.MinimumWidth = 12;
+            this.mrs_id.Name = "mrs_id";
+            // 
+            // department_id
+            // 
+            this.department_id.DataPropertyName = "department_id";
+            this.department_id.FillWeight = 66.57212F;
+            this.department_id.HeaderText = "DEPARTMENT";
+            this.department_id.MinimumWidth = 12;
+            this.department_id.Name = "department_id";
+            // 
+            // mrs_req_desc
+            // 
+            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
+            this.mrs_req_desc.HeaderText = "DESCRIPTION";
+            this.mrs_req_desc.Name = "mrs_req_desc";
+            // 
+            // mrs_requested_by
+            // 
+            this.mrs_requested_by.DataPropertyName = "mrs_requested_by";
+            this.mrs_requested_by.FillWeight = 66.57212F;
+            this.mrs_requested_by.HeaderText = "REQUESTED BY";
+            this.mrs_requested_by.MinimumWidth = 12;
+            this.mrs_requested_by.Name = "mrs_requested_by";
+            // 
+            // TOTAL_ITEMS
+            // 
+            this.TOTAL_ITEMS.DataPropertyName = "TOTAL_ITEMS";
+            this.TOTAL_ITEMS.FillWeight = 66.57212F;
+            this.TOTAL_ITEMS.HeaderText = "TOTAL ITEM";
+            this.TOTAL_ITEMS.MinimumWidth = 12;
+            this.TOTAL_ITEMS.Name = "TOTAL_ITEMS";
+            // 
+            // mrs_requested_date
+            // 
+            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
+            this.mrs_requested_date.HeaderText = "REQUESTED DATE";
+            this.mrs_requested_date.Name = "mrs_requested_date";
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "is_active";
+            this.is_active.HeaderText = "VIEW ITEMS";
+            this.is_active.Name = "is_active";
+            this.is_active.Text = "VIEW";
+            this.is_active.UseColumnTextForButtonValue = true;
+            // 
             // materialCheckboxSelectAll
             // 
             this.materialCheckboxSelectAll.AutoSize = true;
@@ -435,9 +499,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialLabel2.Location = new System.Drawing.Point(19, 14);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(68, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(138, 19);
             this.materialLabel2.TabIndex = 578;
-            this.materialLabel2.Text = "Category:";
+            this.materialLabel2.Text = "REQUESTED DATE:";
             // 
             // matcmbCategory
             // 
@@ -512,69 +576,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
             this.lbltotalrecords.TabIndex = 646;
             this.lbltotalrecords.Text = "76";
-            // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "*";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            this.selected.Visible = false;
-            // 
-            // mrs_id
-            // 
-            this.mrs_id.DataPropertyName = "mrs_id";
-            this.mrs_id.FillWeight = 66.91177F;
-            this.mrs_id.HeaderText = "MRS ID";
-            this.mrs_id.MinimumWidth = 12;
-            this.mrs_id.Name = "mrs_id";
-            // 
-            // department_id
-            // 
-            this.department_id.DataPropertyName = "department_id";
-            this.department_id.FillWeight = 66.57212F;
-            this.department_id.HeaderText = "DEPARTMENT";
-            this.department_id.MinimumWidth = 12;
-            this.department_id.Name = "department_id";
-            // 
-            // mrs_req_desc
-            // 
-            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
-            this.mrs_req_desc.HeaderText = "DESCRIPTION";
-            this.mrs_req_desc.Name = "mrs_req_desc";
-            // 
-            // mrs_requested_by
-            // 
-            this.mrs_requested_by.DataPropertyName = "mrs_requested_by";
-            this.mrs_requested_by.FillWeight = 66.57212F;
-            this.mrs_requested_by.HeaderText = "REQUESTED BY";
-            this.mrs_requested_by.MinimumWidth = 12;
-            this.mrs_requested_by.Name = "mrs_requested_by";
-            // 
-            // TOTAL_ITEMS
-            // 
-            this.TOTAL_ITEMS.DataPropertyName = "TOTAL_ITEMS";
-            this.TOTAL_ITEMS.FillWeight = 66.57212F;
-            this.TOTAL_ITEMS.HeaderText = "TOTAL ITEM";
-            this.TOTAL_ITEMS.MinimumWidth = 12;
-            this.TOTAL_ITEMS.Name = "TOTAL_ITEMS";
-            // 
-            // mrs_requested_date
-            // 
-            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
-            this.mrs_requested_date.HeaderText = "REQUESTED DATE";
-            this.mrs_requested_date.Name = "mrs_requested_date";
-            // 
-            // is_active
-            // 
-            this.is_active.DataPropertyName = "is_active";
-            this.is_active.HeaderText = "VIEW ITEMS";
-            this.is_active.Name = "is_active";
-            this.is_active.Text = "VIEW";
-            this.is_active.UseColumnTextForButtonValue = true;
             // 
             // frmInternalForScheduling
             // 

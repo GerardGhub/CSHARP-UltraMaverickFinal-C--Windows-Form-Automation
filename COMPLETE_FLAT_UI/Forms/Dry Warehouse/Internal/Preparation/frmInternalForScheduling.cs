@@ -542,5 +542,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
 
         }
+
+        private void labelSelectedSum_TextChanged(object sender, EventArgs e)
+        {
+   
+
+        }
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
     }
 }

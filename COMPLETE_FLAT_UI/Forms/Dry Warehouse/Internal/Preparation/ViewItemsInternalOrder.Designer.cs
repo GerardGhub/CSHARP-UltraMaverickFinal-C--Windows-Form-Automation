@@ -34,16 +34,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
-            this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
-            this.txtDescription = new MaterialSkin.Controls.MaterialTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTotalItems = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtRequestedDate = new MaterialSkin.Controls.MaterialTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtRequestedDate = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtTotalItems = new MaterialSkin.Controls.MaterialTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescription = new MaterialSkin.Controls.MaterialTextBox();
+            this.matbtnPrint = new MaterialSkin.Controls.MaterialButton();
+            this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_transact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +78,118 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(953, 536);
             this.materialCard1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(767, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 15);
+            this.label1.TabIndex = 667;
+            this.label1.Text = "Preparation Date:";
+            // 
+            // txtTotalItems
+            // 
+            this.txtTotalItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalItems.Depth = 0;
+            this.txtTotalItems.Enabled = false;
+            this.txtTotalItems.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtTotalItems.Hint = "TOTAL ITEMS";
+            this.txtTotalItems.Location = new System.Drawing.Point(485, 2);
+            this.txtTotalItems.MaxLength = 50;
+            this.txtTotalItems.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtTotalItems.Multiline = false;
+            this.txtTotalItems.Name = "txtTotalItems";
+            this.txtTotalItems.Size = new System.Drawing.Size(215, 50);
+            this.txtTotalItems.TabIndex = 666;
+            this.txtTotalItems.Text = "";
+            // 
+            // txtRequestedDate
+            // 
+            this.txtRequestedDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRequestedDate.Depth = 0;
+            this.txtRequestedDate.Enabled = false;
+            this.txtRequestedDate.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtRequestedDate.Hint = "REQUESTED DATE";
+            this.txtRequestedDate.Location = new System.Drawing.Point(255, 2);
+            this.txtRequestedDate.MaxLength = 50;
+            this.txtRequestedDate.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtRequestedDate.Multiline = false;
+            this.txtRequestedDate.Name = "txtRequestedDate";
+            this.txtRequestedDate.Size = new System.Drawing.Size(215, 50);
+            this.txtRequestedDate.TabIndex = 665;
+            this.txtRequestedDate.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(423, 502);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.TabIndex = 664;
+            this.label3.Text = "TextBox for Two Way Binding";
+            this.label3.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(577, 504);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 663;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescription.Depth = 0;
+            this.txtDescription.Enabled = false;
+            this.txtDescription.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtDescription.Hint = "DESCRIPTION";
+            this.txtDescription.Location = new System.Drawing.Point(26, 2);
+            this.txtDescription.MaxLength = 50;
+            this.txtDescription.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtDescription.Multiline = false;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(215, 50);
+            this.txtDescription.TabIndex = 651;
+            this.txtDescription.Text = "";
+            // 
+            // matbtnPrint
+            // 
+            this.matbtnPrint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnPrint.Depth = 0;
+            this.matbtnPrint.DrawShadows = true;
+            this.matbtnPrint.HighEmphasis = true;
+            this.matbtnPrint.Icon = null;
+            this.matbtnPrint.Location = new System.Drawing.Point(847, 494);
+            this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnPrint.Name = "matbtnPrint";
+            this.matbtnPrint.Size = new System.Drawing.Size(87, 36);
+            this.matbtnPrint.TabIndex = 650;
+            this.matbtnPrint.Text = "APPROVE";
+            this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnPrint.UseAccentColor = false;
+            this.matbtnPrint.UseVisualStyleBackColor = true;
+            this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
+            // 
+            // bunifuPrepaDate
+            // 
+            this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
+            this.bunifuPrepaDate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuPrepaDate.Location = new System.Drawing.Point(735, 16);
+            this.bunifuPrepaDate.Name = "bunifuPrepaDate";
+            this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 33);
+            this.bunifuPrepaDate.TabIndex = 647;
             // 
             // materialCard2
             // 
@@ -178,118 +290,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             // 
-            // bunifuPrepaDate
-            // 
-            this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
-            this.bunifuPrepaDate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuPrepaDate.Location = new System.Drawing.Point(735, 16);
-            this.bunifuPrepaDate.Name = "bunifuPrepaDate";
-            this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 33);
-            this.bunifuPrepaDate.TabIndex = 647;
-            // 
-            // matbtnPrint
-            // 
-            this.matbtnPrint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnPrint.Depth = 0;
-            this.matbtnPrint.DrawShadows = true;
-            this.matbtnPrint.HighEmphasis = true;
-            this.matbtnPrint.Icon = null;
-            this.matbtnPrint.Location = new System.Drawing.Point(847, 494);
-            this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnPrint.Name = "matbtnPrint";
-            this.matbtnPrint.Size = new System.Drawing.Size(87, 36);
-            this.matbtnPrint.TabIndex = 650;
-            this.matbtnPrint.Text = "APPROVE";
-            this.matbtnPrint.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnPrint.UseAccentColor = false;
-            this.matbtnPrint.UseVisualStyleBackColor = true;
-            this.matbtnPrint.Click += new System.EventHandler(this.matbtnPrint_Click);
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescription.Depth = 0;
-            this.txtDescription.Enabled = false;
-            this.txtDescription.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtDescription.Hint = "DESCRIPTION";
-            this.txtDescription.Location = new System.Drawing.Point(26, 2);
-            this.txtDescription.MaxLength = 50;
-            this.txtDescription.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtDescription.Multiline = false;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(215, 50);
-            this.txtDescription.TabIndex = 651;
-            this.txtDescription.Text = "";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(423, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 13);
-            this.label3.TabIndex = 664;
-            this.label3.Text = "TextBox for Two Way Binding";
-            this.label3.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(577, 504);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 663;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // txtRequestedDate
-            // 
-            this.txtRequestedDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRequestedDate.Depth = 0;
-            this.txtRequestedDate.Enabled = false;
-            this.txtRequestedDate.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtRequestedDate.Hint = "REQUESTED DATE";
-            this.txtRequestedDate.Location = new System.Drawing.Point(255, 2);
-            this.txtRequestedDate.MaxLength = 50;
-            this.txtRequestedDate.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtRequestedDate.Multiline = false;
-            this.txtRequestedDate.Name = "txtRequestedDate";
-            this.txtRequestedDate.Size = new System.Drawing.Size(215, 50);
-            this.txtRequestedDate.TabIndex = 665;
-            this.txtRequestedDate.Text = "";
-            // 
-            // txtTotalItems
-            // 
-            this.txtTotalItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTotalItems.Depth = 0;
-            this.txtTotalItems.Enabled = false;
-            this.txtTotalItems.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtTotalItems.Hint = "TOTAL ITEMS";
-            this.txtTotalItems.Location = new System.Drawing.Point(485, 2);
-            this.txtTotalItems.MaxLength = 50;
-            this.txtTotalItems.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtTotalItems.Multiline = false;
-            this.txtTotalItems.Name = "txtTotalItems";
-            this.txtTotalItems.Size = new System.Drawing.Size(215, 50);
-            this.txtTotalItems.TabIndex = 666;
-            this.txtTotalItems.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(767, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 15);
-            this.label1.TabIndex = 667;
-            this.label1.Text = "Preparation Date:";
-            // 
             // selected
             // 
             this.selected.DataPropertyName = "selected";
@@ -299,6 +299,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.selected.Name = "selected";
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
+            this.selected.Visible = false;
             // 
             // mrs_id
             // 
@@ -347,7 +348,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             // mrs_requested_date
             // 
             this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
-            this.mrs_requested_date.HeaderText = "SOH";
+            this.mrs_requested_date.HeaderText = "RESERVED QTY";
             this.mrs_requested_date.MinimumWidth = 6;
             this.mrs_requested_date.Name = "mrs_requested_date";
             // 
