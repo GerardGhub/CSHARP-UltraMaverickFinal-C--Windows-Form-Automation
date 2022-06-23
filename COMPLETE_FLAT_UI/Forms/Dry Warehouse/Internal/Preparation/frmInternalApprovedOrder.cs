@@ -69,8 +69,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.ConnectionInit();
             this.ShowDataActivated();
-            this.DataRefresher();
-            this.ClearTextboxesStateMObX();
+            //this.DataRefresher();
+            //this.ClearTextboxesStateMObX();
             myglobal.global_module = "Active";
 
 
@@ -79,24 +79,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //Load The Data With Stored Procedure
             //this.LoadDataWithParamsOrders();
 
-            if (this.mode == "start")
-            {
-                this.ConnectionInit();
-                this.load_search();
-                this.mode = "";
-            }
-            else
-            {
-                this.LoadDataActivatedforPreparation();
+            //if (this.mode == "start")
+            //{
+            //    this.ConnectionInit();
+            //    this.load_search();
+            //    this.mode = "";
+            //}
+            //else
+            //{
+            //    this.LoadDataActivatedforPreparation();
 
-            }
-            this.SaveButtonManipulator();
-            this.DesignerSerializationVisibilityOninit();
+            //}
+     
+            //this.DesignerSerializationVisibilityOninit();
 
 
             //this.DataGridColumnDisabledEditing();
 
-            this.DataGridHideColumn();
+       
             if (this.lbltotaldata.Text != "0")
             {
                 this.bunifuPrepaDate_ValueChanged(sender, e);
@@ -104,6 +104,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.dgvStoreOrderApproval.Enabled = true;
 
             }
+            this.InitiliazeDatePickerMinDate();
+        }
+
+
+        private void InitiliazeDatePickerMinDate()
+        {
+            this.bunifuPrepaDate.MinDate = DateTime.Now;
+            //this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
         }
 
         private void DataGridHideColumn()
@@ -113,6 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["DateDiff"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["is_cancel_reason"].Visible = false;
             }
         }
 
@@ -125,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
             //Order Primary KEy
             this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
-            this.matbtnCancel.Visible = false;
+    
             this.matbtnEdit.Visible = false;
         }
 
@@ -134,42 +143,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         double num = 0;
         double num_static_value = 0;
 
-        private void SaveButtonManipulator()
-        {
-           
-            if (num == 0)
-            {
-                this.matbtnCancel.Visible = false;
-            }
-            else
-            {
-                this.matbtnCancel.Visible = true;
-            }
-        }
+ 
 
 
 
-        private void LoadDataActivatedforPreparation()
-        {
-            this.ConnectionInit();
-            this.dset_emp1.Clear();
-
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
-            DataView dv = new DataView(this.dset_emp1.Tables[0]);
-
-            this.dgvStoreOrderApproval.DataSource = dv;
-            this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-            this.lbltotalOrderQty.Text = "0";
-
-            if (this.lbltotaldata.Text == "0")
-            {
-                this.groupBoxColorGuide.Visible = false;
-            }
-            else
-            {
-                this.groupBoxColorGuide.Visible = true;
-            }
-        }
+   
 
 
         DataSet dset_emp1 = new DataSet();
@@ -184,6 +162,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
         }
+
+
         private void doSearch()
         {
             try
@@ -204,7 +184,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     
                         else
                         {
-                            //dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'     ";
+              
                         }
 
                     }
@@ -212,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
 
-                    //gerard
+     
                 }
             }
             catch (SyntaxErrorException)
@@ -231,17 +211,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
 
-        private void DataRefresher()
+        //BujeSingian
+        private void LoadDataCancelledforPreparation()
         {
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
-            sp_user_id = userinfo.user_id;
+            this.ConnectionInit();
+            this.dset_emp1.Clear();
+
+            this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSInternalPreparationDateSyncInactive");
+            DataView dv = new DataView(this.dset_emp1.Tables[0]);
+
+            this.dgvStoreOrderApproval.DataSource = dv;
+            this.SelectedDataTotalOrderQuantity();
         }
 
 
-        private void ClearTextboxesStateMObX()
-        {
-            this.textBox1.Text = String.Empty;
-        }
+
 
 
         //Radion Selection Button Enabled in the Fucking SHit
@@ -280,16 +264,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
         {
-            this.ConnectionInit();
-            this.mode = "Search1";
-            this.load_search();
- 
+            if (matRadioNotActive.Checked == true)
+            {
+
+            }
+            else if (this.matRadioActive.Checked == true)
+            {
+         
+                this.ConnectionInit();
+                this.mode = "Search1";
+                this.load_search();
+                this.DataGridHideColumn();
+                this.textBox1.Text = String.Empty;
+            }
+            else
+            {
+              
+            }
+
+        
 
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
-            this.showDataGridDataValueChanged();
+           
+                this.showDataGridDataValueChanged();
+           
+
         }
 
         private void showDataGridDataValueChanged()
@@ -309,6 +311,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.Sp_total_items = this.dgvStoreOrderApproval.CurrentRow.Cells["TOTAL_ITEMS"].Value.ToString();
                         this.Sp_mrs_requested_date = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_date"].Value.ToString();
                         this.Sp_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_preparation_date"].Value.ToString();
+                        this.lblReasonofCancellation.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["is_cancel_reason"].Value.ToString();
 
                     }
                 }
@@ -376,10 +379,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                //TODO - Button Clicked - Execute Code Here
-                //MessageBox.Show("Sample" + this.Sp_mrs_req_desc);
+ 
                 this.dgvStoreOrderApproval.Enabled = false;
-                //this.matbtnSave.Visible = false;
+           
                 ViewApprovedItemsInternalOrder addNew =
             new ViewApprovedItemsInternalOrder(this,
              this.p_id,
@@ -407,13 +409,68 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (this.textBox1.Text == "TouchedScreen")
+            if (this.textBox1.Text == String.Empty)
             {
-                this.dgvStoreOrderApproval.Enabled = true;
-                this.textBox1.Text = String.Empty;
-                this.ConnectionInit();
-                this.bunifuPrepaDate_ValueChanged(sender, e);
+
             }
+            else
+            {
+
+
+
+
+                if (this.textBox1.Text == "TouchedScreen")
+                {
+                    this.dgvStoreOrderApproval.Enabled = true;
+                    this.textBox1.Text = String.Empty;
+                    this.ConnectionInit();
+                    this.bunifuPrepaDate_ValueChanged(sender, e);
+                }
+                else
+                {
+                    this.ConnectionInit();
+           
+                    this.bunifuPrepaDate.Text = this.textBox1.Text;
+
+                }
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+          
+           if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+
+                this.LoadDataCancelledforPreparation();
+                this.DataGridHideColumn();
+                this.lblReasonofCancellation.Visible = false;
+                this.lbltotalOrderQty.Text = "0";
+              
+            }
+            else
+            {
+
+            }
+
+        }
+
+       
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if(this.matRadioNotActive.Checked == true)
+            {
+                this.matRadioNotActive.Checked = false;
+            }
+            this.lblReasonofCancellation.Visible = false;
+
+
+                this.bunifuPrepaDate_ValueChanged(sender, e);
+            
+      
+
         }
     }
     }
