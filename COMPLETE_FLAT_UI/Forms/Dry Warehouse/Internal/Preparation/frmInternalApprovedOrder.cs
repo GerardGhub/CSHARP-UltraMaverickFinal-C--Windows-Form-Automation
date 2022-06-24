@@ -69,32 +69,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.ConnectionInit();
             this.ShowDataActivated();
-            //this.DataRefresher();
-            //this.ClearTextboxesStateMObX();
+          
             myglobal.global_module = "Active";
 
 
 
 
-            //Load The Data With Stored Procedure
-            //this.LoadDataWithParamsOrders();
-
-            //if (this.mode == "start")
-            //{
-            //    this.ConnectionInit();
-            //    this.load_search();
-            //    this.mode = "";
-            //}
-            //else
-            //{
-            //    this.LoadDataActivatedforPreparation();
-
-            //}
-     
-            //this.DesignerSerializationVisibilityOninit();
-
-
-            //this.DataGridColumnDisabledEditing();
 
        
             if (this.lbltotaldata.Text != "0")
@@ -426,6 +406,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     this.ConnectionInit();
                     this.bunifuPrepaDate_ValueChanged(sender, e);
                 }
+                else if (this.textBox1.Text == "ReturnRecord")
+                {
+                    matRadioNotActive_CheckedChanged(sender, e);
+                }
                 else
                 {
                     this.ConnectionInit();
@@ -445,7 +429,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 this.LoadDataCancelledforPreparation();
                 this.DataGridHideColumn();
-                this.lblReasonofCancellation.Visible = false;
+                this.lblReasonofCancellation.Visible = true;
                 this.lbltotalOrderQty.Text = "0";
               
             }

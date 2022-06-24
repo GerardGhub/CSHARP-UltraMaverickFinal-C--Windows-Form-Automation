@@ -67,7 +67,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //SideLine
             this.DataGridColumnDisabledEditing();
             this.SelectAllRecords();
+            this.DataGridHideColumn();
+        }
 
+
+
+        private void DataGridHideColumn()
+        {
+            if (this.dgvStoreOrderApproval.Rows.Count > 0)
+            {
+
+                this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["is_cancel_by"].Visible = false;
+         
+            }
         }
 
 
@@ -90,8 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         }
                         else
                         {
-                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
-
+                  
                         }
                     }
                 }
@@ -108,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
             this.ViewItemsInternalOrder_Load(new object(), new System.EventArgs());
-            //this.ReturnFunctionality();
+     
             this.Close();
         }
 
@@ -125,7 +137,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
 
                 this.dgvStoreOrderApproval.Columns["selected"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
+                //this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_transact_no"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_code"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_description"].ReadOnly = true;
@@ -226,6 +238,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 return;
             }
+        }
+
+        private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
+            {
+                if (Convert.ToDouble(row.Cells["mrs_order_qty"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value))
+                {
+                 
+                        row.Cells["mrs_order_qty"].Style.SelectionBackColor = Color.DarkOrange;
+                        row.Cells["mrs_order_qty"].Style.SelectionForeColor = Color.Black;
+                        row.Cells["mrs_order_qty"].Style.BackColor = Color.DarkOrange;
+                    
+                }
+                else
+                {
+                    row.Cells["mrs_order_qty"].Style.BackColor = Color.White;
+                }
+
+
+
+            }
+
+
+
+
         }
     }
 }

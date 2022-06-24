@@ -58,26 +58,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string ctrl_bind_total_items { get; set; }
         public string ctrl_bind_is_preparation_date { get; set; }
         public string ctrl_bind_is_cancel_by { get; set; }
+        public bool ctrl_bind_is_active { get; set; }
 
         private void ViewApprovedItemsInternalOrder_Load(object sender, EventArgs e)
         {
             this.StaticWindowState();
             this.InitiliazeDatePickerMinDate();
             this.ConnectionState();
-            //Additional Information
+    
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
-            //SideLine
+  
             this.DataGridColumnDisabledEditing();
             this.SelectAllRecords();
             this.bunifuPrepaDate.ValueChanged += new System.EventHandler(bunifuPrepaDate_ValueChanged);
-            if (this.ctrl_bind_is_cancel_by != null)
+            if (this.ctrl_bind_is_active == false)
             {
                 this.bunifuPrepaDate.Enabled = false;
                 this.matBtnAction.Text = "RETURN";
                 this.lblReason.Visible = false;
                 this.metroCmbReason.Visible = false;
                 this.lblcancelby.Visible = true;
+                this.lblcanceltitle.Visible = true;
             }
             this.DataGridHideColumn();
         }
@@ -90,6 +92,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
 
                 this.dgvStoreOrderApproval.Columns["is_cancel_by"].Visible = false;
+
+                this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
 
             }
         }
@@ -194,6 +198,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if(matBtnAction.Text== "UPDATE")
             {
                 this.textBox1.Text = this.bunifuPrepaDate.Text;
+            }
+            else if (matBtnAction.Text == "RETURN")
+            {
+                this.textBox1.Text = "ReturnRecord";
             }
             else
             {
@@ -415,12 +423,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             else if (this.matBtnAction.Text == "RETURN")
             {
-                if (this.metroCmbReason.Text == String.Empty)
-                {
-                    this.GlobalStatePopup.FillRequiredFields();
-                    this.metroCmbReason.Focus();
-                    return;
-                }
+               
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Return the consolidated order? ",
                     "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -454,11 +457,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 if (this.dgvStoreOrderApproval.CurrentRow != null)
                 {
-                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["is_cancel_by"].Value != null)
+                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["is_active"].Value != null)
                     {
                    
                         this.ctrl_bind_is_cancel_by = this.dgvStoreOrderApproval.CurrentRow.Cells["is_cancel_by"].Value.ToString();
                         this.lblcancelby.Text = this.ctrl_bind_is_cancel_by;
+                        this.ctrl_bind_is_active = Convert.ToBoolean(this.dgvStoreOrderApproval.CurrentRow.Cells["is_active"].Value);
+                      
                     }
                 }
 

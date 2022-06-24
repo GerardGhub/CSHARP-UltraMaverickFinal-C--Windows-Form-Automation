@@ -86,53 +86,67 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //this.DataRefresher();
 
 
-            this.showRawMaterialforApproval();
+            //this.showRawMaterialforApproval();
 
 
 
-            this.ValidatedItemforApproval();
+            //this.ValidatedItemforApproval();
 
 
 
 
 
-            if (this.modesplashScreenError == "1")
-            {
+            //if (this.modesplashScreenError == "1")
+            //{
 
-                return;
-            }
-            this.VisibilityFalseDataGrid();
-            if (this.lbltotaldata.Text == "0")
-            {
-                this.matcmbCategory.Enabled = false;
-      
-            }
-            else
-            {
+            //    return;
+            //}
+            //this.VisibilityFalseDataGrid();
+            //if (this.lbltotaldata.Text == "0")
+            //{
 
-                this.matcmbCategory.Enabled = true;
+            //}
+            //else
+            //{
 
-          
+            //    this.load_search();
+            //    selection_mode = "0";
+            //}
+            //if (lbltotaldata.Text == "0")
+            //{
+            //    //MessageBox.Show("sdsds");
+            //}
+            //else
+            //{
+            //    this.GlobalVariable.for_approval_store_module_formLoad = "1";
+            //}
 
 
-                this.load_search();
-                selection_mode = "0";
-            }
-            if (lbltotaldata.Text == "0")
-            {
-                //MessageBox.Show("sdsds");
-            }
-            else
-            {
-                this.GlobalVariable.for_approval_store_module_formLoad = "1";
-            }
-
-       
-
+            this.selection_mode = "1";
         }
 
 
-        public void loadCategoryDropdownForAllocation()
+        public void loadMRSDropdownForAllocation()
+        {
+            try
+            {
+
+
+                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "Internal_Order_For_Allocation", this.dSet);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+        }
+
+
+
+        public void loadForScheduling()
         {
             try
             {
@@ -149,7 +163,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
-
 
 
         private void doSearch()
@@ -196,11 +209,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void load_search()
         {
 
-            this.dset_emp1.Clear();
+            if (this.matRadioForApproval.Checked == true)
+            {
+                this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSMasterDataSync");
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSMasterDataSync");
 
-            this.doSearch();
+                this.doSearch();
+            }
+            else if(this.matRadioForAllocation.Checked == true)
+            {
+                this.dset_emp1.Clear();
+
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSMasterDataSyncForAllocation");
+
+                this.doSearch();
+            }
+  
 
 
         }
@@ -222,7 +247,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
             else if (this.matRadioForAllocation.Checked == true)
             {
-                this.loadCategoryDropdownForAllocation();
+                this.loadMRSDropdownForAllocation();
             }
 
 
@@ -244,25 +269,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.dgvStoreOrderApproval.DataSource = dv;
             this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-            if (this.lbltotaldata.Text == "0")
-            {
-                this.groupColorCoding.Visible = false;
-            }
-            else
-            {
-                this.groupColorCoding.Visible = true;
-            }
+          
 
           
             this.DataGridColumnDisabledEditing();
 
         }
 
-        //private void InitiliazeDatePickerMinDate()
-        //{
-        //    this.bunifuPrepaDate.MinDate = DateTime.Now;
-        //    this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
-        //}
+ 
 
         private void DataGridColumnDisabledEditing()
         {
@@ -287,7 +301,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             if (this.GlobalStatePopup.Total_item_for_allocation == "0")
             {
-                this.ReturnFunctionality();
+                //this.ReturnFunctionality();
             }
             else
             {
@@ -318,7 +332,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                             //this.ReturnFunctionality();
                             //return;
                             this.GlobalStatePopup.YouHaveItemForAllocation();
-                            this.ReturnFunctionality();
+                            //this.ReturnFunctionality();
                         }
                     }
 
@@ -402,35 +416,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (this.matRadioForAllocation.Checked == false && this.matRadioForApproval.Checked == false)
             {
                 this.matRadioForApproval.Checked = true;
+                loadForScheduling();
             }
 
         }
 
         private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.selection_mode = "1";
-
-            if (this.materialCheckboxSelectAll.Checked == true)
-            {
-                this.materialCheckboxSelectAll.Checked = false;
-                this.materialCheckboxSelectAll_CheckedChanged(sender, e);
-
-            }
-
-
+          
             this.ConnectionOpen();
             this.load_search();
-
-            if (this.lbltotaldata.Text == "0")
-            {
-
-            }
-            else
-            {
-                //this.TaggingConflictCategoryValidation();
-            }
-
-            //this.loadAreaDropdown();
         }
 
 
@@ -439,11 +434,64 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
+            //MessageBox.Show("Gerard");
 
+            this.ConnectionOpen();
+            this.loadMRSDropdownForAllocation();
+            this.matcmbCategory_SelectionChangeCommitted(sender, e);
+
+            //if (this.matRadioForApproval.Checked == true)
+            //{
+            //    this.matRadioForAllocation.Checked = true;
+            //    this.ConnectionOpen();
+            //    this.loadMRSDropdownForAllocation();
+            //    this.matcmbCategory_SelectionChangeCommitted(sender, e);
+            //}
         }
 
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
         {
+
+            this.ConnectionOpen();
+            this.loadForScheduling();
+            this.matcmbCategory_SelectionChangeCommitted(sender, e);
+
+            //if (this.matRadioForAllocation.Checked == false)
+            //{
+            //    this.matRadioForApproval.Checked = true;
+            //    loadForScheduling();
+            //}
+            //if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.matRadioForAllocation.Checked = false;
+            //}
+
+            //matcmbCategory_SelectionChangeCommitted(sender,e);
+
+            //this.bunifuPrepaDate_ValueChanged(sender, e);
+
+
+            //Functionality Viewing of the Data Binding Source
+            //if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.matRadioForApproval.Checked = true;
+            //    this.loadForScheduling();
+            //}
+            //else if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.loadMRSDropdownForAllocation();
+            //}
+
+            //if (this.matRadioForApproval.Checked == true)
+            //{
+            //    this.matRadioForAllocation.Checked = false;
+            //    this.loadForScheduling();
+            //}
+            //else if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.loadMRSDropdownForAllocation();
+            //}
+
 
         }
 

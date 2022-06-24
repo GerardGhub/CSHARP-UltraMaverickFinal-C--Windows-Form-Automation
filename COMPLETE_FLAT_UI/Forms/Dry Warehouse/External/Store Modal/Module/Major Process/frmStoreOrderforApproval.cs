@@ -1108,7 +1108,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
                 {
-                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+        
                     row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
                     row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                     row.Cells["qty"].Style.BackColor = Color.Crimson;
@@ -1117,14 +1117,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
                 {
-                    //row.Cells["buffer_of_stocks"].Style.BackColor = Color.LightGreen;
+             
                     row.Cells["qty"].Style.BackColor = Color.White;
                 }
 
                 if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
                 {
-                    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
-
+               
                     row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
                     row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                     row.Cells["qty"].Style.BackColor = Color.Crimson;
@@ -1133,8 +1132,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if (Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value) != 0)
                 {
-                    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
-
+               
                     if (this.matRadioForAllocation.Checked == true)
                     {
 
