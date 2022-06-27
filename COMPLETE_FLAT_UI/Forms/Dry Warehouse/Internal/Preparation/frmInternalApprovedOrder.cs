@@ -101,7 +101,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["DateDiff"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["is_cancel_reason"].Visible = false;
+                if(this.matRadioNotActive.Checked == true)
+                {
+                    this.dgvStoreOrderApproval.Columns["is_cancel_reason"].Visible = true;
+                    this.dgvStoreOrderApproval.Columns["is_cancel_date"].Visible = true;
+                }
+                if (this.matRadioActive.Checked == true)
+                {
+                    this.dgvStoreOrderApproval.Columns["is_cancel_reason"].Visible = false;
+                    this.dgvStoreOrderApproval.Columns["is_cancel_date"].Visible = false;
+                }
+
             }
         }
 
@@ -291,7 +301,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.Sp_total_items = this.dgvStoreOrderApproval.CurrentRow.Cells["TOTAL_ITEMS"].Value.ToString();
                         this.Sp_mrs_requested_date = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_date"].Value.ToString();
                         this.Sp_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_preparation_date"].Value.ToString();
-                        this.lblReasonofCancellation.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["is_cancel_reason"].Value.ToString();
+                        //this.lblReasonofCancellation.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["is_cancel_reason"].Value.ToString();
 
                     }
                 }
@@ -409,11 +419,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 else if (this.textBox1.Text == "ReturnRecord")
                 {
                     matRadioNotActive_CheckedChanged(sender, e);
+                    this.textBox1.Text = String.Empty;
+                    this.dgvStoreOrderApproval.Enabled = true;
                 }
                 else
                 {
                     this.ConnectionInit();
-           
+             
                     this.bunifuPrepaDate.Text = this.textBox1.Text;
 
                 }
@@ -429,7 +441,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 this.LoadDataCancelledforPreparation();
                 this.DataGridHideColumn();
-                this.lblReasonofCancellation.Visible = true;
+                //this.lblReasonofCancellation.Visible = true;
                 this.lbltotalOrderQty.Text = "0";
               
             }
@@ -448,7 +460,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.matRadioNotActive.Checked = false;
             }
-            this.lblReasonofCancellation.Visible = false;
+            //this.lblReasonofCancellation.Visible = false;
 
 
                 this.bunifuPrepaDate_ValueChanged(sender, e);

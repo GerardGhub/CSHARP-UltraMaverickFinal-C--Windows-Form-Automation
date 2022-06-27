@@ -35,7 +35,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             string sp_mrs_req_desc,
             string sp_mrs_requested_by,
             string sp_mrs_requested_date,
-            string sp_total_items)
+            string sp_total_items,
+            string sp_radio_button)
         {
             InitializeComponent();
             ths = frm;
@@ -46,6 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             ctrl_bind_mrs_req_by = sp_mrs_requested_by;
             ctrl_bind_mrs_req_date = sp_mrs_requested_date;
             ctrl_bind_total_items = sp_total_items;
+            ctrl_radio_button = sp_radio_button;
         }
 
         public int ctrl_bind_mrs { get; set; }
@@ -54,9 +56,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string ctrl_bind_mrs_req_by { get; set; }
         public string ctrl_bind_mrs_req_date { get; set; }
         public string ctrl_bind_total_items { get; set; }
+        public string ctrl_radio_button { get; set; }
 
 
-    private void ViewItemsInternalOrder_Load(object sender, EventArgs e)
+        private void ViewItemsInternalOrder_Load(object sender, EventArgs e)
         {
             this.StaticWindowState();
             this.InitiliazeDatePickerMinDate();
@@ -202,7 +205,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void InitiliazeDatePickerMinDate()
         {
             this.bunifuPrepaDate.MinDate = DateTime.Now;
-            this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
+            this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(7);
         }
 
         private void StaticWindowState()
@@ -210,8 +213,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.txtDescription.Text = ctrl_bind_mrs_req_desc;
             this.txtRequestedDate.Text = ctrl_bind_mrs_req_date;
             this.txtTotalItems.Text = ctrl_bind_total_items;
-   
-
+            this.ctrl_radio_button = ctrl_radio_button;
+            //MessageBox.Show(this.ctrl_radio_button);
+            if (this.ctrl_radio_button == "For Allocation")
+            {
+                this.matbtnPrint.Enabled = false;
+            }
         }
 
 
@@ -222,7 +229,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void ViewItemsInternalOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.textBox1.Text = "TouchedScreen";
+            string BindRadionButton = ctrl_radio_button;
+            //this.textBox1.Text = "TouchedScreen";
+            this.textBox1.Text = ctrl_radio_button;
         }
 
         private void matbtnPrint_Click(object sender, EventArgs e)

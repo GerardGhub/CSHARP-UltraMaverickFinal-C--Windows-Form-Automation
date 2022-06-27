@@ -33,7 +33,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotalItems = new MaterialSkin.Controls.MaterialTextBox();
             this.txtRequestedDate = new MaterialSkin.Controls.MaterialTextBox();
@@ -42,31 +41,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.txtDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.matBtnAction = new MaterialSkin.Controls.MaterialButton();
             this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
-            this.mrs_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_transact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.lblcanceltitle = new System.Windows.Forms.Label();
             this.lblcancelby = new System.Windows.Forms.Label();
             this.lblReason = new System.Windows.Forms.Label();
             this.metroCmbReason = new MetroFramework.Controls.MetroComboBox();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mrs_transact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOnHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // mrs_requested_date
-            // 
-            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
-            this.mrs_requested_date.HeaderText = "RESERVED QTY";
-            this.mrs_requested_date.MinimumWidth = 6;
-            this.mrs_requested_date.Name = "mrs_requested_date";
             // 
             // label1
             // 
@@ -181,36 +173,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.bunifuPrepaDate.TabIndex = 647;
             this.bunifuPrepaDate.ValueChanged += new System.EventHandler(this.bunifuPrepaDate_ValueChanged);
             // 
-            // mrs_uom
-            // 
-            this.mrs_uom.DataPropertyName = "mrs_uom";
-            this.mrs_uom.FillWeight = 66.57212F;
-            this.mrs_uom.HeaderText = "UOM";
-            this.mrs_uom.MinimumWidth = 12;
-            this.mrs_uom.Name = "mrs_uom";
-            // 
-            // mrs_item_description
-            // 
-            this.mrs_item_description.DataPropertyName = "mrs_item_description";
-            this.mrs_item_description.HeaderText = "DESCRIPTION";
-            this.mrs_item_description.MinimumWidth = 6;
-            this.mrs_item_description.Name = "mrs_item_description";
-            // 
-            // mrs_item_code
-            // 
-            this.mrs_item_code.DataPropertyName = "mrs_item_code";
-            this.mrs_item_code.FillWeight = 66.57212F;
-            this.mrs_item_code.HeaderText = "ITEM CODE";
-            this.mrs_item_code.MinimumWidth = 12;
-            this.mrs_item_code.Name = "mrs_item_code";
-            // 
-            // mrs_transact_no
-            // 
-            this.mrs_transact_no.DataPropertyName = "mrs_transact_no";
-            this.mrs_transact_no.HeaderText = "MRS ID";
-            this.mrs_transact_no.MinimumWidth = 6;
-            this.mrs_transact_no.Name = "mrs_transact_no";
-            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -250,13 +212,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selected,
-            this.mrs_id,
             this.mrs_transact_no,
             this.mrs_item_code,
             this.mrs_item_description,
             this.mrs_uom,
             this.mrs_order_qty,
-            this.mrs_requested_date});
+            this.StockOnHand});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -311,33 +272,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "*";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            this.selected.Visible = false;
-            // 
-            // mrs_id
-            // 
-            this.mrs_id.DataPropertyName = "mrs_id";
-            this.mrs_id.FillWeight = 66.91177F;
-            this.mrs_id.HeaderText = "ID";
-            this.mrs_id.MinimumWidth = 12;
-            this.mrs_id.Name = "mrs_id";
-            // 
-            // mrs_order_qty
-            // 
-            this.mrs_order_qty.DataPropertyName = "mrs_order_qty";
-            this.mrs_order_qty.FillWeight = 66.57212F;
-            this.mrs_order_qty.HeaderText = "QTY";
-            this.mrs_order_qty.MinimumWidth = 12;
-            this.mrs_order_qty.Name = "mrs_order_qty";
-            // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -357,10 +291,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(22, 84);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(953, 536);
             this.materialCard1.TabIndex = 1;
             // 
@@ -416,6 +350,62 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.metroCmbReason.UseSelectable = true;
             this.metroCmbReason.Visible = false;
             // 
+            // selected
+            // 
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.HeaderText = "*";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            this.selected.Visible = false;
+            // 
+            // mrs_transact_no
+            // 
+            this.mrs_transact_no.DataPropertyName = "mrs_transact_no";
+            this.mrs_transact_no.HeaderText = "MRS ID";
+            this.mrs_transact_no.MinimumWidth = 6;
+            this.mrs_transact_no.Name = "mrs_transact_no";
+            // 
+            // mrs_item_code
+            // 
+            this.mrs_item_code.DataPropertyName = "mrs_item_code";
+            this.mrs_item_code.FillWeight = 66.57212F;
+            this.mrs_item_code.HeaderText = "ITEM CODE";
+            this.mrs_item_code.MinimumWidth = 12;
+            this.mrs_item_code.Name = "mrs_item_code";
+            // 
+            // mrs_item_description
+            // 
+            this.mrs_item_description.DataPropertyName = "mrs_item_description";
+            this.mrs_item_description.HeaderText = "DESCRIPTION";
+            this.mrs_item_description.MinimumWidth = 6;
+            this.mrs_item_description.Name = "mrs_item_description";
+            // 
+            // mrs_uom
+            // 
+            this.mrs_uom.DataPropertyName = "mrs_uom";
+            this.mrs_uom.FillWeight = 66.57212F;
+            this.mrs_uom.HeaderText = "UOM";
+            this.mrs_uom.MinimumWidth = 12;
+            this.mrs_uom.Name = "mrs_uom";
+            // 
+            // mrs_order_qty
+            // 
+            this.mrs_order_qty.DataPropertyName = "mrs_order_qty";
+            this.mrs_order_qty.FillWeight = 66.57212F;
+            this.mrs_order_qty.HeaderText = "QTY";
+            this.mrs_order_qty.MinimumWidth = 12;
+            this.mrs_order_qty.Name = "mrs_order_qty";
+            // 
+            // StockOnHand
+            // 
+            this.StockOnHand.DataPropertyName = "StockOnHand";
+            this.StockOnHand.HeaderText = "SOH";
+            this.StockOnHand.MinimumWidth = 6;
+            this.StockOnHand.Name = "StockOnHand";
+            // 
             // ViewApprovedItemsInternalOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,8 +427,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_requested_date;
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialTextBox txtTotalItems;
         private MaterialSkin.Controls.MaterialTextBox txtRequestedDate;
@@ -447,19 +435,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private MaterialSkin.Controls.MaterialTextBox txtDescription;
         private MaterialSkin.Controls.MaterialButton matBtnAction;
         private System.Windows.Forms.DateTimePicker bunifuPrepaDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_uom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_transact_no;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_order_qty;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MetroFramework.Controls.MetroComboBox metroCmbReason;
         private System.Windows.Forms.Label lblReason;
         private System.Windows.Forms.Label lblcancelby;
         private System.Windows.Forms.Label lblcanceltitle;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_transact_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_uom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_order_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockOnHand;
     }
 }

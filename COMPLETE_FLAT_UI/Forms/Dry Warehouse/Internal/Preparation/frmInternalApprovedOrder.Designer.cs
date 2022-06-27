@@ -29,10 +29,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
@@ -52,6 +52,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,14 +66,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.TOTAL_ITEMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_requested_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_wh_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_cancel_reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_cancel_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.matbtnEdit = new MaterialSkin.Controls.MaterialButton();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.lblReasonofCancellation = new System.Windows.Forms.Label();
             this.materialCard3.SuspendLayout();
             this.groupBoxColorGuide.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -325,20 +326,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.AllowUserToAddRows = false;
             this.dgvStoreOrderApproval.AllowUserToDeleteRows = false;
             this.dgvStoreOrderApproval.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStoreOrderApproval.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStoreOrderApproval.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvStoreOrderApproval.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStoreOrderApproval.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStoreOrderApproval.ColumnHeadersHeight = 45;
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -350,29 +351,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.TOTAL_ITEMS,
             this.mrs_requested_date,
             this.is_wh_preparation_date,
+            this.is_cancel_reason,
+            this.is_cancel_date,
             this.is_active});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStoreOrderApproval.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStoreOrderApproval.EnableHeadersVisualStyles = false;
             this.dgvStoreOrderApproval.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvStoreOrderApproval.Location = new System.Drawing.Point(5, 6);
             this.dgvStoreOrderApproval.MultiSelect = false;
             this.dgvStoreOrderApproval.Name = "dgvStoreOrderApproval";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStoreOrderApproval.RowHeadersVisible = false;
             this.dgvStoreOrderApproval.RowHeadersWidth = 102;
             this.dgvStoreOrderApproval.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -406,82 +409,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellContentClick);
             this.dgvStoreOrderApproval.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStoreOrderApproval_CellFormatting);
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
-            // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "*";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            this.selected.Visible = false;
-            // 
-            // mrs_id
-            // 
-            this.mrs_id.DataPropertyName = "mrs_id";
-            this.mrs_id.FillWeight = 66.91177F;
-            this.mrs_id.HeaderText = "MRS ID";
-            this.mrs_id.MinimumWidth = 12;
-            this.mrs_id.Name = "mrs_id";
-            this.mrs_id.ReadOnly = true;
-            // 
-            // department_id
-            // 
-            this.department_id.DataPropertyName = "department_id";
-            this.department_id.FillWeight = 66.57212F;
-            this.department_id.HeaderText = "DEPARTMENT";
-            this.department_id.MinimumWidth = 12;
-            this.department_id.Name = "department_id";
-            this.department_id.ReadOnly = true;
-            // 
-            // mrs_req_desc
-            // 
-            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
-            this.mrs_req_desc.HeaderText = "DESCRIPTION";
-            this.mrs_req_desc.Name = "mrs_req_desc";
-            this.mrs_req_desc.ReadOnly = true;
-            // 
-            // mrs_requested_by
-            // 
-            this.mrs_requested_by.DataPropertyName = "mrs_requested_by";
-            this.mrs_requested_by.FillWeight = 66.57212F;
-            this.mrs_requested_by.HeaderText = "REQUESTED BY";
-            this.mrs_requested_by.MinimumWidth = 12;
-            this.mrs_requested_by.Name = "mrs_requested_by";
-            this.mrs_requested_by.ReadOnly = true;
-            // 
-            // TOTAL_ITEMS
-            // 
-            this.TOTAL_ITEMS.DataPropertyName = "TOTAL_ITEMS";
-            this.TOTAL_ITEMS.FillWeight = 66.57212F;
-            this.TOTAL_ITEMS.HeaderText = "TOTAL ITEM";
-            this.TOTAL_ITEMS.MinimumWidth = 12;
-            this.TOTAL_ITEMS.Name = "TOTAL_ITEMS";
-            this.TOTAL_ITEMS.ReadOnly = true;
-            // 
-            // mrs_requested_date
-            // 
-            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
-            this.mrs_requested_date.HeaderText = "REQUESTED DATE";
-            this.mrs_requested_date.Name = "mrs_requested_date";
-            this.mrs_requested_date.ReadOnly = true;
-            // 
-            // is_wh_preparation_date
-            // 
-            this.is_wh_preparation_date.DataPropertyName = "is_wh_preparation_date";
-            this.is_wh_preparation_date.HeaderText = "PREPARATION DATE";
-            this.is_wh_preparation_date.Name = "is_wh_preparation_date";
-            this.is_wh_preparation_date.ReadOnly = true;
-            // 
-            // is_active
-            // 
-            this.is_active.DataPropertyName = "is_active";
-            this.is_active.HeaderText = "VIEW ITEMS";
-            this.is_active.Name = "is_active";
-            this.is_active.Text = "VIEW";
-            this.is_active.UseColumnTextForButtonValue = true;
             // 
             // textBox2
             // 
@@ -570,25 +497,99 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialCard1.TabIndex = 662;
             this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
             // 
-            // lblReasonofCancellation
+            // selected
             // 
-            this.lblReasonofCancellation.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblReasonofCancellation.AutoSize = true;
-            this.lblReasonofCancellation.BackColor = System.Drawing.Color.DarkOrange;
-            this.lblReasonofCancellation.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReasonofCancellation.Location = new System.Drawing.Point(766, 184);
-            this.lblReasonofCancellation.Name = "lblReasonofCancellation";
-            this.lblReasonofCancellation.Size = new System.Drawing.Size(15, 23);
-            this.lblReasonofCancellation.TabIndex = 672;
-            this.lblReasonofCancellation.Text = ".";
-            this.lblReasonofCancellation.Visible = false;
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.HeaderText = "*";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            this.selected.Visible = false;
+            // 
+            // mrs_id
+            // 
+            this.mrs_id.DataPropertyName = "mrs_id";
+            this.mrs_id.FillWeight = 66.91177F;
+            this.mrs_id.HeaderText = "MRS ID";
+            this.mrs_id.MinimumWidth = 12;
+            this.mrs_id.Name = "mrs_id";
+            this.mrs_id.ReadOnly = true;
+            // 
+            // department_id
+            // 
+            this.department_id.DataPropertyName = "department_id";
+            this.department_id.FillWeight = 66.57212F;
+            this.department_id.HeaderText = "DEPARTMENT";
+            this.department_id.MinimumWidth = 12;
+            this.department_id.Name = "department_id";
+            this.department_id.ReadOnly = true;
+            // 
+            // mrs_req_desc
+            // 
+            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
+            this.mrs_req_desc.HeaderText = "DESCRIPTION";
+            this.mrs_req_desc.Name = "mrs_req_desc";
+            this.mrs_req_desc.ReadOnly = true;
+            // 
+            // mrs_requested_by
+            // 
+            this.mrs_requested_by.DataPropertyName = "mrs_requested_by";
+            this.mrs_requested_by.FillWeight = 66.57212F;
+            this.mrs_requested_by.HeaderText = "REQUESTED BY";
+            this.mrs_requested_by.MinimumWidth = 12;
+            this.mrs_requested_by.Name = "mrs_requested_by";
+            this.mrs_requested_by.ReadOnly = true;
+            // 
+            // TOTAL_ITEMS
+            // 
+            this.TOTAL_ITEMS.DataPropertyName = "TOTAL_ITEMS";
+            this.TOTAL_ITEMS.FillWeight = 66.57212F;
+            this.TOTAL_ITEMS.HeaderText = "TOTAL ITEM";
+            this.TOTAL_ITEMS.MinimumWidth = 12;
+            this.TOTAL_ITEMS.Name = "TOTAL_ITEMS";
+            this.TOTAL_ITEMS.ReadOnly = true;
+            // 
+            // mrs_requested_date
+            // 
+            this.mrs_requested_date.DataPropertyName = "mrs_requested_date";
+            this.mrs_requested_date.HeaderText = "REQUESTED DATE";
+            this.mrs_requested_date.Name = "mrs_requested_date";
+            this.mrs_requested_date.ReadOnly = true;
+            // 
+            // is_wh_preparation_date
+            // 
+            this.is_wh_preparation_date.DataPropertyName = "is_wh_preparation_date";
+            this.is_wh_preparation_date.HeaderText = "PREPARATION DATE";
+            this.is_wh_preparation_date.Name = "is_wh_preparation_date";
+            this.is_wh_preparation_date.ReadOnly = true;
+            // 
+            // is_cancel_reason
+            // 
+            this.is_cancel_reason.DataPropertyName = "is_cancel_reason";
+            this.is_cancel_reason.HeaderText = "CANCELLED REASON";
+            this.is_cancel_reason.Name = "is_cancel_reason";
+            // 
+            // is_cancel_date
+            // 
+            this.is_cancel_date.DataPropertyName = "is_cancel_date";
+            this.is_cancel_date.HeaderText = "CANCELLED DATE";
+            this.is_cancel_date.Name = "is_cancel_date";
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "is_active";
+            this.is_active.HeaderText = "VIEW ITEMS";
+            this.is_active.Name = "is_active";
+            this.is_active.Text = "VIEW";
+            this.is_active.UseColumnTextForButtonValue = true;
             // 
             // frmInternalApprovedOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.lblReasonofCancellation);
             this.Controls.Add(this.groupBoxColorGuide);
             this.Controls.Add(this.lbltotalOrderQty);
             this.Controls.Add(this.materialCheckboxSelectAll);
@@ -653,7 +654,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_ITEMS;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_requested_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_wh_preparation_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_cancel_reason;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_cancel_date;
         private System.Windows.Forms.DataGridViewButtonColumn is_active;
-        private System.Windows.Forms.Label lblReasonofCancellation;
     }
 }

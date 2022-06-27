@@ -502,23 +502,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void dgvStoreOrderApproval_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            string selection_of_radio_button = "";
+            if(this.matRadioForApproval.Checked == true)
+            {
+                selection_of_radio_button = this.matRadioForApproval.Text;
+            }
+            else if(this.matRadioForAllocation.Checked == true)
+            {
+                selection_of_radio_button = this.matRadioForAllocation.Text;
+            }
+
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                //TODO - Button Clicked - Execute Code Here
-                //MessageBox.Show("Sample" + this.Sp_mrs_req_desc);
+ 
                 this.dgvStoreOrderApproval.Enabled = false;
-                //this.matbtnSave.Visible = false;
-                ViewItemsInternalOrder addNew = 
-            new ViewItemsInternalOrder(this,
+        
+             ViewItemsInternalOrder addNew = 
+             new ViewItemsInternalOrder(this,
              this.p_id,
              this.Sp_department_id,
              this.Sp_mrs_req_desc,
              this.Sp_mrs_requested_by,
              this.Sp_mrs_requested_date,
-             this.Sp_total_items
+             this.Sp_total_items,
+             selection_of_radio_button
              );
                 addNew.ShowDialog();
                 
@@ -554,15 +565,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (this.textBox1.Text == "TouchedScreen")
+            //if (this.textBox1.Text == "TouchedScreen")
+
+            if (this.textBox1.Text == "For Scheduling")
             {
                 this.dgvStoreOrderApproval.Enabled = true;
                 this.textBox1.Text = String.Empty;
                 this.loadCategoryDropdown();
                 this.matcmbCategory_SelectionChangeCommitted(sender, e);
+                this.matRadioForApproval_CheckedChanged(sender, e);
+            }
+            else if (this.textBox1.Text == "For Allocation")
+            {
+                this.dgvStoreOrderApproval.Enabled = true;
+                this.textBox1.Text = String.Empty;
+                this.loadCategoryDropdown();
+                this.matcmbCategory_SelectionChangeCommitted(sender, e);
+                this.matRadioForAllocation_CheckedChanged(sender, e);
             }
 
-          
         }
 
         private void matbtnPrint_Click(object sender, EventArgs e)
@@ -576,18 +597,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         }
 
-
-      
-
-
-
+        private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+           
 
 
 
-
-
-
-
-
+        }
     }
 }

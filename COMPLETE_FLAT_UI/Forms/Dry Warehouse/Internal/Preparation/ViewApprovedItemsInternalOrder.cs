@@ -74,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.bunifuPrepaDate.ValueChanged += new System.EventHandler(bunifuPrepaDate_ValueChanged);
             if (this.ctrl_bind_is_active == false)
             {
-                this.bunifuPrepaDate.Enabled = false;
+                //this.bunifuPrepaDate.Enabled = false;
                 this.matBtnAction.Text = "RETURN";
                 this.lblReason.Visible = false;
                 this.metroCmbReason.Visible = false;
@@ -111,7 +111,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
 
                 this.dgvStoreOrderApproval.Columns["selected"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
+                this.dgvStoreOrderApproval.Columns["StockOnHand"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_transact_no"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_code"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_description"].ReadOnly = true;
@@ -173,7 +173,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void InitiliazeDatePickerMinDate()
         {
             this.bunifuPrepaDate.MinDate = DateTime.Now;
-            //this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
+            this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(7);
         }
 
         private void StaticWindowState()
