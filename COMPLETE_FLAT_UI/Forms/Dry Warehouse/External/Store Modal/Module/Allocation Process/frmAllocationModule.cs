@@ -76,6 +76,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 MessageBox.Show(ex.Message);
             }
+            this.DataGridVisibleFalse();
+       ;
+        }
+
+
+        private void DataGridVisibleFalse()
+        {
             this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
             this.dgvStoreOrderApproval.Columns["total_row"].Visible = false;
             this.dgvStoreOrderApproval.Columns["GRANDTOTAL_COL_QTY"].Visible = false;
@@ -84,7 +91,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvStoreOrderApproval.Columns["is_expirable"].Visible = false;
             this.dgvStoreOrderApproval.Columns["DAYSTOEXPIRED"].Visible = false;
         }
-
 
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
@@ -100,12 +106,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
             myglobal.global_module = "Active"; // Mode for Searching
             dset_emp_SearchEngines.Clear();
-
-
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_Allocation");
-     
-
-
+            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_Allocation");    
         }
 
 
@@ -209,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
         private void DisposeControlsWhenDataIsNull()
         {
-            if (this.lbltotalStoreOrder.Text == "0")
+            if (this.lbltotalStoreOrder.Text == "0" && this.lbltotaldata.Text == "0")
             {
                 this.matBtnSave.Visible = false;
                 this.lblqtyAllocatedFinal.Visible = false;

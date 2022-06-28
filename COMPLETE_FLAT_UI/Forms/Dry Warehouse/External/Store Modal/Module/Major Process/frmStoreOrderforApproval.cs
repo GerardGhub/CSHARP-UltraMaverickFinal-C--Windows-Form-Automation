@@ -425,7 +425,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
 
                         dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "'  ";
-                        //dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and  date_ordered = '" + this.cmbDateOrder.Text + "'      ";
+
                     }
               
                     this.dgvStoreOrderApproval.DataSource = dv;
@@ -1213,7 +1213,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionOpen();
 
 
-            ////this.DataRefresher();
 
 
             //Functionality Viewing of the Data Binding Source
@@ -1232,9 +1231,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.load_search();
             }
      
-            //this.matcmbPackaging_SelectionChangeCommitted(sender, e);
-            //this.showRawMaterialforApproval();
-            //this.frmStoreOrderforApproval_Load(sender, e);
+
         }
 
         private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
