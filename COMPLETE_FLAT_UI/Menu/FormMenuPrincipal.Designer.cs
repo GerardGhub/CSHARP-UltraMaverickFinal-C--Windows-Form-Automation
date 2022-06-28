@@ -617,7 +617,7 @@
             // 
             this.panelMenuSelection.Controls.Add(this.toolStrip2);
             this.panelMenuSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.panelMenuSelection.Location = new System.Drawing.Point(-1, 91);
+            this.panelMenuSelection.Location = new System.Drawing.Point(1, 43);
             this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
             this.panelMenuSelection.Name = "panelMenuSelection";
             this.panelMenuSelection.Size = new System.Drawing.Size(247, 512);
@@ -1256,6 +1256,7 @@
             this.preparationToolStripMenuItem1.Name = "preparationToolStripMenuItem1";
             this.preparationToolStripMenuItem1.Size = new System.Drawing.Size(236, 24);
             this.preparationToolStripMenuItem1.Text = "Preparation";
+            this.preparationToolStripMenuItem1.Click += new System.EventHandler(this.preparationToolStripMenuItem1_Click);
             // 
             // moveOrderToolStripMenuItem1
             // 

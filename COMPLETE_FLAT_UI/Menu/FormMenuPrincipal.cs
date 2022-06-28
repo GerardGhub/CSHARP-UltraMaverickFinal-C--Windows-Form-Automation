@@ -1747,6 +1747,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(ApprovedScheduled);
         }
 
+        private void preparationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmDryPreparationInternal InternalPreparation = new frmDryPreparationInternal();
+            InternalPreparation.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(InternalPreparation);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

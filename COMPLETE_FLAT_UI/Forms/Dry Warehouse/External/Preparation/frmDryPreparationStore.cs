@@ -505,14 +505,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
-            //if (this.cmbArea.Text == String.Empty)
-            //{
-
-            //}
-            //else
-            //{
-            //    this.FormmLoadSearchState();
-            //}
+         
         }
 
 
