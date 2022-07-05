@@ -92,7 +92,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
 
                 this.dgvStoreOrderApproval.Columns["is_cancel_by"].Visible = false;
-
+                this.dgvStoreOrderApproval.Columns["Allocation_Precense"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
 
             }
@@ -112,7 +112,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 this.dgvStoreOrderApproval.Columns["selected"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["StockOnHand"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_transact_no"].ReadOnly = true;
+                this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_code"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_item_description"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_uom"].ReadOnly = true;
@@ -141,7 +141,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-                    dv.RowFilter = "mrs_transact_no = '" + this.ctrl_bind_mrs + "' ";
+                    dv.RowFilter = "mrs_id = '" + this.ctrl_bind_mrs + "' ";
                     this.dgvStoreOrderApproval.DataSource = dv;
 
                 }
@@ -260,7 +260,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
                             dset = g_objStoredProcCollection.sp_IDGenerator(
-                                int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_transact_no"].Value.ToString()),
+                                int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorCancelInternalApprovedMRS", 
                                 this.metroCmbReason.Text,
                                 userinfo.user_id.ToString(), 1);
@@ -303,7 +303,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
                             dset = g_objStoredProcCollection.sp_IDGenerator(
-                                int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_transact_no"].Value.ToString()),
+                                int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorReturnInternalApprovedMRS",
                                 this.metroCmbReason.Text,
                                 userinfo.user_id.ToString(), 1);
@@ -345,7 +345,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
                             dset = g_objStoredProcCollection.sp_IDGenerator(
-                                int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_transact_no"].Value.ToString()),
+                                int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorUpdateInternalApprovedMRS", 
                                 this.bunifuPrepaDate.Text, 
                                 userinfo.user_id.ToString(), 1);

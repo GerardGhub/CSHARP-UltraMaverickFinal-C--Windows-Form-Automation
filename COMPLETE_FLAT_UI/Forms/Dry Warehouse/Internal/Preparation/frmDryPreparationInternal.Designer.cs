@@ -65,13 +65,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.cmbPreparationDate = new MetroFramework.Controls.MetroComboBox();
-            this.cmbArea = new MetroFramework.Controls.MetroComboBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioPrevious = new MaterialSkin.Controls.MaterialButton();
             this.matRadioNext = new MaterialSkin.Controls.MaterialButton();
-            this.matCmbPreparationDate = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.matcmbCategory = new MetroFramework.Controls.MetroComboBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
@@ -83,8 +79,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.TotalItemsOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.guna2DgvMaterialPreparation = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lbltotaldata = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.mrs_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,6 +90,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.date_ordered_materials = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbltotaldata = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDgvReceivingFEFO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDgvScanFinder)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -140,6 +136,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.mattxtScanTheBarcode.Size = new System.Drawing.Size(209, 50);
             this.mattxtScanTheBarcode.TabIndex = 677;
             this.mattxtScanTheBarcode.Text = "";
+            this.mattxtScanTheBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mattxtScanTheBarcode_KeyDown);
+            this.mattxtScanTheBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtScanTheBarcode_KeyPress);
             // 
             // lbltotalStoreforPreparation
             // 
@@ -262,6 +260,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.gunaDgvReceivingFEFO.ThemeStyle.RowsStyle.Height = 40;
             this.gunaDgvReceivingFEFO.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.gunaDgvReceivingFEFO.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gunaDgvReceivingFEFO.CurrentCellChanged += new System.EventHandler(this.gunaDgvReceivingFEFO_CurrentCellChanged);
             // 
             // id
             // 
@@ -433,11 +432,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.cmbPreparationDate);
-            this.materialCard1.Controls.Add(this.cmbArea);
-            this.materialCard1.Controls.Add(this.materialLabel1);
-            this.materialCard1.Controls.Add(this.materialLabel5);
             this.materialCard1.Controls.Add(this.materialCard3);
-            this.materialCard1.Controls.Add(this.matCmbPreparationDate);
             this.materialCard1.Controls.Add(this.materialLabel2);
             this.materialCard1.Controls.Add(this.matcmbCategory);
             this.materialCard1.Depth = 0;
@@ -461,42 +456,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.cmbPreparationDate.UseSelectable = true;
             this.cmbPreparationDate.SelectionChangeCommitted += new System.EventHandler(this.cmbPreparationDate_SelectionChangeCommitted);
             this.cmbPreparationDate.Click += new System.EventHandler(this.cmbPreparationDate_Click);
-            // 
-            // cmbArea
-            // 
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.ItemHeight = 23;
-            this.cmbArea.Location = new System.Drawing.Point(246, 30);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(182, 29);
-            this.cmbArea.TabIndex = 658;
-            this.cmbArea.UseSelectable = true;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(246, 4);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
-            this.materialLabel1.TabIndex = 657;
-            this.materialLabel1.Text = "Area:";
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(507, 6);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(124, 19);
-            this.materialLabel5.TabIndex = 656;
-            this.materialLabel5.Text = "Preparation Date:";
-            this.materialLabel5.Visible = false;
             // 
             // materialCard3
             // 
@@ -553,17 +512,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matRadioNext.UseAccentColor = false;
             this.matRadioNext.UseVisualStyleBackColor = true;
             this.matRadioNext.Click += new System.EventHandler(this.matRadioNext_Click);
-            // 
-            // matCmbPreparationDate
-            // 
-            this.matCmbPreparationDate.FormattingEnabled = true;
-            this.matCmbPreparationDate.ItemHeight = 23;
-            this.matCmbPreparationDate.Location = new System.Drawing.Point(504, 32);
-            this.matCmbPreparationDate.Name = "matCmbPreparationDate";
-            this.matCmbPreparationDate.Size = new System.Drawing.Size(224, 29);
-            this.matCmbPreparationDate.TabIndex = 579;
-            this.matCmbPreparationDate.UseSelectable = true;
-            this.matCmbPreparationDate.Visible = false;
             // 
             // materialLabel2
             // 
@@ -831,32 +779,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
             this.guna2DgvMaterialPreparation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DgvMaterialPreparation_CellContentClick);
             // 
-            // lbltotaldata
-            // 
-            this.lbltotaldata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotaldata.AutoSize = true;
-            this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotaldata.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotaldata.Location = new System.Drawing.Point(913, 732);
-            this.lbltotaldata.Name = "lbltotaldata";
-            this.lbltotaldata.Size = new System.Drawing.Size(26, 29);
-            this.lbltotaldata.TabIndex = 672;
-            this.lbltotaldata.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(945, 743);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 15);
-            this.label4.TabIndex = 674;
-            this.label4.Text = "Items";
-            // 
             // mrs_item_code
             // 
             this.mrs_item_code.DataPropertyName = "mrs_item_code";
@@ -945,6 +867,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
             // 
+            // lbltotaldata
+            // 
+            this.lbltotaldata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotaldata.AutoSize = true;
+            this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotaldata.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotaldata.Location = new System.Drawing.Point(913, 732);
+            this.lbltotaldata.Name = "lbltotaldata";
+            this.lbltotaldata.Size = new System.Drawing.Size(26, 29);
+            this.lbltotaldata.TabIndex = 672;
+            this.lbltotaldata.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label4.Location = new System.Drawing.Point(945, 743);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 15);
+            this.label4.TabIndex = 674;
+            this.label4.Text = "Items";
+            // 
             // frmDryPreparationInternal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1005,13 +953,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MetroFramework.Controls.MetroComboBox cmbArea;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialButton matRadioPrevious;
         private MaterialSkin.Controls.MaterialButton matRadioNext;
-        private MetroFramework.Controls.MetroComboBox matCmbPreparationDate;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MetroFramework.Controls.MetroComboBox matcmbCategory;
         private MaterialSkin.Controls.MaterialCard materialCard2;

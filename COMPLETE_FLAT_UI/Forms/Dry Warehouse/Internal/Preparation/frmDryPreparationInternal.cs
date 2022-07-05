@@ -468,7 +468,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         //}
                         //else
                         //{
-
+                
                         dv.RowFilter = "is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  ";
 
 
@@ -559,5 +559,305 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
         }
+
+        private void mattxtScanTheBarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+           (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void mattxtScanTheBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.ScanBarcode();
+            }
+        }
+
+        private void ScanBarcode()
+        {
+
+            if (this.mattxtScanTheBarcode.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.mattxtScanTheBarcode.Focus();
+                return;
+            }
+
+            //Connection Binding to Stored Procedure
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
+
+
+
+
+            //Start of Validating the Received If if exist on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
+               "", "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+
+                //Start of Validating the Received If if exist on the system  buje
+                dset2.Clear();
+                dset2 = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.sp_approved_preparation_date,
+                   this.Sp_department, "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist_information_internal");
+
+
+                if (dset2.Tables[0].Rows.Count > 0)
+                {
+                    //Find The Data On Receiving Information
+                    this.SearchMethodJarVarCallingSPReceivingInformation();
+                    //Method of Searching
+                    this.doSearchInTextBoxCmbReceivingInformative();
+
+
+                    //Binding The Receiving ID Check if the Inventory is Enough
+                    this.CurrentCellChangeofRecommendedFefoID();
+
+                    if (this.Sp_Receiving_Actual_Remaining == "0")
+                    {
+                        this.GlobalStatePopup.Popup_barcode_identity = mattxtScanTheBarcode.Text;
+                        this.GlobalStatePopup.NotEnoughStockOnReceivingID();
+                        this.mattxtScanTheBarcode.Text = String.Empty;
+                        this.mattxtScanTheBarcode.Focus();
+
+                        return;
+                    }
+
+
+                    //Interation Loop of Materials Order
+                    this.FindTheExactItemCode();
+
+
+
+
+
+                }
+                else
+                {
+
+                    this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
+                    //MessageBox.Show("B");
+                    //Buje Malakas
+                    this.mattxtScanTheBarcode.Text = String.Empty;
+                    this.mattxtScanTheBarcode.Focus();
+
+                    return;
+                }
+
+
+
+            }
+            else
+            {
+                this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
+                //Buje Malakas
+                this.mattxtScanTheBarcode.Text = String.Empty;
+                this.mattxtScanTheBarcode.Focus();
+
+                return;
+            }
+
+        }
+
+        DataSet dset_emp_SearchEnginesReceivingInformationDset = new DataSet();
+        private void SearchMethodJarVarCallingSPReceivingInformation()
+        {
+
+            this.dset_emp_SearchEnginesReceivingInformationDset.Clear();
+            this.dset_emp_SearchEnginesReceivingInformationDset = objStorProc.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
+
+        }
+
+
+        DataSet dset_emp_SearchEnginesReceivingIDFEFO = new DataSet();
+        private void SearchMethodJarVarCallingSPReceivingIDFEFODB()
+        {
+
+            this.dset_emp_SearchEnginesReceivingIDFEFO.Clear();
+            this.dset_emp_SearchEnginesReceivingIDFEFO = objStorProc.sp_getMajorTables("searchorderForReceivingIDFEFOStore_Major");
+
+        }
+
+        private void doSearchInTextBoxCmbReceivingIDFefo()
+        {
+
+            //MessageBox.Show(this.Sp_Receiving_ID_RecommendedFefo);
+            try
+            {
+                if (dset_emp_SearchEnginesReceivingIDFEFO.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEnginesReceivingIDFEFO.Tables[0]);
+
+                    //Gerard Singian Developer Man
+
+                    dv.RowFilter = "item_code = '" + this.Sp_Item_Code + "'   ";
+
+
+
+                    this.gunaDgvReceivingFEFO.DataSource = dv;
+                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found MasterGit!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found MasterGit2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+        }
+
+
+
+        private void FindTheExactItemCode()
+        {
+            if (this.Sp_Receiving_Item_Code == this.Sp_Item_Code)
+            {
+                //FEFO Method Validation Entry
+                this.SearchMethodJarVarCallingSPReceivingIDFEFODB();
+                //xClass.fillDataGridView(this.gunaDgvReceivingFEFO, "searchorderForReceivingIDFEFOStore", dset3);
+                this.doSearchInTextBoxCmbReceivingIDFefo();
+
+                if (this.mattxtScanTheBarcode.Text.Trim() == this.Sp_Receiving_ID_RecommendedFefo)
+                {
+
+                }
+                else
+                {
+                    this.GlobalStatePopup.PopperSp_Receiving_ID_RecommendedFefo = this.Sp_Receiving_ID_RecommendedFefo;
+                    this.GlobalStatePopup.FeFoInformation();
+                }
+
+
+                //MessageBox.Show(lbltotaldata.Text);
+                //return;
+
+                frmServeInternalPreparation addNew = new frmServeInternalPreparation(this,
+                    this.sp_material_id,
+                    this.mattxtScanTheBarcode.Text,
+                    this.Sp_Material_Item_Description,
+                    this.Sp_Unit_Of_Measure,
+                    this.Sp_Converted_Qty,
+                    this.sp_approved_preparation_date,
+                     this.Sp_Qty_Serve,
+                     this.sp_fox,
+                     this.sp_route,
+                     this.sp_area,
+                     this.matcmbCategory.Text,
+                     this.lbltotaldata.Text
+                    );
+                addNew.ShowDialog();
+                this.mattxtScanTheBarcode.Text = String.Empty;
+            }
+            else
+            {
+
+
+
+                if (this.guna2DgvMaterialPreparation.Rows.Count >= 1)
+                {
+                    int i = this.guna2DgvMaterialPreparation.CurrentRow.Index + 1;
+                    if (i >= -1 && i < this.guna2DgvMaterialPreparation.Rows.Count)
+                        this.guna2DgvMaterialPreparation.CurrentCell = this.guna2DgvMaterialPreparation.Rows[i].Cells["item_code"];
+                    //Cell na 0
+                    else
+                    {
+
+                        //MessageBox.Show("You are in the Last Line");
+
+                        //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
+                        //timer1_Tick(sender, e);
+
+                        return;
+                    }
+                    this.FindTheExactItemCode();
+                }
+
+            }
+
+        }
+
+
+
+
+
+        private void doSearchInTextBoxCmbReceivingInformative()
+        {
+
+            //MessageBox.Show(this.Sp_Receiving_ID_RecommendedFefo);
+            try
+            {
+                if (this.dset_emp_SearchEnginesReceivingInformationDset.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(this.dset_emp_SearchEnginesReceivingInformationDset.Tables[0]);
+
+                    //Gerard Singian Developer Man
+
+                    dv.RowFilter = "id = '" + this.mattxtScanTheBarcode.Text + "'   ";
+
+
+
+                    this.gunaDgvReceivingFEFO.DataSource = dv;
+                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found MasterGit!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found MasterGit2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+        }
+
+        private void gunaDgvReceivingFEFO_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.CurrentCellChangeofRecommendedFefoID();
+        }
+
+        private void CurrentCellChangeofRecommendedFefoID()
+        {
+
+            if (this.gunaDgvReceivingFEFO.Rows.Count > 0)
+            {
+                if (this.gunaDgvReceivingFEFO.CurrentRow != null)
+                {
+                    if (this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value != null)
+                    {
+                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                        this.Sp_Receiving_ID_RecommendedFefo = this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value.ToString();
+                        this.Sp_Expiration_Date = this.gunaDgvReceivingFEFO.CurrentRow.Cells["exp_date"].Value.ToString();
+                        this.Sp_Receiving_Item_Code = this.gunaDgvReceivingFEFO.CurrentRow.Cells["codes"].Value.ToString();
+                        this.Sp_Receiving_Actual_Remaining = this.gunaDgvReceivingFEFO.CurrentRow.Cells["Remaining_Qty"].Value.ToString();
+                    }
+                }
+            }
+        }
+
     }
 }

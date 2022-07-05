@@ -49,12 +49,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.lblReason = new System.Windows.Forms.Label();
             this.metroCmbReason = new MetroFramework.Controls.MetroComboBox();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mrs_transact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrs_order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockOnHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total_Allocated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -212,12 +213,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selected,
-            this.mrs_transact_no,
+            this.mrs_id,
             this.mrs_item_code,
             this.mrs_item_description,
             this.mrs_uom,
             this.mrs_order_qty,
-            this.StockOnHand});
+            this.StockOnHand,
+            this.Total_Allocated});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -361,12 +363,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.selected.TrueValue = "TRUE";
             this.selected.Visible = false;
             // 
-            // mrs_transact_no
+            // mrs_id
             // 
-            this.mrs_transact_no.DataPropertyName = "mrs_transact_no";
-            this.mrs_transact_no.HeaderText = "MRS ID";
-            this.mrs_transact_no.MinimumWidth = 6;
-            this.mrs_transact_no.Name = "mrs_transact_no";
+            this.mrs_id.DataPropertyName = "mrs_id";
+            this.mrs_id.HeaderText = "MRS ID";
+            this.mrs_id.MinimumWidth = 6;
+            this.mrs_id.Name = "mrs_id";
             // 
             // mrs_item_code
             // 
@@ -406,6 +408,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.StockOnHand.MinimumWidth = 6;
             this.StockOnHand.Name = "StockOnHand";
             // 
+            // Total_Allocated
+            // 
+            this.Total_Allocated.DataPropertyName = "Total_Allocated";
+            this.Total_Allocated.HeaderText = "ALLOCATED";
+            this.Total_Allocated.Name = "Total_Allocated";
+            // 
             // ViewApprovedItemsInternalOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,11 +451,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private System.Windows.Forms.Label lblcancelby;
         private System.Windows.Forms.Label lblcanceltitle;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_transact_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mrs_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_item_description;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn mrs_order_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOnHand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total_Allocated;
     }
 }
