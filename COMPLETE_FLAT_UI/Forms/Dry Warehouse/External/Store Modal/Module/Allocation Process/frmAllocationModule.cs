@@ -231,7 +231,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.matBtnSave.Visible = true;
                 this.lblqtyAllocatedFinal.Visible = true;
                 this.lbldataLabel.Visible = true;
-                this.lbltotalStoreOrder.Visible = true;
+                //this.lbltotalStoreOrder.Visible = true;
                 this.lblshowItemsFinder.Visible = true;
                 this.matCardFindAllocation.Visible = true;
                 this.groupBox1AdditionlOrderUI.Visible = true;
@@ -344,7 +344,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                     }
 
-                    //MessageBox.Show("SuccessFully Insert");
+                
                     this.SenderTextChangedValue();
                     //this.showRawMaterialsInDryWH();
                     this.matbtnNewAllocate.Visible = true;
@@ -403,7 +403,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void InsertDataPerRow()
         {
             dSet.Clear();
-            dSet = objStorProc.sp_Allocation_Logs(p_id,
+            dSet = objStorProc.sp_Allocation_Logs(
+                p_id,
                 this.txtItemCode.Text.Trim(), 
                 this.txtitemDescription.Text.Trim(), 
                 this.lblAllocatedQty.Text.Trim(), 
@@ -418,7 +419,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 dSet.Clear();
                 dSet = objStorProc.sp_Allocation_Logs(p_id,
-                    this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(), 
+                    this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), this.lblAllocatedQty.Text.Trim(),
                     this.FormClass.user_id.ToString(), "", p_id.ToString(), Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()), Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
                     "delete");
             }
@@ -486,6 +487,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
         }
         
+
         private void txtSoh_TextChanged(object sender, EventArgs e)
         {
             if(this.txtSoh.Text == this.lblqtyAllocatedFinal.Text)
@@ -973,31 +975,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void Cell_KeyDown(object sender, KeyEventArgs e)
         {
-            //Your code  
-
-            //   double StockOnHandQty;
-            //    StockOnHandQty = double.Parse(this.txtSoh.Text);
-            //if (StockOnHandQty > Convert.ToDouble(dgvFindStoreOrders.CurrentRow.Cells["ALLOCATION_QTY_FIND"].Value))
-            //{
-
-            //}
-            //else
-
-            //{
+           
             try
             {
 
 
-                //int sleepTime = 300; // in mills
-                //Task.Delay(sleepTime).Wait();
-                //// or
-                //Thread.Sleep(sleepTime);
-                //MessageBox.Show("s");
-
-
-
-                //this.ConnectionInit();
-                //this.doSearchInTextBox();
+            
 
 
 

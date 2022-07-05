@@ -392,7 +392,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["converted_qty"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["qty"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["data_refactoring_status"].Visible = false;
         }
