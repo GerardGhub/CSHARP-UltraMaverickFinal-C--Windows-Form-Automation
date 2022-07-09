@@ -320,6 +320,22 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
 
+        DataSet sp_Internal_Preparation_Logs(int prepa_id,
+       string prepa_source_key,
+       string prepa_approved_prepa_date,
+       string prepa_item_code,
+       string prepa_item_description,
+       string prepa_order_qty,
+       string prepa_allocated_qty,
+       string prepa_date_added,
+       string prepa_added_by,
+       int order_source_key,
+       string fox,
+       string route,
+       string area,
+       string mode);
+
+
         DataSet sp_avg_order_trend(int avg_id,
         string avg_desc,
         int avg_days,
@@ -330,6 +346,16 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
         DataSet sp_store_order_activation_remarks(int soar_id,
+        string soar_desc,
+        string soar_type,
+        string soar_added_by,
+        string soar_date_added,
+        string soar_updated_by,
+        string soar_updated_date,
+        string mode);
+
+
+        DataSet sp_internal_order_activation_remarks(int soar_id,
         string soar_desc,
         string soar_type,
         string soar_added_by,

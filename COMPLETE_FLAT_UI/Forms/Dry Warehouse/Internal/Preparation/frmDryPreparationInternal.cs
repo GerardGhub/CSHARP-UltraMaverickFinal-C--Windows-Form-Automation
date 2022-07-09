@@ -62,7 +62,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string Sp_Logistic_Checker_Cancelled { get; set; }
         public string Sp_Category { get; set; }
         public string Sp_Data_Refactoring_Status { get; set; }
+        public string Sp_Mris_ID { get; set; }
 
+        public int Sp_department_id { get; set; }
 
         private void frmDryPreparationInternal_Load(object sender, EventArgs e)
         {
@@ -88,7 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
-                //this.dgvStoreOrderApproval.Columns["category"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["department_id"].Visible = false;
 
                 this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
@@ -101,7 +103,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (this.lbltotaldata.Text == "0")
             {
                 this.matbtnSave.Visible = false;
-                this.matcmbCategory.Enabled = false;
                 this.mattxtScanTheBarcode.Enabled = false;
                 this.guna2DgvMaterialPreparation.DataSource = null;
             }
@@ -256,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                         //Sample Lang
                         dset2.Clear();
-                        dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+                        dset2 = objStorProc.sp_Internal_Preparation_Logs(0,
                         this.sp_fox,
                         this.sp_approved_preparation_date,
                         this.Sp_Category,
@@ -266,20 +267,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         "", "",
                         0,
                         this.sp_fox, this.Sp_Category, "",
-                        "select_StorePreparationLogsTBL_Deactivated");
+                        "select_Internal_PreparationLogsTBL_Deactivated");
 
                         if (dset2.Tables[0].Rows.Count > 0)
                         {
 
-                            //MessageBox.Show("A");
-
+                   
 
                         }
                         else
                         {
                             //MessageBox.Show("B");
                             dSet.Clear();
-                            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                            dSet = objStorProc.sp_Internal_Preparation_Logs(0,
                             this.sp_fox,
                             this.sp_approved_preparation_date,
                             this.Sp_Category,
@@ -289,25 +289,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                             "", "",
                             0,
                             this.sp_fox, this.Sp_Category, "",
-                            "update_StorePreparationLogsTBL_Deactivated");
+                            "update_Internal_PreparationLogsTBL_Deactivated");
 
                             this.cmbPreparationDate_SelectionChangeCommitted(new object(), new System.EventArgs());
                         }
 
-                        // return;
-                        // //Bug Animal
-                        // dSet.Clear();
-                        // dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                        // this.sp_fox,
-                        // this.sp_approved_preparation_date,
-                        // this.Sp_Category,
-                        // "",
-                        //"",
-                        // "",
-                        // "", "",
-                        // 0,
-                        // this.sp_fox, this.Sp_Category, "",
-                        // "update_StorePreparationLogsTBL_Deactivated");
+                       
                     }
                 }
                 catch (Exception ex)
@@ -318,7 +305,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
 
         }
-
+        
         private void dgvStoreOrderApproval_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             var grid = sender as DataGridView;
@@ -417,17 +404,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 if (this.dgvStoreOrderApproval.CurrentRow != null)
                 {
-                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value != null)
+                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["department"].Value != null)
                     {
           
-                        this.Sp_mrs_req_desc= this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_req_desc"].Value.ToString();
-                        //this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
-                        //this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
+                        this.Sp_mrs_req_desc= this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_req_desc"].Value.ToString();              
                         this.sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
                         this.Sp_Start_By = this.dgvStoreOrderApproval.CurrentRow.Cells["start_by_user_id"].Value.ToString();
                         this.Sp_Employee_Name = this.dgvStoreOrderApproval.CurrentRow.Cells["employee_name"].Value.ToString();
-                        this.Sp_department = this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value.ToString();
-          
+                        this.Sp_department = this.dgvStoreOrderApproval.CurrentRow.Cells["department"].Value.ToString();
+                        this.Sp_department_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["department_id"].Value);
                     }
                 }
             }
@@ -505,10 +490,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
+            //this.guna2DgvMaterialPreparation.Columns["department_id"].Visible = false;
             //this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
             //this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
             //this.guna2DgvMaterialPreparation.Columns["route"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["mrs_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
@@ -546,19 +532,96 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.MaterialDatagridColumnVisibilittyFalse(); //pako
             }
-            //if (this.lbltotaldata.Text == "0")
-            //{
-            //    this.matbtnSave.Visible = false;
-            //}
-            //this.textBox1.Text = String.Empty;
+            if (this.lbltotaldata.Text == "0")
+            {
+                this.matbtnSave.Visible = false;
+            }
+            this.textBox1.Text = String.Empty;
 
-            //this.PreparationValidationRequiredToSave();
-            //this.PartialReceivingAwaitResponse();
+            this.PreparationValidationRequiredToSave();
+            this.PartialReceivingAwaitResponse();
 
             //ending for Loop
 
 
         }
+
+        //Bearer Token  Update the Fucking Preparation Table Logs
+        private void PartialReceivingAwaitResponse()
+        {
+            //Date Conversion
+            DateTime dt = new DateTime();
+            string lstrDate = this.sp_approved_preparation_date;
+            dt = Convert.ToDateTime(lstrDate);
+            string lstrAdate = dt.ToString("yyyy-MM-dd");
+            this.sp_approved_preparation_date = lstrAdate;
+
+            //MessageBox.Show(this.sp_approved_preparation_date);
+            //CheckIifAlreayHaveAnewRecord Buje
+            dset3.Clear();
+            dset3 = objStorProc.sp_Internal_Preparation_Logs(0,
+           this.Sp_department_id.ToString(),
+            this.sp_approved_preparation_date,
+            "ItemCode", "ItemDesc", "OrderQty",
+            "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
+              this.sp_fox, this.sp_route, this.sp_area,
+            "show_prepared_raw_materials");
+
+            if (dset3.Tables[0].Rows.Count > 0)
+            {
+
+                this.matViewItemPrepared.Visible = true;
+
+            }
+            else
+            {
+                this.matViewItemPrepared.Visible = false;
+
+            }
+        }
+
+
+
+        private void PreparationValidationRequiredToSave()
+        {
+
+            //CheckIifAlreayHaveAnewRecord
+            dset2.Clear();
+            dset2 = objStorProc.sp_Internal_Preparation_Logs(0,
+            "",
+            this.sp_approved_preparation_date,
+            "ItemCode", 
+            "ItemDesc", 
+            "OrderQty", 
+            "Allocated QTY", 
+            "PrepaDate Added", 
+            "PrepaAdded By", 
+            0,
+             this.Sp_department_id.ToString(), 
+             this.sp_route, 
+             this.sp_area,
+            "validate_touched_event_internal_preparation");
+
+            if (dset2.Tables[0].Rows.Count > 0)
+            {
+
+                this.matbtnSave.Visible = false;
+
+            }
+            else
+            {
+                this.matbtnSave.Visible = true;
+
+
+                if (this.Sp_Is_WH_Cancel_Status == "1")
+                {
+                    this.matbtnSave.Visible = false;
+                }
+
+            }
+
+        }
+
 
         private void mattxtScanTheBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -577,6 +640,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void mattxtScanTheBarcode_KeyDown(object sender, KeyEventArgs e)
         {
+
+            int checkLengthofTextboxes = this.mattxtScanTheBarcode.Text.Length;
+  
+            
+            if (checkLengthofTextboxes == 10)
+            {
+                this.mattxtScanTheBarcode.Text = String.Empty;
+                return;
+            }
+
             if (e.KeyCode == Keys.Enter)
             {
                 this.ScanBarcode();
@@ -603,29 +676,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             //Start of Validating the Received If if exist on the system
             dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
+            dSet = objStorProc.sp_Internal_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
                "", "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist");
+
+       
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
 
                 //Start of Validating the Received If if exist on the system  buje
                 dset2.Clear();
-                dset2 = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.sp_approved_preparation_date,
+                dset2 = objStorProc.sp_Internal_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.sp_approved_preparation_date,
                    this.Sp_department, "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist_information_internal");
 
-
+           
                 if (dset2.Tables[0].Rows.Count > 0)
                 {
                     //Find The Data On Receiving Information
                     this.SearchMethodJarVarCallingSPReceivingInformation();
                     //Method of Searching
                     this.doSearchInTextBoxCmbReceivingInformative();
-
+                    //nuto
 
                     //Binding The Receiving ID Check if the Inventory is Enough
                     this.CurrentCellChangeofRecommendedFefoID();
-
+             
                     if (this.Sp_Receiving_Actual_Remaining == "0")
                     {
                         this.GlobalStatePopup.Popup_barcode_identity = mattxtScanTheBarcode.Text;
@@ -641,7 +716,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     this.FindTheExactItemCode();
 
 
-
+                    //return; //bolang
 
 
                 }
@@ -649,8 +724,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
 
                     this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
-                    //MessageBox.Show("B");
-                    //Buje Malakas
+      
                     this.mattxtScanTheBarcode.Text = String.Empty;
                     this.mattxtScanTheBarcode.Focus();
 
@@ -658,12 +732,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 }
 
 
-
+                
             }
+
+
             else
             {
                 this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
-                //Buje Malakas
+             
                 this.mattxtScanTheBarcode.Text = String.Empty;
                 this.mattxtScanTheBarcode.Focus();
 
@@ -687,7 +763,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
 
             this.dset_emp_SearchEnginesReceivingIDFEFO.Clear();
-            this.dset_emp_SearchEnginesReceivingIDFEFO = objStorProc.sp_getMajorTables("searchorderForReceivingIDFEFOStore_Major");
+            this.dset_emp_SearchEnginesReceivingIDFEFO = objStorProc.sp_getMajorTables("searchorderForReceivingIDFEFO_Internal_Major");
 
         }
 
@@ -734,7 +810,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 //FEFO Method Validation Entry
                 this.SearchMethodJarVarCallingSPReceivingIDFEFODB();
-                //xClass.fillDataGridView(this.gunaDgvReceivingFEFO, "searchorderForReceivingIDFEFOStore", dset3);
+ 
                 this.doSearchInTextBoxCmbReceivingIDFefo();
 
                 if (this.mattxtScanTheBarcode.Text.Trim() == this.Sp_Receiving_ID_RecommendedFefo)
@@ -759,12 +835,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     this.Sp_Converted_Qty,
                     this.sp_approved_preparation_date,
                      this.Sp_Qty_Serve,
-                     this.sp_fox,
+                     this.Sp_Mris_ID,
                      this.sp_route,
-                     this.sp_area,
-                     this.matcmbCategory.Text,
+                     this.Sp_Category,
+                     this.Sp_department_id,
                      this.lbltotaldata.Text
-                    );
+                    )
+                {
+
+                };
                 addNew.ShowDialog();
                 this.mattxtScanTheBarcode.Text = String.Empty;
             }
@@ -777,15 +856,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     int i = this.guna2DgvMaterialPreparation.CurrentRow.Index + 1;
                     if (i >= -1 && i < this.guna2DgvMaterialPreparation.Rows.Count)
-                        this.guna2DgvMaterialPreparation.CurrentCell = this.guna2DgvMaterialPreparation.Rows[i].Cells["item_code"];
+                        this.guna2DgvMaterialPreparation.CurrentCell = this.guna2DgvMaterialPreparation.Rows[i].Cells["mrs_item_code"];
                     //Cell na 0
                     else
                     {
 
-                        //MessageBox.Show("You are in the Last Line");
-
-                        //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
-                        //timer1_Tick(sender, e);
+              
 
                         return;
                     }
@@ -859,5 +935,81 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
         }
 
+        private void guna2DgvMaterialPreparation_CurrentCellChanged(object sender, EventArgs e)
+        {
+            this.CurrentCellChangeofRawMaterials();
+        }
+
+        private void CurrentCellChangeofRawMaterials()
+        {
+
+            if (this.guna2DgvMaterialPreparation.Rows.Count > 0)
+            {
+                if (this.guna2DgvMaterialPreparation.CurrentRow != null)
+                {
+                    if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["mrs_item_code"].Value != null)
+                    {
+
+                        this.sp_material_id = this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
+                        this.Sp_Material_Item_Description = this.guna2DgvMaterialPreparation.CurrentRow.Cells["description"].Value.ToString();
+                        this.Sp_Unit_Of_Measure = this.guna2DgvMaterialPreparation.CurrentRow.Cells["uom"].Value.ToString();
+                        this.Sp_Converted_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["converted_qty"].Value.ToString();
+                        this.Sp_Qty_Serve = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Serve_Qty"].Value.ToString();
+                        this.Sp_Item_Code = this.guna2DgvMaterialPreparation.CurrentRow.Cells["mrs_item_code"].Value.ToString();
+                        this.Sp_Is_WH_Cancel_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
+                        this.Sp_Data_Refactoring_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["data_refactoring_status"].Value.ToString();
+                        this.Sp_Mris_ID = this.guna2DgvMaterialPreparation.CurrentRow.Cells["mrs_id"].Value.ToString();
+                        this.Sp_Category = this.guna2DgvMaterialPreparation.CurrentRow.Cells["category"].Value.ToString();
+                        //MessageBox.Show(this.Sp_Mris_ID);
+                    }
+                }
+            }
+
+     
+
+            
+
+  
+    
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox1.Text == "ItemServe")
+            {
+                this.matViewItemPrepared.Enabled = true;
+                this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
+
+            }
+            else if (this.textBox1.Text == "FormClosing")
+            {
+                this.RefactoringResetEnhancement();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void matViewItemPrepared_Click(object sender, EventArgs e)
+        {
+            this.matViewItemPrepared.Enabled = false;
+            this.matbtnSave.Visible = false;
+            frmViewInternalItemPrepared addNew = new frmViewInternalItemPrepared(this,
+         this.sp_material_id,
+         this.mattxtScanTheBarcode.Text,
+         this.Sp_Material_Item_Description,
+         this.Sp_Unit_Of_Measure,
+         this.Sp_Converted_Qty,
+         this.sp_approved_preparation_date,
+          this.Sp_Qty_Serve,
+          this.Sp_department_id,
+          this.sp_route,
+           this.Sp_mrs_req_desc
+         );
+            addNew.ShowDialog();
+        }
     }
 }

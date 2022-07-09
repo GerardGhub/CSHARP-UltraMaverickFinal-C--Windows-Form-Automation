@@ -555,6 +555,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void mattxtScanTheBarcode_KeyDown(object sender, KeyEventArgs e)
         {
+            int checkLengthofTextboxes = this.mattxtScanTheBarcode.Text.Length;
+
+
+            if (checkLengthofTextboxes == 10)
+            {
+                this.mattxtScanTheBarcode.Text = String.Empty;
+                return;
+            }
+
             if (e.KeyCode == Keys.Enter)
             {
                 this.ScanBarcode();

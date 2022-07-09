@@ -381,8 +381,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matBtnAction_Click(object sender, EventArgs e)
         {
-           
-
+            if (this.textBox2.Text == String.Empty)
+            {
+                frmCancelInternalApprovedOrder FormCancelOrderRemarks = new frmCancelInternalApprovedOrder(this);
+                FormCancelOrderRemarks.ShowDialog();
+            }
+              
+        
 
             if (this.matBtnAction.Text =="UPDATE")
             {
@@ -400,7 +405,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
             else if (this.matBtnAction.Text =="CANCEL")
             {
-                if (this.metroCmbReason.Text == String.Empty)
+                if (this.textBox2.Text != String.Empty)
                 {
                     this.GlobalStatePopup.FillRequiredFields();
                     this.metroCmbReason.Focus();
@@ -444,6 +449,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             }
 
+            this.textBox2.Text = String.Empty;
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
@@ -470,6 +476,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            matBtnAction_Click(sender, e);
 
+        }
     }
 }

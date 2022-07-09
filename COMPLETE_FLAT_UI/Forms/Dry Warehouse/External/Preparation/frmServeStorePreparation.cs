@@ -178,6 +178,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
 
 
+
+
         private void StaticWindowState()
         {
             this.Sp_Material_Id = Sp_Material_Id;
@@ -267,10 +269,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.dgvStoreOrderApproval_Primary_ID = this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value.ToString();
                         this.dgvStoreOrderApproval_Is_wh_checker_cancel = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
 
-                        //if(this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
-                        //{
-                        //    this.matTxtQtyRelease.Text = "0";
-                        //} Overnight
+                
                        
 
                     }
@@ -334,6 +333,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
 
         }
+
 
         private void matBtnSave_Click(object sender, EventArgs e)
         {
@@ -548,8 +548,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 //New Entry Validation Search
 
                 this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
-                ///Search Method Functionality
-                //this.doSearchSearchStoreItemPreparedWithCount();
+         
                 //Start Search
 
                 try

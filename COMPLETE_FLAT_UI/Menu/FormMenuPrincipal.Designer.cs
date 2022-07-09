@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
@@ -46,27 +46,27 @@
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.dgvParseData = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnMaximizedFinal = new System.Windows.Forms.Button();
             this.txtMatSideBarColor = new MaterialSkin.Controls.MaterialTextBox();
-            this.btnMinimizeFinal = new System.Windows.Forms.Button();
-            this.btnNotificationsBell = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.btnCloseFinal = new System.Windows.Forms.Button();
-            this.btnMaximize = new System.Windows.Forms.Button();
-            this.btnNormalFinal = new System.Windows.Forms.Button();
-            this.btnNormal1 = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNormal = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnMaximizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.MainMajorData = new System.Windows.Forms.Panel();
             this.panelMenuSelection = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDateFinal = new System.Windows.Forms.Label();
+            this.lblTimeFinal = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.panelContenedorForm = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
             this.toolClosePanelSelection = new System.Windows.Forms.ToolStripButton();
             this.toolDropdownUser = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolUserManagement = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,6 +106,7 @@
             this.lotManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.averageOrderTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderCancelRemarksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRSCancelRemarksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDropdownMenu = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolParentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolChildMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,7 +142,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnDashBoard1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnUsers1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnDryWarehouse1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -149,45 +150,45 @@
             this.btnPreparationDepartment1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnResearchAndDevelopment1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnSetUp = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblPosition = new System.Windows.Forms.Label();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblDateFinal = new System.Windows.Forms.Label();
-            this.lblTimeFinal = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lbFecha = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.panelContenedorForm = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
+            this.btnMaximizedFinal = new System.Windows.Forms.Button();
+            this.btnMinimizeFinal = new System.Windows.Forms.Button();
+            this.btnNotificationsBell = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.btnCloseFinal = new System.Windows.Forms.Button();
+            this.btnMaximize = new System.Windows.Forms.Button();
+            this.btnNormalFinal = new System.Windows.Forms.Button();
+            this.btnNormal1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.btnNormal = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.MainMajorData.SuspendLayout();
             this.panelMenuSelection.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panelContenedorForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelContenedorPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panelContenedorForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelContenedorPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // tmExpandirMenu
@@ -261,47 +262,47 @@
             this.dgvParseData.AllowUserToAddRows = false;
             this.dgvParseData.AllowUserToDeleteRows = false;
             this.dgvParseData.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvParseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvParseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvParseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvParseData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvParseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvParseData.ColumnHeadersHeight = 35;
             this.dgvParseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParseData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParseData.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvParseData.EnableHeadersVisualStyles = false;
             this.dgvParseData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvParseData.Location = new System.Drawing.Point(622, 16);
             this.dgvParseData.MultiSelect = false;
             this.dgvParseData.Name = "dgvParseData";
             this.dgvParseData.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvParseData.RowHeadersVisible = false;
             this.dgvParseData.RowHeadersWidth = 102;
             this.dgvParseData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -345,20 +346,6 @@
             this.id.ReadOnly = true;
             this.id.Width = 12;
             // 
-            // btnMaximizedFinal
-            // 
-            this.btnMaximizedFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizedFinal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizedFinal.FlatAppearance.BorderSize = 0;
-            this.btnMaximizedFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizedFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizedFinal.Image")));
-            this.btnMaximizedFinal.Location = new System.Drawing.Point(885, -1);
-            this.btnMaximizedFinal.Name = "btnMaximizedFinal";
-            this.btnMaximizedFinal.Size = new System.Drawing.Size(43, 43);
-            this.btnMaximizedFinal.TabIndex = 5;
-            this.btnMaximizedFinal.UseVisualStyleBackColor = true;
-            this.btnMaximizedFinal.Click += new System.EventHandler(this.btnMaximizedFinal_Click);
-            // 
             // txtMatSideBarColor
             // 
             this.txtMatSideBarColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -375,6 +362,1203 @@
             this.txtMatSideBarColor.Text = "";
             this.txtMatSideBarColor.Visible = false;
             this.txtMatSideBarColor.TextChanged += new System.EventHandler(this.txtMatSideBarColor_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(50, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 29);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ULTRA MAVERICK";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMenu.Controls.Add(this.MainMajorData);
+            this.panelMenu.Controls.Add(this.tableLayoutPanel1);
+            this.panelMenu.Controls.Add(this.pbImage);
+            this.panelMenu.Controls.Add(this.pictureBox9);
+            this.panelMenu.Controls.Add(this.btnSalir);
+            this.panelMenu.Controls.Add(this.pictureBox4);
+            this.panelMenu.Controls.Add(this.pictureBox2);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 44);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(185, 724);
+            this.panelMenu.TabIndex = 2;
+            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            // 
+            // MainMajorData
+            // 
+            this.MainMajorData.Controls.Add(this.panelMenuSelection);
+            this.MainMajorData.Controls.Add(this.toolStrip1);
+            this.MainMajorData.Location = new System.Drawing.Point(10, 157);
+            this.MainMajorData.Margin = new System.Windows.Forms.Padding(1);
+            this.MainMajorData.Name = "MainMajorData";
+            this.MainMajorData.Size = new System.Drawing.Size(187, 480);
+            this.MainMajorData.TabIndex = 598;
+            // 
+            // panelMenuSelection
+            // 
+            this.panelMenuSelection.Controls.Add(this.toolStrip2);
+            this.panelMenuSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.panelMenuSelection.Location = new System.Drawing.Point(-2, 39);
+            this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
+            this.panelMenuSelection.Name = "panelMenuSelection";
+            this.panelMenuSelection.Size = new System.Drawing.Size(247, 512);
+            this.panelMenuSelection.TabIndex = 2;
+            this.panelMenuSelection.Visible = false;
+            this.panelMenuSelection.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuSelection_Paint);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolClosePanelSelection,
+            this.toolDropdownUser,
+            this.toolStripDropDownButtonLabTest,
+            this.toolStripInventoryDry,
+            this.toolStripMoveOrder,
+            this.toolStore,
+            this.toolStripRawMaterials,
+            this.toolDropdownMenu,
+            this.toolImportDry,
+            this.toolReceiving,
+            this.toolPreparation,
+            this.toolStripDropDownButton2});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip2.Size = new System.Drawing.Size(143, 512);
+            this.toolStrip2.TabIndex = 2;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDashBoard1,
+            this.btnUsers1,
+            this.btnDryWarehouse1,
+            this.btnProductionPlanner1,
+            this.btnPreparationDepartment1,
+            this.btnResearchAndDevelopment1,
+            this.btnSetUp});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(140, 480);
+            this.toolStrip1.TabIndex = 598;
+            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblPosition, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 112);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 42);
+            this.tableLayoutPanel1.TabIndex = 147;
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFirstName.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lblFirstName.Location = new System.Drawing.Point(3, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(175, 21);
+            this.lblFirstName.TabIndex = 5;
+            this.lblFirstName.Text = "Gerard";
+            this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPosition.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lblPosition.Location = new System.Drawing.Point(3, 21);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(175, 21);
+            this.lblPosition.TabIndex = 7;
+            this.lblPosition.Text = "Position";
+            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPosition.Click += new System.EventHandler(this.lblPosition_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.lblDateFinal);
+            this.panel1.Controls.Add(this.lblTimeFinal);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.lblTime);
+            this.panel1.Controls.Add(this.lbFecha);
+            this.panel1.Controls.Add(this.lblHora);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(185, 727);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(839, 41);
+            this.panel1.TabIndex = 5;
+            // 
+            // lblDateFinal
+            // 
+            this.lblDateFinal.AutoSize = true;
+            this.lblDateFinal.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lblDateFinal.Location = new System.Drawing.Point(155, 14);
+            this.lblDateFinal.Name = "lblDateFinal";
+            this.lblDateFinal.Size = new System.Drawing.Size(220, 19);
+            this.lblDateFinal.TabIndex = 5;
+            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2021";
+            // 
+            // lblTimeFinal
+            // 
+            this.lblTimeFinal.AutoSize = true;
+            this.lblTimeFinal.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lblTimeFinal.Location = new System.Drawing.Point(6, 4);
+            this.lblTimeFinal.Name = "lblTimeFinal";
+            this.lblTimeFinal.Size = new System.Drawing.Size(125, 35);
+            this.lblTimeFinal.TabIndex = 2;
+            this.lblTimeFinal.Text = "21:49:45";
+            // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(-11475, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(224, 20);
+            this.lblDate.TabIndex = 5;
+            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
+            this.lblTime.Location = new System.Drawing.Point(-11475, 0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(205, 54);
+            this.lblTime.TabIndex = 2;
+            this.lblTime.Text = "21:49:45";
+            // 
+            // lbFecha
+            // 
+            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFecha.AutoSize = true;
+            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbFecha.ForeColor = System.Drawing.Color.White;
+            this.lbFecha.Location = new System.Drawing.Point(-11899, 0);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(224, 20);
+            this.lbFecha.TabIndex = 4;
+            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
+            // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
+            this.lblHora.Location = new System.Drawing.Point(-11899, 0);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(205, 54);
+            this.lblHora.TabIndex = 1;
+            this.lblHora.Text = "21:49:45";
+            // 
+            // panelContenedorForm
+            // 
+            this.panelContenedorForm.BackColor = System.Drawing.SystemColors.Window;
+            this.panelContenedorForm.Controls.Add(this.dataGridView1);
+            this.panelContenedorForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedorForm.Location = new System.Drawing.Point(185, 44);
+            this.panelContenedorForm.Name = "panelContenedorForm";
+            this.panelContenedorForm.Size = new System.Drawing.Size(839, 683);
+            this.panelContenedorForm.TabIndex = 6;
+            this.panelContenedorForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorForm_Paint);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.ColumnHeadersHeight = 35;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
+            this.dataGridView1.Location = new System.Drawing.Point(128, 330);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 102;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.RowTemplate.DividerHeight = 5;
+            this.dataGridView1.RowTemplate.Height = 40;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(583, 22);
+            this.dataGridView1.TabIndex = 598;
+            this.dataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Emerald;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
+            this.dataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.dataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.ThemeStyle.HeaderStyle.Height = 35;
+            this.dataGridView1.ThemeStyle.ReadOnly = true;
+            this.dataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            this.dataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.ThemeStyle.RowsStyle.Height = 40;
+            this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.Visible = false;
+            // 
+            // panelContenedorPrincipal
+            // 
+            this.panelContenedorPrincipal.BackColor = System.Drawing.SystemColors.Control;
+            this.panelContenedorPrincipal.Controls.Add(this.panelContenedorForm);
+            this.panelContenedorPrincipal.Controls.Add(this.panel1);
+            this.panelContenedorPrincipal.Controls.Add(this.panelMenu);
+            this.panelContenedorPrincipal.Controls.Add(this.PanelHeader);
+            this.panelContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedorPrincipal.Name = "panelContenedorPrincipal";
+            this.panelContenedorPrincipal.Size = new System.Drawing.Size(1024, 768);
+            this.panelContenedorPrincipal.TabIndex = 0;
+            // 
+            // timeSubMenuIn
+            // 
+            this.timeSubMenuIn.Interval = 15;
+            this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
+            // 
+            // toolClosePanelSelection
+            // 
+            this.toolClosePanelSelection.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolClosePanelSelection.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolClosePanelSelection.Image = ((System.Drawing.Image)(resources.GetObject("toolClosePanelSelection.Image")));
+            this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolClosePanelSelection.Name = "toolClosePanelSelection";
+            this.toolClosePanelSelection.Size = new System.Drawing.Size(142, 44);
+            this.toolClosePanelSelection.Text = "Back";
+            this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
+            // 
+            // toolDropdownUser
+            // 
+            this.toolDropdownUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolUserManagement,
+            this.toolUserRights,
+            this.toolDepartment,
+            this.toolDepartmentUnit,
+            this.toolTypeofApprover,
+            this.toolPosition,
+            this.toolDropdownLocation});
+            this.toolDropdownUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolDropdownUser.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.toolDropdownUser.Image = ((System.Drawing.Image)(resources.GetObject("toolDropdownUser.Image")));
+            this.toolDropdownUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolDropdownUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolDropdownUser.Name = "toolDropdownUser";
+            this.toolDropdownUser.Size = new System.Drawing.Size(235, 44);
+            this.toolDropdownUser.Text = "User  Manager                  ";
+            this.toolDropdownUser.Visible = false;
+            this.toolDropdownUser.Click += new System.EventHandler(this.toolDropdownUser_Click);
+            // 
+            // toolUserManagement
+            // 
+            this.toolUserManagement.BackColor = System.Drawing.Color.Black;
+            this.toolUserManagement.Enabled = false;
+            this.toolUserManagement.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.toolUserManagement.Name = "toolUserManagement";
+            this.toolUserManagement.Size = new System.Drawing.Size(211, 24);
+            this.toolUserManagement.Text = "User Management";
+            this.toolUserManagement.Click += new System.EventHandler(this.toolUserManagement_Click);
+            // 
+            // toolUserRights
+            // 
+            this.toolUserRights.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.toolUserRights.Enabled = false;
+            this.toolUserRights.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolUserRights.Name = "toolUserRights";
+            this.toolUserRights.Size = new System.Drawing.Size(211, 24);
+            this.toolUserRights.Text = "User Rights";
+            this.toolUserRights.Click += new System.EventHandler(this.toolUserRights_Click);
+            // 
+            // toolDepartment
+            // 
+            this.toolDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.toolDepartment.Enabled = false;
+            this.toolDepartment.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolDepartment.Name = "toolDepartment";
+            this.toolDepartment.Size = new System.Drawing.Size(211, 24);
+            this.toolDepartment.Text = "Department";
+            this.toolDepartment.Click += new System.EventHandler(this.toolDepartment_Click);
+            // 
+            // toolDepartmentUnit
+            // 
+            this.toolDepartmentUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.toolDepartmentUnit.Enabled = false;
+            this.toolDepartmentUnit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolDepartmentUnit.Name = "toolDepartmentUnit";
+            this.toolDepartmentUnit.Size = new System.Drawing.Size(211, 24);
+            this.toolDepartmentUnit.Text = "Unit";
+            this.toolDepartmentUnit.Click += new System.EventHandler(this.toolDepartmentUnit_Click);
+            // 
+            // toolTypeofApprover
+            // 
+            this.toolTypeofApprover.Enabled = false;
+            this.toolTypeofApprover.Name = "toolTypeofApprover";
+            this.toolTypeofApprover.Size = new System.Drawing.Size(211, 24);
+            this.toolTypeofApprover.Text = "Type of Approver";
+            this.toolTypeofApprover.Click += new System.EventHandler(this.toolTypeofApprover_Click);
+            // 
+            // toolPosition
+            // 
+            this.toolPosition.Enabled = false;
+            this.toolPosition.Name = "toolPosition";
+            this.toolPosition.Size = new System.Drawing.Size(211, 24);
+            this.toolPosition.Text = "Position";
+            this.toolPosition.Click += new System.EventHandler(this.toolPosition_Click);
+            // 
+            // toolDropdownLocation
+            // 
+            this.toolDropdownLocation.Enabled = false;
+            this.toolDropdownLocation.Name = "toolDropdownLocation";
+            this.toolDropdownLocation.Size = new System.Drawing.Size(211, 24);
+            this.toolDropdownLocation.Text = "Location";
+            this.toolDropdownLocation.Click += new System.EventHandler(this.toolDropdownLocation_Click);
+            // 
+            // toolStripDropDownButtonLabTest
+            // 
+            this.toolStripDropDownButtonLabTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem6});
+            this.toolStripDropDownButtonLabTest.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolStripDropDownButtonLabTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripDropDownButtonLabTest.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonLabTest.Image")));
+            this.toolStripDropDownButtonLabTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButtonLabTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonLabTest.Name = "toolStripDropDownButtonLabTest";
+            this.toolStripDropDownButtonLabTest.Size = new System.Drawing.Size(142, 44);
+            this.toolStripDropDownButtonLabTest.Text = "Lab Test";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemLabTransaction,
+            this.toolStripMenuItemRMNearlyExpiryMgmt,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(251, 24);
+            this.toolStripMenuItem1.Text = "Dry Warehouse";
+            // 
+            // toolStripMenuItemLabTransaction
+            // 
+            this.toolStripMenuItemLabTransaction.Name = "toolStripMenuItemLabTransaction";
+            this.toolStripMenuItemLabTransaction.Size = new System.Drawing.Size(202, 24);
+            this.toolStripMenuItemLabTransaction.Text = "Lab Transaction";
+            this.toolStripMenuItemLabTransaction.Click += new System.EventHandler(this.toolStripMenuItemLabTransaction_Click);
+            // 
+            // toolStripMenuItemRMNearlyExpiryMgmt
+            // 
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Name = "toolStripMenuItemRMNearlyExpiryMgmt";
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Size = new System.Drawing.Size(202, 24);
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Text = "RM Nearly Expiry";
+            this.toolStripMenuItemRMNearlyExpiryMgmt.Click += new System.EventHandler(this.toolStripMenuItemRMNearlyExpiryMgmt_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(202, 24);
+            this.toolStripMenuItem4.Text = "Preparation";
+            this.toolStripMenuItem4.Visible = false;
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(202, 24);
+            this.toolStripMenuItem5.Text = "Move Order";
+            this.toolStripMenuItem5.Visible = false;
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(251, 24);
+            this.toolStripMenuItem6.Text = "Preparation Department";
+            // 
+            // toolStripInventoryDry
+            // 
+            this.toolStripInventoryDry.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dryWHInventoryToolStripMenuItem});
+            this.toolStripInventoryDry.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolStripInventoryDry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripInventoryDry.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInventoryDry.Image")));
+            this.toolStripInventoryDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripInventoryDry.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripInventoryDry.Name = "toolStripInventoryDry";
+            this.toolStripInventoryDry.Size = new System.Drawing.Size(142, 44);
+            this.toolStripInventoryDry.Text = "Inventory";
+            // 
+            // dryWHInventoryToolStripMenuItem
+            // 
+            this.dryWHInventoryToolStripMenuItem.Name = "dryWHInventoryToolStripMenuItem";
+            this.dryWHInventoryToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.dryWHInventoryToolStripMenuItem.Text = "Dry WH Inventory";
+            this.dryWHInventoryToolStripMenuItem.Click += new System.EventHandler(this.dryWHInventoryToolStripMenuItem_Click_1);
+            // 
+            // toolStripMoveOrder
+            // 
+            this.toolStripMoveOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tSWarehouses,
+            this.TsCustomer});
+            this.toolStripMoveOrder.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolStripMoveOrder.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripMoveOrder.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMoveOrder.Image")));
+            this.toolStripMoveOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMoveOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMoveOrder.Name = "toolStripMoveOrder";
+            this.toolStripMoveOrder.Size = new System.Drawing.Size(142, 44);
+            this.toolStripMoveOrder.Text = "Move Order";
+            // 
+            // tSWarehouses
+            // 
+            this.tSWarehouses.Name = "tSWarehouses";
+            this.tSWarehouses.Size = new System.Drawing.Size(169, 24);
+            this.tSWarehouses.Text = "Warehouses";
+            this.tSWarehouses.Click += new System.EventHandler(this.tSReceipt_Click);
+            // 
+            // TsCustomer
+            // 
+            this.TsCustomer.Name = "TsCustomer";
+            this.TsCustomer.Size = new System.Drawing.Size(169, 24);
+            this.TsCustomer.Text = "Customer";
+            this.TsCustomer.Click += new System.EventHandler(this.TsIssue_Click);
+            // 
+            // toolStore
+            // 
+            this.toolStore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStoreArea,
+            this.storeRoute,
+            this.toolStores,
+            this.regionToolStripMenuItem,
+            this.syncConsolidatedOrderToolStripMenuItem});
+            this.toolStore.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolStore.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStore.Image = ((System.Drawing.Image)(resources.GetObject("toolStore.Image")));
+            this.toolStore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStore.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStore.Name = "toolStore";
+            this.toolStore.Size = new System.Drawing.Size(142, 44);
+            this.toolStore.Text = "Store";
+            // 
+            // toolStripStoreArea
+            // 
+            this.toolStripStoreArea.Name = "toolStripStoreArea";
+            this.toolStripStoreArea.Size = new System.Drawing.Size(301, 24);
+            this.toolStripStoreArea.Text = "Store Area";
+            this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
+            // 
+            // storeRoute
+            // 
+            this.storeRoute.Name = "storeRoute";
+            this.storeRoute.Size = new System.Drawing.Size(301, 24);
+            this.storeRoute.Text = "Store Route";
+            this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
+            // 
+            // toolStores
+            // 
+            this.toolStores.Name = "toolStores";
+            this.toolStores.Size = new System.Drawing.Size(301, 24);
+            this.toolStores.Text = "Stores";
+            this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
+            // 
+            // regionToolStripMenuItem
+            // 
+            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
+            this.regionToolStripMenuItem.Text = "Region";
+            this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
+            // 
+            // syncConsolidatedOrderToolStripMenuItem
+            // 
+            this.syncConsolidatedOrderToolStripMenuItem.Name = "syncConsolidatedOrderToolStripMenuItem";
+            this.syncConsolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
+            this.syncConsolidatedOrderToolStripMenuItem.Text = "Sync Consolidated Order Setter";
+            this.syncConsolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.syncConsolidatedOrderToolStripMenuItem_Click);
+            // 
+            // toolStripRawMaterials
+            // 
+            this.toolStripRawMaterials.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripModuleItemClass,
+            this.toolStripModuleMajorCategory,
+            this.toolStripModuleSubCategory,
+            this.toolStripModulePrimaryUnit,
+            this.toolStripModuleItemType,
+            this.toolModuleRawMaterialsDry,
+            this.toolModulePrimaryUnitMgmt,
+            this.warehouseCrewToolStripMenuItem,
+            this.lotManagementToolStripMenuItem,
+            this.averageOrderTrendToolStripMenuItem,
+            this.orderCancelRemarksToolStripMenuItem,
+            this.mRSCancelRemarksToolStripMenuItem});
+            this.toolStripRawMaterials.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolStripRawMaterials.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.toolStripRawMaterials.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRawMaterials.Image")));
+            this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripRawMaterials.Name = "toolStripRawMaterials";
+            this.toolStripRawMaterials.Size = new System.Drawing.Size(154, 44);
+            this.toolStripRawMaterials.Text = "Raw Material";
+            this.toolStripRawMaterials.Visible = false;
+            this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
+            // 
+            // toolStripModuleItemClass
+            // 
+            this.toolStripModuleItemClass.Enabled = false;
+            this.toolStripModuleItemClass.Name = "toolStripModuleItemClass";
+            this.toolStripModuleItemClass.Size = new System.Drawing.Size(238, 24);
+            this.toolStripModuleItemClass.Text = "Item Class";
+            this.toolStripModuleItemClass.Click += new System.EventHandler(this.toolStripModuleItemClass_Click_1);
+            // 
+            // toolStripModuleMajorCategory
+            // 
+            this.toolStripModuleMajorCategory.Enabled = false;
+            this.toolStripModuleMajorCategory.Name = "toolStripModuleMajorCategory";
+            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(238, 24);
+            this.toolStripModuleMajorCategory.Text = "Warehouses";
+            this.toolStripModuleMajorCategory.Click += new System.EventHandler(this.toolStripModuleMajorCategory_Click);
+            // 
+            // toolStripModuleSubCategory
+            // 
+            this.toolStripModuleSubCategory.Enabled = false;
+            this.toolStripModuleSubCategory.Name = "toolStripModuleSubCategory";
+            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(238, 24);
+            this.toolStripModuleSubCategory.Text = "Category";
+            this.toolStripModuleSubCategory.Click += new System.EventHandler(this.toolStripModuleSubCategory_Click);
+            // 
+            // toolStripModulePrimaryUnit
+            // 
+            this.toolStripModulePrimaryUnit.Enabled = false;
+            this.toolStripModulePrimaryUnit.Name = "toolStripModulePrimaryUnit";
+            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(238, 24);
+            this.toolStripModulePrimaryUnit.Text = "Primary Unit";
+            this.toolStripModulePrimaryUnit.Click += new System.EventHandler(this.toolStripModulePrimaryUnit_Click);
+            // 
+            // toolStripModuleItemType
+            // 
+            this.toolStripModuleItemType.Enabled = false;
+            this.toolStripModuleItemType.Name = "toolStripModuleItemType";
+            this.toolStripModuleItemType.Size = new System.Drawing.Size(238, 24);
+            this.toolStripModuleItemType.Text = "Item Type";
+            this.toolStripModuleItemType.Click += new System.EventHandler(this.toolStripModuleItemType_Click);
+            // 
+            // toolModuleRawMaterialsDry
+            // 
+            this.toolModuleRawMaterialsDry.Enabled = false;
+            this.toolModuleRawMaterialsDry.Name = "toolModuleRawMaterialsDry";
+            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(238, 24);
+            this.toolModuleRawMaterialsDry.Text = "Raw Material";
+            this.toolModuleRawMaterialsDry.Click += new System.EventHandler(this.toolModuleRawMaterialsDry_Click);
+            // 
+            // toolModulePrimaryUnitMgmt
+            // 
+            this.toolModulePrimaryUnitMgmt.Enabled = false;
+            this.toolModulePrimaryUnitMgmt.Name = "toolModulePrimaryUnitMgmt";
+            this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(238, 24);
+            this.toolModulePrimaryUnitMgmt.Text = "Conversion";
+            this.toolModulePrimaryUnitMgmt.Click += new System.EventHandler(this.toolModulePrimaryUnitMgmt_Click);
+            // 
+            // warehouseCrewToolStripMenuItem
+            // 
+            this.warehouseCrewToolStripMenuItem.Name = "warehouseCrewToolStripMenuItem";
+            this.warehouseCrewToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.warehouseCrewToolStripMenuItem.Text = "Warehouse Crew";
+            this.warehouseCrewToolStripMenuItem.Click += new System.EventHandler(this.warehouseCrewToolStripMenuItem_Click);
+            // 
+            // lotManagementToolStripMenuItem
+            // 
+            this.lotManagementToolStripMenuItem.Name = "lotManagementToolStripMenuItem";
+            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.lotManagementToolStripMenuItem.Text = "Lot Management";
+            this.lotManagementToolStripMenuItem.Click += new System.EventHandler(this.lotManagementToolStripMenuItem_Click_1);
+            // 
+            // averageOrderTrendToolStripMenuItem
+            // 
+            this.averageOrderTrendToolStripMenuItem.Name = "averageOrderTrendToolStripMenuItem";
+            this.averageOrderTrendToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.averageOrderTrendToolStripMenuItem.Text = "Average Order Trend";
+            this.averageOrderTrendToolStripMenuItem.Click += new System.EventHandler(this.averageOrderTrendToolStripMenuItem_Click);
+            // 
+            // orderCancelRemarksToolStripMenuItem
+            // 
+            this.orderCancelRemarksToolStripMenuItem.Name = "orderCancelRemarksToolStripMenuItem";
+            this.orderCancelRemarksToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.orderCancelRemarksToolStripMenuItem.Text = "Order Cancel Remarks";
+            this.orderCancelRemarksToolStripMenuItem.Click += new System.EventHandler(this.orderCancelRemarksToolStripMenuItem_Click);
+            // 
+            // mRSCancelRemarksToolStripMenuItem
+            // 
+            this.mRSCancelRemarksToolStripMenuItem.Name = "mRSCancelRemarksToolStripMenuItem";
+            this.mRSCancelRemarksToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.mRSCancelRemarksToolStripMenuItem.Text = "MRS Cancel Remarks";
+            this.mRSCancelRemarksToolStripMenuItem.Click += new System.EventHandler(this.mRSCancelRemarksToolStripMenuItem_Click);
+            // 
+            // toolDropdownMenu
+            // 
+            this.toolDropdownMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolParentMenu,
+            this.toolChildMenu,
+            this.toolGrandChildMenu});
+            this.toolDropdownMenu.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolDropdownMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolDropdownMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolDropdownMenu.Image")));
+            this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolDropdownMenu.Name = "toolDropdownMenu";
+            this.toolDropdownMenu.Size = new System.Drawing.Size(143, 44);
+            this.toolDropdownMenu.Text = "Menu";
+            this.toolDropdownMenu.Visible = false;
+            // 
+            // toolParentMenu
+            // 
+            this.toolParentMenu.Enabled = false;
+            this.toolParentMenu.Name = "toolParentMenu";
+            this.toolParentMenu.Size = new System.Drawing.Size(167, 24);
+            this.toolParentMenu.Text = "Major Menu";
+            this.toolParentMenu.Click += new System.EventHandler(this.toolParentMenu_Click);
+            // 
+            // toolChildMenu
+            // 
+            this.toolChildMenu.Enabled = false;
+            this.toolChildMenu.Name = "toolChildMenu";
+            this.toolChildMenu.Size = new System.Drawing.Size(167, 24);
+            this.toolChildMenu.Text = "Sub Menu";
+            this.toolChildMenu.Click += new System.EventHandler(this.toolChildMenu_Click);
+            // 
+            // toolGrandChildMenu
+            // 
+            this.toolGrandChildMenu.Enabled = false;
+            this.toolGrandChildMenu.Name = "toolGrandChildMenu";
+            this.toolGrandChildMenu.Size = new System.Drawing.Size(167, 24);
+            this.toolGrandChildMenu.Text = "Modules";
+            this.toolGrandChildMenu.Click += new System.EventHandler(this.toolGrandChildMenu_Click);
+            // 
+            // toolImportDry
+            // 
+            this.toolImportDry.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dryRawMaterialsToolStripMenuItem,
+            this.poSummaryToolStripMenuItem,
+            this.storesToolStripMenuItem1,
+            this.consolidatedOrderToolStripMenuItem,
+            this.orderRESTAPIToolStripMenuItem,
+            this.pendingOrderToolStripMenuItem});
+            this.toolImportDry.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolImportDry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolImportDry.Image = ((System.Drawing.Image)(resources.GetObject("toolImportDry.Image")));
+            this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolImportDry.Name = "toolImportDry";
+            this.toolImportDry.Size = new System.Drawing.Size(143, 44);
+            this.toolImportDry.Text = "Import Dry";
+            this.toolImportDry.Visible = false;
+            this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
+            // 
+            // dryRawMaterialsToolStripMenuItem
+            // 
+            this.dryRawMaterialsToolStripMenuItem.Enabled = false;
+            this.dryRawMaterialsToolStripMenuItem.Name = "dryRawMaterialsToolStripMenuItem";
+            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.dryRawMaterialsToolStripMenuItem.Text = "Dry Raw Materials";
+            this.dryRawMaterialsToolStripMenuItem.Click += new System.EventHandler(this.dryRawMaterialsToolStripMenuItem_Click);
+            // 
+            // poSummaryToolStripMenuItem
+            // 
+            this.poSummaryToolStripMenuItem.Enabled = false;
+            this.poSummaryToolStripMenuItem.Name = "poSummaryToolStripMenuItem";
+            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.poSummaryToolStripMenuItem.Text = "Po Summary";
+            this.poSummaryToolStripMenuItem.Click += new System.EventHandler(this.poSummaryToolStripMenuItem_Click);
+            // 
+            // storesToolStripMenuItem1
+            // 
+            this.storesToolStripMenuItem1.Name = "storesToolStripMenuItem1";
+            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(217, 24);
+            this.storesToolStripMenuItem1.Text = "Stores";
+            this.storesToolStripMenuItem1.Click += new System.EventHandler(this.storesToolStripMenuItem1_Click);
+            // 
+            // consolidatedOrderToolStripMenuItem
+            // 
+            this.consolidatedOrderToolStripMenuItem.Name = "consolidatedOrderToolStripMenuItem";
+            this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.consolidatedOrderToolStripMenuItem.Text = "Consolidated Order";
+            this.consolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.consolidatedOrderToolStripMenuItem_Click);
+            // 
+            // orderRESTAPIToolStripMenuItem
+            // 
+            this.orderRESTAPIToolStripMenuItem.Name = "orderRESTAPIToolStripMenuItem";
+            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.orderRESTAPIToolStripMenuItem.Text = "Order Synching";
+            this.orderRESTAPIToolStripMenuItem.Click += new System.EventHandler(this.orderRESTAPIToolStripMenuItem_Click);
+            // 
+            // pendingOrderToolStripMenuItem
+            // 
+            this.pendingOrderToolStripMenuItem.Name = "pendingOrderToolStripMenuItem";
+            this.pendingOrderToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.pendingOrderToolStripMenuItem.Text = "Pending Orders";
+            this.pendingOrderToolStripMenuItem.Click += new System.EventHandler(this.pendingOrderToolStripMenuItem_Click);
+            // 
+            // toolReceiving
+            // 
+            this.toolReceiving.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listOfReceivingToolStripMenuItem,
+            this.rMReceivingToolStripMenuItem,
+            this.rMBarcodeModuleToolStripMenuItem,
+            this.rMBarcodeReprintingToolStripMenuItem});
+            this.toolReceiving.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolReceiving.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolReceiving.Image = ((System.Drawing.Image)(resources.GetObject("toolReceiving.Image")));
+            this.toolReceiving.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolReceiving.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolReceiving.Name = "toolReceiving";
+            this.toolReceiving.Size = new System.Drawing.Size(143, 44);
+            this.toolReceiving.Text = "Receiving";
+            this.toolReceiving.Visible = false;
+            // 
+            // listOfReceivingToolStripMenuItem
+            // 
+            this.listOfReceivingToolStripMenuItem.Enabled = false;
+            this.listOfReceivingToolStripMenuItem.Name = "listOfReceivingToolStripMenuItem";
+            this.listOfReceivingToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
+            this.listOfReceivingToolStripMenuItem.Click += new System.EventHandler(this.listOfReceivingToolStripMenuItem_Click);
+            // 
+            // rMReceivingToolStripMenuItem
+            // 
+            this.rMReceivingToolStripMenuItem.Enabled = false;
+            this.rMReceivingToolStripMenuItem.Name = "rMReceivingToolStripMenuItem";
+            this.rMReceivingToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.rMReceivingToolStripMenuItem.Text = "RM Receiving";
+            this.rMReceivingToolStripMenuItem.Click += new System.EventHandler(this.rMReceivingToolStripMenuItem_Click);
+            // 
+            // rMBarcodeModuleToolStripMenuItem
+            // 
+            this.rMBarcodeModuleToolStripMenuItem.Enabled = false;
+            this.rMBarcodeModuleToolStripMenuItem.Name = "rMBarcodeModuleToolStripMenuItem";
+            this.rMBarcodeModuleToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.rMBarcodeModuleToolStripMenuItem.Text = "RM Barcode Module";
+            this.rMBarcodeModuleToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeModuleToolStripMenuItem_Click);
+            // 
+            // rMBarcodeReprintingToolStripMenuItem
+            // 
+            this.rMBarcodeReprintingToolStripMenuItem.Enabled = false;
+            this.rMBarcodeReprintingToolStripMenuItem.Name = "rMBarcodeReprintingToolStripMenuItem";
+            this.rMBarcodeReprintingToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.rMBarcodeReprintingToolStripMenuItem.Text = "RM Barcode Reprinting";
+            this.rMBarcodeReprintingToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeReprintingToolStripMenuItem_Click);
+            // 
+            // toolPreparation
+            // 
+            this.toolPreparation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolDryForApproval,
+            this.toolDryApprovedOrder,
+            this.allocationModule});
+            this.toolPreparation.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolPreparation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolPreparation.Image = ((System.Drawing.Image)(resources.GetObject("toolPreparation.Image")));
+            this.toolPreparation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolPreparation.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolPreparation.Name = "toolPreparation";
+            this.toolPreparation.Size = new System.Drawing.Size(143, 44);
+            this.toolPreparation.Text = "Preparation";
+            this.toolPreparation.Visible = false;
+            // 
+            // toolDryForApproval
+            // 
+            this.toolDryForApproval.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.forApprovalToolStripMenuItem,
+            this.approvedOrderToolStripMenuItem,
+            this.preparationToolStripMenuItem,
+            this.moveOrderToolStripMenuItem});
+            this.toolDryForApproval.Name = "toolDryForApproval";
+            this.toolDryForApproval.Size = new System.Drawing.Size(153, 24);
+            this.toolDryForApproval.Text = "Store";
+            this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
+            // 
+            // forApprovalToolStripMenuItem
+            // 
+            this.forApprovalToolStripMenuItem.Name = "forApprovalToolStripMenuItem";
+            this.forApprovalToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.forApprovalToolStripMenuItem.Text = "Ready For Scheduling";
+            this.forApprovalToolStripMenuItem.Click += new System.EventHandler(this.forApprovalToolStripMenuItem_Click);
+            // 
+            // approvedOrderToolStripMenuItem
+            // 
+            this.approvedOrderToolStripMenuItem.Name = "approvedOrderToolStripMenuItem";
+            this.approvedOrderToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.approvedOrderToolStripMenuItem.Text = "Approved Schedule";
+            this.approvedOrderToolStripMenuItem.Click += new System.EventHandler(this.approvedOrderToolStripMenuItem_Click);
+            // 
+            // preparationToolStripMenuItem
+            // 
+            this.preparationToolStripMenuItem.Name = "preparationToolStripMenuItem";
+            this.preparationToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.preparationToolStripMenuItem.Text = "Preparation";
+            this.preparationToolStripMenuItem.Click += new System.EventHandler(this.preparationToolStripMenuItem_Click);
+            // 
+            // moveOrderToolStripMenuItem
+            // 
+            this.moveOrderToolStripMenuItem.Name = "moveOrderToolStripMenuItem";
+            this.moveOrderToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.moveOrderToolStripMenuItem.Text = "Move Order";
+            this.moveOrderToolStripMenuItem.Click += new System.EventHandler(this.moveOrderToolStripMenuItem_Click);
+            // 
+            // toolDryApprovedOrder
+            // 
+            this.toolDryApprovedOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.readyForSchedulingToolStripMenuItem,
+            this.approvedScheduleToolStripMenuItem,
+            this.preparationToolStripMenuItem1,
+            this.moveOrderToolStripMenuItem1});
+            this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
+            this.toolDryApprovedOrder.Size = new System.Drawing.Size(153, 24);
+            this.toolDryApprovedOrder.Text = "Internal";
+            // 
+            // readyForSchedulingToolStripMenuItem
+            // 
+            this.readyForSchedulingToolStripMenuItem.Name = "readyForSchedulingToolStripMenuItem";
+            this.readyForSchedulingToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.readyForSchedulingToolStripMenuItem.Text = "Ready For Scheduling";
+            this.readyForSchedulingToolStripMenuItem.Click += new System.EventHandler(this.readyForSchedulingToolStripMenuItem_Click);
+            // 
+            // approvedScheduleToolStripMenuItem
+            // 
+            this.approvedScheduleToolStripMenuItem.Name = "approvedScheduleToolStripMenuItem";
+            this.approvedScheduleToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.approvedScheduleToolStripMenuItem.Text = "Approved Schedule";
+            this.approvedScheduleToolStripMenuItem.Click += new System.EventHandler(this.approvedScheduleToolStripMenuItem_Click);
+            // 
+            // preparationToolStripMenuItem1
+            // 
+            this.preparationToolStripMenuItem1.Name = "preparationToolStripMenuItem1";
+            this.preparationToolStripMenuItem1.Size = new System.Drawing.Size(236, 24);
+            this.preparationToolStripMenuItem1.Text = "Preparation";
+            this.preparationToolStripMenuItem1.Click += new System.EventHandler(this.preparationToolStripMenuItem1_Click);
+            // 
+            // moveOrderToolStripMenuItem1
+            // 
+            this.moveOrderToolStripMenuItem1.Name = "moveOrderToolStripMenuItem1";
+            this.moveOrderToolStripMenuItem1.Size = new System.Drawing.Size(236, 24);
+            this.moveOrderToolStripMenuItem1.Text = "Move Order";
+            // 
+            // allocationModule
+            // 
+            this.allocationModule.Name = "allocationModule";
+            this.allocationModule.Size = new System.Drawing.Size(153, 24);
+            this.allocationModule.Text = "Allocation";
+            this.allocationModule.Click += new System.EventHandler(this.allocationModule_Click);
+            // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem12});
+            this.toolStripDropDownButton2.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.toolStripDropDownButton2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(142, 44);
+            this.toolStripDropDownButton2.Text = "Preparation";
+            this.toolStripDropDownButton2.Visible = false;
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11});
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(131, 26);
+            this.toolStripMenuItem7.Text = "Store";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem8.Text = "For Approval";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem9.Text = "Approved Order";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem10.Text = "Preparation";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(189, 26);
+            this.toolStripMenuItem11.Text = "Move Order";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(131, 26);
+            this.toolStripMenuItem12.Text = "Internal";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(401, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 28);
+            this.button1.TabIndex = 496;
+            this.button1.Text = "Approver Tagging";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnDashBoard1
+            // 
+            this.btnDashBoard1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashBoard1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnDashBoard1.Image = ((System.Drawing.Image)(resources.GetObject("btnDashBoard1.Image")));
+            this.btnDashBoard1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashBoard1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDashBoard1.Name = "btnDashBoard1";
+            this.btnDashBoard1.Size = new System.Drawing.Size(139, 44);
+            this.btnDashBoard1.Text = "Dashboard";
+            this.btnDashBoard1.Click += new System.EventHandler(this.btnDashBoard1_Click_1);
+            // 
+            // btnUsers1
+            // 
+            this.btnUsers1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.btnUsers1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnUsers1.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers1.Image")));
+            this.btnUsers1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUsers1.Name = "btnUsers1";
+            this.btnUsers1.Size = new System.Drawing.Size(180, 44);
+            this.btnUsers1.Text = "Users";
+            this.btnUsers1.Visible = false;
+            this.btnUsers1.Click += new System.EventHandler(this.btnUsers1_Click);
+            // 
+            // btnDryWarehouse1
+            // 
+            this.btnDryWarehouse1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.btnDryWarehouse1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnDryWarehouse1.Image = ((System.Drawing.Image)(resources.GetObject("btnDryWarehouse1.Image")));
+            this.btnDryWarehouse1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDryWarehouse1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDryWarehouse1.Name = "btnDryWarehouse1";
+            this.btnDryWarehouse1.Size = new System.Drawing.Size(180, 44);
+            this.btnDryWarehouse1.Text = "Dry Warehouse";
+            this.btnDryWarehouse1.Visible = false;
+            this.btnDryWarehouse1.Click += new System.EventHandler(this.btnDryWarehouse1_Click);
+            // 
+            // btnProductionPlanner1
+            // 
+            this.btnProductionPlanner1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.btnProductionPlanner1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnProductionPlanner1.Image = ((System.Drawing.Image)(resources.GetObject("btnProductionPlanner1.Image")));
+            this.btnProductionPlanner1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductionPlanner1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnProductionPlanner1.Name = "btnProductionPlanner1";
+            this.btnProductionPlanner1.Size = new System.Drawing.Size(180, 44);
+            this.btnProductionPlanner1.Text = "Planner";
+            this.btnProductionPlanner1.Visible = false;
+            this.btnProductionPlanner1.Click += new System.EventHandler(this.btnProductionPlanner1_Click_1);
+            // 
+            // btnPreparationDepartment1
+            // 
+            this.btnPreparationDepartment1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.btnPreparationDepartment1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnPreparationDepartment1.Image = ((System.Drawing.Image)(resources.GetObject("btnPreparationDepartment1.Image")));
+            this.btnPreparationDepartment1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreparationDepartment1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPreparationDepartment1.Name = "btnPreparationDepartment1";
+            this.btnPreparationDepartment1.Size = new System.Drawing.Size(180, 44);
+            this.btnPreparationDepartment1.Text = "Prep Department";
+            this.btnPreparationDepartment1.Visible = false;
+            this.btnPreparationDepartment1.Click += new System.EventHandler(this.btnPreparationDepartment1_Click);
+            // 
+            // btnResearchAndDevelopment1
+            // 
+            this.btnResearchAndDevelopment1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.btnResearchAndDevelopment1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnResearchAndDevelopment1.Image = ((System.Drawing.Image)(resources.GetObject("btnResearchAndDevelopment1.Image")));
+            this.btnResearchAndDevelopment1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnResearchAndDevelopment1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnResearchAndDevelopment1.Name = "btnResearchAndDevelopment1";
+            this.btnResearchAndDevelopment1.Size = new System.Drawing.Size(139, 44);
+            this.btnResearchAndDevelopment1.Text = "R&D";
+            this.btnResearchAndDevelopment1.Visible = false;
+            this.btnResearchAndDevelopment1.Click += new System.EventHandler(this.btnResearchAndDevelopment1_Click);
+            // 
+            // btnSetUp
+            // 
+            this.btnSetUp.Font = new System.Drawing.Font("Roboto", 12F);
+            this.btnSetUp.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnSetUp.Image = ((System.Drawing.Image)(resources.GetObject("btnSetUp.Image")));
+            this.btnSetUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetUp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSetUp.Name = "btnSetUp";
+            this.btnSetUp.Size = new System.Drawing.Size(139, 44);
+            this.btnSetUp.Text = "Set - Up";
+            this.btnSetUp.Click += new System.EventHandler(this.btnSetUp_Click);
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Location = new System.Drawing.Point(26, 5);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(134, 103);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 146;
+            this.pbImage.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox9.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
+            this.pictureBox9.Location = new System.Drawing.Point(9, -9057);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(43, 37);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox9.TabIndex = 14;
+            this.pictureBox9.TabStop = false;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
+            this.btnSalir.Location = new System.Drawing.Point(9, -9057);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(43, 37);
+            this.btnSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnSalir.TabIndex = 13;
+            this.btnSalir.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.pictureBox4.Location = new System.Drawing.Point(0, 172);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(2, 40);
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 126);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(2, 40);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
+            // btnMaximizedFinal
+            // 
+            this.btnMaximizedFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizedFinal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizedFinal.FlatAppearance.BorderSize = 0;
+            this.btnMaximizedFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizedFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizedFinal.Image")));
+            this.btnMaximizedFinal.Location = new System.Drawing.Point(885, -1);
+            this.btnMaximizedFinal.Name = "btnMaximizedFinal";
+            this.btnMaximizedFinal.Size = new System.Drawing.Size(43, 43);
+            this.btnMaximizedFinal.TabIndex = 5;
+            this.btnMaximizedFinal.UseVisualStyleBackColor = true;
+            this.btnMaximizedFinal.Click += new System.EventHandler(this.btnMaximizedFinal_Click);
             // 
             // btnMinimizeFinal
             // 
@@ -517,18 +1701,6 @@
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(50, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 29);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ULTRA MAVERICK";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // btnNormal
             // 
             this.btnNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -586,1169 +1758,6 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
-            this.panelMenu.Controls.Add(this.MainMajorData);
-            this.panelMenu.Controls.Add(this.tableLayoutPanel1);
-            this.panelMenu.Controls.Add(this.pbImage);
-            this.panelMenu.Controls.Add(this.pictureBox9);
-            this.panelMenu.Controls.Add(this.btnSalir);
-            this.panelMenu.Controls.Add(this.pictureBox4);
-            this.panelMenu.Controls.Add(this.pictureBox2);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 44);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(185, 724);
-            this.panelMenu.TabIndex = 2;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
-            // 
-            // MainMajorData
-            // 
-            this.MainMajorData.Controls.Add(this.panelMenuSelection);
-            this.MainMajorData.Controls.Add(this.toolStrip1);
-            this.MainMajorData.Location = new System.Drawing.Point(10, 157);
-            this.MainMajorData.Margin = new System.Windows.Forms.Padding(1);
-            this.MainMajorData.Name = "MainMajorData";
-            this.MainMajorData.Size = new System.Drawing.Size(187, 480);
-            this.MainMajorData.TabIndex = 598;
-            // 
-            // panelMenuSelection
-            // 
-            this.panelMenuSelection.Controls.Add(this.toolStrip2);
-            this.panelMenuSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.panelMenuSelection.Location = new System.Drawing.Point(1, 43);
-            this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
-            this.panelMenuSelection.Name = "panelMenuSelection";
-            this.panelMenuSelection.Size = new System.Drawing.Size(247, 512);
-            this.panelMenuSelection.TabIndex = 2;
-            this.panelMenuSelection.Visible = false;
-            this.panelMenuSelection.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuSelection_Paint);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolClosePanelSelection,
-            this.toolDropdownUser,
-            this.toolStripDropDownButtonLabTest,
-            this.toolStripInventoryDry,
-            this.toolStripMoveOrder,
-            this.toolStore,
-            this.toolStripRawMaterials,
-            this.toolDropdownMenu,
-            this.toolImportDry,
-            this.toolReceiving,
-            this.toolPreparation,
-            this.toolStripDropDownButton2});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(143, 512);
-            this.toolStrip2.TabIndex = 2;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolClosePanelSelection
-            // 
-            this.toolClosePanelSelection.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolClosePanelSelection.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolClosePanelSelection.Image = ((System.Drawing.Image)(resources.GetObject("toolClosePanelSelection.Image")));
-            this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolClosePanelSelection.Name = "toolClosePanelSelection";
-            this.toolClosePanelSelection.Size = new System.Drawing.Size(235, 44);
-            this.toolClosePanelSelection.Text = "Back";
-            this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
-            // 
-            // toolDropdownUser
-            // 
-            this.toolDropdownUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolUserManagement,
-            this.toolUserRights,
-            this.toolDepartment,
-            this.toolDepartmentUnit,
-            this.toolTypeofApprover,
-            this.toolPosition,
-            this.toolDropdownLocation});
-            this.toolDropdownUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolDropdownUser.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.toolDropdownUser.Image = ((System.Drawing.Image)(resources.GetObject("toolDropdownUser.Image")));
-            this.toolDropdownUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolDropdownUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolDropdownUser.Name = "toolDropdownUser";
-            this.toolDropdownUser.Size = new System.Drawing.Size(235, 44);
-            this.toolDropdownUser.Text = "User  Manager                  ";
-            this.toolDropdownUser.Visible = false;
-            this.toolDropdownUser.Click += new System.EventHandler(this.toolDropdownUser_Click);
-            // 
-            // toolUserManagement
-            // 
-            this.toolUserManagement.BackColor = System.Drawing.Color.Black;
-            this.toolUserManagement.Enabled = false;
-            this.toolUserManagement.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.toolUserManagement.Name = "toolUserManagement";
-            this.toolUserManagement.Size = new System.Drawing.Size(211, 24);
-            this.toolUserManagement.Text = "User Management";
-            this.toolUserManagement.Click += new System.EventHandler(this.toolUserManagement_Click);
-            // 
-            // toolUserRights
-            // 
-            this.toolUserRights.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.toolUserRights.Enabled = false;
-            this.toolUserRights.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolUserRights.Name = "toolUserRights";
-            this.toolUserRights.Size = new System.Drawing.Size(211, 24);
-            this.toolUserRights.Text = "User Rights";
-            this.toolUserRights.Click += new System.EventHandler(this.toolUserRights_Click);
-            // 
-            // toolDepartment
-            // 
-            this.toolDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.toolDepartment.Enabled = false;
-            this.toolDepartment.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolDepartment.Name = "toolDepartment";
-            this.toolDepartment.Size = new System.Drawing.Size(211, 24);
-            this.toolDepartment.Text = "Department";
-            this.toolDepartment.Click += new System.EventHandler(this.toolDepartment_Click);
-            // 
-            // toolDepartmentUnit
-            // 
-            this.toolDepartmentUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.toolDepartmentUnit.Enabled = false;
-            this.toolDepartmentUnit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolDepartmentUnit.Name = "toolDepartmentUnit";
-            this.toolDepartmentUnit.Size = new System.Drawing.Size(211, 24);
-            this.toolDepartmentUnit.Text = "Unit";
-            this.toolDepartmentUnit.Click += new System.EventHandler(this.toolDepartmentUnit_Click);
-            // 
-            // toolTypeofApprover
-            // 
-            this.toolTypeofApprover.Enabled = false;
-            this.toolTypeofApprover.Name = "toolTypeofApprover";
-            this.toolTypeofApprover.Size = new System.Drawing.Size(211, 24);
-            this.toolTypeofApprover.Text = "Type of Approver";
-            this.toolTypeofApprover.Click += new System.EventHandler(this.toolTypeofApprover_Click);
-            // 
-            // toolPosition
-            // 
-            this.toolPosition.Enabled = false;
-            this.toolPosition.Name = "toolPosition";
-            this.toolPosition.Size = new System.Drawing.Size(211, 24);
-            this.toolPosition.Text = "Position";
-            this.toolPosition.Click += new System.EventHandler(this.toolPosition_Click);
-            // 
-            // toolDropdownLocation
-            // 
-            this.toolDropdownLocation.Enabled = false;
-            this.toolDropdownLocation.Name = "toolDropdownLocation";
-            this.toolDropdownLocation.Size = new System.Drawing.Size(211, 24);
-            this.toolDropdownLocation.Text = "Location";
-            this.toolDropdownLocation.Click += new System.EventHandler(this.toolDropdownLocation_Click);
-            // 
-            // toolStripDropDownButtonLabTest
-            // 
-            this.toolStripDropDownButtonLabTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem6});
-            this.toolStripDropDownButtonLabTest.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolStripDropDownButtonLabTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripDropDownButtonLabTest.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonLabTest.Image")));
-            this.toolStripDropDownButtonLabTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripDropDownButtonLabTest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButtonLabTest.Name = "toolStripDropDownButtonLabTest";
-            this.toolStripDropDownButtonLabTest.Size = new System.Drawing.Size(235, 44);
-            this.toolStripDropDownButtonLabTest.Text = "Lab Test";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemLabTransaction,
-            this.toolStripMenuItemRMNearlyExpiryMgmt,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(251, 24);
-            this.toolStripMenuItem1.Text = "Dry Warehouse";
-            // 
-            // toolStripMenuItemLabTransaction
-            // 
-            this.toolStripMenuItemLabTransaction.Name = "toolStripMenuItemLabTransaction";
-            this.toolStripMenuItemLabTransaction.Size = new System.Drawing.Size(202, 24);
-            this.toolStripMenuItemLabTransaction.Text = "Lab Transaction";
-            this.toolStripMenuItemLabTransaction.Click += new System.EventHandler(this.toolStripMenuItemLabTransaction_Click);
-            // 
-            // toolStripMenuItemRMNearlyExpiryMgmt
-            // 
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Name = "toolStripMenuItemRMNearlyExpiryMgmt";
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Size = new System.Drawing.Size(202, 24);
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Text = "RM Nearly Expiry";
-            this.toolStripMenuItemRMNearlyExpiryMgmt.Click += new System.EventHandler(this.toolStripMenuItemRMNearlyExpiryMgmt_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(202, 24);
-            this.toolStripMenuItem4.Text = "Preparation";
-            this.toolStripMenuItem4.Visible = false;
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(202, 24);
-            this.toolStripMenuItem5.Text = "Move Order";
-            this.toolStripMenuItem5.Visible = false;
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(251, 24);
-            this.toolStripMenuItem6.Text = "Preparation Department";
-            // 
-            // toolStripInventoryDry
-            // 
-            this.toolStripInventoryDry.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dryWHInventoryToolStripMenuItem});
-            this.toolStripInventoryDry.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolStripInventoryDry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripInventoryDry.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInventoryDry.Image")));
-            this.toolStripInventoryDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripInventoryDry.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripInventoryDry.Name = "toolStripInventoryDry";
-            this.toolStripInventoryDry.Size = new System.Drawing.Size(235, 44);
-            this.toolStripInventoryDry.Text = "Inventory";
-            // 
-            // dryWHInventoryToolStripMenuItem
-            // 
-            this.dryWHInventoryToolStripMenuItem.Name = "dryWHInventoryToolStripMenuItem";
-            this.dryWHInventoryToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
-            this.dryWHInventoryToolStripMenuItem.Text = "Dry WH Inventory";
-            this.dryWHInventoryToolStripMenuItem.Click += new System.EventHandler(this.dryWHInventoryToolStripMenuItem_Click_1);
-            // 
-            // toolStripMoveOrder
-            // 
-            this.toolStripMoveOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tSWarehouses,
-            this.TsCustomer});
-            this.toolStripMoveOrder.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolStripMoveOrder.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripMoveOrder.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMoveOrder.Image")));
-            this.toolStripMoveOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMoveOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMoveOrder.Name = "toolStripMoveOrder";
-            this.toolStripMoveOrder.Size = new System.Drawing.Size(235, 44);
-            this.toolStripMoveOrder.Text = "Move Order";
-            // 
-            // tSWarehouses
-            // 
-            this.tSWarehouses.Name = "tSWarehouses";
-            this.tSWarehouses.Size = new System.Drawing.Size(169, 24);
-            this.tSWarehouses.Text = "Warehouses";
-            this.tSWarehouses.Click += new System.EventHandler(this.tSReceipt_Click);
-            // 
-            // TsCustomer
-            // 
-            this.TsCustomer.Name = "TsCustomer";
-            this.TsCustomer.Size = new System.Drawing.Size(169, 24);
-            this.TsCustomer.Text = "Customer";
-            this.TsCustomer.Click += new System.EventHandler(this.TsIssue_Click);
-            // 
-            // toolStore
-            // 
-            this.toolStore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStoreArea,
-            this.storeRoute,
-            this.toolStores,
-            this.regionToolStripMenuItem,
-            this.syncConsolidatedOrderToolStripMenuItem});
-            this.toolStore.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolStore.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStore.Image = ((System.Drawing.Image)(resources.GetObject("toolStore.Image")));
-            this.toolStore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStore.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStore.Name = "toolStore";
-            this.toolStore.Size = new System.Drawing.Size(235, 44);
-            this.toolStore.Text = "Store";
-            // 
-            // toolStripStoreArea
-            // 
-            this.toolStripStoreArea.Name = "toolStripStoreArea";
-            this.toolStripStoreArea.Size = new System.Drawing.Size(301, 24);
-            this.toolStripStoreArea.Text = "Store Area";
-            this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
-            // 
-            // storeRoute
-            // 
-            this.storeRoute.Name = "storeRoute";
-            this.storeRoute.Size = new System.Drawing.Size(301, 24);
-            this.storeRoute.Text = "Store Route";
-            this.storeRoute.Click += new System.EventHandler(this.storeRoute_Click);
-            // 
-            // toolStores
-            // 
-            this.toolStores.Name = "toolStores";
-            this.toolStores.Size = new System.Drawing.Size(301, 24);
-            this.toolStores.Text = "Stores";
-            this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
-            // 
-            // regionToolStripMenuItem
-            // 
-            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
-            this.regionToolStripMenuItem.Text = "Region";
-            this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
-            // 
-            // syncConsolidatedOrderToolStripMenuItem
-            // 
-            this.syncConsolidatedOrderToolStripMenuItem.Name = "syncConsolidatedOrderToolStripMenuItem";
-            this.syncConsolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
-            this.syncConsolidatedOrderToolStripMenuItem.Text = "Sync Consolidated Order Setter";
-            this.syncConsolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.syncConsolidatedOrderToolStripMenuItem_Click);
-            // 
-            // toolStripRawMaterials
-            // 
-            this.toolStripRawMaterials.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripModuleItemClass,
-            this.toolStripModuleMajorCategory,
-            this.toolStripModuleSubCategory,
-            this.toolStripModulePrimaryUnit,
-            this.toolStripModuleItemType,
-            this.toolModuleRawMaterialsDry,
-            this.toolModulePrimaryUnitMgmt,
-            this.warehouseCrewToolStripMenuItem,
-            this.lotManagementToolStripMenuItem,
-            this.averageOrderTrendToolStripMenuItem,
-            this.orderCancelRemarksToolStripMenuItem});
-            this.toolStripRawMaterials.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolStripRawMaterials.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.toolStripRawMaterials.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRawMaterials.Image")));
-            this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripRawMaterials.Name = "toolStripRawMaterials";
-            this.toolStripRawMaterials.Size = new System.Drawing.Size(235, 44);
-            this.toolStripRawMaterials.Text = "Raw Material";
-            this.toolStripRawMaterials.Visible = false;
-            this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
-            // 
-            // toolStripModuleItemClass
-            // 
-            this.toolStripModuleItemClass.Enabled = false;
-            this.toolStripModuleItemClass.Name = "toolStripModuleItemClass";
-            this.toolStripModuleItemClass.Size = new System.Drawing.Size(238, 24);
-            this.toolStripModuleItemClass.Text = "Item Class";
-            this.toolStripModuleItemClass.Click += new System.EventHandler(this.toolStripModuleItemClass_Click_1);
-            // 
-            // toolStripModuleMajorCategory
-            // 
-            this.toolStripModuleMajorCategory.Enabled = false;
-            this.toolStripModuleMajorCategory.Name = "toolStripModuleMajorCategory";
-            this.toolStripModuleMajorCategory.Size = new System.Drawing.Size(238, 24);
-            this.toolStripModuleMajorCategory.Text = "Warehouses";
-            this.toolStripModuleMajorCategory.Click += new System.EventHandler(this.toolStripModuleMajorCategory_Click);
-            // 
-            // toolStripModuleSubCategory
-            // 
-            this.toolStripModuleSubCategory.Enabled = false;
-            this.toolStripModuleSubCategory.Name = "toolStripModuleSubCategory";
-            this.toolStripModuleSubCategory.Size = new System.Drawing.Size(238, 24);
-            this.toolStripModuleSubCategory.Text = "Category";
-            this.toolStripModuleSubCategory.Click += new System.EventHandler(this.toolStripModuleSubCategory_Click);
-            // 
-            // toolStripModulePrimaryUnit
-            // 
-            this.toolStripModulePrimaryUnit.Enabled = false;
-            this.toolStripModulePrimaryUnit.Name = "toolStripModulePrimaryUnit";
-            this.toolStripModulePrimaryUnit.Size = new System.Drawing.Size(238, 24);
-            this.toolStripModulePrimaryUnit.Text = "Primary Unit";
-            this.toolStripModulePrimaryUnit.Click += new System.EventHandler(this.toolStripModulePrimaryUnit_Click);
-            // 
-            // toolStripModuleItemType
-            // 
-            this.toolStripModuleItemType.Enabled = false;
-            this.toolStripModuleItemType.Name = "toolStripModuleItemType";
-            this.toolStripModuleItemType.Size = new System.Drawing.Size(238, 24);
-            this.toolStripModuleItemType.Text = "Item Type";
-            this.toolStripModuleItemType.Click += new System.EventHandler(this.toolStripModuleItemType_Click);
-            // 
-            // toolModuleRawMaterialsDry
-            // 
-            this.toolModuleRawMaterialsDry.Enabled = false;
-            this.toolModuleRawMaterialsDry.Name = "toolModuleRawMaterialsDry";
-            this.toolModuleRawMaterialsDry.Size = new System.Drawing.Size(238, 24);
-            this.toolModuleRawMaterialsDry.Text = "Raw Material";
-            this.toolModuleRawMaterialsDry.Click += new System.EventHandler(this.toolModuleRawMaterialsDry_Click);
-            // 
-            // toolModulePrimaryUnitMgmt
-            // 
-            this.toolModulePrimaryUnitMgmt.Enabled = false;
-            this.toolModulePrimaryUnitMgmt.Name = "toolModulePrimaryUnitMgmt";
-            this.toolModulePrimaryUnitMgmt.Size = new System.Drawing.Size(238, 24);
-            this.toolModulePrimaryUnitMgmt.Text = "Conversion";
-            this.toolModulePrimaryUnitMgmt.Click += new System.EventHandler(this.toolModulePrimaryUnitMgmt_Click);
-            // 
-            // warehouseCrewToolStripMenuItem
-            // 
-            this.warehouseCrewToolStripMenuItem.Name = "warehouseCrewToolStripMenuItem";
-            this.warehouseCrewToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.warehouseCrewToolStripMenuItem.Text = "Warehouse Crew";
-            this.warehouseCrewToolStripMenuItem.Click += new System.EventHandler(this.warehouseCrewToolStripMenuItem_Click);
-            // 
-            // lotManagementToolStripMenuItem
-            // 
-            this.lotManagementToolStripMenuItem.Name = "lotManagementToolStripMenuItem";
-            this.lotManagementToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.lotManagementToolStripMenuItem.Text = "Lot Management";
-            this.lotManagementToolStripMenuItem.Click += new System.EventHandler(this.lotManagementToolStripMenuItem_Click_1);
-            // 
-            // averageOrderTrendToolStripMenuItem
-            // 
-            this.averageOrderTrendToolStripMenuItem.Name = "averageOrderTrendToolStripMenuItem";
-            this.averageOrderTrendToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.averageOrderTrendToolStripMenuItem.Text = "Average Order Trend";
-            this.averageOrderTrendToolStripMenuItem.Click += new System.EventHandler(this.averageOrderTrendToolStripMenuItem_Click);
-            // 
-            // orderCancelRemarksToolStripMenuItem
-            // 
-            this.orderCancelRemarksToolStripMenuItem.Name = "orderCancelRemarksToolStripMenuItem";
-            this.orderCancelRemarksToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.orderCancelRemarksToolStripMenuItem.Text = "Order Cancel Remarks";
-            this.orderCancelRemarksToolStripMenuItem.Click += new System.EventHandler(this.orderCancelRemarksToolStripMenuItem_Click);
-            // 
-            // toolDropdownMenu
-            // 
-            this.toolDropdownMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolParentMenu,
-            this.toolChildMenu,
-            this.toolGrandChildMenu});
-            this.toolDropdownMenu.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolDropdownMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolDropdownMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolDropdownMenu.Image")));
-            this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolDropdownMenu.Name = "toolDropdownMenu";
-            this.toolDropdownMenu.Size = new System.Drawing.Size(235, 44);
-            this.toolDropdownMenu.Text = "Menu";
-            this.toolDropdownMenu.Visible = false;
-            // 
-            // toolParentMenu
-            // 
-            this.toolParentMenu.Enabled = false;
-            this.toolParentMenu.Name = "toolParentMenu";
-            this.toolParentMenu.Size = new System.Drawing.Size(167, 24);
-            this.toolParentMenu.Text = "Major Menu";
-            this.toolParentMenu.Click += new System.EventHandler(this.toolParentMenu_Click);
-            // 
-            // toolChildMenu
-            // 
-            this.toolChildMenu.Enabled = false;
-            this.toolChildMenu.Name = "toolChildMenu";
-            this.toolChildMenu.Size = new System.Drawing.Size(167, 24);
-            this.toolChildMenu.Text = "Sub Menu";
-            this.toolChildMenu.Click += new System.EventHandler(this.toolChildMenu_Click);
-            // 
-            // toolGrandChildMenu
-            // 
-            this.toolGrandChildMenu.Enabled = false;
-            this.toolGrandChildMenu.Name = "toolGrandChildMenu";
-            this.toolGrandChildMenu.Size = new System.Drawing.Size(167, 24);
-            this.toolGrandChildMenu.Text = "Modules";
-            this.toolGrandChildMenu.Click += new System.EventHandler(this.toolGrandChildMenu_Click);
-            // 
-            // toolImportDry
-            // 
-            this.toolImportDry.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dryRawMaterialsToolStripMenuItem,
-            this.poSummaryToolStripMenuItem,
-            this.storesToolStripMenuItem1,
-            this.consolidatedOrderToolStripMenuItem,
-            this.orderRESTAPIToolStripMenuItem,
-            this.pendingOrderToolStripMenuItem});
-            this.toolImportDry.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolImportDry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolImportDry.Image = ((System.Drawing.Image)(resources.GetObject("toolImportDry.Image")));
-            this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolImportDry.Name = "toolImportDry";
-            this.toolImportDry.Size = new System.Drawing.Size(235, 44);
-            this.toolImportDry.Text = "Import Dry";
-            this.toolImportDry.Visible = false;
-            this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
-            // 
-            // dryRawMaterialsToolStripMenuItem
-            // 
-            this.dryRawMaterialsToolStripMenuItem.Enabled = false;
-            this.dryRawMaterialsToolStripMenuItem.Name = "dryRawMaterialsToolStripMenuItem";
-            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.dryRawMaterialsToolStripMenuItem.Text = "Dry Raw Materials";
-            this.dryRawMaterialsToolStripMenuItem.Click += new System.EventHandler(this.dryRawMaterialsToolStripMenuItem_Click);
-            // 
-            // poSummaryToolStripMenuItem
-            // 
-            this.poSummaryToolStripMenuItem.Enabled = false;
-            this.poSummaryToolStripMenuItem.Name = "poSummaryToolStripMenuItem";
-            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.poSummaryToolStripMenuItem.Text = "Po Summary";
-            this.poSummaryToolStripMenuItem.Click += new System.EventHandler(this.poSummaryToolStripMenuItem_Click);
-            // 
-            // storesToolStripMenuItem1
-            // 
-            this.storesToolStripMenuItem1.Name = "storesToolStripMenuItem1";
-            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(217, 24);
-            this.storesToolStripMenuItem1.Text = "Stores";
-            this.storesToolStripMenuItem1.Click += new System.EventHandler(this.storesToolStripMenuItem1_Click);
-            // 
-            // consolidatedOrderToolStripMenuItem
-            // 
-            this.consolidatedOrderToolStripMenuItem.Name = "consolidatedOrderToolStripMenuItem";
-            this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.consolidatedOrderToolStripMenuItem.Text = "Consolidated Order";
-            this.consolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.consolidatedOrderToolStripMenuItem_Click);
-            // 
-            // orderRESTAPIToolStripMenuItem
-            // 
-            this.orderRESTAPIToolStripMenuItem.Name = "orderRESTAPIToolStripMenuItem";
-            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.orderRESTAPIToolStripMenuItem.Text = "Order Synching";
-            this.orderRESTAPIToolStripMenuItem.Click += new System.EventHandler(this.orderRESTAPIToolStripMenuItem_Click);
-            // 
-            // pendingOrderToolStripMenuItem
-            // 
-            this.pendingOrderToolStripMenuItem.Name = "pendingOrderToolStripMenuItem";
-            this.pendingOrderToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.pendingOrderToolStripMenuItem.Text = "Pending Orders";
-            this.pendingOrderToolStripMenuItem.Click += new System.EventHandler(this.pendingOrderToolStripMenuItem_Click);
-            // 
-            // toolReceiving
-            // 
-            this.toolReceiving.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listOfReceivingToolStripMenuItem,
-            this.rMReceivingToolStripMenuItem,
-            this.rMBarcodeModuleToolStripMenuItem,
-            this.rMBarcodeReprintingToolStripMenuItem});
-            this.toolReceiving.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolReceiving.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolReceiving.Image = ((System.Drawing.Image)(resources.GetObject("toolReceiving.Image")));
-            this.toolReceiving.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolReceiving.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolReceiving.Name = "toolReceiving";
-            this.toolReceiving.Size = new System.Drawing.Size(235, 44);
-            this.toolReceiving.Text = "Receiving";
-            this.toolReceiving.Visible = false;
-            // 
-            // listOfReceivingToolStripMenuItem
-            // 
-            this.listOfReceivingToolStripMenuItem.Enabled = false;
-            this.listOfReceivingToolStripMenuItem.Name = "listOfReceivingToolStripMenuItem";
-            this.listOfReceivingToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
-            this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
-            this.listOfReceivingToolStripMenuItem.Click += new System.EventHandler(this.listOfReceivingToolStripMenuItem_Click);
-            // 
-            // rMReceivingToolStripMenuItem
-            // 
-            this.rMReceivingToolStripMenuItem.Enabled = false;
-            this.rMReceivingToolStripMenuItem.Name = "rMReceivingToolStripMenuItem";
-            this.rMReceivingToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
-            this.rMReceivingToolStripMenuItem.Text = "RM Receiving";
-            this.rMReceivingToolStripMenuItem.Click += new System.EventHandler(this.rMReceivingToolStripMenuItem_Click);
-            // 
-            // rMBarcodeModuleToolStripMenuItem
-            // 
-            this.rMBarcodeModuleToolStripMenuItem.Enabled = false;
-            this.rMBarcodeModuleToolStripMenuItem.Name = "rMBarcodeModuleToolStripMenuItem";
-            this.rMBarcodeModuleToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
-            this.rMBarcodeModuleToolStripMenuItem.Text = "RM Barcode Module";
-            this.rMBarcodeModuleToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeModuleToolStripMenuItem_Click);
-            // 
-            // rMBarcodeReprintingToolStripMenuItem
-            // 
-            this.rMBarcodeReprintingToolStripMenuItem.Enabled = false;
-            this.rMBarcodeReprintingToolStripMenuItem.Name = "rMBarcodeReprintingToolStripMenuItem";
-            this.rMBarcodeReprintingToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
-            this.rMBarcodeReprintingToolStripMenuItem.Text = "RM Barcode Reprinting";
-            this.rMBarcodeReprintingToolStripMenuItem.Click += new System.EventHandler(this.rMBarcodeReprintingToolStripMenuItem_Click);
-            // 
-            // toolPreparation
-            // 
-            this.toolPreparation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolDryForApproval,
-            this.toolDryApprovedOrder,
-            this.allocationModule});
-            this.toolPreparation.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolPreparation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolPreparation.Image = ((System.Drawing.Image)(resources.GetObject("toolPreparation.Image")));
-            this.toolPreparation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolPreparation.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolPreparation.Name = "toolPreparation";
-            this.toolPreparation.Size = new System.Drawing.Size(144, 44);
-            this.toolPreparation.Text = "Preparation";
-            this.toolPreparation.Visible = false;
-            // 
-            // toolDryForApproval
-            // 
-            this.toolDryForApproval.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.forApprovalToolStripMenuItem,
-            this.approvedOrderToolStripMenuItem,
-            this.preparationToolStripMenuItem,
-            this.moveOrderToolStripMenuItem});
-            this.toolDryForApproval.Name = "toolDryForApproval";
-            this.toolDryForApproval.Size = new System.Drawing.Size(180, 24);
-            this.toolDryForApproval.Text = "Store";
-            this.toolDryForApproval.Click += new System.EventHandler(this.toolDryForApproval_Click);
-            // 
-            // forApprovalToolStripMenuItem
-            // 
-            this.forApprovalToolStripMenuItem.Name = "forApprovalToolStripMenuItem";
-            this.forApprovalToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.forApprovalToolStripMenuItem.Text = "Ready For Scheduling";
-            this.forApprovalToolStripMenuItem.Click += new System.EventHandler(this.forApprovalToolStripMenuItem_Click);
-            // 
-            // approvedOrderToolStripMenuItem
-            // 
-            this.approvedOrderToolStripMenuItem.Name = "approvedOrderToolStripMenuItem";
-            this.approvedOrderToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.approvedOrderToolStripMenuItem.Text = "Approved Schedule";
-            this.approvedOrderToolStripMenuItem.Click += new System.EventHandler(this.approvedOrderToolStripMenuItem_Click);
-            // 
-            // preparationToolStripMenuItem
-            // 
-            this.preparationToolStripMenuItem.Name = "preparationToolStripMenuItem";
-            this.preparationToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.preparationToolStripMenuItem.Text = "Preparation";
-            this.preparationToolStripMenuItem.Click += new System.EventHandler(this.preparationToolStripMenuItem_Click);
-            // 
-            // moveOrderToolStripMenuItem
-            // 
-            this.moveOrderToolStripMenuItem.Name = "moveOrderToolStripMenuItem";
-            this.moveOrderToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.moveOrderToolStripMenuItem.Text = "Move Order";
-            this.moveOrderToolStripMenuItem.Click += new System.EventHandler(this.moveOrderToolStripMenuItem_Click);
-            // 
-            // toolDryApprovedOrder
-            // 
-            this.toolDryApprovedOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.readyForSchedulingToolStripMenuItem,
-            this.approvedScheduleToolStripMenuItem,
-            this.preparationToolStripMenuItem1,
-            this.moveOrderToolStripMenuItem1});
-            this.toolDryApprovedOrder.Name = "toolDryApprovedOrder";
-            this.toolDryApprovedOrder.Size = new System.Drawing.Size(180, 24);
-            this.toolDryApprovedOrder.Text = "Internal";
-            // 
-            // readyForSchedulingToolStripMenuItem
-            // 
-            this.readyForSchedulingToolStripMenuItem.Name = "readyForSchedulingToolStripMenuItem";
-            this.readyForSchedulingToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.readyForSchedulingToolStripMenuItem.Text = "Ready For Scheduling";
-            this.readyForSchedulingToolStripMenuItem.Click += new System.EventHandler(this.readyForSchedulingToolStripMenuItem_Click);
-            // 
-            // approvedScheduleToolStripMenuItem
-            // 
-            this.approvedScheduleToolStripMenuItem.Name = "approvedScheduleToolStripMenuItem";
-            this.approvedScheduleToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.approvedScheduleToolStripMenuItem.Text = "Approved Schedule";
-            this.approvedScheduleToolStripMenuItem.Click += new System.EventHandler(this.approvedScheduleToolStripMenuItem_Click);
-            // 
-            // preparationToolStripMenuItem1
-            // 
-            this.preparationToolStripMenuItem1.Name = "preparationToolStripMenuItem1";
-            this.preparationToolStripMenuItem1.Size = new System.Drawing.Size(236, 24);
-            this.preparationToolStripMenuItem1.Text = "Preparation";
-            this.preparationToolStripMenuItem1.Click += new System.EventHandler(this.preparationToolStripMenuItem1_Click);
-            // 
-            // moveOrderToolStripMenuItem1
-            // 
-            this.moveOrderToolStripMenuItem1.Name = "moveOrderToolStripMenuItem1";
-            this.moveOrderToolStripMenuItem1.Size = new System.Drawing.Size(236, 24);
-            this.moveOrderToolStripMenuItem1.Text = "Move Order";
-            // 
-            // allocationModule
-            // 
-            this.allocationModule.Name = "allocationModule";
-            this.allocationModule.Size = new System.Drawing.Size(180, 24);
-            this.allocationModule.Text = "Allocation";
-            this.allocationModule.Click += new System.EventHandler(this.allocationModule_Click);
-            // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem12});
-            this.toolStripDropDownButton2.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.toolStripDropDownButton2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(141, 44);
-            this.toolStripDropDownButton2.Text = "Preparation";
-            this.toolStripDropDownButton2.Visible = false;
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem9,
-            this.toolStripMenuItem10,
-            this.toolStripMenuItem11});
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(131, 26);
-            this.toolStripMenuItem7.Text = "Store";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(189, 26);
-            this.toolStripMenuItem8.Text = "For Approval";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(189, 26);
-            this.toolStripMenuItem9.Text = "Approved Order";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(189, 26);
-            this.toolStripMenuItem10.Text = "Preparation";
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(189, 26);
-            this.toolStripMenuItem11.Text = "Move Order";
-            // 
-            // toolStripMenuItem12
-            // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(131, 26);
-            this.toolStripMenuItem12.Text = "Internal";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnDashBoard1,
-            this.btnUsers1,
-            this.btnDryWarehouse1,
-            this.btnProductionPlanner1,
-            this.btnPreparationDepartment1,
-            this.btnResearchAndDevelopment1,
-            this.btnSetUp});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(140, 480);
-            this.toolStrip1.TabIndex = 598;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
-            // 
-            // btnDashBoard1
-            // 
-            this.btnDashBoard1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashBoard1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDashBoard1.Image = ((System.Drawing.Image)(resources.GetObject("btnDashBoard1.Image")));
-            this.btnDashBoard1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashBoard1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDashBoard1.Name = "btnDashBoard1";
-            this.btnDashBoard1.Size = new System.Drawing.Size(139, 44);
-            this.btnDashBoard1.Text = "Dashboard";
-            this.btnDashBoard1.Click += new System.EventHandler(this.btnDashBoard1_Click_1);
-            // 
-            // btnUsers1
-            // 
-            this.btnUsers1.Font = new System.Drawing.Font("Roboto", 12F);
-            this.btnUsers1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnUsers1.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers1.Image")));
-            this.btnUsers1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUsers1.Name = "btnUsers1";
-            this.btnUsers1.Size = new System.Drawing.Size(180, 44);
-            this.btnUsers1.Text = "Users";
-            this.btnUsers1.Visible = false;
-            this.btnUsers1.Click += new System.EventHandler(this.btnUsers1_Click);
-            // 
-            // btnDryWarehouse1
-            // 
-            this.btnDryWarehouse1.Font = new System.Drawing.Font("Roboto", 12F);
-            this.btnDryWarehouse1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnDryWarehouse1.Image = ((System.Drawing.Image)(resources.GetObject("btnDryWarehouse1.Image")));
-            this.btnDryWarehouse1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDryWarehouse1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDryWarehouse1.Name = "btnDryWarehouse1";
-            this.btnDryWarehouse1.Size = new System.Drawing.Size(180, 44);
-            this.btnDryWarehouse1.Text = "Dry Warehouse";
-            this.btnDryWarehouse1.Visible = false;
-            this.btnDryWarehouse1.Click += new System.EventHandler(this.btnDryWarehouse1_Click);
-            // 
-            // btnProductionPlanner1
-            // 
-            this.btnProductionPlanner1.Font = new System.Drawing.Font("Roboto", 12F);
-            this.btnProductionPlanner1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnProductionPlanner1.Image = ((System.Drawing.Image)(resources.GetObject("btnProductionPlanner1.Image")));
-            this.btnProductionPlanner1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductionPlanner1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnProductionPlanner1.Name = "btnProductionPlanner1";
-            this.btnProductionPlanner1.Size = new System.Drawing.Size(180, 44);
-            this.btnProductionPlanner1.Text = "Planner";
-            this.btnProductionPlanner1.Visible = false;
-            this.btnProductionPlanner1.Click += new System.EventHandler(this.btnProductionPlanner1_Click_1);
-            // 
-            // btnPreparationDepartment1
-            // 
-            this.btnPreparationDepartment1.Font = new System.Drawing.Font("Roboto", 12F);
-            this.btnPreparationDepartment1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnPreparationDepartment1.Image = ((System.Drawing.Image)(resources.GetObject("btnPreparationDepartment1.Image")));
-            this.btnPreparationDepartment1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPreparationDepartment1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPreparationDepartment1.Name = "btnPreparationDepartment1";
-            this.btnPreparationDepartment1.Size = new System.Drawing.Size(180, 44);
-            this.btnPreparationDepartment1.Text = "Prep Department";
-            this.btnPreparationDepartment1.Visible = false;
-            this.btnPreparationDepartment1.Click += new System.EventHandler(this.btnPreparationDepartment1_Click);
-            // 
-            // btnResearchAndDevelopment1
-            // 
-            this.btnResearchAndDevelopment1.Font = new System.Drawing.Font("Roboto", 12F);
-            this.btnResearchAndDevelopment1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnResearchAndDevelopment1.Image = ((System.Drawing.Image)(resources.GetObject("btnResearchAndDevelopment1.Image")));
-            this.btnResearchAndDevelopment1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnResearchAndDevelopment1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnResearchAndDevelopment1.Name = "btnResearchAndDevelopment1";
-            this.btnResearchAndDevelopment1.Size = new System.Drawing.Size(139, 44);
-            this.btnResearchAndDevelopment1.Text = "R&D";
-            this.btnResearchAndDevelopment1.Visible = false;
-            this.btnResearchAndDevelopment1.Click += new System.EventHandler(this.btnResearchAndDevelopment1_Click);
-            // 
-            // btnSetUp
-            // 
-            this.btnSetUp.Font = new System.Drawing.Font("Roboto", 12F);
-            this.btnSetUp.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnSetUp.Image = ((System.Drawing.Image)(resources.GetObject("btnSetUp.Image")));
-            this.btnSetUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetUp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSetUp.Name = "btnSetUp";
-            this.btnSetUp.Size = new System.Drawing.Size(139, 44);
-            this.btnSetUp.Text = "Set - Up";
-            this.btnSetUp.Click += new System.EventHandler(this.btnSetUp_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblPosition, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 112);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 42);
-            this.tableLayoutPanel1.TabIndex = 147;
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFirstName.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblFirstName.Location = new System.Drawing.Point(3, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(175, 21);
-            this.lblFirstName.TabIndex = 5;
-            this.lblFirstName.Text = "Gerard";
-            this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPosition
-            // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPosition.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblPosition.Location = new System.Drawing.Point(3, 21);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(175, 21);
-            this.lblPosition.TabIndex = 7;
-            this.lblPosition.Text = "Position";
-            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblPosition.Click += new System.EventHandler(this.lblPosition_Click);
-            // 
-            // pbImage
-            // 
-            this.pbImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Location = new System.Drawing.Point(26, 5);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(134, 103);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 146;
-            this.pbImage.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.pictureBox9.Location = new System.Drawing.Point(9, -9057);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(43, 37);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox9.TabIndex = 14;
-            this.pictureBox9.TabStop = false;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.Image = global::ULTRAMAVERICK.Properties.Resources.shut_down;
-            this.btnSalir.Location = new System.Drawing.Point(9, -9057);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(43, 37);
-            this.btnSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnSalir.TabIndex = 13;
-            this.btnSalir.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 172);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(2, 40);
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 126);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(2, 40);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.lblDateFinal);
-            this.panel1.Controls.Add(this.lblTimeFinal);
-            this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.lblTime);
-            this.panel1.Controls.Add(this.lbFecha);
-            this.panel1.Controls.Add(this.lblHora);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(185, 727);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(839, 41);
-            this.panel1.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(401, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 28);
-            this.button1.TabIndex = 496;
-            this.button1.Text = "Approver Tagging";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblDateFinal
-            // 
-            this.lblDateFinal.AutoSize = true;
-            this.lblDateFinal.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblDateFinal.Location = new System.Drawing.Point(155, 14);
-            this.lblDateFinal.Name = "lblDateFinal";
-            this.lblDateFinal.Size = new System.Drawing.Size(220, 19);
-            this.lblDateFinal.TabIndex = 5;
-            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2021";
-            // 
-            // lblTimeFinal
-            // 
-            this.lblTimeFinal.AutoSize = true;
-            this.lblTimeFinal.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblTimeFinal.Location = new System.Drawing.Point(6, 4);
-            this.lblTimeFinal.Name = "lblTimeFinal";
-            this.lblTimeFinal.Size = new System.Drawing.Size(125, 35);
-            this.lblTimeFinal.TabIndex = 2;
-            this.lblTimeFinal.Text = "21:49:45";
-            // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(-11475, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(224, 20);
-            this.lblDate.TabIndex = 5;
-            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblTime
-            // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTime.Location = new System.Drawing.Point(-11475, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(205, 54);
-            this.lblTime.TabIndex = 2;
-            this.lblTime.Text = "21:49:45";
-            // 
-            // lbFecha
-            // 
-            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFecha.AutoSize = true;
-            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(-11899, 0);
-            this.lbFecha.Name = "lbFecha";
-            this.lbFecha.Size = new System.Drawing.Size(224, 20);
-            this.lbFecha.TabIndex = 4;
-            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblHora
-            // 
-            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
-            this.lblHora.Location = new System.Drawing.Point(-11899, 0);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(205, 54);
-            this.lblHora.TabIndex = 1;
-            this.lblHora.Text = "21:49:45";
-            // 
-            // panelContenedorForm
-            // 
-            this.panelContenedorForm.BackColor = System.Drawing.SystemColors.Window;
-            this.panelContenedorForm.Controls.Add(this.dataGridView1);
-            this.panelContenedorForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorForm.Location = new System.Drawing.Point(185, 44);
-            this.panelContenedorForm.Name = "panelContenedorForm";
-            this.panelContenedorForm.Size = new System.Drawing.Size(839, 683);
-            this.panelContenedorForm.TabIndex = 6;
-            this.panelContenedorForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorForm_Paint);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridView1.ColumnHeadersHeight = 35;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.dataGridView1.Location = new System.Drawing.Point(128, 330);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 102;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.RowTemplate.DividerHeight = 5;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(583, 22);
-            this.dataGridView1.TabIndex = 598;
-            this.dataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Emerald;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.dataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.dataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.ThemeStyle.HeaderStyle.Height = 35;
-            this.dataGridView1.ThemeStyle.ReadOnly = true;
-            this.dataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            this.dataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.ThemeStyle.RowsStyle.Height = 40;
-            this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.Visible = false;
-            // 
-            // panelContenedorPrincipal
-            // 
-            this.panelContenedorPrincipal.BackColor = System.Drawing.SystemColors.Control;
-            this.panelContenedorPrincipal.Controls.Add(this.panelContenedorForm);
-            this.panelContenedorPrincipal.Controls.Add(this.panel1);
-            this.panelContenedorPrincipal.Controls.Add(this.panelMenu);
-            this.panelContenedorPrincipal.Controls.Add(this.PanelHeader);
-            this.panelContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedorPrincipal.Name = "panelContenedorPrincipal";
-            this.panelContenedorPrincipal.Size = new System.Drawing.Size(1024, 768);
-            this.panelContenedorPrincipal.TabIndex = 0;
-            // 
-            // timeSubMenuIn
-            // 
-            this.timeSubMenuIn.Interval = 15;
-            this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
-            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1767,8 +1776,6 @@
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.MainMajorData.ResumeLayout(false);
             this.MainMajorData.PerformLayout();
@@ -1780,16 +1787,18 @@
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelContenedorForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelContenedorPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1926,6 +1935,7 @@
         private System.Windows.Forms.ToolStripMenuItem approvedScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preparationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem moveOrderToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mRSCancelRemarksToolStripMenuItem;
     }
 }
 

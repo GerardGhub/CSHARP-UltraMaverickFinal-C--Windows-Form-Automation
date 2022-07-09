@@ -162,6 +162,12 @@
     <Compile Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.Designer.cs">
       <DependentUpon>frmNewCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.Designer.cs">
+      <DependentUpon>frmCancelInternalApprovedOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,11 +186,23 @@
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.Designer.cs">
       <DependentUpon>frmInternalForScheduling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.Designer.cs">
+      <DependentUpon>frmInternalOrderActivationRemarks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.Designer.cs">
       <DependentUpon>frmServeInternalPreparation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.Designer.cs">
+      <DependentUpon>frmViewInternalItemPrepared.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewApprovedItemsInternalOrder.cs">
       <SubType>Form</SubType>
@@ -720,6 +738,9 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.resx">
       <DependentUpon>frmNewCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.resx">
+      <DependentUpon>frmCancelInternalApprovedOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.resx">
       <DependentUpon>frmDryPreparationInternal.cs</DependentUpon>
     </EmbeddedResource>
@@ -729,8 +750,14 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.resx">
       <DependentUpon>frmInternalForScheduling.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.resx">
+      <DependentUpon>frmInternalOrderActivationRemarks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.resx">
       <DependentUpon>frmServeInternalPreparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.resx">
+      <DependentUpon>frmViewInternalItemPrepared.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\ViewApprovedItemsInternalOrder.resx">
       <DependentUpon>ViewApprovedItemsInternalOrder.cs</DependentUpon>

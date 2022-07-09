@@ -598,5 +598,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
         }
+
+        private void matbtnCancel_Click(object sender, EventArgs e)
+        {
+            //this.matbtnCancel.Visible = false;
+
+            //if (this.matbtnCancel.Text == "CANCEL")
+            //{
+            //    frmCancelApprovedOrder FormCancelOrderRemarks = new frmCancelApprovedOrder(this);
+            //    FormCancelOrderRemarks.ShowDialog();
+            //}
+            //else
+            //{
+            //    frmReturnApprovedOrder ReturnedOrderRemarks = new frmReturnApprovedOrder(this);
+            //    ReturnedOrderRemarks.ShowDialog();
+            //}
+
+
+
+        }
     }
 }

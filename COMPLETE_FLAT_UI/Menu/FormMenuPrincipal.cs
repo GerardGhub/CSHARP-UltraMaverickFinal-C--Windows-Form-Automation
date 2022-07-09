@@ -1755,6 +1755,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(InternalPreparation);
         }
 
+        private void mRSCancelRemarksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmInternalOrderActivationRemarks InternalOrderCancelled = new frmInternalOrderActivationRemarks();
+            InternalOrderCancelled.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(InternalOrderCancelled);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 
