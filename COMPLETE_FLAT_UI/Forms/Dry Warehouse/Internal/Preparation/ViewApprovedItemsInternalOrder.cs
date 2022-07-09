@@ -262,7 +262,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                             dset = g_objStoredProcCollection.sp_IDGenerator(
                                 int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorCancelInternalApprovedMRS", 
-                                this.metroCmbReason.Text,
+                                this.textBox2.Text,
                                 userinfo.user_id.ToString(), 1);
 
                         }
@@ -381,13 +381,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matBtnAction_Click(object sender, EventArgs e)
         {
-            if (this.textBox2.Text == String.Empty)
+            if(this.matBtnAction.Text == "CANCEL")
             {
-                frmCancelInternalApprovedOrder FormCancelOrderRemarks = new frmCancelInternalApprovedOrder(this);
-                FormCancelOrderRemarks.ShowDialog();
+                if (this.textBox2.Text == String.Empty)
+                {
+                    frmCancelInternalApprovedOrder FormCancelOrderRemarks = new frmCancelInternalApprovedOrder(this, this.matBtnAction.Text);
+                    FormCancelOrderRemarks.ShowDialog();
+                }
             }
-              
-        
+
+            if (this.matBtnAction.Text == "RETURN")
+            {
+                if (this.textBox2.Text == String.Empty)
+                {
+                    frmCancelInternalApprovedOrder FormCancelOrderRemarks = new frmCancelInternalApprovedOrder(this, this.matBtnAction.Text);
+                    FormCancelOrderRemarks.ShowDialog();
+                }
+            }
+
+
 
             if (this.matBtnAction.Text =="UPDATE")
             {
@@ -403,26 +415,39 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     return;
                 }
             }
-            else if (this.matBtnAction.Text =="CANCEL")
+            else if (this.matBtnAction.Text == "CANCEL")
             {
+                //if (this.textBox2.Text == String.Empty)
+                //{
+
+                //}
+                //else
+                //{ 
+                //    //MessageBox.Show("GHello");
+                //    this.GlobalStatePopup.FillRequiredFields();
+                //    this.metroCmbReason.Focus();
+                //    return;
+                //}
                 if (this.textBox2.Text != String.Empty)
                 {
-                    this.GlobalStatePopup.FillRequiredFields();
-                    this.metroCmbReason.Focus();
-                    return;
-                }
-
-                if (MetroFramework.MetroMessageBox.Show(this, "Cancel the consolidated order? ",
-                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    this.CancelFunctionality();
-               
-
                 }
                 else
                 {
+                    this.CancelFunctionality();
 
-                    return;
+                    //if (MetroFramework.MetroMessageBox.Show(this, "Cancel the consolidated order? ",
+                    //    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    //{
+                    //    this.CancelFunctionality();
+
+
+                    //}
+                    //else
+                    //{
+
+                    //    return;
+                    //}
+
                 }
             }
 

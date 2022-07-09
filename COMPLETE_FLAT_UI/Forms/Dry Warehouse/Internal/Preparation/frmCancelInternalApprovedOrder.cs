@@ -22,18 +22,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int validate = 0;
-        public frmCancelInternalApprovedOrder(ViewApprovedItemsInternalOrder frm)
+        public frmCancelInternalApprovedOrder(ViewApprovedItemsInternalOrder frm , string buttonActions)
         {
             InitializeComponent();
             ths = frm;
+            SpButtonActions = buttonActions;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
         }
+
+        public string SpButtonActions { get; set; }
 
         private void frmCancelInternalApprovedOrder_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
             //this.loadRemarksDropdown();
             this.ClearTextboxesState();
+            this.SpButtonActions = SpButtonActions;
+            //MessageBox.Show(SpButtonActions);
         }
 
         private void ClearTextboxesState()
@@ -42,11 +47,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.cboReason.Items.Clear();
         }
 
-        public void loadRemarksDropdown()
+        public void loadRemarksDropdownForCancel()
         {
 
             this.myClass.fillComboBoxDepartment(this.cboReason, 
             "internal_order_activation_remarks_activated_minor_typecancel", dSet);
+
+
+            //this.lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
+        }
+
+        public void loadRemarksDropdownForReturn()
+        {
+
+            this.myClass.fillComboBoxDepartment(this.cboReason,
+            "internal_order_activation_remarks_activated_minor_typereturn", dSet);
 
 
             //this.lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
@@ -100,7 +115,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void cboReason_Click(object sender, EventArgs e)
         {
-            this.loadRemarksDropdown();
+            if (this.SpButtonActions == "RETURN")
+            {
+                this.loadRemarksDropdownForReturn();
+            }
+            else
+            {
+                this.loadRemarksDropdownForCancel();
+            }
+
+     
         }
     }
 }
