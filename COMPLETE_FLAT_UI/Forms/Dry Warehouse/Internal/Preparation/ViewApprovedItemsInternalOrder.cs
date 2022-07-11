@@ -76,8 +76,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 //this.bunifuPrepaDate.Enabled = false;
                 this.matBtnAction.Text = "RETURN";
-                this.lblReason.Visible = false;
-                this.metroCmbReason.Visible = false;
+
                 this.lblcancelby.Visible = true;
                 this.lblcanceltitle.Visible = true;
             }
@@ -228,14 +227,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if(this.bunifuPrepaDate.Text == ctrl_bind_is_preparation_date)
                 {
                     this.matBtnAction.Text = "CANCEL";
-                    this.lblReason.Visible = true;
-                    this.metroCmbReason.Visible = true;
+                
                 }
                 else
                 {
                     this.matBtnAction.Text = "UPDATE";
-                    this.lblReason.Visible = false;
-                    this.metroCmbReason.Visible = false;
+              
                 }
 
             }
@@ -305,7 +302,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                             dset = g_objStoredProcCollection.sp_IDGenerator(
                                 int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorReturnInternalApprovedMRS",
-                                this.metroCmbReason.Text,
+                                this.textBox2.Text,
                                 userinfo.user_id.ToString(), 1);
 
                         }

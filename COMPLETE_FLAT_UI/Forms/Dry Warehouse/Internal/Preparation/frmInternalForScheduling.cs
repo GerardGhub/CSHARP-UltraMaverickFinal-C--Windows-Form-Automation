@@ -132,7 +132,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
 
 
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "Internal_Order_For_Allocation", this.dSet);
+                myClass.fillComboBoxStoreOrderApproval(this.matcmbRequestedDate, "Internal_Order_For_Allocation", this.dSet);
 
             }
             catch (Exception ex)
@@ -152,7 +152,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
 
 
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "Internal_Order_FilterByDate", this.dSet);
+                myClass.fillComboBoxStoreOrderApproval(this.matcmbRequestedDate, "Internal_Order_FilterByDate", this.dSet);
 
             }
             catch (Exception ex)
@@ -176,7 +176,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "  mrs_requested_date = '" + this.matcmbCategory.Text + "'  ";
+                        dv.RowFilter = "  mrs_requested_date = '" + this.matcmbRequestedDate.Text + "'  ";
 
                     }
 
@@ -337,8 +337,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     }
 
 
-                    //this.GlobalStatePopup.YouHaveItemForAllocation();
-                    //this.ReturnFunctionality();
+                 
                     this.GlobalVariable.message_window_occur_for_approval_store_module = "1";
                     //END
 
@@ -375,7 +374,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 //Walang For Allocation 
 
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "Internal_Order_FilterByDate", this.dSet);
+                myClass.fillComboBoxStoreOrderApproval(this.matcmbRequestedDate, "Internal_Order_FilterByDate", this.dSet);
 
             }
             catch (Exception ex)
@@ -434,7 +433,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show("Gerard");
+           
 
             this.ConnectionOpen();
             this.loadMRSDropdownForAllocation();
@@ -532,6 +531,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
+            return;
             this.showDataGridDataValueChanged();
         }
 
