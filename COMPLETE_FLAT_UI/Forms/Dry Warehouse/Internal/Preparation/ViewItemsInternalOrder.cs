@@ -58,6 +58,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string ctrl_bind_total_items { get; set; }
         public string ctrl_radio_button { get; set; }
 
+        public bool ctrl_bind_is_prepared { get; set; }
+
 
         private void ViewItemsInternalOrder_Load(object sender, EventArgs e)
         {
@@ -72,6 +74,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.SelectAllRecords();
             this.DataGridHideColumn();
             //MessageBox.Show(this.ctrl_bind_mrs.ToString());
+            //if (this.ctrl_bind_is_prepared == true)
+            //{
+            //    this.matbtnPrint.Enabled = false;
+            //}
+         
         }
 
 
@@ -83,6 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["is_cancel_by"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["is_prepared"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["Allocation_Precense"].Visible = false;
          
             }
@@ -293,14 +301,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
 
-       
+        private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(this.sp_fox);
+            if (this.dgvStoreOrderApproval.Rows.Count > 0)
+            {
+                if (this.dgvStoreOrderApproval.CurrentRow != null)
+                {
+                    if (this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_item_code"].Value != null)
+                    {
 
+                        this.ctrl_bind_is_prepared = Convert.ToBoolean(this.dgvStoreOrderApproval.CurrentRow.Cells["is_prepared"].Value);
 
+                    }
+                }
+            }
 
-
-
-
-
-
+        }
     }
 }

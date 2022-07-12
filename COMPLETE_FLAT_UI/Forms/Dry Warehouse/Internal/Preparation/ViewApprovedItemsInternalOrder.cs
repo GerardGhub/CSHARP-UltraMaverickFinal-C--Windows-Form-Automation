@@ -59,6 +59,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string ctrl_bind_is_preparation_date { get; set; }
         public string ctrl_bind_is_cancel_by { get; set; }
         public bool ctrl_bind_is_active { get; set; }
+        public bool ctrl_bind_is_prepared { get; set; }
 
         private void ViewApprovedItemsInternalOrder_Load(object sender, EventArgs e)
         {
@@ -81,8 +82,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.lblcanceltitle.Visible = true;
             }
             this.DataGridHideColumn();
+            //MessageBox.Show(this.ctrl_bind_is_prepared.ToString());
+            this.CheckIfTheRequestIsAlreadyPrepared();
         }
 
+
+        private void CheckIfTheRequestIsAlreadyPrepared()
+        {
+            if (this.ctrl_bind_is_prepared == true)
+            {
+                this.matBtnAction.Enabled = false;
+                this.bunifuPrepaDate.Enabled = false;
+            }
+        }
 
 
         private void DataGridHideColumn()
@@ -93,7 +105,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.dgvStoreOrderApproval.Columns["is_cancel_by"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["Allocation_Precense"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
-
+                this.dgvStoreOrderApproval.Columns["is_prepared"].Visible = false;
             }
         }
 
@@ -491,7 +503,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.ctrl_bind_is_cancel_by = this.dgvStoreOrderApproval.CurrentRow.Cells["is_cancel_by"].Value.ToString();
                         this.lblcancelby.Text = this.ctrl_bind_is_cancel_by;
                         this.ctrl_bind_is_active = Convert.ToBoolean(this.dgvStoreOrderApproval.CurrentRow.Cells["is_active"].Value);
-                      
+                        this.ctrl_bind_is_prepared = Convert.ToBoolean(this.dgvStoreOrderApproval.CurrentRow.Cells["is_prepared"].Value);
+
                     }
                 }
 

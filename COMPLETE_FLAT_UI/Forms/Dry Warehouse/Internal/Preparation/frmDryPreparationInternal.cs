@@ -66,6 +66,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         public int Sp_department_id { get; set; }
 
+
         private void frmDryPreparationInternal_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -168,18 +169,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     {
 
 
-                        ////Start
-                        //if (this.cmbArea.Text == String.Empty)
-                        //{
-                        //    dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
-                        //    //MessageBox.Show("Meron" + this.Sp_AssigneD_Task_By +"");
-                        //}
-                        //else
-                        //{
+                       
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0') and approved_preparation_date = '" + this.cmbPreparationDate.Text + "'     ";
-                        //MessageBox.Show("Wala");
-                        //}                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'  and area = '" + this.cmbArea.Text + "'    ";
-
+                    
 
 
                         this.dgvStoreOrderApproval.DataSource = dv;
@@ -1012,6 +1004,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matbtnSave_Click(object sender, EventArgs e)
         {
+            if (this.lbltotaldata.Text == "0")
+            {
+                return;
+            }
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 dset3.Clear();
