@@ -677,6 +677,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.mattxtScanTheBarcode.Size = new System.Drawing.Size(209, 50);
             this.mattxtScanTheBarcode.TabIndex = 661;
             this.mattxtScanTheBarcode.Text = "";
+            this.mattxtScanTheBarcode.TextChanged += new System.EventHandler(this.mattxtScanTheBarcode_TextChanged);
             this.mattxtScanTheBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mattxtScanTheBarcode_KeyDown);
             this.mattxtScanTheBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtScanTheBarcode_KeyPress);
             // 

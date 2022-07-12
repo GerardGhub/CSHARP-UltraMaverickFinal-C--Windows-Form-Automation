@@ -67,6 +67,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public int Sp_User_ID { get; set; }
         public string sp_approved_preparation_date { get; set; }
         public string Sp_Primary_Key { get; set; }
+        public int Sp_Order_Source_Key { get; set; }
         public string Is_Active { get; set; }
 
         private void frmViewInternalItemPrepared_Load(object sender, EventArgs e)
@@ -77,6 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
             this.MaterialDatagridColumnVisibilittyFalse();
+         
         }
 
 
@@ -84,14 +86,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["department_id"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["department_name"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["uom"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["qty"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Parent_Description"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["id"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["primary_id1"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["description"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["department_id"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["order_source_key"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["prepa_id"].Visible = false;
@@ -190,7 +193,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     {
 
                         this.Sp_Primary_Key = this.guna2DgvMaterialPreparation.CurrentRow.Cells["prepa_id"].Value.ToString();
-
+                        this.Sp_Order_Source_Key = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["order_source_key"].Value);
                     }
                 }
             }
@@ -208,7 +211,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     dset3 = objStorProc.sp_Internal_Preparation_Logs(0,
                     this.Sp_Primary_Key,
                     this.sp_approved_preparation_date,
-                    "ItemCode", 
+                    this.Sp_Order_Source_Key.ToString(), 
                     "ItemDesc", 
                     "OrderQty", 
                     "Allocated QTY", 

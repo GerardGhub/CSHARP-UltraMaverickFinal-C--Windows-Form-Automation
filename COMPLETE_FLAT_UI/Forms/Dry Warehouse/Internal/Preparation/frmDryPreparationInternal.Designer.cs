@@ -41,11 +41,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.matbtnSave = new MaterialSkin.Controls.MaterialButton();
             this.mattxtScanTheBarcode = new MaterialSkin.Controls.MaterialTextBox();
             this.lbltotalStoreforPreparation = new System.Windows.Forms.Label();
@@ -71,6 +71,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mrs_req_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalItemsOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.guna2DgvMaterialPreparation = new Guna.UI2.WinForms.Guna2DataGridView();
             this.mrs_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,11 +91,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mrs_req_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalItemsOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDgvReceivingFEFO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDgvScanFinder)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -120,6 +120,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matbtnSave.UseAccentColor = false;
             this.matbtnSave.UseVisualStyleBackColor = true;
             this.matbtnSave.Visible = false;
+            this.matbtnSave.Click += new System.EventHandler(this.matbtnSave_Click);
             // 
             // mattxtScanTheBarcode
             // 
@@ -624,6 +625,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             this.dgvStoreOrderApproval.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvStoreOrderApproval_RowPostPaint);
             // 
+            // Count
+            // 
+            this.Count.DataPropertyName = "Count";
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.White;
+            this.Count.DefaultCellStyle = dataGridViewCellStyle45;
+            this.Count.HeaderText = "#";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            // 
+            // department
+            // 
+            this.department.DataPropertyName = "department";
+            this.department.HeaderText = "DEPARTMENT";
+            this.department.Name = "department";
+            this.department.ReadOnly = true;
+            // 
+            // mrs_req_desc
+            // 
+            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
+            this.mrs_req_desc.FillWeight = 66.91177F;
+            this.mrs_req_desc.HeaderText = "DESCRIPTION";
+            this.mrs_req_desc.MinimumWidth = 12;
+            this.mrs_req_desc.Name = "mrs_req_desc";
+            this.mrs_req_desc.ReadOnly = true;
+            // 
+            // approved_preparation_date
+            // 
+            this.approved_preparation_date.DataPropertyName = "approved_preparation_date";
+            this.approved_preparation_date.HeaderText = "PREPARATION DATE";
+            this.approved_preparation_date.Name = "approved_preparation_date";
+            this.approved_preparation_date.ReadOnly = true;
+            // 
+            // TotalItemsOrder
+            // 
+            this.TotalItemsOrder.DataPropertyName = "TotalItemsOrder";
+            this.TotalItemsOrder.FillWeight = 66.91177F;
+            this.TotalItemsOrder.HeaderText = "TOTAL ITEMS";
+            this.TotalItemsOrder.MinimumWidth = 12;
+            this.TotalItemsOrder.Name = "TotalItemsOrder";
+            this.TotalItemsOrder.ReadOnly = true;
+            // 
             // materialCard4
             // 
             this.materialCard4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -830,6 +872,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.lbltotaldata.Size = new System.Drawing.Size(26, 29);
             this.lbltotaldata.TabIndex = 672;
             this.lbltotaldata.Text = "0";
+            this.lbltotaldata.TextChanged += new System.EventHandler(this.lbltotaldata_TextChanged);
             // 
             // label4
             // 
@@ -843,47 +886,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.label4.Size = new System.Drawing.Size(40, 15);
             this.label4.TabIndex = 674;
             this.label4.Text = "Items";
-            // 
-            // Count
-            // 
-            this.Count.DataPropertyName = "Count";
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.White;
-            this.Count.DefaultCellStyle = dataGridViewCellStyle45;
-            this.Count.HeaderText = "#";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            // 
-            // department
-            // 
-            this.department.DataPropertyName = "department";
-            this.department.HeaderText = "DEPARTMENT";
-            this.department.Name = "department";
-            this.department.ReadOnly = true;
-            // 
-            // mrs_req_desc
-            // 
-            this.mrs_req_desc.DataPropertyName = "mrs_req_desc";
-            this.mrs_req_desc.FillWeight = 66.91177F;
-            this.mrs_req_desc.HeaderText = "DESCRIPTION";
-            this.mrs_req_desc.MinimumWidth = 12;
-            this.mrs_req_desc.Name = "mrs_req_desc";
-            this.mrs_req_desc.ReadOnly = true;
-            // 
-            // approved_preparation_date
-            // 
-            this.approved_preparation_date.DataPropertyName = "approved_preparation_date";
-            this.approved_preparation_date.HeaderText = "PREPARATION DATE";
-            this.approved_preparation_date.Name = "approved_preparation_date";
-            this.approved_preparation_date.ReadOnly = true;
-            // 
-            // TotalItemsOrder
-            // 
-            this.TotalItemsOrder.DataPropertyName = "TotalItemsOrder";
-            this.TotalItemsOrder.FillWeight = 66.91177F;
-            this.TotalItemsOrder.HeaderText = "TOTAL ITEMS";
-            this.TotalItemsOrder.MinimumWidth = 12;
-            this.TotalItemsOrder.Name = "TotalItemsOrder";
-            this.TotalItemsOrder.ReadOnly = true;
             // 
             // frmDryPreparationInternal
             // 

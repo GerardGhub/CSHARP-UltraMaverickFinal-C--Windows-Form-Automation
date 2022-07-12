@@ -534,24 +534,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
 
 
-        public void loadPreparationDateDropdown()
-        {
-            try
-            {
-
-
-
-                myClass.fillComboBoxStoreOrderApprovalSync(this.matCmbPreparationDate, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved_forPreparation", this.dSet, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matCmbPreparationDate.Text);
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
-        }
+ 
 
         private void mattxtScanTheBarcode_KeyDown(object sender, KeyEventArgs e)
         {
@@ -850,83 +833,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
             }
 
-            //return;
-            //BujeRard
-            //if (this.lbltotaldata.Text != "0")
-            //{
-            //    try
-            //    {
-            //        if (this.Sp_Is_WH_Cancel_Status == "1" && this.Sp_Data_Refactoring_Status != "1")
-            //        {
-
-            //            //Date Conversion
-            //            DateTime dt = new DateTime();
-            //            string lstrDate = this.sp_approved_preparation_date;
-            //            dt = Convert.ToDateTime(lstrDate);
-            //            string lstrAdate = dt.ToString("yyyy-MM-dd");
-            //            this.sp_approved_preparation_date = lstrAdate;
-
-
-            //            //Sample Lang
-            //            dset2.Clear();
-            //            dset2 = objStorProc.sp_Store_Preparation_Logs(0,
-            //            this.sp_fox,
-            //            this.sp_approved_preparation_date,
-            //            this.Sp_Category,
-            //            "",
-            //           "",
-            //            "",
-            //            "", "",
-            //            0,
-            //            this.sp_fox, this.Sp_Category, "",
-            //            "select_StorePreparationLogsTBL_Deactivated");
-
-            //            if (dset2.Tables[0].Rows.Count > 0)
-            //            {
-
-            //                MessageBox.Show("A");
-
-
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("B");
-            //                dSet.Clear();
-            //                dSet = objStorProc.sp_Store_Preparation_Logs(0,
-            //                this.sp_fox,
-            //                this.sp_approved_preparation_date,
-            //                this.Sp_Category,
-            //                "",
-            //               "",
-            //                "",
-            //                "", "",
-            //                0,
-            //                this.sp_fox, this.Sp_Category, "",
-            //                "update_StorePreparationLogsTBL_Deactivated");
-            //            }
-
-            //           // return;
-            //           // //Bug Animal
-            //           // dSet.Clear();
-            //           // dSet = objStorProc.sp_Store_Preparation_Logs(0,
-            //           // this.sp_fox,
-            //           // this.sp_approved_preparation_date,
-            //           // this.Sp_Category,
-            //           // "",
-            //           //"",
-            //           // "",
-            //           // "", "",
-            //           // 0,
-            //           // this.sp_fox, this.Sp_Category, "",
-            //           // "update_StorePreparationLogsTBL_Deactivated");
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-
-            //        MessageBox.Show(ex.Message);
-            //    }
-            //}
+         
 
 
         }
@@ -1155,15 +1062,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void matbtnSave_Click(object sender, EventArgs e)
         {
-            //Start
+
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 dset3.Clear();
                 dset3 = objStorProc.sp_Store_Preparation_Logs(0,
                this.matcmbCategory.Text,
                 this.sp_approved_preparation_date,
-                "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
-                  this.sp_fox, this.sp_route, this.sp_area,
+                "ItemCode",
+                "ItemDesc",
+                "OrderQty",
+                "Allocated QTY",
+                "PrepaDate Added",
+                "PrepaAdded By",
+                0,
+                this.sp_fox,
+                this.sp_route,
+                this.sp_area,
                 "bulk_proceed_preparation");
 
 
@@ -1185,17 +1100,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matViewItemPrepared.Enabled = false;
             this.matbtnSave.Visible = false;
             frmViewStoreItemPrepared addNew = new frmViewStoreItemPrepared(this,
-         this.sp_material_id,
-         this.mattxtScanTheBarcode.Text,
-         this.Sp_Material_Item_Description,
-         this.Sp_Unit_Of_Measure,
-         this.Sp_Converted_Qty,
-         this.sp_approved_preparation_date,
-          this.Sp_Qty_Serve,
-          this.sp_fox,
-          this.sp_route,
-          this.sp_area
-         );
+            this.sp_material_id,
+            this.mattxtScanTheBarcode.Text,
+            this.Sp_Material_Item_Description,
+            this.Sp_Unit_Of_Measure,
+            this.Sp_Converted_Qty,
+            this.sp_approved_preparation_date,
+            this.Sp_Qty_Serve,
+            this.sp_fox,
+            this.sp_route,
+            this.sp_area
+            );
             addNew.ShowDialog();
             //
            
@@ -1212,10 +1127,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //PartialReceivingAwaitResponse();
-        }
+      
 
         private void dgvStoreOrderApproval_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -1239,24 +1151,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.FormmLoadSearchState();
         }
 
-        private void materialButton2_Click(object sender, EventArgs e)
-        {
-            matcmbCategory.Enabled = true;
-        }
-
-        private void dgvStoreOrderApproval_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void mattxtScanTheBarcode_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void materialButton1_Click(object sender, EventArgs e)
-        {
-            matcmbCategory.Enabled = true;
-        }
-
-        private void materialButton1_Click_1(object sender, EventArgs e)
-        {
-            matcmbCategory.Enabled = true;
         }
     }
 }

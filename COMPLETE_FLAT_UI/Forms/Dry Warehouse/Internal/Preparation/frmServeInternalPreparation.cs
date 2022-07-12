@@ -640,7 +640,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     dSet.Clear();
                     dSet = objStorProc.sp_Internal_Preparation_Logs(
-                    0,
+                    Convert.ToInt32(Sp_Mris_ID),
                     this.Sp_RepackIncement.ToString(),
                     lstrAdate,
                     this.mattxtItemCode.Text,
@@ -650,7 +650,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     "", 
                     this.Sp_User_ID.ToString(),
                     Convert.ToInt32(this.Sp_Material_Id),
-                    this.Sp_Mris_ID, 
+                    this.Sp_Department_id.ToString(), 
                     this.sp_Route, 
                     this.sp_Category,
                     "update_internal_orders_total_state_repack");
@@ -685,14 +685,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     this.matTxtDescription.Text,
                     this.matTxtOrderQty.Text,
                     this.mattxtQtyServe.Text,
-                    "", this.Sp_User_ID.ToString(),
+                    "", 
+                    this.Sp_User_ID.ToString(),
                     Convert.ToInt32(this.Sp_Material_Id),
                       this.Sp_Mris_ID,
                       this.sp_Route,
                       this.sp_Category,
                     "update_internal_orders");
 
-            
+                    dSet.Clear();
+                    dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+                    this.Sp_Barcode_Id,
+                    this.Sp_Preparation_Date,
+                    this.mattxtItemCode.Text,
+                    this.matTxtDescription.Text,
+                    this.matTxtOrderQty.Text,
+                    this.mattxtQtyServe.Text,
+                    "",
+                    this.Sp_User_ID.ToString(),
+                    Convert.ToInt32(this.Sp_Material_Id),
+                      this.Sp_Mris_ID,
+                      this.sp_Route,
+                      this.sp_Category,
+                    "get_mrs_repacked");
+
+                    if (dSet.Tables[0].Rows.Count > 0)
+                    {
+                        //this.GlobalStatePopup.DataAlreadyExist();
+
+
+
+                        //this.txtMatItemCode.Focus();
+                        //return;
+                    }
+                    else
+                    {
+
+                        dSet.Clear();
+                        dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+                        this.Sp_Barcode_Id,
+                        this.Sp_Preparation_Date,
+                        this.mattxtItemCode.Text,
+                        this.matTxtDescription.Text,
+                        this.matTxtOrderQty.Text,
+                        this.mattxtQtyServe.Text,
+                        "",
+                        this.Sp_User_ID.ToString(),
+                        Convert.ToInt32(this.Sp_Material_Id),
+                          this.Sp_Mris_ID,
+                          this.sp_Route,
+                          this.sp_Category,
+                        "update_status_mrs_parent");
+                        //this.MetroSave();
+                    }
+
+
 
                     if (ActualQuantityReleased == 0)
                     {
@@ -764,7 +811,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         "", 
                         this.Sp_User_ID.ToString(),
                         Convert.ToInt32(this.Sp_Material_Id),
-                        this.Sp_Mris_ID, 
+                        this.Sp_Department_id.ToString(), 
                         this.Sp_Department_id.ToString(),
                         this.sp_Category,
                         "update_Internal_PreparationLogsTBL_DataRefactoring");

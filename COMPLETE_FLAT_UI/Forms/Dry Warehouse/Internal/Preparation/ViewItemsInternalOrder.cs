@@ -71,6 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.DataGridColumnDisabledEditing();
             this.SelectAllRecords();
             this.DataGridHideColumn();
+            //MessageBox.Show(this.ctrl_bind_mrs.ToString());
         }
 
 

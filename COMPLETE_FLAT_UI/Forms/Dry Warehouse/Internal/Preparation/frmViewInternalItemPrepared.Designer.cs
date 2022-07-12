@@ -104,7 +104,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.guna2DgvMaterialPreparation.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DgvMaterialPreparation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DgvMaterialPreparation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.guna2DgvMaterialPreparation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DgvMaterialPreparation.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.guna2DgvMaterialPreparation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DgvMaterialPreparation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -219,51 +219,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             // department_id
             // 
             this.department_id.DataPropertyName = "department_id";
-            this.department_id.Frozen = true;
             this.department_id.HeaderText = "DEPT_ID";
             this.department_id.Name = "department_id";
             this.department_id.ReadOnly = true;
-            this.department_id.Width = 96;
             // 
             // department_name
             // 
             this.department_name.DataPropertyName = "department_name";
-            this.department_name.Frozen = true;
             this.department_name.HeaderText = "DEPARTMENT";
             this.department_name.Name = "department_name";
             this.department_name.ReadOnly = true;
-            this.department_name.Width = 136;
             // 
             // item_code
             // 
             this.item_code.DataPropertyName = "item_code";
             this.item_code.FillWeight = 66.91177F;
-            this.item_code.Frozen = true;
             this.item_code.HeaderText = "ITEM CODE";
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            this.item_code.Width = 106;
             // 
             // description
             // 
             this.description.DataPropertyName = "description";
             this.description.FillWeight = 66.57212F;
-            this.description.Frozen = true;
             this.description.HeaderText = "DESCRIPTION";
             this.description.MinimumWidth = 12;
             this.description.Name = "description";
             this.description.ReadOnly = true;
-            this.description.Width = 134;
             // 
             // category
             // 
             this.category.DataPropertyName = "category";
-            this.category.Frozen = true;
             this.category.HeaderText = "CATEGORY";
             this.category.Name = "category";
             this.category.ReadOnly = true;
-            this.category.Width = 114;
             // 
             // uom
             // 
@@ -273,7 +263,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.uom.MinimumWidth = 12;
             this.uom.Name = "uom";
             this.uom.ReadOnly = true;
-            this.uom.Width = 69;
             // 
             // qty
             // 
@@ -283,7 +272,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.qty.MinimumWidth = 12;
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
-            this.qty.Width = 85;
             // 
             // converted_qty
             // 
@@ -292,7 +280,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.converted_qty.MinimumWidth = 6;
             this.converted_qty.Name = "converted_qty";
             this.converted_qty.ReadOnly = true;
-            this.converted_qty.Width = 142;
             // 
             // Serve_Qty
             // 
@@ -302,7 +289,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.Serve_Qty.MinimumWidth = 12;
             this.Serve_Qty.Name = "Serve_Qty";
             this.Serve_Qty.ReadOnly = true;
-            this.Serve_Qty.Width = 82;
             // 
             // Remaining_Qty
             // 
@@ -310,7 +296,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.Remaining_Qty.HeaderText = "REMAINING";
             this.Remaining_Qty.Name = "Remaining_Qty";
             this.Remaining_Qty.ReadOnly = true;
-            this.Remaining_Qty.Width = 118;
             // 
             // date_ordered_materials
             // 
@@ -318,7 +303,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.date_ordered_materials.HeaderText = "DATE ORDERED";
             this.date_ordered_materials.Name = "date_ordered_materials";
             this.date_ordered_materials.ReadOnly = true;
-            this.date_ordered_materials.Width = 135;
             // 
             // is_approved_preparation_date
             // 
@@ -326,7 +310,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.is_approved_preparation_date.HeaderText = "APPROVED DATE";
             this.is_approved_preparation_date.Name = "is_approved_preparation_date";
             this.is_approved_preparation_date.ReadOnly = true;
-            this.is_approved_preparation_date.Width = 144;
             // 
             // conversion
             // 
@@ -334,7 +317,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.conversion.HeaderText = "CONVERSION";
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
-            this.conversion.Width = 131;
             // 
             // Delete
             // 
@@ -344,7 +326,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.Delete.ReadOnly = true;
             this.Delete.Text = "DELETE";
             this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 72;
             // 
             // prepa_id
             // 
@@ -352,7 +333,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.prepa_id.HeaderText = "PREPA IDENTITY";
             this.prepa_id.Name = "prepa_id";
             this.prepa_id.ReadOnly = true;
-            this.prepa_id.Width = 141;
             // 
             // frmViewInternalItemPrepared
             // 

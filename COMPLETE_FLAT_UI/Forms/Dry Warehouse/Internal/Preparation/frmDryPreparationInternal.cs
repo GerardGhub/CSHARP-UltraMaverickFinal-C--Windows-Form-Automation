@@ -255,10 +255,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.sp_approved_preparation_date = lstrAdate;
 
 
-                        //Sample Lang
+                        //Sample Lang puki
                         dset2.Clear();
                         dset2 = objStorProc.sp_Internal_Preparation_Logs(0,
-                        this.sp_fox,
+                        this.Sp_department_id.ToString(),
                         this.sp_approved_preparation_date,
                         this.Sp_Category,
                         "",
@@ -277,10 +277,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         }
                         else
                         {
-                            //MessageBox.Show("B");
-                            dSet.Clear();
-                            dSet = objStorProc.sp_Internal_Preparation_Logs(0,
-                            this.sp_fox,
+                           
+                            this.dSet.Clear();
+                            this.dSet = objStorProc.sp_Internal_Preparation_Logs(
+                            0,
+                            this.Sp_department_id.ToString(),
                             this.sp_approved_preparation_date,
                             this.Sp_Category,
                             "",
@@ -425,7 +426,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Internal");
+            this.dset_emp_SearchEngines = 
+           objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Internal");
 
         }
 
@@ -446,18 +448,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     }
                     else if (myglobal.global_module == "Active")
                     {
-                        //if(this.cmbArea.Text == String.Empty)
-                        //{
-                        //    dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' ";
-
-                        //}
-                        //else
-                        //{
+                       
                 
                         dv.RowFilter = "is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  ";
 
 
-                        //and category = '" + this.matcmbCategory.Text + "'
+                 
                     }
 
                     this.guna2DgvMaterialPreparation.DataSource = dv;
@@ -686,8 +682,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 //Start of Validating the Received If if exist on the system  buje
                 dset2.Clear();
-                dset2 = objStorProc.sp_Internal_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), this.sp_approved_preparation_date,
-                   this.Sp_department, "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist_information_internal");
+                dset2 = objStorProc.sp_Internal_Preparation_Logs(
+                    Convert.ToInt32(this.mattxtScanTheBarcode.Text), 
+                    this.sp_approved_preparation_date,
+                    this.Sp_department, "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist_information_internal");
 
            
                 if (dset2.Tables[0].Rows.Count > 0)
@@ -1010,6 +1008,54 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
            this.Sp_mrs_req_desc
          );
             addNew.ShowDialog();
+        }
+
+        private void matbtnSave_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                dset3.Clear();
+                dset3 = objStorProc.sp_Internal_Preparation_Logs(
+               0,
+               this.cmbPreparationDate.Text,
+                this.sp_approved_preparation_date,
+                "ItemCode",
+                "ItemDesc",
+                "OrderQty",
+                "Allocated QTY",
+                "PrepaDate Added",
+                "PrepaAdded By",
+                0,
+                this.sp_fox,
+                this.sp_route,
+                this.sp_area,
+                "bulk_proceed_preparation");
+
+
+                this.GlobalStatePopup.CommittedSuccessFully();
+                this.frmDryPreparationInternal_Load(sender, e);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void lbltotaldata_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbltotaldata.Text == "0")
+            {
+                
+                this.cmbPreparationDate_SelectionChangeCommitted(sender, e);
+
+                if (this.lbltotalStoreforPreparation.Text == "0")
+                {
+                    this.frmDryPreparationInternal_Load(sender, e);
+                }
+
+                this.matbtnSave.Visible = false;
+
+            }
         }
     }
 }

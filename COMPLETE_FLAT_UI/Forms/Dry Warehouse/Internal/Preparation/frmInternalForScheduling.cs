@@ -531,7 +531,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
-            return;
+         
             this.showDataGridDataValueChanged();
         }
 
