@@ -492,7 +492,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 768);
+            this.ClientSize = new System.Drawing.Size(1014, 718);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.metroSave);

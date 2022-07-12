@@ -45,8 +45,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void frmAllocationModule_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
+           
             this.showRawMaterialsInDryWH();
-
+   
             this.CallInitializeComponent();
             this.DisposeControlsWhenDataIsNull();
         }
@@ -77,7 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 MessageBox.Show(ex.Message);
             }
             this.DataGridVisibleFalse();
-       ;
+    
         }
 
 
@@ -192,7 +193,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void txtItemCode_TextChanged(object sender, EventArgs e)
         {
             this.ConnectionInit();
+
             this.SearchMethodJarVarCallingSP();
+
             this.doSearchInTextBox();
             this.hideFindColumninDataGridViewer();
             this.SumofTotalOrderDataGridView();

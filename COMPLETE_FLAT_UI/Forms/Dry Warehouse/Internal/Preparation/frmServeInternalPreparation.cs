@@ -112,7 +112,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.doSearchInTextBoxCmbRecID();
             //DataGrid Visible False
             this.DataGridVisibilyFalse();
-            //MessageBox.Show(this.Sp_Preparation_Date);
+            //MessageBox.Show(this.Sp_Mris_ID);
         }
 
         private void DataGridVisibilyFalse()
@@ -464,7 +464,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.matTxtDescription.Text,
                 this.matTxtOrderQty.Text,
                 this.mattxtQtyServe.Text,
-                "", 
+                this.Sp_Mris_ID,  // additional fucking Column
                 this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
                 this.Sp_Department_id.ToString(), 
