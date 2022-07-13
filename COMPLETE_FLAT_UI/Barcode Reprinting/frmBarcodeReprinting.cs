@@ -218,7 +218,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
 
             rpt.Load(Rpt_Path + "\\DryReceivingBarcodeReprint.rpt");
-            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+            //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
 
 
@@ -237,9 +237,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             frmReport frmReport = new frmReport();
             frmReport.ShowDialog();
 
-            //frmReport frmReport = new frmReport();
-            //frmReport.MdiParent = this.MdiParent;
-            //frmReport.Show();
+
 
 
         }

@@ -1283,6 +1283,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-       
+        private void dgvStoreOrderApproval_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvStoreOrderApproval.ClearSelection();
+        }
     }
 }

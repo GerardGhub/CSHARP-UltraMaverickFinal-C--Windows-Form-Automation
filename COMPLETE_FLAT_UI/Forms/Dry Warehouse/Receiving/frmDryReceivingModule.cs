@@ -1094,12 +1094,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             PrintDialog printDialog = new PrintDialog();
             rpt.Load(Rpt_Path + "\\DryReceivingBarcode.rpt");
 
-            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
-            //MessageBox.Show(sp_final_id);
+            //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+
             rpt.Refresh();
             myglobal.DATE_REPORT2 = sp_final_id;
-            //string mystringid = myglobal.DATE_REPORT2;
-            //string mystringid = myglobal.DATE_REPORT2;
+
             rpt.SetParameterValue("@mystringid", sp_final_id);
 
 
@@ -1200,20 +1199,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             if (this.SP_ExpirationSetPoint < Convert.ToInt32(this.matdaysExpiry.Text))
             {
-                //MessageBox.Show("Inside!");
-        
+
 
                 this.pictureBoxExpiry.Visible = false;
-                //MessageBox.Show("A");
+      
 
             }
             else
             {
 
                 this.pictureBoxExpiry.Visible = true;
-                //MessageBox.Show("AB");
 
-                //MessageBox.Show("Outside" + this.SP_ExpirationSetPoint);
             }
         }
 

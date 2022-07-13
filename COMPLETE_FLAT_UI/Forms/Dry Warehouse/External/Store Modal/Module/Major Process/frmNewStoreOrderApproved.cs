@@ -1069,5 +1069,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 //MessageBox.Show("B");
             }
         }
+
+        private void dgvStoreOrderApproval_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            this.dgvStoreOrderApproval.ClearSelection();
+        }
     }
 }

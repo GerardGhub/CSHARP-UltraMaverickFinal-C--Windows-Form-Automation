@@ -83,21 +83,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
 
-            if (this.lbltotalStoreforPreparation.Text == "0")
-            {
+            //if (this.lbltotalStoreforPreparation.Text == "0")
+            //{
 
-            }
-            else
-            {
-                this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["department_id"].Visible = false;
+            //}
+            //else
+            //{
+            //    this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
+            //    this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
+            //    this.dgvStoreOrderApproval.Columns["department_id"].Visible = false;
 
-                this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
-                //this.dgvStoreOrderApproval.Columns["Count"].Visible = false;
-            }
+            //    this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
+            //    this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
+            //    this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
+        
+            //}
 
 
             //MessageBox.Show("" + this.Sp_AssigneD_Task_By);
@@ -122,6 +122,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         }
 
+        private void HideMasterTableMRS()
+        {
+            this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["department_id"].Visible = false;
+
+            this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
+            this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
+        }
 
         private void LoadWindowsExecution()
         {
@@ -131,7 +141,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void LoadStateVisibility()
         {
-            //Visibility
+
             this.gunaDgvReceivingFEFO.Visible = false;
             this.gunaDgvScanFinder.Visible = false;
         }
@@ -176,7 +186,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                         this.dgvStoreOrderApproval.DataSource = dv;
                         this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
-                        //End
+
+      
+                        this.HideMasterTableMRS();
+
+                
                     }
                     catch (Exception ex)
                     {
