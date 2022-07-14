@@ -449,43 +449,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.loadForScheduling();
             this.matcmbCategory_SelectionChangeCommitted(sender, e);
 
-            //if (this.matRadioForAllocation.Checked == false)
-            //{
-            //    this.matRadioForApproval.Checked = true;
-            //    loadForScheduling();
-            //}
-            //if (this.matRadioForAllocation.Checked == true)
-            //{
-            //    this.matRadioForAllocation.Checked = false;
-            //}
-
-            //matcmbCategory_SelectionChangeCommitted(sender,e);
-
-            //this.bunifuPrepaDate_ValueChanged(sender, e);
-
-
-            //Functionality Viewing of the Data Binding Source
-            //if (this.matRadioForAllocation.Checked == true)
-            //{
-            //    this.matRadioForApproval.Checked = true;
-            //    this.loadForScheduling();
-            //}
-            //else if (this.matRadioForAllocation.Checked == true)
-            //{
-            //    this.loadMRSDropdownForAllocation();
-            //}
-
-            //if (this.matRadioForApproval.Checked == true)
-            //{
-            //    this.matRadioForAllocation.Checked = false;
-            //    this.loadForScheduling();
-            //}
-            //else if (this.matRadioForAllocation.Checked == true)
-            //{
-            //    this.loadMRSDropdownForAllocation();
-            //}
-
-
         }
 
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)

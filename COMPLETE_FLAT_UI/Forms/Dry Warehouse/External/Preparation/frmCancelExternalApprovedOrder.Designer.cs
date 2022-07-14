@@ -1,7 +1,7 @@
 ﻿
-namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
+namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
 {
-    partial class frmCancelInternalApprovedOrder
+    partial class frmCancelExternalApprovedOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -41,10 +41,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(359, 62);
+            this.textBox1.Location = new System.Drawing.Point(351, 43);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 603;
+            this.textBox1.TabIndex = 605;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -78,7 +78,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matBtnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matBtnSave.UseAccentColor = false;
             this.matBtnSave.UseVisualStyleBackColor = true;
-            this.matBtnSave.Click += new System.EventHandler(this.matBtnSave_Click);
             // 
             // cboReason
             // 
@@ -100,28 +99,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialCard1.Controls.Add(this.cboReason);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(23, 84);
+            this.materialCard1.Location = new System.Drawing.Point(15, 71);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(555, 199);
-            this.materialCard1.TabIndex = 604;
+            this.materialCard1.TabIndex = 606;
             // 
-            // frmCancelInternalApprovedOrder
+            // frmCancelExternalApprovedOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 306);
+            this.ClientSize = new System.Drawing.Size(585, 281);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmCancelInternalApprovedOrder";
+            this.Name = "frmCancelExternalApprovedOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cancel Internal Approved Order";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCancelInternalApprovedOrder_FormClosing);
-            this.Load += new System.EventHandler(this.frmCancelInternalApprovedOrder_Load);
+            this.Text = "Cancel External Approved Order";
+            this.Load += new System.EventHandler(this.frmCancelExternalApprovedOrder_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.ResumeLayout(false);

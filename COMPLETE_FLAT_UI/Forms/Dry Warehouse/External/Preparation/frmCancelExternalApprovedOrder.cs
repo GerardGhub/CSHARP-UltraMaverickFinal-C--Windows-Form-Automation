@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal;
 using ULTRAMAVERICK.Models;
 
-namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
+namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
 {
-    public partial class frmCancelInternalApprovedOrder : MaterialForm
+    public partial class frmCancelExternalApprovedOrder : MaterialForm
     {
-        ViewApprovedItemsInternalOrder ths;
+        frmStoreOrderforApproval ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         myclasses xClass = new myclasses();
@@ -22,35 +23,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int validate = 0;
-        public frmCancelInternalApprovedOrder(ViewApprovedItemsInternalOrder frm , string buttonActions)
+        public frmCancelExternalApprovedOrder(frmStoreOrderforApproval frm, string buttonActions)
         {
             InitializeComponent();
             ths = frm;
             SpButtonActions = buttonActions;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
         }
-
         public string SpButtonActions { get; set; }
-
-        private void frmCancelInternalApprovedOrder_Load(object sender, EventArgs e)
+        private void frmCancelExternalApprovedOrder_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
- 
+
             this.ClearTextboxesState();
             this.SpButtonActions = SpButtonActions;
-     
         }
+
 
         private void ClearTextboxesState()
         {
             this.textBox1.Text = String.Empty;
             this.cboReason.Items.Clear();
         }
-
         public void loadRemarksDropdownForCancel()
         {
 
-            this.myClass.fillComboBoxDepartment(this.cboReason, 
+            this.myClass.fillComboBoxDepartment(this.cboReason,
             "internal_order_activation_remarks_activated_minor_typecancel", dSet);
 
 
@@ -73,44 +71,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
         }
 
-
-
-
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ths.textBox2.Text = textBox1.Text;
-        }
-
-        private void matBtnSave_Click(object sender, EventArgs e)
-        {
-            if (this.cboReason.Text == String.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                this.cboReason.Focus();
-                return;
-            }
-
-            if (MetroFramework.MetroMessageBox.Show(this, "Cancel the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                this.validate = 1;
-                this.textBox1.Text = this.cboReason.Text;
-                this.Close();
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        private void frmCancelInternalApprovedOrder_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(this.validate == 1)
-            {
-                this.textBox1.Text = this.cboReason.Text;
-            }
-
-   
+            ths.textBox1.Text = textBox1.Text;
         }
 
         private void cboReason_Click(object sender, EventArgs e)
@@ -123,8 +86,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.loadRemarksDropdownForCancel();
             }
-
-     
         }
     }
 }

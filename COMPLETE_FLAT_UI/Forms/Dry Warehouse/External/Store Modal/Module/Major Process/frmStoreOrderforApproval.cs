@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Major_Process.Class_Form;
 using ULTRAMAVERICK.Models;
@@ -120,7 +121,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.bunifuPrepaDate.Enabled = false;
                 this.matcmbCategory.Enabled = false;
-                this.matbtnPrint.Visible = false;
+                this.matbtnApprove.Visible = false;
+                this.matbtnCancel.Visible = false;
             }
             else
             {
@@ -129,11 +131,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 if(num != 0)
                 {
-                    this.matbtnPrint.Visible = true;
+                    this.matbtnApprove.Visible = true;
+                    this.matbtnCancel.Visible = true;
                 }
                 else
                 {
-                    this.matbtnPrint.Visible = false;
+                    this.matbtnApprove.Visible = false;
+                    this.matbtnCancel.Visible = false;
                 }
          
                 
@@ -189,7 +193,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["StockOnHand"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
@@ -558,7 +561,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.materialCheckboxSelectAll.Visible = false;
                 this.labelSelectedSum.Visible = false;
                 this.matbtnEdit.Visible = false;
-                this.matbtnPrint.Visible = false;
+                this.matbtnApprove.Visible = false;
+                this.matbtnCancel.Visible = false;
                 this.bunifuPrepaDate.Enabled = false;
             }
             else
@@ -642,7 +646,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if(this.num == 1)
             {
-                this.matbtnPrint.Visible = true;
+                this.matbtnApprove.Visible = true;
+                this.matbtnCancel.Visible = true;
                 this.matbtnEdit.Visible = true;
             }
             else
@@ -1003,15 +1008,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (this.labelSelectedSum.Text == "0")
             {
-                this.matbtnPrint.Visible = false;
+                this.matbtnApprove.Visible = false;
+                this.matbtnCancel.Visible = false;
             }
             else if(num == 0)
             {
-                this.matbtnPrint.Visible = false;
+                this.matbtnApprove.Visible = false;
+                this.matbtnCancel.Visible = false;
             }
             else
             {
-                this.matbtnPrint.Visible = true;
+                this.matbtnApprove.Visible = true;
+                this.matbtnCancel.Visible = true;
             }
         }
         private void labelSelectedSum_TextChanged(object sender, EventArgs e)
@@ -1024,7 +1032,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             //Visibility Controls
             this.matbtnEdit.Visible = false;
-            this.matbtnPrint.Visible = false;
+            this.matbtnApprove.Visible = false;
+            this.matbtnCancel.Visible = false;
          
 
 
@@ -1299,6 +1308,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void dgvStoreOrderApproval_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvStoreOrderApproval.ClearSelection();
+        }
+
+        private void matbtnCancel_Click(object sender, EventArgs e)
+        {
+            frmCancelExternalApprovedOrder FormCancelOrderRemarks = new frmCancelExternalApprovedOrder(this, this.matbtnCancel.Text);
+            FormCancelOrderRemarks.ShowDialog();
         }
     }
 }

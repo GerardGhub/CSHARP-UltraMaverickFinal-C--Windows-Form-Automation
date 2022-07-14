@@ -186,6 +186,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                         this.txtitemDescription.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
                         this.txtCategory.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["sub_category"].Value.ToString();
                         this.txtSoh.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["StockOnHand"].Value.ToString();
+                        this.txtReserve.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["RESERVED"].Value.ToString();
                     }
                 }
             }
@@ -298,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
 
             //Allocation Validation if < 0 of the quantity
-            if(this.txtSoh.Text == "0")
+            if(this.txtReserve.Text == "0")
             {
                 this.GlobalStatePopup.NotEnoughStock();
                 return;
@@ -362,7 +363,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     }
                         this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     ////For Decrementation
-                    this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+                    this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
                     return;
                 }
@@ -402,7 +403,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void SenderTextChangedValue()
         {
             txtItemCode_TextChanged(new object(), new System.EventArgs());
-            txtSoh_TextChanged(new object(), new System.EventArgs());
+            txtReserve_TextChanged(new object(), new System.EventArgs());
         }
         private void InsertDataPerRow()
         {
@@ -450,7 +451,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
  
             orderActual = double.Parse(this.FormClass.sp_qty_finder);
             totalOrderQuantity = double.Parse(this.txtQtyOrder.Text);
-            StockOnHandQty = double.Parse(this.txtSoh.Text);
+            StockOnHandQty = double.Parse(this.txtReserve.Text);
             totalPercentage = orderActual / totalOrderQuantity * StockOnHandQty;
             this.lblAllocatedQty.Text = totalPercentage.ToString();
 
@@ -494,29 +495,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void txtSoh_TextChanged(object sender, EventArgs e)
         {
-            if(this.txtSoh.Text == this.lblqtyAllocatedFinal.Text)
-            {
-                this.matBtnSave.Enabled = false;
-            }
-            else
-            {
-                this.matBtnSave.Enabled = true;
-            }
+            //if(this.txtSoh.Text == this.lblqtyAllocatedFinal.Text)
+            //{
+            //    this.matBtnSave.Enabled = false;
+            //}
+            //else
+            //{
+            //    this.matBtnSave.Enabled = true;
+            //}
 
-            if (this.FormClass.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
-            {
+            //if (this.FormClass.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
+            //{
      
-            }
-            else
+            //}
+            //else
 
-            {
-                this.matBtnSave.Enabled = true;
-            }
-            if(this.txtSoh.Text == "0")
-            {
-                //this.matBtnSave.Enabled = false;
-                //AutoAllocate
-            }
+            //{
+            //    this.matBtnSave.Enabled = true;
+            //}
+            //if(this.txtSoh.Text == "0")
+            //{
+            //    //this.matBtnSave.Enabled = false;
+            //    //AutoAllocate
+            //}
         
     
 
@@ -637,7 +638,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matbtnManualAllocation.Visible = false;
             this.matbtnNewAllocate.Visible = false;
             frmManualAllocationController ManualAllocation =
-             new frmManualAllocationController(this, this.p_id, Convert.ToInt32(this.txtSoh.Text), this.FormClass.Sp_Store_Name, 
+             new frmManualAllocationController(this, this.p_id, Convert.ToInt32(this.txtReserve.Text), this.FormClass.Sp_Store_Name, 
              this.FormClass.Allocated_Quantity, Convert.ToInt32(this.lblqtyAllocatedFinal.Text), this.txtItemCode.Text, this.txtitemDescription.Text, 
              this.FormClass.UnitOfMeasure, Convert.ToInt32(this.FormClass.sp_qty_finder)
              );
@@ -832,7 +833,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             double StockOnHand;
             double AllocatedQty;
 
-            StockOnHand = double.Parse(this.txtSoh.Text);
+            StockOnHand = double.Parse(this.txtReserve.Text);
             AllocatedQty = double.Parse(this.lblqtyAllocatedFinal.Text);
 
 
@@ -983,18 +984,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
 
-
-            
-
-
-
-
                 this.SumofTotalAllocatedDataGridView();
 
                     this.showDataGridDataValueChangedFinder();
 
                     ////For Decrementation
-                    this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+                    this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
    
 
             }
@@ -1005,21 +1000,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 MessageBox.Show(ex.Message);
             }
-
-            //int sleepTime = 500; // in mills
-            //Task.Delay(sleepTime).Wait();
-            //// or
-            //Thread.Sleep(sleepTime);
-            //MessageBox.Show("s");
-            //int sum = 0;
-            //for (int i = 0; i < dgvFindStoreOrders.Rows.Count; ++i)
-            //{
-            //    sum += Convert.ToInt32(dgvFindStoreOrders.Rows[i].Cells["ALLOCATION_QTY_FIND"].Value);
-            //}
-            //this.label1.Text = sum.ToString();
-            //////For Decrementation
-            //this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
-
 
         }
 
@@ -1083,13 +1063,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.showDataGridDataValueChangedFinder();
 
             ////For Decrementation
-            this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+            this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
         }
 
         private void dgvStoreOrderApproval_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.dgvStoreOrderApproval.ClearSelection();
+        }
+
+        private void txtReserve_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtReserve.Text == this.lblqtyAllocatedFinal.Text)
+            {
+                this.matBtnSave.Enabled = false;
+            }
+            else
+            {
+                this.matBtnSave.Enabled = true;
+            }
+
+            if (this.FormClass.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
+            {
+
+            }
+            else
+
+            {
+                this.matBtnSave.Enabled = true;
+            }
+            if (this.txtReserve.Text == "0")
+            {
+                //this.matBtnSave.Enabled = false;
+                //AutoAllocate
+            }
         }
 
         ///
