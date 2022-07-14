@@ -56,7 +56,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void VisibilityFalseDataGrid()
         {
-           
+            if (this.lbltotaldata.Text != "0")
+            {
                 this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
@@ -64,7 +65,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
-           
+            }
 
 
         }
@@ -181,7 +182,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-                    this.VisibilityFalseDataGrid();
+
                     //gerard
                 }
             }
@@ -448,7 +449,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.loadForScheduling();
             this.matcmbCategory_SelectionChangeCommitted(sender, e);
 
- 
+            //if (this.matRadioForAllocation.Checked == false)
+            //{
+            //    this.matRadioForApproval.Checked = true;
+            //    loadForScheduling();
+            //}
+            //if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.matRadioForAllocation.Checked = false;
+            //}
+
+            //matcmbCategory_SelectionChangeCommitted(sender,e);
+
+            //this.bunifuPrepaDate_ValueChanged(sender, e);
+
+
+            //Functionality Viewing of the Data Binding Source
+            //if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.matRadioForApproval.Checked = true;
+            //    this.loadForScheduling();
+            //}
+            //else if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.loadMRSDropdownForAllocation();
+            //}
+
+            //if (this.matRadioForApproval.Checked == true)
+            //{
+            //    this.matRadioForAllocation.Checked = false;
+            //    this.loadForScheduling();
+            //}
+            //else if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.loadMRSDropdownForAllocation();
+            //}
+
 
         }
 

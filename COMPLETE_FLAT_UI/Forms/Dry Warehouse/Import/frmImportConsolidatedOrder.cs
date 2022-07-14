@@ -56,20 +56,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public string sp_qty { get; set; }
         private void frmImportConsolidatedOrder_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.dry_wh_orders' table. You can move, or remove it, as needed.
+
             this.dry_wh_ordersTableAdapter.Fill(this.ultraMaverickDBDataSet.dry_wh_orders);
           
             
             objStorProc = xClass.g_objStoredProc.GetCollections();
-            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.tbl_stores' table. You can move, or remove it, as needed.
-            //Remove muna eto
-            //////this.tbl_storesTableAdapter.Fill(this.ultraMaverickDBDataSet.tbl_stores);
-
-            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Project_Po_Summary' table. You can move, or remove it, as needed.
-            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
-            //// TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Raw_Materials_Dry' table. You can move, or remove it, as needed.
-            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
-            dgvRawMats.Columns[0].Width = 100;// The id column 
+      
+            this.dgvRawMats.Columns[0].Width = 100;// The id column 
             this.CallOthers();
         }
         private void CallOthers()

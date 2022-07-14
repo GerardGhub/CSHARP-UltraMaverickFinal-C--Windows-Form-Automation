@@ -113,6 +113,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void hideFindColumninDataGridViewer()
         {
+            this.dgvFindStoreOrders.Columns["selected2"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["order_id"].Visible = false;
             this.dgvFindStoreOrders.Columns["fox"].Visible = false;
             this.dgvFindStoreOrders.Columns["area_find"].Visible = false;
@@ -749,79 +750,79 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
-            {
-                if (Convert.ToDouble(row.Cells["DAYSTOEXPIRED"].Value) < Convert.ToDouble(row.Cells["p_nearly_expiry_desc"].Value) && Convert.ToString(row.Cells["is_expirable"].Value) == "1")
-                {
-                    // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
+            //foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
+            //{
+            //    if (Convert.ToDouble(row.Cells["DAYSTOEXPIRED"].Value) < Convert.ToDouble(row.Cells["p_nearly_expiry_desc"].Value) && Convert.ToString(row.Cells["is_expirable"].Value) == "1")
+            //    {
+            //        // row.DefaultCellStyle.BackColor = Color.LightSalmon; // Use it in order to colorize all cells of the row
 
-                    row.Cells["item_code"].Style.BackColor = Color.Crimson;
-                    row.Cells["description"].Style.BackColor = Color.Crimson;
-                    row.Cells["sub_category"].Style.BackColor = Color.Crimson;
-                    row.Cells["ORDERS"].Style.BackColor = Color.Crimson;
-                    row.Cells["StockOnHand"].Style.BackColor = Color.Crimson;
-                    row.Cells["Allocation_qty"].Style.BackColor = Color.Crimson;
-                    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.Crimson;
-
-
-
-
-
-                    row.Cells["item_code"].Style.SelectionBackColor = Color.DarkSlateGray;
-                    row.Cells["description"].Style.SelectionBackColor = Color.Crimson;
-                    row.Cells["sub_category"].Style.SelectionBackColor = Color.Crimson;
-                    row.Cells["ORDERS"].Style.SelectionBackColor = Color.Crimson;
-                    row.Cells["StockOnHand"].Style.SelectionBackColor = Color.Crimson;
-                    row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.Crimson;
-                    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.Crimson;
+            //        row.Cells["item_code"].Style.BackColor = Color.Crimson;
+            //        row.Cells["description"].Style.BackColor = Color.Crimson;
+            //        row.Cells["sub_category"].Style.BackColor = Color.Crimson;
+            //        row.Cells["ORDERS"].Style.BackColor = Color.Crimson;
+            //        row.Cells["StockOnHand"].Style.BackColor = Color.Crimson;
+            //        row.Cells["Allocation_qty"].Style.BackColor = Color.Crimson;
+            //        row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.Crimson;
 
 
 
 
 
-                    row.Cells["item_code"].Style.SelectionForeColor = Color.White;
-                    row.Cells["description"].Style.SelectionForeColor = Color.White;
-                    row.Cells["sub_category"].Style.SelectionForeColor = Color.White;
-                    row.Cells["ORDERS"].Style.SelectionForeColor = Color.White;
-                    row.Cells["StockOnHand"].Style.SelectionForeColor = Color.White;
-                    row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.White;
-                    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
-                }
+            //        row.Cells["item_code"].Style.SelectionBackColor = Color.DarkSlateGray;
+            //        row.Cells["description"].Style.SelectionBackColor = Color.Crimson;
+            //        row.Cells["sub_category"].Style.SelectionBackColor = Color.Crimson;
+            //        row.Cells["ORDERS"].Style.SelectionBackColor = Color.Crimson;
+            //        row.Cells["StockOnHand"].Style.SelectionBackColor = Color.Crimson;
+            //        row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.Crimson;
+            //        row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.Crimson;
+
+
+
+
+
+            //        row.Cells["item_code"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["description"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["sub_category"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["ORDERS"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["StockOnHand"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
+            //    }
 
              
 
-                else
-                {
+            //    else
+            //    {
 
-                    row.Cells["item_code"].Style.BackColor = Color.White;
-                    row.Cells["description"].Style.BackColor = Color.White;
-                    row.Cells["sub_category"].Style.BackColor = Color.White;
-                    row.Cells["ORDERS"].Style.BackColor = Color.White;
-                    row.Cells["StockOnHand"].Style.BackColor = Color.White;
-                    row.Cells["Allocation_qty"].Style.BackColor = Color.White;
-                    row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.White;
-
-
+            //        row.Cells["item_code"].Style.BackColor = Color.White;
+            //        row.Cells["description"].Style.BackColor = Color.White;
+            //        row.Cells["sub_category"].Style.BackColor = Color.White;
+            //        row.Cells["ORDERS"].Style.BackColor = Color.White;
+            //        row.Cells["StockOnHand"].Style.BackColor = Color.White;
+            //        row.Cells["Allocation_qty"].Style.BackColor = Color.White;
+            //        row.Cells["DAYSTOEXPIRED"].Style.BackColor = Color.White;
 
 
-                    row.Cells["item_code"].Style.SelectionBackColor = Color.DarkSlateGray;
-                    row.Cells["description"].Style.SelectionBackColor = Color.DarkSlateGray;
-                    row.Cells["sub_category"].Style.SelectionBackColor = Color.DarkSlateGray;
-                    row.Cells["ORDERS"].Style.SelectionBackColor = Color.DarkSlateGray;
-                    row.Cells["StockOnHand"].Style.SelectionBackColor = Color.DarkSlateGray;
-                    row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.DarkSlateGray;
-                    row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.DarkSlateGray;
 
 
-                    row.Cells["item_code"].Style.SelectionForeColor = Color.White;
-                    row.Cells["description"].Style.SelectionForeColor = Color.White;
-                    row.Cells["sub_category"].Style.SelectionForeColor = Color.White;
-                    row.Cells["ORDERS"].Style.SelectionForeColor = Color.White;
-                    row.Cells["StockOnHand"].Style.SelectionForeColor = Color.White;
-                    row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.White;
-                    row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
-                }
-            }
+            //        row.Cells["item_code"].Style.SelectionBackColor = Color.DarkSlateGray;
+            //        row.Cells["description"].Style.SelectionBackColor = Color.DarkSlateGray;
+            //        row.Cells["sub_category"].Style.SelectionBackColor = Color.DarkSlateGray;
+            //        row.Cells["ORDERS"].Style.SelectionBackColor = Color.DarkSlateGray;
+            //        row.Cells["StockOnHand"].Style.SelectionBackColor = Color.DarkSlateGray;
+            //        row.Cells["Allocation_qty"].Style.SelectionBackColor = Color.DarkSlateGray;
+            //        row.Cells["DAYSTOEXPIRED"].Style.SelectionBackColor = Color.DarkSlateGray;
+
+
+            //        row.Cells["item_code"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["description"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["sub_category"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["ORDERS"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["StockOnHand"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["Allocation_qty"].Style.SelectionForeColor = Color.White;
+            //        row.Cells["DAYSTOEXPIRED"].Style.SelectionForeColor = Color.White;
+            //    }
+            //}
         }
 
         private void lblqtyAllocatedFinal_TextChanged(object sender, EventArgs e)
@@ -1084,6 +1085,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             ////For Decrementation
             this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
+        }
+
+        private void dgvStoreOrderApproval_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            this.dgvStoreOrderApproval.ClearSelection();
         }
 
         ///

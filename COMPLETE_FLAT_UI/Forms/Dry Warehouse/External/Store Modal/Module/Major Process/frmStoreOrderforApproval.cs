@@ -563,7 +563,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                this.materialCheckboxSelectAll.Visible = true;
+                if(this.matRadioForAllocation.Checked == true)
+                {
+                    this.materialCheckboxSelectAll.Visible = false;
+                    this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
+                    this.lblAllocationRemarks.Visible = true;
+                }
+                else
+                {
+                    this.materialCheckboxSelectAll.Visible = true;
+                    this.dgvStoreOrderApproval.Columns["selected"].Visible = true;
+                    this.lblAllocationRemarks.Visible = false;
+                }
+           
                 this.matcmbCategory.Enabled = true;
 
                 if (this.matRadioForAllocation.Checked == true)
@@ -1175,10 +1187,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
-           
+            
            if(this.matRadioForApproval.Checked == true)
             {
                 this.matRadioForAllocation.Checked = true;
+
             }
             this.ConnectionOpen();
 
@@ -1207,7 +1220,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (this.matRadioForAllocation.Checked == true)
             {
                 this.matRadioForAllocation.Checked = false;
-
+       
                 //this.matRadioForApproval.Checked = true;
             }
             this.ConnectionOpen();

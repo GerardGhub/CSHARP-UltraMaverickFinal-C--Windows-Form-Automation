@@ -84,6 +84,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAllocationRemarks = new System.Windows.Forms.Label();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
@@ -785,11 +786,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.panel1.Size = new System.Drawing.Size(39, 29);
             this.panel1.TabIndex = 0;
             // 
+            // lblAllocationRemarks
+            // 
+            this.lblAllocationRemarks.AutoSize = true;
+            this.lblAllocationRemarks.ForeColor = System.Drawing.Color.Red;
+            this.lblAllocationRemarks.Location = new System.Drawing.Point(25, 701);
+            this.lblAllocationRemarks.Name = "lblAllocationRemarks";
+            this.lblAllocationRemarks.Size = new System.Drawing.Size(163, 13);
+            this.lblAllocationRemarks.TabIndex = 645;
+            this.lblAllocationRemarks.Text = "Allocate the order first to proceed";
+            this.lblAllocationRemarks.Visible = false;
+            // 
             // frmStoreOrderforApproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 768);
+            this.Controls.Add(this.lblAllocationRemarks);
             this.Controls.Add(this.groupColorCoding);
             this.Controls.Add(this.dgvFindDataForAlocation);
             this.Controls.Add(this.materialCheckboxSelectAll);
@@ -868,5 +881,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialRadioButton matRadioForAllocation;
         private MetroFramework.Controls.MetroComboBox cmbArea;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.Label lblAllocationRemarks;
     }
 }
