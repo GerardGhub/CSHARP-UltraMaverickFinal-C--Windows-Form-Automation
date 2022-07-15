@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Models;
 
-namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
+namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocation_Process
 {
-    public partial class frmCancelExternalApprovedOrder : MaterialForm
+    public partial class frmCancelAllocationOrder : MaterialForm
     {
-        frmStoreOrderforApproval ths;
+        frmAllocationModule ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         myclasses xClass = new myclasses();
@@ -23,7 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
         IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int validate = 0;
-        public frmCancelExternalApprovedOrder(frmStoreOrderforApproval frm, string buttonActions)
+        public frmCancelAllocationOrder(frmAllocationModule frm, string buttonActions)
         {
             InitializeComponent();
             ths = frm;
@@ -31,14 +31,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
         }
         public string SpButtonActions { get; set; }
-        private void frmCancelExternalApprovedOrder_Load(object sender, EventArgs e)
+
+        private void frmCancelAllocationOrder_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
 
             this.ClearTextboxesState();
             this.SpButtonActions = SpButtonActions;
         }
-
 
         private void ClearTextboxesState()
         {
@@ -72,18 +72,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
             ths.textBox2Cancel.Text = textBox1.Text;
         }
 
-        private void cboReason_Click(object sender, EventArgs e)
-        {
-            if (this.SpButtonActions == "RETURN")
-            {
-                this.loadRemarksDropdownForReturn();
-            }
-            else
-            {
-                this.loadRemarksDropdownForCancel();
-            }
-        }
-
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             if (this.cboReason.Text == String.Empty)
@@ -101,20 +89,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
             }
             else
             {
-         
-                    ths.textBox2Cancel.Text = String.Empty;
-            
+
+                ths.textBox2Cancel.Text = String.Empty;
+
                 return;
             }
         }
 
-        private void frmCancelExternalApprovedOrder_FormClosing(object sender, FormClosingEventArgs e)
+        private void cboReason_Click(object sender, EventArgs e)
+        {
+            if (this.SpButtonActions == "RETURN")
+            {
+                this.loadRemarksDropdownForReturn();
+            }
+            else
+            {
+                this.loadRemarksDropdownForCancel();
+            }
+        }
+
+        private void frmCancelAllocationOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.cboReason.Text == String.Empty)
             {
                 ths.textBox2Cancel.Text = String.Empty;
             }
-
         }
     }
 }

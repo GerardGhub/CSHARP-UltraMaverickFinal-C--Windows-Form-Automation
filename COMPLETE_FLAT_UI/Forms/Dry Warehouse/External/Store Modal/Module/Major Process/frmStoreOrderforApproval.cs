@@ -36,7 +36,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         //Variable Declaration
         int p_id = 0;
-
+        string value = "0";
 
         string Rpt_Path = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
@@ -146,7 +146,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             if(lbltotaldata.Text == "0")
             {
-                //MessageBox.Show("sdsds");
+            
             }
             else
             {
@@ -190,6 +190,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (this.lbltotaldata.Text != "0")
             {
+                if(this.MatRadioBtnInactive.Checked == true)
+                {
+                    this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
+                    this.dgvStoreOrderApproval.Columns["is_cancelled"].Visible = false;
+
+                    this.dgvStoreOrderApproval.Columns["is_cancelled_by"].Visible = true;
+                    this.dgvStoreOrderApproval.Columns["is_cancelled_date"].Visible = true;
+                    this.dgvStoreOrderApproval.Columns["is_cancelled_reason"].Visible = true;
+                }
+                else
+                {
+                    this.dgvStoreOrderApproval.Columns["is_cancelled_by"].Visible = false;
+                    this.dgvStoreOrderApproval.Columns["is_cancelled_date"].Visible = false;
+                    this.dgvStoreOrderApproval.Columns["is_cancelled_reason"].Visible = false;
+                }
+
+               
                 this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
@@ -420,6 +437,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dset_emp1.Tables.Count > 0)
                 {
                     DataView dv = new DataView(this.dset_emp1.Tables[0]);
+
+                
                     if (myglobal.global_module == "GERARD SINGIAN")
                     {
 
@@ -686,7 +705,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         }
                         else
                         {
-                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
+
 
                         }
                     }
@@ -716,7 +735,58 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-     
+        private void CancelFunctionality()
+        {
+
+
+            for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
+            {
+                try
+                {
+                    if (dgvStoreOrderApproval.CurrentRow != null)
+                    {
+
+                        if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
+                        {
+                            this.dgvStoreOrderApproval.CurrentCell = 
+                            this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), 
+                            "CancelStoreOrderApprovalIndividual", 
+                            this.textBox2Cancel.Text, 
+                            this.FormClass.sp_user_id.ToString(), 1);
+
+                        }
+                        else
+                        {
+
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                 
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+
+            this.GlobalStatePopup.CancelledSuccessfully();
+            this.materialCheckboxSelectAll.Checked = false;
+            this.labelSelectedSum.Visible = false;
+
+
+            this.num = 0;
+            this.matbtnEdit.Visible = false;
+            this.textBox2Cancel.Text = String.Empty;
+            this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
+
+        }
+
+
+
+
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
             //Code for Approval on The Preparation Date 
@@ -753,20 +823,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (dset2.Tables[0].Rows.Count > 0)
                 {
 
-                    //MessageBox.Show(dSet.Tables.Count.ToString());
-                    //Update Status Already Repack
+            
                     dSet.Clear();
-                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                   this.matcmbCategory.Text,
+                    dSet = objStorProc.sp_Store_Preparation_Logs(
+                    0,
+                    this.matcmbCategory.Text,
                     this.bunifuPrepaDate.Text,
                     "", "", "", "", "", "", 0,
-                      this.matcmbCategory.Text, "", "",
+                    this.matcmbCategory.Text, "", "",
                     "check_if_already_prepared_conflict_category");
 
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
-                        //Data Set for Validation
-                        //Validate that Partial tagging is allowed on the fucking system
+ 
                         dSetCategoryPartialValidation.Clear();
                         dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
                        this.matcmbCategory.Text,
@@ -785,9 +854,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             if (dSet.Tables[0].Rows.Count.ToString() == "3")
                             {
 
-                                //MessageBox.Show(dSet.Tables.Count.ToString());
+  
                                 this.GlobalStatePopup.TripleTaggingCategoryInformation();
-                                //MessageBox.Show(dSet.Tables.Count.ToString() + "3500 Category");
+
                                 this.DoubleTaggingFound();
                                 return;
                             }
@@ -801,12 +870,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             if (dSet.Tables[0].Rows.Count.ToString() == "3")
                         {
 
-                            //MessageBox.Show(dSet.Tables.Count.ToString());
+
                             this.GlobalStatePopup.TripleTaggingCategoryInformation();
                             this.DoubleTaggingFound();
                             return;
                         }
-                        //Remove the Current Validation
+
 
                     }
 
@@ -1110,71 +1179,80 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
+
+            if (this.MatRadioBtnInactive.Checked == true)
             {
-                if (Convert.ToDouble(row.Cells["ORDERS"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value))
+                return;
+            }
+          else
+            {
+
+
+                foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
                 {
-                    if (this.matRadioForAllocation.Checked == true)
+                    if (Convert.ToDouble(row.Cells["ORDERS"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value))
                     {
-                        row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
-                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
-                        row.Cells["qty"].Style.BackColor = Color.DarkOrange;
-                    }
-                }
-                else
-                {
-                    row.Cells["qty"].Style.BackColor = Color.White;
-                }
-
-
-                if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
-                {
-        
-                    row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
-                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["qty"].Style.BackColor = Color.Crimson;
-                }
-
-
-                if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
-                {
-             
-                    row.Cells["qty"].Style.BackColor = Color.White;
-                }
-
-                if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
-                {
-               
-                    row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
-                    row.Cells["qty"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["qty"].Style.BackColor = Color.Crimson;
-                }
-
-
-                if (Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value) != 0)
-                {
-               
-                    if (this.matRadioForAllocation.Checked == true)
-                    {
-
-                   
-
-                        if (Convert.ToDouble(row.Cells["ORDERS"].Value) == Convert.ToDouble(row.Cells["TOTAL_COLUMN_ALLOCATED_QTY"].Value))
-                        {
-
-                            row.Cells["qty"].Style.BackColor = Color.White;
-                        }
-                        else
+                        if (this.matRadioForAllocation.Checked == true)
                         {
                             row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
                             row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                             row.Cells["qty"].Style.BackColor = Color.DarkOrange;
                         }
                     }
+                    else
+                    {
+                        row.Cells["qty"].Style.BackColor = Color.White;
+                    }
+
+
+                    if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
+                    {
+
+                        row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
+                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
+                        row.Cells["qty"].Style.BackColor = Color.Crimson;
+                    }
+
+
+                    if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value))
+                    {
+
+                        row.Cells["qty"].Style.BackColor = Color.White;
+                    }
+
+                    if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
+                    {
+
+                        row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
+                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
+                        row.Cells["qty"].Style.BackColor = Color.Crimson;
+                    }
+
+
+                    if (Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value) != 0)
+                    {
+
+                        if (this.matRadioForAllocation.Checked == true)
+                        {
+
+
+
+                            if (Convert.ToDouble(row.Cells["ORDERS"].Value) == Convert.ToDouble(row.Cells["TOTAL_COLUMN_ALLOCATED_QTY"].Value))
+                            {
+
+                                row.Cells["qty"].Style.BackColor = Color.White;
+                            }
+                            else
+                            {
+                                row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                                row.Cells["qty"].Style.SelectionForeColor = Color.Black;
+                                row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                            }
+                        }
+
+                    }
 
                 }
-
-
 
 
             }
@@ -1230,7 +1308,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.matRadioForAllocation.Checked = false;
        
-                //this.matRadioForApproval.Checked = true;
+  
             }
             this.ConnectionOpen();
 
@@ -1314,6 +1392,82 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             frmCancelExternalApprovedOrder FormCancelOrderRemarks = new frmCancelExternalApprovedOrder(this, this.matbtnCancel.Text);
             FormCancelOrderRemarks.ShowDialog();
+        }
+
+        private void textBox2Cancel_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox2Cancel.Text == String.Empty)
+            {
+               
+            }
+            else
+            {
+                this.CancelFunctionality();
+            }
+
+        }
+
+        private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+    
+                this.ConnectionOpen();
+
+
+                this.SearchInactiveMaterial();
+                this.VisibilityFalseDataGrid();
+
+
+        }
+
+        private void SearchInactiveMaterial()
+        {
+
+                try
+                {
+
+                    xClass.fillDataGridView(this.dgvStoreOrderApproval, "SearchorderForApprovalinDryWHCancel", dSet);
+
+                this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+               
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.ConnectionOpen();
+
+
+            this.SearchInactiveMaterial();
+            this.VisibilityFalseDataGrid();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void matRadioForAllocation_Click(object sender, EventArgs e)
+        {
+            this.matRadioForAllocation_CheckedChanged(sender, e);
+        }
+
+        private void matRadioForApproval_Click(object sender, EventArgs e)
+        {
+            this.matRadioForApproval_CheckedChanged(sender, e);
+        }
+
+        private void MatRadioBtnInactive_Click(object sender, EventArgs e)
+        {
+            this.materialRadioButton1_CheckedChanged(sender, e);
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocation_Process;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Allocation_Process.Class;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
@@ -32,7 +34,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         DateTime dNow = DateTime.Now;
         //Boolean ready = false;
 
-
+        int user_identity = 0;
         DataSet dSet_temp = new DataSet();
         public frmAllocationModule()
         {
@@ -55,6 +57,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void CallInitializeComponent()
         {
             this.FormClass.user_id = userinfo.user_id;
+            this.user_identity = userinfo.user_id;
         }
 
         private void ConnectionInit()
@@ -152,6 +155,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     }
                    this.dgvFindStoreOrders.DataSource = dv;
                     this.lbltotalStoreOrder.Text = this.dgvFindStoreOrders.RowCount.ToString();
+                    if(this.lbltotalStoreOrder.Text != "0")
+                    {
+                        this.lbltotalStoreOrder.Visible = true;
+                    }
+                    else
+                    {
+                        this.lbltotalStoreOrder.Visible = false;
+                    }
                     this.txtTotalStore.Text = this.dgvFindStoreOrders.RowCount.ToString();
                 }
             }
@@ -1096,6 +1107,74 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 //this.matBtnSave.Enabled = false;
                 //AutoAllocate
+            }
+        }
+
+
+        public void CancelRawMaterials()
+        {
+          
+            dSet = g_objStoredProcCollection.sp_IDGenerator(
+            int.Parse(this.p_id.ToString()),
+            "CancelStoreOrderApprovalIndividual",
+            this.textBox2Cancel.Text.Trim(),
+            this.user_identity.ToString(), 1);
+        }
+        private void dgvFindStoreOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvFindStoreOrders.Columns[e.ColumnIndex].Name == "CANCEL")
+            {
+                frmCancelAllocationOrder FormCancelOrderRemarks = 
+                new frmCancelAllocationOrder(this, "CANCEL");
+                FormCancelOrderRemarks.ShowDialog();
+
+                //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                //{
+
+
+
+
+
+
+                //}
+                //else
+                //{
+                //    return;
+                //}
+            }
+        }
+
+        private void CancelFunctionality()
+        {
+
+            dSet = g_objStoredProcCollection.sp_IDGenerator(
+            int.Parse(this.p_id.ToString()),
+            "CancelStoreOrderApprovalIndividual",
+            this.textBox2Cancel.Text.Trim(),
+            this.user_identity.ToString(), 1);
+        }
+        private void textBox2Cancel_TextChanged(object sender, EventArgs e)
+        {
+
+         
+            if (textBox2Cancel.Text == String.Empty)
+            {
+               
+            }
+            else
+            {
+                this.CancelFunctionality();
+                this.txtItemCode_TextChanged(sender, e);
+                //this.textBox2Cancel.Text = String.Empty;
+                this.GlobalStatePopup.CancelledSuccessfully();
+            }
+        }
+
+        private void lbltotalStoreOrder_TextChanged_1(object sender, EventArgs e)
+        {
+            if (this.lbltotalStoreOrder.Text == "0")
+            {
+                this.frmAllocationModule_Load(sender, e);
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿
-namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
+namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocation_Process
 {
-    partial class frmCancelExternalApprovedOrder
+    partial class frmCancelAllocationOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -41,10 +41,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(351, 43);
+            this.textBox1.Location = new System.Drawing.Point(351, 44);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 605;
+            this.textBox1.TabIndex = 607;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -100,15 +100,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
             this.materialCard1.Controls.Add(this.cboReason);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(15, 71);
+            this.materialCard1.Location = new System.Drawing.Point(15, 72);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(555, 199);
-            this.materialCard1.TabIndex = 606;
+            this.materialCard1.TabIndex = 608;
             // 
-            // frmCancelExternalApprovedOrder
+            // frmCancelAllocationOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,11 +117,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmCancelExternalApprovedOrder";
+            this.Name = "frmCancelAllocationOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cancel External Approved Order";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCancelExternalApprovedOrder_FormClosing);
-            this.Load += new System.EventHandler(this.frmCancelExternalApprovedOrder_Load);
+            this.Text = "Cancel Allocation Approved Order";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCancelAllocationOrder_FormClosing);
+            this.Load += new System.EventHandler(this.frmCancelAllocationOrder_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.ResumeLayout(false);

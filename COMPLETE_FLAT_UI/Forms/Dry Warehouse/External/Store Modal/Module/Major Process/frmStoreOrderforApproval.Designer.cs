@@ -29,15 +29,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.cmbArea = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -66,6 +66,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAllocationRemarks = new System.Windows.Forms.Label();
+            this.matbtnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.MatRadioBtnInactive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.textBox2Cancel = new System.Windows.Forms.TextBox();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +89,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ORDERS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_COLUMN_ALLOCATED_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matbtnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.is_cancelled_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_cancelled_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_cancelled_reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
@@ -145,16 +150,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.MatRadioBtnInactive);
             this.materialCard3.Controls.Add(this.matRadioForApproval);
             this.materialCard3.Controls.Add(this.matRadioForAllocation);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(833, 12);
+            this.materialCard3.Location = new System.Drawing.Point(740, 12);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(320, 59);
+            this.materialCard3.Size = new System.Drawing.Size(413, 59);
             this.materialCard3.TabIndex = 645;
             // 
             // matRadioForApproval
@@ -162,7 +168,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioForApproval.AutoSize = true;
             this.matRadioForApproval.Depth = 0;
             this.matRadioForApproval.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matRadioForApproval.Location = new System.Drawing.Point(10, 14);
+            this.matRadioForApproval.Location = new System.Drawing.Point(5, 14);
             this.matRadioForApproval.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioForApproval.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioForApproval.MouseState = MaterialSkin.MouseState.HOVER;
@@ -174,13 +180,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioForApproval.Text = "For Scheduling";
             this.matRadioForApproval.UseVisualStyleBackColor = true;
             this.matRadioForApproval.CheckedChanged += new System.EventHandler(this.matRadioForApproval_CheckedChanged);
+            this.matRadioForApproval.Click += new System.EventHandler(this.matRadioForApproval_Click);
             // 
             // matRadioForAllocation
             // 
             this.matRadioForAllocation.AutoSize = true;
             this.matRadioForAllocation.Depth = 0;
             this.matRadioForAllocation.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matRadioForAllocation.Location = new System.Drawing.Point(166, 14);
+            this.matRadioForAllocation.Location = new System.Drawing.Point(153, 14);
             this.matRadioForAllocation.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioForAllocation.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioForAllocation.MouseState = MaterialSkin.MouseState.HOVER;
@@ -192,6 +199,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioForAllocation.Text = "For Allocation";
             this.matRadioForAllocation.UseVisualStyleBackColor = true;
             this.matRadioForAllocation.CheckedChanged += new System.EventHandler(this.matRadioForAllocation_CheckedChanged);
+            this.matRadioForAllocation.Click += new System.EventHandler(this.matRadioForAllocation_Click);
             // 
             // materialLabel5
             // 
@@ -309,20 +317,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.AllowUserToAddRows = false;
             this.dgvStoreOrderApproval.AllowUserToDeleteRows = false;
             this.dgvStoreOrderApproval.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle46;
             this.dgvStoreOrderApproval.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvStoreOrderApproval.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvStoreOrderApproval.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStoreOrderApproval.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
             this.dgvStoreOrderApproval.ColumnHeadersHeight = 45;
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -345,29 +353,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.AVERAGE_ORDER,
             this.ORDERS,
             this.TOTAL_COLUMN_ALLOCATED_QTY,
-            this.date_added});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle13;
+            this.date_added,
+            this.is_cancelled_by,
+            this.is_cancelled_date,
+            this.is_cancelled_reason});
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle49.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle49;
             this.dgvStoreOrderApproval.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStoreOrderApproval.EnableHeadersVisualStyles = false;
             this.dgvStoreOrderApproval.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvStoreOrderApproval.Location = new System.Drawing.Point(5, 6);
             this.dgvStoreOrderApproval.MultiSelect = false;
             this.dgvStoreOrderApproval.Name = "dgvStoreOrderApproval";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle50;
             this.dgvStoreOrderApproval.RowHeadersVisible = false;
             this.dgvStoreOrderApproval.RowHeadersWidth = 102;
             this.dgvStoreOrderApproval.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -488,7 +499,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(430, 730);
+            this.textBox1.Location = new System.Drawing.Point(436, 710);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 643;
@@ -501,44 +512,44 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvFindDataForAlocation.AllowUserToAddRows = false;
             this.dgvFindDataForAlocation.AllowUserToDeleteRows = false;
             this.dgvFindDataForAlocation.AllowUserToResizeRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            this.dgvFindDataForAlocation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle51.BackColor = System.Drawing.Color.White;
+            this.dgvFindDataForAlocation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle51;
             this.dgvFindDataForAlocation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFindDataForAlocation.BackgroundColor = System.Drawing.Color.Yellow;
             this.dgvFindDataForAlocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFindDataForAlocation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFindDataForAlocation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFindDataForAlocation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
             this.dgvFindDataForAlocation.ColumnHeadersHeight = 35;
             this.dgvFindDataForAlocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFindDataForAlocation.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle53.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFindDataForAlocation.DefaultCellStyle = dataGridViewCellStyle53;
             this.dgvFindDataForAlocation.EnableHeadersVisualStyles = false;
             this.dgvFindDataForAlocation.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvFindDataForAlocation.Location = new System.Drawing.Point(335, 710);
             this.dgvFindDataForAlocation.MultiSelect = false;
             this.dgvFindDataForAlocation.Name = "dgvFindDataForAlocation";
             this.dgvFindDataForAlocation.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFindDataForAlocation.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle54.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFindDataForAlocation.RowHeadersDefaultCellStyle = dataGridViewCellStyle54;
             this.dgvFindDataForAlocation.RowHeadersVisible = false;
             this.dgvFindDataForAlocation.RowHeadersWidth = 102;
             this.dgvFindDataForAlocation.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -632,13 +643,64 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // lblAllocationRemarks
             // 
             this.lblAllocationRemarks.AutoSize = true;
+            this.lblAllocationRemarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAllocationRemarks.ForeColor = System.Drawing.Color.Red;
             this.lblAllocationRemarks.Location = new System.Drawing.Point(25, 701);
             this.lblAllocationRemarks.Name = "lblAllocationRemarks";
-            this.lblAllocationRemarks.Size = new System.Drawing.Size(163, 13);
+            this.lblAllocationRemarks.Size = new System.Drawing.Size(244, 20);
             this.lblAllocationRemarks.TabIndex = 645;
             this.lblAllocationRemarks.Text = "Allocate the order first to proceed";
             this.lblAllocationRemarks.Visible = false;
+            // 
+            // matbtnCancel
+            // 
+            this.matbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnCancel.Depth = 0;
+            this.matbtnCancel.DrawShadows = true;
+            this.matbtnCancel.HighEmphasis = true;
+            this.matbtnCancel.Icon = null;
+            this.matbtnCancel.Location = new System.Drawing.Point(118, 720);
+            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnCancel.Name = "matbtnCancel";
+            this.matbtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.matbtnCancel.TabIndex = 646;
+            this.matbtnCancel.Text = "CANCEL";
+            this.matbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnCancel.UseAccentColor = false;
+            this.matbtnCancel.UseVisualStyleBackColor = true;
+            this.matbtnCancel.Click += new System.EventHandler(this.matbtnCancel_Click);
+            // 
+            // MatRadioBtnInactive
+            // 
+            this.MatRadioBtnInactive.AutoSize = true;
+            this.MatRadioBtnInactive.Depth = 0;
+            this.MatRadioBtnInactive.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatRadioBtnInactive.Location = new System.Drawing.Point(296, 13);
+            this.MatRadioBtnInactive.Margin = new System.Windows.Forms.Padding(0);
+            this.MatRadioBtnInactive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.MatRadioBtnInactive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatRadioBtnInactive.Name = "MatRadioBtnInactive";
+            this.MatRadioBtnInactive.Ripple = true;
+            this.MatRadioBtnInactive.Size = new System.Drawing.Size(104, 37);
+            this.MatRadioBtnInactive.TabIndex = 599;
+            this.MatRadioBtnInactive.TabStop = true;
+            this.MatRadioBtnInactive.Text = "Cancelled";
+            this.MatRadioBtnInactive.UseVisualStyleBackColor = true;
+            this.MatRadioBtnInactive.CheckedChanged += new System.EventHandler(this.materialRadioButton1_CheckedChanged);
+            this.MatRadioBtnInactive.Click += new System.EventHandler(this.MatRadioBtnInactive_Click);
+            // 
+            // textBox2Cancel
+            // 
+            this.textBox2Cancel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2Cancel.Location = new System.Drawing.Point(436, 737);
+            this.textBox2Cancel.Name = "textBox2Cancel";
+            this.textBox2Cancel.Size = new System.Drawing.Size(145, 20);
+            this.textBox2Cancel.TabIndex = 647;
+            this.textBox2Cancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2Cancel.Visible = false;
+            this.textBox2Cancel.TextChanged += new System.EventHandler(this.textBox2Cancel_TextChanged);
             // 
             // selected
             // 
@@ -778,9 +840,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // AVERAGE_ORDER
             // 
             this.AVERAGE_ORDER.DataPropertyName = "AVERAGE_ORDER";
-            dataGridViewCellStyle12.Format = "N0";
-            dataGridViewCellStyle12.NullValue = null;
-            this.AVERAGE_ORDER.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle48.Format = "N0";
+            dataGridViewCellStyle48.NullValue = null;
+            this.AVERAGE_ORDER.DefaultCellStyle = dataGridViewCellStyle48;
             this.AVERAGE_ORDER.HeaderText = "AVERAGE ORDER";
             this.AVERAGE_ORDER.Name = "AVERAGE_ORDER";
             this.AVERAGE_ORDER.Width = 143;
@@ -807,30 +869,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.date_added.Name = "date_added";
             this.date_added.Width = 118;
             // 
-            // matbtnCancel
+            // is_cancelled_by
             // 
-            this.matbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnCancel.Depth = 0;
-            this.matbtnCancel.DrawShadows = true;
-            this.matbtnCancel.HighEmphasis = true;
-            this.matbtnCancel.Icon = null;
-            this.matbtnCancel.Location = new System.Drawing.Point(118, 720);
-            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnCancel.Name = "matbtnCancel";
-            this.matbtnCancel.Size = new System.Drawing.Size(87, 36);
-            this.matbtnCancel.TabIndex = 646;
-            this.matbtnCancel.Text = "CANCEL";
-            this.matbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnCancel.UseAccentColor = false;
-            this.matbtnCancel.UseVisualStyleBackColor = true;
-            this.matbtnCancel.Click += new System.EventHandler(this.matbtnCancel_Click);
+            this.is_cancelled_by.DataPropertyName = "is_cancelled_by";
+            this.is_cancelled_by.HeaderText = "CANCELLED BY";
+            this.is_cancelled_by.Name = "is_cancelled_by";
+            this.is_cancelled_by.Width = 133;
+            // 
+            // is_cancelled_date
+            // 
+            this.is_cancelled_date.DataPropertyName = "is_cancelled_date";
+            this.is_cancelled_date.HeaderText = "CANCELLED DATE";
+            this.is_cancelled_date.Name = "is_cancelled_date";
+            this.is_cancelled_date.Width = 150;
+            // 
+            // is_cancelled_reason
+            // 
+            this.is_cancelled_reason.DataPropertyName = "is_cancelled_reason";
+            this.is_cancelled_reason.HeaderText = "REASON";
+            this.is_cancelled_reason.Name = "is_cancelled_reason";
+            this.is_cancelled_reason.Width = 95;
             // 
             // frmStoreOrderforApproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 768);
+            this.Controls.Add(this.textBox2Cancel);
             this.Controls.Add(this.matbtnCancel);
             this.Controls.Add(this.lblAllocationRemarks);
             this.Controls.Add(this.groupColorCoding);
@@ -893,6 +958,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MetroFramework.Controls.MetroComboBox cmbArea;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.Label lblAllocationRemarks;
+        private MaterialSkin.Controls.MaterialButton matbtnCancel;
+        private MaterialSkin.Controls.MaterialRadioButton MatRadioBtnInactive;
+        public System.Windows.Forms.TextBox textBox2Cancel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn primary_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
@@ -913,6 +981,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn ORDERS;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_COLUMN_ALLOCATED_QTY;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
-        private MaterialSkin.Controls.MaterialButton matbtnCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_cancelled_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_cancelled_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_cancelled_reason;
     }
 }
