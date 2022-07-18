@@ -44,6 +44,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
        
+       
 
         private void frmAllocationModule_Load(object sender, EventArgs e)
         {
@@ -120,7 +121,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["selected2"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["order_id"].Visible = false;
             this.dgvFindStoreOrders.Columns["fox"].Visible = false;
-            this.dgvFindStoreOrders.Columns["area_find"].Visible = false;
+            this.dgvFindStoreOrders.Columns["DgvBtnDispossal"].Visible = false;
+            this.dgvFindStoreOrders.Columns["area"].Visible = false;
             this.dgvFindStoreOrders.Columns["category"].Visible = false;
             this.dgvFindStoreOrders.Columns["date_added"].Visible = false;
             this.dgvFindStoreOrders.Columns["route"].Visible = false;
