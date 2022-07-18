@@ -199,6 +199,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.dgvStoreOrderApproval.Columns["is_cancelled_date"].Visible = true;
                     this.dgvStoreOrderApproval.Columns["is_cancelled_reason"].Visible = true;
                 }
+            
                 else
                 {
                     this.dgvStoreOrderApproval.Columns["is_cancelled_by"].Visible = false;
@@ -587,6 +588,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 if(this.matRadioForAllocation.Checked == true)
+                {
+                    this.materialCheckboxSelectAll.Visible = false;
+                    this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
+                    this.lblAllocationRemarks.Visible = true;
+                }
+                else if (this.MatRadioBtnInactive.Checked == true)
                 {
                     this.materialCheckboxSelectAll.Visible = false;
                     this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
@@ -1296,7 +1303,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.loadCategoryDropdownForAllocation();
             }
             this.matcmbPackaging_SelectionChangeCommitted(sender, e);
-            //this.frmStoreOrderforApproval_Load(sender, e);
+    
         }
 
 
