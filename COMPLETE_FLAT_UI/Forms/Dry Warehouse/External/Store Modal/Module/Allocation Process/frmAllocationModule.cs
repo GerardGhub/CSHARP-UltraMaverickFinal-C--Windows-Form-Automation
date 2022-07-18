@@ -118,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void hideFindColumninDataGridViewer()
         {
-            this.dgvFindStoreOrders.Columns["selected2"].ReadOnly = true;
+            //this.dgvFindStoreOrders.Columns["selected2"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["order_id"].Visible = false;
             this.dgvFindStoreOrders.Columns["fox"].Visible = false;
             this.dgvFindStoreOrders.Columns["DgvBtnDispossal"].Visible = false;
@@ -225,6 +225,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.SelectAllCheckBoxOnDataGrid();
             }
 
+
+            this.dgvFindStoreOrders.Columns["selected2"].Visible = false;
 
         }
         private void DisposeControlsWhenDataIsNull()
@@ -588,7 +590,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["uom"].Style.BackColor = Color.DarkOrange;
                     row.Cells["qty"].Style.BackColor = Color.DarkOrange;
                     row.Cells["date_ordered"].Style.BackColor = Color.DarkOrange;
-                    row.Cells["selected2"].Style.BackColor = Color.DarkOrange;
+                    //row.Cells["selected2"].Style.BackColor = Color.DarkOrange;
 
 
                     row.Cells["store_name"].Style.SelectionBackColor = Color.DarkOrange;
@@ -620,7 +622,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["uom"].Style.BackColor = Color.Yellow;
                     row.Cells["qty"].Style.BackColor = Color.Yellow;
                     row.Cells["date_ordered"].Style.BackColor = Color.Yellow;
-                    row.Cells["selected2"].Style.BackColor = Color.Yellow;
+                    //row.Cells["selected2"].Style.BackColor = Color.Yellow;
 
 
 
@@ -1070,15 +1072,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void dgvFindStoreOrders_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
+            if (this.lbltotaldata.Text == "0")
+            {
 
+            }
+            else
+            {
+     
 
-            this.SumofTotalAllocatedDataGridView();
+                this.SumofTotalAllocatedDataGridView();
+     
 
-            this.showDataGridDataValueChangedFinder();
+                this.showDataGridDataValueChangedFinder();
 
-            ////For Decrementation
-            this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+                ////For Decrementation Singkit
+                this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
+            }
+      
         }
 
         private void dgvStoreOrderApproval_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
