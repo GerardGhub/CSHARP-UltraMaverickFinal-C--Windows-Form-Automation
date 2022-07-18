@@ -83,7 +83,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 MessageBox.Show(ex.Message);
             }
             this.DataGridVisibleFalse();
-    
+
         }
 
 
@@ -120,6 +120,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
             //this.dgvFindStoreOrders.Columns["selected2"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["order_id"].Visible = false;
+            //this.dgvFindStoreOrders.Columns["item_code"].Visible = false;
             this.dgvFindStoreOrders.Columns["fox"].Visible = false;
             this.dgvFindStoreOrders.Columns["DgvBtnDispossal"].Visible = false;
             this.dgvFindStoreOrders.Columns["area"].Visible = false;
@@ -128,7 +129,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["route"].Visible = false;
             this.dgvFindStoreOrders.Columns["primary_id"].Visible = false;
             this.dgvFindStoreOrders.Columns["total_row"].Visible = false;
-            this.dgvFindStoreOrders.Columns["description_find"].Visible = false;
+            //this.dgvFindStoreOrders.Columns["description_find"].Visible = false;
         }
 
 
@@ -222,12 +223,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             else
             {
-                this.SelectAllCheckBoxOnDataGrid();
+                //this.SelectAllCheckBoxOnDataGrid(); //remove muna
             }
 
 
-            this.dgvFindStoreOrders.Columns["selected2"].Visible = false;
+            ////this.dgvFindStoreOrders.Columns["selected2"].Visible = false;
+            //this.dgvFindStoreOrders.Columns["item_code_find"].Visible = false;
+            this.DatagridWidth();
+        }
 
+        private void DatagridWidth()
+        {
+            this.dgvFindStoreOrders.Columns["ALLOCATION_QTY_FIND"].Width = 80;
         }
         private void DisposeControlsWhenDataIsNull()
         {
@@ -268,7 +275,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void AllocationDataGridReadOnly()
         {
             this.dgvFindStoreOrders.Columns["store_name"].ReadOnly = true;
-            this.dgvFindStoreOrders.Columns["description_find"].ReadOnly = true;
+            //this.dgvFindStoreOrders.Columns["description_find"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["item_code_find"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["uom"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["qty"].ReadOnly = true;
@@ -586,27 +593,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.WhiteSmoke;
                     row.Cells["item_code_find"].Style.BackColor = Color.DarkOrange;
                     row.Cells["store_name"].Style.BackColor = Color.DarkOrange;
-                    row.Cells["description_find"].Style.BackColor = Color.DarkOrange;
+                    //row.Cells["description_find"].Style.BackColor = Color.DarkOrange;
                     row.Cells["uom"].Style.BackColor = Color.DarkOrange;
                     row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                    //row.Cells["date_ordered"].Style.BackColor = Color.DarkOrange;
                     row.Cells["date_ordered"].Style.BackColor = Color.DarkOrange;
-                    //row.Cells["selected2"].Style.BackColor = Color.DarkOrange;
 
 
                     row.Cells["store_name"].Style.SelectionBackColor = Color.DarkOrange;
                     row.Cells["item_code_find"].Style.SelectionBackColor = Color.DarkOrange;
-                    row.Cells["description_find"].Style.SelectionBackColor = Color.DarkOrange;
+                    //row.Cells["description_find"].Style.SelectionBackColor = Color.DarkOrange;
                     row.Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
-                    row.Cells["date_ordered"].Style.SelectionBackColor = Color.DarkOrange;
+                    //row.Cells["date_ordered"].Style.SelectionBackColor = Color.DarkOrange;
                     row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionBackColor = Color.WhiteSmoke;
                     row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
 
 
                     row.Cells["store_name"].Style.SelectionForeColor = Color.Black;
                     row.Cells["item_code_find"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
+                    //row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
                     row.Cells["uom"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["date_ordered"].Style.SelectionForeColor = Color.White;
                     row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Red;
                     row.Cells["ALLOCATION_QTY_FIND"].Style.ForeColor = Color.Red;
                     row.Cells["ALLOCATION_QTY_FIND"].Style.Font = new Font("Roboto", 10, FontStyle.Bold);
@@ -618,11 +625,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["ALLOCATION_QTY_FIND"].Style.BackColor = Color.Yellow;
                     row.Cells["item_code_find"].Style.BackColor = Color.Yellow;
                     row.Cells["store_name"].Style.BackColor = Color.Yellow;
-                    row.Cells["description_find"].Style.BackColor = Color.Yellow;
+                    //row.Cells["description_find"].Style.BackColor = Color.Yellow;
                     row.Cells["uom"].Style.BackColor = Color.Yellow;
                     row.Cells["qty"].Style.BackColor = Color.Yellow;
                     row.Cells["date_ordered"].Style.BackColor = Color.Yellow;
-                    //row.Cells["selected2"].Style.BackColor = Color.Yellow;
+                    row.Cells["date_ordered"].Style.BackColor = Color.Yellow;
 
 
 
@@ -636,8 +643,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
                     row.Cells["store_name"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["item_code_find"].Style.SelectionForeColor = Color.Black;
-                    row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
+                    //row.Cells["item_code_find"].Style.SelectionForeColor = Color.Black;
+                    //row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
                     row.Cells["uom"].Style.SelectionForeColor = Color.Black;
                     row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
                     row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Crimson;

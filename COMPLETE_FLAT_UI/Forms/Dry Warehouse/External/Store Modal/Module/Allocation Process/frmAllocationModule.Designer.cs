@@ -29,15 +29,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.txtReserve = new MaterialSkin.Controls.MaterialTextBox();
             this.txtSoh = new MaterialSkin.Controls.MaterialTextBox();
@@ -48,17 +48,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOnHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RESERVED = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDERS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Allocation_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_nearly_expiry_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_expirable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matCardFindAllocation = new MaterialSkin.Controls.MaterialCard();
             this.dgvFindStoreOrders = new Guna.UI2.WinForms.Guna2DataGridView();
             this.lbltotaldata = new System.Windows.Forms.Label();
@@ -80,12 +69,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.lblvariance = new System.Windows.Forms.Label();
             this.lblvariancedesc = new System.Windows.Forms.Label();
             this.textBox2Cancel = new System.Windows.Forms.TextBox();
-            this.selected2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOnHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RESERVED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORDERS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Allocation_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_nearly_expiry_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_expirable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code_find = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description_find = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ALLOCATION_QTY_FIND = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -253,20 +251,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvStoreOrderApproval.AllowUserToAddRows = false;
             this.dgvStoreOrderApproval.AllowUserToDeleteRows = false;
             this.dgvStoreOrderApproval.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrderApproval.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStoreOrderApproval.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvStoreOrderApproval.BackgroundColor = System.Drawing.Color.White;
             this.dgvStoreOrderApproval.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStoreOrderApproval.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStoreOrderApproval.ColumnHeadersHeight = 45;
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -281,14 +279,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.DAYSTOEXPIRED,
             this.p_nearly_expiry_desc,
             this.is_expirable});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStoreOrderApproval.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStoreOrderApproval.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStoreOrderApproval.EnableHeadersVisualStyles = false;
             this.dgvStoreOrderApproval.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -296,14 +294,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvStoreOrderApproval.MultiSelect = false;
             this.dgvStoreOrderApproval.Name = "dgvStoreOrderApproval";
             this.dgvStoreOrderApproval.ReadOnly = true;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrderApproval.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStoreOrderApproval.RowHeadersVisible = false;
             this.dgvStoreOrderApproval.RowHeadersWidth = 102;
             this.dgvStoreOrderApproval.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -339,111 +337,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvStoreOrderApproval.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStoreOrderApproval_DataBindingComplete);
             this.dgvStoreOrderApproval.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvStoreOrderApproval_RowPostPaint);
             // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.HeaderText = "SELECTED";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.ReadOnly = true;
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            this.selected.Width = 90;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 66.57212F;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 104;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.FillWeight = 66.57212F;
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 12;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.Width = 132;
-            // 
-            // sub_category
-            // 
-            this.sub_category.DataPropertyName = "sub_category";
-            this.sub_category.FillWeight = 66.57212F;
-            this.sub_category.HeaderText = "CATEGORY";
-            this.sub_category.MinimumWidth = 12;
-            this.sub_category.Name = "sub_category";
-            this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 112;
-            // 
-            // StockOnHand
-            // 
-            this.StockOnHand.DataPropertyName = "StockOnHand";
-            this.StockOnHand.HeaderText = "SOH";
-            this.StockOnHand.MinimumWidth = 6;
-            this.StockOnHand.Name = "StockOnHand";
-            this.StockOnHand.ReadOnly = true;
-            this.StockOnHand.Width = 64;
-            // 
-            // RESERVED
-            // 
-            this.RESERVED.DataPropertyName = "RESERVED";
-            this.RESERVED.HeaderText = "RESERVED";
-            this.RESERVED.MinimumWidth = 6;
-            this.RESERVED.Name = "RESERVED";
-            this.RESERVED.ReadOnly = true;
-            this.RESERVED.Width = 110;
-            // 
-            // ORDERS
-            // 
-            this.ORDERS.DataPropertyName = "ORDERS";
-            this.ORDERS.HeaderText = "ORDER";
-            this.ORDERS.MinimumWidth = 6;
-            this.ORDERS.Name = "ORDERS";
-            this.ORDERS.ReadOnly = true;
-            this.ORDERS.Width = 83;
-            // 
-            // Allocation_qty
-            // 
-            this.Allocation_qty.DataPropertyName = "Allocation_qty";
-            this.Allocation_qty.HeaderText = "ALLOCATED QTY";
-            this.Allocation_qty.MinimumWidth = 6;
-            this.Allocation_qty.Name = "Allocation_qty";
-            this.Allocation_qty.ReadOnly = true;
-            this.Allocation_qty.Width = 140;
-            // 
-            // DAYSTOEXPIRED
-            // 
-            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
-            this.DAYSTOEXPIRED.MinimumWidth = 6;
-            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.ReadOnly = true;
-            this.DAYSTOEXPIRED.Width = 149;
-            // 
-            // p_nearly_expiry_desc
-            // 
-            this.p_nearly_expiry_desc.DataPropertyName = "p_nearly_expiry_desc";
-            this.p_nearly_expiry_desc.HeaderText = "EXPIRY DAYS SET UP";
-            this.p_nearly_expiry_desc.MinimumWidth = 6;
-            this.p_nearly_expiry_desc.Name = "p_nearly_expiry_desc";
-            this.p_nearly_expiry_desc.ReadOnly = true;
-            this.p_nearly_expiry_desc.Width = 151;
-            // 
-            // is_expirable
-            // 
-            this.is_expirable.DataPropertyName = "is_expirable";
-            this.is_expirable.HeaderText = "IS EXPIRABLE";
-            this.is_expirable.MinimumWidth = 6;
-            this.is_expirable.Name = "is_expirable";
-            this.is_expirable.ReadOnly = true;
-            this.is_expirable.Width = 120;
-            // 
             // matCardFindAllocation
             // 
             this.matCardFindAllocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -463,56 +356,54 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.AllowUserToAddRows = false;
             this.dgvFindStoreOrders.AllowUserToDeleteRows = false;
             this.dgvFindStoreOrders.AllowUserToResizeRows = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            this.dgvFindStoreOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvFindStoreOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFindStoreOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvFindStoreOrders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvFindStoreOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFindStoreOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFindStoreOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFindStoreOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFindStoreOrders.ColumnHeadersHeight = 45;
             this.dgvFindStoreOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvFindStoreOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selected2,
             this.date_ordered,
             this.primary_id,
             this.store_name,
             this.item_code_find,
-            this.description_find,
             this.uom,
             this.qty,
             this.ALLOCATION_QTY_FIND,
             this.DgvBtnDispossal,
             this.CANCEL});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFindStoreOrders.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFindStoreOrders.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvFindStoreOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFindStoreOrders.EnableHeadersVisualStyles = false;
             this.dgvFindStoreOrders.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvFindStoreOrders.Location = new System.Drawing.Point(14, 14);
             this.dgvFindStoreOrders.MultiSelect = false;
             this.dgvFindStoreOrders.Name = "dgvFindStoreOrders";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFindStoreOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFindStoreOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvFindStoreOrders.RowHeadersVisible = false;
             this.dgvFindStoreOrders.RowHeadersWidth = 102;
             this.dgvFindStoreOrders.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -808,13 +699,112 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.textBox2Cancel.Visible = false;
             this.textBox2Cancel.TextChanged += new System.EventHandler(this.textBox2Cancel_TextChanged);
             // 
-            // selected2
+            // selected
             // 
-            this.selected2.DataPropertyName = "selected2";
-            this.selected2.HeaderText = "*";
-            this.selected2.MinimumWidth = 6;
-            this.selected2.Name = "selected2";
-            this.selected2.Width = 22;
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.Frozen = true;
+            this.selected.HeaderText = "SELECTED";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.ReadOnly = true;
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            this.selected.Width = 92;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 66.57212F;
+            this.item_code.Frozen = true;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 106;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.FillWeight = 66.57212F;
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 12;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            this.description.Width = 134;
+            // 
+            // sub_category
+            // 
+            this.sub_category.DataPropertyName = "sub_category";
+            this.sub_category.FillWeight = 66.57212F;
+            this.sub_category.HeaderText = "CATEGORY";
+            this.sub_category.MinimumWidth = 12;
+            this.sub_category.Name = "sub_category";
+            this.sub_category.ReadOnly = true;
+            this.sub_category.Width = 114;
+            // 
+            // StockOnHand
+            // 
+            this.StockOnHand.DataPropertyName = "StockOnHand";
+            this.StockOnHand.HeaderText = "SOH";
+            this.StockOnHand.MinimumWidth = 6;
+            this.StockOnHand.Name = "StockOnHand";
+            this.StockOnHand.ReadOnly = true;
+            this.StockOnHand.Width = 66;
+            // 
+            // RESERVED
+            // 
+            this.RESERVED.DataPropertyName = "RESERVED";
+            this.RESERVED.HeaderText = "RESERVED";
+            this.RESERVED.MinimumWidth = 6;
+            this.RESERVED.Name = "RESERVED";
+            this.RESERVED.ReadOnly = true;
+            this.RESERVED.Width = 112;
+            // 
+            // ORDERS
+            // 
+            this.ORDERS.DataPropertyName = "ORDERS";
+            this.ORDERS.HeaderText = "ORDER";
+            this.ORDERS.MinimumWidth = 6;
+            this.ORDERS.Name = "ORDERS";
+            this.ORDERS.ReadOnly = true;
+            this.ORDERS.Width = 85;
+            // 
+            // Allocation_qty
+            // 
+            this.Allocation_qty.DataPropertyName = "Allocation_qty";
+            this.Allocation_qty.HeaderText = "ALLOCATED QTY";
+            this.Allocation_qty.MinimumWidth = 6;
+            this.Allocation_qty.Name = "Allocation_qty";
+            this.Allocation_qty.ReadOnly = true;
+            this.Allocation_qty.Width = 142;
+            // 
+            // DAYSTOEXPIRED
+            // 
+            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
+            this.DAYSTOEXPIRED.MinimumWidth = 6;
+            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.ReadOnly = true;
+            this.DAYSTOEXPIRED.Width = 151;
+            // 
+            // p_nearly_expiry_desc
+            // 
+            this.p_nearly_expiry_desc.DataPropertyName = "p_nearly_expiry_desc";
+            this.p_nearly_expiry_desc.HeaderText = "EXPIRY DAYS SET UP";
+            this.p_nearly_expiry_desc.MinimumWidth = 6;
+            this.p_nearly_expiry_desc.Name = "p_nearly_expiry_desc";
+            this.p_nearly_expiry_desc.ReadOnly = true;
+            this.p_nearly_expiry_desc.Width = 153;
+            // 
+            // is_expirable
+            // 
+            this.is_expirable.DataPropertyName = "is_expirable";
+            this.is_expirable.HeaderText = "IS EXPIRABLE";
+            this.is_expirable.MinimumWidth = 6;
+            this.is_expirable.Name = "is_expirable";
+            this.is_expirable.ReadOnly = true;
+            this.is_expirable.Width = 122;
             // 
             // date_ordered
             // 
@@ -846,19 +836,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             // 
             this.item_code_find.DataPropertyName = "item_code";
             this.item_code_find.FillWeight = 66.57212F;
-            this.item_code_find.HeaderText = "ITEM CODE";
+            this.item_code_find.HeaderText = "CODE";
             this.item_code_find.MinimumWidth = 12;
             this.item_code_find.Name = "item_code_find";
-            this.item_code_find.Width = 106;
-            // 
-            // description_find
-            // 
-            this.description_find.DataPropertyName = "description";
-            this.description_find.FillWeight = 66.57212F;
-            this.description_find.HeaderText = "DESCRIPTION";
-            this.description_find.MinimumWidth = 12;
-            this.description_find.Name = "description_find";
-            this.description_find.Width = 134;
+            this.item_code_find.Width = 75;
             // 
             // uom
             // 
@@ -880,10 +861,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             // ALLOCATION_QTY_FIND
             // 
             this.ALLOCATION_QTY_FIND.DataPropertyName = "ALLOCATION_QTY";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle16.NullValue = null;
-            this.ALLOCATION_QTY_FIND.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle7.NullValue = null;
+            this.ALLOCATION_QTY_FIND.DefaultCellStyle = dataGridViewCellStyle7;
             this.ALLOCATION_QTY_FIND.FillWeight = 66.91177F;
             this.ALLOCATION_QTY_FIND.HeaderText = "ALLOCATED QTY";
             this.ALLOCATION_QTY_FIND.MinimumWidth = 12;
@@ -973,6 +954,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private MaterialSkin.Controls.MaterialButton matbtnNewAllocate;
         private System.Windows.Forms.Label lblvariance;
         private System.Windows.Forms.Label lblvariancedesc;
+        private MaterialSkin.Controls.MaterialTextBox txtReserve;
+        private MaterialSkin.Controls.MaterialTextBox txtTotalStore;
+        private System.Windows.Forms.Label lbltotalStoreOrder;
+        public System.Windows.Forms.TextBox textBox2Cancel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
@@ -984,16 +969,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private System.Windows.Forms.DataGridViewTextBoxColumn DAYSTOEXPIRED;
         private System.Windows.Forms.DataGridViewTextBoxColumn p_nearly_expiry_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_expirable;
-        private MaterialSkin.Controls.MaterialTextBox txtReserve;
-        private MaterialSkin.Controls.MaterialTextBox txtTotalStore;
-        private System.Windows.Forms.Label lbltotalStoreOrder;
-        public System.Windows.Forms.TextBox textBox2Cancel;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selected2;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered;
         private System.Windows.Forms.DataGridViewTextBoxColumn primary_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code_find;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description_find;
         private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn ALLOCATION_QTY_FIND;
