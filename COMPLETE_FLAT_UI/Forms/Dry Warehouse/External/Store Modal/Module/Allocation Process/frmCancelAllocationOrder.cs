@@ -85,11 +85,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocati
             {
                 this.validate = 1;
                 this.textBox1.Text = this.cboReason.Text;
+           if (this.textBox1.Text == this.cboReason.Text)
+                {
+                    ths.textBox2Cancel.Text = String.Empty;
+                }
+                this.textBox1.Text = this.cboReason.Text;
+
                 this.Close();
             }
             else
             {
-
+ 
                 ths.textBox2Cancel.Text = String.Empty;
 
                 return;

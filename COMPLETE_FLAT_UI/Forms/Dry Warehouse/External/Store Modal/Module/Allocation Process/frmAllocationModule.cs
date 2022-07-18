@@ -31,6 +31,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         frmAllocationModuleClasses FormClass = new frmAllocationModuleClasses();
         int p_id = 0;
         private bool eventHookedUp;
+        public int LineAllocationCancelCount = 0;
         DateTime dNow = DateTime.Now;
         //Boolean ready = false;
 
@@ -1024,7 +1025,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Data Executed!");
+                    //MessageBox.Show("Data Executed!");
                     //this.ConnectionInit();
                     dSet.Clear();
                     dSet = objStorProc.sp_Allocation_Logs(0,
@@ -1146,6 +1147,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void CancelFunctionality()
         {
+    
 
             dSet = g_objStoredProcCollection.sp_IDGenerator(
             int.Parse(this.p_id.ToString()),
@@ -1155,18 +1157,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
         private void textBox2Cancel_TextChanged(object sender, EventArgs e)
         {
-
+         
          
             if (textBox2Cancel.Text == String.Empty)
             {
-               
+        
             }
             else
             {
-                this.CancelFunctionality();
-                this.txtItemCode_TextChanged(sender, e);
-                //this.textBox2Cancel.Text = String.Empty;
-                this.GlobalStatePopup.CancelledSuccessfully();
+              
+               
+                    this.CancelFunctionality();
+                    this.txtItemCode_TextChanged(sender, e);
+                    //this.textBox2Cancel.Text = String.Empty;
+                    this.GlobalStatePopup.CancelledSuccessfully();
+               
             }
         }
 
@@ -1176,6 +1181,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 this.frmAllocationModule_Load(sender, e);
             }
+           
+        }
+
+        private void lbltotalStoreOrder_Click(object sender, EventArgs e)
+        {
+
         }
 
         ///
