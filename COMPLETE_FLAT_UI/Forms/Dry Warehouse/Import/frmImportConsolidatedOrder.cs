@@ -64,8 +64,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
       
             this.dgvRawMats.Columns[0].Width = 100;// The id column 
             this.CallOthers();
+            this.DataGridVisibleFalse();
         }
-        private void CallOthers()
+
+        private void DataGridVisibleFalse()
+        {
+            this.dgvRawMats.Columns["foxDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["storenameDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["dateorderedDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["routeDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["categoryDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["itemcodeDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["descriptionDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["qtyDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["areaDataGridViewTextBoxColumn"].Visible = false;
+            this.dgvRawMats.Columns["uomDataGridViewTextBoxColumn"].Visible = false;
+        }
+
+            private void CallOthers()
         {
             this.lbltotalrecords.Text = dgvRawMats.Rows.Count.ToString();
             this.user_id = userinfo.user_id;
