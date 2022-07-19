@@ -46,7 +46,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                xClass.fillDataGridView(dgvRawMats, "Raw_Materials_Dry_Inventory", dSet);
+                xClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry_Inventory", dSet);
 
                 lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
             }

@@ -45,12 +45,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtMatStoreCode = new MaterialSkin.Controls.MaterialTextBox();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.matTxtReservedQuantity = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.matTxtReservedQuantity);
             this.materialCard1.Controls.Add(this.mattxtUpdatedQty);
             this.materialCard1.Controls.Add(this.mattxtQtyOrder);
             this.materialCard1.Controls.Add(this.label2);
@@ -312,6 +314,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // matTxtReservedQuantity
+            // 
+            this.matTxtReservedQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtReservedQuantity.Depth = 0;
+            this.matTxtReservedQuantity.Enabled = false;
+            this.matTxtReservedQuantity.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtReservedQuantity.Hint = "Reserved Quantity";
+            this.matTxtReservedQuantity.Location = new System.Drawing.Point(548, 203);
+            this.matTxtReservedQuantity.Margin = new System.Windows.Forms.Padding(1);
+            this.matTxtReservedQuantity.MaxLength = 50;
+            this.matTxtReservedQuantity.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtReservedQuantity.Multiline = false;
+            this.matTxtReservedQuantity.Name = "matTxtReservedQuantity";
+            this.matTxtReservedQuantity.Size = new System.Drawing.Size(234, 50);
+            this.matTxtReservedQuantity.TabIndex = 614;
+            this.matTxtReservedQuantity.Text = "";
+            // 
             // frmEditConsolidatedOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,5 +372,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialTextBox mattxtUpdatedQty;
         private MaterialSkin.Controls.MaterialTextBox mattxtQtyOrder;
         private System.Windows.Forms.Label label2;
+        private MaterialSkin.Controls.MaterialTextBox matTxtReservedQuantity;
     }
 }

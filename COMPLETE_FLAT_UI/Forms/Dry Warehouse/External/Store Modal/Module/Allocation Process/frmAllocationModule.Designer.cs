@@ -48,8 +48,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockOnHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RESERVED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORDERS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Allocation_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_nearly_expiry_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_expirable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matCardFindAllocation = new MaterialSkin.Controls.MaterialCard();
             this.dgvFindStoreOrders = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code_find = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ALLOCATION_QTY_FIND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvBtnDispossal = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CANCEL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.lblitems = new System.Windows.Forms.Label();
             this.lblshowItemsFinder = new System.Windows.Forms.Label();
@@ -69,26 +89,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.lblvariance = new System.Windows.Forms.Label();
             this.lblvariancedesc = new System.Windows.Forms.Label();
             this.textBox2Cancel = new System.Windows.Forms.TextBox();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockOnHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RESERVED = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDERS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Allocation_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DAYSTOEXPIRED = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_nearly_expiry_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_expirable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code_find = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ALLOCATION_QTY_FIND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DgvBtnDispossal = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CANCEL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
@@ -337,6 +337,113 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvStoreOrderApproval.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStoreOrderApproval_DataBindingComplete);
             this.dgvStoreOrderApproval.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvStoreOrderApproval_RowPostPaint);
             // 
+            // selected
+            // 
+            this.selected.DataPropertyName = "selected";
+            this.selected.FalseValue = "FALSE";
+            this.selected.Frozen = true;
+            this.selected.HeaderText = "SELECTED";
+            this.selected.MinimumWidth = 12;
+            this.selected.Name = "selected";
+            this.selected.ReadOnly = true;
+            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.selected.TrueValue = "TRUE";
+            this.selected.Width = 90;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 66.57212F;
+            this.item_code.Frozen = true;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 104;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.FillWeight = 66.57212F;
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 12;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            this.description.Width = 132;
+            // 
+            // sub_category
+            // 
+            this.sub_category.DataPropertyName = "sub_category";
+            this.sub_category.FillWeight = 66.57212F;
+            this.sub_category.HeaderText = "CATEGORY";
+            this.sub_category.MinimumWidth = 12;
+            this.sub_category.Name = "sub_category";
+            this.sub_category.ReadOnly = true;
+            this.sub_category.Width = 112;
+            // 
+            // StockOnHand
+            // 
+            this.StockOnHand.DataPropertyName = "StockOnHand";
+            this.StockOnHand.HeaderText = "SOH";
+            this.StockOnHand.MinimumWidth = 6;
+            this.StockOnHand.Name = "StockOnHand";
+            this.StockOnHand.ReadOnly = true;
+            this.StockOnHand.Width = 64;
+            // 
+            // RESERVED
+            // 
+            this.RESERVED.DataPropertyName = "RESERVED";
+            this.RESERVED.HeaderText = "RESERVED";
+            this.RESERVED.MinimumWidth = 6;
+            this.RESERVED.Name = "RESERVED";
+            this.RESERVED.ReadOnly = true;
+            this.RESERVED.Width = 110;
+            // 
+            // ORDERS
+            // 
+            this.ORDERS.DataPropertyName = "ORDERS";
+            this.ORDERS.HeaderText = "ORDER";
+            this.ORDERS.MinimumWidth = 6;
+            this.ORDERS.Name = "ORDERS";
+            this.ORDERS.ReadOnly = true;
+            this.ORDERS.Width = 83;
+            // 
+            // Allocation_qty
+            // 
+            this.Allocation_qty.DataPropertyName = "Allocation_qty";
+            this.Allocation_qty.HeaderText = "ALLOCATED QTY";
+            this.Allocation_qty.MinimumWidth = 6;
+            this.Allocation_qty.Name = "Allocation_qty";
+            this.Allocation_qty.ReadOnly = true;
+            this.Allocation_qty.Width = 140;
+            // 
+            // DAYSTOEXPIRED
+            // 
+            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
+            this.DAYSTOEXPIRED.MinimumWidth = 6;
+            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
+            this.DAYSTOEXPIRED.ReadOnly = true;
+            this.DAYSTOEXPIRED.Width = 149;
+            // 
+            // p_nearly_expiry_desc
+            // 
+            this.p_nearly_expiry_desc.DataPropertyName = "p_nearly_expiry_desc";
+            this.p_nearly_expiry_desc.HeaderText = "EXPIRY DAYS SET UP";
+            this.p_nearly_expiry_desc.MinimumWidth = 6;
+            this.p_nearly_expiry_desc.Name = "p_nearly_expiry_desc";
+            this.p_nearly_expiry_desc.ReadOnly = true;
+            this.p_nearly_expiry_desc.Width = 151;
+            // 
+            // is_expirable
+            // 
+            this.is_expirable.DataPropertyName = "is_expirable";
+            this.is_expirable.HeaderText = "IS EXPIRABLE";
+            this.is_expirable.MinimumWidth = 6;
+            this.is_expirable.Name = "is_expirable";
+            this.is_expirable.ReadOnly = true;
+            this.is_expirable.Width = 120;
+            // 
             // matCardFindAllocation
             // 
             this.matCardFindAllocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -358,7 +465,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             this.dgvFindStoreOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvFindStoreOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvFindStoreOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFindStoreOrders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvFindStoreOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFindStoreOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -438,10 +545,84 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvFindStoreOrders_CellFormatting);
             this.dgvFindStoreOrders.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFindStoreOrders_CellValidated);
             this.dgvFindStoreOrders.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvFindStoreOrders_CellValidating);
+            this.dgvFindStoreOrders.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFindStoreOrders_CellValueChanged);
             this.dgvFindStoreOrders.CurrentCellChanged += new System.EventHandler(this.dgvFindStoreOrders_CurrentCellChanged);
             this.dgvFindStoreOrders.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvFindStoreOrders_EditingControlShowing);
             this.dgvFindStoreOrders.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvFindStoreOrders_RowPostPaint);
             this.dgvFindStoreOrders.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvFindStoreOrders_KeyDown);
+            // 
+            // date_ordered
+            // 
+            this.date_ordered.DataPropertyName = "date_ordered";
+            this.date_ordered.HeaderText = "DATE ORDERED";
+            this.date_ordered.MinimumWidth = 6;
+            this.date_ordered.Name = "date_ordered";
+            // 
+            // primary_id
+            // 
+            this.primary_id.DataPropertyName = "primary_id";
+            this.primary_id.FillWeight = 66.91177F;
+            this.primary_id.HeaderText = "ID";
+            this.primary_id.MinimumWidth = 12;
+            this.primary_id.Name = "primary_id";
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.FillWeight = 66.57212F;
+            this.store_name.HeaderText = "STORE";
+            this.store_name.MinimumWidth = 12;
+            this.store_name.Name = "store_name";
+            // 
+            // item_code_find
+            // 
+            this.item_code_find.DataPropertyName = "item_code";
+            this.item_code_find.FillWeight = 66.57212F;
+            this.item_code_find.HeaderText = "CODE";
+            this.item_code_find.MinimumWidth = 12;
+            this.item_code_find.Name = "item_code_find";
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.HeaderText = "UOM";
+            this.uom.MinimumWidth = 6;
+            this.uom.Name = "uom";
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.FillWeight = 66.91177F;
+            this.qty.HeaderText = "ORDER";
+            this.qty.MinimumWidth = 12;
+            this.qty.Name = "qty";
+            // 
+            // ALLOCATION_QTY_FIND
+            // 
+            this.ALLOCATION_QTY_FIND.DataPropertyName = "ALLOCATION_QTY";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle7.NullValue = null;
+            this.ALLOCATION_QTY_FIND.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ALLOCATION_QTY_FIND.FillWeight = 66.91177F;
+            this.ALLOCATION_QTY_FIND.HeaderText = "ALLOCATED QTY";
+            this.ALLOCATION_QTY_FIND.MinimumWidth = 12;
+            this.ALLOCATION_QTY_FIND.Name = "ALLOCATION_QTY_FIND";
+            // 
+            // DgvBtnDispossal
+            // 
+            this.DgvBtnDispossal.DataPropertyName = "DgvBtnDispossal";
+            this.DgvBtnDispossal.HeaderText = "Column1";
+            this.DgvBtnDispossal.Name = "DgvBtnDispossal";
+            // 
+            // CANCEL
+            // 
+            this.CANCEL.DataPropertyName = "CANCEL";
+            this.CANCEL.HeaderText = "ACTION";
+            this.CANCEL.MinimumWidth = 6;
+            this.CANCEL.Name = "CANCEL";
+            this.CANCEL.Text = "CANCEL";
+            this.CANCEL.UseColumnTextForButtonValue = true;
             // 
             // lbltotaldata
             // 
@@ -698,195 +879,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.textBox2Cancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2Cancel.Visible = false;
             this.textBox2Cancel.TextChanged += new System.EventHandler(this.textBox2Cancel_TextChanged);
-            // 
-            // selected
-            // 
-            this.selected.DataPropertyName = "selected";
-            this.selected.FalseValue = "FALSE";
-            this.selected.Frozen = true;
-            this.selected.HeaderText = "SELECTED";
-            this.selected.MinimumWidth = 12;
-            this.selected.Name = "selected";
-            this.selected.ReadOnly = true;
-            this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selected.TrueValue = "TRUE";
-            this.selected.Width = 92;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 66.57212F;
-            this.item_code.Frozen = true;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 106;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.FillWeight = 66.57212F;
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 12;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.Width = 134;
-            // 
-            // sub_category
-            // 
-            this.sub_category.DataPropertyName = "sub_category";
-            this.sub_category.FillWeight = 66.57212F;
-            this.sub_category.HeaderText = "CATEGORY";
-            this.sub_category.MinimumWidth = 12;
-            this.sub_category.Name = "sub_category";
-            this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 114;
-            // 
-            // StockOnHand
-            // 
-            this.StockOnHand.DataPropertyName = "StockOnHand";
-            this.StockOnHand.HeaderText = "SOH";
-            this.StockOnHand.MinimumWidth = 6;
-            this.StockOnHand.Name = "StockOnHand";
-            this.StockOnHand.ReadOnly = true;
-            this.StockOnHand.Width = 66;
-            // 
-            // RESERVED
-            // 
-            this.RESERVED.DataPropertyName = "RESERVED";
-            this.RESERVED.HeaderText = "RESERVED";
-            this.RESERVED.MinimumWidth = 6;
-            this.RESERVED.Name = "RESERVED";
-            this.RESERVED.ReadOnly = true;
-            this.RESERVED.Width = 112;
-            // 
-            // ORDERS
-            // 
-            this.ORDERS.DataPropertyName = "ORDERS";
-            this.ORDERS.HeaderText = "ORDER";
-            this.ORDERS.MinimumWidth = 6;
-            this.ORDERS.Name = "ORDERS";
-            this.ORDERS.ReadOnly = true;
-            this.ORDERS.Width = 85;
-            // 
-            // Allocation_qty
-            // 
-            this.Allocation_qty.DataPropertyName = "Allocation_qty";
-            this.Allocation_qty.HeaderText = "ALLOCATED QTY";
-            this.Allocation_qty.MinimumWidth = 6;
-            this.Allocation_qty.Name = "Allocation_qty";
-            this.Allocation_qty.ReadOnly = true;
-            this.Allocation_qty.Width = 142;
-            // 
-            // DAYSTOEXPIRED
-            // 
-            this.DAYSTOEXPIRED.DataPropertyName = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.HeaderText = "DAYS TO EXPIRED";
-            this.DAYSTOEXPIRED.MinimumWidth = 6;
-            this.DAYSTOEXPIRED.Name = "DAYSTOEXPIRED";
-            this.DAYSTOEXPIRED.ReadOnly = true;
-            this.DAYSTOEXPIRED.Width = 151;
-            // 
-            // p_nearly_expiry_desc
-            // 
-            this.p_nearly_expiry_desc.DataPropertyName = "p_nearly_expiry_desc";
-            this.p_nearly_expiry_desc.HeaderText = "EXPIRY DAYS SET UP";
-            this.p_nearly_expiry_desc.MinimumWidth = 6;
-            this.p_nearly_expiry_desc.Name = "p_nearly_expiry_desc";
-            this.p_nearly_expiry_desc.ReadOnly = true;
-            this.p_nearly_expiry_desc.Width = 153;
-            // 
-            // is_expirable
-            // 
-            this.is_expirable.DataPropertyName = "is_expirable";
-            this.is_expirable.HeaderText = "IS EXPIRABLE";
-            this.is_expirable.MinimumWidth = 6;
-            this.is_expirable.Name = "is_expirable";
-            this.is_expirable.ReadOnly = true;
-            this.is_expirable.Width = 122;
-            // 
-            // date_ordered
-            // 
-            this.date_ordered.DataPropertyName = "date_ordered";
-            this.date_ordered.HeaderText = "DATE ORDERED";
-            this.date_ordered.MinimumWidth = 6;
-            this.date_ordered.Name = "date_ordered";
-            this.date_ordered.Width = 135;
-            // 
-            // primary_id
-            // 
-            this.primary_id.DataPropertyName = "primary_id";
-            this.primary_id.FillWeight = 66.91177F;
-            this.primary_id.HeaderText = "ID";
-            this.primary_id.MinimumWidth = 12;
-            this.primary_id.Name = "primary_id";
-            this.primary_id.Width = 49;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.FillWeight = 66.57212F;
-            this.store_name.HeaderText = "STORE";
-            this.store_name.MinimumWidth = 12;
-            this.store_name.Name = "store_name";
-            this.store_name.Width = 84;
-            // 
-            // item_code_find
-            // 
-            this.item_code_find.DataPropertyName = "item_code";
-            this.item_code_find.FillWeight = 66.57212F;
-            this.item_code_find.HeaderText = "CODE";
-            this.item_code_find.MinimumWidth = 12;
-            this.item_code_find.Name = "item_code_find";
-            this.item_code_find.Width = 75;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.HeaderText = "UOM";
-            this.uom.MinimumWidth = 6;
-            this.uom.Name = "uom";
-            this.uom.Width = 69;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.FillWeight = 66.91177F;
-            this.qty.HeaderText = "ORDER";
-            this.qty.MinimumWidth = 12;
-            this.qty.Name = "qty";
-            this.qty.Width = 85;
-            // 
-            // ALLOCATION_QTY_FIND
-            // 
-            this.ALLOCATION_QTY_FIND.DataPropertyName = "ALLOCATION_QTY";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle7.NullValue = null;
-            this.ALLOCATION_QTY_FIND.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ALLOCATION_QTY_FIND.FillWeight = 66.91177F;
-            this.ALLOCATION_QTY_FIND.HeaderText = "ALLOCATED QTY";
-            this.ALLOCATION_QTY_FIND.MinimumWidth = 12;
-            this.ALLOCATION_QTY_FIND.Name = "ALLOCATION_QTY_FIND";
-            this.ALLOCATION_QTY_FIND.Width = 142;
-            // 
-            // DgvBtnDispossal
-            // 
-            this.DgvBtnDispossal.DataPropertyName = "DgvBtnDispossal";
-            this.DgvBtnDispossal.HeaderText = "Column1";
-            this.DgvBtnDispossal.Name = "DgvBtnDispossal";
-            this.DgvBtnDispossal.Width = 79;
-            // 
-            // CANCEL
-            // 
-            this.CANCEL.DataPropertyName = "CANCEL";
-            this.CANCEL.HeaderText = "ACTION";
-            this.CANCEL.MinimumWidth = 6;
-            this.CANCEL.Name = "CANCEL";
-            this.CANCEL.Text = "CANCEL";
-            this.CANCEL.UseColumnTextForButtonValue = true;
-            this.CANCEL.Width = 71;
             // 
             // frmAllocationModule
             // 

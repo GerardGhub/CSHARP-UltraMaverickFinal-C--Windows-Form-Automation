@@ -27,5 +27,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Major_Process.Cla
         public string sp_StockOnHand { get; set; }
         public string sp_Allocated_Qty { get; set; }
 
+        public string Sp_Reserved_Qty { get; set; }
+
     }
 }

@@ -39,7 +39,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             string uom,
             string qty,
             string StockOnHand,
-            string Allocated_Qty)
+            string Allocated_Qty,
+            string ReservedQuantity)
         {
             InitializeComponent();
             ths = frm;
@@ -58,6 +59,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.sp_qty = qty;
             this.sp_StockOnHand = StockOnHand;
             this.sp_Allocated_Qty = Allocated_Qty;
+            this.SpReservedQuantity = ReservedQuantity;
 
         }
         //Class Binding to oTher window
@@ -75,7 +77,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_qty { get; set; }
         public string sp_StockOnHand { get; set; }
         public string sp_Allocated_Qty { get; set; }
-        //User Binding  Class 
+        public string SpReservedQuantity { get; set; }
+     
 
         public int user_id { get; set; }
 
@@ -84,6 +87,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.BindDataintoTextBox();
             this.mattxtUpdatedQty.Focus();
+
+            MessageBox.Show(sp_Allocated_Qty);
         }
 
         private void BindDataintoTextBox()
@@ -104,6 +109,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.sp_primary_id = this.sp_primary_id;
             this.sp_StockOnHand = this.sp_StockOnHand;
             this.sp_Allocated_Qty = this.sp_Allocated_Qty;
+
+            this.matTxtReservedQuantity.Text = SpReservedQuantity;
             //MessageBox.Show(""+sp_primary_id);
         }
 

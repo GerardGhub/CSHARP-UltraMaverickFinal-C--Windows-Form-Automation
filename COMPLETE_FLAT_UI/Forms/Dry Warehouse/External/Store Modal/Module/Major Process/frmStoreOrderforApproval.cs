@@ -198,6 +198,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.dgvStoreOrderApproval.Columns["is_cancelled_by"].Visible = true;
                     this.dgvStoreOrderApproval.Columns["is_cancelled_date"].Visible = true;
                     this.dgvStoreOrderApproval.Columns["is_cancelled_reason"].Visible = true;
+
                 }
             
                 else
@@ -416,8 +417,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
 
             this.dset_emp1.Clear();
+            if (this.matRadioForAllocation.Checked == true)
+            {
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
+            }
+            else
+            {
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+            }
+
 
             this.doSearch();
 
@@ -592,27 +601,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.materialCheckboxSelectAll.Visible = false;
                     this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
                     this.lblAllocationRemarks.Visible = true;
+                    this.bunifuPrepaDate.Enabled = false;
+                    this.cmbArea.Enabled = false;
+                    this.matcmbCategory.Enabled = false;
+
                 }
                 else if (this.MatRadioBtnInactive.Checked == true)
                 {
                     this.materialCheckboxSelectAll.Visible = false;
                     this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
-                    this.lblAllocationRemarks.Visible = true;
+                    this.lblAllocationRemarks.Visible = false;
                 }
                 else
                 {
                     this.materialCheckboxSelectAll.Visible = true;
                     this.dgvStoreOrderApproval.Columns["selected"].Visible = true;
                     this.lblAllocationRemarks.Visible = false;
+                    this.bunifuPrepaDate.Enabled = true;
+                    this.cmbArea.Enabled = true;
+                    this.matcmbCategory.Enabled = true;
                 }
            
-                this.matcmbCategory.Enabled = true;
-
-                if (this.matRadioForAllocation.Checked == true)
-                {
-                    this.bunifuPrepaDate.Enabled = true;
-                    this.dgvStoreOrderApproval.Enabled = true;
-                }
+               
             }
 
 
@@ -1057,7 +1067,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.labelSelectedSum.Visible = true;
 
-                //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
+
              
                 this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
                 this.num = this.dgvStoreOrderApproval.RowCount;
@@ -1127,7 +1137,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.FormClass.sp_uom,
                 this.FormClass.sp_qty,
                 this.FormClass.sp_StockOnHand,
-                this.FormClass.sp_Allocated_Qty
+                this.FormClass.sp_Allocated_Qty,
+                this.FormClass.Sp_Reserved_Qty
                 );
             mywipwh.ShowDialog();
         }
@@ -1159,7 +1170,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.FormClass.sp_qty = this.dgvStoreOrderApproval.CurrentRow.Cells["qty"].Value.ToString();
                         this.FormClass.sp_StockOnHand = this.dgvStoreOrderApproval.CurrentRow.Cells["StockOnHand"].Value.ToString();
                         this.FormClass.sp_Allocated_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["ALLOCATION_QTY"].Value.ToString();
-                        
+                        this.FormClass.Sp_Reserved_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["RESERVED"].Value.ToString();
                     }
                 }
             }
@@ -1351,7 +1362,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.ConnectionInit();
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+            if(this.matRadioForAllocation.Checked == true)
+            {
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
+
+            }
+            else
+            {
+                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+
+            }
 
 
             try
