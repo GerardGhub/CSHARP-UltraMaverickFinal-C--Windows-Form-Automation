@@ -643,7 +643,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
                     row.Cells["store_name"].Style.SelectionForeColor = Color.Black;
-                    //row.Cells["item_code_find"].Style.SelectionForeColor = Color.Black;
+                    row.Cells["item_code_find"].Style.SelectionForeColor = Color.Black;
                     //row.Cells["description_find"].Style.SelectionForeColor = Color.Black;
                     row.Cells["uom"].Style.SelectionForeColor = Color.Black;
                     row.Cells["date_ordered"].Style.SelectionForeColor = Color.Black;
