@@ -162,9 +162,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             try
             {
+                if (this.matRadioForAllocation.Checked  == true)
+                {
+                    myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_ApprovalAreaBinding_RadioAllocation", this.dSet, this.matcmbCategory.Text, "", this.matcmbCategory.Text, "");
 
+                }
+                else
+                {
+                    myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_ApprovalAreaBinding", this.dSet, this.matcmbCategory.Text, "", this.matcmbCategory.Text, "");
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_ApprovalAreaBinding", this.dSet, this.matcmbCategory.Text, "", this.matcmbCategory.Text, "");
+                }
 
             }
             catch (Exception ex)
@@ -492,7 +499,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             }
 
-            //this.LoadDataWithParamsOrders();
+
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.load_search();
@@ -505,6 +512,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.TaggingConflictCategoryValidation();
             }
+
+
 
             this.loadAreaDropdown();
 
@@ -1138,7 +1147,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.FormClass.sp_qty,
                 this.FormClass.sp_StockOnHand,
                 this.FormClass.sp_Allocated_Qty,
-                this.FormClass.Sp_Reserved_Qty
+                this.FormClass.Sp_Reserved_Qty,
+                this.FormClass.Sp_Allocation_Identity
                 );
             mywipwh.ShowDialog();
         }
@@ -1171,6 +1181,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.FormClass.sp_StockOnHand = this.dgvStoreOrderApproval.CurrentRow.Cells["StockOnHand"].Value.ToString();
                         this.FormClass.sp_Allocated_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["ALLOCATION_QTY"].Value.ToString();
                         this.FormClass.Sp_Reserved_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["RESERVED"].Value.ToString();
+                        this.FormClass.Sp_Allocation_Identity = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["allocation_id"].Value);
                     }
                 }
             }

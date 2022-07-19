@@ -28,6 +28,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Major_Process.Cla
         public string sp_Allocated_Qty { get; set; }
 
         public string Sp_Reserved_Qty { get; set; }
+        public int Sp_Allocation_Identity { get; set; }
 
     }
 }

@@ -40,7 +40,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             string qty,
             string StockOnHand,
             string Allocated_Qty,
-            string ReservedQuantity)
+            string ReservedQuantity,
+            int AllocationID)
         {
             InitializeComponent();
             ths = frm;
@@ -60,6 +61,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.sp_StockOnHand = StockOnHand;
             this.sp_Allocated_Qty = Allocated_Qty;
             this.SpReservedQuantity = ReservedQuantity;
+            this.SpAllocationIDentity = AllocationID;
 
         }
         //Class Binding to oTher window
@@ -79,7 +81,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string sp_Allocated_Qty { get; set; }
         public string SpReservedQuantity { get; set; }
      
-
+        public int SpAllocationIDentity { get; set; }
         public int user_id { get; set; }
 
         private void frmEditConsolidatedOrder_Load(object sender, EventArgs e)
@@ -88,7 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.BindDataintoTextBox();
             this.mattxtUpdatedQty.Focus();
 
-            MessageBox.Show(sp_Allocated_Qty);
+
         }
 
         private void BindDataintoTextBox()
@@ -104,12 +106,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matxtDescription.Text = this.sp_description;
             this.mattxtUOm.Text = this.sp_uom;
             //Quantity Adjustment
-            this.mattxtQtyOrder.Text = this.sp_qty;
+            if(this.sp_Allocated_Qty == "0")
+            {
+                this.mattxtQtyOrder.Text = this.sp_qty;
+            }
+            else
+            {
+                this.mattxtQtyOrder.Text = this.sp_Allocated_Qty;
+            }
+ 
             //primary key
             this.sp_primary_id = this.sp_primary_id;
             this.sp_StockOnHand = this.sp_StockOnHand;
             this.sp_Allocated_Qty = this.sp_Allocated_Qty;
-
+            this.SpAllocationIDentity = this.SpAllocationIDentity;
             this.matTxtReservedQuantity.Text = SpReservedQuantity;
             //MessageBox.Show(""+sp_primary_id);
         }
@@ -130,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
         }
 
-            private void matBtnSave_Click(object sender, EventArgs e)
+        private void matBtnSave_Click(object sender, EventArgs e)
         {
             if(this.mattxtUpdatedQty.Text == String.Empty)
             {
@@ -139,15 +149,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 return;
             }
 
-            if (this.sp_Allocated_Qty == this.sp_StockOnHand)
-            {
+            //if (this.sp_Allocated_Qty == this.sp_StockOnHand)
+            //{
                 double QuantityOrder;
                 double UpdatedQuantityOrder;
+                //double ReservedQty; 
 
 
-                QuantityOrder = double.Parse(mattxtQtyOrder.Text);
-                UpdatedQuantityOrder = double.Parse(mattxtUpdatedQty.Text);
-                if (QuantityOrder > UpdatedQuantityOrder)
+                QuantityOrder = double.Parse(this.mattxtUpdatedQty.Text);
+                UpdatedQuantityOrder = double.Parse(this.mattxtQtyOrder.Text) + double.Parse(this.matTxtReservedQuantity.Text);
+
+
+            if (UpdatedQuantityOrder > QuantityOrder)
                 {
                     //MessageBox.Show("A");
                     //return;
@@ -160,14 +173,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     //MessageBox.Show("B");
                     return;
                 }
-            }
+            //}
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the  Information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
                 objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-                //MessageBox.Show(""+sp_primary_id);
+            
                 dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(sp_primary_id,
                 sp_primary_id,
@@ -320,13 +333,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 e.Handled = true;
             }
-            //if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
-            //{
-            //    e.Handled = true;
-            //}
-
-
-            //
+        
 
         }
     }
