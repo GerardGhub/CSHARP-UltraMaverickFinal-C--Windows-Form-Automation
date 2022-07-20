@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,7 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.BindDataintoTextBox();
             this.mattxtUpdatedQty.Focus();
-
+            //MessageBox.Show(SpAllocationIDentity.ToString());
 
         }
 
@@ -121,6 +122,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.sp_Allocated_Qty = this.sp_Allocated_Qty;
             this.SpAllocationIDentity = this.SpAllocationIDentity;
             this.matTxtReservedQuantity.Text = SpReservedQuantity;
+
+            this.user_id = userinfo.user_id;
             //MessageBox.Show(""+sp_primary_id);
         }
 
@@ -180,25 +183,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
                 objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            
-                dSet.Clear();
-            dSet = objStorProc.sp_dry_wh_orders(sp_primary_id,
-                sp_primary_id,
-                sp_date_ordered,
-                sp_fox,
-                sp_store_name,
-                sp_route,
-                sp_area,
-                sp_category,
-                sp_item_code,
-                sp_description,
-                sp_uom,
+
+                if (this.sp_Allocated_Qty == "0")
+                {
+
+
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_dry_wh_orders(
+                this.sp_primary_id,
+                this.sp_primary_id,
+                this.sp_date_ordered,
+                this.sp_fox,
+                this.sp_store_name,
+                this.sp_route,
+                this.sp_area,
+                this.sp_category,
+                this.sp_item_code,
+                this.sp_description,
+                this.sp_uom,
                 this.mattxtUpdatedQty.Text,
                 "1",
                 "",
-                 Convert.ToInt32(user_id).ToString(),
+                Convert.ToInt32(user_id).ToString(),
                 "edit");
+                }
+                else
+                {
 
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_Allocation_Logs(
+                     this.SpAllocationIDentity,
+                    "",
+                    "",
+                    this.mattxtUpdatedQty.Text,
+                    this.user_id.ToString(),
+                    "",
+                    this.SpAllocationIDentity.ToString(),
+                    0,
+                    0,
+                    "edit_store_order_qty");
+                }
 
                 this.UpdatedSuccessfully();
 

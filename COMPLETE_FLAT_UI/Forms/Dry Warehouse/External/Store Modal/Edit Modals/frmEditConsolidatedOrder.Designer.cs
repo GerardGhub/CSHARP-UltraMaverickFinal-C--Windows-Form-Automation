@@ -30,6 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.matTxtReservedQuantity = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtUpdatedQty = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtQtyOrder = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtMatStoreCode = new MaterialSkin.Controls.MaterialTextBox();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.matTxtReservedQuantity = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,13 +76,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.Size = new System.Drawing.Size(1000, 269);
             this.materialCard1.TabIndex = 481;
             // 
+            // matTxtReservedQuantity
+            // 
+            this.matTxtReservedQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtReservedQuantity.Depth = 0;
+            this.matTxtReservedQuantity.Enabled = false;
+            this.matTxtReservedQuantity.Font = new System.Drawing.Font("Roboto", 12F);
+            this.matTxtReservedQuantity.Hint = "Reserved Quantity";
+            this.matTxtReservedQuantity.Location = new System.Drawing.Point(548, 203);
+            this.matTxtReservedQuantity.Margin = new System.Windows.Forms.Padding(1);
+            this.matTxtReservedQuantity.MaxLength = 50;
+            this.matTxtReservedQuantity.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtReservedQuantity.Multiline = false;
+            this.matTxtReservedQuantity.Name = "matTxtReservedQuantity";
+            this.matTxtReservedQuantity.Size = new System.Drawing.Size(234, 50);
+            this.matTxtReservedQuantity.TabIndex = 614;
+            this.matTxtReservedQuantity.Text = "";
+            // 
             // mattxtUpdatedQty
             // 
             this.mattxtUpdatedQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mattxtUpdatedQty.Depth = 0;
             this.mattxtUpdatedQty.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtUpdatedQty.Hint = "New Quantity";
-            this.mattxtUpdatedQty.Location = new System.Drawing.Point(285, 204);
+            this.mattxtUpdatedQty.Location = new System.Drawing.Point(282, 203);
             this.mattxtUpdatedQty.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtUpdatedQty.MaxLength = 50;
             this.mattxtUpdatedQty.MouseState = MaterialSkin.MouseState.OUT;
@@ -313,23 +330,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // matTxtReservedQuantity
-            // 
-            this.matTxtReservedQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtReservedQuantity.Depth = 0;
-            this.matTxtReservedQuantity.Enabled = false;
-            this.matTxtReservedQuantity.Font = new System.Drawing.Font("Roboto", 12F);
-            this.matTxtReservedQuantity.Hint = "Reserved Quantity";
-            this.matTxtReservedQuantity.Location = new System.Drawing.Point(548, 203);
-            this.matTxtReservedQuantity.Margin = new System.Windows.Forms.Padding(1);
-            this.matTxtReservedQuantity.MaxLength = 50;
-            this.matTxtReservedQuantity.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtReservedQuantity.Multiline = false;
-            this.matTxtReservedQuantity.Name = "matTxtReservedQuantity";
-            this.matTxtReservedQuantity.Size = new System.Drawing.Size(234, 50);
-            this.matTxtReservedQuantity.TabIndex = 614;
-            this.matTxtReservedQuantity.Text = "";
             // 
             // frmEditConsolidatedOrder
             // 

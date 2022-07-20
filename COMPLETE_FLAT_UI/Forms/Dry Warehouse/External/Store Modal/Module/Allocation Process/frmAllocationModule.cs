@@ -430,30 +430,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
             try
             {
-                dSet.Clear();
-                dSet = objStorProc.sp_Allocation_Logs(
-                    p_id,
-                    this.txtItemCode.Text.Trim(),
-                    this.txtitemDescription.Text.Trim(),
-                    this.lblAllocatedQty.Text.Trim(),
-                    this.FormClass.user_id.ToString(), "",
-                    p_id.ToString(),
-                    Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()),
-                    Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
-                    "getbyname");
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_Allocation_Logs(
+                p_id,
+                this.txtItemCode.Text.Trim(),
+                this.txtitemDescription.Text.Trim(),
+                this.lblAllocatedQty.Text.Trim(),
+                this.FormClass.user_id.ToString(), "",
+                p_id.ToString(),
+                Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()),
+                Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
+                "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Allocation_Logs(p_id,
-                        this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), 
-                        this.lblAllocatedQty.Text.Trim(),
-                        this.FormClass.user_id.ToString(),
-                        "", p_id.ToString(), 
-                        Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()), 
-                        Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
-                        "delete");
+                this.dSet.Clear();
+                this.dSet = objStorProc.sp_Allocation_Logs(p_id,
+                this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), 
+                this.lblAllocatedQty.Text.Trim(),
+                this.FormClass.user_id.ToString(),
+                "", p_id.ToString(), 
+                Convert.ToInt32(this.lbltotalStoreOrder.Text.Trim()), 
+                Convert.ToInt32(this.txtQtyOrder.Text.Trim()),
+                "delete");
                 }
 
 
