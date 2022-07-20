@@ -66,6 +66,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Logistic_Checker_Cancelled { get; set; }
         public string Sp_Category { get; set; }
         public string Sp_Data_Refactoring_Status { get; set; }
+        public string Sp_Remaining_Qty { get; set; }
 
 
 
@@ -253,8 +254,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 else
                 {
                     this.GlobalStatePopup.LastLineofPreparationSubject();
-                    //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
-                    //timer1_Tick(sender, e);
+  
                     this.mattxtScanTheBarcode.Focus();
                     return;
                 }
@@ -701,10 +701,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 else
                 {
 
-                        //MessageBox.Show("You are in the Last Line");
 
-                    //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
-                    //timer1_Tick(sender, e);
    
                     return;
                 }
@@ -824,7 +821,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.Sp_Item_Code = this.guna2DgvMaterialPreparation.CurrentRow.Cells["item_code"].Value.ToString();
                         this.Sp_Is_WH_Cancel_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
                         this.Sp_Data_Refactoring_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["data_refactoring_status"].Value.ToString();
-
+                        this.Sp_Remaining_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Remaining_Qty"].Value.ToString();
 
                     }
                 }
@@ -1125,7 +1122,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-
+                    dset2.Clear();
+                    dset2 = objStorProc.sp_Store_order_force_cancel_logs(
+                     0,
+                    Convert.ToInt32(this.sp_material_id),
+                    this.sp_fox,
+                    this.Sp_Remaining_Qty,
+                    this.Sp_AssigneD_Task_By.ToString(),
+                    "",
+                    Convert.ToInt32(this.sp_material_id),
+                    "add");
+                    this.textBox1_TextChanged(sender, e);
+                    this.GlobalStatePopup.CancelledSuccessfully();
                 }
                 else
                 {

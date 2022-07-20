@@ -304,6 +304,16 @@ namespace ULTRAMAVERICK.Models
             string mode);
 
 
+        DataSet sp_Store_order_force_cancel_logs(int id,
+        int preparation_fk,
+        string store_code,
+        string qty,
+        string is_cancel_by,
+        string is_cancel_date,
+        int dry_order_fk,
+        string mode);
+
+
         DataSet sp_Store_Preparation_Logs(int prepa_id,
         string prepa_source_key,
         string prepa_approved_prepa_date,
