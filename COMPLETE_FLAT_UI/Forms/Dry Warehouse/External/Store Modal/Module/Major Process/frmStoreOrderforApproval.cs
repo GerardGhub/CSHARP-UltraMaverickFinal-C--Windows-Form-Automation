@@ -222,6 +222,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
+                //this.dgvStoreOrderApproval.Columns["allocation_id"].Visible = false;
             }
 
 
@@ -1181,7 +1182,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.FormClass.sp_StockOnHand = this.dgvStoreOrderApproval.CurrentRow.Cells["StockOnHand"].Value.ToString();
                         this.FormClass.sp_Allocated_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["ALLOCATION_QTY"].Value.ToString();
                         this.FormClass.Sp_Reserved_Qty = this.dgvStoreOrderApproval.CurrentRow.Cells["RESERVED"].Value.ToString();
-                        this.FormClass.Sp_Allocation_Identity = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["allocation_id"].Value);
+                        this.FormClass.Sp_Allocation_Identity = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
                     }
                 }
             }
@@ -1453,7 +1454,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                 this.SearchInactiveMaterial();
-                this.VisibilityFalseDataGrid();
+
 
 
         }
@@ -1466,16 +1467,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                     xClass.fillDataGridView(this.dgvStoreOrderApproval, "SearchorderForApprovalinDryWHCancel", dSet);
 
-                this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+                this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
+                this.VisibilityFalseDataGrid();
 
-
-                }
+                 }
                 catch (Exception ex)
                 {
 
                     MessageBox.Show(ex.Message);
                 }
-               
+
+            if (this.lbltotaldata.Text == "0")
+            {
+                this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["is_cancelled"].Visible = false;
+            }
 
         }
 

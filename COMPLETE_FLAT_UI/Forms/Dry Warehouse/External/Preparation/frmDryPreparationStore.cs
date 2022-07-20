@@ -300,10 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
         {
-            //return;
-            ////top to bottom
-            //if(this.lbltotalStoreforPreparation.Text != "0")
-            //{
+           
                 this.CurrentCellChangeofDgvStoreOrderApproval();
 
 
@@ -1124,8 +1121,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "CANCEL")
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
 
-        }
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+                    //back
+            }
 
       
 

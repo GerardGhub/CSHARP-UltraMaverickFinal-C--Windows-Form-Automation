@@ -91,6 +91,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["description"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["category"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["uom"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["route"].Visible = false;
@@ -218,12 +221,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
                   
 
-                    dset3.Clear();
-                    dset3 = objStorProc.sp_Store_Preparation_Logs(0,
-                   this.Sp_Primary_Key,
+                    this.dset3.Clear();
+                    this.dset3 = objStorProc.sp_Store_Preparation_Logs(
+                    0,
+                    this.Sp_Primary_Key,
                     this.sp_approved_preparation_date,
-                    "ItemCode", "ItemDesc", "OrderQty", "Allocated QTY", "PrepaDate Added", "PrepaAdded By", 0,
-                      this.sp_fox, this.sp_route, this.sp_area,
+                    "ItemCode",
+                    "ItemDesc",
+                    "OrderQty",
+                    "Allocated QTY",
+                    "PrepaDate Added",
+                    "PrepaAdded By",
+                    0,
+                    this.sp_fox, 
+                    this.sp_route, 
+                    this.sp_area,
                     "cancel_preparation_individual");
 
 

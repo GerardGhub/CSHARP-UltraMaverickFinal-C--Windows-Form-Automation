@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         IStoredProcedures g_objStoredProcCollection = null;
         IStoredProcedures objStorProc = null;
         frmNewStoreOrderApproved FormClass = new frmNewStoreOrderApproved();
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmEditConsolidatedOrder(frmStoreOrderforApproval frm, 
             int primary_id,
             int order_id, 
@@ -90,7 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.BindDataintoTextBox();
             this.mattxtUpdatedQty.Focus();
-            //MessageBox.Show(SpAllocationIDentity.ToString());
+
 
         }
 
@@ -125,6 +125,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.user_id = userinfo.user_id;
             //MessageBox.Show(""+sp_primary_id);
+
+        
+
+            //MessageBox.Show(displayed_value);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -147,7 +151,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if(this.mattxtUpdatedQty.Text == String.Empty)
             {
-                this.FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 this.mattxtUpdatedQty.Focus();
                 return;
             }
@@ -165,15 +169,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (UpdatedQuantityOrder > QuantityOrder)
                 {
-                    //MessageBox.Show("A");
-                    //return;
+
                 }
                 else
                 {
-                    this.GreaterThanAllocatedQty();
+                     this.GlobalStatePopup.GreaterThanAllocatedQty();
                     this.mattxtUpdatedQty.Text = String.Empty;
                     this.mattxtUpdatedQty.Focus();
-                    //MessageBox.Show("B");
+
                     return;
                 }
             //}
@@ -209,12 +212,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
+                    double qtyvalue = double.Parse(this.mattxtQtyOrder.Text);
+
+                    string displayed_value = qtyvalue.ToString("N0");
+
 
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_Allocation_Logs(
                      this.SpAllocationIDentity,
+                  
                     "",
-                    "",
+                      displayed_value,
                     this.mattxtUpdatedQty.Text,
                     this.user_id.ToString(),
                     "",
@@ -224,7 +232,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     "edit_store_order_qty");
                 }
 
-                this.UpdatedSuccessfully();
+                this.GlobalStatePopup.UpdatedSuccessfully();
 
                 this.Close();
 
@@ -237,83 +245,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        public void UpdatedSuccessfully()
-        {
+   
+ 
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Updated Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public void GreaterThanAllocatedQty()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Greater than Allocated Qty";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void FillRequiredTextbox()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void mattxtUpdatedQty_TextChanged(object sender, EventArgs e)
         {
