@@ -74,6 +74,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string sp_approved_preparation_date { get; set; }
         public string Sp_Primary_Key { get; set; }
         public string Is_Active { get; set; }
+        public int Sp_Primary_id { get; set; }
 
         private void frmViewStoreItemPrepared_Load(object sender, EventArgs e)
         {
@@ -201,7 +202,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     {
 
                         this.Sp_Primary_Key = this.guna2DgvMaterialPreparation.CurrentRow.Cells["prepa_id"].Value.ToString();
-
+                        this.Sp_Primary_id = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value);
                     }
                 }
             }
@@ -219,11 +220,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                  
 
                     this.dset3.Clear();
                     this.dset3 = objStorProc.sp_Store_Preparation_Logs(
-                    0,
+                    this.Sp_Primary_id,
                     this.Sp_Primary_Key,
                     this.sp_approved_preparation_date,
                     "ItemCode",
