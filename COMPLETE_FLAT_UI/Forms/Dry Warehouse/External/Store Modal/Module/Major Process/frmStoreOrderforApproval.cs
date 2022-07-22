@@ -167,7 +167,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_ApprovalAreaBinding_RadioAllocation", this.dSet, this.matcmbCategory.Text, "", this.matcmbCategory.Text, "");
 
                 }
-                else
+                else if (this.matRadioForApproval.Checked == true)
                 {
                     myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_ApprovalAreaBinding", this.dSet, this.matcmbCategory.Text, "", this.matcmbCategory.Text, "");
 
@@ -430,7 +430,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
             }
-            else
+            else if (this.matRadioForApproval.Checked == true)
             {
                 this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
             }
@@ -501,8 +501,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
 
 
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
+            objStorProc = xClass.g_objStoredProc.GetCollections();
             this.load_search();
 
             if(this.lbltotaldata.Text == "0")

@@ -39,15 +39,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.prepa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.converted_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Serve_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prepa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remaining_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_ordered_materials = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,15 +95,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.ColumnHeadersHeight = 40;
             this.guna2DgvMaterialPreparation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.guna2DgvMaterialPreparation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prepa_id,
-            this.fox,
             this.item_code,
-            this.description,
-            this.category,
-            this.uom,
             this.qty,
             this.converted_qty,
             this.Serve_Qty,
+            this.prepa_id,
+            this.fox,
+            this.description,
+            this.category,
+            this.uom,
             this.Remaining_Qty,
             this.date_ordered_materials,
             this.is_approved_preparation_date,
@@ -215,20 +215,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // prepa_id
-            // 
-            this.prepa_id.DataPropertyName = "prepa_id";
-            this.prepa_id.HeaderText = "ID";
-            this.prepa_id.Name = "prepa_id";
-            this.prepa_id.ReadOnly = true;
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.HeaderText = "STORE CODE";
-            this.fox.Name = "fox";
-            this.fox.ReadOnly = true;
-            // 
             // item_code
             // 
             this.item_code.DataPropertyName = "item_code";
@@ -237,31 +223,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.item_code.MinimumWidth = 12;
             this.item_code.Name = "item_code";
             this.item_code.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.FillWeight = 66.57212F;
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 12;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.FillWeight = 66.57212F;
-            this.uom.HeaderText = "UOM";
-            this.uom.MinimumWidth = 12;
-            this.uom.Name = "uom";
-            this.uom.ReadOnly = true;
             // 
             // qty
             // 
@@ -288,6 +249,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Serve_Qty.MinimumWidth = 12;
             this.Serve_Qty.Name = "Serve_Qty";
             this.Serve_Qty.ReadOnly = true;
+            // 
+            // prepa_id
+            // 
+            this.prepa_id.DataPropertyName = "prepa_id";
+            this.prepa_id.HeaderText = "ID";
+            this.prepa_id.Name = "prepa_id";
+            this.prepa_id.ReadOnly = true;
+            // 
+            // fox
+            // 
+            this.fox.DataPropertyName = "fox";
+            this.fox.HeaderText = "STORE CODE";
+            this.fox.Name = "fox";
+            this.fox.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.FillWeight = 66.57212F;
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 12;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.FillWeight = 66.57212F;
+            this.uom.HeaderText = "UOM";
+            this.uom.MinimumWidth = 12;
+            this.uom.Name = "uom";
+            this.uom.ReadOnly = true;
             // 
             // Remaining_Qty
             // 
@@ -359,15 +359,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prepa_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn converted_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Serve_Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prepa_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remaining_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered_materials;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_preparation_date;

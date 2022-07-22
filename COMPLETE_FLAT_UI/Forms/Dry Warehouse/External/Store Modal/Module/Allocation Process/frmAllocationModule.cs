@@ -801,7 +801,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 return;
             }
 
-            this.txtItemCode_TextChanged(sender, e);
+        
         
             
             

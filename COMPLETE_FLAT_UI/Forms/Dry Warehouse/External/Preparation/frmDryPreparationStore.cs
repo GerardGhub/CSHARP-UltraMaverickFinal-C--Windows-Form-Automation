@@ -1128,6 +1128,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.Sp_AssigneD_Task_By.ToString(),
                     "",
                     Convert.ToInt32(this.sp_material_id),
+                     this.Sp_Item_Code,
                     "add");
                     this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
 

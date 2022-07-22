@@ -215,7 +215,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-            if(guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "Delete")
+            if(this.guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "Delete")
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
