@@ -46,9 +46,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                xClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry_Inventory", dSet);
+                this.xClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry_Inventory", dSet);
 
-                lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+                this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -77,6 +77,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvRawMats.ClearSelection();
+        }
+
+        private void txtItemCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

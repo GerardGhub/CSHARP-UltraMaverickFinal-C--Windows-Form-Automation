@@ -296,20 +296,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
-     
-
-        private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
+     private void ConnectionInit()
         {
-           
-                this.CurrentCellChangeofDgvStoreOrderApproval();
-
-
-
-
 
             ////Connection CallBack
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+
+        private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
+        {
+           
+           this.CurrentCellChangeofDgvStoreOrderApproval();
+
+
+            this.ConnectionInit();
+
+
             this.SearchMethodJarVarCallingSP();
             if (this.lbltotalStoreforPreparation.Text == "0")
             {
@@ -419,23 +422,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     }
                     else if (myglobal.global_module == "Active")
                     {
-                        //if(this.cmbArea.Text == String.Empty)
-                        //{
-                        //    dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "' ";
-
-                        //}
-                        //else
-                        //{
+ 
                     
                             dv.RowFilter = "fox = '" + this.sp_fox + "' and route = '" + this.sp_route + "' and area = '" + this.sp_area + "'   " + 
                             "and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  and category = '" + this.Sp_Category + "'  ";
 
 
-                        //and category = '" + this.matcmbCategory.Text + "'
                     }
 
                     this.guna2DgvMaterialPreparation.DataSource = dv;
+          
                     this.lbltotaldata.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
+
                 }
             }
             catch (SyntaxErrorException)
@@ -487,14 +485,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
        
 
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
 
             this.FormmLoadSearchState();
-            // attached the Area
+       
 
             this.RefactoringResetEnhancement();
             this.loadAreaDropdown();
@@ -1132,7 +1129,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     "",
                     Convert.ToInt32(this.sp_material_id),
                     "add");
-                    this.textBox1_TextChanged(sender, e);
+                    this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
+
                     this.GlobalStatePopup.CancelledSuccessfully();
                 }
                 else

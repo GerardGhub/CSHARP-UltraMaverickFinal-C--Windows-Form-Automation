@@ -468,6 +468,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtItemCode.Size = new System.Drawing.Size(205, 50);
             this.txtItemCode.TabIndex = 573;
             this.txtItemCode.Text = "";
+            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             this.txtItemCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemCode_KeyPress);
             // 
             // label2

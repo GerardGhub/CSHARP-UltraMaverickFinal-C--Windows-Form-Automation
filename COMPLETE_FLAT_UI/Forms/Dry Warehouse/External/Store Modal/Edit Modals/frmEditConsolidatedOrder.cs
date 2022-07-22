@@ -167,20 +167,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 UpdatedQuantityOrder = double.Parse(this.mattxtQtyOrder.Text) + double.Parse(this.matTxtReservedQuantity.Text);
 
 
-            if (UpdatedQuantityOrder > QuantityOrder)
-                {
+           
 
-                }
-                else
-                {
-                     this.GlobalStatePopup.GreaterThanAllocatedQty();
+
+                    if (UpdatedQuantityOrder > QuantityOrder)
+                    {
+                         this.OnExecuteUpdate();
+                    }
+                    else if (UpdatedQuantityOrder == QuantityOrder)
+                    {
+                         this.OnExecuteUpdate();
+                    }
+                    else
+                    {
+                    this.GlobalStatePopup.GreaterThanAllocatedQty();
                     this.mattxtUpdatedQty.Text = String.Empty;
                     this.mattxtUpdatedQty.Focus();
 
                     return;
-                }
-            //}
-            //Start
+                    }
+          
+     
+    
+
+        }
+
+   
+        private void OnExecuteUpdate()
+        {
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the  Information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
@@ -191,24 +205,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
 
-                this.dSet.Clear();
-                this.dSet = objStorProc.sp_dry_wh_orders(
-                this.sp_primary_id,
-                this.sp_primary_id,
-                this.sp_date_ordered,
-                this.sp_fox,
-                this.sp_store_name,
-                this.sp_route,
-                this.sp_area,
-                this.sp_category,
-                this.sp_item_code,
-                this.sp_description,
-                this.sp_uom,
-                this.mattxtUpdatedQty.Text,
-                "1",
-                "",
-                Convert.ToInt32(user_id).ToString(),
-                "edit");
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_dry_wh_orders(
+                    this.sp_primary_id,
+                    this.sp_primary_id,
+                    this.sp_date_ordered,
+                    this.sp_fox,
+                    this.sp_store_name,
+                    this.sp_route,
+                    this.sp_area,
+                    this.sp_category,
+                    this.sp_item_code,
+                    this.sp_description,
+                    this.sp_uom,
+                    this.mattxtUpdatedQty.Text,
+                    "1",
+                    "",
+                    Convert.ToInt32(user_id).ToString(),
+                    "edit");
                 }
                 else
                 {
@@ -220,7 +234,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.dSet.Clear();
                     this.dSet = objStorProc.sp_Allocation_Logs(
                      this.SpAllocationIDentity,
-                  
+
                     "",
                       displayed_value,
                     this.mattxtUpdatedQty.Text,
@@ -237,15 +251,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.Close();
 
 
-                }
+            }
             else
             {
                 return;
             }
-
         }
-
-   
  
 
 

@@ -38,6 +38,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,7 +47,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.cmbArea = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -70,6 +70,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.guna2DgvMaterialPreparation = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.converted_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serve_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remaining_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_ordered_materials = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANCEL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lbltotalStoreforPreparation = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.mattxtScanTheBarcode = new MaterialSkin.Controls.MaterialTextBox();
@@ -87,18 +99,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.label5 = new System.Windows.Forms.Label();
             this.matbtnSave = new MaterialSkin.Controls.MaterialButton();
             this.matViewItemPrepared = new MaterialSkin.Controls.MaterialButton();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.converted_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Serve_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remaining_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_ordered_materials = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_approved_preparation_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANCEL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -257,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matcmbCategory.TabIndex = 577;
             this.matcmbCategory.UseSelectable = true;
             this.matcmbCategory.SelectionChangeCommitted += new System.EventHandler(this.matcmbCategory_SelectionChangeCommitted);
-            this.matcmbCategory.Click += new System.EventHandler(this.matcmbCategory_Click);
+            this.matcmbCategory.Click += new System.EventHandler(this.frmDryPreparation_Load);
             // 
             // materialCard2
             // 
@@ -551,6 +551,106 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
             this.guna2DgvMaterialPreparation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DgvMaterialPreparation_CellContentClick);
             this.guna2DgvMaterialPreparation.CurrentCellChanged += new System.EventHandler(this.guna2DgvMaterialPreparation_CurrentCellChanged);
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 66.91177F;
+            this.item_code.HeaderText = "CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.FillWeight = 66.57212F;
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 12;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.FillWeight = 66.57212F;
+            this.uom.HeaderText = "UOM";
+            this.uom.MinimumWidth = 12;
+            this.uom.Name = "uom";
+            this.uom.ReadOnly = true;
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.FillWeight = 66.57212F;
+            this.qty.HeaderText = "ORDER";
+            this.qty.MinimumWidth = 12;
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            // 
+            // converted_qty
+            // 
+            this.converted_qty.DataPropertyName = "converted_qty";
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.converted_qty.DefaultCellStyle = dataGridViewCellStyle8;
+            this.converted_qty.HeaderText = "ALLOCATED QTY";
+            this.converted_qty.MinimumWidth = 6;
+            this.converted_qty.Name = "converted_qty";
+            this.converted_qty.ReadOnly = true;
+            // 
+            // Serve_Qty
+            // 
+            this.Serve_Qty.DataPropertyName = "Serve_Qty";
+            this.Serve_Qty.FillWeight = 66.91177F;
+            this.Serve_Qty.HeaderText = "SERVE";
+            this.Serve_Qty.MinimumWidth = 12;
+            this.Serve_Qty.Name = "Serve_Qty";
+            this.Serve_Qty.ReadOnly = true;
+            // 
+            // Remaining_Qty
+            // 
+            this.Remaining_Qty.DataPropertyName = "Remaining_Qty";
+            this.Remaining_Qty.HeaderText = "REMAINING";
+            this.Remaining_Qty.Name = "Remaining_Qty";
+            this.Remaining_Qty.ReadOnly = true;
+            // 
+            // date_ordered_materials
+            // 
+            this.date_ordered_materials.DataPropertyName = "date_ordered";
+            this.date_ordered_materials.HeaderText = "DATE ORDERED";
+            this.date_ordered_materials.Name = "date_ordered_materials";
+            this.date_ordered_materials.ReadOnly = true;
+            // 
+            // is_approved_preparation_date
+            // 
+            this.is_approved_preparation_date.DataPropertyName = "is_approved_preparation_date";
+            this.is_approved_preparation_date.HeaderText = "APPROVED DATE";
+            this.is_approved_preparation_date.Name = "is_approved_preparation_date";
+            this.is_approved_preparation_date.ReadOnly = true;
+            // 
+            // conversion
+            // 
+            this.conversion.DataPropertyName = "conversion";
+            this.conversion.HeaderText = "CONVERSION";
+            this.conversion.Name = "conversion";
+            this.conversion.ReadOnly = true;
+            // 
+            // CANCEL
+            // 
+            this.CANCEL.DataPropertyName = "CANCEL";
+            this.CANCEL.HeaderText = "CANCEL";
+            this.CANCEL.Name = "CANCEL";
+            this.CANCEL.ReadOnly = true;
+            this.CANCEL.Text = "CANCEL";
+            this.CANCEL.UseColumnTextForButtonValue = true;
             // 
             // lbltotalStoreforPreparation
             // 
@@ -880,106 +980,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matViewItemPrepared.UseVisualStyleBackColor = true;
             this.matViewItemPrepared.Visible = false;
             this.matViewItemPrepared.Click += new System.EventHandler(this.matViewItemPrepared_Click);
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 66.91177F;
-            this.item_code.HeaderText = "CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.FillWeight = 66.57212F;
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 12;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.FillWeight = 66.57212F;
-            this.uom.HeaderText = "UOM";
-            this.uom.MinimumWidth = 12;
-            this.uom.Name = "uom";
-            this.uom.ReadOnly = true;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.FillWeight = 66.57212F;
-            this.qty.HeaderText = "ORDER";
-            this.qty.MinimumWidth = 12;
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            // 
-            // converted_qty
-            // 
-            this.converted_qty.DataPropertyName = "converted_qty";
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.converted_qty.DefaultCellStyle = dataGridViewCellStyle8;
-            this.converted_qty.HeaderText = "ALLOCATED QTY";
-            this.converted_qty.MinimumWidth = 6;
-            this.converted_qty.Name = "converted_qty";
-            this.converted_qty.ReadOnly = true;
-            // 
-            // Serve_Qty
-            // 
-            this.Serve_Qty.DataPropertyName = "Serve_Qty";
-            this.Serve_Qty.FillWeight = 66.91177F;
-            this.Serve_Qty.HeaderText = "SERVE";
-            this.Serve_Qty.MinimumWidth = 12;
-            this.Serve_Qty.Name = "Serve_Qty";
-            this.Serve_Qty.ReadOnly = true;
-            // 
-            // Remaining_Qty
-            // 
-            this.Remaining_Qty.DataPropertyName = "Remaining_Qty";
-            this.Remaining_Qty.HeaderText = "REMAINING";
-            this.Remaining_Qty.Name = "Remaining_Qty";
-            this.Remaining_Qty.ReadOnly = true;
-            // 
-            // date_ordered_materials
-            // 
-            this.date_ordered_materials.DataPropertyName = "date_ordered";
-            this.date_ordered_materials.HeaderText = "DATE ORDERED";
-            this.date_ordered_materials.Name = "date_ordered_materials";
-            this.date_ordered_materials.ReadOnly = true;
-            // 
-            // is_approved_preparation_date
-            // 
-            this.is_approved_preparation_date.DataPropertyName = "is_approved_preparation_date";
-            this.is_approved_preparation_date.HeaderText = "APPROVED DATE";
-            this.is_approved_preparation_date.Name = "is_approved_preparation_date";
-            this.is_approved_preparation_date.ReadOnly = true;
-            // 
-            // conversion
-            // 
-            this.conversion.DataPropertyName = "conversion";
-            this.conversion.HeaderText = "CONVERSION";
-            this.conversion.Name = "conversion";
-            this.conversion.ReadOnly = true;
-            // 
-            // CANCEL
-            // 
-            this.CANCEL.DataPropertyName = "CANCEL";
-            this.CANCEL.HeaderText = "CANCEL";
-            this.CANCEL.Name = "CANCEL";
-            this.CANCEL.ReadOnly = true;
-            this.CANCEL.Text = "CANCEL";
-            this.CANCEL.UseColumnTextForButtonValue = true;
             // 
             // frmDryPreparationStore
             // 

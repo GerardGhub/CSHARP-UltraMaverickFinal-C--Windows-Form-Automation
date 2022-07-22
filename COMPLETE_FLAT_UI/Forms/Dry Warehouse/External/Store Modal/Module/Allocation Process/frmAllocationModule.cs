@@ -87,6 +87,65 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
 
 
+        DataSet dset_emp_SearchForAllocation = new DataSet();
+        private void SearchMethodforAllocation()
+        {
+
+            this.dset_emp_SearchForAllocation.Clear();
+            this.dset_emp_SearchForAllocation = objStorProc.sp_getMajorTables("Raw_Materials_Dry_Allocation_Major");
+
+        }
+
+        private void FormmLoadSearchAllocationMaster()
+        {
+
+            try
+            {
+
+
+                if (this.dset_emp_SearchForAllocation.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(this.dset_emp_SearchForAllocation.Tables[0]);
+
+                    try
+                    {
+
+
+                    
+                            dv.RowFilter = "(item_code = '" + this.txtItemCode.Text + "' ";
+                 
+                        this.dgvStoreOrderApproval.DataSource = dv;
+                        this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
+                        //End
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+
+
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+
+
+        }
+
+
         private void DataGridVisibleFalseForDistinctItems()
         {
             this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
@@ -742,13 +801,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 return;
             }
 
+            this.txtItemCode_TextChanged(sender, e);
         
             
             
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the new order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
-                //Start of Iteration
+      
             
                 foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
                 {
@@ -1125,6 +1185,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.showDataGridDataValueChangedFinder();
 
+                //MessageBox.Show(txtReserve.Text);
+                //return;
+
                 ////For Decrementation Singkit
                 this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
@@ -1222,7 +1285,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                
                     this.CancelFunctionality();
                     this.txtItemCode_TextChanged(sender, e);
-                    //this.textBox2Cancel.Text = String.Empty;
+
+                    //this.ConnectionInit();
+                    //SearchMethodforAllocation();
+                    //FormmLoadSearchAllocationMaster();
+
                     this.GlobalStatePopup.CancelledSuccessfully();
                
             }
