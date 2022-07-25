@@ -1235,7 +1235,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             int.Parse(this.p_id.ToString()),
             "CancelStoreOrderApprovalIndividual",
             this.textBox2Cancel.Text.Trim(),
-            this.user_identity.ToString(), 1);
+            this.user_identity.ToString(), 1, 0);
         }
         private void dgvFindStoreOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1269,7 +1269,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             int.Parse(this.p_id.ToString()),
             "CancelStoreOrderApprovalIndividual",
             this.textBox2Cancel.Text.Trim(),
-            this.user_identity.ToString(), 1);
+            this.user_identity.ToString(), 1, 0);
         }
         private void textBox2Cancel_TextChanged(object sender, EventArgs e)
         {

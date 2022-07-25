@@ -944,7 +944,7 @@ namespace ULTRAMAVERICK.Report
         DataSet dset = new DataSet();
         private void frmReport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
+            dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6, 0);
         }
     }
 }

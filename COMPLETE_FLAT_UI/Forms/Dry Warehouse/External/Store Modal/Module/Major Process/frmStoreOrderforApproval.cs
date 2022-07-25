@@ -28,8 +28,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
-
+        int LatestForeignKeyInMasterStoreTable = 0;
         DataSet dSet = new DataSet();
+        DataSet dSetCheckStoreCount = new DataSet();
 
         DataSet dSetCategoryPartialValidation = new DataSet();
 
@@ -154,7 +155,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
 
             this.loadAreaDropdown();
-          
+
+
+
+            //MessageBox.Show(this.dSet.Tables[0].Rows.ToString());
+
+
         }
 
 
@@ -443,7 +449,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void DataRefresher()
         {
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
+            this.dset = g_objStoredProcCollection
+            .sp_IDGenerator(0, 
+            "resetreceivingreprint", 
+            "", 
+            "", 
+            6, 0);
             this.FormClass.sp_user_id = userinfo.user_id;
         }
 
@@ -520,28 +531,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
+
+
         private void TaggingConflictCategoryValidation()
         {
-            //CheckIifAlreayHaveAnewRecord
+           
             dset2.Clear();
             dset2 = objStorProc.sp_Store_Preparation_Logs(0,
-           this.matcmbCategory.Text,
+            this.matcmbCategory.Text,
             this.bunifuPrepaDate.Text,
-            "", "", "", "", "", "", 0,
-              this.matcmbCategory.Text, "", "",
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "",
+            0,
+            this.matcmbCategory.Text,
+            "", 
+            "",
+            0,
             "check_if_already_prepared_conflict_category_getcount");
 
             if (dset2.Tables[0].Rows.Count > 0)
             {
                 
-                //Update Status Already Repack
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(0,
-               this.matcmbCategory.Text,
-                this.bunifuPrepaDate.Text,
-                "", "", "", "", "", "", 0,
-                  this.matcmbCategory.Text, "", "",
-                "check_if_already_prepared_conflict_category");
+
+            dSet.Clear();
+            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            this.matcmbCategory.Text.Trim(),
+            this.bunifuPrepaDate.Text.Trim(),
+            "",
+            "",
+            "",
+            "", 
+            "", 
+            "",
+            0,
+            this.matcmbCategory.Text.Trim(),
+            "", 
+            "", 0,
+            "check_if_already_prepared_conflict_category");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -562,7 +592,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                     if (dSet.Tables.Count.ToString() == "2")
                     {
-                        this.DoubleTaggingFound(); // Add additional Braces
+                        this.DoubleTaggingFound(); 
                     }
                        
                     
@@ -715,7 +745,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void ApproveFunctionality()
         {
- 
+
+
+            this.dSetCheckStoreCount.Clear();
+            this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+
+
+            this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
+      
+
+
 
             for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
             {
@@ -727,7 +766,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.FormClass.sp_user_id.ToString(), 1);
+                            dset = g_objStoredProcCollection
+                                .sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()),
+                                "PUTStoreOrderApproval", 
+                                this.bunifuPrepaDate.Text, 
+                                this.FormClass.sp_user_id.ToString(),
+                                1,
+                                this.LatestForeignKeyInMasterStoreTable);
 
                         }
                         else
@@ -741,13 +786,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
                     this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApproval", this.bunifuPrepaDate.Text, this.FormClass.sp_user_id.ToString(), 1);
-
+    
                     MessageBox.Show(ex.Message);
                 }
 
             }
-
+            //this.GetParentIDCountinStore();
+            this.ExecuteMasterTablePreparationStore();
             this.GlobalStatePopup.ApprovedSuccessfully();
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
@@ -758,6 +803,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
           
+        }
+
+        private void GetParentIDCountinStore()
+        {
+
+            this.dSet.Clear();
+            this.dSet = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+
+
+
+            int Contract_id = Convert.ToInt32(dSet.Tables[0].Rows[0]["LatestNumber"]);
+
+            //MessageBox.Show(Contract_id.ToString());
+        }
+
+        private void ExecuteMasterTablePreparationStore()
+        {
+            dset2.Clear();
+            dset2 = objStorProc.sp_Dry_Wh_Order_Parent(0,
+             "",
+            this.FormClass.sp_fox,
+            this.FormClass.sp_store_name,
+            this.FormClass.sp_route,
+            this.FormClass.sp_area,
+            this.FormClass.sp_category, 
+            0,
+            "1",
+            userinfo.user_id,
+            "GETDATE()",
+            this.bunifuPrepaDate.Text,
+             "1",
+            "add");
         }
 
 
@@ -777,10 +854,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         {
                             this.dgvStoreOrderApproval.CurrentCell = 
                             this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), 
+                            dset = g_objStoredProcCollection
+                            .sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), 
                             "CancelStoreOrderApprovalIndividual", 
                             this.textBox2Cancel.Text, 
-                            this.FormClass.sp_user_id.ToString(), 1);
+                            this.FormClass.sp_user_id.ToString(), 1,0);
 
                         }
                         else
@@ -816,6 +894,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
+            //this.dSetCheckStoreCount.Clear();
+            //this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+            //if (this.dSetCheckStoreCount.Tables.Count == 0)
+            //{
+
+            //}
+            //else
+            //{
+
+            //    this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
+            //    //MessageBox.Show(LatestForeignKeyInMasterStoreTable.ToString());
+            //}
+
             //Code for Approval on The Preparation Date 
             if (this.lbltotaldata.Text == "0")
             {
@@ -823,14 +914,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                //Array count anakputa ka
+    
                 if (num == 0)
                 {
                     return;
                 }
 
 
-                //CheckIifAlreayHaveAnewRecord
+
                 dset2.Clear();
                 dset2 = objStorProc.sp_Store_Preparation_Logs(0,
                 this.matcmbCategory.Text,
@@ -844,31 +935,50 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 0,
                 this.matcmbCategory.Text,
                 "",
-                "",
+                "", 
+                0,
                 "check_if_already_prepared_conflict_category_getcount");
 
                 if (dset2.Tables[0].Rows.Count > 0)
                 {
 
             
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Store_Preparation_Logs(
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_Store_Preparation_Logs(
                     0,
                     this.matcmbCategory.Text,
                     this.bunifuPrepaDate.Text,
-                    "", "", "", "", "", "", 0,
-                    this.matcmbCategory.Text, "", "",
+                    "", 
+                    "", 
+                    "", 
+                    "", 
+                    "", 
+                    "", 
+                    0,
+                    this.matcmbCategory.Text, 
+                    "", 
+                    "",
+                    0,
                     "check_if_already_prepared_conflict_category");
 
-                    if (dSet.Tables[0].Rows.Count > 0)
+                    if (this.dSet.Tables[0].Rows.Count > 0)
                     {
  
-                        dSetCategoryPartialValidation.Clear();
-                        dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
-                       this.matcmbCategory.Text,
+                        this.dSetCategoryPartialValidation.Clear();
+                        this.dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
+                        this.matcmbCategory.Text,
                         this.bunifuPrepaDate.Text,
-                        "", "", "", "", "", "", 0,
-                          this.matcmbCategory.Text, "", "",
+                        "", 
+                        "", 
+                        "", 
+                        "", 
+                        "", 
+                        "",
+                        0,
+                        this.matcmbCategory.Text.Trim(), 
+                        "", 
+                        "",
+                        0,
                         "check_if_already_prepared_conflict_category_validation");
                         if (dSetCategoryPartialValidation.Tables[0].Rows.Count > 0)
                         {
@@ -920,7 +1030,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-       
+
+
+            //Sample Gerard
+            //this.dSetCheckStoreCount.Clear();
+            //this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+
+            //LatestForeignKeyInMasterStoreTable = Convert.ToInt32(dSet.Tables[0].Rows[0]["LatestNumber"]);
+
+
+
             this.showRawMaterialforApproval();
      
             if (this.matRadioForAllocation.Checked == true)
@@ -964,7 +1083,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                this.matcmbCategory.Text,
                 this.bunifuPrepaDate.Text,
                 "", "", "", "", "", "", 0,
-                  this.matcmbCategory.Text, "", "",
+                  this.matcmbCategory.Text, "", "", 0,
                 "check_if_already_prepared_conflict_category");
 
                 if (dSet.Tables[0].Rows.Count > 0)
@@ -1001,7 +1120,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         0,
                           this.matcmbCategory.Text,
                           "",
-                          "",
+                          "", 0,
                         "check_if_already_prepared_conflict_category_validation");
                         if (dSetCategoryPartialValidation.Tables[0].Rows.Count > 0)
                         {

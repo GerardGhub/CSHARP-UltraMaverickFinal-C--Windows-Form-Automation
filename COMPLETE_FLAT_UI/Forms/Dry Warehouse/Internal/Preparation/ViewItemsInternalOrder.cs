@@ -111,7 +111,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()), "DryWhSupervisorApprovedMRS", this.bunifuPrepaDate.Text, userinfo.user_id.ToString(), 1);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()), "DryWhSupervisorApprovedMRS", this.bunifuPrepaDate.Text, userinfo.user_id.ToString(), 1, 0);
 
                         }
                         else

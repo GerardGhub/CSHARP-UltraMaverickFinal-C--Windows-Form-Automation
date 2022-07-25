@@ -377,7 +377,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void DataRefresher()
         {
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
+            this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6, 0);
             sp_user_id = userinfo.user_id;
         }
 
@@ -780,7 +780,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                             {
                                 this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1);
+                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
 
                             }
                             else
@@ -794,7 +794,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
 
                         this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1);
+                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
 
                         MessageBox.Show(ex.Message);
                     }
@@ -814,7 +814,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                             {
                                 this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApprovedCancel", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1);
+                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApprovedCancel", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
 
                             }
                             else
@@ -827,7 +827,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
 
                         this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApprovedCancel", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1);
+                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApprovedCancel", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
 
                         MessageBox.Show(ex.Message);
                     }
@@ -906,7 +906,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTPreparationStoreOrderApproved", this.sp_prepa_date_update, this.sp_user_id.ToString(), 1);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTPreparationStoreOrderApproved", this.sp_prepa_date_update, this.sp_user_id.ToString(), 1, 0);
 
                         }
                         else
@@ -920,7 +920,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
                     this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTPreparationStoreOrderApproved", this.sp_prepa_date_update, this.sp_user_id.ToString(), 1);
+                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTPreparationStoreOrderApproved", this.sp_prepa_date_update, this.sp_user_id.ToString(), 1, 0);
 
                     MessageBox.Show(ex.Message);
                 }
@@ -1012,7 +1012,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             0,
               this.matcmbCategory.Text,
               "",
-              this.metroCmbStoreCode.Text,
+              this.metroCmbStoreCode.Text, 
+              0,
             "check_if_already_prepared");
 
             if (dSet.Tables[0].Rows.Count > 0)
@@ -1056,8 +1057,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             "",
             "",
             0,
-              this.matcmbCategory.Text, "", 
-              this.metroCmbStoreCode.Text,
+            this.matcmbCategory.Text, "", 
+            this.metroCmbStoreCode.Text,
+            0,
             "check_if_already_prepared");
 
             if (dSet.Tables[0].Rows.Count > 0)

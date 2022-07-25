@@ -133,7 +133,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             0,
             this.Sp_Category,
             "",
-            "",
+            "", 0,
             "check_if_already_prepared_conflict_category_getcount_storeApproved");
 
             if (dset2.Tables[0].Rows.Count > 0)
@@ -146,7 +146,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                this.Sp_Category,
                 this.bunifuPrepaDate.Text,
                 "", "", "", "", "", "", 0,
-                  this.Sp_Category, "", "",
+                  this.Sp_Category, "", "",0,
                 "check_if_already_prepared_conflict_category_storeApproved");
 
                 if (dSet.Tables[0].Rows.Count > 0)
@@ -192,14 +192,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
 
 
-                    //Data Set for Validation
-                    //Validate that Partial tagging is allowed on the fucking system
-                    dSetCategoryPartialValidation.Clear();
-                    dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
-                   this.Sp_Category,
+         
+                    this.dSetCategoryPartialValidation.Clear();
+                    this.dSetCategoryPartialValidation = 
+                    objStorProc.sp_Store_Preparation_Logs(0,
+                    this.Sp_Category,
                     this.bunifuPrepaDate.Text,
-                    "", "", "", "", "", "", 0,
-                      this.Sp_Category, "", "",
+                    "", 
+                    "", 
+                    "",
+                    "",
+                    "", 
+                    "",
+                    0,
+                    this.Sp_Category, 
+                    "", 
+                    "",
+                    0,
                     "check_if_already_prepared_conflict_category_validation");
                     if (dSetCategoryPartialValidation.Tables[0].Rows.Count > 0)
                     {

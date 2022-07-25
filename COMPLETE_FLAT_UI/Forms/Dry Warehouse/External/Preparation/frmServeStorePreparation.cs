@@ -44,7 +44,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             string Route,
             string Area,
             string Category,
-            string TotalRawMaterialPreparationActive
+            string TotalRawMaterialPreparationActive,
+            int FK_dry_wh_orders_parent_id
             )
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             sp_Area = Area;
             Sp_Category = Category;
             Sp_TotalRawMaterialPreparationActive = TotalRawMaterialPreparationActive;
+            Sp_FK_dry_wh_orders_parent_id = FK_dry_wh_orders_parent_id;
         }
 
         public string sp_Fox { get; set; }
@@ -95,35 +97,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Category { get; set; }
         public string Sp_TotalRawMaterialPreparationActive { get; set; }
 
-
+        public int Sp_FK_dry_wh_orders_parent_id { get; set; }
 
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); 
+            objStorProc = xClass.g_objStoredProc.GetCollections(); 
 
-            myglobal.global_module = "Active"; // Mode for Searching
+            myglobal.global_module = "Active"; 
 
             this.StaticWindowState();
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
 
 
-            //Inventory Look Up
+     
             this.SearchMethodJarVarCallingSPReceivingIDInventory();
             this.doSearchInTextBoxCmbRecID();
-            //DataGrid Visible False
+
             this.DataGridVisibilyFalse();
 
 
-
+            //MessageBox.Show(this.Sp_FK_dry_wh_orders_parent_id.ToString());
         }
 
         private void DataGridVisibilyFalse()
         {
             this.dgvStoreOrderApproval.Visible = false;
             this.gunaDgvReceivedIDInventory.Visible = false;
-            //this.dgvPreparedItemDistinct.Visible = false;
+      
         }
 
 
@@ -189,12 +191,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matTxtOrderQty.Text = this.Sp_Converted_Qty;
             this.Sp_Preparation_Date = this.Sp_Preparation_Date;
             this.Sp_User_ID = userinfo.user_id;
-            this.matTxtQtyRelease.Text = Sp_Qty_Served;
-            this.sp_Fox = sp_Fox;
-            this.sp_Route = sp_Route;
-            this.sp_Area = sp_Area;
-            this.Sp_Category = Sp_Category;
+            this.matTxtQtyRelease.Text = this.Sp_Qty_Served;
+            this.sp_Fox = this.sp_Fox;
+            this.sp_Route = this.sp_Route;
+            this.sp_Area = this.sp_Area;
+            this.Sp_Category = this.Sp_Category;
             this.Sp_TotalRawMaterialPreparationActive = Sp_TotalRawMaterialPreparationActive;
+            this.Sp_FK_dry_wh_orders_parent_id = this.Sp_FK_dry_wh_orders_parent_id;
         }
 
  
@@ -290,16 +293,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             try
             {
-                //if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
-                //{
+            
 
-                    //Date Conversion
+      
                     DateTime dt = new DateTime();
                     string lstrDate = this.Sp_Preparation_Date;
                     dt = Convert.ToDateTime(lstrDate);
                     string lstrAdate = dt.ToString("yyyy-MM-dd");
                     this.Sp_Preparation_Date = lstrAdate;
-                    //MessageBox.Show(lstrAdate);
+              
 
                     DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
          
@@ -311,8 +313,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.dgvPreparedItemDistinct.DataSource = dv;
 
                     this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
-                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
-                //}
+               
             }
 
        
@@ -386,8 +387,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
             else
             {
-                //MessageBox.Show("B");
-                //return;
+      
             }
 
 
@@ -463,15 +463,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.matTxtDescription.Text,
                         this.matTxtOrderQty.Text,
                         this.mattxtQtyServe.Text,
-                        "", this.Sp_User_ID.ToString(),
+                        "", 
+                        this.Sp_User_ID.ToString(),
                         Convert.ToInt32(this.Sp_Material_Id),
-                        this.sp_Fox, this.Sp_Category, this.sp_Area,
+                        this.sp_Fox, 
+                        this.Sp_Category, 
+                        this.sp_Area,
+                        this.Sp_FK_dry_wh_orders_parent_id,
                         "update_StorePreparationLogsTBL_prepared_allocated_qty");
                     }
                 }
 
 
-                // Commit a new Fucking animal makapal a mukha
+   
                 dSet.Clear();
                 dSet = objStorProc.sp_Store_Preparation_Logs(0,
                 this.Sp_Barcode_Id,
@@ -482,7 +486,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.mattxtQtyServe.Text,
                 "", this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
-                this.sp_Fox, Sp_Category, this.sp_Area,
+                this.sp_Fox, 
+                Sp_Category, 
+                this.sp_Area,
+                this.Sp_FK_dry_wh_orders_parent_id,
                 "add");
 
          
@@ -506,9 +513,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.matTxtDescription.Text,
                 this.matTxtOrderQty.Text,
                 this.mattxtQtyServe.Text,
-                "", this.Sp_User_ID.ToString(),
+                "", 
+                this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
-                this.sp_Fox, this.sp_Route, this.sp_Area,
+                this.sp_Fox, 
+                this.sp_Route, 
+                this.sp_Area,
+                this.Sp_FK_dry_wh_orders_parent_id,
                 "update_prepared_allocated_qty");
 
 
@@ -529,7 +540,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.mattxtQtyServe.Text,
                         "", this.Sp_User_ID.ToString(),
                         Convert.ToInt32(this.Sp_Material_Id),
-                        this.sp_Fox, this.sp_Route, this.sp_Area,
+                        this.sp_Fox, 
+                        this.sp_Route, 
+                        this.sp_Area,
+                        this.Sp_FK_dry_wh_orders_parent_id,
                         "update_StorePreparationLogsTBL_prepared_wh_cancell_NULL");
                     }
 
@@ -545,11 +559,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 string lstrAdate = dt.ToString("yyyy-MM-dd");
                 this.Sp_Preparation_Date = lstrAdate;
 
-                //New Entry Validation Search
+             
 
                 this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
          
-                //Start Search
+            
 
                 try
                 {
@@ -647,9 +661,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
                 else
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
-                     this.Sp_RepackIncement.ToString(),
+                    this.dSet.Clear();
+                    this.dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                    this.Sp_RepackIncement.ToString(),
                     lstrAdate,
                     this.mattxtItemCode.Text,
                     this.matTxtDescription.Text,
@@ -657,7 +671,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.mattxtQtyServe.Text,
                     "", this.Sp_User_ID.ToString(),
                     Convert.ToInt32(this.Sp_Material_Id),
-                    this.sp_Fox, this.sp_Route, this.sp_Area,
+                    this.sp_Fox, 
+                    this.sp_Route, 
+                    this.sp_Area,
+                    this.Sp_FK_dry_wh_orders_parent_id,
                     "update_dry_orders_total_state_repack");
                 }
 
@@ -690,21 +707,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.matTxtDescription.Text,
                     this.matTxtOrderQty.Text,
                     this.mattxtQtyServe.Text,
-                    "", this.Sp_User_ID.ToString(),
+                    "", 
+                    this.Sp_User_ID.ToString(),
                     Convert.ToInt32(this.Sp_Material_Id),
-                      this.sp_Fox, this.sp_Route, this.sp_Area,
+                     this.sp_Fox, 
+                     this.sp_Route, 
+                     this.sp_Area,
+                     this.Sp_FK_dry_wh_orders_parent_id,
                     "update_dry_orders");
 
-                    //Clear Error
-                    ////MessageBox.Show("Catch The Fucking Error SuccessFully!");
-                    ////return;
+          
 
                     if (ActualQuantityReleased == 0)
                     {
-                        //MessageBox.Show(this.Sp_Material_Id.ToString());
-                        //return;
-                        //hjgj
-                        //Bulk Repack Based on Order
+                       
                         dSet.Clear();
                         dSet = objStorProc.sp_Store_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
@@ -719,10 +735,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.sp_Fox,
                         this.sp_Route, 
                         this.sp_Area,
+                        this.Sp_FK_dry_wh_orders_parent_id,
                         "bulk_produce_store_timestamp");
 
 
-                        //Bulk Update Start Whole Store Repository
+
                         this.BulkSaveEntryIntoStoredProc();
                     }
                 }
@@ -730,7 +747,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                 else
                 {
-                    //Update Start Time Stamp
+            
                     dSet.Clear();
                     dSet = objStorProc.sp_Store_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
@@ -744,20 +761,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     Convert.ToInt32(this.Sp_Material_Id),
                     this.sp_Fox,
                     this.sp_Route,
-                    this.sp_Area,
+                    this.sp_Area, 
+                    this.Sp_FK_dry_wh_orders_parent_id,
                     "start_dry_orders_store_timestamp");
                 
-                    //Bulk Update Start Whole Store Repository
+    
                     this.BulkSaveEntryIntoStoredProc();
 
                 }
 
-                //MessageBox.Show(this.dgvStoreOrderApproval_Is_wh_checker_cancel +"Catch The Fucking Error SuccessFully!");
-                //MessageBox.Show(this.Sp_TotalRawMaterialPreparationActive);
-                //return;
-                //return;
 
-                //Update the Refactoring Data Set status DB
+
+  
                 if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                 {
 
@@ -773,7 +788,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.mattxtQtyServe.Text,
                         "", this.Sp_User_ID.ToString(),
                         Convert.ToInt32(this.Sp_Material_Id),
-                        this.sp_Fox, this.Sp_Category, this.sp_Area,
+                        this.sp_Fox, 
+                        this.Sp_Category, 
+                        this.sp_Area,
+                        this.Sp_FK_dry_wh_orders_parent_id,
                         "update_StorePreparationLogsTBL_DataRefactoring");
                     }
 
@@ -797,7 +815,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void BulkSaveEntryIntoStoredProc()
         {
-            //Bulk Update Start Whole Store Repository   Remove Error on 04/28/2022
+            
             dSet.Clear();
             dSet = objStorProc.sp_Store_Preparation_Logs(0,
             this.Sp_Barcode_Id,
@@ -812,6 +830,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.sp_Fox,
             this.sp_Route,
             this.sp_Area,
+            this.Sp_FK_dry_wh_orders_parent_id,
             "start_dry_orders_store_timestamp_overall");
         }
 

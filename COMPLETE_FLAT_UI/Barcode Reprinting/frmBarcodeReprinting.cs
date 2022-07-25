@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
             this.DataRefresher();
 
-            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchRepacking", "All", mattxtReceivingID.Text, 1);
+            this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchRepacking", "All", mattxtReceivingID.Text, 1, 0);
            this.dgvReprinting.DataSource = dset.Tables[0];
 
        
@@ -92,7 +92,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
         }
         private void DataRefresher()
         {
-            dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6);
+            dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6, 0);
         }
         DataSet dset_emp1 = new DataSet();
         private void load_search()
@@ -183,19 +183,19 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
                         if (Convert.ToBoolean(dgvReprinting.Rows[i].Cells["selected"].Value) == true)
                         {
                             this.dgvReprinting.CurrentCell = this.dgvReprinting.Rows[i].Cells[this.dgvReprinting.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1, 0);
 
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount10", "", "", 10);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount9", "", "", 9);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount10", "", "", 10, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount9", "", "", 9, 0);
 
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount8", "", "", 8);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount7", "", "", 7);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount6", "", "", 6);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount5", "", "", 5);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount4", "", "", 4);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount3", "", "", 3);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount2", "", "", 2);
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount", "", "", 1);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount8", "", "", 8, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount7", "", "", 7, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount6", "", "", 6, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount5", "", "", 5, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount4", "", "", 4, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount3", "", "", 3, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount2", "", "", 2, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount", "", "", 1, 0);
                         }
                         else
                         {
@@ -207,7 +207,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
                 catch (Exception ex)
                 {
 
-                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 0);
+                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 0, 0);
                     MessageBox.Show(ex.Message);
                 }
 

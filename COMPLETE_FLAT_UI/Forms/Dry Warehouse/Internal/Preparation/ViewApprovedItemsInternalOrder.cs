@@ -272,7 +272,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                                 int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorCancelInternalApprovedMRS", 
                                 this.textBox2.Text,
-                                userinfo.user_id.ToString(), 1);
+                                userinfo.user_id.ToString(), 1, 0);
 
                         }
                         else
@@ -315,7 +315,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                                 int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorReturnInternalApprovedMRS",
                                 this.textBox2.Text,
-                                userinfo.user_id.ToString(), 1);
+                                userinfo.user_id.ToString(), 1, 0);
 
                         }
                         else
@@ -357,7 +357,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                                 int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorUpdateInternalApprovedMRS", 
                                 this.bunifuPrepaDate.Text, 
-                                userinfo.user_id.ToString(), 1);
+                                userinfo.user_id.ToString(), 1, 0);
 
                         }
                         else
