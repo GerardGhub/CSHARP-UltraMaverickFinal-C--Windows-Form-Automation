@@ -1185,10 +1185,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.showDataGridDataValueChangedFinder();
 
-                //MessageBox.Show(txtReserve.Text);
-                //return;
-
-                ////For Decrementation Singkit
+            
                 this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
             }

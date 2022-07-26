@@ -76,9 +76,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             this.dset.Clear();
             this.LoadWindowsExecution();
+   
             this.loadCategoryDropdown();
+       
             this.LoadStateVisibility();
-
+        
 
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
             this.FormmLoadSearchState();

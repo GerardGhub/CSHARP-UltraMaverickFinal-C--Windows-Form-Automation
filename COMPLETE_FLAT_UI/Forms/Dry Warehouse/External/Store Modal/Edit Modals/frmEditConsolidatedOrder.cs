@@ -156,6 +156,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 return;
             }
 
+            if (this.mattxtUpdatedQty.Text == "0")
+            {
+                this.GlobalStatePopup.InvalidQuantity();
+                this.mattxtUpdatedQty.Text = String.Empty;
+                this.mattxtUpdatedQty.Focus();
+                return;
+            }
+
             //if (this.sp_Allocated_Qty == this.sp_StockOnHand)
             //{
                 double QuantityOrder;

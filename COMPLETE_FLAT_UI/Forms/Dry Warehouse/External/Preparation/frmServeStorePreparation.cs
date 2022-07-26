@@ -477,7 +477,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
-                //Update preparation
+     
                 if (Convert.ToDouble(this.matTxtOrderQty.Text) == SummaryDetailTransactionFormula)
                 {
 
@@ -504,7 +504,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
 
 
-                //Clear an etor sa zero
+       
 
                 //Date Conversion
                 DateTime dt = new DateTime();
@@ -553,10 +553,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
 
 
-                //End Search
+            
 
-
-                //Initial Count of Repack   Incremented Bujerang
+           
                 double currentStateRepack;
                 double currentStateQty;
 
@@ -603,7 +602,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
-                //Data Sets Dry Warehouse Order Total Items 2/18/2022 12:01 PM
+     
                 if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                 {
 
@@ -647,7 +646,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                 if (ActualQuantityOrder == TotalQuantityServeState)
                 {
-                    //Update Status Already Repack
+                    
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
