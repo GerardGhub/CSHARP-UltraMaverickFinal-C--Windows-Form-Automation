@@ -19,16 +19,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
     {
 
         //Main Classs
-        myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+        readonly myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         //Variable Declaration
         //int p_id = 0;
 
@@ -74,8 +72,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+
             this.dset.Clear();
             this.LoadWindowsExecution();
             this.loadCategoryDropdown();
@@ -87,12 +85,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
-            if (this.lbltotalStoreforPreparation.Text == "0")
+
+
+
+
+
+            this.ValidateifTheTotalDataiSZero();
+
+
+
+        }
+
+        private void ValidateifTheTotalDataiSZero()
+        {
+            if (this.lbltotaldata.Text == "0")
             {
-     
+                this.matbtnSave.Visible = false;
+                this.matcmbCategory.Enabled = false;
+                this.mattxtScanTheBarcode.Enabled = false;
+                this.guna2DgvMaterialPreparation.DataSource = null;
             }
-            else
-            {
+
+        }
+
+        private  void DataGridParentVisibleFalse()
+        {
+
+          
                 this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["category"].Visible = false;
@@ -101,20 +120,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
 
-            }
-
-          
-   
-            if(this.lbltotaldata.Text =="0")
-            {
-                this.matbtnSave.Visible = false;
-                this.matcmbCategory.Enabled = false;
-                this.mattxtScanTheBarcode.Enabled = false;
-                this.guna2DgvMaterialPreparation.DataSource = null;
-            }
-
-
-
+            
         }
 
         DataSet dset_emp_SearchEnginesPreparationPerStaff = new DataSet();
@@ -122,8 +128,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
 
             this.dset_emp_SearchEnginesPreparationPerStaff.Clear();
-            this.dset_emp_SearchEnginesPreparationPerStaff = 
-            objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation");
+            this.dset_emp_SearchEnginesPreparationPerStaff =
+            g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation");
 
         }
 
@@ -158,6 +164,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                         this.dgvStoreOrderApproval.DataSource = dv;
                         this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
+                        this.DataGridParentVisibleFalse();
                         //End
                     }
                     catch (Exception ex)
@@ -201,7 +208,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
      
             this.dset_emp_SearchEnginesReceivingIDFEFO.Clear();
-            this.dset_emp_SearchEnginesReceivingIDFEFO = objStorProc.sp_getMajorTables("searchorderForReceivingIDFEFOStore_Major");
+            this.dset_emp_SearchEnginesReceivingIDFEFO = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDFEFOStore_Major");
 
         }
 
@@ -210,7 +217,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
 
             this.dset_emp_SearchEnginesReceivingInformationDset.Clear();
-            this.dset_emp_SearchEnginesReceivingInformationDset = objStorProc.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
+            this.dset_emp_SearchEnginesReceivingInformationDset = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
 
         }
 
@@ -222,7 +229,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
 
 
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Already_Approved", this.dSet);
+                xClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Already_Approved", this.dSet);
 
             }
             catch (Exception ex)
@@ -306,8 +313,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
 
             ////Connection CallBack
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
@@ -353,8 +360,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
 
             //CheckIifAlreayHaveAnewRecord
-            dset2.Clear();
-            dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+            this.dset2.Clear();
+            this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
            this.matcmbCategory.Text,
             this.sp_approved_preparation_date,
             "ItemCode",
@@ -376,7 +383,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
             else
             {
-                this.matbtnSave.Visible = true;
+                if(this.lbltotalStoreforPreparation.Text != "0")
+                {
+                    this.matbtnSave.Visible = true;
+                }
+
 
 
                 if (this.Sp_Is_WH_Cancel_Status == "1")
@@ -416,7 +427,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems");
 
         }
 
@@ -501,13 +512,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.ConnectionInit();
-       
-
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
-
             this.FormmLoadSearchState();
-       
-
             this.RefactoringResetEnhancement();
             this.loadAreaDropdown();
 
@@ -530,7 +536,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
                 //myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text,this.metroCmbStoreCode.Text);
-                myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Already_Approved_AreaData", this.dSet, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, "");
+                xClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Already_Approved_AreaData", this.dSet, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, "");
 
             }
             catch (Exception ex)
@@ -581,16 +587,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
 
             //Connection Binding to Stored Procedure
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
 
 
 
 
             //Start of Validating the Received If if exist on the system
-            dSet.Clear();
-            dSet = objStorProc
+            this.dSet.Clear();
+            this.dSet = g_objStoredProcCollection
                 .sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), 
                 "",
                 "", 
@@ -611,8 +617,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
 
                 //Start of Validating the Received If if exist on the system
-                dset2.Clear();
-                dset2 = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), 
+                this.dset2.Clear();
+                this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), 
                    this.sp_approved_preparation_date,
                    this.sp_fox,
                    "", 
@@ -889,8 +895,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
         
-                        dset2.Clear();
-                        dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+                        this.dset2.Clear();
+                        this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                         this.sp_fox,
                         this.sp_approved_preparation_date,
                         this.Sp_Category,
@@ -914,8 +920,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         else
                         {
                      
-                            dSet.Clear();
-                            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                            this.dSet.Clear();
+                            this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                             this.sp_fox,
                             this.sp_approved_preparation_date,
                             this.Sp_Category,
@@ -970,11 +976,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             string lstrAdate = dt.ToString("yyyy-MM-dd");
             this.sp_approved_preparation_date = lstrAdate;
 
-            //MessageBox.Show(this.sp_approved_preparation_date);
-            //CheckIifAlreayHaveAnewRecord Buje
-            dset3.Clear();
-            dset3 = objStorProc.sp_Store_Preparation_Logs(0,
-           this.matcmbCategory.Text,
+          
+            this.dset3.Clear();
+            this.dset3 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
+            this.matcmbCategory.Text,
             this.sp_approved_preparation_date,
             "ItemCode", 
             "ItemDesc", 
@@ -1014,7 +1019,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
                     if (this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value != null)
                     {
-                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
                         this.Sp_Receiving_ID_RecommendedFefo = this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value.ToString();
                         this.Sp_Expiration_Date = this.gunaDgvReceivingFEFO.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.Sp_Receiving_Item_Code = this.gunaDgvReceivingFEFO.CurrentRow.Cells["codes"].Value.ToString();
@@ -1028,19 +1032,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void lbltotaldata_TextChanged(object sender, EventArgs e)
         {
-            if(this.lbltotaldata.Text == "0")
+            if (this.lbltotalStoreforPreparation.Text == "0")
             {
-                //this.matViewItemPrepared.Visible = false;
-                this.matcmbCategory_SelectionChangeCommitted(sender, e);
-
-                if (this.lbltotalStoreforPreparation.Text == "0")
+                this.frmDryPreparation_Load(sender, e);
+            }
+            else
+            {
+                if (this.lbltotaldata.Text == "0")
                 {
-                    this.frmDryPreparation_Load(sender, e);
-                }
+                   
 
-                this.matbtnSave.Visible = false;
+
+                    this.dset2.Clear();
+                    this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
+                    this.Sp_id,
+                    Convert.ToInt32(this.sp_material_id),
+                    this.sp_fox,
+                    this.Sp_Remaining_Qty,
+                    this.Sp_AssigneD_Task_By.ToString(),
+                    "",
+                    Convert.ToInt32(this.sp_material_id),
+                     this.Sp_Item_Code,
+                    "update");
+
+                    this.ConnectionInit();
+                    this.loadCategoryDropdown();
+                    this.matcmbCategory_SelectionChangeCommitted(sender, e);
+                    
+
+
+
+                    //if (this.lbltotalStoreforPreparation.Text == "0")
+                    //{
+                    //    this.frmDryPreparation_Load(sender, e);
+                    //}
+
+                    this.matbtnSave.Visible = false;
+          
+
+                }
+               
+
 
             }
+
+
+       
         }
 
         private void matRadioNext_Click(object sender, EventArgs e)
@@ -1080,7 +1117,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     {
                         this.GlobalStatePopup.FirstLineofPreparationSubject();
                         this.mattxtScanTheBarcode.Focus();
-                        //txtselectweight.Text = dgvAllFeedCode.CurrentRow.Cells["Quantity"].Value.ToString();
                     }
 
                
@@ -1097,7 +1133,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 dset3.Clear();
-                dset3 = objStorProc.sp_Store_Preparation_Logs(0,
+                dset3 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                this.matcmbCategory.Text,
                 this.sp_approved_preparation_date,
                 "ItemCode",
@@ -1160,8 +1196,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    dset2.Clear();
-                    dset2 = objStorProc.sp_Store_order_force_cancel_logs(
+                    this.dset2.Clear();
+                    this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
                      0,
                     Convert.ToInt32(this.sp_material_id),
                     this.sp_fox,
@@ -1211,6 +1247,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void mattxtScanTheBarcode_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            matcmbCategory_SelectionChangeCommitted(sender,  e);
         }
     }
 }

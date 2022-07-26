@@ -19,18 +19,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
     {
         frmDryPreparationStore ths;
         //Main Classs
-        myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+
+        readonly myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
         //Variable Declaration
-        int p_id = 0;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly int p_id = 0;
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmServeStorePreparation(frmDryPreparationStore frm,
             string Dry_Order_GUID,
@@ -101,8 +101,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); 
-            objStorProc = xClass.g_objStoredProc.GetCollections(); 
+
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); 
 
             myglobal.global_module = "Active"; 
 
@@ -118,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.DataGridVisibilyFalse();
 
 
-            //MessageBox.Show(this.Sp_FK_dry_wh_orders_parent_id.ToString());
+
         }
 
         private void DataGridVisibilyFalse()
@@ -175,7 +175,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void SearchMethodJarVarCallingSPReceivingIDInventory()
         {
             this.dset_emp_SearchEnginesReceivingIDInventory.Clear();
-            this.dset_emp_SearchEnginesReceivingIDInventory = objStorProc.sp_getMajorTables("searchorderForReceivingIDInventories");
+            this.dset_emp_SearchEnginesReceivingIDInventory = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDInventories");
 
         }
 
@@ -208,7 +208,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.dset_emp_SearchEngines.Clear();
 
 
-                this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Serving");
+                this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Serving");
 
             }
 
@@ -270,10 +270,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                   
                         this.mattxtItemCode.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
                         this.dgvStoreOrderApproval_Primary_ID = this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value.ToString();
-                        this.dgvStoreOrderApproval_Is_wh_checker_cancel = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
-
-                
-                       
+                        this.dgvStoreOrderApproval_Is_wh_checker_cancel = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();   
 
                     }
                 }
@@ -286,54 +283,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount()
         {
             this.SearchStoreItemPreparedWithCount.Clear();
-            this.SearchStoreItemPreparedWithCount = objStorProc.sp_getMajorTables("SearchStoreItemPreparedWithCount");
+            this.SearchStoreItemPreparedWithCount = g_objStoredProcCollection.sp_getMajorTables("SearchStoreItemPreparedWithCount");
 
         }
-        private void doSearchSearchStoreItemPreparedWithCount()
-        {
-            try
-            {
-            
-
-      
-                    DateTime dt = new DateTime();
-                    string lstrDate = this.Sp_Preparation_Date;
-                    dt = Convert.ToDateTime(lstrDate);
-                    string lstrAdate = dt.ToString("yyyy-MM-dd");
-                    this.Sp_Preparation_Date = lstrAdate;
-              
-
-                    DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
-         
-
-                        dv.RowFilter = "is_approved_prepa_date = " + lstrAdate + "   ";
-
-                    
-
-                    this.dgvPreparedItemDistinct.DataSource = dv;
-
-                    this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
-               
-            }
-
-       
-
-
-
-            catch (SyntaxErrorException)
-            {
-                MessageBox.Show("Invalid character found Type 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return;
-            }
-            catch (EvaluateException)
-            {
-                MessageBox.Show("Invalid character found Type 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return;
-            }
-
-        }
+    
 
 
         private void matBtnSave_Click(object sender, EventArgs e)
@@ -455,8 +408,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     if (ActualQuantityOrderReturnType == TotalQuantityServeStateReturnType)
                     {
 
-                        dSet.Clear();
-                        dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                        this.dSet.Clear();
+                        this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                         this.sp_Fox,
                         this.Sp_Preparation_Date,
                         this.Sp_Category,
@@ -476,8 +429,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
    
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                this.dSet.Clear();
+                this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                 this.Sp_Barcode_Id,
                 this.Sp_Preparation_Date,
                 this.mattxtItemCode.Text,
@@ -505,8 +458,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
                 //Update Prepared Allocated Quantity base on Preparation
-                dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
+                this.dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
                  SummaryDetailTransactionFormula.ToString(),
                 this.Sp_Preparation_Date,
                 this.mattxtItemCode.Text,
@@ -530,15 +483,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                     {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                        this.dSet.Clear();
+                        this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                         this.sp_Fox,
                         this.Sp_Preparation_Date,
                         this.Sp_Category,
-                        this.matTxtDescription.Text,
-                        this.matTxtOrderQty.Text,
-                        this.mattxtQtyServe.Text,
-                        "", this.Sp_User_ID.ToString(),
+                        this.matTxtDescription.Text.Trim(),
+                        this.matTxtOrderQty.Text.Trim(),
+                        this.mattxtQtyServe.Text.Trim(),
+                        "",
+                        this.Sp_User_ID.ToString(),
                         Convert.ToInt32(this.Sp_Material_Id),
                         this.sp_Fox, 
                         this.sp_Route, 
@@ -662,7 +616,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 else
                 {
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                    this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                     this.Sp_RepackIncement.ToString(),
                     lstrAdate,
                     this.mattxtItemCode.Text,
@@ -699,8 +653,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 if (ActualQuantityOrder == TotalQuantityServeState)
                 {
                     //Update Status Already Repack
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
                     this.mattxtItemCode.Text,
@@ -721,8 +675,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     if (ActualQuantityReleased == 0)
                     {
                        
-                        dSet.Clear();
-                        dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                        this.dSet.Clear();
+                        this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
                         this.Sp_Preparation_Date,
                         this.mattxtItemCode.Text,
@@ -748,8 +702,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 else
                 {
             
-                    dSet.Clear();
-                    dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
                     this.mattxtItemCode.Text,
@@ -778,15 +732,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     if (this.Sp_TotalRawMaterialPreparationActive == "1")
                     {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                        this.dSet.Clear();
+                        this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                         this.sp_Fox,
                         this.Sp_Preparation_Date,
                         this.Sp_Category,
                         this.matTxtDescription.Text,
                         this.matTxtOrderQty.Text,
                         this.mattxtQtyServe.Text,
-                        "", this.Sp_User_ID.ToString(),
+                        "", 
+                        this.Sp_User_ID.ToString(),
                         Convert.ToInt32(this.Sp_Material_Id),
                         this.sp_Fox, 
                         this.Sp_Category, 
@@ -816,8 +771,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void BulkSaveEntryIntoStoredProc()
         {
             
-            dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            this.dSet.Clear();
+            this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
             this.Sp_Barcode_Id,
             this.Sp_Preparation_Date,
             this.mattxtItemCode.Text,
