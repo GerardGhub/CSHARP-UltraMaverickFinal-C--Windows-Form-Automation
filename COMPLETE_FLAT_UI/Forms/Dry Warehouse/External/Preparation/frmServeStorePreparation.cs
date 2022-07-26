@@ -326,7 +326,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             double ActualRemainingofReceivingID;
 
-           InputQtyServe = double.Parse(this.mattxtQtyServe.Text);
+            InputQtyServe = double.Parse(this.mattxtQtyServe.Text);
             ActualRemainingofReceivingID = double.Parse(this.matTxtQtyRemaining.Text);
      
 
@@ -383,7 +383,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
 
 
-            //Start
+    
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
               
@@ -524,14 +524,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
                     {
 
-
-
                         DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
 
-
                         dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "' and fox = '" + this.sp_Fox + "'   ";
-
-
 
                         this.dgvPreparedItemDistinct.DataSource = dv;
 
@@ -586,7 +581,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     //If you have a available fucking records
                     if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                     {
-                        //Rekta Puyat
+          
                         this.dgvPreparedItemDistinct_CurrentCellChanged(sender, e);
 
 
@@ -632,7 +627,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     "update_dry_orders_total_state_repack");
                 }
 
-                //Clear na this
+    
             
 
                 double ActualQuantityReleased;
@@ -842,7 +837,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
                     if (this.gunaDgvReceivedIDInventory.CurrentRow.Cells["item_code"].Value != null)
                     {
-                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+      
                         this.matTxtQtyRemaining.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["qty_received"].Value.ToString();
                         this.matTxtExpDate.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.mattxttotalqtyreleased.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["TOTAL_QTY_PREPARED"].Value.ToString();
@@ -867,11 +862,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
-            //doSearchSearchStoreItemPreparedWithCount();
-            //MessageBox.Show(this.TotalItemPreparedPerItemIncrementation);
-        }
+    
     }
 }
