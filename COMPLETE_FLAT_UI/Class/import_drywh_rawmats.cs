@@ -8,42 +8,43 @@ namespace ULTRAMAVERICK.Class
 {
     public class import_drywh_rawmats
     {
-        public int item_id { get; set; }
-        public string item_code { get; set; }
-        public string item_description { get; set; }
-        public string item_type { get; set; }
-        public string item_class { get; set; }
-        public string major_category { get; set; }
-        public string sub_category { get; set; }
-        public string primary_unit { get; set; }
-        public string conversion { get; set; }
+        public int Item_id { get; set; }
+        public string Item_code { get; set; }
+        public string Item_description { get; set; }
+        public string Item_type { get; set; }
+        public string Item_class { get; set; }
+        public string Major_category { get; set; }
+        public string Sub_category { get; set; }
+        public string Primary_unit { get; set; }
+        public string Conversion { get; set; }
     }
 
     public class store_masterlist
     {
-        public int store_id { get; set; }
-        public string store_name { get; set; }
-        public string store_area { get; set; }
-        public string store_code { get; set; }
-        public string store_route { get; set; }
+        public int Store_id { get; set; }
+        public string Store_name { get; set; }
+        public string Store_area { get; set; }
+        public string Store_code { get; set; }
+        public string Store_route { get; set; }
 
 
     }
 
     public class store_order_dry_wh_orders
     {
-        public int primary_id { get; set; }
-        public int order_id { get; set; }
-        public string date_ordered { get; set; }
-        public string fox { get; set; }
-        public string store_name { get; set; }
-        public string route { get; set; }
-        public string area { get; set; }
-        public string category { get; set; }
-        public string item_code { get; set; }
-        public string description { get; set; }
-        public string uom { get; set; }
-        public string qty { get; set; }
+        public int Primary_id { get; set; }
+        public int Order_id { get; set; }
+        public string Date_ordered { get; set; }
+        public string Fox { get; set; }
+        public string Store_name { get; set; }
+        public string Route { get; set; }
+        public string Area { get; set; }
+        public string Category { get; set; }
+        public string Item_code { get; set; }
+        public string Description { get; set; }
+        public string Uom { get; set; }
+        public string Qty { get; set; }
+        public string DateNeeded { get; set; }
 
     }
 

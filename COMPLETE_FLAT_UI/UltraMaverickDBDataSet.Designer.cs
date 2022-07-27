@@ -1565,6 +1565,8 @@ namespace ULTRAMAVERICK {
             
             private global::System.Data.DataColumn columnfox;
             
+            private global::System.Data.DataColumn columndateNeeded;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dry_wh_ordersDataTable() {
@@ -1680,6 +1682,14 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dateNeededColumn {
+                get {
+                    return this.columndateNeeded;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1715,7 +1725,7 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dry_wh_ordersRow Adddry_wh_ordersRow(string store_name, string date_ordered, string route, string area, string category, string item_code, string description, string uom, string qty, string fox) {
+            public dry_wh_ordersRow Adddry_wh_ordersRow(string store_name, string date_ordered, string route, string area, string category, string item_code, string description, string uom, string qty, string fox, string dateNeeded) {
                 dry_wh_ordersRow rowdry_wh_ordersRow = ((dry_wh_ordersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         store_name,
@@ -1727,7 +1737,8 @@ namespace ULTRAMAVERICK {
                         description,
                         uom,
                         qty,
-                        fox};
+                        fox,
+                        dateNeeded};
                 rowdry_wh_ordersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdry_wh_ordersRow);
                 return rowdry_wh_ordersRow;
@@ -1760,6 +1771,7 @@ namespace ULTRAMAVERICK {
                 this.columnuom = base.Columns["uom"];
                 this.columnqty = base.Columns["qty"];
                 this.columnfox = base.Columns["fox"];
+                this.columndateNeeded = base.Columns["dateNeeded"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1785,6 +1797,8 @@ namespace ULTRAMAVERICK {
                 base.Columns.Add(this.columnqty);
                 this.columnfox = new global::System.Data.DataColumn("fox", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfox);
+                this.columndateNeeded = new global::System.Data.DataColumn("dateNeeded", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndateNeeded);
                 this.columnstore_name.MaxLength = 250;
                 this.columndate_ordered.MaxLength = 250;
                 this.columnroute.MaxLength = 250;
@@ -1795,6 +1809,7 @@ namespace ULTRAMAVERICK {
                 this.columnuom.MaxLength = 250;
                 this.columnqty.MaxLength = 250;
                 this.columnfox.MaxLength = 250;
+                this.columndateNeeded.MaxLength = 250;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2920,6 +2935,22 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dateNeeded {
+                get {
+                    try {
+                        return ((string)(this[this.tabledry_wh_orders.dateNeededColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dateNeeded\' in table \'dry_wh_orders\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledry_wh_orders.dateNeededColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isstore_nameNull() {
                 return this.IsNull(this.tabledry_wh_orders.store_nameColumn);
             }
@@ -3036,6 +3067,18 @@ namespace ULTRAMAVERICK {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetfoxNull() {
                 this[this.tabledry_wh_orders.foxColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdateNeededNull() {
+                return this.IsNull(this.tabledry_wh_orders.dateNeededColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdateNeededNull() {
+                this[this.tabledry_wh_orders.dateNeededColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3882,6 +3925,7 @@ SELECT
             tableMapping.ColumnMappings.Add("uom", "uom");
             tableMapping.ColumnMappings.Add("qty", "qty");
             tableMapping.ColumnMappings.Add("fox", "fox");
+            tableMapping.ColumnMappings.Add("dateNeeded", "dateNeeded");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3909,7 +3953,8 @@ SELECT
       ,[description]
       ,[uom]
       ,[qty]
-  FROM [UltraMaverickDB].[dbo].[dry_wh_orders] where is_active='1'
+,[dateNeeded]
+  FROM [UltraMaverickDB].[dbo].[dry_wh_orders] where is_active='1' and is_prepared is null
 
 
 ";

@@ -121,14 +121,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     {
                         import_drywh_rawmats Import_dry_rawMat = new import_drywh_rawmats();
                         //Import_Po_Summary.recipe_id = dt.Rows[i]["recipe_id"].ToString();
-                        Import_dry_rawMat.item_code = dt.Rows[i]["ITEM CODE"].ToString();
-                        Import_dry_rawMat.item_description = dt.Rows[i]["DESCRIPTION"].ToString();
-                        Import_dry_rawMat.primary_unit = dt.Rows[i]["PRIMARY UNIT"].ToString();
-                        Import_dry_rawMat.item_type = dt.Rows[i]["ITEM TYPE"].ToString();
-                        Import_dry_rawMat.item_class = dt.Rows[i]["ITEM CLASS"].ToString();
-                        Import_dry_rawMat.major_category = dt.Rows[i]["MAJOR CATEGORY"].ToString();
-                        Import_dry_rawMat.sub_category = dt.Rows[i]["SUB CATEGORY"].ToString();             
-                        Import_dry_rawMat.conversion = dt.Rows[i]["CONVERSION"].ToString();
+                        Import_dry_rawMat.Item_code = dt.Rows[i]["ITEM CODE"].ToString();
+                        Import_dry_rawMat.Item_description = dt.Rows[i]["DESCRIPTION"].ToString();
+                        Import_dry_rawMat.Primary_unit = dt.Rows[i]["PRIMARY UNIT"].ToString();
+                        Import_dry_rawMat.Item_type = dt.Rows[i]["ITEM TYPE"].ToString();
+                        Import_dry_rawMat.Item_class = dt.Rows[i]["ITEM CLASS"].ToString();
+                        Import_dry_rawMat.Major_category = dt.Rows[i]["MAJOR CATEGORY"].ToString();
+                        Import_dry_rawMat.Sub_category = dt.Rows[i]["SUB CATEGORY"].ToString();             
+                        Import_dry_rawMat.Conversion = dt.Rows[i]["CONVERSION"].ToString();
                      
                         Import_dry_rawMats.Add(Import_dry_rawMat);
                     }

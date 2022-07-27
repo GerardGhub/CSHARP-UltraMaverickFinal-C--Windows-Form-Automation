@@ -229,10 +229,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         store_masterlist Store = new store_masterlist();
 
 
-                        Store.store_name = dt.Rows[i]["Store"].ToString();
-                        Store.store_code = dt.Rows[i]["Code"].ToString();
-                        Store.store_area = dt.Rows[i]["Area"].ToString();
-                        Store.store_route = dt.Rows[i]["Route"].ToString();
+                        Store.Store_name = dt.Rows[i]["Store"].ToString();
+                        Store.Store_code = dt.Rows[i]["Code"].ToString();
+                        Store.Store_area = dt.Rows[i]["Area"].ToString();
+                        Store.Store_route = dt.Rows[i]["Route"].ToString();
 
                         Import_Stores.Add(Store);
                     }

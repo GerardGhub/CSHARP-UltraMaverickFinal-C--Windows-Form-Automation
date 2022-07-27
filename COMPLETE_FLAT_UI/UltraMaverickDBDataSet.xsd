@@ -197,7 +197,8 @@ SELECT
       ,[description]
       ,[uom]
       ,[qty]
-  FROM [UltraMaverickDB].[dbo].[dry_wh_orders] where is_active='1'
+,[dateNeeded]
+  FROM [UltraMaverickDB].[dbo].[dry_wh_orders] where is_active='1' and is_prepared is null
 
 
 </CommandText>
@@ -217,6 +218,7 @@ SELECT
               <Mapping SourceColumn="uom" DataSetColumn="uom" />
               <Mapping SourceColumn="qty" DataSetColumn="qty" />
               <Mapping SourceColumn="fox" DataSetColumn="fox" />
+              <Mapping SourceColumn="dateNeeded" DataSetColumn="dateNeeded" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -498,6 +500,13 @@ SELECT
                 </xs:simpleType>
               </xs:element>
               <xs:element name="fox" msprop:Generator_ColumnVarNameInTable="columnfox" msprop:Generator_ColumnPropNameInRow="fox" msprop:Generator_ColumnPropNameInTable="foxColumn" msprop:Generator_UserColumnName="fox" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dateNeeded" msprop:Generator_ColumnVarNameInTable="columndateNeeded" msprop:Generator_ColumnPropNameInRow="dateNeeded" msprop:Generator_ColumnPropNameInTable="dateNeededColumn" msprop:Generator_UserColumnName="dateNeeded" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
