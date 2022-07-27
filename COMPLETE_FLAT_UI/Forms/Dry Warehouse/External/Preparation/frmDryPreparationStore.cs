@@ -1209,7 +1209,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     Convert.ToInt32(this.sp_material_id),
                      this.Sp_Item_Code,
                     "add");
+
+
+                    if (this.Sp_Qty_Serve == "0")
+                    {
+                        this.dset2.Clear();
+                        this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
+                         Convert.ToInt32(this.sp_material_id),
+                        Convert.ToInt32(this.sp_material_id),
+                        this.sp_fox,
+                        this.Sp_Remaining_Qty,
+                        this.Sp_AssigneD_Task_By.ToString(),
+                        "",
+                        Convert.ToInt32(this.sp_material_id),
+                         this.Sp_Item_Code,
+                        "deactivate_dry_order_store");
+                    }
+
+
                     this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
+
 
                     this.GlobalStatePopup.CancelledSuccessfully();
                 }

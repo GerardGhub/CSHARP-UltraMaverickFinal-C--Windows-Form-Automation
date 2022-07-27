@@ -38,7 +38,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         //Variable Declaration
         int p_id = 0;
         string value = "0";
-
+        string datastorage;
         string Rpt_Path = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         frmNewStoreOrderApprovedClasses FormClass = new frmNewStoreOrderApprovedClasses();
@@ -68,7 +68,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void ConnectionOpen()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
@@ -746,12 +746,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void ApproveFunctionality()
         {
 
+    
+            //this.dSetCheckStoreCount.Clear();
+            //this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
 
-            this.dSetCheckStoreCount.Clear();
-            this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
 
-
-            this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
+            //this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
       
 
 
@@ -765,14 +765,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                         if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                         {
-                            this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection
+                            if (datastorage == this.dgvStoreOrderApproval.Rows[i].Cells["fox"].Value.ToString())
+                            {
+                                this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                                dset = g_objStoredProcCollection
                                 .sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()),
-                                "PUTStoreOrderApproval", 
-                                this.bunifuPrepaDate.Text, 
+                                "PUTStoreOrderApproval",
+                                this.bunifuPrepaDate.Text,
                                 this.FormClass.sp_user_id.ToString(),
                                 1,
                                 this.LatestForeignKeyInMasterStoreTable);
+
+                                //this.ExecuteMasterTablePreparationStore();
+                            }
+                            else
+                            {
+                                this.dSetCheckStoreCount.Clear();
+                                this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+
+
+                                this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
+
+
+
+                                this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
+                                dset = g_objStoredProcCollection
+                                .sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()),
+                                "PUTStoreOrderApproval",
+                                this.bunifuPrepaDate.Text,
+                                this.FormClass.sp_user_id.ToString(),
+                                1,
+                                this.LatestForeignKeyInMasterStoreTable);
+
+                                this.ExecuteMasterTablePreparationStore();
+                            }
+                            datastorage = this.dgvStoreOrderApproval.Rows[i].Cells["fox"].Value.ToString();
+
+                            //MessageBox.Show(datastorage + this.dgvStoreOrderApproval.Rows[i].Cells["fox"].Value.ToString());
+
+
 
                         }
                         else
@@ -780,6 +811,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                         }
+                        //MessageBox.Show(datastorage);
                     }
                 }
                 catch (Exception ex)
@@ -791,8 +823,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
 
             }
-            //this.GetParentIDCountinStore();
-            this.ExecuteMasterTablePreparationStore();
+    
+            //this.ExecuteMasterTablePreparationStore();
             this.GlobalStatePopup.ApprovedSuccessfully();
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
@@ -820,6 +852,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void ExecuteMasterTablePreparationStore()
         {
+            //this.ConnectionOpen();
+            //this.dSetCheckStoreCount.Clear();
+            //this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+
+
+            //this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
+
+
             dset2.Clear();
             dset2 = objStorProc.sp_Dry_Wh_Order_Parent(0,
              "",
@@ -1032,11 +1072,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
 
-            //Sample Gerard
-            //this.dSetCheckStoreCount.Clear();
-            //this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
-
-            //LatestForeignKeyInMasterStoreTable = Convert.ToInt32(dSet.Tables[0].Rows[0]["LatestNumber"]);
+            
 
 
 
