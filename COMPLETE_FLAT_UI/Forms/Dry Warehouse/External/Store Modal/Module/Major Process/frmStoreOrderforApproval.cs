@@ -675,9 +675,21 @@ public void loadCategoryDropdownForAllocation()
         {
             try
             {
-                bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-                CheckCount(isChecked);
-                this.StateChangeOnTaggingPreparationDate();
+                if (dgvStoreOrderApproval.Rows[e.RowIndex].Cells["selected"].ReadOnly == false)
+                {
+                    bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                    CheckCount(isChecked);
+                    this.StateChangeOnTaggingPreparationDate();
+                }
+                else
+                {
+                    return;
+                }
+
+
+                //bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                //CheckCount(isChecked);
+                //this.StateChangeOnTaggingPreparationDate();
             }
             catch (Exception ex)
             {
@@ -735,8 +747,11 @@ public void loadCategoryDropdownForAllocation()
 
         private void dgvReprinting_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-            CheckCount(isChecked);
+            if (dgvStoreOrderApproval.Rows[e.RowIndex].Cells["selected"].ReadOnly == false)
+            {
+                bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                CheckCount(isChecked);
+            }
         }
 
         private void lbltotaldata_Click(object sender, EventArgs e)
@@ -1226,6 +1241,7 @@ public void loadCategoryDropdownForAllocation()
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
         {
             this.materialCheckboxSelectAll.Text = "UnSelect ALL";
+            MessageBox.Show(this.dgvStoreOrderApproval.RowCount.ToString());
 
             for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) { this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true; }
             if(this.materialCheckboxSelectAll.Checked ==true)
@@ -1436,6 +1452,24 @@ public void loadCategoryDropdownForAllocation()
                         }
 
                     }
+
+                    //Start
+
+                  
+
+                        if (Convert.ToDateTime(row.Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                        {
+                        //this.matBtnSave.Enabled = true;
+                        row.Cells["selected"].ReadOnly = false;
+                        }
+                        else
+                        {
+                        row.Cells["selected"].ReadOnly = true;
+                        //this.matBtnSave.Enabled = false;
+                    }
+                    
+
+                    //End
 
                 }
 

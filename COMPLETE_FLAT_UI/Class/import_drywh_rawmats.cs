@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ULTRAMAVERICK.Class
 {
-    public class import_drywh_rawmats
+    public class Import_drywh_rawmats
     {
         public int Item_id { get; set; }
         public string Item_code { get; set; }
@@ -19,7 +19,7 @@ namespace ULTRAMAVERICK.Class
         public string Conversion { get; set; }
     }
 
-    public class store_masterlist
+    public class Store_masterlist
     {
         public int Store_id { get; set; }
         public string Store_name { get; set; }
@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Class
 
     }
 
-    public class store_order_dry_wh_orders
+    public class Store_order_dry_wh_orders
     {
         public int Primary_id { get; set; }
         public int Order_id { get; set; }
@@ -48,24 +48,24 @@ namespace ULTRAMAVERICK.Class
 
     }
 
-        public class approve_po_summary
+        public class Approve_po_summary
     {
 
         public int PrimaryID { get; set; }
         public string ProjectID { get; set; }
-        public string actual_remaining_receiving {get; set;}
+        public string Actual_remaining_receiving {get; set;}
         public string ProjectName { get; set; }
-        public string pr_number { get; set; }
-        public string pr_date { get; set; }
-        public string po_number { get; set; }
-        public string po_date { get; set; }
-        public string item_code { get; set; }
-        public string item_description { get; set; }
-        public string qty_order { get; set; }
-        public string qty_delivered { get; set; }
-        public string qty_billed { get; set; }
-        public string qty_uom { get; set; }
-        public string unit_price { get; set; }
+        public string Pr_number { get; set; }
+        public string Pr_date { get; set; }
+        public string Po_number { get; set; }
+        public string Po_date { get; set; }
+        public string Item_code { get; set; }
+        public string Item_description { get; set; }
+        public string Qty_order { get; set; }
+        public string Qty_delivered { get; set; }
+        public string Qty_billed { get; set; }
+        public string Qty_uom { get; set; }
+        public string Unit_price { get; set; }
         public string Supplier { get; set; }
     }
 }

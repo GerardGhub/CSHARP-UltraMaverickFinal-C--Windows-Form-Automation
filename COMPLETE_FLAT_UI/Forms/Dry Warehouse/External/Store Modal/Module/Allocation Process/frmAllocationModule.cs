@@ -30,6 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         frmAllocationModuleClasses FormClass = new frmAllocationModuleClasses();
         int p_id = 0;
+
         private bool eventHookedUp;
         public int LineAllocationCancelCount = 0;
         DateTime dNow = DateTime.Now;
@@ -1248,17 +1249,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
       
         }
 
+
+        //Add Global Interger
         private void CheckIFGreatherThanDateNeeded()
         {
+            int DateNeededFromNowTrappings = 0;
             foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
             {
 
                 if (Convert.ToDateTime(row.Cells["date_ordered"].Value) > DateTime.Now.Date)
                 {
-                    this.matBtnSave.Enabled = true;
+                    if(DateNeededFromNowTrappings != 1)
+                    {
+                        this.matBtnSave.Enabled = true;
+                    }
+
                 }
                 else
                 {
+                    DateNeededFromNowTrappings = 1;
                     this.matBtnSave.Enabled = false;
                 }
             }

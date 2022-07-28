@@ -116,11 +116,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 //dgvRawMats.DataSource = dt;
                 if (dt != null)
                 {
-                    List<import_drywh_rawmats> Import_dry_rawMats = new List<import_drywh_rawmats>();
+                    List<Import_drywh_rawmats> Import_dry_rawMats = new List<Import_drywh_rawmats>();
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        import_drywh_rawmats Import_dry_rawMat = new import_drywh_rawmats();
-                        //Import_Po_Summary.recipe_id = dt.Rows[i]["recipe_id"].ToString();
+                        Import_drywh_rawmats Import_dry_rawMat = new Import_drywh_rawmats();
+                   
                         Import_dry_rawMat.Item_code = dt.Rows[i]["ITEM CODE"].ToString();
                         Import_dry_rawMat.Item_description = dt.Rows[i]["DESCRIPTION"].ToString();
                         Import_dry_rawMat.Primary_unit = dt.Rows[i]["PRIMARY UNIT"].ToString();
@@ -446,13 +446,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             try
             {
-                // string connectionString = "Server=.;Database=Fedoramain;User Id=;Password=;";
-                //string connectionString = @"Server=FM-MMERCADO-L;Initial Catalog=Fedoramain;Integrated Security=SSPI";
-                //String connectionString = @"Data Source=10.10.2.16,1433\SQLEXPRESS;Initial Catalog=Fedoramain;User ID=sa;Password=FMf3dor@2o20;MultipleActiveResultSets=true";
-
+             
                 String connectionString = m_ConnectionString;
-                DapperPlusManager.Entity<import_drywh_rawmats>().Table("Raw_Materials_Dry");
-                List<import_drywh_rawmats> Import_Po_Summarys = drymaterialsBindingSource.DataSource as List<import_drywh_rawmats>;
+                DapperPlusManager.Entity<Import_drywh_rawmats>().Table("Raw_Materials_Dry");
+                List<Import_drywh_rawmats> Import_Po_Summarys = drymaterialsBindingSource.DataSource as List<Import_drywh_rawmats>;
                 if (Import_Po_Summarys != null)
                 {
                     using (IDbConnection db = new SqlConnection(connectionString))

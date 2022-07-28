@@ -193,26 +193,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 //dgvRawMats.DataSource = dt;
                 if (dt != null)
                 {
-                    List<approve_po_summary> Import_ApprovedPO_rawMats = new List<approve_po_summary>();
+                    List<Approve_po_summary> Import_ApprovedPO_rawMats = new List<Approve_po_summary>();
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        approve_po_summary Import_ApprovedPO_rawMat = new approve_po_summary();
+                        Approve_po_summary Import_ApprovedPO_rawMat = new Approve_po_summary();
 
                         Import_ApprovedPO_rawMat.ProjectID = dt.Rows[i]["PO Number"].ToString();
-                        Import_ApprovedPO_rawMat.pr_number = dt.Rows[i]["Pr Number"].ToString();
-                        Import_ApprovedPO_rawMat.pr_date = dt.Rows[i]["PR Date"].ToString();
-                        Import_ApprovedPO_rawMat.po_number = dt.Rows[i]["PO Number"].ToString();
-                        Import_ApprovedPO_rawMat.po_date = dt.Rows[i]["PO Date"].ToString();
-                        Import_ApprovedPO_rawMat.item_code = dt.Rows[i]["Item Code"].ToString();
-                        Import_ApprovedPO_rawMat.item_description = dt.Rows[i]["Item Description"].ToString();
+                        Import_ApprovedPO_rawMat.Pr_number = dt.Rows[i]["Pr Number"].ToString();
+                        Import_ApprovedPO_rawMat.Pr_date = dt.Rows[i]["PR Date"].ToString();
+                        Import_ApprovedPO_rawMat.Po_number = dt.Rows[i]["PO Number"].ToString();
+                        Import_ApprovedPO_rawMat.Po_date = dt.Rows[i]["PO Date"].ToString();
+                        Import_ApprovedPO_rawMat.Item_code = dt.Rows[i]["Item Code"].ToString();
+                        Import_ApprovedPO_rawMat.Item_description = dt.Rows[i]["Item Description"].ToString();
                         Import_ApprovedPO_rawMat.ProjectName = dt.Rows[i]["Item Description"].ToString();
-                        Import_ApprovedPO_rawMat.qty_order = dt.Rows[i]["Qty Ordered"].ToString();
-                        Import_ApprovedPO_rawMat.actual_remaining_receiving = dt.Rows[i]["Qty Ordered"].ToString();
+                        Import_ApprovedPO_rawMat.Qty_order = dt.Rows[i]["Qty Ordered"].ToString();
+                        Import_ApprovedPO_rawMat.Actual_remaining_receiving = dt.Rows[i]["Qty Ordered"].ToString();
 
-                        Import_ApprovedPO_rawMat.qty_delivered = dt.Rows[i]["Qty Delivered"].ToString();
-                        Import_ApprovedPO_rawMat.qty_billed = dt.Rows[i]["Qty Billed"].ToString();
-                        Import_ApprovedPO_rawMat.qty_uom = dt.Rows[i]["UOM"].ToString();
-                        Import_ApprovedPO_rawMat.unit_price = dt.Rows[i]["Unit Price"].ToString();
+                        Import_ApprovedPO_rawMat.Qty_delivered = dt.Rows[i]["Qty Delivered"].ToString();
+                        Import_ApprovedPO_rawMat.Qty_billed = dt.Rows[i]["Qty Billed"].ToString();
+                        Import_ApprovedPO_rawMat.Qty_uom = dt.Rows[i]["UOM"].ToString();
+                        Import_ApprovedPO_rawMat.Unit_price = dt.Rows[i]["Unit Price"].ToString();
                         Import_ApprovedPO_rawMat.Supplier = dt.Rows[i]["Vendor Name"].ToString();
                         Import_ApprovedPO_rawMats.Add(Import_ApprovedPO_rawMat);
                     }
@@ -533,13 +533,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             try
             {
-                // string connectionString = "Server=.;Database=Fedoramain;User Id=;Password=;";
-                //string connectionString = @"Server=FM-MMERCADO-L;Initial Catalog=Fedoramain;Integrated Security=SSPI";
-                //String connectionString = @"Data Source=10.10.2.16,1433\SQLEXPRESS;Initial Catalog=Fedoramain;User ID=sa;Password=FMf3dor@2o20;MultipleActiveResultSets=true";
+
 
                 String connectionString = m_ConnectionString;
-                DapperPlusManager.Entity<approve_po_summary>().Table("Projects");
-                List<approve_po_summary> Import_Po_Summarys = drymaterialsBindingSource.DataSource as List<approve_po_summary>;
+                DapperPlusManager.Entity<Approve_po_summary>().Table("Projects");
+                List<Approve_po_summary> Import_Po_Summarys = drymaterialsBindingSource.DataSource as List<Approve_po_summary>;
                 if (Import_Po_Summarys != null)
                 {
                     using (IDbConnection db = new SqlConnection(connectionString))

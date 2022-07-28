@@ -128,13 +128,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
                 DataTable dt = tableCollection[cbosheet.SelectedItem.ToString()];
-                //dgvRawMats.DataSource = dt;
+       
                 if (dt != null)
                 {
-                    List<store_order_dry_wh_orders> Import_Stores = new List<store_order_dry_wh_orders>();
+                    List<Store_order_dry_wh_orders> Import_Stores = new List<Store_order_dry_wh_orders>();
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        store_order_dry_wh_orders Store = new store_order_dry_wh_orders();
+                        Store_order_dry_wh_orders Store = new Store_order_dry_wh_orders();
 
 
                         Store.Date_ordered = dt.Rows[i]["ORDER DATE"].ToString();

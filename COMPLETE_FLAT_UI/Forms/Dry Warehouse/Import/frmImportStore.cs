@@ -223,10 +223,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 //dgvRawMats.DataSource = dt;
                 if (dt != null)
                 {
-                    List<store_masterlist> Import_Stores = new List<store_masterlist>();
+                    List<Store_masterlist> Import_Stores = new List<Store_masterlist>();
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        store_masterlist Store = new store_masterlist();
+                        Store_masterlist Store = new Store_masterlist();
 
 
                         Store.Store_name = dt.Rows[i]["Store"].ToString();
