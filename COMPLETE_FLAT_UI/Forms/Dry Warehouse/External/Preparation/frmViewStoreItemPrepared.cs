@@ -21,9 +21,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         frmDryPreparationStore ths;
 
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -79,7 +79,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void frmViewStoreItemPrepared_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.StaticWindowState();
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
@@ -107,7 +107,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.guna2DgvMaterialPreparation.Columns["is_prepared"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Remaining_Qty"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["converted_qty"].Visible = false;
+
         }
 
         private void StaticWindowState()
@@ -126,7 +126,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Partial_Cancel");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection
+            .sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Partial_Cancel");
 
         }
 
@@ -222,7 +223,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
 
                     this.dset3.Clear();
-                    this.dset3 = objStorProc.sp_Store_Preparation_Logs(
+                    this.dset3 = g_objStoredProcCollection.sp_Store_Preparation_Logs(
                     this.Sp_Primary_id,
                     this.Sp_Primary_Key,
                     this.sp_approved_preparation_date,

@@ -288,13 +288,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             if(this.lbltotalStoreOrder.Text =="0")
             {
 
-            }else
+            }
+            
+            else
             {
                 this.hideFindColumninDataGridViewer();
                 this.SumofTotalOrderDataGridView();
                 this.SumofTotalAllocatedDataGridView();
+
+                //foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
+                //{
+
+                //    if (Convert.ToDateTime(row.Cells["date_ordered"].Value) > DateTime.Now.Date)
+                //    {
+                //        this.matBtnSave.Enabled = true;
+                //    }
+                //    else
+                //    {
+                //        this.matBtnSave.Enabled = false;
+                //    }
+                //}
             }
-    
+
             //if(this.lbltotalStoreOrder.Text =="0")
             //{
 
@@ -303,16 +318,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             //{
             //    //this.SelectAllCheckBoxOnDataGrid(); //remove muna
             //}
+         
+          
+       
+   
 
-     
-        }
 
-     
-        private void DisposeControlsWhenDataIsNull()
+
+            }
+
+
+            private void DisposeControlsWhenDataIsNull()
         {
             if (this.lbltotalStoreOrder.Text == "0" && this.lbltotaldata.Text == "0")
             {
-                this.matBtnSave.Visible = false;
+
                 this.lblqtyAllocatedFinal.Visible = false;
                 this.lbldataLabel.Visible = false;
                 this.lbltotalStoreOrder.Visible = false;
@@ -669,6 +689,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void dgvFindStoreOrders_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+          
             foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
             {
 
@@ -677,8 +698,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     return;
                 }
             }
-
-                foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
+            //MessageBox.Show(DateTime.Now.ToString());
+            foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
             {
              
              
@@ -714,6 +735,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["ALLOCATION_QTY_FIND"].Style.Font = new Font("Roboto", 10, FontStyle.Bold);
                     row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                 }
+        
+            
                 else
                 {
 
@@ -742,7 +765,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     row.Cells["ALLOCATION_QTY_FIND"].Style.SelectionForeColor = Color.Crimson;
                     row.Cells["qty"].Style.SelectionForeColor = Color.Black;
                 }
-            }
+
+                }
 
             }
 
@@ -1205,7 +1229,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             else
             {
-                this.matBtnSave.Enabled = true;
+                this.CheckIFGreatherThanDateNeeded();
+                //this.matBtnSave.Enabled = true;
+                //MessageBox.Show("11");
             }
 
             if (this.FormClass.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
@@ -1215,14 +1241,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             else
 
             {
-                this.matBtnSave.Enabled = true;
+                this.CheckIFGreatherThanDateNeeded();
+                //this.matBtnSave.Enabled = true;
+                //MessageBox.Show("12");
             }
-            if (this.txtReserve.Text == "0")
+      
+        }
+
+        private void CheckIFGreatherThanDateNeeded()
+        {
+            foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
             {
-                //this.matBtnSave.Enabled = false;
-                //AutoAllocate
+
+                if (Convert.ToDateTime(row.Cells["date_ordered"].Value) > DateTime.Now.Date)
+                {
+                    this.matBtnSave.Enabled = true;
+                }
+                else
+                {
+                    this.matBtnSave.Enabled = false;
+                }
             }
         }
+
 
 
         public void CancelRawMaterials()
@@ -1309,6 +1350,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void dgvFindStoreOrders_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
+            {
+
+                if (Convert.ToDateTime(row.Cells["date_ordered"].Value) > DateTime.Now.Date)
+                {
+                    this.matBtnSave.Enabled = true;
+                }
+                else
+                {
+                    this.matBtnSave.Enabled = false;
+                }
+            }
         }
 
         ///
