@@ -137,7 +137,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void FormmLoadSearchState()
         {
-       
+            if (this.matcmbCategory.Text == String.Empty)
+            {
+
+            }
+            else
+
+            {
+                if (this.cmbArea.Text == String.Empty)
+                {
+                    this.loadAreaDropdown();
+                }
+                else
+                {
+
+                }
+
+
+            }
+
+            
             try
             {
 
@@ -153,6 +172,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         //Start
                         if (this.cmbArea.Text == String.Empty)
                         {
+                 
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
                             //MessageBox.Show("Meron" + this.Sp_AssigneD_Task_By +"");
                         }
@@ -1224,6 +1244,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         Convert.ToInt32(this.sp_material_id),
                          this.Sp_Item_Code,
                         "deactivate_dry_order_store");
+                    }
+                    else
+                    {
+                        this.dset2.Clear();
+                        this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
+                         Convert.ToInt32(this.sp_material_id),
+                        Convert.ToInt32(this.sp_material_id),
+                        this.sp_fox,
+                        this.Sp_Remaining_Qty,
+                        this.Sp_AssigneD_Task_By.ToString(),
+                        "",
+                        Convert.ToInt32(this.sp_material_id),
+                         this.Sp_Item_Code,
+                        "force_prepared_dry_store_orders");
                     }
 
 

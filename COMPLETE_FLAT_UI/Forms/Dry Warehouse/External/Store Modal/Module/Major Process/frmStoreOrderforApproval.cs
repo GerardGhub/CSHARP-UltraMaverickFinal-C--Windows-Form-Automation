@@ -406,23 +406,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-        public void loadCategoryDropdownForAllocation()
-        {
-            try
-            {
+public void loadCategoryDropdownForAllocation()
+{
+    try
+    {
 
 
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_For_Allocation", this.dSet);
+        myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_For_Allocation", this.dSet);
 
-            }
-            catch (Exception ex)
-            {
+    }
+    catch (Exception ex)
+    {
 
-                MessageBox.Show(ex.Message);
-            }
+        MessageBox.Show(ex.Message);
+    }
 
-            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
-        }
+    //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+}
 
 
 
