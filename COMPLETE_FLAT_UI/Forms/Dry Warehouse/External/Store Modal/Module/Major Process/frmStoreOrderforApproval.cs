@@ -21,10 +21,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     public partial class frmStoreOrderforApproval : MaterialForm
     {
         //Main Classs
-        myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
+
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -37,14 +37,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         //Variable Declaration
         int p_id = 0;
-        string value = "0";
+        //readonly string value = "0";
         string datastorage;
         string Rpt_Path = "";
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        frmNewStoreOrderApprovedClasses FormClass = new frmNewStoreOrderApprovedClasses();
-        myglobal GlobalVariable = new myglobal();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly frmNewStoreOrderApprovedClasses FormClass = new frmNewStoreOrderApprovedClasses();
+        readonly myglobal GlobalVariable = new myglobal();
         string selection_mode = "";
-        string modesplashScreenError = "";
+        readonly string  modesplashScreenError = "";
    
 
         public frmStoreOrderforApproval()
@@ -102,7 +102,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.DataRefresher();
 
 
-            this.showRawMaterialforApproval();
+            this.ShowRawMaterialforApproval();
 
        
    
@@ -142,7 +142,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
          
                 
-                this.load_search();
+                this.Load_search();
                 selection_mode = "0";
             }
             if(lbltotaldata.Text == "0")
@@ -154,7 +154,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.GlobalVariable.for_approval_store_module_formLoad = "1";
             }
 
-            this.loadAreaDropdown();
+            this.LoadAreaDropdown();
 
 
 
@@ -164,7 +164,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
 
-        public void loadAreaDropdown()
+        public void LoadAreaDropdown()
         {
             try
             {
@@ -307,8 +307,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void ReturnFunctionality()
         {
 
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
             this.DataRefresher();
             myglobal.global_module = "Active";
@@ -321,7 +321,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else if (this.matRadioForAllocation.Checked == true)
             {
-                this.loadCategoryDropdownForAllocation();
+                this.LoadCategoryDropdownForAllocation();
             }
            
 
@@ -338,7 +338,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.ConnectionInit();
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
 
             this.dgvStoreOrderApproval.DataSource = dv;
@@ -358,12 +358,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
 
-        private void showRawMaterialforApproval()    //method for loading available_menus
+        private void ShowRawMaterialforApproval()    //method for loading available_menus
         {
             try
             {
 
-                xClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
+                myClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
 
                 this.GlobalStatePopup.Total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
             }
@@ -406,7 +406,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-public void loadCategoryDropdownForAllocation()
+public void LoadCategoryDropdownForAllocation()
 {
     try
     {
@@ -427,18 +427,18 @@ public void loadCategoryDropdownForAllocation()
 
 
         DataSet dset_emp1 = new DataSet();
-        private void load_search()
+        private void Load_search()
         {
 
             this.dset_emp1.Clear();
             if (this.matRadioForAllocation.Checked == true)
             {
 
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
+                this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
             }
             else if (this.matRadioForApproval.Checked == true)
             {
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+                this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
             }
 
 
@@ -513,8 +513,8 @@ public void loadCategoryDropdownForAllocation()
 
 
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
-            objStorProc = xClass.g_objStoredProc.GetCollections();
-            this.load_search();
+
+            this.Load_search();
 
             if(this.lbltotaldata.Text == "0")
             {
@@ -527,7 +527,7 @@ public void loadCategoryDropdownForAllocation()
 
 
 
-            this.loadAreaDropdown();
+            this.LoadAreaDropdown();
 
         }
 
@@ -536,8 +536,8 @@ public void loadCategoryDropdownForAllocation()
         private void TaggingConflictCategoryValidation()
         {
            
-            dset2.Clear();
-            dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+            this.dset2.Clear();
+            this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
             this.matcmbCategory.Text,
             this.bunifuPrepaDate.Text,
             "", 
@@ -557,8 +557,8 @@ public void loadCategoryDropdownForAllocation()
             {
                 
 
-            dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            this.dSet.Clear();
+            this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
             this.matcmbCategory.Text.Trim(),
             this.bunifuPrepaDate.Text.Trim(),
             "",
@@ -796,7 +796,7 @@ public void loadCategoryDropdownForAllocation()
                             else
                             {
                                 this.dSetCheckStoreCount.Clear();
-                                this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+                                this.dSetCheckStoreCount = g_objStoredProcCollection.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
 
 
                                 this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
@@ -856,7 +856,7 @@ public void loadCategoryDropdownForAllocation()
         {
 
             this.dSet.Clear();
-            this.dSet = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
+            this.dSet = g_objStoredProcCollection.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
 
 
 
@@ -876,7 +876,7 @@ public void loadCategoryDropdownForAllocation()
 
 
             dset2.Clear();
-            dset2 = objStorProc.sp_Dry_Wh_Order_Parent(0,
+            dset2 = g_objStoredProcCollection.sp_Dry_Wh_Order_Parent(0,
              "",
             this.FormClass.sp_fox,
             this.FormClass.sp_store_name,
@@ -978,7 +978,7 @@ public void loadCategoryDropdownForAllocation()
 
 
                 dset2.Clear();
-                dset2 = objStorProc.sp_Store_Preparation_Logs(0,
+                dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                 this.matcmbCategory.Text,
                 this.bunifuPrepaDate.Text,
                 "",
@@ -999,7 +999,7 @@ public void loadCategoryDropdownForAllocation()
 
             
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_Store_Preparation_Logs(
+                    this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(
                     0,
                     this.matcmbCategory.Text,
                     this.bunifuPrepaDate.Text,
@@ -1020,7 +1020,7 @@ public void loadCategoryDropdownForAllocation()
                     {
  
                         this.dSetCategoryPartialValidation.Clear();
-                        this.dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
+                        this.dSetCategoryPartialValidation = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                         this.matcmbCategory.Text,
                         this.bunifuPrepaDate.Text,
                         "", 
@@ -1084,14 +1084,14 @@ public void loadCategoryDropdownForAllocation()
             }
 
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
 
 
             
 
 
 
-            this.showRawMaterialforApproval();
+            this.ShowRawMaterialforApproval();
      
             if (this.matRadioForAllocation.Checked == true)
             {
@@ -1130,7 +1130,7 @@ public void loadCategoryDropdownForAllocation()
                 //Start Blocked
           
                 dSet.Clear();
-                dSet = objStorProc.sp_Store_Preparation_Logs(0,
+                dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                this.matcmbCategory.Text,
                 this.bunifuPrepaDate.Text,
                 "", "", "", "", "", "", 0,
@@ -1159,7 +1159,7 @@ public void loadCategoryDropdownForAllocation()
                         //Data Set for Validation
                         //Validate that Partial tagging is allowed on the fucking system
                         dSetCategoryPartialValidation.Clear();
-                        dSetCategoryPartialValidation = objStorProc.sp_Store_Preparation_Logs(0,
+                        dSetCategoryPartialValidation = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                        this.matcmbCategory.Text,
                         this.bunifuPrepaDate.Text,
                         "",
@@ -1503,7 +1503,7 @@ public void loadCategoryDropdownForAllocation()
 
 
             this.DataRefresher();
-            this.showRawMaterialforApproval();
+            this.ShowRawMaterialforApproval();
 
             //Functionality Viewing of the Data Binding Source
             if (this.matRadioForApproval.Checked == true)
@@ -1512,7 +1512,7 @@ public void loadCategoryDropdownForAllocation()
             }
             else if (this.matRadioForAllocation.Checked == true)
             {
-                this.loadCategoryDropdownForAllocation();
+                this.LoadCategoryDropdownForAllocation();
             }
             this.matcmbPackaging_SelectionChangeCommitted(sender, e);
     
@@ -1541,13 +1541,13 @@ public void loadCategoryDropdownForAllocation()
             }
             else if (this.matRadioForAllocation.Checked == true)
             {
-                this.loadCategoryDropdownForAllocation();
+                this.LoadCategoryDropdownForAllocation();
             }
             if (this.GlobalVariable.for_approval_store_module_formLoad == "1")
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-                objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-                this.load_search();
+
+                this.Load_search();
             }
      
 
@@ -1565,12 +1565,12 @@ public void loadCategoryDropdownForAllocation()
 
             if(this.matRadioForAllocation.Checked == true)
             {
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
+                this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
 
             }
             else
             {
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+                this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
 
             }
 
@@ -1654,7 +1654,7 @@ public void loadCategoryDropdownForAllocation()
                 try
                 {
 
-                    xClass.fillDataGridView(this.dgvStoreOrderApproval, "SearchorderForApprovalinDryWHCancel", dSet);
+                    myClass.fillDataGridView(this.dgvStoreOrderApproval, "SearchorderForApprovalinDryWHCancel", dSet);
 
                 this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
                 this.VisibilityFalseDataGrid();
