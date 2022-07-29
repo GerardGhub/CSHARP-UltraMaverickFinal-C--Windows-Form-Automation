@@ -1241,15 +1241,18 @@ public void LoadCategoryDropdownForAllocation()
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
         {
             this.materialCheckboxSelectAll.Text = "UnSelect ALL";
-            MessageBox.Show(this.dgvStoreOrderApproval.RowCount.ToString());
+            //MessageBox.Show(this.dgvStoreOrderApproval.Rows[i].Cells["selected"].ReadOnly == false;
 
             for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) { this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true; }
-            if(this.materialCheckboxSelectAll.Checked ==true)
+
+        
+
+            if (this.materialCheckboxSelectAll.Checked ==true)
             {
                 this.labelSelectedSum.Visible = true;
 
+                var summary = this.dgvStoreOrderApproval.Rows[i].Cells["selected"].ReadOnly == false;
 
-             
                 this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
                 this.num = this.dgvStoreOrderApproval.RowCount;
                 this.SaveButtonManipulator();
