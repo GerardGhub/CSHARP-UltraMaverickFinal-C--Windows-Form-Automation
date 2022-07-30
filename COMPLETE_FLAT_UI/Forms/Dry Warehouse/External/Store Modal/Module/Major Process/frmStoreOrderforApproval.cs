@@ -35,6 +35,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dSetCategoryPartialValidation = new DataSet();
 
 
+        int forApprovalDateNeededValidation = 0;
+  
+
         //Variable Declaration
         int p_id = 0;
         //readonly string value = "0";
@@ -45,7 +48,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         readonly myglobal GlobalVariable = new myglobal();
         string selection_mode = "";
         readonly string  modesplashScreenError = "";
-   
+        int DateValidCount = 0;
+        int NotDateValidCount = 0;
+        int MyCurrentRowIndex = 0;
+        int DateValidCountSelected = 0;
+        int NotDateValidCountSelected = 0;
 
         public frmStoreOrderforApproval()
         {
@@ -106,7 +113,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
        
    
-                this.ValidatedItemforApproval();
+           this.ValidatedItemforApproval();
       
 
 
@@ -159,10 +166,100 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             //MessageBox.Show(this.dSet.Tables[0].Rows.ToString());
+            if (this.DateValidCount != 0 || this.NotDateValidCount != 0)
+            {
+
+            }
+            else
+            {
+                this.GrandTotalSummary();
+            }
 
 
+
+            }
+
+
+        private void GrandTotalSummary()
+        {
+ 
+            for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++)
+            {
+          
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+
+                {
+
+                    DateValidCount = DateValidCount + 1;
+                    this.lblvalid.Text = DateValidCount.ToString();
+
+                    this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+                }
+                else
+                {
+                    NotDateValidCount = NotDateValidCount + 1;
+                    this.lblnotvalid.Text = NotDateValidCount.ToString();
+
+                    this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
+                }
+            }
         }
 
+        private void GrandTotalSummarySelectedIncrement ()
+        {
+
+            this.NotDateValidCountSelected = 0;
+            this.lblnotSelected.Text = NotDateValidCountSelected.ToString();
+
+            this.DateValidCountSelected = 0;
+            this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+
+            for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++)
+            {
+
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+
+                {
+
+                    DateValidCountSelected = DateValidCountSelected + 1;
+                    this.lblValidSelected.Text = DateValidCountSelected.ToString();
+
+                 
+                }
+                else
+                {
+                    NotDateValidCountSelected = NotDateValidCountSelected + 1;
+                    this.lblnotSelected.Text = NotDateValidCountSelected.ToString();
+
+     
+                }
+            }
+        }
+
+        private void GrandTotalSummarySelectedDecrement()
+        {
+
+            for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++)
+            {
+
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+
+                {
+
+                    DateValidCountSelected = DateValidCountSelected - 1;
+                    this.lblValidSelected.Text = DateValidCountSelected.ToString();
+
+
+                }
+                else
+                {
+                    NotDateValidCountSelected = NotDateValidCountSelected - 1;
+                    this.lblnotSelected.Text = NotDateValidCountSelected.ToString();
+
+
+                }
+            }
+        }
 
         public void LoadAreaDropdown()
         {
@@ -675,16 +772,72 @@ public void LoadCategoryDropdownForAllocation()
         {
             try
             {
-                if (dgvStoreOrderApproval.Rows[e.RowIndex].Cells["selected"].ReadOnly == false)
+                bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                CheckCount(isChecked);
+                this.StateChangeOnTaggingPreparationDate();
+
+                ////if(this.forApprovalDateNeededValidation == 1)
+                ////{
+                ////    this.matbtnApprove.Enabled = false;
+                ////}
+                ////else if(this.forApprovalDateNeededValidation == 0)
+                ////{
+                ////    this.matbtnApprove.Enabled = true;
+                ////}
+
+
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[e.RowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date)
                 {
-                    bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-                    CheckCount(isChecked);
-                    this.StateChangeOnTaggingPreparationDate();
+                    //this.matBtnSave.Enabled = true;
+                    //row.Cells["selected"].ReadOnly = false;
+                    //MessageBox.Show("True");
+                    //this.matbtnApprove.Enabled = true;
+                    //if(Convert.ToBoolean(this.dgvStoreOrderApproval.Rows[e.RowIndex].Cells["selected"].Value = true))
+                    //{
+                    //    this.DateValidCountSelected = this.DateValidCountSelected + 1;
+                    //    this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+                    //}
+                    //else
+                    //{
+                    //    this.DateValidCountSelected = this.DateValidCountSelected - 1;
+                    //    this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+                    //}
+                    if(this.NotDateValidCountSelected == 0)
+                    {
+                        this.matbtnApprove.Enabled = true;
+                    }
+                    else
+                    {
+                        this.matbtnApprove.Enabled = false;
+                    }
+              
                 }
                 else
                 {
-                    return;
+                    //row.Cells["selected"].ReadOnly = true;
+                    //this.matBtnSave.Enabled = false;
+                    ////MessageBox.Show("False");
+                    //this.matbtnApprove.Enabled = false;
+                    if (this.NotDateValidCountSelected == 0)
+                    {
+                        this.matbtnApprove.Enabled = true;
+                    }
+                    else
+                    {
+                        this.matbtnApprove.Enabled = false;
+                    }
                 }
+
+
+
+                //if (dgvStoreOrderApproval.Rows[e.RowIndex].Cells["selected"].ReadOnly == false)
+                //{
+
+                //}
+                //else
+                //{
+                //    this.matbtnApprove.Enabled = false;
+                //}
 
 
                 //bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
@@ -714,16 +867,87 @@ public void LoadCategoryDropdownForAllocation()
             }
         }
 
+
+        private void ValidateDateNeededforApproval()
+        {
+            if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+            {
+                //this.matBtnSave.Enabled = true;
+                //row.Cells["selected"].ReadOnly = false;
+                //MessageBox.Show("True");
+                //this.matbtnApprove.Enabled = true;
+                if (Convert.ToBoolean(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["selected"].Value = true))
+                {
+                    this.DateValidCountSelected = this.DateValidCountSelected + 1;
+                    this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+                }
+                else
+                {
+                    this.DateValidCountSelected = this.DateValidCountSelected - 1;
+                    this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+                }
+
+
+            }
+            else
+            {
+                //row.Cells["selected"].ReadOnly = true;
+                //this.matBtnSave.Enabled = false;
+                ////MessageBox.Show("False");
+                //this.matbtnApprove.Enabled = false;
+                if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["selected"].Value = true))
+                {
+                    //MessageBox.Show(e.RowIndex.ToString());
+                    //MessageBox.Show(dgvStoreOrderApproval.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    this.NotDateValidCountSelected = this.NotDateValidCountSelected + 1;
+                    this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
+                }
+                else if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["selected"].Value = false))
+                {
+                    //MessageBox.Show(dgvStoreOrderApproval.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    this.NotDateValidCountSelected = NotDateValidCount - 1;
+                    this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
+                }
+
+            }
+        }
+
         
         private void CheckCount(bool isChecked)
         {
             if (isChecked)
             {
                 num++;
+                //this.NotDateValidCountSelected = this.NotDateValidCountSelected + 1;
+                //this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
+
+                if (this.materialCheckboxSelectAll.Checked == true && this.materialCheckboxSelectAll.Checked == false)
+                {
+
+                }
+                else
+                {
+                    this.ValidateDateNeededforApproval();
+                }
+
+
             }
             else
             {
                 num--;
+
+    
+
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                {
+                    this.DateValidCountSelected = this.DateValidCountSelected - 1;
+                    this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+                }
+                else
+                {
+                    this.NotDateValidCountSelected = NotDateValidCountSelected - 1;
+                    this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
+                }
             }
             this.labelSelectedSum.Text = "Selected Items: " + num;
             this.labelSelectedSum.Visible = true;
@@ -1242,40 +1466,66 @@ public void LoadCategoryDropdownForAllocation()
         {
             this.materialCheckboxSelectAll.Text = "UnSelect ALL";
    
-            int CountSample = 0;
+            //int CountSample = 0; //kasama 4
             for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) 
-            { 
-                
-                this.dgvStoreOrderApproval.Rows[i].Cells[0].ReadOnly = false;
+            {
+
+                //this.dgvStoreOrderApproval.Rows[i].Cells[0].ReadOnly = false;  //kasama 1
+                this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true;
 
 
-          
+                //if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date) //kasama 2
+                //{
 
-                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                //    this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true;
+
+                //    if (CountSample == 0)
+                //    {
+                //        CountSample = CountSample + 1;
+
+                //    }
+                //    else
+                //    {
+                //        CountSample = CountSample + 1;
+                //        //MessageBox.Show(CountSample.ToString());
+                //    }
+
+                //}
+
+                if (this.forApprovalDateNeededValidation == 1)
                 {
-                    //this.matBtnSave.Enabled = true;
-                    //row.Cells["selected"].ReadOnly = false;
-                    this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true;
-             
-                    if(CountSample == 0)
-                    {
-                        CountSample = CountSample + 1;
-                  
-                    }
-                    else
-                    {
-                        CountSample = CountSample + 1;
-                        //MessageBox.Show(CountSample.ToString());
-                    }
-  
+                    this.matbtnApprove.Enabled = false;
                 }
-                else
+                else if (this.forApprovalDateNeededValidation == 0)
                 {
-                    //this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true;
-                    //row.Cells["selected"].ReadOnly = true;
-                    //this.matBtnSave.Enabled = false;
-                
+                    this.matbtnApprove.Enabled = true;
                 }
+
+                //if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                //{
+
+                //    //this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true;
+
+                //    //if(CountSample == 0)
+                //    //{
+                //    //    CountSample = CountSample + 1;
+
+                //    //}
+                //    //else
+                //    //{
+                //    //    CountSample = CountSample + 1;
+
+                //    //}
+                //    this.matbtnApprove.Enabled = true;
+                //}
+                //else
+                //{
+                //    this.matbtnApprove.Enabled = false;
+                //    //this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true;
+                //    //row.Cells["selected"].ReadOnly = true;
+                //    //this.matBtnSave.Enabled = false;
+
+                //}
 
             }
 
@@ -1285,11 +1535,11 @@ public void LoadCategoryDropdownForAllocation()
                 this.labelSelectedSum.Visible = true;
 
 
-                //this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
-                this.labelSelectedSum.Text = "Selected Items: " + CountSample.ToString();
+                this.labelSelectedSum.Text = "Selected Items: " + this.dgvStoreOrderApproval.RowCount.ToString();
+                //this.labelSelectedSum.Text = "Selected Items: " + CountSample.ToString(); // kasama 3
                 this.num = this.dgvStoreOrderApproval.RowCount;
                 this.SaveButtonManipulator();
-              
+                this.GrandTotalSummarySelectedIncrement();
             }
             else
             {
@@ -1300,12 +1550,15 @@ public void LoadCategoryDropdownForAllocation()
                 this.labelSelectedSum.Text = "Selected Items: " + 0;
                 this.num = 0;
                 this.SaveButtonManipulator();
+                this.GrandTotalSummarySelectedDecrement();
                 this.frmStoreOrderforApproval_Load(sender, e);
 
             }
             //Check the State on The Preparation is already Tagged or required
             this.StateChangeOnTaggingPreparationDate();
         }
+
+
 
         private void SaveButtonManipulator()
         {
@@ -1318,12 +1571,27 @@ public void LoadCategoryDropdownForAllocation()
             {
                 this.matbtnApprove.Visible = false;
                 this.matbtnCancel.Visible = false;
+                //new data
+
+            
             }
             else
             {
                 this.matbtnApprove.Visible = true;
                 this.matbtnCancel.Visible = true;
             }
+        }
+
+
+        private void SelectAllCheckBoxFalse()
+        {
+            this.materialCheckboxSelectAll.Text = "Select ALL";
+  
+            for (int i = 0; i < dgvStoreOrderApproval.RowCount; i++) { dgvStoreOrderApproval.Rows[i].Cells[0].Value = false; }
+            this.labelSelectedSum.Text = "Selected Items: " + 0;
+            this.num = 0;
+            this.SaveButtonManipulator();
+            this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
         }
         private void labelSelectedSum_TextChanged(object sender, EventArgs e)
         {
@@ -1375,6 +1643,7 @@ public void LoadCategoryDropdownForAllocation()
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value != null)
                     {
                         p_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+                        this.MyCurrentRowIndex = this.dgvStoreOrderApproval.CurrentCell.RowIndex;
                        this.FormClass.sp_order_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["order_id"].Value);
                         this.FormClass.sp_date_ordered = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
                         this.FormClass.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
@@ -1421,7 +1690,7 @@ public void LoadCategoryDropdownForAllocation()
             {
                 return;
             }
-          else
+             else
             {
 
 
@@ -1491,18 +1760,22 @@ public void LoadCategoryDropdownForAllocation()
 
                     //Start
 
-                  
 
-                        if (Convert.ToDateTime(row.Cells["dateNeeded"].Value) > DateTime.Now.Date)
-                        {
-                        //this.matBtnSave.Enabled = true;
-                        row.Cells["selected"].ReadOnly = false;
-                        }
+
+                    if (Convert.ToDateTime(row.Cells["dateNeeded"].Value) > DateTime.Now.Date)
+
+                    {
+                        //this.matbtnApprove.Enabled = true;
+                        //row.Cells["selected"].ReadOnly = false;
+
+                     }
                         else
                         {
-                        row.Cells["selected"].ReadOnly = true;
-                        //this.matBtnSave.Enabled = false;
-                        }
+                        this.forApprovalDateNeededValidation = 1;
+                        //this.forApproval = 2;
+                        //row.Cells["selected"].ReadOnly = true;
+                        //this.matbtnApprove.Enabled = false;
+                    }
                     
 
                     //End
@@ -1737,6 +2010,11 @@ public void LoadCategoryDropdownForAllocation()
         private void MatRadioBtnInactive_Click(object sender, EventArgs e)
         {
             this.materialRadioButton1_CheckedChanged(sender, e);
+        }
+
+        private void labelSelectedSum_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

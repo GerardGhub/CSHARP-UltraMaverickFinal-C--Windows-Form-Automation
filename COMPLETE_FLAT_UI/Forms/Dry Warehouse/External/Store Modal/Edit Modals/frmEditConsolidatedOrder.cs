@@ -91,6 +91,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.BindDataintoTextBox();
             this.mattxtUpdatedQty.Focus();
 
+            //MessageBox.Show(this.sp_Allocated_Qty);
 
         }
 
@@ -107,7 +108,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matxtDescription.Text = this.sp_description;
             this.mattxtUOm.Text = this.sp_uom;
             //Quantity Adjustment
-            if(this.sp_Allocated_Qty == "0")
+            if(this.sp_Allocated_Qty == "0.00")
             {
                 this.mattxtQtyOrder.Text = this.sp_qty;
             }
@@ -209,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
                 objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
-                if (this.sp_Allocated_Qty == "0")
+                if (this.sp_Allocated_Qty == "0.00")
                 {
 
 

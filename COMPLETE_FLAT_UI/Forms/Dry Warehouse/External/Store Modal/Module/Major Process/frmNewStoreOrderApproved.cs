@@ -19,15 +19,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     {
         //Main Classs
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         //Data Set Initialization
         public DataSet dset = new DataSet();
-        DataSet dset2 = new DataSet();
-        DataSet dset3 = new DataSet();
-        DataSet dSet = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+         DataSet dset2 = new DataSet();
+         DataSet dset3 = new DataSet();
+         DataSet dSet = new DataSet();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         //Variable Declaration
         int p_id = 0;
 
@@ -37,24 +37,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             InitializeComponent();
         }
-        public int sp_user_id { get; set; }
-        public string mode { get; set; }
+        public int Sp_user_id { get; set; }
+        public string Mode { get; set; }
 
 
         //Class Binding to oTher window
-        public string sp_bind_selected { get; set; }
-        public int sp_order_id { get; set; }
-        public string sp_date_ordered { get; set; }
-        public string sp_fox { get; set; }
-        public string sp_store_name { get; set; }
-        public string sp_route { get; set; }
-        public string sp_area { get; set; }
-        public string sp_category { get; set; }
-        public string sp_item_code { get; set; }
-        public string sp_description { get; set; }
-        public string sp_uom { get; set; }
-        public string sp_qty { get; set; }
-        public string sp_cancel_remarks { get; set; }
+        public string Sp_bind_selected { get; set; }
+        public int Sp_order_id { get; set; }
+        public string Sp_date_ordered { get; set; }
+        public string Sp_fox { get; set; }
+        public string Sp_store_name { get; set; }
+        public string Sp_route { get; set; }
+        public string Sp_area { get; set; }
+        public string Sp_category { get; set; }
+        public string Sp_item_code { get; set; }
+        public string Sp_description { get; set; }
+        public string Sp_uom { get; set; }
+        public string Sp_qty { get; set; }
+        public string Sp_cancel_remarks { get; set; }
         public string sp_prepa_date_update { get; set; }
  
    
@@ -67,17 +67,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ClearTextboxesStateMObX();
             myglobal.global_module = "Active";
 
-     
 
-      
-            //Load The Data With Stored Procedure
-            //this.LoadDataWithParamsOrders();
     
-            if (this.mode == "start")
+            if (this.Mode == "start")
             {
                 this.ConnectionInit();
                 this.load_search();
-                this.mode = "";
+                this.Mode = "";
             }
             else
             {
@@ -132,7 +128,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
+            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
 
             this.dgvStoreOrderApproval.DataSource = dv;
@@ -153,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isCancelled");
+            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isCancelled");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
 
             this.dgvStoreOrderApproval.DataSource = dv;
@@ -250,7 +246,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
 
             double sum = 0;
-            double currentcellqty = Convert.ToDouble(this.sp_qty);
+            double currentcellqty = Convert.ToDouble(this.Sp_qty);
 
             stackQuantity -= currentcellqty;
             sum = stackQuantity;
@@ -264,7 +260,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
       
             double sum = 0;
-            double currentcellqty = Convert.ToDouble(this.sp_qty);
+            double currentcellqty = Convert.ToDouble(this.Sp_qty);
           
 
             if(num_static_value <= num)
@@ -304,7 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
+            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
 
             this.doSearch();
 
@@ -323,19 +319,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     }
                     else if (myglobal.global_module == "Active")
                     {
-                        if (this.mode == "Search1")
+                        if (this.Mode == "Search1")
                         {
                             dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and category = '" + this.matcmbCategory.Text + "'     ";
                         }
-                         else if(this.mode == "Search2") // for Fucking Category dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "'  ";
+                         else if(this.Mode == "Search2") // for Fucking Category dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   date_ordered = '" + this.cmbDateOrder.Text + "'  ";
                         {
                             dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'  ";
                         }
-                        else if (this.mode == "Search3")
+                        else if (this.Mode == "Search3")
                         {
                             dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and   area = '" + this.cmbArea.Text + "' and   category = '" + this.matcmbCategory.Text + "'  ";
                         }
-                        else if (this.mode == "Search4")
+                        else if (this.Mode == "Search4")
                         {
                             dv.RowFilter = " is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "' and area = '" + this.cmbArea.Text + "' and   category = '" + this.matcmbCategory.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  ";
                         }
@@ -378,13 +374,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void DataRefresher()
         {
             this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6, 0);
-            sp_user_id = userinfo.user_id;
+            Sp_user_id = userinfo.user_id;
         }
 
         private void ConnectionInit()
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+   
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
@@ -478,7 +474,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.ConnectionInit();
             this.loadStoreDropdown();
-            this.mode = "Search3";
+            this.Mode = "Search3";
 
             if (this.metroCmbStoreCode.Text != String.Empty)
             {
@@ -497,7 +493,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
            
 
 
-            this.mode = "Search1";
+            this.Mode = "Search1";
             this.ConnectionInit();
 
 
@@ -529,9 +525,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //this.ConnectionInit();
-            //this.load_search();
-            this.mode = "Search4";
+          
+            this.Mode = "Search4";
             this.ConnectionInit();
             this.load_search();
             this.checkIfAlreadyPrepared();
@@ -552,7 +547,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.ConnectionInit();
             this.loadCategoryDropdown();
-            this.mode = "Search2";
+            this.Mode = "Search2";
 
             if (this.matcmbCategory.Text != String.Empty)
             {
@@ -642,17 +637,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value != null)
                     {
                         p_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
-                        this.sp_order_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["order_id"].Value);
-                        this.sp_date_ordered = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
-                        this.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
-                        this.sp_store_name = this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value.ToString();
-                        this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
-                        this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
-                        this.sp_category = this.dgvStoreOrderApproval.CurrentRow.Cells["category"].Value.ToString();
-                        this.sp_item_code = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
-                        this.sp_description = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
-                        this.sp_uom = this.dgvStoreOrderApproval.CurrentRow.Cells["uom"].Value.ToString();
-                        this.sp_qty = this.dgvStoreOrderApproval.CurrentRow.Cells["qty"].Value.ToString();
+                        this.Sp_order_id = Convert.ToInt32(this.dgvStoreOrderApproval.CurrentRow.Cells["order_id"].Value);
+                        this.Sp_date_ordered = this.dgvStoreOrderApproval.CurrentRow.Cells["date_ordered"].Value.ToString();
+                        this.Sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
+                        this.Sp_store_name = this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value.ToString();
+                        this.Sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
+                        this.Sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
+                        this.Sp_category = this.dgvStoreOrderApproval.CurrentRow.Cells["category"].Value.ToString();
+                        this.Sp_item_code = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.Sp_description = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
+                        this.Sp_uom = this.dgvStoreOrderApproval.CurrentRow.Cells["uom"].Value.ToString();
+                        this.Sp_qty = this.dgvStoreOrderApproval.CurrentRow.Cells["qty"].Value.ToString();
                     }
                 }
             }
@@ -695,13 +690,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 //Start of the code block
 
 
+
+
                 if (this.materialCheckboxSelectAll.Checked == true)
                 {
                    
                     this.labelSelectedSum.Visible = true;
                     this.materialCheckboxSelectAll.Text = "UnSelect ALL";
                     for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++) { this.dgvStoreOrderApproval.Rows[i].Cells[0].Value = true; }
-                    //MessageBox.Show(dgvReprinting.SelectedRows.Count.ToString());
+          
                     if (this.lbltotaldata.Text != "0")
                     {
                         this.matbtnEdit.Visible = true;
@@ -711,15 +708,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.num = this.dgvStoreOrderApproval.RowCount;
                 
                     this.SaveButtonManipulator();
-                    //MessageBox.Show("You are the masarap");
-                    //return;
+               
                     this.CountAllQtyOrder();
                     
                 }
                 else
-                //{
-
-                //}
+               
 
 
                 {
@@ -780,7 +774,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                             {
                                 this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
+                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()),
+                                    "PUTReturnedStoreOrderApproved", 
+                                    this.Sp_cancel_remarks, 
+                                    this.Sp_user_id.ToString(), 1, 0);
 
                             }
                             else
@@ -794,7 +791,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
 
                         this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTReturnedStoreOrderApproved", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
+                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), 
+                            "PUTReturnedStoreOrderApproved", 
+                            this.Sp_cancel_remarks, 
+                            this.Sp_user_id.ToString(), 1, 0);
 
                         MessageBox.Show(ex.Message);
                     }
@@ -814,7 +814,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                             {
                                 this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                                dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApprovedCancel", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
+                                this.dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), 
+                                    "PUTStoreOrderApprovedCancel", 
+                                    this.Sp_cancel_remarks, 
+                                    this.Sp_user_id.ToString(), 1, 0);
 
                             }
                             else
@@ -827,7 +830,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
 
                         this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTStoreOrderApprovedCancel", this.sp_cancel_remarks, this.sp_user_id.ToString(), 1, 0);
+                        dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), 
+                            "PUTStoreOrderApprovedCancel", 
+                            this.Sp_cancel_remarks, 
+                            this.Sp_user_id.ToString(), 1, 0);
 
                         MessageBox.Show(ex.Message);
                     }
@@ -850,7 +856,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (matRadioActive.Checked == true)
             {
-                this.sp_bind_selected = "1";
+                this.Sp_bind_selected = "1";
 
                 this.matbtnCancel.Text = "CANCEL";
                 this.frmAddNewStoreOrderApproved_Load(sender, e);
@@ -858,7 +864,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else if (matRadioNotActive.Checked == true)
             {
-                this.sp_bind_selected = "0";
+                this.Sp_bind_selected = "0";
 
                 this.LoadDataCancelledforPreparation();
                 //this.SearchMethodJarVarCallingSP();
@@ -873,7 +879,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (matRadioActive.Checked == true)
             {
-                this.sp_bind_selected = "1";
+                this.Sp_bind_selected = "1";
 
 
                 this.frmAddNewStoreOrderApproved_Load(sender, e);
@@ -881,12 +887,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else if (matRadioNotActive.Checked == true)
             {
-                this.sp_bind_selected = "0";
+                this.Sp_bind_selected = "0";
 
                 this.LoadDataCancelledforPreparation();
                 this.lbltotalOrderQty.Text = "0";
                 this.matbtnCancel.Text = "RETURN";
-                //this.SearchMethodJarVarCallingSP();
+    
             }
             else
             {
@@ -906,7 +912,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTPreparationStoreOrderApproved", this.sp_prepa_date_update, this.sp_user_id.ToString(), 1, 0);
+                            dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTPreparationStoreOrderApproved", 
+                                this.sp_prepa_date_update, this.Sp_user_id.ToString(), 1, 0);
 
                         }
                         else
@@ -920,7 +927,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
                     this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
-                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), "PUTPreparationStoreOrderApproved", this.sp_prepa_date_update, this.sp_user_id.ToString(), 1, 0);
+                    dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvStoreOrderApproval.Rows[i].Cells["primary_id"].Value.ToString()), 
+                        "PUTPreparationStoreOrderApproved", 
+                        this.sp_prepa_date_update, 
+                        this.Sp_user_id.ToString(), 1, 0);
 
                     MessageBox.Show(ex.Message);
                 }
@@ -943,10 +953,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
                 }
-                //else if(num == 1)
-                //{
-                //    this.matbtnEdit.Visible = true;
-                //}
+
                 else
                 {
                     this.matbtnEdit.Visible = true;
@@ -955,7 +962,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                this.sp_cancel_remarks = this.textBox1.Text;
+                this.Sp_cancel_remarks = this.textBox1.Text;
                 this.CancelFunctionality();
             }
         }
@@ -968,7 +975,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             frmStoreApprovedOrderUpdatePreparationDate updatePrepaDate = 
                 new frmStoreApprovedOrderUpdatePreparationDate(this, 
                 this.bunifuPrepaDate.Text, 
-                this.sp_category);
+                this.Sp_category);
             updatePrepaDate.ShowDialog();
         }
 
@@ -999,8 +1006,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void checkIfAlreadyPrepared()
         {
             //Update Status Already Repack
-            dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            this.dSet.Clear();
+            this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
             "",
             this.bunifuPrepaDate.Text,
             "",
@@ -1039,15 +1046,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
 
                 this.dgvStoreOrderApproval.Enabled = true;
-                //MessageBox.Show("B");
+             
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Update Status Already Repack
+          
             dSet.Clear();
-            dSet = objStorProc.sp_Store_Preparation_Logs(0,
+            dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
             "",
             this.bunifuPrepaDate.Text,
             "",
