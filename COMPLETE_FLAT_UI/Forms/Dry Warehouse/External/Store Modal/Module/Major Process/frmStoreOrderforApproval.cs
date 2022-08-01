@@ -190,19 +190,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 {
 
-                    DateValidCount = DateValidCount + 1;
-                    this.lblvalid.Text = DateValidCount.ToString();
+                DateValidCount = DateValidCount + 1;
+             
+                this.lblvalid.Text = DateValidCount.ToString();
 
-                    this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+                this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+
+                    
                 }
                 else
                 {
                     NotDateValidCount = NotDateValidCount + 1;
+          
                     this.lblnotvalid.Text = NotDateValidCount.ToString();
 
                     this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
                 }
             }
+
+
+            if(this.DateValidCount == 0)
+            {
+                this.DateValidCount = 0;
+
+                this.lblvalid.Text = DateValidCount.ToString();
+
+
+                this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
+            }
+
+            if(this.NotDateValidCount == 0)
+            {
+                this.NotDateValidCount = 0;
+
+                this.lblnotvalid.Text = this.NotDateValidCountSelected.ToString();
+
+                this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
+            }
+
+            
         }
 
         private void GrandTotalSummarySelectedIncrement ()
@@ -986,12 +1012,7 @@ public void LoadCategoryDropdownForAllocation()
         {
 
     
-            //this.dSetCheckStoreCount.Clear();
-            //this.dSetCheckStoreCount = objStorProc.sp_getMajorTables("Dry_Wh_Order_Parent_Store");
-
-
-            //this.LatestForeignKeyInMasterStoreTable = Convert.ToInt32(this.dSetCheckStoreCount.Tables[0].Rows[0]["LatestNumber"]);
-      
+    
 
 
 
@@ -1067,8 +1088,8 @@ public void LoadCategoryDropdownForAllocation()
             this.GlobalStatePopup.ApprovedSuccessfully();
             this.materialCheckboxSelectAll.Checked = false;
             this.labelSelectedSum.Visible = false;
+    
 
-        
             this.num = 0;
             this.matbtnEdit.Visible = false;
 
