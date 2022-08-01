@@ -45,7 +45,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             string Area,
             string Category,
             string TotalRawMaterialPreparationActive,
-            int FK_dry_wh_orders_parent_id
+            int FK_dry_wh_orders_parent_id,
+            string RemainingServedQty
             )
         {
             InitializeComponent();
@@ -64,6 +65,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             Sp_Category = Category;
             Sp_TotalRawMaterialPreparationActive = TotalRawMaterialPreparationActive;
             Sp_FK_dry_wh_orders_parent_id = FK_dry_wh_orders_parent_id;
+            Sp_Served_Qty = RemainingServedQty;
         }
 
         public string sp_Fox { get; set; }
@@ -98,6 +100,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_TotalRawMaterialPreparationActive { get; set; }
 
         public int Sp_FK_dry_wh_orders_parent_id { get; set; }
+        public string Sp_Served_Qty { get; set; }
 
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
@@ -118,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.DataGridVisibilyFalse();
 
 
-
+            //MessageBox.Show(this.Sp_FK_dry_wh_orders_parent_id.ToString());
         }
 
         private void DataGridVisibilyFalse()
@@ -175,7 +178,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void SearchMethodJarVarCallingSPReceivingIDInventory()
         {
             this.dset_emp_SearchEnginesReceivingIDInventory.Clear();
-            this.dset_emp_SearchEnginesReceivingIDInventory = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDInventories");
+            this.dset_emp_SearchEnginesReceivingIDInventory = 
+            g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDInventories");
 
         }
 
@@ -198,6 +202,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Sp_Category = this.Sp_Category;
             this.Sp_TotalRawMaterialPreparationActive = Sp_TotalRawMaterialPreparationActive;
             this.Sp_FK_dry_wh_orders_parent_id = this.Sp_FK_dry_wh_orders_parent_id;
+            this.Sp_Served_Qty = this.Sp_Served_Qty;
         }
 
  
@@ -208,7 +213,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.dset_emp_SearchEngines.Clear();
 
 
-                this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Serving");
+                this.dset_emp_SearchEngines = g_objStoredProcCollection
+                .sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Serving");
 
             }
 
@@ -427,17 +433,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     }
                 }
 
+                //MessageBox.Show(Sp_FK_dry_wh_orders_parent_id.ToString());
 
-   
+            
+
                 this.dSet.Clear();
-                this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
+                this.dSet = g_objStoredProcCollection
+                .sp_Store_Preparation_Logs(0,
                 this.Sp_Barcode_Id,
                 this.Sp_Preparation_Date,
                 this.mattxtItemCode.Text,
                 this.matTxtDescription.Text,
                 this.matTxtOrderQty.Text,
                 this.mattxtQtyServe.Text,
-                "", this.Sp_User_ID.ToString(),
+               this.Sp_Served_Qty, 
+                this.Sp_User_ID.ToString(),
                 Convert.ToInt32(this.Sp_Material_Id),
                 this.sp_Fox, 
                 Sp_Category, 
@@ -445,7 +455,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.Sp_FK_dry_wh_orders_parent_id,
                 "add");
 
-         
+                //return;
 
                 // Summary Execution Per Row
                 double QuantityReleasedData;

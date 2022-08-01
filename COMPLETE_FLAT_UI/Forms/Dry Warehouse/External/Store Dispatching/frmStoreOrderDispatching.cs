@@ -21,9 +21,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
     {
         //Main Classs
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -51,7 +51,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private void frmStoreOrderDispatching_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
           
 
 
@@ -148,7 +148,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 this.dset.Clear();
 
-                this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major");
+                this.dset = g_objStoredProcCollection.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major");
 
                 this.doSearch();
 
@@ -174,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 this.dset.Clear();
 
-                this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major_Recent_Logs");
+                this.dset = g_objStoredProcCollection.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major_Recent_Logs");
 
                 this.RecentLogsSearch();
 
@@ -198,7 +198,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             {
                 
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.matCmbPreparationDate, "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown", 
+                myClass.fillComboBoxStoreOrderApprovalSync(this.matCmbPreparationDate,
+                    "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown", 
                     this.dSet, "BunifuPrepaDate", "cmdDateOrder", this.matcmbCategory.Text, this.metroCmbStoreName.Text);
 
             }
@@ -239,7 +240,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.matcmbCategory, "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown_Category", this.dSet, this.matCmbPreparationDate.Text, "cmdDateOrder", this.matcmbCategory.Text, this.metroCmbStoreName.Text);
+                myClass.fillComboBoxStoreOrderApprovalSync(this.matcmbCategory, 
+                    "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown_Category", 
+                    this.dSet, 
+                    this.matCmbPreparationDate.Text, 
+                    "cmdDateOrder", 
+                    this.matcmbCategory.Text, 
+                    this.metroCmbStoreName.Text);
 
             }
             catch (Exception ex)
@@ -301,7 +308,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             {
 
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.metroCmbStoreName, "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown_StoreName", this.dSet, this.matCmbPreparationDate.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, this.metroCmbStoreName.Text);
+                myClass.fillComboBoxStoreOrderApprovalSync(
+                    this.metroCmbStoreName, 
+                    "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown_StoreName", 
+                    this.dSet, 
+                    this.matCmbPreparationDate.Text, 
+                    this.matcmbCategory.Text, 
+                    this.matcmbCategory.Text, 
+                    this.metroCmbStoreName.Text);
 
             }
             catch (Exception ex)
@@ -344,7 +358,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 this.dset.Clear();
 
-                this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major");
+                this.dset = g_objStoredProcCollection
+                    .sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major");
        
 
                 this.doSearch();
@@ -370,7 +385,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 this.dset.Clear();
 
-                this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major_Recent_Logs");
+                this.dset = g_objStoredProcCollection.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major_Recent_Logs");
                 //02/3/2022
 
                 this.RecentLogsSearch();
@@ -914,7 +929,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             
                 this.dset.Clear();
 
-                this.dset = objStorProc.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major_Printed");
+                this.dset = g_objStoredProcCollection.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major_Printed");
 
                 if (this.dset.Tables.Count > 0)
                 {
@@ -924,7 +939,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                     if (this.metroCmbStoreName.SelectedIndex != -1)
                     {
-                    //MessageBox.Show("true");
+               
                         dv2.RowFilter = " is_wh_approved_date >= #" + bunifuPrepaDateFrom.Text + "# AND is_wh_approved_date <= #" + bunifuDateTo.Text + "# AND category = '" + this.matcmbCategory.Text + "'";
                     //dv2.RowFilter = " is_approved_prepa_date >= #" + bunifuPrepaDateFrom.Text + "# AND is_approved_prepa_date <= #" + bunifuDateTo.Text + "# AND category = '" + this.matcmbCategory.Text + "' ";
                 }

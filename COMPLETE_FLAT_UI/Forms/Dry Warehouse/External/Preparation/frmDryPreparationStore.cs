@@ -72,7 +72,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); 
 
             this.dset.Clear();
             this.LoadWindowsExecution();
@@ -750,7 +750,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.sp_area,
                 this.matcmbCategory.Text,
                 this.lbltotaldata.Text,
-                this.Sp_id
+                this.Sp_id,
+                this.Sp_Remaining_Qty
                     );
                 addNew.ShowDialog();
                 this.mattxtScanTheBarcode.Text = String.Empty;
@@ -870,6 +871,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             this.CurrentCellChangeofRawMaterials();
         }
+
 
         private void CurrentCellChangeofRawMaterials()
         {
