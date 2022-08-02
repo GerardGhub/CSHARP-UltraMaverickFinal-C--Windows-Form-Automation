@@ -156,6 +156,7 @@
     <Compile Include="Class\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Class\Taskbar.cs" />
     <Compile Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>

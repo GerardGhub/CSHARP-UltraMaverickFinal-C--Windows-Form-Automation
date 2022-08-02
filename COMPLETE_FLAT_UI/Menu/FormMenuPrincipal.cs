@@ -46,6 +46,7 @@ namespace COMPLETE_FLAT_UI
         //Constructor
         public Byte[] imageByte = null;
         myclasses xClass = new myclasses();
+
         IStoredProcedures objStorProc = null;
         DataSet dset_rights = new DataSet();
         DataSet dSet = new DataSet();
@@ -54,6 +55,9 @@ namespace COMPLETE_FLAT_UI
         readonly MenuClasses Menu = new MenuClasses();
         DataSet dsImage = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
+
+
+
         public FormMenuPrincipal()
         {
             InitializeComponent();
@@ -854,6 +858,10 @@ namespace COMPLETE_FLAT_UI
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
              btnMaximizedFinal.Visible = false;
             btnNormalFinal.Visible = true;
+
+
+            this.ShowInTaskbar = false;
+
         }
 
         private void btnNormalFinal_Click(object sender, EventArgs e)
@@ -862,6 +870,7 @@ namespace COMPLETE_FLAT_UI
             this.Location = new Point(lx, ly);
             btnNormalFinal.Visible = false;
             btnMaximizedFinal.Visible = true;
+ 
         }
 
         private void btnCloseFinal_Click(object sender, EventArgs e)
