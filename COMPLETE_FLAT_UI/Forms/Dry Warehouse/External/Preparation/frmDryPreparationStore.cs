@@ -564,7 +564,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
 
 
-                //myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text,this.metroCmbStoreCode.Text);
                 xClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Already_Approved_AreaData", this.dSet, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, "");
 
             }

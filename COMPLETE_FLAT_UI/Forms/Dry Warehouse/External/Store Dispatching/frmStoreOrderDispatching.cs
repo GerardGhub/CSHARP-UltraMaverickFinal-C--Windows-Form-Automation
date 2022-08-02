@@ -1054,7 +1054,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
 
                 if (this.dgvGunaMoveItems.Rows.Count >= 1)
-            {
+                   {
                 int i = this.dgvGunaMoveItems.CurrentRow.Index + 1;
                 if (i >= -1 && i < this.dgvGunaMoveItems.Rows.Count)
                     this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[0];

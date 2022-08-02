@@ -27,6 +27,8 @@ namespace ULTRAMAVERICK.Report
             InitializeComponent();
         }
 
+
+
         private void frmReport_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
