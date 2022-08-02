@@ -186,7 +186,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++)
             {
           
-                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date
+                    || Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) == DateTime.Now.Date)
 
                 {
 
@@ -243,7 +244,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++)
             {
 
-                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date
+                    || Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) == DateTime.Now.Date)
 
                 {
 
@@ -268,7 +270,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             for (int i = 0; i < this.dgvStoreOrderApproval.RowCount; i++)
             {
 
-                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) > DateTime.Now.Date
+                    || Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[i].Cells["dateNeeded"].Value) == DateTime.Now.Date)
 
                 {
 
@@ -812,7 +815,8 @@ public void LoadCategoryDropdownForAllocation()
                 ////}
 
 
-                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[e.RowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[e.RowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date
+                    || Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[e.RowIndex].Cells["dateNeeded"].Value) == DateTime.Now.Date)
                 {
                     //this.matBtnSave.Enabled = true;
                     //row.Cells["selected"].ReadOnly = false;
@@ -896,12 +900,10 @@ public void LoadCategoryDropdownForAllocation()
 
         private void ValidateDateNeededforApproval()
         {
-            if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+            if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date
+                || Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) == DateTime.Now.Date)
             {
-                //this.matBtnSave.Enabled = true;
-                //row.Cells["selected"].ReadOnly = false;
-                //MessageBox.Show("True");
-                //this.matbtnApprove.Enabled = true;
+       
                 if (Convert.ToBoolean(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["selected"].Value = true))
                 {
                     this.DateValidCountSelected = this.DateValidCountSelected + 1;
@@ -964,7 +966,8 @@ public void LoadCategoryDropdownForAllocation()
 
     
 
-                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date
+                    || Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) == DateTime.Now.Date)
                 {
                     this.DateValidCountSelected = this.DateValidCountSelected - 1;
                     this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
@@ -1011,11 +1014,6 @@ public void LoadCategoryDropdownForAllocation()
         private void ApproveFunctionality()
         {
 
-    
-    
-
-
-
             for (int i = 0; i <= dgvStoreOrderApproval.RowCount - 1; i++)
             {
                 try
@@ -1061,8 +1059,6 @@ public void LoadCategoryDropdownForAllocation()
                             }
                             datastorage = this.dgvStoreOrderApproval.Rows[i].Cells["fox"].Value.ToString();
 
-                            //MessageBox.Show(datastorage + this.dgvStoreOrderApproval.Rows[i].Cells["fox"].Value.ToString());
-
 
 
                         }
@@ -1093,7 +1089,10 @@ public void LoadCategoryDropdownForAllocation()
             this.num = 0;
             this.matbtnEdit.Visible = false;
 
-            this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
+            this.DateValidCount = 0;
+            this.NotDateValidCount = 0;
+
+           this.frmStoreOrderforApproval_Load(new object(), new System.EventArgs());
           
         }
 
@@ -1783,15 +1782,16 @@ public void LoadCategoryDropdownForAllocation()
 
 
 
-                    if (Convert.ToDateTime(row.Cells["dateNeeded"].Value) > DateTime.Now.Date)
+                    if (Convert.ToDateTime(row.Cells["dateNeeded"].Value) > DateTime.Now.Date
+                        || Convert.ToDateTime(row.Cells["dateNeeded"].Value) == DateTime.Now.Date)
 
                     {
                         //this.matbtnApprove.Enabled = true;
                         //row.Cells["selected"].ReadOnly = false;
 
                      }
-                        else
-                        {
+                    else
+                    {
                         this.forApprovalDateNeededValidation = 1;
                         //this.forApproval = 2;
                         //row.Cells["selected"].ReadOnly = true;

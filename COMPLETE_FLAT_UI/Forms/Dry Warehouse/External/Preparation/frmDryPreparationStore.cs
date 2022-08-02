@@ -36,10 +36,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             InitializeComponent();
         }
         public string Sp_Qty_Serve { get; set; }
-        public string sp_fox { get; set; }
-        public string sp_route { get; set; }
-        public string sp_area { get; set; }
-        public string sp_approved_preparation_date { get; set; }
+        public string Sp_fox { get; set; }
+        public string Sp_route { get; set; }
+        public string Sp_area { get; set; }
+        public string Sp_approved_preparation_date { get; set; }
 
 
         //Receiving Table
@@ -51,7 +51,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Material_Item_Description { get; set; }
         public string Sp_Unit_Of_Measure { get; set; }
         public string Sp_Converted_Qty { get; set; }
-        public string sp_material_id { get; set; }
+        public string Sp_material_id { get; set; }
 
         public string Sp_Item_Code {get; set;}
 
@@ -134,6 +134,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation");
 
         }
+
+
 
         private void FormmLoadSearchState()
         {
@@ -385,16 +387,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.dset2.Clear();
             this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
            this.matcmbCategory.Text,
-            this.sp_approved_preparation_date,
+            this.Sp_approved_preparation_date,
             "ItemCode",
             "ItemDesc",
             "OrderQty",
             "Allocated QTY",
             "PrepaDate Added",
             "PrepaAdded By", 0,
-             this.sp_fox, 
-             this.sp_route, 
-             this.sp_area, 0,
+             this.Sp_fox, 
+             this.Sp_route, 
+             this.Sp_area, 0,
             "validate_touched_event_preparation");
 
             if (dset2.Tables[0].Rows.Count > 0)
@@ -405,9 +407,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
             else
             {
-                if(this.lbltotalStoreforPreparation.Text != "0")
+                if(this.lbltotalStoreforPreparation.Text == "0")
                 {
-                    this.matbtnSave.Visible = true;
+                   
+                }
+                else
+                {
+                    //////this.matbtnSave.Visible = true;
                 }
 
 
@@ -472,10 +478,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     {
  
                     
-                            dv.RowFilter = "fox = '" + this.sp_fox + "' " +
-                            "and route = '" + this.sp_route + "' " +
-                            "and area = '" + this.sp_area + "'   " + 
-                            "and is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  and category = '" + this.Sp_Category + "' and FK_dry_wh_orders_parent_id ='"+this.Sp_id+ "'   ";
+                            dv.RowFilter = "fox = '" + this.Sp_fox + "' " +
+                            "and route = '" + this.Sp_route + "' " +
+                            "and area = '" + this.Sp_area + "'   " + 
+                            "and is_approved_preparation_date = '" + this.Sp_approved_preparation_date + "'  and category = '" + this.Sp_Category + "' and FK_dry_wh_orders_parent_id ='"+this.Sp_id+ "'   ";
 
 
                     }
@@ -519,10 +525,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["store_name"].Value != null)
                     {
                         this.Sp_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["id"].Value);
-                        this.sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
-                        this.sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
-                        this.sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
-                        this.sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
+                        this.Sp_fox = this.dgvStoreOrderApproval.CurrentRow.Cells["fox"].Value.ToString();
+                        this.Sp_route = this.dgvStoreOrderApproval.CurrentRow.Cells["route"].Value.ToString();
+                        this.Sp_area = this.dgvStoreOrderApproval.CurrentRow.Cells["area"].Value.ToString();
+                        this.Sp_approved_preparation_date = this.dgvStoreOrderApproval.CurrentRow.Cells["approved_preparation_date"].Value.ToString();
                         this.Sp_Start_By = this.dgvStoreOrderApproval.CurrentRow.Cells["start_by_user_id"].Value.ToString();
                         this.Sp_Employee_Name = this.dgvStoreOrderApproval.CurrentRow.Cells["employee_name"].Value.ToString();
                         this.Sp_Category = this.dgvStoreOrderApproval.CurrentRow.Cells["category"].Value.ToString();
@@ -641,9 +647,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                 //Start of Validating the Received If if exist on the system
                 this.dset2.Clear();
-                this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), 
-                   this.sp_approved_preparation_date,
-                   this.sp_fox,
+                this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(
+                    Convert.ToInt32(this.mattxtScanTheBarcode.Text), 
+                   this.Sp_approved_preparation_date,
+                   this.Sp_fox,
                    "", 
                    "", 
                    "", 
@@ -738,16 +745,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                
 
                 frmServeStorePreparation addNew = new frmServeStorePreparation(this,
-                this.sp_material_id,
+                this.Sp_material_id,
                 this.mattxtScanTheBarcode.Text,
                 this.Sp_Material_Item_Description,
                 this.Sp_Unit_Of_Measure,
                 this.Sp_Converted_Qty,
-                this.sp_approved_preparation_date,
+                this.Sp_approved_preparation_date,
                 this.Sp_Qty_Serve,
-                this.sp_fox,
-                this.sp_route,
-                this.sp_area,
+                this.Sp_fox,
+                this.Sp_route,
+                this.Sp_area,
                 this.matcmbCategory.Text,
                 this.lbltotaldata.Text,
                 this.Sp_id,
@@ -883,7 +890,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["store_name"].Value != null)
                     {
                        
-                        this.sp_material_id = this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
+                        this.Sp_material_id = this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
                         this.Sp_Material_Item_Description = this.guna2DgvMaterialPreparation.CurrentRow.Cells["description"].Value.ToString();
                         this.Sp_Unit_Of_Measure = this.guna2DgvMaterialPreparation.CurrentRow.Cells["uom"].Value.ToString();
                         this.Sp_Converted_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["converted_qty"].Value.ToString();
@@ -913,24 +920,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                         //Date Conversion
                         DateTime dt = new DateTime();
-                        string lstrDate = this.sp_approved_preparation_date;
+                        string lstrDate = this.Sp_approved_preparation_date;
                         dt = Convert.ToDateTime(lstrDate);
                         string lstrAdate = dt.ToString("yyyy-MM-dd");
-                        this.sp_approved_preparation_date = lstrAdate;
+                        this.Sp_approved_preparation_date = lstrAdate;
 
 
         
                         this.dset2.Clear();
                         this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
-                        this.sp_fox,
-                        this.sp_approved_preparation_date,
+                        this.Sp_fox,
+                        this.Sp_approved_preparation_date,
                         this.Sp_Category,
                         "",
                        "",
                         "",
                         "", "",
                         0,
-                        this.sp_fox, 
+                        this.Sp_fox, 
                         this.Sp_Category,
                         "", 0,
                         "select_StorePreparationLogsTBL_Deactivated");
@@ -947,15 +954,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                      
                             this.dSet.Clear();
                             this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
-                            this.sp_fox,
-                            this.sp_approved_preparation_date,
+                            this.Sp_fox,
+                            this.Sp_approved_preparation_date,
                             this.Sp_Category,
                             "",
                            "",
                             "",
                             "", "",
                             0,
-                            this.sp_fox,
+                            this.Sp_fox,
                             this.Sp_Category,
                             "", 0,
                             "update_StorePreparationLogsTBL_Deactivated");
@@ -996,16 +1003,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             //Date Conversion
             DateTime dt = new DateTime();
-            string lstrDate = this.sp_approved_preparation_date;
+            string lstrDate = this.Sp_approved_preparation_date;
             dt = Convert.ToDateTime(lstrDate);
             string lstrAdate = dt.ToString("yyyy-MM-dd");
-            this.sp_approved_preparation_date = lstrAdate;
+            this.Sp_approved_preparation_date = lstrAdate;
 
           
             this.dset3.Clear();
             this.dset3 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
             this.matcmbCategory.Text,
-            this.sp_approved_preparation_date,
+            this.Sp_approved_preparation_date,
             "ItemCode", 
             "ItemDesc", 
             "OrderQty", 
@@ -1013,9 +1020,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             "PrepaDate Added", 
             "PrepaAdded By", 
             0,
-            this.sp_fox,
-            this.sp_route,
-            this.sp_area, 0,
+            this.Sp_fox,
+            this.Sp_route,
+            this.Sp_area, 0,
             "show_prepared_raw_materials");
 
             if (dset3.Tables[0].Rows.Count > 0)
@@ -1071,26 +1078,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.dset2.Clear();
                     this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
                     this.Sp_id,
-                    Convert.ToInt32(this.sp_material_id),
-                    this.sp_fox,
+                    Convert.ToInt32(this.Sp_material_id),
+                    this.Sp_fox,
                     this.Sp_Remaining_Qty,
                     this.Sp_AssigneD_Task_By.ToString(),
                     "",
-                    Convert.ToInt32(this.sp_material_id),
+                    Convert.ToInt32(this.Sp_material_id),
                      this.Sp_Item_Code,
                     "update");
 
                     this.ConnectionInit();
                     this.loadCategoryDropdown();
                     this.matcmbCategory_SelectionChangeCommitted(sender, e);
-                    
-
-
-
-                    //if (this.lbltotalStoreforPreparation.Text == "0")
-                    //{
-                    //    this.frmDryPreparation_Load(sender, e);
-                    //}
 
                     this.matbtnSave.Visible = false;
           
@@ -1160,7 +1159,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 dset3.Clear();
                 dset3 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                this.matcmbCategory.Text,
-                this.sp_approved_preparation_date,
+                this.Sp_approved_preparation_date,
                 "ItemCode",
                 "ItemDesc",
                 "OrderQty",
@@ -1168,9 +1167,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 "PrepaDate Added",
                 "PrepaAdded By",
                 0,
-                this.sp_fox,
-                this.sp_route,
-                this.sp_area,
+                this.Sp_fox,
+                this.Sp_route,
+                this.Sp_area,
                 0,
                 "bulk_proceed_preparation");
 
@@ -1193,16 +1192,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.matViewItemPrepared.Enabled = false;
             this.matbtnSave.Visible = false;
             frmViewStoreItemPrepared addNew = new frmViewStoreItemPrepared(this,
-            this.sp_material_id,
+            this.Sp_material_id,
             this.mattxtScanTheBarcode.Text,
             this.Sp_Material_Item_Description,
             this.Sp_Unit_Of_Measure,
             this.Sp_Converted_Qty,
-            this.sp_approved_preparation_date,
+            this.Sp_approved_preparation_date,
             this.Sp_Qty_Serve,
-            this.sp_fox,
-            this.sp_route,
-            this.sp_area
+            this.Sp_fox,
+            this.Sp_route,
+            this.Sp_area
             );
             addNew.ShowDialog();
             //
@@ -1224,12 +1223,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.dset2.Clear();
                     this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
                      0,
-                    Convert.ToInt32(this.sp_material_id),
-                    this.sp_fox,
+                    Convert.ToInt32(this.Sp_material_id),
+                    this.Sp_fox,
                     this.Sp_Remaining_Qty,
                     this.Sp_AssigneD_Task_By.ToString(),
                     "",
-                    Convert.ToInt32(this.sp_material_id),
+                    Convert.ToInt32(this.Sp_material_id),
                      this.Sp_Item_Code,
                     "add");
 
@@ -1238,13 +1237,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     {
                         this.dset2.Clear();
                         this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
-                         Convert.ToInt32(this.sp_material_id),
-                        Convert.ToInt32(this.sp_material_id),
-                        this.sp_fox,
+                         Convert.ToInt32(this.Sp_material_id),
+                        Convert.ToInt32(this.Sp_material_id),
+                        this.Sp_fox,
                         this.Sp_Remaining_Qty,
                         this.Sp_AssigneD_Task_By.ToString(),
                         "",
-                        Convert.ToInt32(this.sp_material_id),
+                        Convert.ToInt32(this.Sp_material_id),
                          this.Sp_Item_Code,
                         "deactivate_dry_order_store");
                     }
@@ -1252,13 +1251,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     {
                         this.dset2.Clear();
                         this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
-                         Convert.ToInt32(this.sp_material_id),
-                        Convert.ToInt32(this.sp_material_id),
-                        this.sp_fox,
+                        Convert.ToInt32(this.Sp_material_id),
+                        Convert.ToInt32(this.Sp_material_id),
+                        this.Sp_fox,
                         this.Sp_Remaining_Qty,
                         this.Sp_AssigneD_Task_By.ToString(),
                         "",
-                        Convert.ToInt32(this.sp_material_id),
+                        Convert.ToInt32(this.Sp_material_id),
                          this.Sp_Item_Code,
                         "force_prepared_dry_store_orders");
                     }

@@ -192,6 +192,7 @@ namespace COMPLETE_FLAT_UI
             objStorProc = xClass.g_objStoredProc.GetCollections();
             txtMaterialUsername.Select();
             this.RoundPictureAss();
+      
         }
 
         private void RoundPictureAss()
