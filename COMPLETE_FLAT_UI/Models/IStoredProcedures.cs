@@ -664,7 +664,13 @@ namespace ULTRAMAVERICK.Models
             int FK_dry_wh_order);
 
 
-        DataSet sp_IDGenerator_String(string ID, string mode, string filter, string search, int selected);
+        DataSet sp_IDGenerator_String(
+            string ID, 
+            string mode, 
+            string filter, 
+            string search,
+            int selected,
+            int FK_dry_wh_orders_parent_id);
 
         DataSet sp_company_info(int company_id, string company_name, string company_address_number, string company_street_1, string company_street_2, string company_city, string company_state, string company_postal_code, string company_country, string company_phone_number, string company_email_address, string company_website, int last_user_id, string mode);
 

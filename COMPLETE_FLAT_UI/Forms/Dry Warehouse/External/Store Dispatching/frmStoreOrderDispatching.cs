@@ -48,6 +48,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         public string Sp_Selected_Item { get; set; }
 
         public string Sp_UserName { get; set; }
+        public int Sp_ParentId { get; set; }
         private void frmStoreOrderDispatching_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -697,13 +698,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                             dt = Convert.ToDateTime(lstrDate);
                             string lstrAdate = dt.ToString("yyyy-MM-dd");
 
-                            //MessageBox.Show(lstrAdate);
+                            //MessageBox.Show(lstrAdate);// boom
 
 
                             //return;
                             this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
-                            dset = g_objStoredProcCollection.sp_IDGenerator_String(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString(), "PUTStoreOrderMoveDispatching", this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString(), 
-                                dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(), this.Sp_user_id);
+                            this.dset = g_objStoredProcCollection
+                                .sp_IDGenerator_String(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString(), 
+                                "PUTStoreOrderMoveDispatching", 
+                                this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString(), 
+                                dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(),
+                                this.Sp_user_id, this.Sp_ParentId);
 
                         }
                         else
@@ -902,6 +907,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                         {
 
                             this.Sp_Fox = this.dgvGunaMoveItems.CurrentRow.Cells["fox"].Value.ToString();
+                            this.Sp_ParentId = Convert.ToInt32(this.dgvGunaMoveItems.CurrentRow.Cells["Id"].Value);
+
 
                             if (Convert.ToBoolean(this.dgvGunaMoveItems.CurrentRow.Cells["selected"].Value) == true)
                             {
@@ -1052,23 +1059,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             }
 
 
+            //if (this.lbltotaldata.Text == "1" || this.lbltotaldata.Text == "0")
+            //{
 
+            //}
+            //else
+            //{
                 if (this.dgvGunaMoveItems.Rows.Count >= 1)
-                   {
-                int i = this.dgvGunaMoveItems.CurrentRow.Index + 1;
-                if (i >= -1 && i < this.dgvGunaMoveItems.Rows.Count)
-                    this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[0];
+                {
+                    int i = this.dgvGunaMoveItems.CurrentRow.Index + 1;
+                    if (i >= -1 && i < this.dgvGunaMoveItems.Rows.Count)
+                        this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[0];
 
+                }
                 else
                 {
                     //this.LastLineofPreparationSubject();
-              
+
 
 
                     return;
                 }
-            }
 
+            return;
             this.Sp_Selected_Item = "";
             this.AutoPrintPreviewLooping();
         }
