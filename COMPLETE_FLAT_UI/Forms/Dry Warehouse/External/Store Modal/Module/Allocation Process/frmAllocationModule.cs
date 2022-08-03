@@ -45,7 +45,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
        
-       
+       public string ErrorDetails { get; set;}
 
         private void frmAllocationModule_Load(object sender, EventArgs e)
         {
@@ -467,7 +467,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                     if (mode == "error")
                     {
-                        this.GlobalStatePopup.ErrorNotify();
+                        this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
                     }
                     else
                     {

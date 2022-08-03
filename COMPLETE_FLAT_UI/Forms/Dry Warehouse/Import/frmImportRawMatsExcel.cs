@@ -38,6 +38,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             InitializeComponent();
         }
 
+        public string ErrorDetails { get; set; }
         public string item_id_main { get; set; }
         public string item_code_main { get; set; }
         public string item_description_main { get; set; }
@@ -425,7 +426,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                     if (mode == "error")
                     {
-                        this.GlobalStatePopup.ErrorNotify();
+                        this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
                     }
                     else
                     {         

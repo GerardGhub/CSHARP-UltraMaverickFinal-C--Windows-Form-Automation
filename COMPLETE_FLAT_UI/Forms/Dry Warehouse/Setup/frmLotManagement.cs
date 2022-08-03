@@ -40,7 +40,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
         //User Binding
         public string sp_user_id { get; set; }
-        //Update
+        public string ErrorDetails { get; set; }
         public string sp_id { get; set; }
         public string sp_lot_number { get; set; }
         public string sp_description { get; set; }
@@ -279,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             if(this.Sp_Total_SKU != "0")
             {
-                this.GlobalStatePopup.ErrorNotify();
+                this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
                 return;
             }
 

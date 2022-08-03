@@ -20,7 +20,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
     {
 
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+
         IStoredProcedures g_objStoredProcCollection = null;
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -38,7 +38,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
         private void frmBarcodeReprinting_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();

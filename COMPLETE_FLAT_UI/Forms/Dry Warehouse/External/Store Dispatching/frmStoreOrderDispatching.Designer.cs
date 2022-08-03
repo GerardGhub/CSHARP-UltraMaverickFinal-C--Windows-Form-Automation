@@ -85,6 +85,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total_state_repack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_wh_approved_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.print_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard3.SuspendLayout();
             this.groupBoxColorGuide.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -337,7 +338,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.labelSelectedSum.BackColor = System.Drawing.Color.Transparent;
             this.labelSelectedSum.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSelectedSum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.labelSelectedSum.Location = new System.Drawing.Point(881, 176);
+            this.labelSelectedSum.Location = new System.Drawing.Point(849, 176);
             this.labelSelectedSum.Name = "labelSelectedSum";
             this.labelSelectedSum.Size = new System.Drawing.Size(31, 35);
             this.labelSelectedSum.TabIndex = 666;
@@ -420,7 +421,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.dgvGunaMoveItems.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvGunaMoveItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvGunaMoveItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGunaMoveItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGunaMoveItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvGunaMoveItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGunaMoveItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -445,7 +446,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.category,
             this.area,
             this.total_state_repack,
-            this.is_wh_approved_date});
+            this.is_wh_approved_date,
+            this.print_count});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -755,18 +757,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.selected.Name = "selected";
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
+            this.selected.Width = 22;
             // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";
             this.Id.Name = "Id";
+            this.Id.Width = 49;
             // 
             // wh_checker_move_order_no
             // 
             this.wh_checker_move_order_no.DataPropertyName = "wh_checker_move_order_no";
             this.wh_checker_move_order_no.HeaderText = "ORDER NO.";
             this.wh_checker_move_order_no.Name = "wh_checker_move_order_no";
+            this.wh_checker_move_order_no.Width = 105;
             // 
             // is_approved_prepa_date
             // 
@@ -775,6 +780,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.is_approved_prepa_date.HeaderText = "PREPARATION DATE";
             this.is_approved_prepa_date.MinimumWidth = 12;
             this.is_approved_prepa_date.Name = "is_approved_prepa_date";
+            this.is_approved_prepa_date.Width = 164;
             // 
             // fox
             // 
@@ -782,6 +788,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.fox.HeaderText = "FOX";
             this.fox.MinimumWidth = 6;
             this.fox.Name = "fox";
+            this.fox.Width = 64;
             // 
             // store_name
             // 
@@ -789,6 +796,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.store_name.HeaderText = "STORE";
             this.store_name.MinimumWidth = 6;
             this.store_name.Name = "store_name";
+            this.store_name.Width = 84;
             // 
             // route
             // 
@@ -797,6 +805,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.route.HeaderText = "ROUTE";
             this.route.MinimumWidth = 12;
             this.route.Name = "route";
+            this.route.Width = 84;
             // 
             // category
             // 
@@ -805,6 +814,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.category.HeaderText = "CATEGORY";
             this.category.MinimumWidth = 12;
             this.category.Name = "category";
+            this.category.Width = 114;
             // 
             // area
             // 
@@ -813,6 +823,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.area.HeaderText = "AREA";
             this.area.MinimumWidth = 12;
             this.area.Name = "area";
+            this.area.Width = 73;
             // 
             // total_state_repack
             // 
@@ -820,12 +831,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.total_state_repack.HeaderText = "TOTAL ITEMS";
             this.total_state_repack.MinimumWidth = 6;
             this.total_state_repack.Name = "total_state_repack";
+            this.total_state_repack.Width = 123;
             // 
             // is_wh_approved_date
             // 
             this.is_wh_approved_date.DataPropertyName = "is_wh_approved_date";
             this.is_wh_approved_date.HeaderText = "LOGISTIC APPROVAL DATE";
             this.is_wh_approved_date.Name = "is_wh_approved_date";
+            this.is_wh_approved_date.Width = 172;
+            // 
+            // print_count
+            // 
+            this.print_count.DataPropertyName = "print_count";
+            this.print_count.HeaderText = "PRINT COUNT";
+            this.print_count.Name = "print_count";
+            this.print_count.Width = 123;
             // 
             // frmStoreOrderDispatching
             // 
@@ -919,5 +939,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
         private System.Windows.Forms.DataGridViewTextBoxColumn total_state_repack;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_wh_approved_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn print_count;
     }
 }
