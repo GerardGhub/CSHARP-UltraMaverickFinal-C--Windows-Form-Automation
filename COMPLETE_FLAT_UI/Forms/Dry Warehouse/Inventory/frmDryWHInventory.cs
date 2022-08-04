@@ -14,8 +14,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmDryWHInventory : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -36,7 +34,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void frmDryWHInventory_Load(object sender, EventArgs e)
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
       
             this.showRawMaterialsInDryWH();
         }
@@ -46,7 +43,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                this.xClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry_Inventory", dSet);
+                this.myClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry_Inventory", dSet);
 
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }

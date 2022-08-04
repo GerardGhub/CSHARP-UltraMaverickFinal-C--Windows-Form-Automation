@@ -29,7 +29,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
         //Variable Declaration
-        readonly int p_id = 0;
+
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmServeStorePreparation(frmDryPreparationStore frm,

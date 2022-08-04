@@ -22,7 +22,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         string mode = "";
         int p_id = 0;
-        int temp_hid = 0;
+    
         DateTime dNow = DateTime.Now;
 
 

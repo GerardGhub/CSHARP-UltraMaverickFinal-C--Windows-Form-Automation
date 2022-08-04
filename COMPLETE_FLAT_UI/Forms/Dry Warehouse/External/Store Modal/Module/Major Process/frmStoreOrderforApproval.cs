@@ -337,7 +337,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.dgvStoreOrderApproval.Columns["is_cancelled_by"].Visible = true;
                     this.dgvStoreOrderApproval.Columns["is_cancelled_date"].Visible = true;
                     this.dgvStoreOrderApproval.Columns["is_cancelled_reason"].Visible = true;
-
+                    this.dgvStoreOrderApproval.Columns["id"].Visible = false;
                 }
             
                 else
@@ -511,14 +511,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-        //Trace it 4/26/20211
+      
         public void loadCategoryDropdown()
         {
             try
             {
 
 
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval", this.dSet);
+                this.myClass
+                .fillComboBoxStoreOrderApproval(this.matcmbCategory, 
+                "tblStoreOrderDryWH_dropdown_Approval",
+                 this.dSet);
 
             }
             catch (Exception ex)
@@ -1967,14 +1970,9 @@ public void LoadCategoryDropdownForAllocation()
 
         private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
-    
+ 
                 this.ConnectionOpen();
-
-
                 this.SearchInactiveMaterial();
-
-
 
         }
 
@@ -1984,7 +1982,7 @@ public void LoadCategoryDropdownForAllocation()
                 try
                 {
 
-                    myClass.fillDataGridView(this.dgvStoreOrderApproval, "SearchorderForApprovalinDryWHCancel", dSet);
+                this.myClass.fillDataGridView(this.dgvStoreOrderApproval, "SearchorderForApprovalinDryWHCancel", dSet);
 
                 this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
                 this.VisibilityFalseDataGrid();
