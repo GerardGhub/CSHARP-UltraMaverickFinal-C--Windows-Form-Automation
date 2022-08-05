@@ -18,7 +18,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
     public partial class frmServeStorePreparation : MaterialForm
     {
         frmDryPreparationStore ths;
-        //Main Classs
+
 
         readonly myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -77,13 +77,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Sp_Converted_Qty { get; set; }
         public string Sp_Unit_Of_Measure { get; set; }
         public string Sp_Item_Desc { get; set; }
-        public string receiving_identity { get; set; }
-        public string sp_item_code { get; set; }
-        public string sp_item_description { get; set; }
-        public string sp_quantity_serve { get; set; }
-        public string sp_receiving_id { get; set; }
-        public string sp_qty_order { get; set; }
-        public string sp_uom { get; set; }
+        public string Receiving_identity { get; set; }
+        public string Sp_item_code { get; set; }
+        public string Sp_item_description { get; set; }
+        public string Sp_quantity_serve { get; set; }
+        public string Sp_receiving_id { get; set; }
+        public string Sp_qty_order { get; set; }
+        public string Sp_uom { get; set; }
         public string Sp_Material_Id { get; set; }
         public string Sp_Barcode_Id { get; set; }
         public int Sp_User_ID { get; set; }

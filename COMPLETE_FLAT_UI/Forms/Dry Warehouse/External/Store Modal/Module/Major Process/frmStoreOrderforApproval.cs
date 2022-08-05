@@ -191,9 +191,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 {
 
-                DateValidCount = DateValidCount + 1;
-             
-                this.lblvalid.Text = DateValidCount.ToString();
+                //DateValidCount = DateValidCount + 1;
+                    DateValidCount++;
+                    this.lblvalid.Text = DateValidCount.ToString();
 
                 this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
 
@@ -201,7 +201,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
-                    NotDateValidCount = NotDateValidCount + 1;
+                    NotDateValidCount++;
           
                     this.lblnotvalid.Text = NotDateValidCount.ToString();
 
@@ -249,14 +249,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 {
 
-                    DateValidCountSelected = DateValidCountSelected + 1;
+                    //DateValidCountSelected = DateValidCountSelected + 1;
+                    this.DateValidCountSelected++;
                     this.lblValidSelected.Text = DateValidCountSelected.ToString();
 
                  
                 }
                 else
                 {
-                    NotDateValidCountSelected = NotDateValidCountSelected + 1;
+                    //NotDateValidCountSelected = NotDateValidCountSelected + 1;
+                    NotDateValidCountSelected++;
                     this.lblnotSelected.Text = NotDateValidCountSelected.ToString();
 
      
@@ -275,14 +277,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 {
 
-                    DateValidCountSelected = DateValidCountSelected - 1;
+                    DateValidCountSelected--;
+
+                    DateValidCountSelected--;
                     this.lblValidSelected.Text = DateValidCountSelected.ToString();
 
 
                 }
                 else
                 {
-                    NotDateValidCountSelected = NotDateValidCountSelected - 1;
+                    NotDateValidCountSelected--;
                     this.lblnotSelected.Text = NotDateValidCountSelected.ToString();
 
 
@@ -909,12 +913,12 @@ public void LoadCategoryDropdownForAllocation()
        
                 if (Convert.ToBoolean(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["selected"].Value = true))
                 {
-                    this.DateValidCountSelected = this.DateValidCountSelected + 1;
+                    this.DateValidCountSelected++;
                     this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
                 }
                 else
                 {
-                    this.DateValidCountSelected = this.DateValidCountSelected - 1;
+                    this.DateValidCountSelected--;
                     this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
                 }
 
@@ -930,7 +934,7 @@ public void LoadCategoryDropdownForAllocation()
                 {
                     //MessageBox.Show(e.RowIndex.ToString());
                     //MessageBox.Show(dgvStoreOrderApproval.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    this.NotDateValidCountSelected = this.NotDateValidCountSelected + 1;
+                    this.NotDateValidCountSelected++;
                     this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
                 }
                 else if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["selected"].Value = false))
@@ -949,8 +953,7 @@ public void LoadCategoryDropdownForAllocation()
             if (isChecked)
             {
                 num++;
-                //this.NotDateValidCountSelected = this.NotDateValidCountSelected + 1;
-                //this.lblnotSelected.Text = this.NotDateValidCountSelected.ToString();
+    
 
                 if (this.materialCheckboxSelectAll.Checked == true && this.materialCheckboxSelectAll.Checked == false)
                 {
@@ -972,7 +975,7 @@ public void LoadCategoryDropdownForAllocation()
                 if (Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) > DateTime.Now.Date
                     || Convert.ToDateTime(this.dgvStoreOrderApproval.Rows[this.MyCurrentRowIndex].Cells["dateNeeded"].Value) == DateTime.Now.Date)
                 {
-                    this.DateValidCountSelected = this.DateValidCountSelected - 1;
+                    this.DateValidCountSelected--;
                     this.lblValidSelected.Text = this.DateValidCountSelected.ToString();
                 }
                 else

@@ -40,6 +40,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FK_dry_wh_orders_parent_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,8 +59,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.is_approved_prepa_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateDiff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPreparedItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.lblsummaryprepareditems = new MaterialSkin.Controls.MaterialCard();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
@@ -85,9 +87,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblSummaryPrepared = new System.Windows.Forms.Label();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
-            this.materialCard1.SuspendLayout();
+            this.lblsummaryprepareditems.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.groupBoxColorGuide.SuspendLayout();
             this.SuspendLayout();
@@ -187,6 +190,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrderApproval.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selected,
+            this.FK_dry_wh_orders_parent_id,
             this.primary_id,
             this.order_id,
             this.date_ordered,
@@ -204,7 +208,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.is_approved_date,
             this.is_approved_prepa_date,
             this.DateDiff,
-            this.date_added});
+            this.date_added,
+            this.TotalPreparedItems});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,7 +265,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvStoreOrderApproval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellContentClick);
             this.dgvStoreOrderApproval.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStoreOrderApproval_CellFormatting);
-            this.dgvStoreOrderApproval.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStoreOrderApproval_CellValueChanged);
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             this.dgvStoreOrderApproval.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStoreOrderApproval_DataBindingComplete);
             // 
@@ -273,6 +277,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.selected.Name = "selected";
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
+            // 
+            // FK_dry_wh_orders_parent_id
+            // 
+            this.FK_dry_wh_orders_parent_id.DataPropertyName = "FK_dry_wh_orders_parent_id";
+            this.FK_dry_wh_orders_parent_id.HeaderText = "FK_ID";
+            this.FK_dry_wh_orders_parent_id.Name = "FK_dry_wh_orders_parent_id";
             // 
             // primary_id
             // 
@@ -402,6 +412,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.date_added.MinimumWidth = 6;
             this.date_added.Name = "date_added";
             // 
+            // TotalPreparedItems
+            // 
+            this.TotalPreparedItems.DataPropertyName = "TotalPreparedItems";
+            this.TotalPreparedItems.HeaderText = "TOTALPREPAREDITEMS";
+            this.TotalPreparedItems.Name = "TotalPreparedItems";
+            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -414,29 +430,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // materialCard1
+            // lblsummaryprepareditems
             // 
-            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblsummaryprepareditems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.materialCard3);
-            this.materialCard1.Controls.Add(this.materialLabel5);
-            this.materialCard1.Controls.Add(this.cmbArea);
-            this.materialCard1.Controls.Add(this.materialLabel3);
-            this.materialCard1.Controls.Add(this.metroCmbStoreCode);
-            this.materialCard1.Controls.Add(this.materialLabel2);
-            this.materialCard1.Controls.Add(this.matcmbCategory);
-            this.materialCard1.Controls.Add(this.bunifuPrepaDate);
-            this.materialCard1.Controls.Add(this.materialLabel1);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(21, 83);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(980, 90);
-            this.materialCard1.TabIndex = 648;
+            this.lblsummaryprepareditems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lblsummaryprepareditems.Controls.Add(this.materialCard3);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel5);
+            this.lblsummaryprepareditems.Controls.Add(this.cmbArea);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel3);
+            this.lblsummaryprepareditems.Controls.Add(this.metroCmbStoreCode);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel2);
+            this.lblsummaryprepareditems.Controls.Add(this.matcmbCategory);
+            this.lblsummaryprepareditems.Controls.Add(this.bunifuPrepaDate);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel1);
+            this.lblsummaryprepareditems.Depth = 0;
+            this.lblsummaryprepareditems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblsummaryprepareditems.Location = new System.Drawing.Point(21, 83);
+            this.lblsummaryprepareditems.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.lblsummaryprepareditems.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblsummaryprepareditems.Name = "lblsummaryprepareditems";
+            this.lblsummaryprepareditems.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.lblsummaryprepareditems.Size = new System.Drawing.Size(980, 90);
+            this.lblsummaryprepareditems.TabIndex = 648;
             // 
             // materialCard3
             // 
@@ -680,6 +696,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotalOrderQty.Size = new System.Drawing.Size(31, 35);
             this.lbltotalOrderQty.TabIndex = 655;
             this.lbltotalOrderQty.Text = "0";
+            this.lbltotalOrderQty.Visible = false;
             // 
             // label2
             // 
@@ -693,6 +710,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label2.Size = new System.Drawing.Size(122, 15);
             this.label2.TabIndex = 656;
             this.label2.Text = "Total Order Quantity:";
+            this.label2.Visible = false;
             // 
             // groupBoxColorGuide
             // 
@@ -775,11 +793,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel6.TabIndex = 2;
             this.materialLabel6.Text = "6 - Above";
             // 
+            // lblSummaryPrepared
+            // 
+            this.lblSummaryPrepared.AutoSize = true;
+            this.lblSummaryPrepared.Location = new System.Drawing.Point(213, 183);
+            this.lblSummaryPrepared.Name = "lblSummaryPrepared";
+            this.lblSummaryPrepared.Size = new System.Drawing.Size(35, 13);
+            this.lblSummaryPrepared.TabIndex = 659;
+            this.lblSummaryPrepared.Text = "label1";
+            // 
             // frmNewStoreOrderApproved
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.lblSummaryPrepared);
             this.Controls.Add(this.groupBoxColorGuide);
             this.Controls.Add(this.lbltotalOrderQty);
             this.Controls.Add(this.materialCheckboxSelectAll);
@@ -789,7 +817,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.label4);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.lblsummaryprepareditems);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.matbtnCancel);
@@ -801,8 +829,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).EndInit();
-            this.materialCard1.ResumeLayout(false);
-            this.materialCard1.PerformLayout();
+            this.lblsummaryprepareditems.ResumeLayout(false);
+            this.lblsummaryprepareditems.PerformLayout();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
             this.groupBoxColorGuide.ResumeLayout(false);
@@ -819,7 +847,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
         public System.Windows.Forms.TextBox textBox1;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private MaterialSkin.Controls.MaterialCard lblsummaryprepareditems;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckboxSelectAll;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MetroFramework.Controls.MetroComboBox cmbArea;
@@ -847,6 +875,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.Panel panel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FK_dry_wh_orders_parent_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn primary_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered;
@@ -865,5 +894,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn is_approved_prepa_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateDiff;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPreparedItems;
+        private System.Windows.Forms.Label lblSummaryPrepared;
     }
 }

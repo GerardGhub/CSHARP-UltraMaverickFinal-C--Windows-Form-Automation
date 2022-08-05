@@ -21,8 +21,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 {
     public partial class frmAllocationModule : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+ 
+
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -66,7 +66,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void ConnectionInit()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
 
         private void showRawMaterialsInDryWH()    //method for loading available_menus
@@ -74,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
 
-                xClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
+                myClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
 
                this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
             }
@@ -93,7 +93,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
 
             this.dset_emp_SearchForAllocation.Clear();
-            this.dset_emp_SearchForAllocation = objStorProc.sp_getMajorTables("Raw_Materials_Dry_Allocation_Major");
+            this.dset_emp_SearchForAllocation = g_objStoredProcCollection.sp_getMajorTables("Raw_Materials_Dry_Allocation_Major");
 
         }
 
@@ -181,9 +181,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
-            myglobal.global_module = "Active"; // Mode for Searching
+            myglobal.global_module = "Active"; 
             dset_emp_SearchEngines.Clear();
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_Allocation");    
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_Allocation");    
         }
 
 
@@ -511,7 +511,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_Allocation_Logs(
+                this.dSet = g_objStoredProcCollection.sp_Allocation_Logs(
                 p_id,
                 this.txtItemCode.Text.Trim(),
                 this.txtitemDescription.Text.Trim(),
@@ -526,7 +526,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 {
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_Allocation_Logs(p_id,
+                this.dSet = g_objStoredProcCollection.sp_Allocation_Logs(p_id,
                 this.txtItemCode.Text.Trim(), this.txtitemDescription.Text.Trim(), 
                 this.lblAllocatedQty.Text.Trim(),
                 this.FormClass.user_id.ToString(),
@@ -539,7 +539,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
                 dSet.Clear();
-                dSet = objStorProc.sp_Allocation_Logs(0,
+                dSet = g_objStoredProcCollection.sp_Allocation_Logs(0,
                     this.txtItemCode.Text.Trim(), 
                     this.txtitemDescription.Text.Trim(), 
                     this.lblAllocatedQty.Text.Trim(),
@@ -844,7 +844,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                         this.dgvFindStoreOrders_CurrentCellChanged(sender, e);
                         //MessageBox.Show(row.Cells["primary_id"].Value.ToString());
                         dSet.Clear();
-                        dSet = objStorProc.sp_Allocation_Logs(0,
+                        dSet = g_objStoredProcCollection.sp_Allocation_Logs(0,
                             "",
                             "",
                             row.Cells["ALLOCATION_QTY_FIND"].Value.ToString(),
@@ -1157,7 +1157,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     //MessageBox.Show("Data Executed!");
                     //this.ConnectionInit();
                     dSet.Clear();
-                    dSet = objStorProc.sp_Allocation_Logs(0,
+                    dSet = g_objStoredProcCollection.sp_Allocation_Logs(0,
                         "",
                         "",
                         this.FormClass.Allocated_Quantity.ToString(),
