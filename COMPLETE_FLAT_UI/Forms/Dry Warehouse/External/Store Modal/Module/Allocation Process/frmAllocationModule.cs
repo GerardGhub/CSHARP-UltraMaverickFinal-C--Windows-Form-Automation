@@ -453,8 +453,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             //this.lblAllocatedQty.Text = CurrentComputationMemory.ToString();
             this.InsertDataPerRow();
 
-            //MessageBox.Show("Bobo akio");
-            //return;
+          
 
             if (this.dgvFindStoreOrders.Rows.Count >= 1)
             {
@@ -1210,9 +1209,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 this.showDataGridDataValueChangedFinder();
 
-            
-                this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+                try
+                {
+                    this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+
+               
             }
       
         }
