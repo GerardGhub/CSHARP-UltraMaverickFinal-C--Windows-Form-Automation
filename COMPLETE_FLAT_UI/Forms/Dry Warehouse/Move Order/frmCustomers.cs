@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.API.Data;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal;
 using ULTRAMAVERICK.Models;
 
@@ -17,17 +19,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
     {
         myclasses xClass = new myclasses();
 
+        TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
+        TblCustomers TblCustomersEntity = new TblCustomers();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
         string mode = "";
         int p_id = 0;
-        int temp_hid = 0;
+
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
+
 
 
         DataSet dSet_temp = new DataSet();
@@ -51,14 +54,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.ShowDataActivated();
             this.ConnetionString();
             myglobal.global_module = "Active"; // Mode for Searching
-            this.showItemClassData();
-            this.SearchMethodJarVarCallingSP();
+
+
+            //this.TblCustomerRepo.GetCustomerSearchMajor(TblCustomersEntity.TotalRecords);
+            //this.lbltotalrecords.Text = TblCustomersEntity.TotalRecords.ToString();
+            //this.SearchMethodJarVarCallingSP();
         }
 
         private void ConnetionString()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
         }
         private void ShowDataActivated()
         {
@@ -66,23 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         }
 
 
-        private void showItemClassData()      //method for loading available_menus
-        {
-            try
-            {
-                this.ready = false;
-                xClass.fillDataGridView(dgvCustomers, "tblCustomersMinorSpActive", dSet);
-                this.ready = true;
-                this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-
-        }
+  
 
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
@@ -91,7 +80,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("MoveOrder_Customers_Active_Major");
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("MoveOrder_Customers_Active_Major");
 
         }
 
@@ -101,65 +90,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         }
 
 
-        private void showWarehouseMasterData()      //method for loading available_menus
-        {
-            try
-            {
-                this.ready = false;
-                this.xClass.fillDataGridView(this.dgvCustomers, "MoveOrder_Customers_Active", dSet);
-                this.ready = true;
-                this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
-            }
-            catch (Exception ex)
-            {
+      
 
-                MessageBox.Show(ex.Message);
-            }
-
-
-        }
-
-        private void showWarehouseMasterDataInActive()      //method for loading available_menus
-        {
-            try
-            {
-                ready = false;
-                xClass.fillDataGridView(dgvCustomers, "MoveOrder_Customers_Inactive", dSet);
-                ready = true;
-                lbltotalrecords.Text = dgvCustomers.RowCount.ToString();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-
-        }
+    
 
 
         private void matRadioActive_CheckedChanged(object sender, EventArgs e)
         {
             if (matRadioActive.Checked == true)
             {
-                this.sp_bind_selected = "1";
-                this.matBtnDelete.Text = "&InActive";
+            this.sp_bind_selected = "1";
+            this.matBtnDelete.Text = "&InActive";
 
-                this.showWarehouseMasterData();
+
+            this.TblCustomerRepo.GetCustomer(dgvCustomers);
+            this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
 
             }
             else if (matRadioNotActive.Checked == true)
             {
                 this.sp_bind_selected = "0";
                 this.matBtnDelete.Text = "&Activate";
-                this.showWarehouseMasterDataInActive();
 
+
+                this.TblCustomerRepo.GetCustomerDeactivated(dgvCustomers);
+                this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
             }
             else
             {
 
             }
+      
+       
         }
+
 
         private void dgvitemClass_CurrentCellChanged(object sender, EventArgs e)
         {
@@ -179,14 +143,37 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
         {
+            if (matRadioActive.Checked == true)
+            {
+                this.sp_bind_selected = "1";
+                this.matBtnDelete.Text = "&InActive";
 
+       
+                this.TblCustomerRepo.GetCustomer(dgvCustomers);
+                this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
+
+
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+                this.sp_bind_selected = "0";
+                this.matBtnDelete.Text = "&Activate";
+              
+                this.TblCustomerRepo.GetCustomerDeactivated(dgvCustomers);
+                this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
+
+            }
+            else
+            {
+
+            }
         }
 
         private void SearchMethodJarVarCallingSPInactive()
         {
             myglobal.global_module = "Active"; // Mode for Searching
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("MoveOrder_Customers_InActive_Major");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("MoveOrder_Customers_InActive_Major");
         }
 
         private void doSearchInTextBox()
@@ -195,9 +182,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             {
 
 
-                if (dset_emp_SearchEngines.Tables.Count > 0)
+                if (this.TblCustomerRepo.dSet.Tables.Count > 0)
                 {
-                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+                    DataView dv = new DataView(this.TblCustomerRepo.dSet.Tables[0]);
 
                     if (myglobal.global_module == "Active")
                     {
@@ -232,20 +219,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
+         
             this.ConnetionString();
             if (sp_bind_selected == "1")
             {
-                this.SearchMethodJarVarCallingSP();
+                //this.SearchMethodJarVarCallingSP();
+                this.TblCustomerRepo.GetCustomerSearchMajor(TblCustomersEntity.TotalRecords);
             }
             else
             {
                 this.SearchMethodJarVarCallingSPInactive();
             }
 
-            if (this.mattxtSearch.Text == "")
-            {
-                this.showWarehouseMasterData();
-            }
+        
             if (this.lbltotalrecords.Text == "0")
             {
 
@@ -262,16 +248,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 }
 
             }
+            if (this.mattxtSearch.Text == String.Empty)
+            {
+                this.TblCustomerRepo.GetCustomer(dgvCustomers);
+                this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
+            }
         }
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {
             this.sp_typeof_mode = "add";
-     //       frmAddNewArea
+
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
            frmNewCustomer addNew = new frmNewCustomer(this, sp_user_id);
             addNew.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            this.TblCustomerRepo.GetCustomer(dgvCustomers);
+            this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
         }
     }
 }

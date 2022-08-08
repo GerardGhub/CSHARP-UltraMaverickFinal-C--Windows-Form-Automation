@@ -137,6 +137,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
+    <Compile Include="API\Data\TblCustomersRepository.cs" />
+    <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
+    <Compile Include="API\Entities\TblCustomers.cs" />
+    <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
+    <Compile Include="API\Interfaces\ITblCustomersRepository.cs" />
     <Compile Include="Barcode Reprinting\frmBarcodeReprinting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1154,13 +1160,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\Controllers\" />
-    <Folder Include="API\Data\" />
     <Folder Include="API\DTOs\" />
-    <Folder Include="API\Entities\" />
     <Folder Include="API\Errors\" />
     <Folder Include="API\Extensions\" />
     <Folder Include="API\Helpers\" />
-    <Folder Include="API\Interfaces\" />
     <Folder Include="API\Middleware\" />
     <Folder Include="Form ViewModels\" />
     <Folder Include="Forms\Login\" />

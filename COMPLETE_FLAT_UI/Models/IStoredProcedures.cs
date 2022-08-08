@@ -414,6 +414,7 @@ namespace ULTRAMAVERICK.Models
         string lab_access_code,
         int po_number,
         int pr_number,
+        decimal sample_qty,
         string mode);
 
 

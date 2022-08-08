@@ -90,6 +90,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void AutoGeneratingLabAccessCode()
         {
+            return;
             DateTime myDateTime = DateTime.Now;
             string year = myDateTime.Year.ToString();
 
@@ -157,10 +158,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 }
 
             }
-          
 
-       
-          
+
+            //txtLabAccessCode.Text = String.Empty;
 
         }
 
@@ -250,7 +250,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         }
 
 
-        private void showRawMaterialsNearlyExpiry()    //method for loading available_menus
+        private void showRawMaterialsNearlyExpiry()   
         {
             try
             {
@@ -298,6 +298,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["TotalLabtestRecords"].Visible = false;
             this.dgvRawMats.Columns["TotalLabtestRecordsCount"].Visible = false;
             this.dgvRawMats.Columns["expiration_prompting"].Visible = false;
+            this.dgvRawMats.Columns["sample_qty"].Visible = false;
         }
 
 
@@ -316,8 +317,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         }
 
+        
+   
 
-        private void doSearchInTextBoxCmb()
+
+            private void doSearchInTextBoxCmb()
         {
             try
             {
@@ -326,7 +330,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
 
 
-                    dv.RowFilter = "item_code like '%" + this.txtSearch.Text + "%' or item_description like '%" + this.txtSearch.Text + "%'   ";
+                    dv.RowFilter = "item_code = '" + txtSearch.Text + "'   ";
 
 
                     this.dgvRawMats.DataSource = dv;
@@ -419,6 +423,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpPoDate = this.dgvRawMats.CurrentRow.Cells["po_date"].Value.ToString();
                         this.SpPrDate = this.dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
                         this.SpLabCancelledRemarks = this.dgvRawMats.CurrentRow.Cells["lab_cancel_remarks"].Value.ToString();
+                        this.TxtSampleQtyProvided.Text = this.dgvRawMats.CurrentRow.Cells["sample_qty"].Value.ToString();
                         if (this.lbltotalrecords.Text != "0")
                         {
                             this.SpQASupervisorApprovalStatus = Convert.ToBoolean(this.dgvRawMats.CurrentRow.Cells["qa_supervisor_is_approve_status"].Value);
@@ -428,6 +433,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpTotalLabtestRecords = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecords"].Value.ToString();
                         this.SpTotalLabtestRecordsCount = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecordsCount"].Value.ToString();
                         dgvRawMats.CurrentRow.Cells["RowSelectedCheckBox"].Value = true;
+
+           
+                        bool result = (int.Parse(this.TxtSampleQtyProvided.Text) == 0) ? this.TxtSampleQtyProvided.Enabled = true : this.TxtSampleQtyProvided.Enabled = false;
+                        
                     }
                 }
             }
@@ -567,14 +576,32 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void matViewLabRecords_Click(object sender, EventArgs e)
         {
-            this.AutoGeneratingLabAccessCode();
 
-            if (this.txtLabAccessCode.Text == String.Empty)
+
+            if (this.TxtSampleQtyProvided.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.txtLabAccessCode.Focus();
+                this.TxtSampleQtyProvided.Focus();
                 return;
             }
+            //this.AutoGeneratingLabAccessCode();
+            double RemainingQuantity;
+            double SampleQuantity;
+
+            RemainingQuantity = double.Parse(this.SpRemainingQuantity);
+            SampleQuantity = double.Parse(this.TxtSampleQtyProvided.Text);
+
+            if(SampleQuantity > RemainingQuantity)
+            {
+                this.GlobalStatePopup.GreaterThanActualRemainingQty();
+                this.TxtSampleQtyProvided.Text = String.Empty;
+                this.TxtSampleQtyProvided.Focus();
+                return;
+            }
+
+
+
+
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to request a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
@@ -596,6 +623,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     this.txtLabAccessCode.Text.Trim(),
                     this.SpPoNumber,
                     this.SpPrNumber,
+                    Convert.ToDecimal(this.TxtSampleQtyProvided.Text),
                     "add");
 
 
@@ -730,6 +758,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.txtLabAccessCode.Text.Trim(),
                 this.SpPoNumber,
                 this.SpPrNumber,
+                Convert.ToDecimal(this.TxtSampleQtyProvided.Text),
                 "cancel");
 
                 this.dSet.Clear();
@@ -753,6 +782,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
         {
+      
             this.doSearchInTextBoxCmb();
 
 
@@ -967,6 +997,25 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (this.SpQASupervisorApprovalStatus == true)
             {
                 this.MatBtnReceived.Visible = true;
+            }
+        }
+
+        private void matItemDateLastUsed_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtSampleQtyProvided_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(this.TxtSampleQtyProvided.Text + ch, out x))
+            {
+                e.Handled = true;
             }
         }
     }

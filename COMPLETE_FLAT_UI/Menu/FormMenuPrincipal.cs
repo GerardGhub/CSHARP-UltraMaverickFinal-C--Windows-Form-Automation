@@ -633,11 +633,16 @@ namespace COMPLETE_FLAT_UI
                 }
             }
 
-
+     
             this.CancelledforStorePreparationatLogisticChecker();
+
             this.DispatchingforStorePreparationatLogisticChecker();
+   
             this.showLabTestForReceiving();
             this.BadgeNotification();
+
+
+
             //MessageBox.Show(this.TotalLabTestReceivingViewing);
             //bool v = Adorner.AddBadgeTos(btnDashBoard1, "123");
 

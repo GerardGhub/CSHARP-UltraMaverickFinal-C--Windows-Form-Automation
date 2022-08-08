@@ -367,7 +367,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("4");
+                this.ErrorDetails = "Item Code";
+ 
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -601,7 +602,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("11");
+                this.ErrorDetails = "Category";
+                //MessageBox.Show("11");
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
