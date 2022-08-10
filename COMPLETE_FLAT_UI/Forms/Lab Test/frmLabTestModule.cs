@@ -18,8 +18,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 {
     public partial class frmLabTestModule : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+
+  
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -68,6 +68,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpLabAccessCode { get; set; }
         public string SpLabRequestBy { get; set; }
 
+        public bool Sp_Tsqa_Approval_Status { get; set; }
         public int SpPoNumber { get; set; }
         public int SpPrNumber { get; set; }
         public string SpPoDate { get; set; }
@@ -84,7 +85,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.ConnectionInitialization();
             this.showRawMaterialsNearlyExpiry();
             this.WindowLoadState();
-        
+
+
+     
+
         }
 
 
@@ -246,7 +250,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void ConnectionInitialization()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+    
         }
 
 
@@ -255,7 +259,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             try
             {
 
-                xClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiryLabTestViewing", dSet);
+                myClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiryLabTestViewing", dSet);
 
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
@@ -299,6 +303,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["TotalLabtestRecordsCount"].Visible = false;
             this.dgvRawMats.Columns["expiration_prompting"].Visible = false;
             this.dgvRawMats.Columns["sample_qty"].Visible = false;
+
+            this.dgvRawMats.Columns["tsqa_approval_status"].Visible = false;
+            this.dgvRawMats.Columns["tsqa_approval_by"].Visible = false;
+            this.dgvRawMats.Columns["tsqa_approval_date"].Visible = false;
         }
 
 
@@ -313,7 +321,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryLabTestViewingMajor");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DryWarehouseNearlyExpiryLabTestViewingMajor");
 
         }
 
@@ -383,6 +391,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void showValueCell()
         {
+
             if (dgvRawMats.Rows.Count > 0)
             {
                 if (dgvRawMats.CurrentRow != null)
@@ -424,11 +433,13 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpPrDate = this.dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
                         this.SpLabCancelledRemarks = this.dgvRawMats.CurrentRow.Cells["lab_cancel_remarks"].Value.ToString();
                         this.TxtSampleQtyProvided.Text = this.dgvRawMats.CurrentRow.Cells["sample_qty"].Value.ToString();
+               
                         if (this.lbltotalrecords.Text != "0")
                         {
                             this.SpQASupervisorApprovalStatus = Convert.ToBoolean(this.dgvRawMats.CurrentRow.Cells["qa_supervisor_is_approve_status"].Value);
+                            this.Sp_Tsqa_Approval_Status = Convert.ToBoolean(this.dgvRawMats.CurrentRow.Cells["tsqa_approval_status"].Value);
                         }
-
+                    
                         //this.SpItemImage = this.dgvRawMats.CurrentRow.Cells["item_image"].Value.ToString();
                         this.SpTotalLabtestRecords = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecords"].Value.ToString();
                         this.SpTotalLabtestRecordsCount = this.dgvRawMats.CurrentRow.Cells["TotalLabtestRecordsCount"].Value.ToString();
@@ -558,7 +569,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.WizardBalloon4.Image = Properties.Resources.pending;
             }
 
-            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0" && this.SpQASupervisorApprovalStatus == true)
+            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0" 
+                && this.SpQASupervisorApprovalStatus == true
+                && this.Sp_Tsqa_Approval_Status == true)
             {
                 this.MatBtnReceived.Visible = true;
             }
@@ -567,10 +580,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.MatBtnReceived.Visible = false;
             }
 
-            //if (this.SpQASupervisorApprovalStatus == "true")
-            //{
-            //    this.MatBtnReceived.Visible = true;
-            //}
+      
 
         }
 
@@ -606,7 +616,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to request a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
+                this.dSet = g_objStoredProcCollection.sp_dry_wh_lab_test_req_logs(0,
                     this.matTxtItemCode.Text.Trim(), 
                     this.SpItemDescription, 
                     this.matTxtCategory.Text.Trim(), 
@@ -629,7 +639,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
                 //Insert Logs
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(p_id,
                 p_id, 
                 this.SpFirstName, 
                 this.txtLabAccessCode.Text, 
@@ -669,7 +679,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (MetroFramework.MetroMessageBox.Show(this, "Cancel the lab test request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(p_id,
                     p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                     "0", "0", "0", "0",
                     "0", "0", "0", 0, 0,"0",
@@ -725,7 +735,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(p_id,
                 p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "0",
@@ -741,7 +751,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_dry_wh_lab_test_req_logs(0,
+                this.dSet = g_objStoredProcCollection.sp_dry_wh_lab_test_req_logs(0,
                 this.p_id.ToString(),
                 this.SpItemDescription,
                 this.matTxtCategory.Text.Trim(),
@@ -762,7 +772,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 "cancel");
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryWHReceiving(p_id,
+                this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(p_id,
                 p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "0",
@@ -811,7 +821,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryWHReceiving(
+                this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(
                     p_id,
                     p_id,
                     this.SpFirstName, 
