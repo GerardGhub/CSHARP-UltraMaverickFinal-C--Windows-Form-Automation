@@ -46,8 +46,8 @@ namespace ULTRAMAVERICK.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
-            "PI;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.2.6,1433\\SQLEXPRESS;Initial Catalog=UltraMaverickDB;User ID=sa;" +
+            "Password=ULtR@MaVD3p0t2o22;MultipleActiveResultSets=true;")]
         public string hr_application_conn2 {
             get {
                 return ((string)(this["hr_application_conn2"]));
@@ -56,8 +56,8 @@ namespace ULTRAMAVERICK.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
-            "PI;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.2.6,1433\\SQLEXPRESS;Initial Catalog=UltraMaverickDB;User ID=sa;" +
+            "Password=ULtR@MaVD3p0t2o22;MultipleActiveResultSets=true;")]
         public string hr_application_conn {
             get {
                 return ((string)(this["hr_application_conn"]));
@@ -67,8 +67,8 @@ namespace ULTRAMAVERICK.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
-            "PI;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.2.6,1433\\SQLEXPRESS;Initial Catalog=UltraMaverickDB;User ID=sa;" +
+            "Password=ULtR@MaVD3p0t2o22;MultipleActiveResultSets=true;")]
         public string UltraMaverickDBConnectionString {
             get {
                 return ((string)(this["UltraMaverickDBConnectionString"]));

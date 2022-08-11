@@ -816,7 +816,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void MatBtnReceived_Click(object sender, EventArgs e)
         {
-            //Start
+           
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received the Lab Result?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
@@ -857,7 +857,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 return;
             }
-           //End of Transaction
+
             }
 
         private void mattxtTransactionType_TextChanged(object sender, EventArgs e)
