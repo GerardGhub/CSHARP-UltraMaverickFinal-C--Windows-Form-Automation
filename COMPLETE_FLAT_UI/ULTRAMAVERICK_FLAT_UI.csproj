@@ -139,10 +139,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Data\DryWHReceiptRepository.cs" />
     <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
     <Compile Include="API\Data\TblCustomersRepository.cs" />
+    <Compile Include="API\Entities\DryWHReceipt.cs" />
     <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
+    <Compile Include="API\Interfaces\IDryWHReceiptRepository.cs" />
     <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
     <Compile Include="API\Interfaces\ITblCustomersRepository.cs" />
     <Compile Include="Barcode Reprinting\frmBarcodeReprinting.cs">
@@ -249,6 +252,12 @@
     <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.Designer.cs">
       <DependentUpon>frmDryMiscellanouseReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.Designer.cs">
+      <DependentUpon>FrmAddNewMiscellaneousReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Move Order\frmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +269,12 @@
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.Designer.cs">
       <DependentUpon>frmDryWarehouses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.Designer.cs">
+      <DependentUpon>frmDryWhMiscellaneousReceipts.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.cs">
       <SubType>Form</SubType>
@@ -798,11 +813,17 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.resx">
       <DependentUpon>frmDryMiscellanouseReceipt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.resx">
+      <DependentUpon>FrmAddNewMiscellaneousReceipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.resx">
       <DependentUpon>frmDryWarehouses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.resx">
+      <DependentUpon>frmDryWhMiscellaneousReceipts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.resx">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>

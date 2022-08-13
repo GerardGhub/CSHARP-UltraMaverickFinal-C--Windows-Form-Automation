@@ -79,6 +79,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string monthName { get; set; }
         public string SpTotalLabtestRecords { get; set; }
         public string SpTotalLabtestRecordsCount { get; set; }
+        public string SpFileName { get; set; }
+        public string SpFilePath { get; set; }
 
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
@@ -307,6 +309,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["tsqa_approval_status"].Visible = false;
             this.dgvRawMats.Columns["tsqa_approval_by"].Visible = false;
             this.dgvRawMats.Columns["tsqa_approval_date"].Visible = false;
+
+            this.dgvRawMats.Columns["FileName"].Visible = false;
+            this.dgvRawMats.Columns["FilePath"].Visible = false;
         }
 
 
@@ -433,7 +438,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpPrDate = this.dgvRawMats.CurrentRow.Cells["pr_date"].Value.ToString();
                         this.SpLabCancelledRemarks = this.dgvRawMats.CurrentRow.Cells["lab_cancel_remarks"].Value.ToString();
                         this.TxtSampleQtyProvided.Text = this.dgvRawMats.CurrentRow.Cells["sample_qty"].Value.ToString();
-               
+                        this.SpFileName = this.dgvRawMats.CurrentRow.Cells["FileName"].Value.ToString();
+                        this.SpFilePath = this.dgvRawMats.CurrentRow.Cells["FilePath"].Value.ToString();
+
                         if (this.lbltotalrecords.Text != "0")
                         {
                             this.SpQASupervisorApprovalStatus = Convert.ToBoolean(this.dgvRawMats.CurrentRow.Cells["qa_supervisor_is_approve_status"].Value);
@@ -446,7 +453,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         dgvRawMats.CurrentRow.Cells["RowSelectedCheckBox"].Value = true;
 
            
-                        bool result = (int.Parse(this.TxtSampleQtyProvided.Text) == 0) ? this.TxtSampleQtyProvided.Enabled = true : this.TxtSampleQtyProvided.Enabled = false;
+                        bool result = (this.SpLabStatus == "NEARLYEXPIRY") ? this.TxtSampleQtyProvided.Enabled = true : this.TxtSampleQtyProvided.Enabled = false;
                         
                     }
                 }
@@ -571,7 +578,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
             if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0" 
                 && this.SpQASupervisorApprovalStatus == true
-                && this.Sp_Tsqa_Approval_Status == true)
+                && this.Sp_Tsqa_Approval_Status == true
+                && this.txtLabAccessCode.Text != String.Empty)
             {
                 this.MatBtnReceived.Visible = true;
             }
@@ -588,7 +596,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         {
 
 
-            if (this.TxtSampleQtyProvided.Text == String.Empty)
+            if (this.TxtSampleQtyProvided.Text == String.Empty || this.TxtSampleQtyProvided.Text =="0")
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 this.TxtSampleQtyProvided.Focus();
@@ -648,7 +656,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                  this.matTxtExpiryDate.Text.Trim(), "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "",
-                "", "", "", "", 0,
+                "", "", "", "", 0,this.SpFileName, this.SpFilePath,
                 
                 "dry_wh_lab_request");
 
@@ -683,7 +691,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                     "0", "0", "0", "0",
                     "0", "0", "0", 0, 0,"0",
-                    "","","", "", 0,
+                    "","","", "", 0, this.SpFirstName, this.SpFilePath,
                     
                     "dry_wh_lab_request_cancel_by_drywh");
 
@@ -739,7 +747,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "0",
-                "", "", "","", 0,
+                "", "", "","", 0, this.SpFirstName, this.SpFilePath,
                 "dry_wh_lab_request_cancel_by_qa_resetall");
 
                 this.GlobalStatePopup.CommittedSuccessFully();
@@ -776,7 +784,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 p_id, "BUje", "0", "0", "", "0", "0", "", "0",
                 "0", "0", "0", "0",
                 "0", "0", "0", 0, 0, "0",
-                "", "", "","",0,
+                "", "", "","",0, this.SpFileName, this.SpFilePath,
                 "dry_wh_lab_request_cancel_by_drywh");
 
                 this.GlobalStatePopup.CommittedSuccessFully();
@@ -847,7 +855,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     "",
                     "",
                         0,
-
+                        this.SpFirstName, this.SpFilePath,
                     "dry_wh_lab_result_received_by_drywh");
                 
                 this.GlobalStatePopup.LabTestResultSuccessFullyReceived();

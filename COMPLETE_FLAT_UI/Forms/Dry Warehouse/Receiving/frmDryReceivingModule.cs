@@ -742,7 +742,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo,
                         this.SpPRDate,
                         this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable,
+                        this.SpFK_Sub_Category_IsExpirable, "","",
                         "rejected_status_timer_dispossal");
 
                     //Second Summary of Queryy Disposal of Rejection Remarks RE == QA  ON NA 3/4/2022
@@ -769,7 +769,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo,
                         this.SpPRDate,
                         this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable,
+                        this.SpFK_Sub_Category_IsExpirable,"", "",
                         "rejected_status_wh_re_qa");
 
 
@@ -799,7 +799,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo, 
                         this.SpPRDate,
                         this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable,
+                        this.SpFK_Sub_Category_IsExpirable, "","",
                         "add");
                     if (this.sp_warehouse_reject_approval =="1")
                     {
@@ -826,7 +826,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.SpPrNo,
                     this.SpPRDate,
                     this.matbtnSubCategory.Text.Trim(),
-                    this.SpFK_Sub_Category_IsExpirable,
+                    this.SpFK_Sub_Category_IsExpirable, "", "",
                     "updated_rejected_partial");
 
                         //Second Summary of Queryy Disposal of Rejection Remarks
@@ -853,7 +853,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             this.SpPrNo,
                             this.SpPRDate,
                             this.matbtnSubCategory.Text.Trim(),
-                            this.SpFK_Sub_Category_IsExpirable,
+                            this.SpFK_Sub_Category_IsExpirable,"","",
 
                             "rejected_status_timer_dispossal");
                     }
@@ -916,7 +916,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo,
                         this.SpPRDate,
                         this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable,
+                        this.SpFK_Sub_Category_IsExpirable,"","",
                         "rejected_status_timer_dispossal");
 
 
@@ -945,7 +945,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo,
                         this.SpPRDate,
                         this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable,
+                        this.SpFK_Sub_Category_IsExpirable,"","",
                         "rejected_status_wh_re_qa'");
 
                     //Conversion Master Details
@@ -977,7 +977,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo,
                         this.SpPRDate,
                         this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable,
+                        this.SpFK_Sub_Category_IsExpirable,"","",
                         "add");
 
                     if (this.sp_warehouse_reject_approval == "1")
@@ -1007,7 +1007,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             this.SpPrNo,
                             this.SpPoDate,
                             this.matbtnSubCategory.Text.Trim(),
-                            this.SpFK_Sub_Category_IsExpirable,
+                            this.SpFK_Sub_Category_IsExpirable,"","",
                             "updated_rejected_partial");
 
 
@@ -1057,7 +1057,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo,
                         this.SpPRDate,
                            this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable,
+                        this.SpFK_Sub_Category_IsExpirable,"","",
                         "rejectComeback");
                     this.frmDryReceivingModule_Load(sender, e);
                 }

@@ -392,6 +392,8 @@ namespace ULTRAMAVERICK.Models
         string pr_date,
         string FK_Sub_Category_SubCategoryDesc,
         int FK_Sub_Category_IsExpirable,
+        string FileName,
+        string FilePath,
         string mode);
 
 

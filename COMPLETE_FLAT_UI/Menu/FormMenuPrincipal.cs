@@ -395,7 +395,7 @@ namespace COMPLETE_FLAT_UI
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {            // Calling the Stored PROC 
-
+           
             this.ConnectionInit();
 
             //this.Size = new Size(1300, 700); //Size of Windows
@@ -1775,6 +1775,22 @@ namespace COMPLETE_FLAT_UI
             frmInternalOrderActivationRemarks InternalOrderCancelled = new frmInternalOrderActivationRemarks();
             InternalOrderCancelled.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(InternalOrderCancelled);
+        }
+
+        private void toolStripMenuReceipt_Click(object sender, EventArgs e)
+        {
+            // this.NormalSizeofSideBar();
+            //frmDryMiscellanouseReceipt Receipt = new frmDryMiscellanouseReceipt();
+            // Receipt.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            // AbrirFormEnPanel(Receipt);
+            frmDryWhMiscellaneousReceipts FrmReceipt = new frmDryWhMiscellaneousReceipts();
+            FrmReceipt.ShowDialog();
+
+        }
+
+        private void toolStripMenuIssue_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
