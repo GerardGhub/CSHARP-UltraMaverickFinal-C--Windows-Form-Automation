@@ -258,6 +258,18 @@
     <Compile Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.Designer.cs">
       <DependentUpon>FrmAddNewMiscellaneousReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmChooseLotNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\frmChooseLotNumber.Designer.cs">
+      <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.Designer.cs">
+      <DependentUpon>FrmChooseLotNumberMoveOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Move Order\frmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,12 +445,6 @@
     </Compile>
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmAreaManagement.Designer.cs">
       <DependentUpon>frmAreaManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmChooseLotNumber.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmChooseLotNumber.Designer.cs">
-      <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Setup\frmDryRawMaterials.cs">
       <SubType>Form</SubType>
@@ -816,6 +822,12 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.resx">
       <DependentUpon>FrmAddNewMiscellaneousReceipt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmChooseLotNumber.resx">
+      <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.resx">
+      <DependentUpon>FrmChooseLotNumberMoveOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
@@ -902,9 +914,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmAreaManagement.resx">
       <DependentUpon>frmAreaManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmChooseLotNumber.resx">
-      <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmDryRawMaterials.resx">
       <DependentUpon>frmDryRawMaterials.cs</DependentUpon>

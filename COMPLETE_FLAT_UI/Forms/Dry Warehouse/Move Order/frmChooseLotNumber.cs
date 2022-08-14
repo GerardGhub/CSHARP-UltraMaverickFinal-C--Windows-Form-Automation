@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
 using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse
@@ -15,8 +16,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmChooseLotNumber : MaterialForm
     {
         frmDryReceivingModule ths;
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -31,9 +30,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             InitializeComponent();
             ths = frm;
-            //textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
             this.sp_major_category = major_category;
         }
+
+   
 
         public string sp_major_category { get; set; }
         public string sp_lot_number { get; set; }
@@ -41,10 +41,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void frmChooseLotNumber_Load(object sender, EventArgs e)
         {
             this.WindowsLoadingBinder();
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
+
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
+        }
+
+       private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
         private void WindowsLoadingBinder()
@@ -70,7 +75,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("lot_management_major");
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("lot_management_major");
 
         }
 

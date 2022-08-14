@@ -17,6 +17,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
     public partial class FrmAddNewMiscellaneousReceipt : MaterialForm
     {
         myclasses xClass = new myclasses();
+       frmDryWhMiscellaneousReceipts ths;
 
         TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
         TblCustomers TblCustomersEntity = new TblCustomers();
@@ -34,9 +35,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         DataSet dSet_temp = new DataSet();
 
-        public FrmAddNewMiscellaneousReceipt()
+        public FrmAddNewMiscellaneousReceipt(frmDryWhMiscellaneousReceipts frm)
         {
             InitializeComponent();
+            ths = frm;
         }
 
         private void AddNewMiscellaneousReceipt_Load(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.LoadItemCodeDropdown();
             this.MatDtpMFtgDate.MaxDate = DateTime.Today;
             this.MatDtpExpDate.MinDate = DateTime.Today;
+            MatCmbItemCode_SelectionChangeCommitted(sender, e);
         }
         private void ConnetionString()
         {
@@ -68,7 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
        
             IndexOf = MatCmbItemCode.SelectedIndex;
             xClass.DataSetRMMoverOrderReceipt = g_objStoredProcCollection.sp_getMinorTables("Item_Code_dropdown", null, null, null, null, null);
-            this.MatTxtCategory.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["sub_category"].ToString();
+            this.MatTxtCategory.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["major_category"].ToString();
     
 
 
@@ -101,6 +104,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void FrmAddNewMiscellaneousReceipt_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.MatTxtParentDescription.Text == String.Empty)
+            {
+               
+            }
+            else
+            {
+                ths.GpInfo.Text = "Transaction for " + this.MatTxtParentDescription.Text;
+                ths.MatTxtLotNo.Text = this.MatTxtLotNo.Text;
+                ths.MatTxtLotDescription = this.MatTxtLotDesc.Text;
+                ths.MatTxtLotDescription.Text = this.MatTxtLotDesc.Text;
+                ths.MatBtnNew.Enabled = true;
+            }
+        
+        }
+
+        private void MatBtnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelectLot_Click(object sender, EventArgs e)
+        {
+            FrmChooseLotNumberMoveOrder showModal = new FrmChooseLotNumberMoveOrder(this, this.MatTxtCategory.Text);
+            showModal.ShowDialog();
 
         }
     }
