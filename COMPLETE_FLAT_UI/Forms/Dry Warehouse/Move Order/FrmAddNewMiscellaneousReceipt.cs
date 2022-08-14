@@ -43,6 +43,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             this.ConnetionString();
             this.LoadItemCodeDropdown();
+            this.MatDtpMFtgDate.MaxDate = DateTime.Today;
+            this.MatDtpExpDate.MinDate = DateTime.Today;
         }
         private void ConnetionString()
         {
@@ -60,7 +62,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void MatCmbItemCode_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            int IndexOf = 0;
             this.MatTxtItemDescription.Text = MatCmbItemCode.SelectedValue.ToString();
+
+       
+            IndexOf = MatCmbItemCode.SelectedIndex;
+            xClass.DataSetRMMoverOrderReceipt = g_objStoredProcCollection.sp_getMinorTables("Item_Code_dropdown", null, null, null, null, null);
+            this.MatTxtCategory.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["sub_category"].ToString();
+    
+
+
+
+            //this.MatTxtCategory.Text = xClass.SubCategory.ToString();
+
+        }
+
+        private void MatDtpMFtgDate_ValueChanged(object sender, EventArgs e)
+        {
+            this.CalculateBetweenTwoDateGetTheDays();
+        }
+        public void CalculateBetweenTwoDateGetTheDays()
+        {
+            DateTime d1 = Convert.ToDateTime(this.MatDtpMFtgDate.Text);
+            DateTime d2 = Convert.ToDateTime(this.MatDtpExpDate.Text);
+            TimeSpan t = d2 - d1;
+            double NrOfDays = t.TotalDays;
+            this.MatTxtExpiryDays.Text = NrOfDays.ToString();
+        }
+
+        private void MatDtpExpDate_ValueChanged(object sender, EventArgs e)
+        {
+            this.CalculateBetweenTwoDateGetTheDays();
+        }
+
+        private void materialTextBox6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

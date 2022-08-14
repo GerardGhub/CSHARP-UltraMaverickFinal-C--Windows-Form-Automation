@@ -19,8 +19,8 @@ namespace ULTRAMAVERICK.Models
 
         //public static string confirmPassword;
         public user_infos muser_infos = new user_infos();
-
-
+        public string SubCategory { get; set; }
+        public DataSet DataSetRMMoverOrderReceipt  = new DataSet();
         public DataSet getTable(string eTablename)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
@@ -144,9 +144,10 @@ namespace ULTRAMAVERICK.Models
             eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
             eComboBox.ValueMember = dSet.Tables[0].Columns[2].ToString();
 
+            DataSetRMMoverOrderReceipt = dSet;
 
-
-
+            // this.SubCategory = dSet.Tables[0].Rows[0]["sub_category"].ToString();
+            //MessageBox.Show(this.SubCategory);
 
             g_objStoredProcFill = null;
         }

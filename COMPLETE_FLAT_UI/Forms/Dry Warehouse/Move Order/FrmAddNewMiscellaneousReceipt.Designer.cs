@@ -30,44 +30,44 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.materialTextBox9 = new MaterialSkin.Controls.MaterialTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.MatCmbItemCode = new MetroFramework.Controls.MetroComboBox();
-            this.materialTextBox5 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox6 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox10 = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatTxtQuantity = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatTxtSupplier = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.bunifuPrepaDate = new System.Windows.Forms.DateTimePicker();
-            this.materialTextBox7 = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatDtpExpDate = new System.Windows.Forms.DateTimePicker();
+            this.MatDtpMFtgDate = new System.Windows.Forms.DateTimePicker();
+            this.MatTxtCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtItemDescription = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatTxtExpiryDays = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox3 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.MatBtnSave = new MaterialSkin.Controls.MaterialButton();
-            this.materialTextBox9 = new MaterialSkin.Controls.MaterialTextBox();
-            this.MatBtnCommit = new MaterialSkin.Controls.MaterialButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MatCmbReason = new MetroFramework.Controls.MetroComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox1.Controls.Add(this.MatBtnCommit);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.MatCmbReason);
             this.groupBox1.Controls.Add(this.materialTextBox9);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.MatCmbItemCode);
-            this.groupBox1.Controls.Add(this.materialTextBox5);
-            this.groupBox1.Controls.Add(this.materialTextBox6);
-            this.groupBox1.Controls.Add(this.materialTextBox10);
+            this.groupBox1.Controls.Add(this.MatTxtQuantity);
+            this.groupBox1.Controls.Add(this.MatTxtSupplier);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.bunifuPrepaDate);
-            this.groupBox1.Controls.Add(this.materialTextBox7);
+            this.groupBox1.Controls.Add(this.MatDtpExpDate);
+            this.groupBox1.Controls.Add(this.MatDtpMFtgDate);
+            this.groupBox1.Controls.Add(this.MatTxtCategory);
             this.groupBox1.Controls.Add(this.MatTxtItemDescription);
-            this.groupBox1.Controls.Add(this.materialTextBox4);
+            this.groupBox1.Controls.Add(this.MatTxtExpiryDays);
             this.groupBox1.Controls.Add(this.materialTextBox3);
             this.groupBox1.Controls.Add(this.materialTextBox2);
             this.groupBox1.Controls.Add(this.materialTextBox1);
@@ -78,6 +78,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Raw Material Information";
+            // 
+            // materialTextBox9
+            // 
+            this.materialTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox9.Depth = 0;
+            this.materialTextBox9.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialTextBox9.Hint = "Transaction No.";
+            this.materialTextBox9.Location = new System.Drawing.Point(27, 34);
+            this.materialTextBox9.MaxLength = 50;
+            this.materialTextBox9.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox9.Multiline = false;
+            this.materialTextBox9.Name = "materialTextBox9";
+            this.materialTextBox9.Size = new System.Drawing.Size(947, 50);
+            this.materialTextBox9.TabIndex = 584;
+            this.materialTextBox9.Text = "";
             // 
             // label3
             // 
@@ -100,50 +115,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatCmbItemCode.UseSelectable = true;
             this.MatCmbItemCode.SelectionChangeCommitted += new System.EventHandler(this.MatCmbItemCode_SelectionChangeCommitted);
             // 
-            // materialTextBox5
+            // MatTxtQuantity
             // 
-            this.materialTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox5.Depth = 0;
-            this.materialTextBox5.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox5.Hint = "Remarks";
-            this.materialTextBox5.Location = new System.Drawing.Point(704, 260);
-            this.materialTextBox5.MaxLength = 50;
-            this.materialTextBox5.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox5.Multiline = false;
-            this.materialTextBox5.Name = "materialTextBox5";
-            this.materialTextBox5.Size = new System.Drawing.Size(270, 50);
-            this.materialTextBox5.TabIndex = 581;
-            this.materialTextBox5.Text = "";
+            this.MatTxtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtQuantity.Depth = 0;
+            this.MatTxtQuantity.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtQuantity.Hint = "Quantity";
+            this.MatTxtQuantity.Location = new System.Drawing.Point(365, 260);
+            this.MatTxtQuantity.MaxLength = 50;
+            this.MatTxtQuantity.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtQuantity.Multiline = false;
+            this.MatTxtQuantity.Name = "MatTxtQuantity";
+            this.MatTxtQuantity.Size = new System.Drawing.Size(270, 50);
+            this.MatTxtQuantity.TabIndex = 580;
+            this.MatTxtQuantity.Text = "";
+            this.MatTxtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.materialTextBox6_KeyPress);
             // 
-            // materialTextBox6
+            // MatTxtSupplier
             // 
-            this.materialTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox6.Depth = 0;
-            this.materialTextBox6.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox6.Hint = "Quantity";
-            this.materialTextBox6.Location = new System.Drawing.Point(365, 260);
-            this.materialTextBox6.MaxLength = 50;
-            this.materialTextBox6.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox6.Multiline = false;
-            this.materialTextBox6.Name = "materialTextBox6";
-            this.materialTextBox6.Size = new System.Drawing.Size(270, 50);
-            this.materialTextBox6.TabIndex = 580;
-            this.materialTextBox6.Text = "";
-            // 
-            // materialTextBox10
-            // 
-            this.materialTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox10.Depth = 0;
-            this.materialTextBox10.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox10.Hint = "Supplier";
-            this.materialTextBox10.Location = new System.Drawing.Point(26, 259);
-            this.materialTextBox10.MaxLength = 50;
-            this.materialTextBox10.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox10.Multiline = false;
-            this.materialTextBox10.Name = "materialTextBox10";
-            this.materialTextBox10.Size = new System.Drawing.Size(270, 50);
-            this.materialTextBox10.TabIndex = 579;
-            this.materialTextBox10.Text = "";
+            this.MatTxtSupplier.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtSupplier.Depth = 0;
+            this.MatTxtSupplier.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtSupplier.Hint = "Supplier";
+            this.MatTxtSupplier.Location = new System.Drawing.Point(26, 259);
+            this.MatTxtSupplier.MaxLength = 50;
+            this.MatTxtSupplier.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtSupplier.Multiline = false;
+            this.MatTxtSupplier.Name = "MatTxtSupplier";
+            this.MatTxtSupplier.Size = new System.Drawing.Size(270, 50);
+            this.MatTxtSupplier.TabIndex = 579;
+            this.MatTxtSupplier.Text = "";
             // 
             // label2
             // 
@@ -165,49 +166,55 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.label1.TabIndex = 577;
             this.label1.Text = "Mftg. Date";
             // 
-            // dateTimePicker1
+            // MatDtpExpDate
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(365, 166);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(270, 30);
-            this.dateTimePicker1.TabIndex = 576;
+            this.MatDtpExpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatDtpExpDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.MatDtpExpDate.CustomFormat = "yyyy-MM-dd";
+            this.MatDtpExpDate.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatDtpExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.MatDtpExpDate.Location = new System.Drawing.Point(365, 166);
+            this.MatDtpExpDate.Name = "MatDtpExpDate";
+            this.MatDtpExpDate.Size = new System.Drawing.Size(270, 30);
+            this.MatDtpExpDate.TabIndex = 576;
+            this.MatDtpExpDate.ValueChanged += new System.EventHandler(this.MatDtpExpDate_ValueChanged);
             // 
-            // bunifuPrepaDate
+            // MatDtpMFtgDate
             // 
-            this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
-            this.bunifuPrepaDate.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuPrepaDate.Location = new System.Drawing.Point(26, 166);
-            this.bunifuPrepaDate.Name = "bunifuPrepaDate";
-            this.bunifuPrepaDate.Size = new System.Drawing.Size(270, 30);
-            this.bunifuPrepaDate.TabIndex = 575;
+            this.MatDtpMFtgDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatDtpMFtgDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.MatDtpMFtgDate.CustomFormat = "yyyy-MM-dd";
+            this.MatDtpMFtgDate.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatDtpMFtgDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.MatDtpMFtgDate.Location = new System.Drawing.Point(26, 166);
+            this.MatDtpMFtgDate.MaxDate = new System.DateTime(2022, 8, 14, 0, 0, 0, 0);
+            this.MatDtpMFtgDate.Name = "MatDtpMFtgDate";
+            this.MatDtpMFtgDate.Size = new System.Drawing.Size(270, 30);
+            this.MatDtpMFtgDate.TabIndex = 575;
+            this.MatDtpMFtgDate.Value = new System.DateTime(2022, 8, 14, 0, 0, 0, 0);
+            this.MatDtpMFtgDate.ValueChanged += new System.EventHandler(this.MatDtpMFtgDate_ValueChanged);
             // 
-            // materialTextBox7
+            // MatTxtCategory
             // 
-            this.materialTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox7.Depth = 0;
-            this.materialTextBox7.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox7.Hint = "Category";
-            this.materialTextBox7.Location = new System.Drawing.Point(704, 204);
-            this.materialTextBox7.MaxLength = 50;
-            this.materialTextBox7.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox7.Multiline = false;
-            this.materialTextBox7.Name = "materialTextBox7";
-            this.materialTextBox7.Size = new System.Drawing.Size(270, 50);
-            this.materialTextBox7.TabIndex = 9;
-            this.materialTextBox7.Text = "";
+            this.MatTxtCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtCategory.Depth = 0;
+            this.MatTxtCategory.Enabled = false;
+            this.MatTxtCategory.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtCategory.Hint = "Category";
+            this.MatTxtCategory.Location = new System.Drawing.Point(704, 204);
+            this.MatTxtCategory.MaxLength = 50;
+            this.MatTxtCategory.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtCategory.Multiline = false;
+            this.MatTxtCategory.Name = "MatTxtCategory";
+            this.MatTxtCategory.Size = new System.Drawing.Size(270, 50);
+            this.MatTxtCategory.TabIndex = 9;
+            this.MatTxtCategory.Text = "";
             // 
             // MatTxtItemDescription
             // 
             this.MatTxtItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MatTxtItemDescription.Depth = 0;
+            this.MatTxtItemDescription.Enabled = false;
             this.MatTxtItemDescription.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtItemDescription.Hint = "Item Description";
             this.MatTxtItemDescription.Location = new System.Drawing.Point(365, 204);
@@ -219,25 +226,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtItemDescription.TabIndex = 8;
             this.MatTxtItemDescription.Text = "";
             // 
-            // materialTextBox4
+            // MatTxtExpiryDays
             // 
-            this.materialTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox4.Depth = 0;
-            this.materialTextBox4.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox4.Hint = "Expiry Days";
-            this.materialTextBox4.Location = new System.Drawing.Point(704, 148);
-            this.materialTextBox4.MaxLength = 50;
-            this.materialTextBox4.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox4.Multiline = false;
-            this.materialTextBox4.Name = "materialTextBox4";
-            this.materialTextBox4.Size = new System.Drawing.Size(270, 50);
-            this.materialTextBox4.TabIndex = 6;
-            this.materialTextBox4.Text = "";
+            this.MatTxtExpiryDays.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtExpiryDays.Depth = 0;
+            this.MatTxtExpiryDays.Enabled = false;
+            this.MatTxtExpiryDays.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtExpiryDays.Hint = "Expiry Days";
+            this.MatTxtExpiryDays.Location = new System.Drawing.Point(704, 148);
+            this.MatTxtExpiryDays.MaxLength = 50;
+            this.MatTxtExpiryDays.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtExpiryDays.Multiline = false;
+            this.MatTxtExpiryDays.Name = "MatTxtExpiryDays";
+            this.MatTxtExpiryDays.Size = new System.Drawing.Size(270, 50);
+            this.MatTxtExpiryDays.TabIndex = 6;
+            this.MatTxtExpiryDays.Text = "";
             // 
             // materialTextBox3
             // 
             this.materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox3.Depth = 0;
+            this.materialTextBox3.Enabled = false;
             this.materialTextBox3.Font = new System.Drawing.Font("Roboto", 12F);
             this.materialTextBox3.Hint = "Lot Description";
             this.materialTextBox3.Location = new System.Drawing.Point(704, 92);
@@ -253,6 +262,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox2.Depth = 0;
+            this.materialTextBox2.Enabled = false;
             this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 12F);
             this.materialTextBox2.Hint = "Lot No.";
             this.materialTextBox2.Location = new System.Drawing.Point(365, 92);
@@ -268,6 +278,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox1.Depth = 0;
+            this.materialTextBox1.Enabled = false;
             this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 12F);
             this.materialTextBox1.Hint = "Transaction No.";
             this.materialTextBox1.Location = new System.Drawing.Point(26, 91);
@@ -297,38 +308,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnSave.UseAccentColor = false;
             this.MatBtnSave.UseVisualStyleBackColor = true;
             // 
-            // materialTextBox9
+            // label4
             // 
-            this.materialTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox9.Depth = 0;
-            this.materialTextBox9.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox9.Hint = "Transaction No.";
-            this.materialTextBox9.Location = new System.Drawing.Point(27, 34);
-            this.materialTextBox9.MaxLength = 50;
-            this.materialTextBox9.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox9.Multiline = false;
-            this.materialTextBox9.Name = "materialTextBox9";
-            this.materialTextBox9.Size = new System.Drawing.Size(838, 50);
-            this.materialTextBox9.TabIndex = 584;
-            this.materialTextBox9.Text = "";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(705, 258);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 19);
+            this.label4.TabIndex = 586;
+            this.label4.Text = "Reason";
             // 
-            // MatBtnCommit
+            // MatCmbReason
             // 
-            this.MatBtnCommit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MatBtnCommit.Depth = 0;
-            this.MatBtnCommit.DrawShadows = true;
-            this.MatBtnCommit.HighEmphasis = true;
-            this.MatBtnCommit.Icon = null;
-            this.MatBtnCommit.Location = new System.Drawing.Point(878, 40);
-            this.MatBtnCommit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.MatBtnCommit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.MatBtnCommit.Name = "MatBtnCommit";
-            this.MatBtnCommit.Size = new System.Drawing.Size(80, 36);
-            this.MatBtnCommit.TabIndex = 4;
-            this.MatBtnCommit.Text = "COMMIT";
-            this.MatBtnCommit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.MatBtnCommit.UseAccentColor = false;
-            this.MatBtnCommit.UseVisualStyleBackColor = true;
+            this.MatCmbReason.FormattingEnabled = true;
+            this.MatCmbReason.ItemHeight = 23;
+            this.MatCmbReason.Items.AddRange(new object[] {
+            "Delivery",
+            "Adjustment",
+            "Production"});
+            this.MatCmbReason.Location = new System.Drawing.Point(704, 279);
+            this.MatCmbReason.Name = "MatCmbReason";
+            this.MatCmbReason.Size = new System.Drawing.Size(270, 29);
+            this.MatCmbReason.TabIndex = 585;
+            this.MatCmbReason.UseSelectable = true;
             // 
             // FrmAddNewMiscellaneousReceipt
             // 
@@ -353,21 +355,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private MetroFramework.Controls.MetroComboBox MatCmbItemCode;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox5;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox6;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox10;
+        private MaterialSkin.Controls.MaterialTextBox MatTxtQuantity;
+        private MaterialSkin.Controls.MaterialTextBox MatTxtSupplier;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker bunifuPrepaDate;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox7;
+        private System.Windows.Forms.DateTimePicker MatDtpExpDate;
+        private System.Windows.Forms.DateTimePicker MatDtpMFtgDate;
+        private MaterialSkin.Controls.MaterialTextBox MatTxtCategory;
         private MaterialSkin.Controls.MaterialTextBox MatTxtItemDescription;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox4;
+        private MaterialSkin.Controls.MaterialTextBox MatTxtExpiryDays;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox3;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialButton MatBtnSave;
-        private MaterialSkin.Controls.MaterialButton MatBtnCommit;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox9;
+        private System.Windows.Forms.Label label4;
+        private MetroFramework.Controls.MetroComboBox MatCmbReason;
     }
 }
