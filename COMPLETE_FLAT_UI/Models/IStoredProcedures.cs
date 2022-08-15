@@ -547,6 +547,27 @@ namespace ULTRAMAVERICK.Models
         string expiration_prompting,
         string mode);
 
+        DataSet Sp_DryWHReceipt(
+        int Id,
+        string ParentDescription,
+        int TransactionNo,
+        int LotNumber,
+        string LotDescription,
+        string ManufacturingDate,
+        string ExpirationDate,
+        string ExpiryDays,
+        string ItemCode,
+        string ItemDescription,
+        string Category,
+        string Supplier,
+        double Quantity,
+        string Remarks,
+        string AddedBy,
+        string DateAdded,
+        bool IsActive,
+        string mode);
+
+
 
         DataSet sp_tblCustomers(
         int cust_id,

@@ -25,9 +25,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
+            this.MatBtnNew.Enabled = false;
             FrmAddNewMiscellaneousReceipt AddReceipt = new FrmAddNewMiscellaneousReceipt(this);
             AddReceipt.ShowDialog();
-            this.MatBtnNew.Enabled = false;
+        
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(this.textBox1.Text != String.Empty)
+            {
+                this.MatBtnNew.Enabled = true;
+            }
         }
     }
 }

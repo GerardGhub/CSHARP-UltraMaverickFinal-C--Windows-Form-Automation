@@ -18,10 +18,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
     public partial class frmItemClass : MaterialForm
     {
-        myclasses xClass = new myclasses();
+
 
         PopupNotifierClass  GlobalStatePopup = new PopupNotifierClass();
-        IStoredProcedures objStorProc = null;
+
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -55,7 +55,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void ConnetionString()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+ 
         }
         private void ShowDataActivated()
         {
@@ -69,7 +69,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_Class_Major");
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Item_Class_Major");
 
         }
 
@@ -80,8 +80,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Item_Class_Major_Inactive");
-            //this.dgvitemClass.Columns["item_class_id"].Visible = false;
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Item_Class_Major_Inactive");
+
         }
 
 
@@ -141,9 +141,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             try
             {
-                ready = false;
-                xClass.fillDataGridView(dgvitemClass, "Item_Class", dSet);
-                ready = true;
+
+                myClass.fillDataGridView(dgvitemClass, "Item_Class", dSet);
+
                 lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
             }
             catch (Exception ex)
@@ -159,9 +159,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             try
             {
-                ready = false;
-                xClass.fillDataGridView(dgvitemClass, "Item_Class_InActive", dSet);
-                ready = true;
+
+                myClass.fillDataGridView(dgvitemClass, "Item_Class_InActive", dSet);
+  
                 lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
             }
             catch (Exception ex)
@@ -246,7 +246,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = objStorProc.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
+            dSet = g_objStoredProcCollection.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -316,13 +316,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
 
-        public bool saveMode()      //method for saving of data base on mode (add,edit,delete)
+        public bool saveMode()      
         {
 
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
+                dSet = g_objStoredProcCollection.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -336,7 +336,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 {
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_Item_Class(0, 
+                    dSet = g_objStoredProcCollection.sp_Item_Class(0, 
                         this.txtmatItemClass.Text.Trim(),
                        
                         this.sp_created_by,
@@ -353,10 +353,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
+                dSet = g_objStoredProcCollection.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "getbyid");
+                dSet_temp = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -364,7 +364,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text.Trim(),
+                        dSet = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text.Trim(),
                            
                             sp_created_by,
                             sp_created_at,
@@ -387,7 +387,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text.Trim(),
+                    dSet = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text.Trim(),
 
                           sp_created_by,
                           sp_created_at,
@@ -406,14 +406,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 {
 
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete");
+                    dSet_temp = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete");
                    
                     return true;
                 }
                 else
                 {
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete_activation");
+                    dSet_temp = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete_activation");
                     this.matRadioActive.Checked = true;
                     return true;
                 }
@@ -607,7 +607,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
 
             dSet.Clear();
-            dSet = objStorProc.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
+            dSet = g_objStoredProcCollection.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {

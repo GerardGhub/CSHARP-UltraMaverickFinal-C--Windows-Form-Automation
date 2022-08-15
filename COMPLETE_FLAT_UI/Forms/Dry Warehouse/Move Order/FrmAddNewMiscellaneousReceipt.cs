@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         DateTime dNow = DateTime.Now;
 
-
+        int Useridentity = 0;
 
         DataSet dSet_temp = new DataSet();
 
@@ -39,6 +40,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             InitializeComponent();
             ths = frm;
+            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
         }
 
         private void AddNewMiscellaneousReceipt_Load(object sender, EventArgs e)
@@ -48,6 +50,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatDtpMFtgDate.MaxDate = DateTime.Today;
             this.MatDtpExpDate.MinDate = DateTime.Today;
             MatCmbItemCode_SelectionChangeCommitted(sender, e);
+            this.Useridentity = userinfo.user_id;
         }
         private void ConnetionString()
         {
@@ -109,31 +112,100 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void FrmAddNewMiscellaneousReceipt_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.MatTxtParentDescription.Text == String.Empty)
-            {
-               
-            }
-            else
-            {
-                ths.GpInfo.Text = "Transaction for " + this.MatTxtParentDescription.Text;
-                ths.MatTxtLotNo.Text = this.MatTxtLotNo.Text;
-                ths.MatTxtLotDescription = this.MatTxtLotDesc.Text;
-                ths.MatTxtLotDescription.Text = this.MatTxtLotDesc.Text;
-                ths.MatBtnNew.Enabled = true;
-            }
+            //if (this.MatTxtParentDescription.Text == String.Empty)
+            //{
+
+            //}
+            //else
+            //{
+            //    ths.GpInfo.Text = "Transaction for " + this.MatTxtParentDescription.Text;
+            //    ths.MatTxtLotNo.Text = this.MatTxtLotNo.Text;
+            //    ths.MatTxtLotDescription.Text = this.MatTxtLotDesc.Text;
+            //    ths.MatBtnNew.Enabled = true;
+            //}
+            this.textBox1.Text = "FormClose";
         
         }
 
         private void MatBtnSave_Click(object sender, EventArgs e)
         {
+            if (this.MatTxtExpiryDays.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.MatDtpMFtgDate.Focus();
+                return;
+            }
 
-        }
+            if (this.MatTxtQuantity.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.MatTxtQuantity.Focus();
+                return;
+            }
+
+            if (this.MatTxtLotNo.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.MatTxtLotNo.Focus();
+                return;
+            }
+
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                try
+                {
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection
+                    .Sp_DryWHReceipt(0,
+                    ths.MatTxtParentDescription.Text.Trim(),
+                    0,
+                    0,
+                    this.MatTxtLotDesc.Text.Trim(),
+                    this.MatDtpMFtgDate.Text.Trim(),
+                    this.MatDtpExpDate.Text.Trim(),
+                    this.MatTxtExpiryDays.Text.Trim(),
+                    this.MatTxtLotNo.Text.Trim(),
+                    this.MatTxtLotDesc.Text.Trim(),
+                    this.MatTxtCategory.Text.Trim(),
+                    ths.MatCmbSupplierCode.Text.Trim(),
+                    Convert.ToDouble(this.MatTxtQuantity.Text.Trim()),
+                    ths.matCmbRemarks.Text.Trim(),
+                    Convert.ToString(this.Useridentity),
+                    "",
+                    true,
+                    "add");
+
+                    this.GlobalStatePopup.SuccessfullyReceived();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+
+
+            }
+            else
+            {
+                return;
+            }
+
+
+            }
 
         private void btnSelectLot_Click(object sender, EventArgs e)
         {
             FrmChooseLotNumberMoveOrder showModal = new FrmChooseLotNumberMoveOrder(this, this.MatTxtCategory.Text);
             showModal.ShowDialog();
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ths.textBox1.Text = textBox1.Text;
         }
     }
 }

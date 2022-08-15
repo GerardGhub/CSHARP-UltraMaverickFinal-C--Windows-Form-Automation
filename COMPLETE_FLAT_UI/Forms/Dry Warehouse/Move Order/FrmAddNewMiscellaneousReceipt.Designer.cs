@@ -31,11 +31,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddNewMiscellaneousReceipt));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.MatTxtParentDescription = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnSelectLot = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.MatCmbItemCode = new MetroFramework.Controls.MetroComboBox();
             this.MatTxtQuantity = new MaterialSkin.Controls.MaterialTextBox();
-            this.MatTxtSupplier = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MatDtpExpDate = new System.Windows.Forms.DateTimePicker();
@@ -45,13 +44,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtExpiryDays = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtLotDesc = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtLotNo = new MaterialSkin.Controls.MaterialTextBox();
-            this.MatTxtTransactNo = new MaterialSkin.Controls.MaterialTextBox();
             this.MatBtnSave = new MaterialSkin.Controls.MaterialButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.MatCmbReason = new MetroFramework.Controls.MetroComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSelectLot = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,13 +54,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
             this.groupBox1.Controls.Add(this.btnSelectLot);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.MatCmbReason);
-            this.groupBox1.Controls.Add(this.MatTxtParentDescription);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.MatCmbItemCode);
             this.groupBox1.Controls.Add(this.MatTxtQuantity);
-            this.groupBox1.Controls.Add(this.MatTxtSupplier);
+            this.groupBox1.Controls.Add(this.MatTxtLotNo);
+            this.groupBox1.Controls.Add(this.MatTxtLotDesc);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.MatDtpExpDate);
@@ -73,37 +66,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.groupBox1.Controls.Add(this.MatTxtCategory);
             this.groupBox1.Controls.Add(this.MatTxtItemDescription);
             this.groupBox1.Controls.Add(this.MatTxtExpiryDays);
-            this.groupBox1.Controls.Add(this.MatTxtLotDesc);
-            this.groupBox1.Controls.Add(this.MatTxtLotNo);
-            this.groupBox1.Controls.Add(this.MatTxtTransactNo);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(17, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1007, 349);
+            this.groupBox1.Size = new System.Drawing.Size(1007, 254);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Raw Material Information";
             // 
-            // MatTxtParentDescription
+            // btnSelectLot
             // 
-            this.MatTxtParentDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtParentDescription.Depth = 0;
-            this.MatTxtParentDescription.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtParentDescription.Hint = "Description";
-            this.MatTxtParentDescription.Location = new System.Drawing.Point(26, 36);
-            this.MatTxtParentDescription.MaxLength = 50;
-            this.MatTxtParentDescription.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtParentDescription.Multiline = false;
-            this.MatTxtParentDescription.Name = "MatTxtParentDescription";
-            this.MatTxtParentDescription.Size = new System.Drawing.Size(947, 50);
-            this.MatTxtParentDescription.TabIndex = 584;
-            this.MatTxtParentDescription.Text = "";
+            this.btnSelectLot.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnSelectLot.BackColor = System.Drawing.Color.Transparent;
+            this.btnSelectLot.FlatAppearance.BorderSize = 0;
+            this.btnSelectLot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectLot.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectLot.Image")));
+            this.btnSelectLot.Location = new System.Drawing.Point(642, 163);
+            this.btnSelectLot.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSelectLot.Name = "btnSelectLot";
+            this.btnSelectLot.Size = new System.Drawing.Size(41, 37);
+            this.btnSelectLot.TabIndex = 26;
+            this.btnSelectLot.UseVisualStyleBackColor = false;
+            this.btnSelectLot.Click += new System.EventHandler(this.btnSelectLot_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 201);
+            this.label3.Location = new System.Drawing.Point(28, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 19);
             this.label3.TabIndex = 583;
@@ -113,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.MatCmbItemCode.FormattingEnabled = true;
             this.MatCmbItemCode.ItemHeight = 23;
-            this.MatCmbItemCode.Location = new System.Drawing.Point(26, 222);
+            this.MatCmbItemCode.Location = new System.Drawing.Point(27, 60);
             this.MatCmbItemCode.Name = "MatCmbItemCode";
             this.MatCmbItemCode.Size = new System.Drawing.Size(270, 29);
             this.MatCmbItemCode.TabIndex = 582;
@@ -126,7 +116,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtQuantity.Depth = 0;
             this.MatTxtQuantity.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtQuantity.Hint = "Quantity";
-            this.MatTxtQuantity.Location = new System.Drawing.Point(365, 260);
+            this.MatTxtQuantity.Location = new System.Drawing.Point(28, 154);
             this.MatTxtQuantity.MaxLength = 50;
             this.MatTxtQuantity.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtQuantity.Multiline = false;
@@ -136,26 +126,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtQuantity.Text = "";
             this.MatTxtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.materialTextBox6_KeyPress);
             // 
-            // MatTxtSupplier
-            // 
-            this.MatTxtSupplier.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtSupplier.Depth = 0;
-            this.MatTxtSupplier.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtSupplier.Hint = "Supplier";
-            this.MatTxtSupplier.Location = new System.Drawing.Point(26, 259);
-            this.MatTxtSupplier.MaxLength = 50;
-            this.MatTxtSupplier.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtSupplier.Multiline = false;
-            this.MatTxtSupplier.Name = "MatTxtSupplier";
-            this.MatTxtSupplier.Size = new System.Drawing.Size(270, 50);
-            this.MatTxtSupplier.TabIndex = 579;
-            this.MatTxtSupplier.Text = "";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(363, 146);
+            this.label2.Location = new System.Drawing.Point(365, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 19);
             this.label2.TabIndex = 578;
@@ -165,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 145);
+            this.label1.Location = new System.Drawing.Point(29, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 19);
             this.label1.TabIndex = 577;
@@ -178,7 +153,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatDtpExpDate.CustomFormat = "yyyy-MM-dd";
             this.MatDtpExpDate.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MatDtpExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.MatDtpExpDate.Location = new System.Drawing.Point(365, 166);
+            this.MatDtpExpDate.Location = new System.Drawing.Point(367, 116);
             this.MatDtpExpDate.Name = "MatDtpExpDate";
             this.MatDtpExpDate.Size = new System.Drawing.Size(270, 30);
             this.MatDtpExpDate.TabIndex = 576;
@@ -191,7 +166,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatDtpMFtgDate.CustomFormat = "yyyy-MM-dd";
             this.MatDtpMFtgDate.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MatDtpMFtgDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.MatDtpMFtgDate.Location = new System.Drawing.Point(26, 166);
+            this.MatDtpMFtgDate.Location = new System.Drawing.Point(28, 116);
             this.MatDtpMFtgDate.MaxDate = new System.DateTime(2022, 8, 14, 0, 0, 0, 0);
             this.MatDtpMFtgDate.Name = "MatDtpMFtgDate";
             this.MatDtpMFtgDate.Size = new System.Drawing.Size(270, 30);
@@ -206,7 +181,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtCategory.Enabled = false;
             this.MatTxtCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtCategory.Hint = "Category";
-            this.MatTxtCategory.Location = new System.Drawing.Point(704, 204);
+            this.MatTxtCategory.Location = new System.Drawing.Point(705, 42);
             this.MatTxtCategory.MaxLength = 50;
             this.MatTxtCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtCategory.Multiline = false;
@@ -222,7 +197,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtItemDescription.Enabled = false;
             this.MatTxtItemDescription.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtItemDescription.Hint = "Item Description";
-            this.MatTxtItemDescription.Location = new System.Drawing.Point(365, 204);
+            this.MatTxtItemDescription.Location = new System.Drawing.Point(366, 42);
             this.MatTxtItemDescription.MaxLength = 50;
             this.MatTxtItemDescription.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtItemDescription.Multiline = false;
@@ -238,7 +213,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtExpiryDays.Enabled = false;
             this.MatTxtExpiryDays.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtExpiryDays.Hint = "Expiry Days";
-            this.MatTxtExpiryDays.Location = new System.Drawing.Point(704, 148);
+            this.MatTxtExpiryDays.Location = new System.Drawing.Point(706, 98);
             this.MatTxtExpiryDays.MaxLength = 50;
             this.MatTxtExpiryDays.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtExpiryDays.Multiline = false;
@@ -254,7 +229,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtLotDesc.Enabled = false;
             this.MatTxtLotDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtLotDesc.Hint = "Lot Description";
-            this.MatTxtLotDesc.Location = new System.Drawing.Point(704, 92);
+            this.MatTxtLotDesc.Location = new System.Drawing.Point(707, 154);
             this.MatTxtLotDesc.MaxLength = 50;
             this.MatTxtLotDesc.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtLotDesc.Multiline = false;
@@ -270,7 +245,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtLotNo.Enabled = false;
             this.MatTxtLotNo.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtLotNo.Hint = "Lot No.";
-            this.MatTxtLotNo.Location = new System.Drawing.Point(365, 92);
+            this.MatTxtLotNo.Location = new System.Drawing.Point(368, 154);
             this.MatTxtLotNo.MaxLength = 50;
             this.MatTxtLotNo.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtLotNo.Multiline = false;
@@ -279,22 +254,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtLotNo.TabIndex = 2;
             this.MatTxtLotNo.Text = "";
             // 
-            // MatTxtTransactNo
-            // 
-            this.MatTxtTransactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtTransactNo.Depth = 0;
-            this.MatTxtTransactNo.Enabled = false;
-            this.MatTxtTransactNo.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtTransactNo.Hint = "Transaction No.";
-            this.MatTxtTransactNo.Location = new System.Drawing.Point(26, 91);
-            this.MatTxtTransactNo.MaxLength = 50;
-            this.MatTxtTransactNo.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtTransactNo.Multiline = false;
-            this.MatTxtTransactNo.Name = "MatTxtTransactNo";
-            this.MatTxtTransactNo.Size = new System.Drawing.Size(270, 50);
-            this.MatTxtTransactNo.TabIndex = 0;
-            this.MatTxtTransactNo.Text = "";
-            // 
             // MatBtnSave
             // 
             this.MatBtnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -302,7 +261,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnSave.DrawShadows = true;
             this.MatBtnSave.HighEmphasis = true;
             this.MatBtnSave.Icon = null;
-            this.MatBtnSave.Location = new System.Drawing.Point(17, 439);
+            this.MatBtnSave.Location = new System.Drawing.Point(17, 345);
             this.MatBtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnSave.Name = "MatBtnSave";
@@ -314,34 +273,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnSave.UseVisualStyleBackColor = true;
             this.MatBtnSave.Click += new System.EventHandler(this.MatBtnSave_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(705, 258);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 19);
-            this.label4.TabIndex = 586;
-            this.label4.Text = "Reason";
-            // 
-            // MatCmbReason
-            // 
-            this.MatCmbReason.FormattingEnabled = true;
-            this.MatCmbReason.ItemHeight = 23;
-            this.MatCmbReason.Items.AddRange(new object[] {
-            "Delivery",
-            "Adjustment",
-            "Production"});
-            this.MatCmbReason.Location = new System.Drawing.Point(704, 279);
-            this.MatCmbReason.Name = "MatCmbReason";
-            this.MatCmbReason.Size = new System.Drawing.Size(270, 29);
-            this.MatCmbReason.TabIndex = 585;
-            this.MatCmbReason.UseSelectable = true;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(787, 433);
+            this.label5.Location = new System.Drawing.Point(770, 313);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 13);
             this.label5.TabIndex = 654;
@@ -353,33 +288,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(808, 459);
+            this.textBox1.Location = new System.Drawing.Point(791, 339);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 653;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            // 
-            // btnSelectLot
-            // 
-            this.btnSelectLot.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnSelectLot.BackColor = System.Drawing.Color.Transparent;
-            this.btnSelectLot.FlatAppearance.BorderSize = 0;
-            this.btnSelectLot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectLot.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectLot.Image")));
-            this.btnSelectLot.Location = new System.Drawing.Point(639, 101);
-            this.btnSelectLot.Margin = new System.Windows.Forms.Padding(1);
-            this.btnSelectLot.Name = "btnSelectLot";
-            this.btnSelectLot.Size = new System.Drawing.Size(41, 37);
-            this.btnSelectLot.TabIndex = 26;
-            this.btnSelectLot.UseVisualStyleBackColor = false;
-            this.btnSelectLot.Click += new System.EventHandler(this.btnSelectLot_Click);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FrmAddNewMiscellaneousReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 490);
+            this.ClientSize = new System.Drawing.Size(1042, 400);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.MatBtnSave);
@@ -404,7 +325,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private System.Windows.Forms.Label label3;
         private MetroFramework.Controls.MetroComboBox MatCmbItemCode;
         private MaterialSkin.Controls.MaterialTextBox MatTxtQuantity;
-        private MaterialSkin.Controls.MaterialTextBox MatTxtSupplier;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker MatDtpExpDate;
@@ -412,10 +332,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private MaterialSkin.Controls.MaterialTextBox MatTxtCategory;
         private MaterialSkin.Controls.MaterialTextBox MatTxtItemDescription;
         private MaterialSkin.Controls.MaterialTextBox MatTxtExpiryDays;
-        private MaterialSkin.Controls.MaterialTextBox MatTxtTransactNo;
-        private MaterialSkin.Controls.MaterialTextBox MatTxtParentDescription;
-        private System.Windows.Forms.Label label4;
-        private MetroFramework.Controls.MetroComboBox MatCmbReason;
         private System.Windows.Forms.Button btnSelectLot;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox textBox1;
