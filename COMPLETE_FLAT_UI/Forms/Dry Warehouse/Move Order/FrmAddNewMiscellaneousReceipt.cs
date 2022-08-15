@@ -27,8 +27,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
-        string mode = "";
-        int p_id = 0;
 
         DateTime dNow = DateTime.Now;
 
@@ -60,8 +58,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
 
          myClass.fillComboBoxRMDryItemCode(MatCmbItemCode, "Item_Code_dropdown", dSet);
-
-            
 
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
@@ -160,13 +156,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     .Sp_DryWHReceipt(0,
                     ths.MatTxtParentDescription.Text.Trim(),
                     0,
-                    0,
+                    Convert.ToInt32(this.MatTxtLotNo.Text.Trim()),
                     this.MatTxtLotDesc.Text.Trim(),
                     this.MatDtpMFtgDate.Text.Trim(),
                     this.MatDtpExpDate.Text.Trim(),
                     this.MatTxtExpiryDays.Text.Trim(),
-                    this.MatTxtLotNo.Text.Trim(),
-                    this.MatTxtLotDesc.Text.Trim(),
+                    this.MatCmbItemCode.Text.Trim(),
+                    this.MatTxtItemDescription.Text.Trim(),
                     this.MatTxtCategory.Text.Trim(),
                     ths.MatCmbSupplierCode.Text.Trim(),
                     Convert.ToDouble(this.MatTxtQuantity.Text.Trim()),
