@@ -797,7 +797,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.SpPrNo, 
                         this.SpPRDate,
                         this.matbtnSubCategory.Text.Trim(),
-                        this.SpFK_Sub_Category_IsExpirable, "","",
+                        this.SpFK_Sub_Category_IsExpirable,
+                        "",
+                        "",
                         "add");
                     if (this.sp_warehouse_reject_approval =="1")
                     {

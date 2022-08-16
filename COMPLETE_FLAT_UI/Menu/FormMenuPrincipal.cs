@@ -1790,7 +1790,8 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripMenuIssue_Click(object sender, EventArgs e)
         {
-
+            FrmDryWhMiscellaneouseIssue FrmIssue = new FrmDryWhMiscellaneouseIssue();
+            FrmIssue.ShowDialog();
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

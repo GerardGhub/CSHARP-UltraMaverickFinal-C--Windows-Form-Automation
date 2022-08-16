@@ -282,6 +282,12 @@
     <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.Designer.cs">
       <DependentUpon>frmDryWarehouses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.Designer.cs">
+      <DependentUpon>FrmDryWhMiscellaneouseIssue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -833,6 +839,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.resx">
       <DependentUpon>frmDryWarehouses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.resx">
+      <DependentUpon>FrmDryWhMiscellaneouseIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.resx">
       <DependentUpon>frmDryWhMiscellaneousReceipts.cs</DependentUpon>

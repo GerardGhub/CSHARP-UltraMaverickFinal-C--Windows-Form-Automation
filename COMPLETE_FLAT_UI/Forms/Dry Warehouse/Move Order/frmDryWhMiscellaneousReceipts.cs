@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         frmDryWhMiscellaneousReceipts ths;
 
         TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
-        TblCustomers TblCustomersEntity = new TblCustomers();
+        DryWHReceipt DryWHReceiptEntity = new DryWHReceipt();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
@@ -122,14 +122,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             this.guna2DgvMaterialPreparation.Columns["ParentDescription"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["TransactionNo"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["LotNumber"].Visible = false;
+ 
             this.guna2DgvMaterialPreparation.Columns["AddedBy"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["DateAdded"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["IsActive"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Supplier"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Remarks"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["LotDescription"].Visible = false;
+
+            this.guna2DgvMaterialPreparation.Columns["UnitOfMeasure"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["ExpiryDays"].Visible = false;
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
@@ -159,11 +161,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["ItemCode"].Value != null)
                     {
                         this.p_id = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["Id"].Value);
-                        this.MatTxtLotNo.Text = this.guna2DgvMaterialPreparation.CurrentRow.Cells["LotNumber"].Value.ToString();
-                        this.MatTxtLotDescription.Text = this.guna2DgvMaterialPreparation.CurrentRow.Cells["LotDescription"].Value.ToString();
-                        this.MatTxtQty.Text = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Quantity"].Value.ToString();
-                        this.MatTxtCategory.Text = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Category"].Value.ToString();
-                        this.MatTxtExpiryDays.Text = this.guna2DgvMaterialPreparation.CurrentRow.Cells["ExpiryDays"].Value.ToString();
+                        DryWHReceiptEntity.LotNumber = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["LotNumber"].Value);
+                        DryWHReceiptEntity.LotDescription = this.guna2DgvMaterialPreparation.CurrentRow.Cells["LotDescription"].Value.ToString();
+                        DryWHReceiptEntity.Quantity = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["Quantity"].Value);
+                        DryWHReceiptEntity.Category  = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Category"].Value.ToString();
+                        DryWHReceiptEntity.ExpiryDays = this.guna2DgvMaterialPreparation.CurrentRow.Cells["ExpiryDays"].Value.ToString();
 
                     }
                 }
@@ -221,21 +223,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 this.matCmbRemarks.Focus();
                 return;
             }
-
-            if (this.MatTxTTransactNo.Text == String.Empty)
+            if (this.LblTotalRecords.Text == "0")
             {
-                this.MatTxTTransactNo.Text = "0";
-            }
-
-
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-
-
-          
-
-                try
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
+
                     dSet.Clear();
                     dSet = g_objStoredProcCollection
                     .sp_DryWHReceiptParents(0,
@@ -247,60 +239,134 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     "add");
                     this.ConnetionString();
                     this.LoadParentReceiptCmb();
-
-
-                    foreach (DataGridViewRow row in guna2DgvMaterialPreparation.Rows)
+                    if (this.MatTxtParentDescription.Text != String.Empty)
                     {
-                
-                        dSet.Clear();
-                        dSet = g_objStoredProcCollection
-                        .Sp_DryWHReceipt(Convert.ToInt32(row.Cells["Id"].Value.ToString()),
-                        this.MatTxtParentDescription.Text.Trim(),
-                        Convert.ToInt32(this.MatTxTTransactNo.Text.Trim()),
-                        0,
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                       this.MatTxtSupploer.Text.Trim(),
-                        "",
-                        0,
-                       this.matCmbRemarks.Text.Trim(),
-                        "",
-                        "",
-                        false,
-                        "edit");
+                        this.MatBtnNew.Enabled = true;
                     }
-                    this.GlobalStatePopup.SuccessfullyReceived();
-                    this.ClearTextBox();
-                    this.frmDryWhMiscellaneousReceipts_Load(sender, e);
-
                 }
-                catch (Exception ex)
+                else
                 {
-
-                    MessageBox.Show(ex.Message);
+                    return;
                 }
-
             }
+
             else
             {
-                return;
-            }
 
+                if (this.MatTxTTransactNo.Text == String.Empty)
+                {
+                    this.MatTxTTransactNo.Text = "0";
+                }
+
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+
+
+                    try
+                    {
+                        //dSet.Clear();
+                        //dSet = g_objStoredProcCollection
+                        //.sp_DryWHReceiptParents(0,
+                        //this.MatTxtParentDescription.Text.Trim(),
+                        //this.matCmbRemarks.Text.Trim(),
+                        //true,
+                        //Convert.ToString(this.Useridentity),
+                        //DateTime.Now,
+                        //"add");
+                        //this.ConnetionString();
+                        //this.LoadParentReceiptCmb();
+
+
+                        foreach (DataGridViewRow row in guna2DgvMaterialPreparation.Rows)
+                        {
+
+                            dSet.Clear();
+                            dSet = g_objStoredProcCollection
+                            .Sp_DryWHReceipt(Convert.ToInt32(row.Cells["Id"].Value.ToString()),
+                            this.MatTxtParentDescription.Text.Trim(),
+                            Convert.ToInt32(this.MatTxTTransactNo.Text.Trim()),
+                            0,
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                           DryWHReceiptEntity.Category,
+                             this.MatTxtSupploer.Text.Trim(),
+                            0,
+                           this.matCmbRemarks.Text.Trim(),
+                            "",
+                            "",
+                            false,
+                            "edit");
+
+
+                            this.dSet.Clear();
+                            this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
+                                p_id,
+                                row.Cells["ItemCode"].Value.ToString(),
+                                row.Cells["ItemDescription"].Value.ToString(),
+                                row.Cells["Quantity"].Value.ToString(),
+                                "",
+                                this.Useridentity.ToString(),
+                                user_info.firstname,
+                                "",
+                                row.Cells["Supplier"].Value.ToString(),
+                                row.Cells["LotNumber"].Value.ToString(),
+                                row.Cells["LotDescription"].Value.ToString(),
+                                row.Cells["ManufacturingDate"].Value.ToString(),
+                                row.Cells["ExpirationDate"].Value.ToString(),
+                                row.Cells["Category"].Value.ToString(),
+                                row.Cells["UnitOfMeasure"].Value.ToString(),
+                                "0",
+                                0,
+                                this.Useridentity,
+                                row.Cells["ExpiryDays"].Value.ToString(),
+                                "",
+                                "",
+                                "",
+                                "",
+                                1, //Expiry Bobo
+                                "",
+                                "",
+                                "AddDryWhReceipt");
+
+
+
+                        }
+                        this.GlobalStatePopup.SuccessfullyReceived();
+                        this.ClearTextBox();
+                        this.frmDryWhMiscellaneousReceipts_Load(sender, e);
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
+
 
         private void ClearTextBox()
         {
             this.MatTxtParentDescription.Text = String.Empty;
             this.MatTxTTransactNo.Text = String.Empty;
-            this.MatTxtLotNo.Text = String.Empty;
-            this.MatTxtLotDescription.Text = String.Empty;
-            this.MatTxtQty.Text = String.Empty;
-            this.MatTxtCategory.Text = String.Empty;
-            this.MatTxtExpiryDays.Text = String.Empty;
+            DryWHReceiptEntity.LotNumber = 0;
+            DryWHReceiptEntity.LotDescription = String.Empty;
+            DryWHReceiptEntity.Quantity = 0;
+            DryWHReceiptEntity.Category = String.Empty;
+            DryWHReceiptEntity.ExpiryDays = String.Empty;
             this.MatTxtSupploer.Text = String.Empty;
             this.MatTxtParentDescription.Text = String.Empty;
             this.matCmbRemarks.Text = String.Empty;
@@ -354,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 }
 
 
-                //
+                
             }
         }
 
@@ -366,6 +432,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             }
 
 
+        }
+
+
+
+        private void MatTxtSupploer_TextChanged(object sender, EventArgs e)
+        {
+            if (this.MatTxtSupploer.Text != String.Empty && this.matCmbRemarks.Text != String.Empty)
+            {
+                this.MatBtnNew.Enabled = true;
+            }
+        }
+
+        private void matCmbRemarks_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (this.MatTxtSupploer.Text != String.Empty && this.matCmbRemarks.Text != String.Empty)
+            {
+                this.MatBtnSave.Visible = true;
+            }
         }
     }
 }
