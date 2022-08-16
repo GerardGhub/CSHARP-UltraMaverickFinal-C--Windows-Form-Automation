@@ -152,6 +152,25 @@ namespace ULTRAMAVERICK.Models
             g_objStoredProcFill = null;
         }
 
+        public void fillCmbTransactionNo(ComboBox eComboBox, string eTablename, DataSet dSet, int UserId)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, UserId, null, null, null, null);
+
+            eComboBox.DataSource = dSet.Tables[0].DefaultView;
+            eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
+            eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+
+            DataSetRMMoverOrderReceipt = dSet;
+
+            // this.SubCategory = dSet.Tables[0].Rows[0]["sub_category"].ToString();
+            //MessageBox.Show(this.SubCategory);
+
+            g_objStoredProcFill = null;
+        }
+
+
 
         public void fillComboBoxStoreOrderApproval(ComboBox eComboBox, string eTablename, DataSet dSet)
         {

@@ -18,10 +18,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmDryReceivingModule : MaterialForm
     {
-        myclasses xClass = new myclasses();
+
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         int numExpirableItems = 0;
@@ -61,7 +60,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sp_added_by_userid = userinfo.user_id.ToString();
             this.mattxtbarcode.Focus();
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.mattxtbarcode.Focus();
     
         }
@@ -73,7 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
                
-                xClass.fillDataGridView(dgvReceivedID, "tblDryWHReceiving_last_id", dSet);
+                myClass.fillDataGridView(dgvReceivedID, "tblDryWHReceiving_last_id", dSet);
          
   
             }
@@ -119,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             myglobal.global_module = "Active"; // Mode for Searching
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
 
         }
 
@@ -130,7 +128,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dset_emp_SearchEnginesNearlyExpiry.Clear();
 
 
-            dset_emp_SearchEnginesNearlyExpiry = objStorProc.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_NearlyExpiry");
+            dset_emp_SearchEnginesNearlyExpiry = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_NearlyExpiry");
 
         }
 
@@ -232,7 +230,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             //Check the Item Code if exist on the fucking system
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 mattxtbarcode.Text,
                 "",
                 "",
@@ -253,7 +251,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 //RawMatsAlreadyExist();
                 dSet.Clear();
-                dSet = objStorProc.sp_Raw_Materials_Dry(0,
+                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                     mattxtbarcode.Text,
                     "",
                     "",
@@ -329,7 +327,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 mattxtbarcode.Text,
                 "",
                 "",
@@ -350,7 +348,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 //RawMatsAlreadyExist();
                 dSet.Clear();
-                dSet = objStorProc.sp_Raw_Materials_Dry(0,
+                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                     mattxtbarcode.Text,
                     "",
                     "",
@@ -720,7 +718,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     //Second Summary of Queryy Disposal of Rejection Remarks
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                         p_id,
                         this.mattxtitemcode.Text,
                         this.mattxtitemdesc.Text,
@@ -747,7 +745,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     //Second Summary of Queryy Disposal of Rejection Remarks RE == QA  ON NA 3/4/2022
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                         p_id,
                         this.mattxtitemcode.Text,
                         this.mattxtitemdesc.Text,
@@ -782,7 +780,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     //Commit the Data on The Database Stored procedure
 
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                         p_id, mattxtitemcode.Text, 
                         this.mattxtitemdesc.Text, 
                         this.sp_receiving_qty.ToString(), "", 
@@ -806,7 +804,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                   
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                     p_id, mattxtitemcode.Text, 
                     this.mattxtitemdesc.Text,
                     this.sp_receiving_qty.ToString(), "",
@@ -831,7 +829,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                         //Second Summary of Queryy Disposal of Rejection Remarks
                         this.dSet.Clear();
-                        this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                        this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                             p_id,
                             this.mattxtitemcode.Text,
                             this.mattxtitemdesc.Text,
@@ -894,7 +892,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     //Second Summary of Queryy Disposal of Rejection Remarks
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                         p_id,
                         this.mattxtitemcode.Text,
                         this.mattxtitemdesc.Text,
@@ -923,7 +921,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     //Second Summary of Queryy Disposal of Rejection Remarks RE == QA
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                         p_id,
                         this.mattxtitemcode.Text, 
                         this.mattxtitemdesc.Text, 
@@ -955,7 +953,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     //Commit Data on The Database Stored Procedure
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                         p_id,
                         this.mattxtitemcode.Text,
                         this.mattxtitemdesc.Text,
@@ -985,7 +983,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                         this.dSet.Clear();
-                        this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                        this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                             p_id,
                             this.mattxtitemcode.Text,
                             this.mattxtitemdesc.Text,
@@ -1036,7 +1034,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     qtyReturnSummary = qtytotalPo + QtyReject;
 
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryWHReceiving(0,
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
                         p_id,
                         this.mattxtitemcode.Text,
                         this.mattxtitemdesc.Text,

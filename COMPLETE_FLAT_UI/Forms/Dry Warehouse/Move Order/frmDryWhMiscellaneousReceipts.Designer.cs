@@ -29,12 +29,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MatBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.matCmbRemarks = new MetroFramework.Controls.MetroComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MatCmbSupplierCode = new MetroFramework.Controls.MetroComboBox();
+            this.MatTxtSupploer = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatTxtParentDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtQty = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtExpiryDays = new MaterialSkin.Controls.MaterialTextBox();
@@ -42,25 +49,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtLotNo = new MaterialSkin.Controls.MaterialTextBox();
             this.GpInfo = new System.Windows.Forms.GroupBox();
             this.guna2DgvMaterialPreparation = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.MatTxTTransactNo = new MaterialSkin.Controls.MaterialTextBox();
-            this.MatTxtParentDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.MatTxtSupploer = new MaterialSkin.Controls.MaterialTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.MatCmbSupplierCode = new MetroFramework.Controls.MetroComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.matCmbRemarks = new MetroFramework.Controls.MetroComboBox();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.LblTotalRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManufacturingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatBtnSave = new MaterialSkin.Controls.MaterialButton();
+            this.MatTxTTransactNo = new MetroFramework.Controls.MetroComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CANCEL = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManufacturingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.GpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DgvMaterialPreparation)).BeginInit();
@@ -88,6 +91,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.MatTxTTransactNo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.matCmbRemarks);
             this.groupBox1.Controls.Add(this.label4);
@@ -100,7 +105,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.groupBox1.Controls.Add(this.MatTxtLotDescription);
             this.groupBox1.Controls.Add(this.MatTxtLotNo);
             this.groupBox1.Controls.Add(this.GpInfo);
-            this.groupBox1.Controls.Add(this.MatTxTTransactNo);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(23, 79);
             this.groupBox1.Name = "groupBox1";
@@ -108,6 +112,86 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Raw Material Information";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(707, 204);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 19);
+            this.label1.TabIndex = 590;
+            this.label1.Text = "Remarks";
+            // 
+            // matCmbRemarks
+            // 
+            this.matCmbRemarks.FormattingEnabled = true;
+            this.matCmbRemarks.ItemHeight = 23;
+            this.matCmbRemarks.Items.AddRange(new object[] {
+            "Delivery",
+            "Adjustment",
+            "Production"});
+            this.matCmbRemarks.Location = new System.Drawing.Point(708, 225);
+            this.matCmbRemarks.Name = "matCmbRemarks";
+            this.matCmbRemarks.Size = new System.Drawing.Size(270, 29);
+            this.matCmbRemarks.TabIndex = 589;
+            this.matCmbRemarks.UseSelectable = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(27, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 19);
+            this.label4.TabIndex = 588;
+            this.label4.Text = "Supplier Code";
+            // 
+            // MatCmbSupplierCode
+            // 
+            this.MatCmbSupplierCode.FormattingEnabled = true;
+            this.MatCmbSupplierCode.ItemHeight = 23;
+            this.MatCmbSupplierCode.Items.AddRange(new object[] {
+            "Delivery",
+            "Adjustment",
+            "Production"});
+            this.MatCmbSupplierCode.Location = new System.Drawing.Point(28, 168);
+            this.MatCmbSupplierCode.Name = "MatCmbSupplierCode";
+            this.MatCmbSupplierCode.Size = new System.Drawing.Size(270, 29);
+            this.MatCmbSupplierCode.TabIndex = 587;
+            this.MatCmbSupplierCode.UseSelectable = true;
+            this.MatCmbSupplierCode.SelectionChangeCommitted += new System.EventHandler(this.MatCmbSupplierCode_SelectionChangeCommitted);
+            // 
+            // MatTxtSupploer
+            // 
+            this.MatTxtSupploer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtSupploer.Depth = 0;
+            this.MatTxtSupploer.Enabled = false;
+            this.MatTxtSupploer.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtSupploer.Hint = "Supplier Name";
+            this.MatTxtSupploer.Location = new System.Drawing.Point(365, 149);
+            this.MatTxtSupploer.MaxLength = 50;
+            this.MatTxtSupploer.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtSupploer.Multiline = false;
+            this.MatTxtSupploer.Name = "MatTxtSupploer";
+            this.MatTxtSupploer.Size = new System.Drawing.Size(608, 50);
+            this.MatTxtSupploer.TabIndex = 586;
+            this.MatTxtSupploer.Text = "";
+            // 
+            // MatTxtParentDescription
+            // 
+            this.MatTxtParentDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtParentDescription.Depth = 0;
+            this.MatTxtParentDescription.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtParentDescription.Hint = "Description";
+            this.MatTxtParentDescription.Location = new System.Drawing.Point(26, 207);
+            this.MatTxtParentDescription.MaxLength = 50;
+            this.MatTxtParentDescription.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtParentDescription.Multiline = false;
+            this.MatTxtParentDescription.Name = "MatTxtParentDescription";
+            this.MatTxtParentDescription.Size = new System.Drawing.Size(609, 50);
+            this.MatTxtParentDescription.TabIndex = 585;
+            this.MatTxtParentDescription.Text = "";
             // 
             // MatTxtCategory
             // 
@@ -204,39 +288,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.guna2DgvMaterialPreparation.AllowUserToAddRows = false;
             this.guna2DgvMaterialPreparation.AllowUserToDeleteRows = false;
             this.guna2DgvMaterialPreparation.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.guna2DgvMaterialPreparation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.guna2DgvMaterialPreparation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DgvMaterialPreparation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DgvMaterialPreparation.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.guna2DgvMaterialPreparation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DgvMaterialPreparation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DgvMaterialPreparation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DgvMaterialPreparation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.guna2DgvMaterialPreparation.ColumnHeadersHeight = 45;
             this.guna2DgvMaterialPreparation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.guna2DgvMaterialPreparation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ManufacturingDate,
+            this.ExpirationDate,
+            this.ExpiryDays,
             this.ItemCode,
             this.ItemDescription,
             this.category,
             this.Supplier,
             this.Quantity,
-            this.ManufacturingDate,
-            this.ExpirationDate,
-            this.ExpiryDays});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DgvMaterialPreparation.DefaultCellStyle = dataGridViewCellStyle11;
+            this.CANCEL});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DgvMaterialPreparation.DefaultCellStyle = dataGridViewCellStyle4;
             this.guna2DgvMaterialPreparation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2DgvMaterialPreparation.Enabled = false;
             this.guna2DgvMaterialPreparation.EnableHeadersVisualStyles = false;
@@ -245,14 +330,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.guna2DgvMaterialPreparation.MultiSelect = false;
             this.guna2DgvMaterialPreparation.Name = "guna2DgvMaterialPreparation";
             this.guna2DgvMaterialPreparation.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DgvMaterialPreparation.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DgvMaterialPreparation.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.guna2DgvMaterialPreparation.RowHeadersVisible = false;
             this.guna2DgvMaterialPreparation.RowHeadersWidth = 102;
             this.guna2DgvMaterialPreparation.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -283,38 +368,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.Height = 40;
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.guna2DgvMaterialPreparation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DgvMaterialPreparation_CellContentClick);
             this.guna2DgvMaterialPreparation.CurrentCellChanged += new System.EventHandler(this.guna2DgvMaterialPreparation_CurrentCellChanged);
-            // 
-            // MatTxTTransactNo
-            // 
-            this.MatTxTTransactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxTTransactNo.Depth = 0;
-            this.MatTxTTransactNo.Enabled = false;
-            this.MatTxTTransactNo.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxTTransactNo.Hint = "Transaction No.";
-            this.MatTxTTransactNo.Location = new System.Drawing.Point(26, 36);
-            this.MatTxTTransactNo.MaxLength = 50;
-            this.MatTxTTransactNo.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxTTransactNo.Multiline = false;
-            this.MatTxTTransactNo.Name = "MatTxTTransactNo";
-            this.MatTxTTransactNo.Size = new System.Drawing.Size(270, 50);
-            this.MatTxTTransactNo.TabIndex = 0;
-            this.MatTxTTransactNo.Text = "";
-            // 
-            // MatTxtParentDescription
-            // 
-            this.MatTxtParentDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtParentDescription.Depth = 0;
-            this.MatTxtParentDescription.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtParentDescription.Hint = "Description";
-            this.MatTxtParentDescription.Location = new System.Drawing.Point(26, 207);
-            this.MatTxtParentDescription.MaxLength = 50;
-            this.MatTxtParentDescription.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtParentDescription.Multiline = false;
-            this.MatTxtParentDescription.Name = "MatTxtParentDescription";
-            this.MatTxtParentDescription.Size = new System.Drawing.Size(609, 50);
-            this.MatTxtParentDescription.TabIndex = 585;
-            this.MatTxtParentDescription.Text = "";
             // 
             // textBox1
             // 
@@ -329,84 +384,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // MatTxtSupploer
+            // LblTotalRecords
             // 
-            this.MatTxtSupploer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtSupploer.Depth = 0;
-            this.MatTxtSupploer.Enabled = false;
-            this.MatTxtSupploer.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtSupploer.Hint = "Supplier Name";
-            this.MatTxtSupploer.Location = new System.Drawing.Point(365, 149);
-            this.MatTxtSupploer.MaxLength = 50;
-            this.MatTxtSupploer.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtSupploer.Multiline = false;
-            this.MatTxtSupploer.Name = "MatTxtSupploer";
-            this.MatTxtSupploer.Size = new System.Drawing.Size(608, 50);
-            this.MatTxtSupploer.TabIndex = 586;
-            this.MatTxtSupploer.Text = "";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 19);
-            this.label4.TabIndex = 588;
-            this.label4.Text = "Supplier Code";
-            // 
-            // MatCmbSupplierCode
-            // 
-            this.MatCmbSupplierCode.FormattingEnabled = true;
-            this.MatCmbSupplierCode.ItemHeight = 23;
-            this.MatCmbSupplierCode.Items.AddRange(new object[] {
-            "Delivery",
-            "Adjustment",
-            "Production"});
-            this.MatCmbSupplierCode.Location = new System.Drawing.Point(28, 168);
-            this.MatCmbSupplierCode.Name = "MatCmbSupplierCode";
-            this.MatCmbSupplierCode.Size = new System.Drawing.Size(270, 29);
-            this.MatCmbSupplierCode.TabIndex = 587;
-            this.MatCmbSupplierCode.UseSelectable = true;
-            this.MatCmbSupplierCode.SelectionChangeCommitted += new System.EventHandler(this.MatCmbSupplierCode_SelectionChangeCommitted);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(707, 204);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 19);
-            this.label1.TabIndex = 590;
-            this.label1.Text = "Remarks";
-            // 
-            // matCmbRemarks
-            // 
-            this.matCmbRemarks.FormattingEnabled = true;
-            this.matCmbRemarks.ItemHeight = 23;
-            this.matCmbRemarks.Items.AddRange(new object[] {
-            "Delivery",
-            "Adjustment",
-            "Production"});
-            this.matCmbRemarks.Location = new System.Drawing.Point(708, 225);
-            this.matCmbRemarks.Name = "matCmbRemarks";
-            this.matCmbRemarks.Size = new System.Drawing.Size(270, 29);
-            this.matCmbRemarks.TabIndex = 589;
-            this.matCmbRemarks.UseSelectable = true;
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(953, 694);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
-            this.lbltotalrecords.TabIndex = 655;
-            this.lbltotalrecords.Text = "0";
-            this.lbltotalrecords.TextChanged += new System.EventHandler(this.lbltotalrecords_TextChanged);
+            this.LblTotalRecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTotalRecords.AutoSize = true;
+            this.LblTotalRecords.BackColor = System.Drawing.Color.Transparent;
+            this.LblTotalRecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.LblTotalRecords.Location = new System.Drawing.Point(953, 694);
+            this.LblTotalRecords.Name = "LblTotalRecords";
+            this.LblTotalRecords.Size = new System.Drawing.Size(31, 35);
+            this.LblTotalRecords.TabIndex = 655;
+            this.LblTotalRecords.Text = "0";
+            this.LblTotalRecords.TextChanged += new System.EventHandler(this.lbltotalrecords_TextChanged);
             // 
             // label2
             // 
@@ -421,73 +411,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.label2.TabIndex = 656;
             this.label2.Text = "Items";
             // 
-            // ItemCode
-            // 
-            this.ItemCode.DataPropertyName = "ItemCode";
-            this.ItemCode.FillWeight = 66.91177F;
-            this.ItemCode.HeaderText = "CODE";
-            this.ItemCode.MinimumWidth = 12;
-            this.ItemCode.Name = "ItemCode";
-            this.ItemCode.ReadOnly = true;
-            // 
-            // ItemDescription
-            // 
-            this.ItemDescription.DataPropertyName = "ItemDescription";
-            this.ItemDescription.FillWeight = 66.57212F;
-            this.ItemDescription.HeaderText = "DESCRIPTION";
-            this.ItemDescription.MinimumWidth = 12;
-            this.ItemDescription.Name = "ItemDescription";
-            this.ItemDescription.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "Category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // Supplier
-            // 
-            this.Supplier.DataPropertyName = "Supplier";
-            this.Supplier.FillWeight = 66.57212F;
-            this.Supplier.HeaderText = "SUPPLIER";
-            this.Supplier.MinimumWidth = 12;
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.FillWeight = 66.57212F;
-            this.Quantity.HeaderText = "QTY";
-            this.Quantity.MinimumWidth = 12;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // ManufacturingDate
-            // 
-            this.ManufacturingDate.DataPropertyName = "ManufacturingDate";
-            this.ManufacturingDate.HeaderText = "MFG DATE";
-            this.ManufacturingDate.MinimumWidth = 6;
-            this.ManufacturingDate.Name = "ManufacturingDate";
-            this.ManufacturingDate.ReadOnly = true;
-            // 
-            // ExpirationDate
-            // 
-            this.ExpirationDate.DataPropertyName = "ExpirationDate";
-            this.ExpirationDate.FillWeight = 66.91177F;
-            this.ExpirationDate.HeaderText = "EXPIRY DATE";
-            this.ExpirationDate.MinimumWidth = 12;
-            this.ExpirationDate.Name = "ExpirationDate";
-            this.ExpirationDate.ReadOnly = true;
-            // 
-            // ExpiryDays
-            // 
-            this.ExpiryDays.DataPropertyName = "ExpiryDays";
-            this.ExpiryDays.HeaderText = "EXPIRY DAYS";
-            this.ExpiryDays.Name = "ExpiryDays";
-            this.ExpiryDays.ReadOnly = true;
-            // 
             // MatBtnSave
             // 
             this.MatBtnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -499,7 +422,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnSave.Name = "MatBtnSave";
-            this.MatBtnSave.Size = new System.Drawing.Size(67, 36);
+            this.MatBtnSave.Size = new System.Drawing.Size(58, 36);
             this.MatBtnSave.TabIndex = 657;
             this.MatBtnSave.Text = "SAVE";
             this.MatBtnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -508,6 +431,112 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnSave.Visible = false;
             this.MatBtnSave.Click += new System.EventHandler(this.MatBtnSave_Click);
             // 
+            // MatTxTTransactNo
+            // 
+            this.MatTxTTransactNo.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.MatTxTTransactNo.Enabled = false;
+            this.MatTxTTransactNo.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.MatTxTTransactNo.FormattingEnabled = true;
+            this.MatTxTTransactNo.ItemHeight = 23;
+            this.MatTxTTransactNo.Items.AddRange(new object[] {
+            "Delivery",
+            "Adjustment",
+            "Production"});
+            this.MatTxTTransactNo.Location = new System.Drawing.Point(26, 57);
+            this.MatTxTTransactNo.Name = "MatTxTTransactNo";
+            this.MatTxTTransactNo.Size = new System.Drawing.Size(270, 29);
+            this.MatTxTTransactNo.TabIndex = 591;
+            this.MatTxTTransactNo.UseSelectable = true;
+            this.MatTxTTransactNo.SelectionChangeCommitted += new System.EventHandler(this.MatTxTTransactNo_SelectionChangeCommitted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(24, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 19);
+            this.label3.TabIndex = 592;
+            this.label3.Text = "Transaction No";
+            // 
+            // CANCEL
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CANCEL.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CANCEL.HeaderText = "ACTION";
+            this.CANCEL.Name = "CANCEL";
+            this.CANCEL.ReadOnly = true;
+            this.CANCEL.Text = "CANCEL";
+            this.CANCEL.UseColumnTextForButtonValue = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.FillWeight = 66.57212F;
+            this.Quantity.HeaderText = "QTY";
+            this.Quantity.MinimumWidth = 12;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.DataPropertyName = "Supplier";
+            this.Supplier.FillWeight = 66.57212F;
+            this.Supplier.HeaderText = "SUPPLIER";
+            this.Supplier.MinimumWidth = 12;
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "Category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // ItemDescription
+            // 
+            this.ItemDescription.DataPropertyName = "ItemDescription";
+            this.ItemDescription.FillWeight = 66.57212F;
+            this.ItemDescription.HeaderText = "DESCRIPTION";
+            this.ItemDescription.MinimumWidth = 12;
+            this.ItemDescription.Name = "ItemDescription";
+            this.ItemDescription.ReadOnly = true;
+            // 
+            // ItemCode
+            // 
+            this.ItemCode.DataPropertyName = "ItemCode";
+            this.ItemCode.FillWeight = 66.91177F;
+            this.ItemCode.HeaderText = "CODE";
+            this.ItemCode.MinimumWidth = 12;
+            this.ItemCode.Name = "ItemCode";
+            this.ItemCode.ReadOnly = true;
+            // 
+            // ExpiryDays
+            // 
+            this.ExpiryDays.DataPropertyName = "ExpiryDays";
+            this.ExpiryDays.HeaderText = "EXPIRY DAYS";
+            this.ExpiryDays.Name = "ExpiryDays";
+            this.ExpiryDays.ReadOnly = true;
+            // 
+            // ExpirationDate
+            // 
+            this.ExpirationDate.DataPropertyName = "ExpirationDate";
+            this.ExpirationDate.FillWeight = 66.91177F;
+            this.ExpirationDate.HeaderText = "EXPIRY DATE";
+            this.ExpirationDate.MinimumWidth = 12;
+            this.ExpirationDate.Name = "ExpirationDate";
+            this.ExpirationDate.ReadOnly = true;
+            // 
+            // ManufacturingDate
+            // 
+            this.ManufacturingDate.DataPropertyName = "ManufacturingDate";
+            this.ManufacturingDate.HeaderText = "MFG DATE";
+            this.ManufacturingDate.MinimumWidth = 6;
+            this.ManufacturingDate.Name = "ManufacturingDate";
+            this.ManufacturingDate.ReadOnly = true;
+            // 
             // frmDryWhMiscellaneousReceipts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,7 +544,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1055, 737);
             this.Controls.Add(this.MatBtnSave);
-            this.Controls.Add(this.lbltotalrecords);
+            this.Controls.Add(this.LblTotalRecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
@@ -543,7 +572,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private Guna.UI2.WinForms.Guna2DataGridView guna2DgvMaterialPreparation;
         public System.Windows.Forms.GroupBox GpInfo;
         public MaterialSkin.Controls.MaterialButton MatBtnNew;
-        public MaterialSkin.Controls.MaterialTextBox MatTxTTransactNo;
         public MaterialSkin.Controls.MaterialTextBox MatTxtLotDescription;
         public MaterialSkin.Controls.MaterialTextBox MatTxtLotNo;
         public System.Windows.Forms.TextBox textBox1;
@@ -553,16 +581,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         public MetroFramework.Controls.MetroComboBox MatCmbSupplierCode;
         private System.Windows.Forms.Label label1;
         public MetroFramework.Controls.MetroComboBox matCmbRemarks;
-        private System.Windows.Forms.Label lbltotalrecords;
+        private System.Windows.Forms.Label LblTotalRecords;
         private System.Windows.Forms.Label label2;
+        public MaterialSkin.Controls.MaterialButton MatBtnSave;
+        public MetroFramework.Controls.MetroComboBox MatTxTTransactNo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManufacturingDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ManufacturingDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDays;
-        public MaterialSkin.Controls.MaterialButton MatBtnSave;
+        private System.Windows.Forms.DataGridViewButtonColumn CANCEL;
     }
 }

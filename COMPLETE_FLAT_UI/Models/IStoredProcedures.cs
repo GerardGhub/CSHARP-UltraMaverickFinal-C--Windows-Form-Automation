@@ -568,6 +568,17 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
 
+        DataSet sp_DryWHReceiptParents(
+        int Id,
+        string ParentDescription,
+        string Remarks,
+        bool IsActive,
+        string AddedBy,
+        DateTime DateAdded,
+        string mode);
+
+
+
 
         DataSet sp_tblCustomers(
         int cust_id,

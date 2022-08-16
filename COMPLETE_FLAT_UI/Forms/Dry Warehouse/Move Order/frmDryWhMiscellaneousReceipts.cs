@@ -46,6 +46,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBox();
             this.LoadItemCodeDropdown();
+            this.LoadParentReceiptCmb();
         }
 
 
@@ -56,16 +57,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatCmbSupplierCode_SelectionChangeCommitted(new object(), new System.EventArgs());
         }
 
+        public void LoadParentReceiptCmb()
+        {
+
+            myClass.fillCmbTransactionNo(MatTxTTransactNo, "DryWHReceiptParents_dropdown", dSet, Useridentity);
+            this.MatTxTTransactNo_SelectionChangeCommitted(new object(), new System.EventArgs());
+        }
+
         private void ConnetionString()
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); 
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
 
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
-            myglobal.global_module = "Active"; 
+            myglobal.global_module = "Active";
             dset_emp_SearchEngines.Clear();
 
 
@@ -89,18 +97,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     }
 
                     this.guna2DgvMaterialPreparation.DataSource = dv;
-                    lbltotalrecords.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
+                    LblTotalRecords.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
                 }
             }
             catch (SyntaxErrorException)
             {
-                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Invalid Character Found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return;
             }
             catch (EvaluateException)
             {
-                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Invalid Character Found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return;
             }
@@ -129,12 +137,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnNew.Enabled = false;
             FrmAddNewMiscellaneousReceipt AddReceipt = new FrmAddNewMiscellaneousReceipt(this);
             AddReceipt.ShowDialog();
-        
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(this.textBox1.Text != String.Empty)
+            if (this.textBox1.Text != String.Empty)
             {
                 this.MatBtnNew.Enabled = true;
                 this.textBox1.Text = String.Empty;
@@ -172,33 +180,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
             IndexOf = MatCmbSupplierCode.SelectedIndex;
             xClass.DataSetRMMoverOrderReceipt = g_objStoredProcCollection.sp_getMinorTables("Suppliers_dropdown", null, null, null, null, null);
-            this.MatTxtCategory.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["SupplierName"].ToString();
+            //this.MatTxtSupploer.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["SupplierName"].ToString();
 
 
         }
 
         private void lbltotalrecords_TextChanged(object sender, EventArgs e)
         {
-            if (this.lbltotalrecords.Text == "0")
+            if (this.LblTotalRecords.Text == "0")
             {
                 this.MatBtnSave.Visible = false;
+                this.guna2DgvMaterialPreparation.Enabled = false;
             }
             else
             {
                 this.MatBtnSave.Visible = true;
+                this.guna2DgvMaterialPreparation.Enabled = true;
             }
         }
 
         private void MatBtnSave_Click(object sender, EventArgs e)
         {
-            if(this.MatTxtSupploer.Text == String.Empty)
+            if (this.MatTxtSupploer.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 this.MatTxtSupploer.Focus();
                 return;
             }
 
-            if(this.MatTxtParentDescription.Text == String.Empty)
+            if (this.MatTxtParentDescription.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 this.MatTxtParentDescription.Focus();
@@ -210,6 +220,149 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 this.GlobalStatePopup.FillRequiredFields();
                 this.matCmbRemarks.Focus();
                 return;
+            }
+
+            if (this.MatTxTTransactNo.Text == String.Empty)
+            {
+                this.MatTxTTransactNo.Text = "0";
+            }
+
+
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+
+          
+
+                try
+                {
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection
+                    .sp_DryWHReceiptParents(0,
+                    this.MatTxtParentDescription.Text.Trim(),
+                    this.matCmbRemarks.Text.Trim(),
+                    true,
+                    Convert.ToString(this.Useridentity),
+                    DateTime.Now,
+                    "add");
+                    this.ConnetionString();
+                    this.LoadParentReceiptCmb();
+
+
+                    foreach (DataGridViewRow row in guna2DgvMaterialPreparation.Rows)
+                    {
+                
+                        dSet.Clear();
+                        dSet = g_objStoredProcCollection
+                        .Sp_DryWHReceipt(Convert.ToInt32(row.Cells["Id"].Value.ToString()),
+                        this.MatTxtParentDescription.Text.Trim(),
+                        Convert.ToInt32(this.MatTxTTransactNo.Text.Trim()),
+                        0,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                       this.MatTxtSupploer.Text.Trim(),
+                        "",
+                        0,
+                       this.matCmbRemarks.Text.Trim(),
+                        "",
+                        "",
+                        false,
+                        "edit");
+                    }
+                    this.GlobalStatePopup.SuccessfullyReceived();
+                    this.ClearTextBox();
+                    this.frmDryWhMiscellaneousReceipts_Load(sender, e);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            else
+            {
+                return;
+            }
+
+        }
+
+        private void ClearTextBox()
+        {
+            this.MatTxtParentDescription.Text = String.Empty;
+            this.MatTxTTransactNo.Text = String.Empty;
+            this.MatTxtLotNo.Text = String.Empty;
+            this.MatTxtLotDescription.Text = String.Empty;
+            this.MatTxtQty.Text = String.Empty;
+            this.MatTxtCategory.Text = String.Empty;
+            this.MatTxtExpiryDays.Text = String.Empty;
+            this.MatTxtSupploer.Text = String.Empty;
+            this.MatTxtParentDescription.Text = String.Empty;
+            this.matCmbRemarks.Text = String.Empty;
+        }
+
+        private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "CANCEL")
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    try
+                    {
+                        dSet.Clear();
+                        dSet = g_objStoredProcCollection
+                        .Sp_DryWHReceipt(p_id,
+                        "",
+                        0,
+                        0,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        0,
+                        "",
+                        "",
+                        "",
+                        false,
+                        "delete");
+
+                        this.frmDryWhMiscellaneousReceipts_Load(sender, e);
+                        this.GlobalStatePopup.CancelledSuccessfully();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+                   
+
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+                //
+            }
+        }
+
+        private void MatTxTTransactNo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if(this.MatTxTTransactNo.Text != String.Empty)
+            {
+                this.MatTxtParentDescription.Text = this.MatTxTTransactNo.SelectedValue.ToString();
             }
 
 
