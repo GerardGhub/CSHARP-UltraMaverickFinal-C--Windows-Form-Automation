@@ -47,12 +47,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.doSearchInTextBox();
             this.LoadItemCodeDropdown();
             this.LoadParentReceiptCmb();
+            if (this.MatTxTTransactNo.Text != String.Empty)
+            {
+                this.MatBtnNew.Enabled = true;
+            }
         }
 
 
         public void LoadItemCodeDropdown()
         {
-
             myClass.fillComboBoxRMDryItemCode(MatCmbSupplierCode, "Suppliers_dropdown", dSet);
             this.MatCmbSupplierCode_SelectionChangeCommitted(new object(), new System.EventArgs());
         }
@@ -242,6 +245,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     if (this.MatTxtParentDescription.Text != String.Empty)
                     {
                         this.MatBtnNew.Enabled = true;
+                        if (this.LblTotalRecords.Text == "0")
+                        {
+                            this.MatBtnSave.Enabled = false;
+                        }
+           
                     }
                 }
                 else
@@ -267,17 +275,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
                     try
                     {
-                        //dSet.Clear();
-                        //dSet = g_objStoredProcCollection
-                        //.sp_DryWHReceiptParents(0,
-                        //this.MatTxtParentDescription.Text.Trim(),
-                        //this.matCmbRemarks.Text.Trim(),
-                        //true,
-                        //Convert.ToString(this.Useridentity),
-                        //DateTime.Now,
-                        //"add");
-                        //this.ConnetionString();
-                        //this.LoadParentReceiptCmb();
+               
 
 
                         foreach (DataGridViewRow row in guna2DgvMaterialPreparation.Rows)
@@ -449,6 +447,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             if (this.MatTxtSupploer.Text != String.Empty && this.matCmbRemarks.Text != String.Empty)
             {
                 this.MatBtnSave.Visible = true;
+            }
+        }
+
+        private void MatTxtParentDescription_TextChanged(object sender, EventArgs e)
+        {
+            if (this.MatTxtSupploer.Text != String.Empty && this.matCmbRemarks.Text != String.Empty)
+            {
+                this.MatBtnNew.Enabled = true;
             }
         }
     }

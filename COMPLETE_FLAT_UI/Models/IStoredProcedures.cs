@@ -568,6 +568,28 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
 
+
+        DataSet Sp_DryWHIssue(
+        int Id,
+        string ParentDescription,
+        int TransactionNo,
+        int LotNumber,
+        string LotDescription,
+        string ManufacturingDate,
+        string ExpirationDate,
+        string ExpiryDays,
+        string ItemCode,
+        string ItemDescription,
+        string Category,
+        string Supplier,
+        double Quantity,
+        string Remarks,
+        string AddedBy,
+        string DateAdded,
+        bool IsActive,
+        string mode);
+
+
         DataSet sp_DryWHReceiptParents(
         int Id,
         string ParentDescription,
@@ -576,6 +598,17 @@ namespace ULTRAMAVERICK.Models
         string AddedBy,
         DateTime DateAdded,
         string mode);
+
+
+            DataSet sp_DryWHIssueParents(
+            int Id,
+            string ParentDescription,
+            string Remarks,
+            bool IsActive,
+            string AddedBy,
+            DateTime DateAdded,
+            string mode);
+
 
 
 
