@@ -18,7 +18,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
     public partial class FrmDryWhMiscellaneouseIssue : MaterialForm
     {
         myclasses xClass = new myclasses();
-        frmDryWhMiscellaneousReceipts ths;
+        //frmDryWhMiscellaneousReceipts ths;
 
         TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
         DryWHReceipt DryWHReceiptEntity = new DryWHReceipt();
@@ -315,6 +315,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             {
                 this.MatTxtParentDescription.Text = this.MatTxTTransactNo.SelectedValue.ToString();
             }
+        }
+
+        private void MatBtnNew_Click(object sender, EventArgs e)
+        {
+            this.MatBtnNew.Enabled = false;
+            FrmAddNewMiscellaneousIssue AddIssue = new FrmAddNewMiscellaneousIssue(this);
+            AddIssue.ShowDialog();
         }
     }
 }
