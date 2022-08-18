@@ -746,11 +746,11 @@
     <Compile Include="Forms\Users\UpdateUserPasswordModal.Designer.cs">
       <DependentUpon>UpdateUserPasswordModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLoginForm.cs">
+    <Compile Include="FrmLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLoginForm.Designer.cs">
-      <DependentUpon>frmLoginForm.cs</DependentUpon>
+    <Compile Include="FrmLoginForm.Designer.cs">
+      <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\View Models\MenuClasses.cs" />
     <Compile Include="Models\IStoredProcedures.cs" />
@@ -1074,8 +1074,8 @@
     <EmbeddedResource Include="Forms\Users\UpdateUserPasswordModal.resx">
       <DependentUpon>UpdateUserPasswordModal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLoginForm.resx">
-      <DependentUpon>frmLoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLoginForm.resx">
+      <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,7 +18,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         myclasses xClass = new myclasses();
 
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -56,7 +55,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void ConnetionString()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
         private void ShowDataActivated()
         {
@@ -68,9 +67,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             try
             {
-                ready = false;
+  
                 xClass.fillDataGridView(dgvWarehousing, "MoveOrder_Tblwarehouses", dSet);
-                ready = true;
+
                 lbltotalrecords.Text = dgvWarehousing.RowCount.ToString();
             }
             catch (Exception ex)
@@ -89,7 +88,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("MoveOrder_Tblwarehouses_Active_Major");
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("MoveOrder_Tblwarehouses_Active_Major");
 
         }
 
@@ -138,7 +137,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             }
 
             dSet.Clear();
-            dSet = objStorProc.sp_Item_Class(0, txtmatDescription.Text, "", "", "", "", "getbyname");
+            dSet = g_objStoredProcCollection.sp_Item_Class(0, txtmatDescription.Text, "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -218,7 +217,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_Tblwarehouses(0, 
+                dSet = g_objStoredProcCollection.sp_Tblwarehouses(0, 
                     this.txtmatDescription.Text, 
                     this.txtmatAccountTitle.Text.Trim(), 
                     "", 
@@ -240,7 +239,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 {
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_Tblwarehouses(0,
+                    dSet = g_objStoredProcCollection.sp_Tblwarehouses(0,
                     this.txtmatDescription.Text.Trim(),                        
                     this.txtmatAccountTitle.Text.Trim(),
                     this.sp_created_by,
@@ -256,13 +255,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_Tblwarehouses(0, 
+                dSet = g_objStoredProcCollection.sp_Tblwarehouses(0, 
                     this.txtmatDescription.Text, 
                     this.txtmatAccountTitle.Text, 
                     "", "", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_Tblwarehouses(p_id, 
+                dSet_temp = g_objStoredProcCollection.sp_Tblwarehouses(p_id, 
                     this.txtmatDescription.Text, 
                     this.txtmatAccountTitle.Text.Trim(), 
                     "", 
@@ -275,7 +274,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_Tblwarehouses(p_id, 
+                        dSet = g_objStoredProcCollection.sp_Tblwarehouses(p_id, 
                             this.txtmatDescription.Text.Trim(),
                             this.txtmatAccountTitle.Text.Trim(),                  
                            this.sp_modified_by,
@@ -304,7 +303,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 {
 
                 dSet.Clear();
-                dSet = objStorProc.sp_Tblwarehouses(p_id, 
+                dSet = g_objStoredProcCollection.sp_Tblwarehouses(p_id, 
                 this.txtmatDescription.Text.Trim(),
                 this.txtmatAccountTitle.Text.Trim(),                     
                 this.sp_modified_by,
@@ -325,7 +324,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 {
 
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_Tblwarehouses(p_id, 
+                    dSet_temp = g_objStoredProcCollection.sp_Tblwarehouses(p_id, 
                         this.txtmatDescription.Text, 
                         this.txtmatAccountTitle.Text.Trim(), 
                         "", 
@@ -336,7 +335,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 else
                 {
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_Tblwarehouses(p_id, 
+                    dSet_temp = g_objStoredProcCollection.sp_Tblwarehouses(p_id, 
                     this.txtmatDescription.Text, 
                     this.txtmatAccountTitle.Text.Trim(), 
                     "", 
@@ -422,8 +421,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             myglobal.global_module = "Active"; // Mode for Searching
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("MoveOrder_Tblwarehouses_Inactive");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("MoveOrder_Tblwarehouses_Inactive");
         }
+
+
 
 
         private void doSearchInTextBox()

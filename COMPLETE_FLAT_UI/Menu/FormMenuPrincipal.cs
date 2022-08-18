@@ -743,7 +743,11 @@ namespace COMPLETE_FLAT_UI
                     {
                         toolReceiving.Visible = true;
                     }
-              
+                    else if (form_name == "toolStripMoveOrderSetup")
+                    {
+                        toolStripMoveOrderSetup.Visible = true;
+                    }
+
 
 
                 }
@@ -1420,6 +1424,8 @@ namespace COMPLETE_FLAT_UI
             //Miscellaneouse Receipt
             this.toolStripMoveOrderSetup.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
+            //Miscellaneous Process
+            this.toolStripDropDownMiscellaneousDryWh.Visible = false;
             this.timeSubMenuIn.Start();
        
         }

@@ -20,12 +20,11 @@ namespace ULTRAMAVERICK.Forms.Users
     {
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         DataSet dSet = new DataSet();
         Boolean ready = false;
         string mode = "";
         int p_id = 0;
-   
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         myclasses myClass = new myclasses();
         DataSet dSet_temp = new DataSet();
         myglobal pointer_module = new myglobal();
@@ -84,8 +83,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void frmUserRight_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
 
       
             displayUserRights();
@@ -100,23 +98,20 @@ namespace ULTRAMAVERICK.Forms.Users
 
             myglobal.global_module = "Active"; // Mode for Searching
 
-            getAllTaggedParentMenu(); //Tagged Equal ==
+            this.GetAllTaggedParentMenu(); 
             lblUserID.Text = userinfo.user_id.ToString(); // ID of User
             lblFirstName.Text = userinfo.emp_name.ToUpper(); // First Name Session
             materialTxtModuelAvail.RowsDefaultCellStyle.ForeColor = Color.Black;
             loadMenu_byUsers_GChildTagged();
             loadMenu_byUsers_ParentTagged();
 
-            showvalue();
+            this.ShowValue();
         }
-
-        private void checkTheDataofParentMenu()
+        private void ConnectionInit()
         {
-            if (listBoxParentTag.Items.Count > 0)
-            {
-
-            }
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
         }
+
 
         public void loadMenu_byUsers_ParentTagged()
         {
@@ -131,10 +126,9 @@ namespace ULTRAMAVERICK.Forms.Users
         public void loadMenu_byUsers_GChildTagged()
         {
 
-            //KIKI
-            ready = false;
+
             xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, 0);
-            ready = true;
+
             lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
 
 
@@ -154,9 +148,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
 
-        private void getAllTaggedParentMenu()
+        private void GetAllTaggedParentMenu()
         {
-            dset_emp = objStorProc.sp_getMajorTables("ParentFormsTaggedRightsMenu");
+            dset_emp = g_objStoredProcCollection.sp_getMajorTables("ParentFormsTaggedRightsMenu");
 
             if (dset_emp.Tables.Count > 0)
             {
@@ -176,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 }
                 dgvTagParentMenu.DataSource = dv;
-                //lblrecords.Text = dgv_table.RowCount.ToString();
+
             }
 
 
@@ -184,12 +178,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void getAllParentMenu()
         {
-            //buje
 
-            //string mcolumns = "menu_id,menu_name,department";     /* ,InitialMemoReleased,ResolutionMemoReleased*/
-            //pointer_module.populateModule(dsetHeader, dgvParentMenu, mcolumns, "ParentFormsRightsMenu");
-            showvalue();
-            dset_emp = objStorProc.sp_getMajorTables("ParentFormsRightsMenu");
+            this.ShowValue();
+            this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("ParentFormsRightsMenu");
 
             if (dset_emp.Tables.Count > 0)
             {
@@ -209,8 +200,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 }
                 materialTxtModuelAvail.DataSource = dv;
-                //lbltotalMenu.Text = dgvParentMenu.RowCount.ToString();
-                //lblrecords.Text = dgv_table.RowCount.ToString();
+
             }
 
             this.materialTxtModuelAvail.Columns["menu_id"].Visible = false;
@@ -260,8 +250,9 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         
             btnUpdateTheMenu.Visible = true;
-            showvalue();
-            loadMenu_byUsers();
+            this.ShowValue();
+            
+            this.LoadMenuByUsers();
             loadMenu_byUsers_GChildTagged();
     
             loadMenu_byUsers_ParentTagged();
@@ -277,7 +268,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
 
-        public void showvalue()
+        public void ShowValue()
         {
             if (ready == true)
             {
@@ -313,7 +304,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             if (txtMaterialRights.Text.Trim() == string.Empty)
             {
-                FillUserRights();
+                this.GlobalStatePopup.FillUserRights();
                 txtMaterialRights.Focus();
                 return;
 
@@ -322,32 +313,7 @@ namespace ULTRAMAVERICK.Forms.Users
          
         }
 
-        void FillUserRights()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Fedora Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "WARNING FILL UP THE REQUIRED FIELDS ";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
 
@@ -356,19 +322,19 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_user_rights(0, txtMaterialRights.Text, "getbyname");
+                dSet = g_objStoredProcCollection.sp_user_rights(0, txtMaterialRights.Text, "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    UserRightexists();
-                    //MessageBox.Show(lblName.Text + " : [ " + txtMaterialRights.Text + " ] already exist...", lblName.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  
+                    this.GlobalStatePopup.UserRightexists(txtMaterialRights.Text);
                     txtMaterialRights.Focus();
                     return false;
                 }
                 else
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_user_rights(0, txtMaterialRights.Text, "add");
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_user_rights(0, txtMaterialRights.Text, "add");
                     displayUserRights();
                     SaveMenus();
 
@@ -378,10 +344,10 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_user_rights(0, txtMaterialRights.Text, "getbyname");
+                dSet = this.g_objStoredProcCollection.sp_user_rights(0, txtMaterialRights.Text, "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_user_rights(p_id, txtMaterialRights.Text, "getbyid");
+                dSet_temp = this.g_objStoredProcCollection.sp_user_rights(p_id, txtMaterialRights.Text, "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -389,7 +355,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_user_rights(p_id, txtMaterialRights.Text, "edit");
+                        dSet = this.g_objStoredProcCollection.sp_user_rights(p_id, txtMaterialRights.Text, "edit");
 
 
                         return true;
@@ -405,7 +371,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_user_rights(p_id, txtMaterialRights.Text, "edit");
+                    dSet = g_objStoredProcCollection.sp_user_rights(p_id, txtMaterialRights.Text, "edit");
 
                     return true;
                 }
@@ -413,70 +379,20 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "delete")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_user_rights(p_id, txtMaterialRights.Text, "delete");
+                dSet = g_objStoredProcCollection.sp_user_rights(p_id, txtMaterialRights.Text, "delete");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_user_rights(p_id, txtMaterialRights.Text, "delete");
+                dSet_temp = g_objStoredProcCollection.sp_user_rights(p_id, txtMaterialRights.Text, "delete");
 
                 return true;
             }
             return false;
         }
 
-        public void UserRightsUpdated()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Fedora Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "USER RIGHTS UPDATED";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
 
 
-        }
-
-        void UserRightexists()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Fedora Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "WARNING USER RIGHTS ALREADY EXISTS " + txtMaterialRights.Text + " ";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             mode = "";
@@ -496,7 +412,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
                 if (txtMaterialRights.Text.Trim() == string.Empty)
                 {
-                    FillUserRights();
+                    this.GlobalStatePopup.FillUserRights();
                     txtMaterialRights.Focus();
                     //MessageBox.Show("Please enter " + lblName.Text + ". ", lblName.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -515,7 +431,8 @@ namespace ULTRAMAVERICK.Forms.Users
                         }
                         btnCancel_Click("", e);
                         materialBtnNew.Visible = true;
-                        UserRightsUpdated();
+     
+                        this.GlobalStatePopup.UpdatedSuccessfully();
                     }
                 }
 
@@ -547,8 +464,7 @@ namespace ULTRAMAVERICK.Forms.Users
          
         
             panel3Enabled();
-            //UpdateMenu();
-            //loadAvailableMenu();
+     
             load_search_ChildMenu(); //Bind the Information
         }
 
@@ -645,15 +561,15 @@ namespace ULTRAMAVERICK.Forms.Users
                         if (ListViewmenu.Items.Count > 0)
                         {
 
-                            showvalue();
-                            //Gerard Singian Developer Man
+                            this.ShowValue();
+                
                             var SelectedDataRowParent = (ListViewmenu.SelectedItem as DataRowView)["menu_id"].ToString();
 
 
                             dv.RowFilter = "parent_menu = " + SelectedDataRowParent + " and user_rights_id = " + p_id + " ";
 
                         }
-                        //dv.RowFilter = "parent_menu = '" + txtchildid.Text + "'";
+
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -661,7 +577,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                     }
                      dgvGrandChild.DataSource = dv;
-                    //lblrecords.Text = dgv_table.RowCount.ToString();
+    
                 }
             }
             catch (SyntaxErrorException)
@@ -741,12 +657,12 @@ namespace ULTRAMAVERICK.Forms.Users
             dset_emp_childTagging.Clear();
 
             if (myglobal.global_module == "EMPLOYEE")
-            { dset_emp_childTagging = objStorProc.sp_getMajorTables("employee"); }
+            { dset_emp_childTagging = g_objStoredProcCollection.sp_getMajorTables("employee"); }
 
             else if (myglobal.global_module == "Active")
-            { dset_emp_childTagging = objStorProc.sp_getMajorTables("ParentMenuTagging"); }
+            { dset_emp_childTagging = g_objStoredProcCollection.sp_getMajorTables("ParentMenuTagging"); }
             else if (myglobal.global_module == "InActive")
-            { dset_emp_childTagging = objStorProc.sp_getMajorTables("InactiveFeedCode"); }
+            { dset_emp_childTagging = g_objStoredProcCollection.sp_getMajorTables("InactiveFeedCode"); }
 
 
             doSearch();
@@ -759,10 +675,8 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             dset_emp_grandchildTagging.Clear();
 
-        
-             dset_emp_grandchildTagging = objStorProc.sp_getMajorTables("GrandChildMenuTagging"); 
-      
-
+             dset_emp_grandchildTagging = g_objStoredProcCollection.sp_getMajorTables("GrandChildMenuTagging"); 
+     
             doSearchGrandChildredMenu();
 
         }
@@ -776,12 +690,12 @@ namespace ULTRAMAVERICK.Forms.Users
             dset_emp.Clear();
 
             if (myglobal.global_module == "EMPLOYEE")
-            { dset_emp = objStorProc.sp_getMajorTables("employee"); }
+            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("employee"); }
 
             else if (myglobal.global_module == "Active")
-            { dset_emp = objStorProc.sp_getMajorTables("ParentMenuTagging"); }
+            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("ParentMenuTagging"); }
             else if (myglobal.global_module == "InActive")
-            { dset_emp = objStorProc.sp_getMajorTables("InactiveFeedCode"); }
+            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("InactiveFeedCode"); }
 
 
             doSearchTagParentMenu();
@@ -809,32 +723,6 @@ namespace ULTRAMAVERICK.Forms.Users
             btnEditTool.Visible = false;
         }
 
-        public void UpdateMenu()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Fedora Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Forms Available Activated Ready for Tagging !";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void btnCancelListViewMenu_Click(object sender, EventArgs e)
         {
@@ -873,12 +761,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void listViewuser_rights_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadMenu_byUsers();
+            this.LoadMenuByUsers();
             loadMenu_byUsers_GChildTagged();
             loadMenu_byUsers_ParentTagged();
             lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
         }
-         public void loadMenu_byUsers()
+         public void LoadMenuByUsers()
         {
 
             //GetMenuByUsers
@@ -890,12 +778,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (txtMaterialRights.Text.Trim() == string.Empty)
+            if (this.txtMaterialRights.Text.Trim() == string.Empty)
             {
-                SelectUserRights();
-                listViewuser_rights.Enabled = true;
+                this.GlobalStatePopup.SelectUserRights();
+                this.listViewuser_rights.Enabled = true;
              
-                txtMaterialRights.Focus();
+                this.txtMaterialRights.Focus();
              
                 return;
 
@@ -903,84 +791,11 @@ namespace ULTRAMAVERICK.Forms.Users
             metroButtonDelete_Click(sender, e);
         }
 
-        public void SelectUserRights()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Fedora Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Please Select User Rights";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
+  
 
 
-        }
-
-        public void UserRighstDeleted()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "USER RIGHTS DELETED SUCCESSFULLY !";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void AlreadyAddedOnYourParentMenu()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "This menu is already added on your rights !";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
@@ -1002,7 +817,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         }
                         mode = "";
                         listViewuser_rights_Click(sender, e);
-                        UserRighstDeleted();
+                        this.GlobalStatePopup.InactiveSuccessfully();
                     }
                 }
                 //}
@@ -1063,22 +878,6 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-        private void loadAvailableMenu()
-        {
-            //xClass.fillDataGridView(dataView, cboParentMenu.Text, dSet);
-            //dataView.Columns[2].Width = 500;
-            //dataView.Columns[1].Width = 50;
-            //dataView.Columns[0].Width = 30;
-            //dataView.Columns[2].HeaderText = "Menu Name";
-            //dataView.Columns[3].Visible = false;
-        }
-
-        private void cbcategory_DropDownClosed(object sender, EventArgs e)
-        {
-            //loadAvailableMenu();
-            //btnselect.Visible = true;
-            //btndeselect.Visible = true;
-        }
 
         private void cboParentMenu_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -1097,108 +896,41 @@ namespace ULTRAMAVERICK.Forms.Users
         private void TagParentMenu()
         {
 
-            //int x = 0;
-            //for (int i = 0; i < dgvParentMenu.RowCount; i++)
-            //{
-            //    if (Convert.ToBoolean(dgvParentMenu.Rows[i].Cells[0].Value))
-            //        x++;
-            //}
-            //if (x <= 0)
-            //{
-            //    MessageBox.Show("Please select a menu before updating.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
 
-            //}
-            //else
-            //{
+            this.ShowValue();
+              
+            this.dSet.Clear();
+              
+            this.dSet = g_objStoredProcCollection.sp_user_rights_details(0, p_id, Convert.ToInt32(txtmenuid.Text),"" , lblUserID.Text.Trim(), "Parent", lblFirstName.Text.Trim(), txtIDParent.Text.Trim(), "add");
 
-                showvalue();
-                //for (int n = 0; n < dgvParentMenu.RowCount; n++)
-                //{
-                //    if (Convert.ToBoolean(dgvParentMenu.Rows[n].Cells[0].Value))
-                //    {
-                //        dSet.Clear();
-                //        dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms_Parent", 0, p_id, Convert.ToInt32(dgvParentMenu.Rows[n].Cells[1].Value));
-                //        if (dSet.Tables[0].Rows.Count > 0)
-                //        {
-                //            string temp = dSet.Tables[0].Rows[0][2].ToString();
-                //            AlreadyAddedOnYourParentMenu();
-                //            //MessageBox.Show("This menu is already added on your rights: " + temp);
-                //            deselectAll();
-                //            return;
-                //        }
-                //    }
-                //}
-
-                //for (int i = 0; i < dgvParentMenu.RowCount; i++)
-                //{
-                    dSet.Clear();
-                    //if (Convert.ToBoolean(dgvParentMenu.Rows[i].Cells[0].Value))
-                    //{
-                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(txtmenuid.Text),"" , lblUserID.Text.Trim(), "Parent", lblFirstName.Text.Trim(), txtIDParent.Text.Trim(), "add");
-                //    }
-                //}
-
-                loadMenu_byUsers();
-                loadMenu_byUsers_ParentTagged();
-                getAllParentMenu();
-                SaveUpdateMenuNotifications();
-                btnUnselectAll_Click(new object(), new System.EventArgs());
-                btnCancelListViewMenu_Click(new object(), new System.EventArgs());
-                getAllTaggedParentMenu(); //Tag Menu Refresh
-                load_search_ChildMenu(); // Select the Child
-            
-            //}
-
-
-
+            this.LoadMenuByUsers();
+            loadMenu_byUsers_ParentTagged();
+            getAllParentMenu();
+            this.GlobalStatePopup.SaveUpdateMenuNotifications();
+            btnUnselectAll_Click(new object(), new System.EventArgs());
+            btnCancelListViewMenu_Click(new object(), new System.EventArgs());
+            this.GetAllTaggedParentMenu(); 
+            load_search_ChildMenu(); 
+     
         }
 
-        private void SaveUpdateMenuNotifications()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "SUCCESSFULLY UPDATE THE FORMS";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-  
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
 
         private void CheckChildTagging()
         {
-            showvalue();
+            this.ShowValue();
             for (int n = 0; n < dataView.RowCount; n++)
             {
                 if (Convert.ToBoolean(dataView.Rows[n].Cells[0].Value))
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms", 0, p_id, Convert.ToInt32(dataView.Rows[n].Cells[1].Value));
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_getMenu_by_user("get_already_added_forms", 0, p_id, Convert.ToInt32(dataView.Rows[n].Cells[1].Value));
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
                         string temp = dSet.Tables[0].Rows[0][2].ToString();
                         MessageBox.Show("This menu is already added on your rights: " + temp);
-                        //AlreadyAddedOnYourParentMenu();
-                        //deselectAll();
                         return;
                     }
                 }
@@ -1223,23 +955,7 @@ namespace ULTRAMAVERICK.Forms.Users
             else
             {
 
-                showvalue();
-                //for (int n = 0; n < dataView.RowCount; n++)
-                //{
-                //    if (Convert.ToBoolean(dataView.Rows[n].Cells[0].Value))
-                //    {
-                //        dSet.Clear();
-                //        dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms", 0, p_id, Convert.ToInt32(dataView.Rows[n].Cells[1].Value));
-                //        if (dSet.Tables[0].Rows.Count > 0)
-                //        {
-                //            string temp = dSet.Tables[0].Rows[0][2].ToString();
-                //            //MessageBox.Show("This menu is already added on your rights: " + temp);
-                //            AlreadyAddedOnYourParentMenu();
-                //            deselectAll();
-                //            return;
-                //        }
-                //    }
-                //}
+                this.ShowValue();
 
                 for (int i = 0; i < dataView.RowCount; i++)
                 {
@@ -1247,16 +963,14 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (Convert.ToBoolean(dataView.Rows[i].Cells[0].Value))
                     {
                         p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
-                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(dataView.Rows[i].Cells[1].Value),"", lblUserID.Text.Trim(), "Child", lblFirstName.Text.Trim(), Convert.ToString(dataView.Rows[i].Cells[6].Value), "add");
+                        this.dSet = this.g_objStoredProcCollection.sp_user_rights_details(0, p_id, Convert.ToInt32(dataView.Rows[i].Cells[1].Value),"", lblUserID.Text.Trim(), "Child", lblFirstName.Text.Trim(), Convert.ToString(dataView.Rows[i].Cells[6].Value), "add");
                     }
                 }
-
-                loadMenu_byUsers();
-                //loadMenu_byUsers_ParentTagged();
-                SaveUpdateMenuNotifications();
+                this.ConnectionInit();
+                this.LoadMenuByUsers();
+                this.GlobalStatePopup.SaveUpdateMenuNotifications();
                 btnUnselectAll_Click(sender, e);
-                load_search_ChildMenu();
-                //btnCancelListViewMenu_Click(sender, e);
+
               
             }
 
@@ -1355,34 +1069,7 @@ namespace ULTRAMAVERICK.Forms.Users
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
 
-        private void SuccessFullyUntag()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Untagged";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
         private void ToolDeleteTagMenu_Click(object sender, EventArgs e)
@@ -1390,7 +1077,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Removed The Access on Selected Form Menu", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                //showvalue();
+               
                 if (listBoxParentTag.Items.Count > 0)
                 {
                     showKeyParent();
@@ -1401,17 +1088,16 @@ namespace ULTRAMAVERICK.Forms.Users
                         p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
                     }
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_user_rights_details(pkey, "delete");
+                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
 
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_user_rights_details(p_id, 0,0,"","","","",materialTextBoxMenuAvailable.Text.Trim(), "delete_LogsParent");
+                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0,0,"","","","",materialTextBoxMenuAvailable.Text.Trim(), "delete_LogsParent");
 
                    
-                    SuccessFullyUntag();
+                    this.GlobalStatePopup.SuccessFullyUntag();
 
                     listViewuser_rights_Click(sender, e);
-                    //loadMenu_byUsers_ParentTagged();
-                    //getAllTaggedParentMenu();
+          
 
                 }
 
@@ -1469,12 +1155,12 @@ namespace ULTRAMAVERICK.Forms.Users
             btnEditTool.Visible = false;
           
      
-            panel3Enabled();
-            //UpdateMenu();
+            this.panel3Enabled();
+   
 
-            getAllTaggedParentMenu(); //Tagged Equal ==
-            cboParentMenu_SelectedValueChanged(sender, e);
-            //load_search_ChildMenu(); //Bind the Information //8/25/2021
+            this.GetAllTaggedParentMenu(); 
+            this.cboParentMenu_SelectedValueChanged(sender, e);
+
         }
 
         private void btnCancelUpdateMenu_Click(object sender, EventArgs e)
@@ -1535,19 +1221,20 @@ namespace ULTRAMAVERICK.Forms.Users
                     }
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_user_rights_details(pkey, "delete");
+                    dSet = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
 
 
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
+                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
 
 
                    
-                    loadMenu_byUsers();
+                    this.LoadMenuByUsers();
                     ListViewmenu_Click(sender, e);
                     load_search_ChildMenu();
-            
-                    UserRightsUpdated();
+
+
+                    this.GlobalStatePopup.UpdatedSuccessfully();
 
                 }
 
@@ -1566,7 +1253,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 if (ListViewmenu.Items.Count > 0)
                 {
                     pkey = Convert.ToInt32(ListViewmenu.SelectedValue.ToString());
-                    loadMenu_byUsers();
+                    this.LoadMenuByUsers();
                 }
             }
         }
@@ -1592,9 +1279,9 @@ namespace ULTRAMAVERICK.Forms.Users
         private void ListViewmenu_Click(object sender, EventArgs e)
         {
           
-         btnUpdateTheMenu.Visible = true;
-            showvalue();
-            //loadMenu_byUsers();  8/26/2021
+            this.btnUpdateTheMenu.Visible = true;
+            this.ShowValue();
+
         }
 
         private void dataView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -1647,71 +1334,38 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnTaggingGchild_Click(object sender, EventArgs e)
         {
-            //int x = 0;
-            //for (int i = 0; i < dgvGrandChild.RowCount; i++)
-            //{
-            //    if (Convert.ToBoolean(dgvGrandChild.Rows[i].Cells[0].Value))
-            //        x++;
-            //}
+       
 
-            //if (x <= 0)
-            //{
-            //    MessageBox.Show("Please select a menu before updating.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.ShowValue();
+       
+            dSet.Clear();
+           
+            dSet = g_objStoredProcCollection.sp_user_rights_details(0, p_id, Convert.ToInt32(txtchildprimarymenuid.Text), "", lblUserID.Text.Trim(), "GrandChild", lblFirstName.Text.Trim(), Convert.ToString(txtchildprimarymenuid.Text), "add");
+           
 
-            //}
-            //else
-            //{
-
-                showvalue();
-                //for (int n = 0; n < dgvGrandChild.RowCount; n++)
-                //{
-                //    if (Convert.ToBoolean(dgvGrandChild.Rows[n].Cells[0].Value))
-                //    {
-                //        dSet.Clear();
-                //        dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms_grandChild", 0, p_id, Convert.ToInt32(dgvGrandChild.Rows[n].Cells[1].Value));
-                //        if (dSet.Tables[0].Rows.Count > 0)
-                //        {
-                //            string temp = dSet.Tables[0].Rows[0][2].ToString();
-                //            //MessageBox.Show("This menu is already added on your rights: " + temp);
-                //            AlreadyAddedOnYourParentMenu();
-                //            //deselectAll();
-                //            btnUnSelectAlGrandChild_Click(sender , e);
-                //            return;
-                //        }
-                //    }
-                //}
-
-                //for (int i = 0; i < dgvGrandChild.RowCount; i++)
-                //{
-                    dSet.Clear();
-                    //if (Convert.ToBoolean(dgvGrandChild.Rows[i].Cells[0].Value))
-                    //{
-                        dSet = objStorProc.sp_user_rights_details(0, p_id, Convert.ToInt32(txtchildprimarymenuid.Text), "", lblUserID.Text.Trim(), "GrandChild", lblFirstName.Text.Trim(), Convert.ToString(txtchildprimarymenuid.Text), "add");
-                //    }
-                //}
-
-                //loadMenu_byUsers();
-                loadMenu_byUsers_GChildTagged();
-                SaveUpdateMenuNotifications();
-                btnUnSelectAlGrandChild_Click(sender, e);
-                btnCancelListViewMenu_Click(sender, e);
+   
+            loadMenu_byUsers_GChildTagged();
+            this.GlobalStatePopup.SaveUpdateMenuNotifications();
+            btnUnSelectAlGrandChild_Click(sender, e);
+            btnCancelListViewMenu_Click(sender, e);
             ListViewmenu_Click_1(sender, e);
-            //}
+         
         }
 
         private void dataView_CurrentCellChanged(object sender, EventArgs e)
         {
 
-            if (dataView.Rows.Count > 0)
+            if (this.dataView.Rows.Count > 0)
             {
-                if (dataView.CurrentRow != null)
+                if (this.dataView.CurrentRow != null)
                 {
-                    if (dataView.CurrentRow.Cells["menu_id"].Value != null)
+                    if (this.dataView.CurrentRow.Cells["menu_id"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dataView.CurrentRow.Cells["menu_id"].Value);
-                       txtchildid.Text = dataView.CurrentRow.Cells["menu_id"].Value.ToString();
+                        this.p_id = Convert.ToInt32(this.dataView.CurrentRow.Cells["menu_id"].Value);
+                        
+                        this.txtchildid.Text = this.dataView.CurrentRow.Cells["menu_id"].Value.ToString();
 
-                        materialTextBoxSubMenuAvail.Text = dataView.CurrentRow.Cells["menu_name"].Value.ToString();
+                        this.materialTextBoxSubMenuAvail.Text = this.dataView.CurrentRow.Cells["menu_name"].Value.ToString();
 
 
                     }
@@ -1777,13 +1431,17 @@ namespace ULTRAMAVERICK.Forms.Users
         private void  CheckGrandChildTagging()
         {
 
-            showvalue();
+            this.ShowValue();
             for (int n = 0; n < dgvGrandChild.RowCount; n++)
             {
                 if (Convert.ToBoolean(dgvGrandChild.Rows[n].Cells[0].Value))
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms_grandChild", 0, p_id, Convert.ToInt32(dgvGrandChild.Rows[n].Cells[1].Value));
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection
+                        .sp_getMenu_by_user("get_already_added_forms_grandChild", 
+                        0, 
+                        p_id, 
+                        Convert.ToInt32(dgvGrandChild.Rows[n].Cells[1].Value));
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
                         string temp = dSet.Tables[0].Rows[0][2].ToString();
@@ -1813,17 +1471,17 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void CheckParentTaggingMenu()
         {
-            showvalue();
+            this.ShowValue();
             for (int n = 0; n < materialTxtModuelAvail.RowCount; n++)
             {
                 if (Convert.ToBoolean(materialTxtModuelAvail.Rows[n].Cells[0].Value))
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_getMenu_by_user("get_already_added_forms_Parent", 0, p_id, Convert.ToInt32(materialTxtModuelAvail.Rows[n].Cells[1].Value));
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_getMenu_by_user("get_already_added_forms_Parent", 0, p_id, Convert.ToInt32(materialTxtModuelAvail.Rows[n].Cells[1].Value));
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
                         string temp = dSet.Tables[0].Rows[0][2].ToString();
-                        //AlreadyAddedOnYourParentMenu();
+                      
                         MessageBox.Show("This menu is already added on your rights: " + temp);
 
                         return;
@@ -1863,17 +1521,17 @@ namespace ULTRAMAVERICK.Forms.Users
                         p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
                     }
 
-                    dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_user_rights_details(pkey, "delete");
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
 
 
-                    dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtGChildName.Text.Trim(), "delete_LogsGChild");
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtGChildName.Text.Trim(), "delete_LogsGChild");
 
 
-                    SuccessFullyUntag();
+                    this.GlobalStatePopup.SuccessFullyUntag();
 
-                    getAllTaggedParentMenu();
+                    this.GetAllTaggedParentMenu();
                     loadMenu_byUsers_GChildTagged();
                     ListViewmenu_Click_1(sender, e);
                 }
@@ -1940,7 +1598,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void ListViewmenu_Click_1(object sender, EventArgs e)
         {
             btnUpdateTheMenu.Visible = true;
-            showvalue();
+            this.ShowValue();
             txtMaterialChildName.Text = ListViewmenu.Text;
             load_search_GrandChildMenu();
             ListViewmenu.Enabled = true;
@@ -2023,10 +1681,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnUpdateTool_Click_1(object sender, EventArgs e)
         {
-            if (txtMaterialRights.Text.Trim() == string.Empty)
+            if (this.txtMaterialRights.Text.Trim() == string.Empty)
             {
-                FillUserRights();
-                txtMaterialRights.Focus();
+                this.GlobalStatePopup.FillUserRights();
+                this.txtMaterialRights.Focus();
                 return;
 
             }
@@ -2064,12 +1722,12 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         private void btnDeleteTool_Click_1(object sender, EventArgs e)
         {
-            if (txtMaterialRights.Text.Trim() == string.Empty)
+            if (this.txtMaterialRights.Text.Trim() == string.Empty)
             {
-                SelectUserRights();
-                listViewuser_rights.Enabled = true;
+                this.GlobalStatePopup.SelectUserRights();
+                this.listViewuser_rights.Enabled = true;
 
-                txtMaterialRights.Focus();
+                this.txtMaterialRights.Focus();
 
                 return;
 
@@ -2080,14 +1738,14 @@ namespace ULTRAMAVERICK.Forms.Users
         private void materialBtnUpdateMenu_Click(object sender, EventArgs e)
         {
             
-            getAllTaggedParentMenu(); //Tagged Equal ==
+            this.GetAllTaggedParentMenu(); //Tagged Equal ==
 
-            getAllParentMenu();
-            //
-            AvailableMajor();
-            btnUpdateTheMenu_Click(sender, e);
+            this.getAllParentMenu();
+      
+            this.AvailableMajor();
+            this.btnUpdateTheMenu_Click(sender, e);
          
-            load_search_ChildMenu();
+            this.load_search_ChildMenu();
 
         }
 
@@ -2396,11 +2054,12 @@ namespace ULTRAMAVERICK.Forms.Users
             //e.DrawFocusRectangle();
         }
 
+
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             if (txtMaterialRights.Text.Trim() == string.Empty)
             {
-                FillUserRights();
+                this.GlobalStatePopup.FillUserRights();
                 txtMaterialRights.Focus();
                 return;
 
@@ -2428,12 +2087,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void matBtnDelete_Click(object sender, EventArgs e)
         {
-            if (txtMaterialRights.Text.Trim() == string.Empty)
+            if (this.txtMaterialRights.Text.Trim() == string.Empty)
             {
-                SelectUserRights();
-                listViewuser_rights.Enabled = true;
+                this.GlobalStatePopup.SelectUserRights();
+                this.listViewuser_rights.Enabled = true;
 
-                txtMaterialRights.Focus();
+                this.txtMaterialRights.Focus();
 
                 return;
 

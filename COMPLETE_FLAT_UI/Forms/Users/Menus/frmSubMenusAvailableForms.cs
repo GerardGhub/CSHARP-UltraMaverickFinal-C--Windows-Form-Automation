@@ -18,8 +18,6 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmSubMenusAvailableForms : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -56,7 +54,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private void frmChildAvailableForms_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             displayChildFormsData();
             loadParentMenu();
             displayUserRightsData();
@@ -64,8 +61,8 @@ namespace ULTRAMAVERICK.Forms.Users
         private void displayUserRightsData()      //method for loading available_menus
         {
 
-            xClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
-          //this.dgvChildForms.Columns["menu_id"].Visible = false;
+            myClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
+
 
         }
 
@@ -85,9 +82,9 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             try
             {
-                ready = false;
-                xClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
-                ready = true;
+               
+                myClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
+
                 lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
             }
             catch (Exception ex)
@@ -380,7 +377,7 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "","","","","", "getbyname");
+                dSet = g_objStoredProcCollection.sp_available_menu(0, txtmname.Text, "", "","","","","", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -394,7 +391,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu(0, txtmname.Text.Trim(), 
+                    dSet = g_objStoredProcCollection.sp_available_menu(0, txtmname.Text.Trim(), 
                         txtfname.Text.Trim(), 
                         txtcount.Text.Trim(), 
                         txtCreatedAt.Text.Trim(), 
@@ -412,10 +409,10 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "","","","","", "getbyname");
+                dSet = g_objStoredProcCollection.sp_available_menu(0, txtmname.Text, "", "","","","","", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu(p_id, txtmname.Text, "", "","","","","", "getbyid");
+                dSet_temp = g_objStoredProcCollection.sp_available_menu(p_id, txtmname.Text, "", "","","","","", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -423,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_available_menu(p_id, txtmname.Text.Trim(), 
+                        dSet = g_objStoredProcCollection.sp_available_menu(p_id, txtmname.Text.Trim(), 
                             txtfname.Text.Trim(), 
                             txtcount.Text.Trim(), 
                             txtCreatedAt.Text.Trim(), 
@@ -445,7 +442,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_available_menu(p_id, txtmname.Text.Trim(), 
+                    dSet = g_objStoredProcCollection.sp_available_menu(p_id, txtmname.Text.Trim(), 
                         txtfname.Text.Trim(), 
                         txtcount.Text.Trim(), 
                         txtCreatedAt.Text.Trim(), 
@@ -460,7 +457,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
          
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_available_menu(p_id, txtmname.Text, "", "","","","","", "delete");
+                dSet_temp = g_objStoredProcCollection.sp_available_menu(p_id, txtmname.Text, "", "","","","","", "delete");
 
                 return true;
             }
@@ -471,7 +468,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
+            dSet = g_objStoredProcCollection.sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -654,7 +651,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void materialButton1_Click_1(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
+            dSet = g_objStoredProcCollection.sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -808,7 +805,7 @@ namespace ULTRAMAVERICK.Forms.Users
         DataSet dset_emp = new DataSet();
         private void SearchSubMenuData()
         {
-            dset_emp = objStorProc.sp_getMajorTables("available_menu_Major");
+            dset_emp = g_objStoredProcCollection.sp_getMajorTables("available_menu_Major");
 
             if (dset_emp.Tables.Count > 0)
             {
@@ -848,7 +845,8 @@ namespace ULTRAMAVERICK.Forms.Users
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = objStorProc.sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
+            dSet = g_objStoredProcCollection
+                .sp_available_menu(0, txtmname.Text, "", "", "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
