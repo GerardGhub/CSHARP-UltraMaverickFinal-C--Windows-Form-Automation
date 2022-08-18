@@ -107,9 +107,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void MatTxtAccountTitle_TextChanged(object sender, EventArgs e)
         {
-            if (this.MatTxtAccountTitle.Text != String.Empty 
-                && this.MatTxtAddress.Text != String.Empty
-                && this.MatCmbRemarks.Text != String.Empty)
+            if (this.MatTxtAccountTitle.Text != String.Empty
+               && this.MatTxtAddress.Text != String.Empty
+               && this.MatCmbRemarks.Text != String.Empty
+               && this.MatTxtParentDescription.Text != String.Empty)
             {
                 this.MatBtnSave.Visible = true;
             }
@@ -118,8 +119,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void MatTxtAddress_TextChanged(object sender, EventArgs e)
         {
             if (this.MatTxtAccountTitle.Text != String.Empty
-               && this.MatTxtAddress.Text != String.Empty
-               && this.MatCmbRemarks.Text != String.Empty)
+             && this.MatTxtAddress.Text != String.Empty
+             && this.MatCmbRemarks.Text != String.Empty
+             && this.MatTxtParentDescription.Text != String.Empty)
             {
                 this.MatBtnSave.Visible = true;
             }
@@ -129,7 +131,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             if (this.MatTxtAccountTitle.Text != String.Empty
                && this.MatTxtAddress.Text != String.Empty
-               && this.MatCmbRemarks.Text != String.Empty)
+               && this.MatCmbRemarks.Text != String.Empty
+               && this.MatTxtParentDescription.Text != String.Empty)
             {
                 this.MatBtnSave.Visible = true;
             }
@@ -322,6 +325,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnNew.Enabled = false;
             FrmAddNewMiscellaneousIssue AddIssue = new FrmAddNewMiscellaneousIssue(this);
             AddIssue.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox1.Text != String.Empty)
+            {
+                this.MatBtnNew.Enabled = true;
+                this.textBox1.Text = String.Empty;
+                this.FrmDryWhMiscellaneouseIssue_Load(sender, e);
+            }
         }
     }
 }

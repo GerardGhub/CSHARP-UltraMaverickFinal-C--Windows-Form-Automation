@@ -19,7 +19,7 @@ namespace ULTRAMAVERICK.Forms.Users
     public partial class frmModulesAvailableForms : MaterialForm
     {
         myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         public Byte[] imageByte = null;
         myclasses myClass = new myclasses();
@@ -52,7 +52,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private void frmGrandChildAvailableForms_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.displayGrandChildFormsData();
             this.loadChildMenu();
             this.displayUserRightsData();  
@@ -80,7 +79,7 @@ namespace ULTRAMAVERICK.Forms.Users
         DataSet dset_emp = new DataSet();
         private void SearchGrandChildData()
         {
-            dset_emp = objStorProc.sp_getMajorTables("SearchGrandChildForms");
+            dset_emp = g_objStoredProcCollection.sp_getMajorTables("SearchGrandChildForms");
 
             if (dset_emp.Tables.Count > 0)
             {
@@ -403,7 +402,7 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.Sp_available_menu_grandChild(0, txtgchild.Text, txtcountChildId.Text, "", "", "", "", "", "getbyname");
+                dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0, txtgchild.Text, txtcountChildId.Text, "", "", "", "", "", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -416,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.Sp_available_menu_grandChild(0,
+                    dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -437,11 +436,11 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (mode == "edit")
             {
                 dSet.Clear();
-                dSet = objStorProc.Sp_available_menu_grandChild(0,
+                dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0,
                     txtgchild.Text, "", "", "", "", "", "", "getbyname");
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.Sp_available_menu_grandChild(p_id,
+                dSet_temp = g_objStoredProcCollection.Sp_available_menu_grandChild(p_id,
                     txtgchild.Text, "", "", "", "", "", "", "getbyid");
 
                 if (dSet.Tables[0].Rows.Count > 0)
@@ -450,7 +449,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (tmpID == p_id)
                     {
                         dSet.Clear();
-                        dSet = objStorProc.Sp_available_menu_grandChild(p_id,
+                        dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(p_id,
                             txtgchild.Text.Trim(),
                             txtfname.Text.Trim(),
                             txtcountChildId.Text.Trim(),
@@ -473,7 +472,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.Sp_available_menu_grandChild(p_id,
+                    dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(p_id,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -489,7 +488,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
 
                 dSet_temp.Clear();
-                dSet_temp = objStorProc.Sp_available_menu_grandChild(p_id,
+                dSet_temp = g_objStoredProcCollection.Sp_available_menu_grandChild(p_id,
                     txtgchild.Text, "", "", "", "", "", "", "delete");
 
                 return true;
@@ -506,7 +505,7 @@ namespace ULTRAMAVERICK.Forms.Users
             if (mode == "add")
             {
                 dSet.Clear();
-                dSet = objStorProc.Sp_available_menu_grandChild(0,
+                dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0,
                     txtgchild.Text.Trim(),
                     txtfname.Text.Trim(),
                     txtcountChildId.Text.Trim(),
@@ -817,7 +816,7 @@ namespace ULTRAMAVERICK.Forms.Users
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             dSet.Clear();
-            dSet = objStorProc.Sp_available_menu_grandChild(0, this.txtgchild.Text, 
+            dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0, this.txtgchild.Text, 
                 this.txtcountChildId.Text, "", "", "", "", "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
@@ -858,7 +857,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 txtcountChildId.Focus();
                 return;
             }
-            //MessageBox.Show(mode);
+
 
             if (mode == "add")
             {
@@ -868,7 +867,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                     dSet.Clear();
-                    dSet = objStorProc.Sp_available_menu_grandChild(0,
+                    dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),
@@ -907,7 +906,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                     dSet.Clear();
-                    dSet = objStorProc.Sp_available_menu_grandChild(p_id,
+                    dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(p_id,
                         txtgchild.Text.Trim(),
                         txtfname.Text.Trim(),
                         txtcountChildId.Text.Trim(),

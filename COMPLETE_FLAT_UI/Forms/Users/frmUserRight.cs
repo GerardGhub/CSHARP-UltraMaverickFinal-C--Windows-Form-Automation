@@ -1983,6 +1983,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
             {
+   
                 matBtnMenu_Click(sender, e);
                 materialBtnMenuAVlCancel_Click(sender, e);
             }

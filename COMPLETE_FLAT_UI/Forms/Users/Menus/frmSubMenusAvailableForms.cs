@@ -18,6 +18,7 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmSubMenusAvailableForms : MaterialForm
     {
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -212,32 +213,6 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-        public void FillRequiredFields()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Fill up the required fields!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         public void ChildMenuAlreadyExist()
         {
@@ -302,7 +277,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 if (cboParentMenu.Text.Trim() == string.Empty)
                 {
-                    FillRequiredFields();
+                   this.GlobalStatePopup.FillRequiredFields();
                     cboParentMenu.Focus();
 
 
@@ -312,7 +287,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 if (txtmname.Text.Trim() == string.Empty)
                 {
-                    FillRequiredFields();
+                    this.GlobalStatePopup.FillRequiredFields();
                     txtmname.Focus();
 
 
@@ -321,16 +296,16 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 if (txtfname.Text.Trim() == string.Empty)
                 {
-                    FillRequiredFields();
-                    txtfname.Focus();
+                    this.GlobalStatePopup.FillRequiredFields();
+                    this.txtfname.Focus();
                     return;
                 }
 
                 if (txtcount.Text.Trim() == string.Empty)
                 {
 
-                    FillRequiredFields();
-                    txtcount.Focus();
+                    this.GlobalStatePopup.FillRequiredFields();
+                    this.txtcount.Focus();
                     return;
                 }
 
@@ -488,16 +463,16 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void metroFinalSaving_Click(object sender, EventArgs e)
         {
-            if (txtmname.Text.Trim() == string.Empty)
+            if (this.txtmname.Text.Trim() == string.Empty)
             {
-                FillRequiredFields();
-                txtfname.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.txtfname.Focus();
                 return;
             }
 
             if (txtfname.Text.Trim() == string.Empty)
             {
-                FillRequiredFields();
+                this.GlobalStatePopup.FillRequiredFields();
                 txtfname.Focus();
             }
             else

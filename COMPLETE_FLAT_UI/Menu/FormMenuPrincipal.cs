@@ -464,18 +464,20 @@ namespace COMPLETE_FLAT_UI
                     {
                         btnDryWarehouse1.Visible = true;
                     }
-                    else if (parent_form_name == "Production Planner")
-                    {
-                        btnProductionPlanner1.Visible = true;
-                    }
-                    else if (parent_form_name == "Preparation Department")
-                    {
-                        btnPreparationDepartment1.Visible = true;
-                    }
-                    else if (parent_form_name == "Research & Development")
-                    {
-                        btnResearchAndDevelopment1.Visible = true;
-                    }
+
+                    //Phase 2 Muna ito
+                    //else if (parent_form_name == "Production Planner")
+                    //{
+                    //    btnProductionPlanner1.Visible = true;
+                    //}
+                    //else if (parent_form_name == "Preparation Department")
+                    //{
+                    //    btnPreparationDepartment1.Visible = true;
+                    //}
+                    //else if (parent_form_name == "Research & Development")
+                    //{
+                    //    btnResearchAndDevelopment1.Visible = true;
+                    //}
 
                 }
             }
@@ -629,6 +631,14 @@ namespace COMPLETE_FLAT_UI
                     {
                         rMBarcodeReprintingToolStripMenuItem.Enabled = true;
                     }
+                    else if (form_name == "tSWarehouses")
+                    {
+                        this.tSWarehouses.Enabled = true;
+                    }
+                    else if (form_name == "TsCustomer")
+                    {
+                        this.TsCustomer.Enabled = true;
+                    }
 
                 }
             }
@@ -747,6 +757,11 @@ namespace COMPLETE_FLAT_UI
                     {
                         toolStripMoveOrderSetup.Visible = true;
                     }
+                    else if (form_name == "toolStoreSetup")
+                    {
+                        toolStoreSetup.Visible = true;
+                    }
+
 
 
 
@@ -1416,7 +1431,7 @@ namespace COMPLETE_FLAT_UI
             //Receiving Collection
             this.toolReceiving.Visible = false;
             //Store Collection
-            this.toolStore.Visible = false;
+            this.toolStoreSetup.Visible = false;
             //Raw Materials Per Items
             toolStripRawMaterials.Visible = false;
             //Import Collection
@@ -1447,7 +1462,7 @@ namespace COMPLETE_FLAT_UI
             //Inventory Viewing
             this.toolStripInventoryDry.Visible = true;
             //Store Collections
-            this.toolStore.Visible = false;
+            this.toolStoreSetup.Visible = false;
             //Miscellaneouse Receipt
             this.toolStripMoveOrderSetup.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = true;
@@ -1573,7 +1588,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStripRawMaterials.Visible = true;
             this.toolImportDry.Visible = false;
             //Store Collection
-            this.toolStore.Visible = true;
+            //this.toolStoreSetup.Visible = true;
             //Miscellaneouse Receipt
             //this.toolStripMoveOrderSetup.Visible = true;
             this.toolStripInventoryDry.Visible = false;

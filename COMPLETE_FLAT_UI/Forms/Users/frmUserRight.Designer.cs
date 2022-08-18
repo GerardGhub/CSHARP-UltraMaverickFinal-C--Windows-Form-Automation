@@ -98,7 +98,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnMenu = new MaterialSkin.Controls.MaterialButton();
             this.lblidMark = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.UserRights1 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.materialBtnNew = new System.Windows.Forms.ToolStripButton();
@@ -106,18 +106,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
             this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
-            this.MajorMenuActive2 = new System.Windows.Forms.TabPage();
-            this.MajorMenuActiveAvail3 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.button2 = new System.Windows.Forms.Button();
-            this.SubMenuActive4 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.button3 = new System.Windows.Forms.Button();
-            this.SubMenuAvail5 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
-            this.ModulesActive6 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
-            this.ModulesAvail7 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.materialCard8 = new MaterialSkin.Controls.MaterialCard();
             this.button4 = new System.Windows.Forms.Button();
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
@@ -145,19 +145,19 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard5SubMenuAvailable.SuspendLayout();
             this.materialCard7ModuleAvail.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.UserRights1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.MajorMenuActive2.SuspendLayout();
-            this.MajorMenuActiveAvail3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.materialCard4.SuspendLayout();
-            this.SubMenuActive4.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.materialCard5.SuspendLayout();
-            this.SubMenuAvail5.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.materialCard6.SuspendLayout();
-            this.ModulesActive6.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.materialCard7.SuspendLayout();
-            this.ModulesAvail7.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.materialCard8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).BeginInit();
             this.groupRightsAvailable.SuspendLayout();
@@ -1062,13 +1062,13 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.UserRights1);
-            this.tabControl1.Controls.Add(this.MajorMenuActive2);
-            this.tabControl1.Controls.Add(this.MajorMenuActiveAvail3);
-            this.tabControl1.Controls.Add(this.SubMenuActive4);
-            this.tabControl1.Controls.Add(this.SubMenuAvail5);
-            this.tabControl1.Controls.Add(this.ModulesActive6);
-            this.tabControl1.Controls.Add(this.ModulesAvail7);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(34, 76);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(1);
@@ -1078,21 +1078,21 @@ namespace ULTRAMAVERICK.Forms.Users
             this.tabControl1.TabIndex = 599;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // UserRights1
+            // tabPage1
             // 
-            this.UserRights1.Controls.Add(this.panel1);
-            this.UserRights1.Controls.Add(this.listViewuser_rights);
-            this.UserRights1.Controls.Add(this.materialCard3);
-            this.UserRights1.Controls.Add(this.lbltotalChildActive);
-            this.UserRights1.Location = new System.Drawing.Point(4, 28);
-            this.UserRights1.Margin = new System.Windows.Forms.Padding(1);
-            this.UserRights1.Name = "UserRights1";
-            this.UserRights1.Padding = new System.Windows.Forms.Padding(1);
-            this.UserRights1.Size = new System.Drawing.Size(944, 430);
-            this.UserRights1.TabIndex = 0;
-            this.UserRights1.Text = "USER RIGHTS";
-            this.UserRights1.UseVisualStyleBackColor = true;
-            this.UserRights1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.listViewuser_rights);
+            this.tabPage1.Controls.Add(this.materialCard3);
+            this.tabPage1.Controls.Add(this.lbltotalChildActive);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(1);
+            this.tabPage1.Size = new System.Drawing.Size(944, 430);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "USER RIGHTS";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // panel1
             // 
@@ -1171,32 +1171,32 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool.Visible = false;
             this.btnCancelTool.Click += new System.EventHandler(this.matBtnCancel_Click);
             // 
-            // MajorMenuActive2
+            // tabPage2
             // 
-            this.MajorMenuActive2.BackColor = System.Drawing.Color.Transparent;
-            this.MajorMenuActive2.Controls.Add(this.listBoxParentTag);
-            this.MajorMenuActive2.Controls.Add(this.materialCard1);
-            this.MajorMenuActive2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.MajorMenuActive2.Location = new System.Drawing.Point(4, 28);
-            this.MajorMenuActive2.Margin = new System.Windows.Forms.Padding(1);
-            this.MajorMenuActive2.Name = "MajorMenuActive2";
-            this.MajorMenuActive2.Padding = new System.Windows.Forms.Padding(1);
-            this.MajorMenuActive2.Size = new System.Drawing.Size(944, 430);
-            this.MajorMenuActive2.TabIndex = 1;
-            this.MajorMenuActive2.Text = "MAJOR MENU TAGGED";
-            this.MajorMenuActive2.UseVisualStyleBackColor = true;
+            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.listBoxParentTag);
+            this.tabPage2.Controls.Add(this.materialCard1);
+            this.tabPage2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabPage2.Size = new System.Drawing.Size(944, 430);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "MAJOR MENU TAGGED";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // MajorMenuActiveAvail3
+            // tabPage3
             // 
-            this.MajorMenuActiveAvail3.Controls.Add(this.materialCard4);
-            this.MajorMenuActiveAvail3.Controls.Add(this.materialCard2);
-            this.MajorMenuActiveAvail3.Location = new System.Drawing.Point(4, 28);
-            this.MajorMenuActiveAvail3.Margin = new System.Windows.Forms.Padding(1);
-            this.MajorMenuActiveAvail3.Name = "MajorMenuActiveAvail3";
-            this.MajorMenuActiveAvail3.Size = new System.Drawing.Size(944, 430);
-            this.MajorMenuActiveAvail3.TabIndex = 2;
-            this.MajorMenuActiveAvail3.Text = "MAJOR MENU AVAIL";
-            this.MajorMenuActiveAvail3.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.materialCard4);
+            this.tabPage3.Controls.Add(this.materialCard2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(944, 430);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "MAJOR MENU AVAIL";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // materialCard4
             // 
@@ -1231,17 +1231,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Visible = false;
             // 
-            // SubMenuActive4
+            // tabPage4
             // 
-            this.SubMenuActive4.Controls.Add(this.ListViewmenu);
-            this.SubMenuActive4.Controls.Add(this.materialCard5);
-            this.SubMenuActive4.Location = new System.Drawing.Point(4, 28);
-            this.SubMenuActive4.Margin = new System.Windows.Forms.Padding(1);
-            this.SubMenuActive4.Name = "SubMenuActive4";
-            this.SubMenuActive4.Size = new System.Drawing.Size(944, 430);
-            this.SubMenuActive4.TabIndex = 3;
-            this.SubMenuActive4.Text = "SUB MENU TAGGED";
-            this.SubMenuActive4.UseVisualStyleBackColor = true;
+            this.tabPage4.Controls.Add(this.ListViewmenu);
+            this.tabPage4.Controls.Add(this.materialCard5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(944, 430);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "SUB MENU TAGGED";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // materialCard5
             // 
@@ -1276,17 +1276,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Visible = false;
             // 
-            // SubMenuAvail5
+            // tabPage5
             // 
-            this.SubMenuAvail5.Controls.Add(this.materialCard6);
-            this.SubMenuAvail5.Controls.Add(this.materialCard5SubMenuAvailable);
-            this.SubMenuAvail5.Location = new System.Drawing.Point(4, 28);
-            this.SubMenuAvail5.Margin = new System.Windows.Forms.Padding(1);
-            this.SubMenuAvail5.Name = "SubMenuAvail5";
-            this.SubMenuAvail5.Size = new System.Drawing.Size(944, 430);
-            this.SubMenuAvail5.TabIndex = 4;
-            this.SubMenuAvail5.Text = "SUB MENU AVAIL";
-            this.SubMenuAvail5.UseVisualStyleBackColor = true;
+            this.tabPage5.Controls.Add(this.materialCard6);
+            this.tabPage5.Controls.Add(this.materialCard5SubMenuAvailable);
+            this.tabPage5.Location = new System.Drawing.Point(4, 28);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(944, 430);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "SUB MENU AVAIL";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // materialCard6
             // 
@@ -1304,17 +1304,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard6.Size = new System.Drawing.Size(839, 69);
             this.materialCard6.TabIndex = 582;
             // 
-            // ModulesActive6
+            // tabPage6
             // 
-            this.ModulesActive6.Controls.Add(this.listBoxGrandChildTag);
-            this.ModulesActive6.Controls.Add(this.materialCard7);
-            this.ModulesActive6.Location = new System.Drawing.Point(4, 28);
-            this.ModulesActive6.Margin = new System.Windows.Forms.Padding(1);
-            this.ModulesActive6.Name = "ModulesActive6";
-            this.ModulesActive6.Size = new System.Drawing.Size(944, 430);
-            this.ModulesActive6.TabIndex = 5;
-            this.ModulesActive6.Text = "MODULES TAGGED";
-            this.ModulesActive6.UseVisualStyleBackColor = true;
+            this.tabPage6.Controls.Add(this.listBoxGrandChildTag);
+            this.tabPage6.Controls.Add(this.materialCard7);
+            this.tabPage6.Location = new System.Drawing.Point(4, 28);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(944, 430);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "MODULES TAGGED";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // materialCard7
             // 
@@ -1332,17 +1332,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard7.Size = new System.Drawing.Size(839, 69);
             this.materialCard7.TabIndex = 583;
             // 
-            // ModulesAvail7
+            // tabPage7
             // 
-            this.ModulesAvail7.Controls.Add(this.materialCard8);
-            this.ModulesAvail7.Controls.Add(this.materialCard7ModuleAvail);
-            this.ModulesAvail7.Location = new System.Drawing.Point(4, 28);
-            this.ModulesAvail7.Margin = new System.Windows.Forms.Padding(1);
-            this.ModulesAvail7.Name = "ModulesAvail7";
-            this.ModulesAvail7.Size = new System.Drawing.Size(944, 430);
-            this.ModulesAvail7.TabIndex = 6;
-            this.ModulesAvail7.Text = "MODULES AVAIL";
-            this.ModulesAvail7.UseVisualStyleBackColor = true;
+            this.tabPage7.Controls.Add(this.materialCard8);
+            this.tabPage7.Controls.Add(this.materialCard7ModuleAvail);
+            this.tabPage7.Location = new System.Drawing.Point(4, 28);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(944, 430);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "MODULES AVAIL";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // materialCard8
             // 
@@ -1653,22 +1653,22 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard5SubMenuAvailable.ResumeLayout(false);
             this.materialCard7ModuleAvail.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.UserRights1.ResumeLayout(false);
-            this.UserRights1.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.MajorMenuActive2.ResumeLayout(false);
-            this.MajorMenuActiveAvail3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.materialCard4.ResumeLayout(false);
-            this.SubMenuActive4.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.materialCard5.ResumeLayout(false);
-            this.SubMenuAvail5.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.materialCard6.ResumeLayout(false);
-            this.ModulesActive6.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             this.materialCard7.ResumeLayout(false);
-            this.ModulesAvail7.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.materialCard8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).EndInit();
             this.groupRightsAvailable.ResumeLayout(false);
@@ -1730,19 +1730,19 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label lblidMark;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelected;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage UserRights1;
-        private System.Windows.Forms.TabPage MajorMenuActive2;
-        private System.Windows.Forms.TabPage MajorMenuActiveAvail3;
-        private System.Windows.Forms.TabPage SubMenuActive4;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
         private MaterialSkin.Controls.MaterialCard materialCard4;
         internal System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TabPage SubMenuAvail5;
-        private System.Windows.Forms.TabPage ModulesActive6;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
         private MaterialSkin.Controls.MaterialCard materialCard5;
         internal System.Windows.Forms.Button button3;
         private MaterialSkin.Controls.MaterialCard materialCard6;
         internal System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TabPage ModulesAvail7;
+        private System.Windows.Forms.TabPage tabPage7;
         private MaterialSkin.Controls.MaterialCard materialCard7;
         private MaterialSkin.Controls.MaterialCard materialCard8;
         private System.Windows.Forms.ToolStrip miniToolStrip;

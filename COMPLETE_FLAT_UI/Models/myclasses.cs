@@ -21,6 +21,7 @@ namespace ULTRAMAVERICK.Models
         public user_infos muser_infos = new user_infos();
         public string SubCategory { get; set; }
         public DataSet DataSetRMMoverOrderReceipt  = new DataSet();
+        public DataSet DataSetRMMoverOrderIssue = new DataSet();
         public DataSet getTable(string eTablename)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
@@ -169,6 +170,25 @@ namespace ULTRAMAVERICK.Models
 
             g_objStoredProcFill = null;
         }
+
+        public void fillCmbItemCode(ComboBox eComboBox, string eTablename, DataSet dSet, string ItemCode)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, 0, ItemCode, null, null, null);
+
+            eComboBox.DataSource = dSet.Tables[0].DefaultView;
+            eComboBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
+            eComboBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+
+            DataSetRMMoverOrderIssue = dSet;
+
+            // this.SubCategory = dSet.Tables[0].Rows[0]["sub_category"].ToString();
+            //MessageBox.Show(this.SubCategory);
+
+            g_objStoredProcFill = null;
+        }
+
 
 
 
