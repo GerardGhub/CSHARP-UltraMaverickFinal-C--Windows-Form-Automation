@@ -23,14 +23,14 @@ namespace ULTRAMAVERICK.API.Data
             try
             {
      
-      this.xClass.fillDataGridView(DataGridViews, "MoveOrder_Customers_Active", this.dSet);
+            this.xClass.fillDataGridView(DataGridViews, "MoveOrder_Customers_Active", this.dSet);
 
-                TblCustomersEntity.TotalRecords = DataGridViews.RowCount;
+            TblCustomersEntity.TotalRecords = DataGridViews.RowCount;
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+            MessageBox.Show(ex.Message);
             }
         }
 

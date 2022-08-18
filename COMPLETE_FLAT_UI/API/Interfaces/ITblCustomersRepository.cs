@@ -10,6 +10,7 @@ namespace ULTRAMAVERICK.API.Interfaces
     {
 
         void GetCustomer(System.Windows.Forms.DataGridView DataGridViews);
+
         void GetCustomerDeactivated(System.Windows.Forms.DataGridView DataGridViews);
 
         void GetCustomerSearchMajor(int TotalRecords);

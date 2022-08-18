@@ -1418,7 +1418,7 @@ namespace COMPLETE_FLAT_UI
             //Import Collection
             toolImportDry.Visible = false;
             //Miscellaneouse Receipt
-            this.toolStripMoveOrder.Visible = false;
+            this.toolStripMoveOrderSetup.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
             this.timeSubMenuIn.Start();
        
@@ -1443,9 +1443,11 @@ namespace COMPLETE_FLAT_UI
             //Store Collections
             this.toolStore.Visible = false;
             //Miscellaneouse Receipt
-            this.toolStripMoveOrder.Visible = false;
+            this.toolStripMoveOrderSetup.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = true;
             this.timeSubMenuIn.Start();
+            //Miscellaneouse Receipt Module Process
+            this.toolStripDropDownMiscellaneousDryWh.Visible = true;
 
         }
 
@@ -1567,11 +1569,14 @@ namespace COMPLETE_FLAT_UI
             //Store Collection
             this.toolStore.Visible = true;
             //Miscellaneouse Receipt
-            this.toolStripMoveOrder.Visible = true;
+            //this.toolStripMoveOrderSetup.Visible = true;
             this.toolStripInventoryDry.Visible = false;
             this.toolReceiving.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
             this.timeSubMenuIn.Start();
+
+            //RM RECEIPT PROCESS MODULE
+            this.toolStripDropDownMiscellaneousDryWh.Visible = false;
         }
 
         private void toolStripStoreArea_Click(object sender, EventArgs e)
