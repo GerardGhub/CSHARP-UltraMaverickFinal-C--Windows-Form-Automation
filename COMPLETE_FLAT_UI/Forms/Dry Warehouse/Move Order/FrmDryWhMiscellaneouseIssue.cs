@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         //frmDryWhMiscellaneousReceipts ths;
 
         TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
-        DryWHReceipt DryWHReceiptEntity = new DryWHReceipt();
+        DryWHReceipt DryWHIssueEntity = new DryWHReceipt();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
@@ -43,8 +43,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             this.ConnetionString();
             this.Useridentity = userinfo.user_id;
-            //this.SearchMethodJarVarCallingSP();
-            //this.doSearchInTextBox();
+            this.SearchMethodJarVarCallingSP();
+            this.doSearchInTextBox();
             this.LoadWarehouseDropdown();
             this.LoadCustomerDropdown();
             this.LoadParentReceiptCmb();
@@ -53,6 +53,74 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 this.MatBtnNew.Enabled = true;
             }
         }
+
+        private void DataGridVisibilityHidden()
+        {
+            this.guna2DgvMaterialPreparation.Columns["ParentDescription"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["TransactionNo"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["AddedBy"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["DateAdded"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["IsActive"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["Supplier"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["Id"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["Remarks"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["UnitOfMeasure"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["ExpiryDays"].Visible = false;
+        }
+
+
+
+        private void doSearchInTextBox()
+        {
+            try
+            {
+
+
+                if (dset_emp_SearchEngines.Tables.Count > 0)
+                {
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
+
+                    if (myglobal.global_module == "Active")
+                    {
+                        dv.RowFilter = "AddedBy = '" + this.Useridentity + "' ";
+                    }
+
+                    this.guna2DgvMaterialPreparation.DataSource = dv;
+                    LblTotalRecords.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
+                }
+            }
+            catch (SyntaxErrorException)
+            {
+                MessageBox.Show("Invalid Character Found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Invalid Character Found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+            this.DataGridVisibilityHidden();
+
+
+        }
+
+
+
+
+        DataSet dset_emp_SearchEngines = new DataSet();
+        private void SearchMethodJarVarCallingSP()
+        {
+            myglobal.global_module = "Active";
+            dset_emp_SearchEngines.Clear();
+
+
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DryWHIssue_Major");
+
+        }
+
 
         public void LoadParentReceiptCmb()
         {
@@ -249,7 +317,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                             "",
                             "",
                             "",
-                           DryWHReceiptEntity.Category,
+                           DryWHIssueEntity.Category,
                              "this.MatTxtSupploer.Text.Trim()",
                             0,
                            "this.matCmbRemarks.Text.Trim()",
@@ -335,6 +403,85 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 this.textBox1.Text = String.Empty;
                 this.FrmDryWhMiscellaneouseIssue_Load(sender, e);
             }
+        }
+
+        private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "CANCEL")
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    try
+                    {
+                        dSet.Clear();
+                        dSet = g_objStoredProcCollection
+                        .Sp_DryWHIssue(p_id,
+                        "",
+                        0,
+                        0,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        0,
+                        "",
+                        "",
+                        "",
+                        false,
+                        "delete");
+
+                        this.FrmDryWhMiscellaneouseIssue_Load(sender, e);
+                        this.GlobalStatePopup.CancelledSuccessfully();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+
+
+                }
+
+                else
+                {
+                    return;
+                }
+
+
+
+            }
+
+
+
+        }
+
+        private void guna2DgvMaterialPreparation_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+            if (this.guna2DgvMaterialPreparation.Rows.Count > 0)
+            {
+                if (this.guna2DgvMaterialPreparation.CurrentRow != null)
+                {
+                    if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["ItemCode"].Value != null)
+                    {
+                        this.p_id = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["Id"].Value);
+                        DryWHIssueEntity.LotNumber = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["LotNumber"].Value);
+                        DryWHIssueEntity.LotDescription = this.guna2DgvMaterialPreparation.CurrentRow.Cells["LotDescription"].Value.ToString();
+                        DryWHIssueEntity.Quantity = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["Quantity"].Value);
+                        DryWHIssueEntity.Category = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Category"].Value.ToString();
+                        DryWHIssueEntity.ExpiryDays = this.guna2DgvMaterialPreparation.CurrentRow.Cells["ExpiryDays"].Value.ToString();
+
+                    }
+                }
+            }
+
+
+
         }
     }
 }

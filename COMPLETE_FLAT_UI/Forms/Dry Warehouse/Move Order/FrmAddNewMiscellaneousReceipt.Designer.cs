@@ -35,6 +35,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.label3 = new System.Windows.Forms.Label();
             this.MatCmbItemCode = new MetroFramework.Controls.MetroComboBox();
             this.MatTxtQuantity = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatTxtLotNo = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatTxtLotDesc = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MatDtpExpDate = new System.Windows.Forms.DateTimePicker();
@@ -42,8 +44,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtItemDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtExpiryDays = new MaterialSkin.Controls.MaterialTextBox();
-            this.MatTxtLotDesc = new MaterialSkin.Controls.MaterialTextBox();
-            this.MatTxtLotNo = new MaterialSkin.Controls.MaterialTextBox();
             this.MatBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -125,6 +125,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtQuantity.TabIndex = 580;
             this.MatTxtQuantity.Text = "";
             this.MatTxtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.materialTextBox6_KeyPress);
+            // 
+            // MatTxtLotNo
+            // 
+            this.MatTxtLotNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtLotNo.Depth = 0;
+            this.MatTxtLotNo.Enabled = false;
+            this.MatTxtLotNo.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtLotNo.Hint = "Lot No.";
+            this.MatTxtLotNo.Location = new System.Drawing.Point(368, 154);
+            this.MatTxtLotNo.MaxLength = 50;
+            this.MatTxtLotNo.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtLotNo.Multiline = false;
+            this.MatTxtLotNo.Name = "MatTxtLotNo";
+            this.MatTxtLotNo.Size = new System.Drawing.Size(270, 50);
+            this.MatTxtLotNo.TabIndex = 2;
+            this.MatTxtLotNo.Text = "";
+            // 
+            // MatTxtLotDesc
+            // 
+            this.MatTxtLotDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtLotDesc.Depth = 0;
+            this.MatTxtLotDesc.Enabled = false;
+            this.MatTxtLotDesc.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtLotDesc.Hint = "Lot Description";
+            this.MatTxtLotDesc.Location = new System.Drawing.Point(707, 154);
+            this.MatTxtLotDesc.MaxLength = 50;
+            this.MatTxtLotDesc.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtLotDesc.Multiline = false;
+            this.MatTxtLotDesc.Name = "MatTxtLotDesc";
+            this.MatTxtLotDesc.Size = new System.Drawing.Size(270, 50);
+            this.MatTxtLotDesc.TabIndex = 3;
+            this.MatTxtLotDesc.Text = "";
             // 
             // label2
             // 
@@ -222,38 +254,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtExpiryDays.TabIndex = 6;
             this.MatTxtExpiryDays.Text = "";
             // 
-            // MatTxtLotDesc
-            // 
-            this.MatTxtLotDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtLotDesc.Depth = 0;
-            this.MatTxtLotDesc.Enabled = false;
-            this.MatTxtLotDesc.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtLotDesc.Hint = "Lot Description";
-            this.MatTxtLotDesc.Location = new System.Drawing.Point(707, 154);
-            this.MatTxtLotDesc.MaxLength = 50;
-            this.MatTxtLotDesc.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtLotDesc.Multiline = false;
-            this.MatTxtLotDesc.Name = "MatTxtLotDesc";
-            this.MatTxtLotDesc.Size = new System.Drawing.Size(270, 50);
-            this.MatTxtLotDesc.TabIndex = 3;
-            this.MatTxtLotDesc.Text = "";
-            // 
-            // MatTxtLotNo
-            // 
-            this.MatTxtLotNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtLotNo.Depth = 0;
-            this.MatTxtLotNo.Enabled = false;
-            this.MatTxtLotNo.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtLotNo.Hint = "Lot No.";
-            this.MatTxtLotNo.Location = new System.Drawing.Point(368, 154);
-            this.MatTxtLotNo.MaxLength = 50;
-            this.MatTxtLotNo.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtLotNo.Multiline = false;
-            this.MatTxtLotNo.Name = "MatTxtLotNo";
-            this.MatTxtLotNo.Size = new System.Drawing.Size(270, 50);
-            this.MatTxtLotNo.TabIndex = 2;
-            this.MatTxtLotNo.Text = "";
-            // 
             // MatBtnSave
             // 
             this.MatBtnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -261,7 +261,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnSave.DrawShadows = true;
             this.MatBtnSave.HighEmphasis = true;
             this.MatBtnSave.Icon = null;
-            this.MatBtnSave.Location = new System.Drawing.Point(17, 345);
+            this.MatBtnSave.Location = new System.Drawing.Point(17, 339);
             this.MatBtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnSave.Name = "MatBtnSave";
@@ -300,7 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 400);
+            this.ClientSize = new System.Drawing.Size(1042, 391);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.MatBtnSave);

@@ -142,6 +142,7 @@
     <Compile Include="API\Data\DryWHReceiptRepository.cs" />
     <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
     <Compile Include="API\Data\TblCustomersRepository.cs" />
+    <Compile Include="API\Entities\DryWHIssue.cs" />
     <Compile Include="API\Entities\DryWHReceipt.cs" />
     <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />

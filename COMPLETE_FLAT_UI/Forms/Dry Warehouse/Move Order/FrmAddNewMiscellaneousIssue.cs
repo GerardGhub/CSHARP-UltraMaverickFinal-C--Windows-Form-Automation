@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         FrmDryWhMiscellaneouseIssue ths;
 
         TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
-        TblCustomers TblCustomersEntity = new TblCustomers();
+        DryWHIssue DryWHIssueEntity = new DryWHIssue();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
@@ -45,8 +45,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             this.ConnetionString();
             this.LoadItemCodeDropdown();
-            //this.MatDtpMFtgDate.MaxDate = DateTime.Today;
-            //this.MatDtpExpDate.MinDate = DateTime.Today;
             MatCmbItemCode_SelectionChangeCommitted(sender, e);
             this.Useridentity = userinfo.user_id;
         }
@@ -114,6 +112,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtLotNo.Text = xClass.DataSetRMMoverOrderIssue.Tables[0].Rows[IndexOf]["lot_no"].ToString();
             this.MatTxtLotDesc.Text = xClass.DataSetRMMoverOrderIssue.Tables[0].Rows[IndexOf]["lot_description"].ToString();
             this.MatTxtReceivedDate.Text = xClass.DataSetRMMoverOrderIssue.Tables[0].Rows[IndexOf]["date_added"].ToString();
+            this.DryWHIssueEntity.Supplier = xClass.DataSetRMMoverOrderIssue.Tables[0].Rows[IndexOf]["supplier"].ToString();
             this.CalculateBetweenTwoDateGetTheDays();
         }
 
@@ -124,6 +123,93 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             TimeSpan t = d2 - d1;
             double NrOfDays = t.TotalDays;
             this.MatTxtExpiryDays.Text = NrOfDays.ToString();
+        }
+
+        private void MatBtnSave_Click(object sender, EventArgs e)
+        {
+            if (this.MatTxtExpiryDays.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                return;
+            }
+
+            if (this.MatTxtQuantity.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.MatTxtQuantity.Focus();
+                return;
+            }
+
+            if (this.MatTxtLotNo.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.MatTxtLotNo.Focus();
+                return;
+            }
+
+            if (this.MatTxtQtyOut.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.MatTxtQtyOut.Focus();
+                return;
+            }
+
+
+       
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+
+                try
+                {
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection
+                    .Sp_DryWHIssue(0,
+                    ths.MatTxtParentDescription.Text.Trim(),
+                    0,
+                    Convert.ToInt32(this.MatTxtLotNo.Text.Trim()),
+                    this.MatTxtLotDesc.Text.Trim(),
+                    this.MatTxtReceivedDate.Text.Trim(),
+                    this.MatCmbExpiryDate.Text.Trim(),
+                    this.MatTxtExpiryDays.Text.Trim(),
+                    this.MatCmbItemCode.Text.Trim(),
+                    this.MatTxtItemDescription.Text.Trim(),
+                    this.MatTxtCategory.Text.Trim(),
+                    this.DryWHIssueEntity.Supplier,
+                    Convert.ToDouble(this.MatTxtQuantity.Text.Trim()),
+                    "",
+                    Convert.ToString(this.Useridentity),
+                    "",
+                    true,
+                    "add");
+
+                    this.GlobalStatePopup.SuccessfullyReceived();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+
+
+            }
+            else
+            {
+                return;
+            }
+
+
+
+
+        }
+
+        private void MatTxtQtyOut_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
         }
     }
 }
