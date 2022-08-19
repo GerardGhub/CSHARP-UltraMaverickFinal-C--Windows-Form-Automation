@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtbarcode.Focus();
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             this.mattxtbarcode.Focus();
-    
+
         }
 
 

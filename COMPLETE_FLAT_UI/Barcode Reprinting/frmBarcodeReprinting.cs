@@ -79,13 +79,13 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
       
            this.lbltotalrecords.Text = dgvReprinting.RowCount.ToString();
-      
-      
 
 
 
 
-            //objStorProc = xClass.g_objStoredProc.GetCollections();
+
+
+            objStorProc = myClass.g_objStoredProc.GetCollections();
 
             myglobal.global_module = "Active";
             this.load_search();

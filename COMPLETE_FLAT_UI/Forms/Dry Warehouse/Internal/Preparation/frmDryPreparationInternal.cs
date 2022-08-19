@@ -487,15 +487,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
 
+
+
         private void MaterialDatagridColumnVisibilittyFalse()
         {
 
             this.guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["department_id"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
-            //this.guna2DgvMaterialPreparation.Columns["route"].Visible = false;
+
             this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["mrs_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
