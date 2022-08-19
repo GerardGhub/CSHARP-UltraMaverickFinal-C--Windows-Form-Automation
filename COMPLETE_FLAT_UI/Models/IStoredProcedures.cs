@@ -587,6 +587,8 @@ namespace ULTRAMAVERICK.Models
         string AddedBy,
         string DateAdded,
         bool IsActive,
+        int ActualQty,
+        int ReceivingId,
         string mode);
 
 

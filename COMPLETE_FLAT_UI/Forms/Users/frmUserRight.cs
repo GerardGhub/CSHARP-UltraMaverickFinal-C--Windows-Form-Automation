@@ -1799,6 +1799,8 @@ namespace ULTRAMAVERICK.Forms.Users
       
         }
 
+
+
         private void materialBtnMenuAVlCancel_Click(object sender, EventArgs e)
         {
             CanAvailableMajorMenu();
@@ -1832,12 +1834,12 @@ namespace ULTRAMAVERICK.Forms.Users
    
 
 
-            materialBtnShowAvailSubMenu.Visible = false;
+            this.materialBtnShowAvailSubMenu.Visible = false;
 
-            listBoxParentTag.Enabled = true;
-            materialTxtModuelAvail.Enabled = true;
-            //true
-            materialButtonUpdateSubMenu.Visible = true;
+            this.listBoxParentTag.Enabled = true;
+            this.materialTxtModuelAvail.Enabled = true;
+   
+            this.materialButtonUpdateSubMenu.Visible = true;
         
         }
 

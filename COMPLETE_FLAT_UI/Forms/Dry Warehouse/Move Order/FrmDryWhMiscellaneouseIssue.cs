@@ -47,7 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.doSearchInTextBox();
             this.LoadWarehouseDropdown();
             this.LoadCustomerDropdown();
-            this.LoadParentReceiptCmb();
+            this.LoadParentIssueCmb();
             if (this.MatTxTTransactNo.Text != String.Empty)
             {
                 this.MatBtnNew.Enabled = true;
@@ -66,6 +66,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.guna2DgvMaterialPreparation.Columns["Remarks"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["UnitOfMeasure"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["ExpiryDays"].Visible = false;
+            this.guna2DgvMaterialPreparation.Columns["Quantity"].Visible = false;
         }
 
 
@@ -122,7 +123,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         }
 
 
-        public void LoadParentReceiptCmb()
+        public void LoadParentIssueCmb()
         {
 
             myClass.fillCmbTransactionNo(MatTxTTransactNo, "DryWHIssueParents_dropdown", dSet, Useridentity);
@@ -213,6 +214,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             this.MatTxTTransactNo.Text = String.Empty;
             this.MatCmbRemarks.Text = String.Empty;
+            this.MatTxtParentDescription.Text = String.Empty;
         }
 
 
@@ -264,7 +266,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
                     this.ConnetionString();
 
-                    this.LoadParentReceiptCmb();
+                    this.LoadParentIssueCmb();
 
                     if (this.MatTxtParentDescription.Text != String.Empty)
                     {
@@ -355,7 +357,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                                 1, //Expiry Bobo
                                 "",
                                 "",
-                                "AddDryWhReceipt");
+                                "AddDryWhIssue");
 
 
 
@@ -433,6 +435,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                         "",
                         "",
                         false,
+                        0,
+                        0,
                         "delete");
 
                         this.FrmDryWhMiscellaneouseIssue_Load(sender, e);

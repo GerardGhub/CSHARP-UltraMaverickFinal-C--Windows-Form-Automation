@@ -180,6 +180,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     Convert.ToString(this.Useridentity),
                     "",
                     true,
+                    Convert.ToInt32(this.MatTxtQtyOut.Text),
+                    Convert.ToInt32(this.MatTxtReceivingID.Text),
                     "add");
 
                     this.GlobalStatePopup.SuccessfullyReceived();
@@ -210,6 +212,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             {
                 e.Handled = true;
             }
+        }
+
+        private void FrmAddNewMiscellaneousIssue_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.textBox1.Text = "FormClose";
         }
     }
 }

@@ -352,6 +352,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.Name = "FrmAddNewMiscellaneousIssue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAddNewMiscellaneousIssue";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAddNewMiscellaneousIssue_FormClosing);
             this.Load += new System.EventHandler(this.FrmAddNewMiscellaneousIssue_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
