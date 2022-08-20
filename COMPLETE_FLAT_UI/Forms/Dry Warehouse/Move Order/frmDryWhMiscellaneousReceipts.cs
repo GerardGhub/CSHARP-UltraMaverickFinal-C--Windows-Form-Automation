@@ -47,9 +47,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.doSearchInTextBox();
             this.LoadItemCodeDropdown();
             this.LoadParentReceiptCmb();
-            if (this.MatTxTTransactNo.Text != String.Empty)
+            if (this.LblTotalRecords.Text =="0" )
             {
                 this.MatBtnNew.Enabled = true;
+            }
+            else
+            {
+                this.MatBtnSave.Enabled = true;
             }
         }
 
@@ -200,6 +204,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             else
             {
                 this.MatBtnSave.Visible = true;
+                this.MatBtnSave.Enabled = true;
                 this.guna2DgvMaterialPreparation.Enabled = true;
             }
         }
@@ -270,6 +275,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection
+                    .sp_DryWHReceiptParents(0,
+                    this.MatTxtParentDescription.Text.Trim(),
+                    this.matCmbRemarks.Text.Trim(),
+                    true,
+                    Convert.ToString(this.Useridentity),
+                    DateTime.Now,
+                    "add");
+                    this.ConnetionString();
+                    this.LoadParentReceiptCmb();
+                    if (this.MatTxtParentDescription.Text != String.Empty)
+                    {
+                        this.MatBtnNew.Enabled = true;
+                        if (this.LblTotalRecords.Text == "0")
+                        {
+                            this.MatBtnSave.Enabled = false;
+                        }
+
+                    }
+
+
 
 
 
@@ -332,6 +359,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                                 "",
                                 "",
                                 "AddDryWhReceipt");
+
+
+
+           
 
 
 

@@ -48,9 +48,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.LoadWarehouseDropdown();
             this.LoadCustomerDropdown();
             this.LoadParentIssueCmb();
-            if (this.MatTxTTransactNo.Text != String.Empty)
+            //if (this.MatTxTTransactNo.Text != String.Empty)
+            //{
+            //    this.MatBtnNew.Enabled = true;
+            //}
+
+            if (this.LblTotalRecords.Text == "0")
             {
                 this.MatBtnNew.Enabled = true;
+            }
+            else
+            {
+                this.MatBtnSave.Enabled = true;
             }
         }
 
@@ -170,6 +179,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             else
             {
                 this.MatBtnSave.Visible = true;
+                this.MatBtnSave.Enabled = true;
                 this.guna2DgvMaterialPreparation.Enabled = true;
             }
         }
@@ -296,6 +306,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection
+                    .sp_DryWHIssueParents(0,
+                    this.MatTxtParentDescription.Text.Trim(),
+                    this.MatCmbRemarks.Text.Trim(),
+                    true,
+                    Convert.ToString(this.Useridentity),
+                    DateTime.Now,
+                    "add");
+
+                    this.ConnetionString();
+
+                    this.LoadParentIssueCmb();
+
+                    if (this.MatTxtParentDescription.Text != String.Empty)
+                    {
+                        this.MatBtnNew.Enabled = true;
+                        if (this.LblTotalRecords.Text == "0")
+                        {
+                            this.MatBtnSave.Enabled = false;
+                        }
+
+                    }
+
 
 
 
@@ -309,7 +343,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
                             dSet.Clear();
                             dSet = g_objStoredProcCollection
-                            .Sp_DryWHReceipt(Convert.ToInt32(row.Cells["Id"].Value.ToString()),
+                            .Sp_DryWHIssue(Convert.ToInt32(row.Cells["Id"].Value.ToString()),
                             this.MatTxtParentDescription.Text.Trim(),
                             Convert.ToInt32(this.MatTxTTransactNo.Text.Trim()),
                             0,
@@ -326,38 +360,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                             "",
                             "",
                             false,
+                            0,
+                            0,
                             "edit");
 
 
-                            this.dSet.Clear();
-                            this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
-                                p_id,
-                                row.Cells["ItemCode"].Value.ToString(),
-                                row.Cells["ItemDescription"].Value.ToString(),
-                                row.Cells["Quantity"].Value.ToString(),
-                                "",
-                                this.Useridentity.ToString(),
-                                user_info.firstname,
-                                "",
-                                row.Cells["Supplier"].Value.ToString(),
-                                row.Cells["LotNumber"].Value.ToString(),
-                                row.Cells["LotDescription"].Value.ToString(),
-                                row.Cells["ManufacturingDate"].Value.ToString(),
-                                row.Cells["ExpirationDate"].Value.ToString(),
-                                row.Cells["Category"].Value.ToString(),
-                                row.Cells["UnitOfMeasure"].Value.ToString(),
-                                "0",
-                                0,
-                                this.Useridentity,
-                                row.Cells["ExpiryDays"].Value.ToString(),
-                                "",
-                                "",
-                                "",
-                                "",
-                                1, //Expiry Bobo
-                                "",
-                                "",
-                                "AddDryWhIssue");
+                            //this.dSet.Clear();
+                            //this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
+                            //    p_id,
+                            //    row.Cells["ItemCode"].Value.ToString(),
+                            //    row.Cells["ItemDescription"].Value.ToString(),
+                            //    row.Cells["Quantity"].Value.ToString(),
+                            //    "",
+                            //    this.Useridentity.ToString(),
+                            //    user_info.firstname,
+                            //    "",
+                            //    row.Cells["Supplier"].Value.ToString(),
+                            //    row.Cells["LotNumber"].Value.ToString(),
+                            //    row.Cells["LotDescription"].Value.ToString(),
+                            //    row.Cells["ManufacturingDate"].Value.ToString(),
+                            //    row.Cells["ExpirationDate"].Value.ToString(),
+                            //    row.Cells["Category"].Value.ToString(),
+                            //    row.Cells["UnitOfMeasure"].Value.ToString(),
+                            //    "0",
+                            //    0,
+                            //    this.Useridentity,
+                            //    row.Cells["ExpiryDays"].Value.ToString(),
+                            //    "",
+                            //    "",
+                            //    "",
+                            //    "",
+                            //    1, //Expiry Bobo
+                            //    "",
+                            //    "",
+                            //    "AddDryWhIssue");
 
 
 
