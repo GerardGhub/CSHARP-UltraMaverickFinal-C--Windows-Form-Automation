@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.API.Data;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
 using ULTRAMAVERICK.Models;
 
@@ -17,11 +18,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
     {
 
         frmCustomers ths;
-        myclasses xClass = new myclasses();
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+        TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
 
 
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
@@ -33,7 +33,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         private void frmNewCustomer_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
 
         private void matBtnSave_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
 
             //Validation to minimize the duplicate fucking entries
             dSet.Clear();
-            dSet = objStorProc.sp_tblCustomers(0,
+            dSet = g_objStoredProcCollection.sp_tblCustomers(0,
                 this.txtMatName.Text.Trim(),
                 this.metroCmbType.Text.Trim(),             
                 "",
@@ -128,7 +128,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-
+                this.TblCustomersRepositorys
+                    .AddCustomer(0, 
+                    this.txtMatName.Text,
+                    this.metroCmbType.Text, 
+                    this.metroCmbCompany.Text, 
+                    this.txtmatMobile.Text, 
+                    this.matTxtLeadMan.Text, 
+                    this.txtMatAddress.Text, 
+                    Convert.ToString(user_info.user_id),
+                    "",
+                    "",
+                    "",
+                    false, 
+                    "add");
+                this.GlobalStatePopup.UpdatedSuccessfully();
+                this.Close();
             }
             else
             {

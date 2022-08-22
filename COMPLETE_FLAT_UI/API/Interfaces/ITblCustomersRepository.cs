@@ -28,6 +28,7 @@ namespace ULTRAMAVERICK.API.Interfaces
             string Cust_Date_Added, 
             string Cust_Updated_By, 
             string Cust_Date_Updated,
-            bool Is_Active);
+            bool Is_Active,
+            string Mode);
     }
 }
