@@ -57,5 +57,27 @@ namespace ULTRAMAVERICK.API.Data
             this.dSet = g_objStoredProcCollection.sp_getMajorTables("MoveOrder_Customers_Active_Major");
             TotalRecords = dSet.Tables.Count;
         }
+
+        public void AddCustomer(int Cust_Id, string Cust_Name, string Cust_Type, 
+            string Cust_Company, string Cust_Mobile, string Cust_Leadman, 
+            string Cust_Address, string Cust_Added_By, string Cust_Date_Added, 
+            string Cust_Updated_By, string Cust_Date_Updated, bool Is_Active)
+        {
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_tblCustomers(
+                Cust_Id,
+                Cust_Name,
+                Cust_Type,
+                Cust_Company,
+                Cust_Mobile,
+                Cust_Leadman,
+                Cust_Address,
+                Cust_Added_By,
+                Cust_Date_Added,
+                Cust_Updated_By,
+                Cust_Date_Updated,
+                Is_Active,
+                "add");
+        }
     }
 }

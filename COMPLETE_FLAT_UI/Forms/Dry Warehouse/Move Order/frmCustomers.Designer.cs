@@ -48,7 +48,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtmatItemClass = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cust_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -254,40 +253,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
-            // txtmatItemClass
-            // 
-            this.txtmatItemClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtmatItemClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmatItemClass.Depth = 0;
-            this.txtmatItemClass.Enabled = false;
-            this.txtmatItemClass.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmatItemClass.Hint = "Customer";
-            this.txtmatItemClass.Location = new System.Drawing.Point(19, 20);
-            this.txtmatItemClass.Margin = new System.Windows.Forms.Padding(1);
-            this.txtmatItemClass.MaxLength = 50;
-            this.txtmatItemClass.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmatItemClass.Multiline = false;
-            this.txtmatItemClass.Name = "txtmatItemClass";
-            this.txtmatItemClass.Size = new System.Drawing.Size(984, 50);
-            this.txtmatItemClass.TabIndex = 0;
-            this.txtmatItemClass.Text = "";
-            // 
             // materialCard1
             // 
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.mattxtSearch);
-            this.materialCard1.Controls.Add(this.txtmatItemClass);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(32, 100);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(7);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.materialCard1.Size = new System.Drawing.Size(1300, 107);
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(7);
+            this.materialCard1.Size = new System.Drawing.Size(1300, 89);
             this.materialCard1.TabIndex = 603;
             // 
             // dgvCustomers
@@ -309,7 +288,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvCustomers.ColumnHeadersHeight = 40;
+            this.dgvCustomers.ColumnHeadersHeight = 50;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cust_id,
@@ -335,7 +314,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.dgvCustomers.EnableHeadersVisualStyles = false;
             this.dgvCustomers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvCustomers.Location = new System.Drawing.Point(7, 7);
-            this.dgvCustomers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCustomers.MultiSelect = false;
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.ReadOnly = true;
@@ -368,7 +347,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.dgvCustomers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCustomers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvCustomers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCustomers.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvCustomers.ThemeStyle.HeaderStyle.Height = 50;
             this.dgvCustomers.ThemeStyle.ReadOnly = true;
             this.dgvCustomers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCustomers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -493,10 +472,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard2.Location = new System.Drawing.Point(32, 310);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(7);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(7);
             this.materialCard2.Size = new System.Drawing.Size(1300, 571);
             this.materialCard2.TabIndex = 602;
             // 
@@ -524,7 +503,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.metroSave);
             this.Controls.Add(this.materialCard2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmCustomers";
             this.Text = "Customers";
@@ -559,7 +538,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroButton metroFinalSaving;
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
-        private MaterialSkin.Controls.MaterialTextBox txtmatItemClass;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvCustomers;
         private MetroFramework.Controls.MetroButton metroSave;

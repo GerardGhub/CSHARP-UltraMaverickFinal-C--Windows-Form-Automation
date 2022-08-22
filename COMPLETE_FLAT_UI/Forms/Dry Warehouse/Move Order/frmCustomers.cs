@@ -134,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     if (this.dgvCustomers.CurrentRow.Cells["cust_name"].Value != null)
                     {
                         this.p_id = Convert.ToInt32(this.dgvCustomers.CurrentRow.Cells["cust_id"].Value);
-                        this.txtmatItemClass.Text = this.dgvCustomers.CurrentRow.Cells["cust_name"].Value.ToString();
+                        this.TblCustomersEntity.Cust_Name = this.dgvCustomers.CurrentRow.Cells["cust_name"].Value.ToString();
                    
                     }
                 }

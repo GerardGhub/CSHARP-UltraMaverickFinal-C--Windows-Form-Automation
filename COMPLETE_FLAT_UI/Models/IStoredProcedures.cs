@@ -627,6 +627,7 @@ namespace ULTRAMAVERICK.Models
         string cust_date_added,
         string cust_updated_by,
         string cust_date_updated,
+        bool is_active,
         string mode);
 
         DataSet sp_projects(

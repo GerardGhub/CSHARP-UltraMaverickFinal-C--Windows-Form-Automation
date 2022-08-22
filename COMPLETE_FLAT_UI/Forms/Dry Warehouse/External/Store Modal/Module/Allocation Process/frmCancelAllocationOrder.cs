@@ -18,9 +18,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocati
         frmAllocationModule ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int validate = 0;
         public frmCancelAllocationOrder(frmAllocationModule frm, string buttonActions)
@@ -64,7 +63,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocati
         private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+ 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
