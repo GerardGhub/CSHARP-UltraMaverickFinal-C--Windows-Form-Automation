@@ -138,7 +138,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     {
                         this.p_id = Convert.ToInt32(this.dgvCustomers.CurrentRow.Cells["cust_id"].Value);
                         this.TblCustomersEntity.Cust_Name = this.dgvCustomers.CurrentRow.Cells["cust_name"].Value.ToString();
-                   
+                        this.TblCustomersEntity.Cust_Type = this.dgvCustomers.CurrentRow.Cells["cust_type"].Value.ToString();
+                        this.TblCustomersEntity.Cust_Company = this.dgvCustomers.CurrentRow.Cells["cust_company"].Value.ToString();
+                        this.TblCustomersEntity.Cust_Mobile = Convert.ToInt32(this.dgvCustomers.CurrentRow.Cells["cust_mobile"].Value);
+                        this.TblCustomersEntity.Cust_LeadMan = this.dgvCustomers.CurrentRow.Cells["cust_leadman"].Value.ToString();
+                        this.TblCustomersEntity.Cust_Address = this.dgvCustomers.CurrentRow.Cells["cust_address"].Value.ToString();
                     }
                 }
             }
@@ -265,7 +269,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
             matBtnCancel.Visible = true;
-           frmNewCustomer addNew = new frmNewCustomer(this, sp_user_id);
+           frmNewCustomer addNew = new frmNewCustomer(this, 
+               sp_user_id,
+               "Add",
+               this.TblCustomersEntity.Cust_Name,
+               this.TblCustomersEntity.Cust_Type,
+               this.TblCustomersEntity.Cust_Company,
+               this.TblCustomersEntity.Cust_Mobile,
+               this.TblCustomersEntity.Cust_LeadMan,
+               this.TblCustomersEntity.Cust_Address,
+               p_id
+               );
             addNew.ShowDialog();
         }
 
@@ -359,6 +373,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             }
 
 
+        }
+
+        private void matBtnEdit_Click(object sender, EventArgs e)
+        {
+            frmNewCustomer addNew = new frmNewCustomer(this,
+                sp_user_id,
+                "Edit",
+               this.TblCustomersEntity.Cust_Name,
+               this.TblCustomersEntity.Cust_Type,
+               this.TblCustomersEntity.Cust_Company,
+               this.TblCustomersEntity.Cust_Mobile,
+               this.TblCustomersEntity.Cust_LeadMan,
+               this.TblCustomersEntity.Cust_Address,
+               p_id
+                );
+            addNew.ShowDialog();
         }
     }
 }

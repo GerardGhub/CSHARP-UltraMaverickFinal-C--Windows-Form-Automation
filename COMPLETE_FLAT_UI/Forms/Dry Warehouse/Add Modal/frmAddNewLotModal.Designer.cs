@@ -39,8 +39,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.lblMajorCatId = new System.Windows.Forms.Label();
             this.matcreatedby = new MaterialSkin.Controls.MaterialTextBox();
-            this.mattotalsku = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mattotalsku = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,6 +199,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matcreatedby.Text = "";
             this.matcreatedby.Visible = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(339, 161);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 476;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // mattotalsku
             // 
             this.mattotalsku.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -215,23 +227,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattotalsku.TabIndex = 597;
             this.mattotalsku.Text = "";
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(339, 161);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 476;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // frmAddNewLotModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 356);
+            this.ClientSize = new System.Drawing.Size(549, 354);
             this.Controls.Add(this.txtcreatedAt);
             this.Controls.Add(this.txtcreatedBy);
             this.Controls.Add(this.materialCard1);

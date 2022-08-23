@@ -26,28 +26,65 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         TblCustomers TblCustomersEntity = new TblCustomers();
         TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
 
-
+        
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        public frmNewCustomer(frmCustomers frm, string created_by)
+        public frmNewCustomer(
+            frmCustomers frm,
+            string Created_by, 
+            string Mode,
+            string CustomerName,
+            string CustomerType,
+            string CustomerCompany,
+            int Mobile,
+            string LeadMan,
+            string Address,
+            int IndexOf
+            )
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
+            this.TblCustomersEntity.Mode = Mode;
+            this.TblCustomersEntity.Cust_Name = CustomerName;
+            this.TblCustomersEntity.Cust_Type = CustomerType;
+            this.TblCustomersEntity.Cust_Company = CustomerCompany;
+            this.TblCustomersEntity.Cust_Mobile = Mobile;
+            this.TblCustomersEntity.Cust_LeadMan = LeadMan;
+            this.TblCustomersEntity.Cust_Address = Address;
+            this.TblCustomersEntity.Cust_Id = IndexOf;
         }
 
         private void frmNewCustomer_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
             this.TblCustomersEntity.Cust_Added_By = userinfo.user_id;
+
+
+
+            if (this.TblCustomersEntity.Mode == "Add")
+            {
+
+            }
+            else if (this.TblCustomersEntity.Mode =="Edit")
+            {
+                this.MatTxtName.Text = this.TblCustomersEntity.Cust_Name;
+                this.metroCmbType.Text = this.TblCustomersEntity.Cust_Type;
+                this.metroCmbCompany.Text = this.TblCustomersEntity.Cust_Company;
+                this.TxtMobile.Text = Convert.ToString(this.TblCustomersEntity.Cust_Mobile);
+                this.TxtLeadMan.Text = this.TblCustomersEntity.Cust_LeadMan;
+                this.TxtAddress.Text = this.TblCustomersEntity.Cust_Address;
+                this.TblCustomersEntity.Cust_Id = this.TblCustomersEntity.Cust_Id;
+            }
+     
         }
 
         private void matBtnSave_Click(object sender, EventArgs e)
         {
             //Name
-            if (this.txtMatName.Text == String.Empty)
+            if (this.MatTxtName.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.txtMatName.Focus();
+                this.MatTxtName.Focus();
                 return;
             }
             //Type 
@@ -65,60 +102,94 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
                 return;
             }
             //Mobile
-            if (this.txtmatMobile.Text == String.Empty)
+            if (this.TxtMobile.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.txtmatMobile.Focus();
+                this.TxtMobile.Focus();
                 return;
             }
             //Lead Man
-            if (this.matTxtLeadMan.Text == String.Empty)
+            if (this.TxtLeadMan.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.matTxtLeadMan.Focus();
+                this.TxtLeadMan.Focus();
                 return;
             }
             //Address
-            if (this.txtMatAddress.Text == String.Empty)
+            if (this.TxtAddress.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.txtMatAddress.Focus();
+                this.TxtAddress.Focus();
                 return;
             }
 
-            //Validation to minimize the duplicate fucking entries
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_tblCustomers(0,
-                this.txtMatName.Text.Trim(),
-                this.metroCmbType.Text.Trim(),             
-                "",
-                "",
-                "",
-                "",
-                0,
-                "",
-                "",
-                "",
-                false,
-                "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
+            if (this.TblCustomersEntity.Mode == "Add")
             {
-                this.GlobalStatePopup.DataAlreadyExist();
+
+                //Validation to minimize the duplicate fucking entries
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_tblCustomers(0,
+                    this.MatTxtName.Text.Trim(),
+                    this.metroCmbType.Text.Trim(),
+                    "",
+                    "",
+                    "",
+                    "",
+                    0,
+                    "",
+                    "",
+                    "",
+                    false,
+                    "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
 
 
 
-                this.txtMatName.Focus();
-                return;
+                    this.MatTxtName.Focus();
+                    return;
+                }
+                else
+                {
+                    this.MetroSave();
+                }
+
+
             }
             else
             {
-                this.MetroSave();
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    this.TblCustomersRepositorys
+                        .PutCustomer(
+                        this.TblCustomersEntity.Cust_Id,
+                        this.MatTxtName.Text,
+                        this.metroCmbType.Text,
+                        this.metroCmbCompany.Text,
+                        this.TxtMobile.Text,
+                        this.TxtLeadMan.Text,
+                        this.TxtAddress.Text,
+                       TblCustomersEntity.Cust_Added_By,
+                        "",
+                        "",
+                        "",
+                        false,
+                        "edit");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
+
+
+
             }
-
-
-
-
 
 
 
@@ -136,12 +207,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
                 this.TblCustomersRepositorys
                     .AddCustomer(
                     0, 
-                    this.txtMatName.Text,
+                    this.MatTxtName.Text,
                     this.metroCmbType.Text, 
                     this.metroCmbCompany.Text, 
-                    this.txtmatMobile.Text, 
-                    this.matTxtLeadMan.Text, 
-                    this.txtMatAddress.Text,
+                    this.TxtMobile.Text, 
+                    this.TxtLeadMan.Text, 
+                    this.TxtAddress.Text,
                    TblCustomersEntity.Cust_Added_By,
                     "",
                     "",
@@ -166,6 +237,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         private void frmNewCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.textBox1.Text = "FormClosed";
+        }
+
+        private void matTxtLeadMan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void txtMatAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void MatTxtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

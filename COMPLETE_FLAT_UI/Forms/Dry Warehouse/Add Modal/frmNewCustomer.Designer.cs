@@ -34,10 +34,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             this.metroCmbCompany = new MetroFramework.Controls.MetroComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.metroCmbType = new MetroFramework.Controls.MetroComboBox();
-            this.txtMatAddress = new MaterialSkin.Controls.MaterialTextBox();
-            this.matTxtLeadMan = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtmatMobile = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtMatName = new MaterialSkin.Controls.MaterialTextBox();
+            this.TxtAddress = new MaterialSkin.Controls.MaterialTextBox();
+            this.TxtLeadMan = new MaterialSkin.Controls.MaterialTextBox();
+            this.TxtMobile = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatTxtName = new MaterialSkin.Controls.MaterialTextBox();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard1.SuspendLayout();
@@ -50,10 +50,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             this.materialCard1.Controls.Add(this.metroCmbCompany);
             this.materialCard1.Controls.Add(this.label2);
             this.materialCard1.Controls.Add(this.metroCmbType);
-            this.materialCard1.Controls.Add(this.txtMatAddress);
-            this.materialCard1.Controls.Add(this.matTxtLeadMan);
-            this.materialCard1.Controls.Add(this.txtmatMobile);
-            this.materialCard1.Controls.Add(this.txtMatName);
+            this.materialCard1.Controls.Add(this.TxtAddress);
+            this.materialCard1.Controls.Add(this.TxtLeadMan);
+            this.materialCard1.Controls.Add(this.TxtMobile);
+            this.materialCard1.Controls.Add(this.MatTxtName);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(40, 93);
@@ -114,69 +114,72 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             this.metroCmbType.TabIndex = 7;
             this.metroCmbType.UseSelectable = true;
             // 
-            // txtMatAddress
+            // TxtAddress
             // 
-            this.txtMatAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatAddress.Depth = 0;
-            this.txtMatAddress.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtMatAddress.Hint = "Address";
-            this.txtMatAddress.Location = new System.Drawing.Point(391, 180);
-            this.txtMatAddress.Margin = new System.Windows.Forms.Padding(1);
-            this.txtMatAddress.MaxLength = 50;
-            this.txtMatAddress.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtMatAddress.Multiline = false;
-            this.txtMatAddress.Name = "txtMatAddress";
-            this.txtMatAddress.Size = new System.Drawing.Size(297, 50);
-            this.txtMatAddress.TabIndex = 6;
-            this.txtMatAddress.Text = "";
+            this.TxtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtAddress.Depth = 0;
+            this.TxtAddress.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtAddress.Hint = "Address";
+            this.TxtAddress.Location = new System.Drawing.Point(391, 180);
+            this.TxtAddress.Margin = new System.Windows.Forms.Padding(1);
+            this.TxtAddress.MaxLength = 50;
+            this.TxtAddress.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtAddress.Multiline = false;
+            this.TxtAddress.Name = "TxtAddress";
+            this.TxtAddress.Size = new System.Drawing.Size(297, 50);
+            this.TxtAddress.TabIndex = 6;
+            this.TxtAddress.Text = "";
+            this.TxtAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatAddress_KeyPress);
             // 
-            // matTxtLeadMan
+            // TxtLeadMan
             // 
-            this.matTxtLeadMan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtLeadMan.Depth = 0;
-            this.matTxtLeadMan.Font = new System.Drawing.Font("Roboto", 12F);
-            this.matTxtLeadMan.Hint = "Lead Man";
-            this.matTxtLeadMan.Location = new System.Drawing.Point(34, 180);
-            this.matTxtLeadMan.Margin = new System.Windows.Forms.Padding(1);
-            this.matTxtLeadMan.MaxLength = 50;
-            this.matTxtLeadMan.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtLeadMan.Multiline = false;
-            this.matTxtLeadMan.Name = "matTxtLeadMan";
-            this.matTxtLeadMan.Size = new System.Drawing.Size(297, 50);
-            this.matTxtLeadMan.TabIndex = 5;
-            this.matTxtLeadMan.Text = "";
+            this.TxtLeadMan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtLeadMan.Depth = 0;
+            this.TxtLeadMan.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtLeadMan.Hint = "Lead Man";
+            this.TxtLeadMan.Location = new System.Drawing.Point(37, 180);
+            this.TxtLeadMan.Margin = new System.Windows.Forms.Padding(1);
+            this.TxtLeadMan.MaxLength = 50;
+            this.TxtLeadMan.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtLeadMan.Multiline = false;
+            this.TxtLeadMan.Name = "TxtLeadMan";
+            this.TxtLeadMan.Size = new System.Drawing.Size(297, 50);
+            this.TxtLeadMan.TabIndex = 5;
+            this.TxtLeadMan.Text = "";
+            this.TxtLeadMan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matTxtLeadMan_KeyPress);
             // 
-            // txtmatMobile
+            // TxtMobile
             // 
-            this.txtmatMobile.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmatMobile.Depth = 0;
-            this.txtmatMobile.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmatMobile.Hint = "Mobile";
-            this.txtmatMobile.Location = new System.Drawing.Point(389, 106);
-            this.txtmatMobile.Margin = new System.Windows.Forms.Padding(1);
-            this.txtmatMobile.MaxLength = 50;
-            this.txtmatMobile.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmatMobile.Multiline = false;
-            this.txtmatMobile.Name = "txtmatMobile";
-            this.txtmatMobile.Size = new System.Drawing.Size(297, 50);
-            this.txtmatMobile.TabIndex = 4;
-            this.txtmatMobile.Text = "";
+            this.TxtMobile.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtMobile.Depth = 0;
+            this.TxtMobile.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtMobile.Hint = "Mobile";
+            this.TxtMobile.Location = new System.Drawing.Point(389, 106);
+            this.TxtMobile.Margin = new System.Windows.Forms.Padding(1);
+            this.TxtMobile.MaxLength = 50;
+            this.TxtMobile.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtMobile.Multiline = false;
+            this.TxtMobile.Name = "TxtMobile";
+            this.TxtMobile.Size = new System.Drawing.Size(297, 50);
+            this.TxtMobile.TabIndex = 4;
+            this.TxtMobile.Text = "";
             // 
-            // txtMatName
+            // MatTxtName
             // 
-            this.txtMatName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatName.Depth = 0;
-            this.txtMatName.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtMatName.Hint = "Name";
-            this.txtMatName.Location = new System.Drawing.Point(32, 33);
-            this.txtMatName.Margin = new System.Windows.Forms.Padding(1);
-            this.txtMatName.MaxLength = 50;
-            this.txtMatName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtMatName.Multiline = false;
-            this.txtMatName.Name = "txtMatName";
-            this.txtMatName.Size = new System.Drawing.Size(297, 50);
-            this.txtMatName.TabIndex = 1;
-            this.txtMatName.Text = "";
+            this.MatTxtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtName.Depth = 0;
+            this.MatTxtName.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtName.Hint = "Name";
+            this.MatTxtName.Location = new System.Drawing.Point(32, 33);
+            this.MatTxtName.Margin = new System.Windows.Forms.Padding(1);
+            this.MatTxtName.MaxLength = 50;
+            this.MatTxtName.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtName.Multiline = false;
+            this.MatTxtName.Name = "MatTxtName";
+            this.MatTxtName.Size = new System.Drawing.Size(297, 50);
+            this.MatTxtName.TabIndex = 1;
+            this.MatTxtName.Text = "";
+            this.MatTxtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MatTxtName_KeyPress);
             // 
             // matBtnSave
             // 
@@ -234,10 +237,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialButton matBtnSave;
-        private MaterialSkin.Controls.MaterialTextBox txtMatName;
-        private MaterialSkin.Controls.MaterialTextBox txtMatAddress;
-        private MaterialSkin.Controls.MaterialTextBox matTxtLeadMan;
-        private MaterialSkin.Controls.MaterialTextBox txtmatMobile;
+        private MaterialSkin.Controls.MaterialTextBox MatTxtName;
+        private MaterialSkin.Controls.MaterialTextBox TxtAddress;
+        private MaterialSkin.Controls.MaterialTextBox TxtLeadMan;
+        private MaterialSkin.Controls.MaterialTextBox TxtMobile;
         private MetroFramework.Controls.MetroComboBox metroCmbType;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroComboBox metroCmbCompany;
