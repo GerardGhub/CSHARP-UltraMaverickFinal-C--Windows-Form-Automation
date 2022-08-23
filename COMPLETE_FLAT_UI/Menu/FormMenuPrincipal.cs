@@ -923,12 +923,7 @@ namespace COMPLETE_FLAT_UI
             }
         }
 
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            frmUserManagement fm = new frmUserManagement();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+ 
 
         private void btnPosition_Click(object sender, EventArgs e)
         {

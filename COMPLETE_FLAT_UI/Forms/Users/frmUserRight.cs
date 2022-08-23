@@ -117,9 +117,9 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
         
-            ready = false;
+  
             xClass.fillListBox_Id(listBoxParentTag, "filter_users_parenttagged_at_userights", dSet, p_id, 0, 0);
-            ready = true;
+          
         }
 
 
@@ -129,7 +129,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, 0);
 
-            lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
+            this.lbltotalGrandChildActive.Text = this.listBoxGrandChildTag.Items.Count.ToString();
 
 
         }
@@ -770,9 +770,9 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
             //GetMenuByUsers
-            ready = false;
+      
             xClass.fillListBox_Id(ListViewmenu, "filter_users", dSet, p_id, 0, 0);
-            ready = true;
+   
             lbltotalChildActive.Text = ListViewmenu.Items.Count.ToString();
         }
 
@@ -1808,13 +1808,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void CanAvailableMajorMenu()
         {
-            materialCard2.Visible = false;
-            materialButtonCancel.Visible = true;
-            materialBtnUpdateMenu.Visible = true;
-            txtMaterialMenuName.Visible = false;
+            this.materialCard2.Visible = false;
+            this.materialButtonCancel.Visible = true;
+            this.materialBtnUpdateMenu.Visible = true;
+            this.txtMaterialMenuName.Visible = false;
 
 
-            materialButtonUpdateSubMenu.Visible = false;
+            this.materialButtonUpdateSubMenu.Visible = false;
         }
 
         private void materialBtnShowAvailSubMenu_Click(object sender, EventArgs e)
@@ -1922,14 +1922,14 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             MenuActivate();
         
-            listBoxParentTag.Enabled = true;
-            materialTxtModuelAvail.Enabled = true;
+            this.listBoxParentTag.Enabled = true;
+            this.materialTxtModuelAvail.Enabled = true;
             //Rights Hide
-            materialBtnNew.Visible = false;
-            btnEditTool.Visible = false;
-            btnUpdateTool.Visible = false;
-            btnDeleteTool.Visible = false;
-            btnCancelTool.Visible = false;
+            this.materialBtnNew.Visible = false;
+            this.btnEditTool.Visible = false;
+            this.btnUpdateTool.Visible = false;
+            this.btnDeleteTool.Visible = false;
+            this.btnCancelTool.Visible = false;
         }
 
 

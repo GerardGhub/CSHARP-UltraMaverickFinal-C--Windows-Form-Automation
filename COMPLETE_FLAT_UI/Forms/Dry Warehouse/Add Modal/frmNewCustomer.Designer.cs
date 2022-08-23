@@ -221,6 +221,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNewCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer";

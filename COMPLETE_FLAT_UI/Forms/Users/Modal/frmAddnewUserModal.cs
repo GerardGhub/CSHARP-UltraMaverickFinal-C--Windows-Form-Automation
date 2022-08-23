@@ -17,12 +17,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 {
     public partial class frmAddnewUserModal : MaterialForm
     {
-        //Main Constructor Bugok
-        myclasses xClass = new myclasses();
+
 
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
         int s_id = 0;
@@ -31,12 +29,27 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         string mode = "";
         frmUserManagement2 ths;
         public Byte[] imageByte = null;
-        public frmAddnewUserModal(frmUserManagement2 frm)
+        public frmAddnewUserModal(
+            frmUserManagement2 frm,
+            string Mode,
+            string FirstName,
+            string LastName,
+            int UserRightsId,
+            string UserName,
+            string Password,
+            string Department,
+            string Position,
+            string Unit,
+            string UserLayout,
+            string ReceivingStatus,
+            string Gender,
+            int temp_id
+            )
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            //this.created_by = created_by;
+       
         }
 
         public string requestor_id { get; set; }
@@ -60,7 +73,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void frmAddnewUserModal_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             this.loadUser_type(); // Load the UserType at User Rights
       
 
@@ -69,7 +81,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
      
 
             this.loadDepartment(); // Loading the Depeartment
-            this.loadRequestorType(); //Load Requestor Types
+
  
             this.RefresherOnLoadingThePage();
             this.NewData();
@@ -104,7 +116,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
       
             cboPosition.Enabled = true;
             cbodepartment.Enabled = true;
-            cboRequestorType.Enabled = true;
+
             EmptyTextField();
             txtname.Text = String.Empty;
             txtname.Focus();
@@ -121,7 +133,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             cmbLocation.Text = String.Empty;
             cmbNotif.Text = String.Empty;
             cbodepartment.Text = string.Empty;
-            cboRequestorType.Text = string.Empty;
+
         }
 
         private void disable_text(Boolean e)
@@ -146,14 +158,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             myClass.fillComboBox(cbousertype, "user_type", dSet);
             ready = true;
         }
-        public void loadRequestorType()
-        {
-            ready = false;
-            myClass.fillComboBoxDepartment(cboRequestorType, "TypeofApprover_dropdown", dSet);
-            ready = true;
+        //public void loadRequestorType()
+        //{
+        //    ready = false;
+        //    myClass.fillComboBoxDepartment(cboRequestorType, "TypeofApprover_dropdown", dSet);
+        //    ready = true;
 
-            requestor_id = cboRequestorType.SelectedValue.ToString();
-        }
+        //    requestor_id = cboRequestorType.SelectedValue.ToString();
+        //}
 
         public void loadDepartment()
         {
@@ -237,14 +249,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 cboPosition.Focus();
                 return;
             }
-            if (cboRequestorType.Text.Trim() == "")
-            {
-
-                FillRequiredTextbox();
-                cboRequestorType.BackColor = Color.Yellow;
-                cboRequestorType.Focus();
-                return;
-            }
+    
             if (txtuser.Text.Trim() == "")
             {
 
@@ -478,14 +483,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     cboPosition.Focus();
                     return;
                 }
-                if (cboRequestorType.Text.Trim() == "")
-                {
-
-                    FillRequiredTextbox();
-                    cboRequestorType.BackColor = Color.Yellow;
-                    cboRequestorType.Focus();
-                    return;
-                }
+   
                 if (txtuser.Text.Trim() == "")
                 {
 
@@ -564,15 +562,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         public void loadUnit()
         {
-
-
-            ready = false;
-            xClass.fillComboBoxFilter(cboUnit, "filter_section_dropdown", dSet, department_id, 0);
-            ready = true;
+            myClass.fillComboBoxFilter(cboUnit, "filter_section_dropdown", dSet, department_id, 0);
             s_id = showValue(cboUnit);
-
-
-
         }
 
         public int showValue(ComboBox cbo)
@@ -590,14 +581,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         public void loadPositionDropDown()
         {
-
-
-            ready = false;
-            xClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, department_id, 0);
-            ready = true;
+            myClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, department_id, 0);
             s_id = showValue(cboPosition);
-
-
         }
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -628,10 +613,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             sp_position_id = cboPosition.SelectedValue.ToString();
         }
 
-        private void cboRequestorType_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-           requestor_id = cboRequestorType.SelectedValue.ToString();
-        }
+
 
         private void matRadioMale_CheckedChanged(object sender, EventArgs e)
         {

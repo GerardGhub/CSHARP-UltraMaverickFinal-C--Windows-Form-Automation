@@ -146,6 +146,7 @@
     <Compile Include="API\Entities\DryWHReceipt.cs" />
     <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
+    <Compile Include="API\Entities\UserFile.cs" />
     <Compile Include="API\Interfaces\IDryWHReceiptRepository.cs" />
     <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
     <Compile Include="API\Interfaces\ITblCustomersRepository.cs" />
@@ -711,12 +712,6 @@
     <Compile Include="Forms\Users\frmTypeofApprover.Designer.cs">
       <DependentUpon>frmTypeofApprover.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmUserManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Users\frmUserManagement.Designer.cs">
-      <DependentUpon>frmUserManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Users\frmUserManagement2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1056,9 +1051,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmTypeofApprover.resx">
       <DependentUpon>frmTypeofApprover.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmUserManagement.resx">
-      <DependentUpon>frmUserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmUserManagement2.resx">
       <DependentUpon>frmUserManagement2.cs</DependentUpon>

@@ -708,7 +708,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblUserID.BackColor = System.Drawing.Color.Transparent;
             this.lblUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserID.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUserID.Location = new System.Drawing.Point(600, 12);
+            this.lblUserID.Location = new System.Drawing.Point(636, 9);
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(55, 17);
             this.lblUserID.TabIndex = 563;
@@ -723,7 +723,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFirstName.Location = new System.Drawing.Point(296, 4);
+            this.lblFirstName.Location = new System.Drawing.Point(304, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(76, 17);
             this.lblFirstName.TabIndex = 564;
@@ -1051,7 +1051,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lblidMark.BackColor = System.Drawing.Color.Transparent;
             this.lblidMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidMark.ForeColor = System.Drawing.Color.Black;
-            this.lblidMark.Location = new System.Drawing.Point(28, 49);
+            this.lblidMark.Location = new System.Drawing.Point(299, 30);
             this.lblidMark.Name = "lblidMark";
             this.lblidMark.Size = new System.Drawing.Size(35, 17);
             this.lblidMark.TabIndex = 598;

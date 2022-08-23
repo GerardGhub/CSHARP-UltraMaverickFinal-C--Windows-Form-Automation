@@ -20,7 +20,6 @@ namespace ULTRAMAVERICK.API.Entities
         public string Cust_Updated_by { get; set; }
         public bool Is_Active { get; set; }
         public string Mode { get; set; }
-
         public int TotalRecords { get; set; }
     }
 }

@@ -14,17 +14,15 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.Forms.Users.Modal;
 using System.IO;
+using ULTRAMAVERICK.API.Entities;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmUserManagement2 : MaterialForm
     {
-        //Main Constructor Bugok
-        myclasses xClass = new myclasses();
-
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+        UserFile User = new UserFile();
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
 
@@ -35,18 +33,18 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             InitializeComponent();
         }
-        public string sp_first_name { get; set; }
-        public string sp_last_name { get; set; }
-        public string sp_user_rights { get; set; }
-        public string sp_username { get; set; }
-        public string sp_password { get; set; }
-        public string sp_department { get; set; }
-        public string sp_position { get; set; }
-        public string sp_unit { get; set; }
-        public string sp_user_layout { get; set; }
-        public string sp_requestor_type { get; set; }
-        public string sp_receiving_status { get; set; }
-        public string sp_gender { get; set; }
+        //public string sp_first_name { get; set; }
+        //public string sp_last_name { get; set; }
+        //public string sp_user_rights { get; set; }
+        //public string sp_username { get; set; }
+        //public string sp_password { get; set; }
+        //public string sp_department { get; set; }
+        //public string sp_position { get; set; }
+        //public string sp_unit { get; set; }
+        //public string sp_user_layout { get; set; }
+        //public string sp_requestor_type { get; set; }
+        //public string sp_receiving_status { get; set; }
+        //public string sp_gender { get; set; }
 
         protected override CreateParams CreateParams
         {
@@ -57,14 +55,17 @@ namespace ULTRAMAVERICK.Forms.Users
                 return cp;
             }
         }
+
+
+
         private void frmUserManagement2_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
 
             this.WindowsLoadVBinder();
             this.displayUsers();
-            //hiDeDatagridColumn();
+
             this.load_search();
         }
         private void WindowsLoadVBinder()
@@ -72,27 +73,15 @@ namespace ULTRAMAVERICK.Forms.Users
             this.textBox1.Text = String.Empty;
         }
 
-        private void  hiDeDatagridColumn()
-        {
-            //this.dgvUsers.Columns["user_rights_name"].Visible = false;
-            //this.dgvUsers.Columns["password"].Visible = false;
-            //this.dgvUsers.Columns["user_section"].Visible = false;
-            //this.dgvUsers.Columns["receiving_status"].Visible = false;
-            //this.dgvUsers.Columns["user_rights_name"].Visible = false;
-            //this.dgvUsers.Columns["department_name"].Visible = false;
-            //this.dgvUsers.Columns["type_of_approver"].Visible = false;
-            //this.dgvUsers.Columns["gender"].Visible = false;
-            //this.dgvUsers.Columns["Unit"].Visible = false;
-        }
 
         public void load_search()
         {
             try
             {
-                dset_emp.Clear();
+                this.dset_emp.Clear();
 
 
-                dset_emp = objStorProc.sp_getMajorTables("usercurrentcellchanged");
+                this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("usercurrentcellchanged");
             }
             catch (Exception ex)
             {
@@ -137,10 +126,9 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         private void displayUsers()     
         {
-            ready = false;
-            xClass.fillDataGridView(dgvUsers, "usercurrentcellchangedminor", dSet);
-            ready = true;
-            lbltotalrecords.Text = dgvUsers.RowCount.ToString();
+
+            this.myClass.fillDataGridView(this.dgvUsers, "usercurrentcellchangedminor", dSet);
+            this.lbltotalrecords.Text = this.dgvUsers.RowCount.ToString();
         }
 
         private void dgvUsers_CurrentCellChanged(object sender, EventArgs e)
@@ -159,30 +147,29 @@ namespace ULTRAMAVERICK.Forms.Users
                     {
 
                        temp_id = Convert.ToInt32(dgvUsers.CurrentRow.Cells["userfile_id"].Value.ToString());
-                       sp_first_name = dgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
-                        sp_last_name = dgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
-                      sp_user_rights = dgvUsers.CurrentRow.Cells["user_rights_name"].Value.ToString();
-                  sp_username = dgvUsers.CurrentRow.Cells["username"].Value.ToString();
-                        sp_password = dgvUsers.CurrentRow.Cells["password"].Value.ToString();
-                       sp_position = dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
-                        sp_user_layout = dgvUsers.CurrentRow.Cells["user_section"].Value.ToString();
-                        sp_unit = dgvUsers.CurrentRow.Cells["Unit"].Value.ToString();
-                        sp_receiving_status = dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();
-                       sp_requestor_type = dgvUsers.CurrentRow.Cells["type_of_approver"].Value.ToString();
-                       sp_department = dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
-                        sp_gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
-                        if (lblGenderSelected.Text == "Male")
+                       User.Employee_Name = this.dgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
+                       User.Employee_LastName = this.dgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
+                       User.User_Rights_Id = Convert.ToInt32(this.dgvUsers.CurrentRow.Cells["user_rights_name"].Value);
+                       User.UserName = this.dgvUsers.CurrentRow.Cells["username"].Value.ToString();
+                       User.Password = this.dgvUsers.CurrentRow.Cells["password"].Value.ToString();
+                       User.Position = this.dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
+                       User.User_Section = this.dgvUsers.CurrentRow.Cells["user_section"].Value.ToString();
+                       User.Unit = this.dgvUsers.CurrentRow.Cells["Unit"].Value.ToString();
+                       User.Receiving_Status  = this.dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();                   
+                       User.Department = this.dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
+                       User.Gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
+                        if (this.lblGenderSelected.Text == "Male")
                         {
-                            matRadioMale.Checked = true;
+                            this.matRadioMale.Checked = true;
                         }
-                        else if (lblGenderSelected.Text == "Female")
+                        else if (this.lblGenderSelected.Text == "Female")
                         {
-                            matRadioFemale.Checked = true;
+                            this.matRadioFemale.Checked = true;
                         }
                         else
                         {
-                            matRadioFemale.Checked = false;
-                            matRadioMale.Checked = false;
+                            this.matRadioFemale.Checked = false;
+                            this.matRadioMale.Checked = false;
                         }
 
                     }
@@ -207,8 +194,23 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnAddTool_Click(object sender, EventArgs e)
         {
-            toolStrip2.Visible = false;
-           frmAddnewUserModal addNew = new frmAddnewUserModal(this);
+            this.toolStrip2.Visible = false;
+           frmAddnewUserModal addNew = new frmAddnewUserModal(
+               this,
+               "Add",
+               User.Employee_Name,
+               User.Employee_LastName,
+               User.User_Rights_Id,
+               User.UserName,
+               User.Password,
+               User.Department,
+               User.Position,
+               User.Unit,
+               User.User_Section,
+               User.Receiving_Status,
+               User.Gender,
+               temp_id
+               );
             addNew.ShowDialog();
         }
 
@@ -345,11 +347,11 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-            toolStrip2.Visible = false;
-           frmEditUser addNew = new frmEditUser(this, sp_first_name , sp_last_name, sp_user_rights , sp_username
-               ,sp_password , sp_department, sp_position, sp_unit, sp_user_layout, sp_requestor_type, sp_receiving_status,
-               sp_gender, temp_id);
-            addNew.ShowDialog();
+           // toolStrip2.Visible = false;
+           //frmEditUser addNew = new frmEditUser(this, sp_first_name , sp_last_name, sp_user_rights , sp_username
+           //    ,sp_password , sp_department, sp_position, sp_unit, sp_user_layout, sp_requestor_type, sp_receiving_status,
+           //    sp_gender, temp_id);
+           // addNew.ShowDialog();
         }
 
         private void dgvUsers_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -381,6 +383,28 @@ namespace ULTRAMAVERICK.Forms.Users
                 e.Value = e.Value.ToString().ToUpper();
                 e.FormattingApplied = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.toolStrip2.Visible = false;
+            frmAddnewUserModal addNew = new frmAddnewUserModal(
+                this,
+                "Edit",
+                User.Employee_Name,
+                User.Employee_LastName,
+                User.User_Rights_Id,
+                User.UserName,
+                User.Password,
+                User.Department,
+                User.Position,
+                User.Unit,
+                User.User_Section,
+                User.Receiving_Status,
+                User.Gender,
+                temp_id
+                );
+            addNew.ShowDialog();
         }
     }
 }
