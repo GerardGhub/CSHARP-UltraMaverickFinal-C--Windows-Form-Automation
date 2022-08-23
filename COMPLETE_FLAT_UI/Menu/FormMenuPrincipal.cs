@@ -395,7 +395,9 @@ namespace COMPLETE_FLAT_UI
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {            // Calling the Stored PROC 
-           
+
+ 
+
             this.ConnectionInit();
 
             //this.Size = new Size(1300, 700); //Size of Windows

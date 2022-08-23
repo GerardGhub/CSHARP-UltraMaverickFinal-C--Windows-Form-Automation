@@ -15,7 +15,7 @@ namespace ULTRAMAVERICK.API.Entities
         public string Cust_Mobile { get; set; }
         public string Cust_LeadMan { get; set; }
         public string Cust_Address { get; set; }
-        public string Cust_Added_By { get; set; }
+        public  int Cust_Added_By { get; set; }
         public string Cust_Date_Added { get; set; }
         public string Cust_Updated_by { get; set; }
         public bool Is_Active { get; set; }

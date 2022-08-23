@@ -623,7 +623,7 @@ namespace ULTRAMAVERICK.Models
         string cust_mobile,
         string cust_leadman,
         string cust_address,
-        string cust_added_by,
+        int cust_added_by,
         string cust_date_added,
         string cust_updated_by,
         string cust_date_updated,

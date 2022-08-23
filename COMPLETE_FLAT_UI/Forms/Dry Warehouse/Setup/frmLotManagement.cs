@@ -19,8 +19,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmLotManagement : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -60,7 +59,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void ConnectionInitializer()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
         }
         private void IfTheISNullOrEmpty()
         {
@@ -79,7 +77,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("lot_management_MajorList");
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("lot_management_MajorList");
 
         }
 
@@ -89,7 +87,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("lot_management_MajorList_Deactivated");
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("lot_management_MajorList_Deactivated");
 
         }
 
@@ -123,10 +121,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             try
             {
-                ready = false;
-                xClass.fillDataGridView(dgvLotData ,"lot_management", dSet);
-                ready = true;
-                lbltotalrecords.Text = dgvLotData.RowCount.ToString();
+           
+                this.myClass.fillDataGridView(this.dgvLotData ,"lot_management", dSet);
+     
+                this.lbltotalrecords.Text = this.dgvLotData.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -143,10 +141,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             try
             {
-                ready = false;
-                xClass.fillDataGridView(dgvLotData, "lot_management_deactivated", dSet);
-                ready = true;
-                lbltotalrecords.Text = dgvLotData.RowCount.ToString();
+             
+                this.myClass.fillDataGridView(this.dgvLotData, "lot_management_deactivated", dSet);
+        
+                this.lbltotalrecords.Text = this.dgvLotData.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -291,7 +289,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to Deactivate the "+sp_description+"?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_lot_management(p_id,
+                this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
                     this.sp_user_id, "LotDescription", "MajorCategoryId", "CreatedBY", "", "Sample", "", "delete");
                 this.GlobalStatePopup.UpdatedSuccessfully();
                 this.matRadioNotActive.Checked = true;
@@ -301,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to Activate the " + sp_description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         this.dSet.Clear();
-                        this.dSet = objStorProc.sp_lot_management(p_id,
+                        this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
                             this.sp_user_id, "LotDescription", "MajorCategoryId", "CreatedBY", "", "Sample", "", "activate");
                         this.GlobalStatePopup.UpdatedSuccessfully();
                         this.matRadioActive.Checked = true;

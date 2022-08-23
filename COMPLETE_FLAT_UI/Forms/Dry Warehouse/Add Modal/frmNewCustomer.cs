@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.API.Data;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
 using ULTRAMAVERICK.Models;
 
@@ -21,6 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
+        TblCustomers TblCustomersEntity = new TblCustomers();
         TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
 
 
@@ -28,12 +31,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         public frmNewCustomer(frmCustomers frm, string created_by)
         {
             InitializeComponent();
+            ths = frm;
+            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
         }
 
         private void frmNewCustomer_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
+            this.TblCustomersEntity.Cust_Added_By = userinfo.user_id;
         }
 
         private void matBtnSave_Click(object sender, EventArgs e)
@@ -90,7 +95,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
                 "",
                 "",
                 "",
-                "",
+                0,
                 "",
                 "",
                 "",
@@ -129,14 +134,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.TblCustomersRepositorys
-                    .AddCustomer(0, 
+                    .AddCustomer(
+                    0, 
                     this.txtMatName.Text,
                     this.metroCmbType.Text, 
                     this.metroCmbCompany.Text, 
                     this.txtmatMobile.Text, 
                     this.matTxtLeadMan.Text, 
-                    this.txtMatAddress.Text, 
-                    Convert.ToString(user_info.user_id),
+                    this.txtMatAddress.Text,
+                   TblCustomersEntity.Cust_Added_By,
                     "",
                     "",
                     "",
@@ -152,6 +158,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
 
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ths.textBox1.Text = textBox1.Text;
+        }
 
-      }
+        private void frmNewCustomer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.textBox1.Text = "FormClosed";
+        }
+    }
 }

@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,14 +52,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void frmCustomers_Load(object sender, EventArgs e)
         {
-            this.ShowDataActivated();
+
             this.ConnetionString();
+            this.ShowDataActivated();
             myglobal.global_module = "Active"; // Mode for Searching
+            matRadioActive_CheckedChanged(sender, e);
+            this.textBox1.Text = String.Empty;
+            this.TblCustomersEntity.Cust_Added_By = userinfo.user_id;
+ 
 
-
-            //this.TblCustomerRepo.GetCustomerSearchMajor(TblCustomersEntity.TotalRecords);
-            //this.lbltotalrecords.Text = TblCustomersEntity.TotalRecords.ToString();
-            //this.SearchMethodJarVarCallingSP();
         }
 
         private void ConnetionString()
@@ -68,6 +70,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void ShowDataActivated()
         {
             this.matRadioActive.Checked = true;
+      
         }
 
 
@@ -223,7 +226,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.ConnetionString();
             if (sp_bind_selected == "1")
             {
-                //this.SearchMethodJarVarCallingSP();
+              
                 this.TblCustomerRepo.GetCustomerSearchMajor(TblCustomersEntity.TotalRecords);
             }
             else
@@ -261,6 +264,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
+            matBtnCancel.Visible = true;
            frmNewCustomer addNew = new frmNewCustomer(this, sp_user_id);
             addNew.ShowDialog();
         }
@@ -270,6 +274,91 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
             this.TblCustomerRepo.GetCustomer(dgvCustomers);
             this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            //this.textBox1.Text = String.Empty;
+            matBtnCancel_Click(sender, e);
+            frmCustomers_Load(sender, e);
+        }
+
+        private void matBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.matBtnNew.Visible = true;
+            this.matBtnEdit.Visible = true;
+            this.matBtnCancel.Visible = false;
+        }
+
+        private void metroFinalSaving_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void matBtnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (this.matRadioActive.Checked == true)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    this.TblCustomerRepo.PutDeactivatedCustomer(
+                        p_id,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                       TblCustomersEntity.Cust_Added_By,
+                        "",
+                        "",
+                        "",
+                        false,
+                        "delete");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.frmCustomers_Load(sender, e);
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            else
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    this.TblCustomerRepo.PutActivatedCustomer(
+                        p_id,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                       TblCustomersEntity.Cust_Added_By,
+                        "",
+                        "",
+                        "",
+                        false,
+                        "PutActivatedCustomer");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.frmCustomers_Load(sender, e);
+                }
+                else
+                {
+                    return;
+                }
+
+
+
+
+            }
+
+
         }
     }
 }

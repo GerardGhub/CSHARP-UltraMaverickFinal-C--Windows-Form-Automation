@@ -18,11 +18,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmAddNewLotModal : MaterialForm
     {
         frmLotManagement ths;
-        //myclasses xClass = new myclasses();
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
@@ -40,7 +38,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void frmAddNewLotModal_Load(object sender, EventArgs e)
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = myClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
             this.CallingMainFormWindowBinder();
             this.loadMajorCategoryDropdown();
@@ -95,8 +92,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
             this.dSet.Clear();
-            this.dSet = objStorProc.sp_lot_management(0,
-                matlotnumber.Text, matdescription.Text, lblMajorCatId.Text, matcreatedby.Text, "", matcreatedby.Text, "", "getbyname");
+            this.dSet = g_objStoredProcCollection.sp_lot_management(
+                0,
+                matlotnumber.Text,
+                matdescription.Text,
+                lblMajorCatId.Text,
+                matcreatedby.Text,
+                "",
+                matcreatedby.Text,
+                "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -123,7 +127,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_lot_management(0,
+                this.dSet = g_objStoredProcCollection.sp_lot_management(0,
                     matlotnumber.Text, matdescription.Text, lblMajorCatId.Text, matcreatedby.Text, "", matcreatedby.Text, "", "add");
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.Close();
