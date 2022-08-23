@@ -58,15 +58,18 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
 
+
+
         private void frmUserManagement2_Load(object sender, EventArgs e)
         {
+       
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-
 
             this.WindowsLoadVBinder();
             this.displayUsers();
 
             this.load_search();
+            this.textBox1.Text = String.Empty;
         }
         private void WindowsLoadVBinder()
         {
@@ -149,7 +152,7 @@ namespace ULTRAMAVERICK.Forms.Users
                        temp_id = Convert.ToInt32(dgvUsers.CurrentRow.Cells["userfile_id"].Value.ToString());
                        User.Employee_Name = this.dgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
                        User.Employee_LastName = this.dgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
-                       User.User_Rights_Id = Convert.ToInt32(this.dgvUsers.CurrentRow.Cells["user_rights_name"].Value);
+                       User.User_Rights_Name = this.dgvUsers.CurrentRow.Cells["user_rights_name"].Value.ToString();
                        User.UserName = this.dgvUsers.CurrentRow.Cells["username"].Value.ToString();
                        User.Password = this.dgvUsers.CurrentRow.Cells["password"].Value.ToString();
                        User.Position = this.dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
@@ -200,7 +203,7 @@ namespace ULTRAMAVERICK.Forms.Users
                "Add",
                User.Employee_Name,
                User.Employee_LastName,
-               User.User_Rights_Id,
+               User.User_Rights_Name,
                User.UserName,
                User.Password,
                User.Department,
@@ -249,9 +252,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(this.textBox1.Text =="SaveGerardSingian")
+            if (this.textBox1.Text == "SaveGerardSingian")
             {
-                if(this.lbltotalrecords.Text =="0")
+                if (this.lbltotalrecords.Text == "0")
                 {
 
                 }
@@ -260,12 +263,14 @@ namespace ULTRAMAVERICK.Forms.Users
                     this.toolStrip2.Visible = true;
                 }
 
-            
+                //this.ConnectionINit();
                 this.displayUsers();
-               
-                this.textBox1.Text = String.Empty;
+
+                //this.textBox1.Text = String.Empty;
                 this.frmUserManagement2_Load(sender, e);
             }
+
+
         }
         public void DeletedSuccessfully()
         {
@@ -347,11 +352,30 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-           // toolStrip2.Visible = false;
-           //frmEditUser addNew = new frmEditUser(this, sp_first_name , sp_last_name, sp_user_rights , sp_username
-           //    ,sp_password , sp_department, sp_position, sp_unit, sp_user_layout, sp_requestor_type, sp_receiving_status,
-           //    sp_gender, temp_id);
-           // addNew.ShowDialog();
+            // toolStrip2.Visible = false;
+            //frmEditUser addNew = new frmEditUser(this, sp_first_name , sp_last_name, sp_user_rights , sp_username
+            //    ,sp_password , sp_department, sp_position, sp_unit, sp_user_layout, sp_requestor_type, sp_receiving_status,
+            //    sp_gender, temp_id);
+            // addNew.ShowDialog();
+
+            toolStrip2.Visible = false;
+            frmEditUser addNew = new frmEditUser(this,
+               User.Employee_Name,
+               User.Employee_LastName,
+               User.User_Rights_Name,
+               User.UserName,
+               User.Password,
+               User.Department,
+               User.Position,
+               User.Unit,
+               User.User_Section,
+               "",
+               User.Receiving_Status,
+               User.Gender,
+
+
+                temp_id);
+            addNew.ShowDialog();
         }
 
         private void dgvUsers_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -393,7 +417,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 "Edit",
                 User.Employee_Name,
                 User.Employee_LastName,
-                User.User_Rights_Id,
+                User.User_Rights_Name,
                 User.UserName,
                 User.Password,
                 User.Department,

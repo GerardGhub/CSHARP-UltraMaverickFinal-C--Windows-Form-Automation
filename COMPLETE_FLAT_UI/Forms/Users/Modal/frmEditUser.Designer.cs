@@ -31,49 +31,40 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
             this.lblGenderSelected = new System.Windows.Forms.Label();
-            this.lblgenderLabel = new System.Windows.Forms.Label();
             this.matRadioFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioMale = new MaterialSkin.Controls.MaterialRadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtpassword = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtuser = new MaterialSkin.Controls.MaterialTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtLastName = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtname = new MaterialSkin.Controls.MaterialTextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnUpdateTool = new MaterialSkin.Controls.MaterialButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cmbNotif = new System.Windows.Forms.ComboBox();
             this.cmbLocation = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cbousertype = new System.Windows.Forms.ComboBox();
-            this.cboRequestorType = new System.Windows.Forms.ComboBox();
             this.cbodepartment = new System.Windows.Forms.ComboBox();
             this.cboUnit = new System.Windows.Forms.ComboBox();
             this.cboPosition = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnImage = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.odbEmployeeImage = new System.Windows.Forms.OpenFileDialog();
-            this.materialCard1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtpassword = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtuser = new MaterialSkin.Controls.MaterialTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtLastName = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtname = new MaterialSkin.Controls.MaterialTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroButtonSave
             // 
-            this.metroButtonSave.Location = new System.Drawing.Point(191, 327);
+            this.metroButtonSave.Location = new System.Drawing.Point(743, 212);
             this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonSave.Name = "metroButtonSave";
             this.metroButtonSave.Size = new System.Drawing.Size(68, 20);
@@ -89,36 +80,24 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.lblGenderSelected.BackColor = System.Drawing.Color.Transparent;
             this.lblGenderSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenderSelected.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblGenderSelected.Location = new System.Drawing.Point(674, 327);
+            this.lblGenderSelected.Location = new System.Drawing.Point(651, 212);
             this.lblGenderSelected.Name = "lblGenderSelected";
             this.lblGenderSelected.Size = new System.Drawing.Size(72, 13);
             this.lblGenderSelected.TabIndex = 579;
             this.lblGenderSelected.Text = "Gender Value";
             this.lblGenderSelected.Visible = false;
             // 
-            // lblgenderLabel
-            // 
-            this.lblgenderLabel.AutoSize = true;
-            this.lblgenderLabel.BackColor = System.Drawing.Color.Transparent;
-            this.lblgenderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblgenderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblgenderLabel.Location = new System.Drawing.Point(351, 144);
-            this.lblgenderLabel.Name = "lblgenderLabel";
-            this.lblgenderLabel.Size = new System.Drawing.Size(45, 13);
-            this.lblgenderLabel.TabIndex = 578;
-            this.lblgenderLabel.Text = "Gender:";
-            // 
             // matRadioFemale
             // 
             this.matRadioFemale.AutoSize = true;
             this.matRadioFemale.Depth = 0;
-            this.matRadioFemale.Location = new System.Drawing.Point(98, 0);
+            this.matRadioFemale.Location = new System.Drawing.Point(516, 228);
             this.matRadioFemale.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioFemale.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioFemale.MouseState = MaterialSkin.MouseState.HOVER;
             this.matRadioFemale.Name = "matRadioFemale";
             this.matRadioFemale.Ripple = true;
-            this.matRadioFemale.Size = new System.Drawing.Size(85, 36);
+            this.matRadioFemale.Size = new System.Drawing.Size(87, 37);
             this.matRadioFemale.TabIndex = 577;
             this.matRadioFemale.TabStop = true;
             this.matRadioFemale.Text = "Female";
@@ -129,13 +108,13 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.matRadioMale.AutoSize = true;
             this.matRadioMale.Depth = 0;
-            this.matRadioMale.Location = new System.Drawing.Point(0, 0);
+            this.matRadioMale.Location = new System.Drawing.Point(420, 229);
             this.matRadioMale.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioMale.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioMale.MouseState = MaterialSkin.MouseState.HOVER;
             this.matRadioMale.Name = "matRadioMale";
             this.matRadioMale.Ripple = true;
-            this.matRadioMale.Size = new System.Drawing.Size(70, 36);
+            this.matRadioMale.Size = new System.Drawing.Size(70, 37);
             this.matRadioMale.TabIndex = 576;
             this.matRadioMale.TabStop = true;
             this.matRadioMale.Text = "Male";
@@ -146,157 +125,13 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(298, 338);
+            this.textBox1.Location = new System.Drawing.Point(652, 251);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.Size = new System.Drawing.Size(71, 20);
             this.textBox1.TabIndex = 575;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(3, 144);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 13);
-            this.label16.TabIndex = 567;
-            this.label16.Text = "User Type:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(536, 144);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 13);
-            this.label14.TabIndex = 565;
-            this.label14.Text = "Notification:";
-            // 
-            // txtpassword
-            // 
-            this.txtpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtpassword.Depth = 0;
-            this.txtpassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtpassword.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtpassword.Hint = "Password";
-            this.txtpassword.Location = new System.Drawing.Point(534, 1);
-            this.txtpassword.Margin = new System.Windows.Forms.Padding(1);
-            this.txtpassword.MaxLength = 50;
-            this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtpassword.Multiline = false;
-            this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(163, 50);
-            this.txtpassword.TabIndex = 564;
-            this.txtpassword.Text = "";
-            this.txtpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpassword_KeyPress);
-            // 
-            // txtuser
-            // 
-            this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtuser.Depth = 0;
-            this.txtuser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtuser.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtuser.Hint = "UserName";
-            this.txtuser.Location = new System.Drawing.Point(349, 1);
-            this.txtuser.Margin = new System.Windows.Forms.Padding(1);
-            this.txtuser.MaxLength = 50;
-            this.txtuser.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtuser.Multiline = false;
-            this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(183, 50);
-            this.txtuser.TabIndex = 563;
-            this.txtuser.Text = "";
-            this.txtuser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtuser_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(177, 144);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 13);
-            this.label13.TabIndex = 562;
-            this.label13.Text = "User Rights:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(351, 72);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 13);
-            this.label12.TabIndex = 561;
-            this.label12.Text = "Position:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(177, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 556;
-            this.label1.Text = "Sub Unit:";
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLastName.Depth = 0;
-            this.txtLastName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLastName.Enabled = false;
-            this.txtLastName.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtLastName.Hint = "Last Name";
-            this.txtLastName.Location = new System.Drawing.Point(175, 1);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(1);
-            this.txtLastName.MaxLength = 50;
-            this.txtLastName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtLastName.Multiline = false;
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(172, 50);
-            this.txtLastName.TabIndex = 1;
-            this.txtLastName.Text = "";
-            // 
-            // txtname
-            // 
-            this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtname.Depth = 0;
-            this.txtname.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtname.Enabled = false;
-            this.txtname.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtname.Hint = "First Name";
-            this.txtname.Location = new System.Drawing.Point(1, 1);
-            this.txtname.Margin = new System.Windows.Forms.Padding(1);
-            this.txtname.MaxLength = 50;
-            this.txtname.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtname.Multiline = false;
-            this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(172, 50);
-            this.txtname.TabIndex = 0;
-            this.txtname.Text = "";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(3, 72);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 13);
-            this.label9.TabIndex = 554;
-            this.label9.Text = "Department:";
             // 
             // btnUpdateTool
             // 
@@ -305,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool.DrawShadows = true;
             this.btnUpdateTool.HighEmphasis = true;
             this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(27, 349);
+            this.btnUpdateTool.Location = new System.Drawing.Point(852, 230);
             this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateTool.Name = "btnUpdateTool";
@@ -317,200 +152,69 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool.UseVisualStyleBackColor = true;
             this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(536, 72);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 13);
-            this.label15.TabIndex = 566;
-            this.label15.Text = "System Type:";
-            // 
-            // materialCard1
-            // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.tableLayoutPanel3);
-            this.materialCard1.Controls.Add(this.tableLayoutPanel1);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(28, 78);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(860, 232);
-            this.materialCard1.TabIndex = 574;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.54487F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.482F));
-            this.tableLayoutPanel3.Controls.Add(this.txtname, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtLastName, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtuser, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtpassword, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.cmbNotif, 3, 5);
-            this.tableLayoutPanel3.Controls.Add(this.label14, 3, 4);
-            this.tableLayoutPanel3.Controls.Add(this.cmbLocation, 3, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label15, 3, 2);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 2, 5);
-            this.tableLayoutPanel3.Controls.Add(this.cbousertype, 1, 5);
-            this.tableLayoutPanel3.Controls.Add(this.cboRequestorType, 0, 5);
-            this.tableLayoutPanel3.Controls.Add(this.lblgenderLabel, 2, 4);
-            this.tableLayoutPanel3.Controls.Add(this.label13, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.label16, 0, 4);
-            this.tableLayoutPanel3.Controls.Add(this.cbodepartment, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.cboUnit, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.cboPosition, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label12, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label9, 0, 2);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(157, 6);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 6;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(698, 220);
-            this.tableLayoutPanel3.TabIndex = 596;
-            // 
             // cmbNotif
             // 
+            this.cmbNotif.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNotif.FormattingEnabled = true;
-            this.cmbNotif.Location = new System.Drawing.Point(534, 181);
+            this.cmbNotif.Location = new System.Drawing.Point(200, 235);
             this.cmbNotif.Margin = new System.Windows.Forms.Padding(1);
             this.cmbNotif.Name = "cmbNotif";
-            this.cmbNotif.Size = new System.Drawing.Size(151, 21);
+            this.cmbNotif.Size = new System.Drawing.Size(180, 31);
             this.cmbNotif.TabIndex = 591;
             // 
             // cmbLocation
             // 
+            this.cmbLocation.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(534, 109);
+            this.cmbLocation.Location = new System.Drawing.Point(672, 164);
             this.cmbLocation.Margin = new System.Windows.Forms.Padding(1);
             this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(163, 21);
+            this.cmbLocation.Size = new System.Drawing.Size(238, 31);
             this.cmbLocation.TabIndex = 589;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.93013F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.06987F));
-            this.tableLayoutPanel4.Controls.Add(this.matRadioMale, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.matRadioFemale, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(349, 181);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(183, 36);
-            this.tableLayoutPanel4.TabIndex = 592;
             // 
             // cbousertype
             // 
+            this.cbousertype.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbousertype.FormattingEnabled = true;
-            this.cbousertype.Location = new System.Drawing.Point(175, 181);
+            this.cbousertype.Location = new System.Drawing.Point(672, 34);
             this.cbousertype.Margin = new System.Windows.Forms.Padding(1);
             this.cbousertype.Name = "cbousertype";
-            this.cbousertype.Size = new System.Drawing.Size(172, 21);
+            this.cbousertype.Size = new System.Drawing.Size(238, 31);
             this.cbousertype.TabIndex = 578;
             this.cbousertype.SelectionChangeCommitted += new System.EventHandler(this.cbousertype_SelectionChangeCommitted);
             // 
-            // cboRequestorType
-            // 
-            this.cboRequestorType.FormattingEnabled = true;
-            this.cboRequestorType.Location = new System.Drawing.Point(1, 181);
-            this.cboRequestorType.Margin = new System.Windows.Forms.Padding(1);
-            this.cboRequestorType.Name = "cboRequestorType";
-            this.cboRequestorType.Size = new System.Drawing.Size(164, 21);
-            this.cboRequestorType.TabIndex = 590;
-            this.cboRequestorType.SelectionChangeCommitted += new System.EventHandler(this.cboRequestorType_SelectionChangeCommitted);
-            // 
             // cbodepartment
             // 
+            this.cbodepartment.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbodepartment.FormattingEnabled = true;
-            this.cbodepartment.Location = new System.Drawing.Point(1, 109);
+            this.cbodepartment.Location = new System.Drawing.Point(200, 100);
             this.cbodepartment.Margin = new System.Windows.Forms.Padding(1);
             this.cbodepartment.Name = "cbodepartment";
-            this.cbodepartment.Size = new System.Drawing.Size(164, 21);
+            this.cbodepartment.Size = new System.Drawing.Size(180, 31);
             this.cbodepartment.TabIndex = 586;
             this.cbodepartment.SelectedValueChanged += new System.EventHandler(this.cbodepartment_SelectedValueChanged);
             // 
             // cboUnit
             // 
+            this.cboUnit.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUnit.FormattingEnabled = true;
-            this.cboUnit.Location = new System.Drawing.Point(175, 109);
+            this.cboUnit.Location = new System.Drawing.Point(424, 100);
             this.cboUnit.Margin = new System.Windows.Forms.Padding(1);
             this.cboUnit.Name = "cboUnit";
-            this.cboUnit.Size = new System.Drawing.Size(151, 21);
+            this.cboUnit.Size = new System.Drawing.Size(197, 31);
             this.cboUnit.TabIndex = 587;
             this.cboUnit.SelectionChangeCommitted += new System.EventHandler(this.cboUnit_SelectionChangeCommitted);
             // 
             // cboPosition
             // 
+            this.cboPosition.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPosition.FormattingEnabled = true;
-            this.cboPosition.Location = new System.Drawing.Point(349, 109);
+            this.cboPosition.Location = new System.Drawing.Point(672, 99);
             this.cboPosition.Margin = new System.Windows.Forms.Padding(1);
             this.cboPosition.Name = "cboPosition";
-            this.cboPosition.Size = new System.Drawing.Size(174, 21);
+            this.cboPosition.Size = new System.Drawing.Size(238, 31);
             this.cboPosition.TabIndex = 588;
             this.cboPosition.SelectionChangeCommitted += new System.EventHandler(this.cboPosition_SelectionChangeCommitted);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pbImage, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 6);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(152, 220);
-            this.tableLayoutPanel1.TabIndex = 595;
-            // 
-            // pbImage
-            // 
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
-            this.pbImage.Location = new System.Drawing.Point(3, 3);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(146, 170);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 592;
-            this.pbImage.TabStop = false;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.btnImage, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnRemove, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 177);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(150, 42);
-            this.tableLayoutPanel2.TabIndex = 593;
             // 
             // btnImage
             // 
@@ -521,7 +225,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImage.ForeColor = System.Drawing.Color.White;
-            this.btnImage.Location = new System.Drawing.Point(3, 3);
+            this.btnImage.Location = new System.Drawing.Point(18, 234);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(60, 27);
             this.btnImage.TabIndex = 593;
@@ -536,10 +240,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnRemove.FlatAppearance.BorderSize = 0;
             this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
             this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
-            this.btnRemove.Location = new System.Drawing.Point(78, 3);
+            this.btnRemove.Location = new System.Drawing.Point(96, 234);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(69, 27);
             this.btnRemove.TabIndex = 594;
@@ -551,16 +255,229 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.odbEmployeeImage.Title = "Select Image";
             // 
+            // materialCard2
+            // 
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.cmbNotif);
+            this.materialCard2.Controls.Add(this.textBox1);
+            this.materialCard2.Controls.Add(this.metroButtonSave);
+            this.materialCard2.Controls.Add(this.lblGenderSelected);
+            this.materialCard2.Controls.Add(this.matRadioFemale);
+            this.materialCard2.Controls.Add(this.matRadioMale);
+            this.materialCard2.Controls.Add(this.btnUpdateTool);
+            this.materialCard2.Controls.Add(this.cmbLocation);
+            this.materialCard2.Controls.Add(this.btnRemove);
+            this.materialCard2.Controls.Add(this.cbousertype);
+            this.materialCard2.Controls.Add(this.btnImage);
+            this.materialCard2.Controls.Add(this.pbImage);
+            this.materialCard2.Controls.Add(this.label2);
+            this.materialCard2.Controls.Add(this.cbodepartment);
+            this.materialCard2.Controls.Add(this.cboUnit);
+            this.materialCard2.Controls.Add(this.cboPosition);
+            this.materialCard2.Controls.Add(this.label3);
+            this.materialCard2.Controls.Add(this.label4);
+            this.materialCard2.Controls.Add(this.label5);
+            this.materialCard2.Controls.Add(this.txtpassword);
+            this.materialCard2.Controls.Add(this.txtuser);
+            this.materialCard2.Controls.Add(this.label6);
+            this.materialCard2.Controls.Add(this.label7);
+            this.materialCard2.Controls.Add(this.label8);
+            this.materialCard2.Controls.Add(this.txtLastName);
+            this.materialCard2.Controls.Add(this.txtname);
+            this.materialCard2.Controls.Add(this.label10);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(14, 74);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(932, 282);
+            this.materialCard2.TabIndex = 580;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(521, 212);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 579;
+            this.label2.Text = "Gender:";
+            this.label2.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(432, 212);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 578;
+            this.label3.Text = "Gender:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(672, 145);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 566;
+            this.label4.Text = "System Type:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(201, 213);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 13);
+            this.label5.TabIndex = 565;
+            this.label5.Text = "Notification:";
+            // 
+            // txtpassword
+            // 
+            this.txtpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtpassword.Depth = 0;
+            this.txtpassword.Enabled = false;
+            this.txtpassword.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtpassword.Hint = "Password";
+            this.txtpassword.Location = new System.Drawing.Point(423, 148);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(1);
+            this.txtpassword.MaxLength = 50;
+            this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtpassword.Multiline = false;
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.Password = true;
+            this.txtpassword.Size = new System.Drawing.Size(198, 50);
+            this.txtpassword.TabIndex = 564;
+            this.txtpassword.Text = "";
+            // 
+            // txtuser
+            // 
+            this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtuser.Depth = 0;
+            this.txtuser.Enabled = false;
+            this.txtuser.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtuser.Hint = "UserName";
+            this.txtuser.Location = new System.Drawing.Point(201, 149);
+            this.txtuser.Margin = new System.Windows.Forms.Padding(1);
+            this.txtuser.MaxLength = 50;
+            this.txtuser.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtuser.Multiline = false;
+            this.txtuser.Name = "txtuser";
+            this.txtuser.Size = new System.Drawing.Size(179, 50);
+            this.txtuser.TabIndex = 563;
+            this.txtuser.Text = "";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(672, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 562;
+            this.label6.Text = "User Rights:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(672, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.TabIndex = 561;
+            this.label7.Text = "Position:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(421, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 556;
+            this.label8.Text = "SubUnit:";
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLastName.Depth = 0;
+            this.txtLastName.Enabled = false;
+            this.txtLastName.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtLastName.Hint = "Last Name";
+            this.txtLastName.Location = new System.Drawing.Point(423, 19);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(1);
+            this.txtLastName.MaxLength = 50;
+            this.txtLastName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtLastName.Multiline = false;
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(198, 50);
+            this.txtLastName.TabIndex = 1;
+            this.txtLastName.Text = "";
+            // 
+            // txtname
+            // 
+            this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtname.Depth = 0;
+            this.txtname.Enabled = false;
+            this.txtname.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtname.Hint = "First Name";
+            this.txtname.Location = new System.Drawing.Point(201, 19);
+            this.txtname.Margin = new System.Windows.Forms.Padding(1);
+            this.txtname.MaxLength = 50;
+            this.txtname.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtname.Multiline = false;
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(179, 50);
+            this.txtname.TabIndex = 0;
+            this.txtname.Text = "";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(199, 86);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 13);
+            this.label10.TabIndex = 554;
+            this.label10.Text = "Department:";
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
+            this.pbImage.Location = new System.Drawing.Point(19, 19);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(146, 180);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 592;
+            this.pbImage.TabStop = false;
+            // 
             // frmEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 399);
-            this.Controls.Add(this.metroButtonSave);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnUpdateTool);
-            this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.lblGenderSelected);
+            this.ClientSize = new System.Drawing.Size(966, 381);
+            this.Controls.Add(this.materialCard2);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -570,16 +487,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Text = "Edit User Information";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditUser_FormClosing);
             this.Load += new System.EventHandler(this.frmEditUser_Load);
-            this.materialCard1.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.materialCard2.ResumeLayout(false);
+            this.materialCard2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -587,37 +498,32 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private MetroFramework.Controls.MetroButton metroButtonSave;
         private System.Windows.Forms.Label lblGenderSelected;
-        private System.Windows.Forms.Label lblgenderLabel;
         private MaterialSkin.Controls.MaterialRadioButton matRadioFemale;
         private MaterialSkin.Controls.MaterialRadioButton matRadioMale;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
-        private MaterialSkin.Controls.MaterialTextBox txtpassword;
-        private MaterialSkin.Controls.MaterialTextBox txtuser;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label1;
-        private MaterialSkin.Controls.MaterialTextBox txtLastName;
-        private MaterialSkin.Controls.MaterialTextBox txtname;
-        private System.Windows.Forms.Label label9;
         private MaterialSkin.Controls.MaterialButton btnUpdateTool;
-        private System.Windows.Forms.Label label15;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.ComboBox cbousertype;
         private System.Windows.Forms.ComboBox cbodepartment;
         private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.ComboBox cboUnit;
         private System.Windows.Forms.ComboBox cmbLocation;
-        private System.Windows.Forms.ComboBox cboRequestorType;
         private System.Windows.Forms.ComboBox cmbNotif;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnImage;
-        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.OpenFileDialog odbEmployeeImage;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private MaterialSkin.Controls.MaterialTextBox txtpassword;
+        private MaterialSkin.Controls.MaterialTextBox txtuser;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private MaterialSkin.Controls.MaterialTextBox txtLastName;
+        private MaterialSkin.Controls.MaterialTextBox txtname;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pbImage;
     }
 }

@@ -10,6 +10,7 @@ namespace ULTRAMAVERICK.API.Entities
     {
         public int UserFile_id { get; set; }
         public int User_Rights_Id { get; set; }
+        public string User_Rights_Name { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Employee_Name { get; set; }
@@ -21,5 +22,6 @@ namespace ULTRAMAVERICK.API.Entities
         public string Unit { get; set; }
         public string Receiving_Status { get; set; }
         public string Gender { get; set; }
+        public string Mode { get; set; }
     }
 }

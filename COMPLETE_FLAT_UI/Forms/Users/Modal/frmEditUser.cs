@@ -87,7 +87,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             loadUser_type(); // Load the UserType at User Rights
             loadDepartment();
-            loadRequestorType();
+
             callDataBinding();
             textBox1.Text = String.Empty;
             loadImage();
@@ -170,14 +170,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
 
 
-        public void loadRequestorType()
-        {
+        //public void loadRequestorType()
+        //{
     
-            myClass.fillComboBoxDepartment(cboRequestorType, "TypeofApprover_dropdown", dSet);
+        //    myClass.fillComboBoxDepartment(cboRequestorType, "TypeofApprover_dropdown", dSet);
         
 
-           sp_requestor_type_id = cboRequestorType.SelectedValue.ToString();
-        }
+        //   sp_requestor_type_id = cboRequestorType.SelectedValue.ToString();
+        //}
 
         private void callDataBinding()
         {
@@ -190,7 +190,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             cboPosition.Text = position;
             cboUnit.Text = unit;
             cmbLocation.Text = user_layout;
-            cboRequestorType.Text = requestor_type;
+            //cboRequestorType.Text = requestor_type;
             cmbNotif.Text = receiving_status;
             lblGenderSelected.Text = gender;
         }
@@ -210,12 +210,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (matRadioMale.Checked == true)
             {
                 lblGenderSelected.Text = "Male";
-                lblgenderLabel.BackColor = Color.Transparent;
+
             }
             else if (matRadioFemale.Checked == true)
             {
                 lblGenderSelected.Text = "Female";
-                lblgenderLabel.BackColor = Color.Transparent;
+
             }
             else
             {
@@ -306,10 +306,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             sp_position_id = cboPosition.SelectedValue.ToString();
         }
 
-        private void cboRequestorType_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            sp_requestor_type_id = cboRequestorType.SelectedValue.ToString();
-        }
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
@@ -348,14 +344,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 cboPosition.Focus();
                 return;
             }
-            if (cboRequestorType.Text.Trim() == "")
-            {
-
-                FillRequiredTextbox();
-                cboRequestorType.BackColor = Color.Yellow;
-                cboRequestorType.Focus();
-                return;
-            }
+   
             if (txtuser.Text.Trim() == "")
             {
 
@@ -375,7 +364,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (lblGenderSelected.Text.Trim() == "")
             {
                 FillRequiredTextbox();
-                lblgenderLabel.BackColor = Color.Yellow;
+
                 return;
             }
 
@@ -616,14 +605,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     cboPosition.Focus();
                     return;
                 }
-                if (cboRequestorType.Text.Trim() == "")
-                {
-
-                    FillRequiredTextbox();
-                    cboRequestorType.BackColor = Color.Yellow;
-                    cboRequestorType.Focus();
-                    return;
-                }
+     
                 if (txtuser.Text.Trim() == "")
                 {
 
@@ -643,7 +625,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 if (lblGenderSelected.Text.Trim() == "")
                 {
                     FillRequiredTextbox();
-                    lblgenderLabel.BackColor = Color.Yellow;
+      
                     return;
                 }
                 else
