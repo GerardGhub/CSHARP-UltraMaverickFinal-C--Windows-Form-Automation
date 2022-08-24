@@ -58,7 +58,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
             this.TblCustomersEntity.Cust_Added_By = userinfo.user_id;
-
+            
 
 
             if (this.TblCustomersEntity.Mode == "Add")

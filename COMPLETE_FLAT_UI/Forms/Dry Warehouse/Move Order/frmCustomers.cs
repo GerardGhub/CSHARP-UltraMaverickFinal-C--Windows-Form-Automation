@@ -155,7 +155,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 this.sp_bind_selected = "1";
                 this.matBtnDelete.Text = "&InActive";
 
-       
+
                 this.TblCustomerRepo.GetCustomer(dgvCustomers);
                 this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
 
