@@ -139,15 +139,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Data\DepartmentUnitRepository.cs" />
     <Compile Include="API\Data\DryWHReceiptRepository.cs" />
     <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
     <Compile Include="API\Data\TblCustomersRepository.cs" />
     <Compile Include="API\Entities\Department.cs" />
+    <Compile Include="API\Entities\DepartmentUnit.cs" />
     <Compile Include="API\Entities\DryWHIssue.cs" />
     <Compile Include="API\Entities\DryWHReceipt.cs" />
     <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
+    <Compile Include="API\Interfaces\IDepartmentUnitRepository.cs" />
     <Compile Include="API\Interfaces\IDryWHReceiptRepository.cs" />
     <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
     <Compile Include="API\Interfaces\ITblCustomersRepository.cs" />
@@ -370,6 +373,12 @@
     </Compile>
     <Compile Include="Forms\Users\Modal\AddNewDepartment.Designer.cs">
       <DependentUpon>AddNewDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Modal\AddNewDepartmentUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Modal\AddNewDepartmentUnit.Designer.cs">
+      <DependentUpon>AddNewDepartmentUnit.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\frmDashboard.cs">
       <SubType>Form</SubType>
@@ -890,6 +899,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Modal\AddNewDepartment.resx">
       <DependentUpon>AddNewDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Modal\AddNewDepartmentUnit.resx">
+      <DependentUpon>AddNewDepartmentUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>

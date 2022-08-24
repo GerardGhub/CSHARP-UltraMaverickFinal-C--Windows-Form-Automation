@@ -23,12 +23,11 @@ namespace ULTRAMAVERICK.Forms.Users
 
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        myglobal pointer_module = new myglobal();
         DateTime dNow = DateTime.Now;
         string mode = "";
         DataSet dSet = new DataSet();
         Boolean ready = false;
-        int temp_id = 0;
+
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
@@ -263,56 +262,8 @@ namespace ULTRAMAVERICK.Forms.Users
        
         }
 
-        private void dgv_table_CurrentCellChanged(object sender, EventArgs e)
-        {
-     
-        }
    
 
-        private void cboLocation_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //lblLocationID.Text = cboLocation.SelectedValue.ToString();
-        }
-
-        private void lstDepartment_CursorChanged(object sender, EventArgs e)
-        {
-            if (mode == "add")
-            {
-
-            }
-            else
-            {
-                doSearch();
-   
-            }
-        }
-
-        private void lstDepartment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (mode == "add")
-            {
-
-            }
-            else
-            {
-                doSearch();
-         
-            }
-        }
-
-
-        private void lstDepartment_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (mode == "add")
-            {
-
-            }
-            else
-            {
-                doSearch();
-             
-            }
-        }
 
         private void txtCreatedByAndUserID_TextChanged(object sender, EventArgs e)
         {
@@ -454,6 +405,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
+            
             this.load_search();
         }
 

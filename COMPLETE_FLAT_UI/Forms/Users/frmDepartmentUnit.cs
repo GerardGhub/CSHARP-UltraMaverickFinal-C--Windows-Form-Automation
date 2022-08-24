@@ -13,13 +13,15 @@ using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using ULTRAMAVERICK.Forms.Users.Modal;
+using ULTRAMAVERICK.API.Entities;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmDepartmentUnit : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+    
+
 
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -29,6 +31,11 @@ namespace ULTRAMAVERICK.Forms.Users
         int temp_hid = 0;
         DateTime dNow = DateTime.Now;
         Boolean ready = false;
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
+        DepartmentUnit DeptUnit = new DepartmentUnit();
+
+
 
         IStoredProcedures g_objStoredProcCollection = null;
         DataSet dSet_temp = new DataSet();
@@ -39,24 +46,41 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
         public string sp_department_id { get; set; }
-        private void frmDepartmentUnit_Load(object sender, EventArgs e)
+
+        private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            this.loadDepartment();
-            this.SearchMethodJarVarCallingSP();
-            this.displayDepartmentUnits();
+        }
+        private void frmDepartmentUnit_Load(object sender, EventArgs e)
+        {
+            this.ConnectionInit();
+            this.getRadionDataChanged();
+            this.DisplayDepartmentUnits();
+            this.textBox1.Text = String.Empty;
             
         }
+        private void getRadionDataChanged()
+        {
+            this.matRadioActive.Checked = true;
 
+        }
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
             myglobal.global_module = "Active"; // Mode for Searching
+
+
             dset_emp_SearchEngines.Clear();
 
-
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DepartmentUnitMajor");
+            if (this.matRadioActive.Checked == true)
+            {
+                dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DepartmentUnitMajor");
+            }
+            else
+            {
+                dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DepartmentUnitMajorInActive");
+            }
+ 
 
         }
 
@@ -69,28 +93,14 @@ namespace ULTRAMAVERICK.Forms.Users
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-                    if (myglobal.global_module == "EMPLOYEE")
-                    {
+         
 
-                    }
-                    else if (myglobal.global_module == "Active")
-                    {
+                        dv.RowFilter = "unit_description like '%" + TxtSearch.Text + "%'";
 
-
-                        //Gerard Singian Developer Man
-
-
-
-
-                        dv.RowFilter = "department = '" + cbodepartment.Text + "'";
-
-                    }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-
-                    }
-                    dgvUnits.DataSource = dv;
-                    lbltotalrecords.Text = dgvUnits.RowCount.ToString();
+                    
+             
+                    this.dgvUnits.DataSource = dv;
+                    this.lbltotalrecords.Text = this.dgvUnits.RowCount.ToString();
                 }
             }
             catch (SyntaxErrorException)
@@ -164,41 +174,44 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-        private void displayDepartmentUnits()      //method for loading available_menus
+        private void DisplayDepartmentUnits()      //method for loading available_menus
         {
-            ready = false;
-            xClass.fillDataGridView(dgvUnits, "DepartmentUnit", dSet);
-            ready = true;
-            lbltotalrecords.Text = dgvUnits.RowCount.ToString();
+     
+            myClass.fillDataGridView(dgvUnits, "DepartmentUnit", dSet);
+     
+            this.lbltotalrecords.Text = dgvUnits.RowCount.ToString();
         }
 
 
-        public void loadDepartment()
+        private void DisplayDepartmentUnitsInactive()      //method for loading available_menus
         {
-            ready = false;
-            myClass.fillComboBoxDepartment(cbodepartment, "department_dropdown", dSet);
-            ready = true;
 
-           this.sp_department_id = cbodepartment.SelectedValue.ToString();
+            myClass.fillDataGridView(dgvUnits, "DepartmentUnitInActive", dSet);
+
+            this.lbltotalrecords.Text = dgvUnits.RowCount.ToString();
         }
+
+
+
+        //public void loadDepartment()
+        //{
+        //    ready = false;
+        //    myClass.fillComboBoxDepartment(cbodepartment, "department_dropdown", dSet);
+        //    ready = true;
+
+        //   this.sp_department_id = cbodepartment.SelectedValue.ToString();
+        //}
 
         private void btnAddTool_Click(object sender, EventArgs e)
         {
             this.mode = "add";
             this.btn_visible(false);
-            this.txt_read_only(false);
+   
 
-            this.txtsection.Enabled = true;
-            this.cbodepartment.Text = String.Empty;
-            this.txtModifiedAt.Text = String.Empty;
-            this.txtModifiedBy.Text = String.Empty;
-            this.cbodepartment.Enabled = true;
-            this.sp_department_id = cbodepartment.SelectedValue.ToString(); //Binding First Meet
-            this.txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            this.txtCreatedBy.Text = userinfo.emp_name.ToUpper();
+            //this.sp_department_id = cbodepartment.SelectedValue.ToString(); //Binding First Meet
+
             this.txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            this.cbodepartment.Select();
-            this.cbodepartment.Focus();
+
         }
         private void btn_visible(Boolean val)
         {
@@ -210,38 +223,15 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUpdateTool.Visible = !val;
             this.btnCancelTool.Visible = !val;
         }
-        private void txt_read_only(Boolean val)
-        {
-    
-            txtsection.ReadOnly = val;
-        
 
-            if (val == false)
-            {
-                if (mode == "add")
-                {
-                    txtsection.Text = String.Empty;
-               
-                  
-                    txtsection.Focus();
-                }
-                else
-                {
-                    txtsection.Focus();
-                }
-            }
-
-        }
 
         private void btnCancelTool_Click(object sender, EventArgs e)
         {
             mode = "";
-            txt_read_only(true);
+
             btn_visible(true);
             dgvUnits_CurrentCellChanged(sender, e);
-            txtsection.Enabled = false;
-         
-            cbodepartment.Enabled = false;
+   
         }
 
         private void dgvUnits_CurrentCellChanged(object sender, EventArgs e)
@@ -257,13 +247,13 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     if (dgvUnits.CurrentRow.Cells["unit_description"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvUnits.CurrentRow.Cells["unit_id"].Value);
-                        txtsection.Text = dgvUnits.CurrentRow.Cells["unit_description"].Value.ToString();
-                        cbodepartment.Text = dgvUnits.CurrentRow.Cells["department"].Value.ToString();
-                        txtModifiedAt.Text = dgvUnits.CurrentRow.Cells["updated_at"].Value.ToString();
-                        txtModifiedBy.Text = dgvUnits.CurrentRow.Cells["updated_by"].Value.ToString();
-                        txtCreatedAt.Text = dgvUnits.CurrentRow.Cells["created_at"].Value.ToString();
-                        txtCreatedBy.Text = dgvUnits.CurrentRow.Cells["created_by"].Value.ToString();
+                        this.DeptUnit.Unit_Id = Convert.ToInt32(dgvUnits.CurrentRow.Cells["unit_id"].Value);
+                        this.DeptUnit.Unit_Description = dgvUnits.CurrentRow.Cells["unit_description"].Value.ToString();
+                        this.DeptUnit.Department = dgvUnits.CurrentRow.Cells["department"].Value.ToString();
+                        this.DeptUnit.Updated_At = dgvUnits.CurrentRow.Cells["updated_at"].Value.ToString();
+                        this.DeptUnit.Updated_By = dgvUnits.CurrentRow.Cells["updated_by"].Value.ToString();
+                        this.DeptUnit.Created_At = dgvUnits.CurrentRow.Cells["created_at"].Value.ToString();
+                        this.DeptUnit.Created_By = dgvUnits.CurrentRow.Cells["created_by"].Value.ToString();
   
                     }
                 }
@@ -300,21 +290,21 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
 
-            dSet.Clear();
-            dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
+            //dSet.Clear();
+            //dSet = objStorProc.sp_DepartmentUnit(0, TxtDepartmentUnit.Text, "", "", "", "", "", "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                SectionAlreadyExist();
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
+            //    SectionAlreadyExist();
 
 
-                txtsection.Focus();
-                return;
-            }
-            else
-            {
-                metroSave_Click(sender, e);
-            }
+            //    TxtDepartmentUnit.Focus();
+            //    return;
+            //}
+            //else
+            //{
+            //    metroSave_Click(sender, e);
+            //}
 
 
         }
@@ -376,225 +366,81 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void metroSave_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Department Section", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
+            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the Department Section", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //{
 
-                if (cbodepartment.Text.Trim() == string.Empty)
-                {
-                    FillRequiredFields();
-                    cbodepartment.Focus();
-
-
-                    return;
-                }
+            //    if (cbodepartment.Text.Trim() == string.Empty)
+            //    {
+            //        FillRequiredFields();
+            //        cbodepartment.Focus();
 
 
-                if (txtsection.Text.Trim() == string.Empty)
-                {
-                    FillRequiredFields();
-                    txtsection.Focus();
+            //        return;
+            //    }
 
 
-                    return;
-                }
+            //    if (TxtDepartmentUnit.Text.Trim() == string.Empty)
+            //    {
+            //        FillRequiredFields();
+            //        TxtDepartmentUnit.Focus();
+
+
+            //        return;
+            //    }
 
       
 
-                else
-                {
-                    if (saveMode())
-                    {
-                        displayDepartmentUnits();
-                        string tmode = mode;
+            //    else
+            //    {
+            //        //if (saveMode())
+            //        //{
+            //        //    displayDepartmentUnits();
+            //        //    string tmode = mode;
 
-                        if (tmode == "add")
-                        {
-                            dgvUnits.CurrentCell = dgvUnits[0, dgvUnits.Rows.Count - 1];
-                            UpdateNotifications();
-                        }
-                        else
-                        {
-                            dgvUnits.CurrentCell = dgvUnits[0, temp_hid];
+            //        //    if (tmode == "add")
+            //        //    {
+            //        //        dgvUnits.CurrentCell = dgvUnits[0, dgvUnits.Rows.Count - 1];
+            //        //        UpdateNotifications();
+            //        //    }
+            //        //    else
+            //        //    {
+            //        //        dgvUnits.CurrentCell = dgvUnits[0, temp_hid];
 
-                        }
-                        btnCancelTool_Click(sender, e);
-                        UpdateNotifications();
-                    }
-                    else
+            //        //    }
+            //        //    btnCancelTool_Click(sender, e);
+            //        //    UpdateNotifications();
+            //        //}
+            //        //else
 
-                        metroFinalSaving_Click(sender, e);
-                    return;
-                }
-            }
+            //        //    metroFinalSaving_Click(sender, e);
+            //        //return;
+            //    }
+            //}
 
-            else
-            {
-                return;
-            }
+            //else
+            //{
+            //    return;
+            //}
 
         }
 
 
-        public bool saveMode()      //method for saving of data base on mode (add,edit,delete)
-        {
 
-            if (mode == "add")
-            {
-                dSet.Clear();
-                dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    SectionAlreadyExist();
-
-                    txtsection.Text = string.Empty;
-                    txtsection.Focus();
-                    return false;
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_DepartmentUnit(0, 
-                        txtsection.Text.Trim(),
-                        sp_department_id,             
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
-                        txtCreatedBy.Text.Trim(),
-                        "add");
-
-                    return true;
-                }
-            }
-            else if (mode == "edit")
-            {
-                dSet.Clear();
-                dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
-
-                dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_DepartmentUnit(p_id, txtsection.Text, "", "", "", "", "", "getbyid");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-                    if (tmpID == p_id)
-                    {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_DepartmentUnit(p_id, 
-                            txtsection.Text.Trim(),
-                            sp_department_id,
-                            txtModifiedAt.Text.Trim(),
-                            txtModifiedBy.Text.Trim(),
-                            txtCreatedAt.Text.Trim(),
-                            txtCreatedBy.Text.Trim(),
-                             "edit");
-                        UpdateNotifications();
-
-                        return true;
-                    }
-                    else
-                    {
-                        SectionAlreadyExist();
-                        txtsection.Text = String.Empty;
-                        txtsection.Focus();
-                        return false;
-                    }
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_DepartmentUnit(p_id,
-                        txtsection.Text.Trim(),
-                        sp_department_id,
-                        txtModifiedAt.Text.Trim(),
-                        txtModifiedBy.Text.Trim(),
-                        txtCreatedAt.Text.Trim(),
-                        txtCreatedBy.Text.Trim(),
-                         "edit");
-
-
-                }
-            }
-            else if (mode == "delete")
-            {
-
-                dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_DepartmentUnit(p_id, txtsection.Text, "", "", "", "", "", "delete");
-
-                return true;
-            }
-            return false;
-        }
 
 
         private void metroFinalSaving_Click(object sender, EventArgs e)
         {
-            if (cbodepartment.Text.Trim() == string.Empty)
-            {
-                FillRequiredFields();
-                cbodepartment.Focus();
-                return;
-            }
-
-            if (txtsection.Text.Trim() == string.Empty)
-            {
-                this.FillRequiredFields();
-                this.txtsection.Focus();
-            }
-            else
-            {
-                if (this.saveMode())
-                {
-                    this.displayDepartmentUnits();
-                    string tmode = mode;
-
-                    if (tmode == "add")
-                    {
-                        dgvUnits.CurrentCell = dgvUnits[0, dgvUnits.Rows.Count - 1];
-                    }
-                    else
-                    {
-                        dgvUnits.CurrentCell = dgvUnits[0, temp_hid];
-                    }
-                    btnCancelTool_Click(sender, e);
-                }
-                else
-
-                    return;
-            }
+         
         }
 
-        private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-           sp_department_id= cbodepartment.SelectedValue.ToString();
-        }
+    
 
         private void BtnModuleClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnEditTool_Click(object sender, EventArgs e)
-        {
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
-            if (dgvUnits.RowCount > 0)
-            {
-                temp_hid = dgvUnits.CurrentRow.Index;
-                cbodepartment.Enabled = true;
-                txtsection.Enabled = true;
-               
-            
-                mode = "edit";
 
-                btn_visible(false);
-                txt_read_only(false);
-            }
-
-
-
-        }
 
         public void DeletedSuccessfully()
         {
@@ -642,13 +488,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
                     mode = "delete";
 
-                    if (this.saveMode())
-                    {
-                        this.DeletedSuccessfully();
-                        this.displayDepartmentUnits();
+                    //if (this.saveMode())
+                    //{
+                    //    this.DeletedSuccessfully();
+                    //    this.displayDepartmentUnits();
 
-                        this.btnCancelTool_Click("", e);
-                    }
+                    //    this.btnCancelTool_Click("", e);
+                    //}
                 }
 
                 else
@@ -670,11 +516,11 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void metroComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            sp_department_id = cbodepartment.SelectedValue.ToString();
-            if(mode =="add")
-            {
-                doSearchInTextBoxCmb();
-            }
+            //sp_department_id = cbodepartment.SelectedValue.ToString();
+            //if(mode =="add")
+            //{
+            //    doSearchInTextBoxCmb();
+            //}
         
         }
 
@@ -687,110 +533,105 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             this.mode = "add";
             this.btn_visible(false);
-            this.txt_read_only(false);
 
-            this.txtsection.Enabled = true;
-            this.cbodepartment.Text = String.Empty;
-            this.txtModifiedAt.Text = String.Empty;
-            this.txtModifiedBy.Text = String.Empty;
-            this.cbodepartment.Enabled = true;
-            this.sp_department_id = cbodepartment.SelectedValue.ToString(); //Binding First Meet
-            this.txtCreatedAt.Text = (dNow.ToString("M/d/yyyy"));
-            this.txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            this.txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            this.cbodepartment.Select();
-            this.cbodepartment.Focus();
+            AddNewDepartmentUnit addNew = new AddNewDepartmentUnit(this,
+            userinfo.user_id,
+            "Add", this.DeptUnit.Unit_Id, this.DeptUnit.Department, this.DeptUnit.Unit_Description
+            );
+            addNew.ShowDialog();
+
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            txtModifiedAt.Text = (dNow.ToString("M/d/yyyy"));
-            txtModifiedBy.Text = userinfo.emp_name.ToUpper();
-            if (dgvUnits.RowCount > 0)
-            {
-                temp_hid = dgvUnits.CurrentRow.Index;
-                cbodepartment.Enabled = true;
-                txtsection.Enabled = true;
-
-
-                mode = "edit";
-
-                btn_visible(false);
-                txt_read_only(false);
-            }
+                AddNewDepartmentUnit addNew = new AddNewDepartmentUnit(this,
+                userinfo.user_id,
+                "Edit", this.DeptUnit.Unit_Id, this.DeptUnit.Department, this.DeptUnit.Unit_Description
+                );
+                addNew.ShowDialog();
 
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             mode = "";
-            txt_read_only(true);
+    
             btn_visible(true);
             dgvUnits_CurrentCellChanged(sender, e);
-            txtsection.Enabled = false;
 
-            cbodepartment.Enabled = false;
-            displayDepartmentUnits();
+            DisplayDepartmentUnits();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             //START
+
+
             if (dgvUnits.Rows.Count > 0)
             {
-
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to delete the ChildForm Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (this.matRadioActive.Checked == true)
                 {
 
-
-
-
-
-                    mode = "delete";
-
-                    if (saveMode())
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        DeletedSuccessfully();
-                        displayDepartmentUnits();
 
-                        btnCancelTool_Click("", e);
+                        mode = "delete";
+
+                        dSet_temp.Clear();
+                        dSet_temp = g_objStoredProcCollection.sp_DepartmentUnit(this.DeptUnit.Unit_Id, "", "", "", "", "", "", "delete");
+                        this.GlobalStatePopup.InactiveSuccessfully();
+                        this.frmDepartmentUnit_Load(sender, e);
+                    }
+
+                    else
+                    {
+                        return;
                     }
                 }
-
                 else
                 {
-                    return;
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+                        mode = "activate";
+
+                        dSet_temp.Clear();
+                        dSet_temp = g_objStoredProcCollection.sp_DepartmentUnit(this.DeptUnit.Unit_Id,
+                            "", "", "", "", "", "", "activate");
+                        this.GlobalStatePopup.ActivatedSuccessfully();
+                        this.frmDepartmentUnit_Load(sender, e);
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+
                 }
-
-
-
-
-
-
             }
 
-
-
-            //END
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            dSet.Clear();
-            dSet = objStorProc.sp_DepartmentUnit(0, txtsection.Text, "", "", "", "", "", "getbyname");
+            //dSet.Clear();
+            //dSet = g_objStoredProcCollection.sp_DepartmentUnit(0, TxtDepartmentUnit.Text, "", "", "", "", "", "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                SectionAlreadyExist();
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
+            //    SectionAlreadyExist();
 
 
-                txtsection.Focus();
-                return;
-            }
-            else
-            {
-                metroSave_Click(sender, e);
-            }
+            //    TxtDepartmentUnit.Focus();
+            //    return;
+            //}
+            //else
+            //{
+            //    metroSave_Click(sender, e);
+            //}
+
+
+
         }
 
         private void txtsection_TextChanged(object sender, EventArgs e)
@@ -803,7 +644,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             if(mattxtSearch.Text == "")
             {
-                displayDepartmentUnits();
+                DisplayDepartmentUnits();
             }
             if (lbltotalrecords.Text == "0")
             {
@@ -837,6 +678,48 @@ namespace ULTRAMAVERICK.Forms.Users
                 e.Value = e.Value.ToString().ToUpper();
                 e.FormattingApplied = true;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.toolStripButton1_Click(sender, e);
+            this.frmDepartmentUnit_Load(sender, e);
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.btnDeleteTool.Text = "&InActive";
+                this.ConnectionInit();
+                this.DisplayDepartmentUnits();
+            }
+            else
+            {
+                this.ConnectionInit();
+                this.DisplayDepartmentUnitsInactive();
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.ConnectionInit();
+                this.DisplayDepartmentUnits();
+            }
+            else
+            {
+                this.btnDeleteTool.Text = "&Activate";
+                this.ConnectionInit();
+                this.DisplayDepartmentUnitsInactive();
+            }
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.SearchMethodJarVarCallingSP();
+            this.doSearchInTextBoxCmb();
         }
     }
 }
