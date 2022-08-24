@@ -21,6 +21,7 @@ namespace ULTRAMAVERICK.Forms.Users
     public partial class frmUserManagement2 : MaterialForm
     {
         myclasses myClass = new myclasses();
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         UserFile User = new UserFile();
         DataSet dSet_temp = new DataSet();
@@ -33,58 +34,54 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             InitializeComponent();
         }
-        //public string sp_first_name { get; set; }
-        //public string sp_last_name { get; set; }
-        //public string sp_user_rights { get; set; }
-        //public string sp_username { get; set; }
-        //public string sp_password { get; set; }
-        //public string sp_department { get; set; }
-        //public string sp_position { get; set; }
-        //public string sp_unit { get; set; }
-        //public string sp_user_layout { get; set; }
-        //public string sp_requestor_type { get; set; }
-        //public string sp_receiving_status { get; set; }
-        //public string sp_gender { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string RightsName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string Department { get; set; }
+        public string Positionx { get; set; }
+        public string Unitx { get; set; }
+        public string UserSection { get; set; }
+        public string ReceivingStatus { get; set; }
+        public string Gender { get; set; }
 
-        protected override CreateParams CreateParams
+
+
+        private void ConnectionInit()
         {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle = cp.ExStyle | 0x2000000;
-                return cp;
-            }
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
-
-
-
-
-
         private void frmUserManagement2_Load(object sender, EventArgs e)
         {
-       
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
 
-            this.WindowsLoadVBinder();
+            this.ConnectionInit();
+
+
             this.displayUsers();
-
-            this.load_search();
+            this.matRadioActive.Checked = true;
             this.textBox1.Text = String.Empty;
+            matRadioActive_CheckedChanged(sender, e);
         }
-        private void WindowsLoadVBinder()
-        {
-            this.textBox1.Text = String.Empty;
-        }
+ 
 
 
         public void load_search()
         {
             try
             {
-                this.dset_emp.Clear();
+                if (this.matRadioActive.Checked == true)
+                {
 
+                    this.dset_emp.Clear();
+                    this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("usercurrentcellchanged");
+                }
+                else
+                {
 
-                this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("usercurrentcellchanged");
+                    this.dset_emp.Clear();
+                    this.dset_emp = g_objStoredProcCollection.sp_getMajorTables("InactiveUserCurrentCellChanged");
+                }
             }
             catch (Exception ex)
             {
@@ -127,16 +124,39 @@ namespace ULTRAMAVERICK.Forms.Users
                 return;
             }
         }
-        private void displayUsers()     
+        public void FormClose()
+        {
+            this.Close();
+        }
+        public void displayUsers()     
         {
 
             this.myClass.fillDataGridView(this.dgvUsers, "usercurrentcellchangedminor", dSet);
             this.lbltotalrecords.Text = this.dgvUsers.RowCount.ToString();
         }
 
+        public void InactiveDisplayUsers()
+        {
+
+            this.myClass.fillDataGridView(this.dgvUsers, "Inactiveusercurrentcellchangedminor", dSet);
+            this.lbltotalrecords.Text = this.dgvUsers.RowCount.ToString();
+        }
+
         private void dgvUsers_CurrentCellChanged(object sender, EventArgs e)
         {
             showActiveUser();
+
+            Name = User.Employee_Name;
+            LastName = User.Employee_Name;
+            RightsName = User.User_Rights_Name;
+            UserName = User.UserName;
+            Password = User.Password;
+            Department = User.Department;
+            Positionx = User.Position;
+            Unitx = User.Unit;
+            UserSection = User.User_Section;
+            Gender = User.Gender;
+            ReceivingStatus = User.Receiving_Status;
         }
 
         public void showActiveUser()
@@ -254,6 +274,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             if (this.textBox1.Text == "SaveGerardSingian")
             {
+
                 if (this.lbltotalrecords.Text == "0")
                 {
 
@@ -266,40 +287,15 @@ namespace ULTRAMAVERICK.Forms.Users
                 //this.ConnectionINit();
                 this.displayUsers();
 
-                //this.textBox1.Text = String.Empty;
+                this.textBox1.Text = String.Empty;
                 this.frmUserManagement2_Load(sender, e);
+
+
             }
 
 
         }
-        public void DeletedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Removed Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+       
         public bool saveMode()
         {
             if (mode == "delete")
@@ -312,68 +308,110 @@ namespace ULTRAMAVERICK.Forms.Users
 
              
             }
+            else if (mode == "activate")
+            {
+                dSet_temp.Clear();
+                dSet_temp = g_objStoredProcCollection.sp_userfile(temp_id, "", "", "", "activate");
+
+            }
             return true;
         }
 
         private void btnDeleteTool_Click(object sender, EventArgs e)
         {
             toolStrip2.Visible = false;
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Delete the User Information ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                if (dgvUsers.Rows.Count > 0)
-                {
 
-                    mode = "delete";
-                    if (saveMode())
+            if (this.matRadioActive.Checked == true)
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (dgvUsers.Rows.Count > 0)
                     {
 
+                        mode = "delete";
+                        if (saveMode())
+                        {
 
 
 
-                        mode = "";
-                        DeletedSuccessfully();
-                        toolStrip2.Visible = true;
-                        frmUserManagement2_Load(sender, e);
 
-                   
-               
+                            mode = "";
+                            this.GlobalStatePopup.InactiveSuccessfully();
+                            toolStrip2.Visible = true;
+                            frmUserManagement2_Load(sender, e);
+
+
+
+                        }
                     }
-                }
-                //}
+                    //}
 
+                }
+                else
+                {
+
+                    toolStrip2.Visible = true;
+                    return;
+                }
             }
+
+
             else
             {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (dgvUsers.Rows.Count > 0)
+                    {
 
-                toolStrip2.Visible = true;
-                return;
+                        mode = "activate";
+                        if (saveMode())
+                        {
+
+
+
+
+                            mode = "";
+                            this.GlobalStatePopup.ActivatedSuccessfully();
+                            toolStrip2.Visible = true;
+                            frmUserManagement2_Load(sender, e);
+
+
+
+                        }
+                    }
+                    //}
+
+                }
+                else
+                {
+
+                    toolStrip2.Visible = true;
+                    return;
+                }
             }
+
         }
 
+
+   
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-            // toolStrip2.Visible = false;
-            //frmEditUser addNew = new frmEditUser(this, sp_first_name , sp_last_name, sp_user_rights , sp_username
-            //    ,sp_password , sp_department, sp_position, sp_unit, sp_user_layout, sp_requestor_type, sp_receiving_status,
-            //    sp_gender, temp_id);
-            // addNew.ShowDialog();
-
+   
+                
             toolStrip2.Visible = false;
-            frmEditUser addNew = new frmEditUser(this,
-               User.Employee_Name,
-               User.Employee_LastName,
-               User.User_Rights_Name,
-               User.UserName,
-               User.Password,
-               User.Department,
-               User.Position,
-               User.Unit,
-               User.User_Section,
-               "",
-               User.Receiving_Status,
+            frmEditUser addNew = new frmEditUser(
+               this,
+               Name,
+               LastName,
+               RightsName,
+               UserName,
+               Password,
+               Department,
+               Positionx,
+               Unitx,
+               UserSection,
+               ReceivingStatus,
                User.Gender,
-
-
                 temp_id);
             addNew.ShowDialog();
         }
@@ -429,6 +467,72 @@ namespace ULTRAMAVERICK.Forms.Users
                 temp_id
                 );
             addNew.ShowDialog();
+        }
+
+        private void mattxtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+               this.load_search();
+                doSearchOnMaterialTextBox();
+            
+          
+
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+         
+                this.BtnInactive.Text = "&InActive";
+
+
+                this.ConnectionInit();
+                this.displayUsers();
+
+
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+            
+                this.BtnInactive.Text = "&Activate";
+
+                this.ConnectionInit();
+                this.InactiveDisplayUsers();
+
+            }
+            else
+            {
+
+            }
+
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+
+                this.BtnInactive.Text = "&InActive";
+
+
+                this.ConnectionInit();
+                this.displayUsers();
+
+
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+
+                this.BtnInactive.Text = "&Activate";
+
+                this.ConnectionInit();
+                this.InactiveDisplayUsers();
+
+            }
+            else
+            {
+
+            }
         }
     }
 }

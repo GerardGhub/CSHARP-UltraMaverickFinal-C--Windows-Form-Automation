@@ -85,12 +85,9 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripInventoryDry = new System.Windows.Forms.ToolStripDropDownButton();
             this.dryWHInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownMiscellaneousDryWh = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMoveOrderSetup = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuReceipt = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuIssue = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMoveOrderSetup = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tSWarehouses = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStoreSetup = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripStoreArea = new System.Windows.Forms.ToolStripMenuItem();
             this.storeRoute = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,6 +170,7 @@
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
+            this.TsCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -621,7 +619,7 @@
             // 
             this.panelMenuSelection.Controls.Add(this.toolStrip2);
             this.panelMenuSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.panelMenuSelection.Location = new System.Drawing.Point(-7, 45);
+            this.panelMenuSelection.Location = new System.Drawing.Point(-6, 40);
             this.panelMenuSelection.Margin = new System.Windows.Forms.Padding(1);
             this.panelMenuSelection.Name = "panelMenuSelection";
             this.panelMenuSelection.Size = new System.Drawing.Size(247, 512);
@@ -640,7 +638,6 @@
             this.toolDropdownUser,
             this.toolStripDropDownButtonLabTest,
             this.toolStripInventoryDry,
-            this.toolStripDropDownMiscellaneousDryWh,
             this.toolStripMoveOrderSetup,
             this.toolStoreSetup,
             this.toolStripRawMaterials,
@@ -653,7 +650,7 @@
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(164, 512);
+            this.toolStrip2.Size = new System.Drawing.Size(127, 512);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -665,7 +662,7 @@
             this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolClosePanelSelection.Name = "toolClosePanelSelection";
-            this.toolClosePanelSelection.Size = new System.Drawing.Size(163, 44);
+            this.toolClosePanelSelection.Size = new System.Drawing.Size(126, 44);
             this.toolClosePanelSelection.Text = "Back";
             this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
             // 
@@ -765,7 +762,7 @@
             this.toolStripDropDownButtonLabTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripDropDownButtonLabTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonLabTest.Name = "toolStripDropDownButtonLabTest";
-            this.toolStripDropDownButtonLabTest.Size = new System.Drawing.Size(163, 44);
+            this.toolStripDropDownButtonLabTest.Size = new System.Drawing.Size(126, 44);
             this.toolStripDropDownButtonLabTest.Text = "Lab Test";
             // 
             // toolStripMenuItem1
@@ -823,7 +820,7 @@
             this.toolStripInventoryDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripInventoryDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripInventoryDry.Name = "toolStripInventoryDry";
-            this.toolStripInventoryDry.Size = new System.Drawing.Size(163, 44);
+            this.toolStripInventoryDry.Size = new System.Drawing.Size(126, 44);
             this.toolStripInventoryDry.Text = "Inventory";
             // 
             // dryWHInventoryToolStripMenuItem
@@ -833,19 +830,20 @@
             this.dryWHInventoryToolStripMenuItem.Text = "Dry WH Inventory";
             this.dryWHInventoryToolStripMenuItem.Click += new System.EventHandler(this.dryWHInventoryToolStripMenuItem_Click_1);
             // 
-            // toolStripDropDownMiscellaneousDryWh
+            // toolStripMoveOrderSetup
             // 
-            this.toolStripDropDownMiscellaneousDryWh.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMoveOrderSetup.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuReceipt,
             this.toolStripMenuIssue});
-            this.toolStripDropDownMiscellaneousDryWh.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolStripDropDownMiscellaneousDryWh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripDropDownMiscellaneousDryWh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownMiscellaneousDryWh.Image")));
-            this.toolStripDropDownMiscellaneousDryWh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripDropDownMiscellaneousDryWh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownMiscellaneousDryWh.Name = "toolStripDropDownMiscellaneousDryWh";
-            this.toolStripDropDownMiscellaneousDryWh.Size = new System.Drawing.Size(163, 44);
-            this.toolStripDropDownMiscellaneousDryWh.Text = "Miscellaneous";
+            this.toolStripMoveOrderSetup.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolStripMoveOrderSetup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripMoveOrderSetup.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMoveOrderSetup.Image")));
+            this.toolStripMoveOrderSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMoveOrderSetup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMoveOrderSetup.Name = "toolStripMoveOrderSetup";
+            this.toolStripMoveOrderSetup.Size = new System.Drawing.Size(154, 44);
+            this.toolStripMoveOrderSetup.Text = "Move Order";
+            this.toolStripMoveOrderSetup.Visible = false;
             // 
             // toolStripMenuReceipt
             // 
@@ -861,37 +859,6 @@
             this.toolStripMenuIssue.Text = "Issue";
             this.toolStripMenuIssue.Click += new System.EventHandler(this.toolStripMenuIssue_Click);
             // 
-            // toolStripMoveOrderSetup
-            // 
-            this.toolStripMoveOrderSetup.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tSWarehouses,
-            this.TsCustomer});
-            this.toolStripMoveOrderSetup.Font = new System.Drawing.Font("Roboto", 12F);
-            this.toolStripMoveOrderSetup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripMoveOrderSetup.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMoveOrderSetup.Image")));
-            this.toolStripMoveOrderSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMoveOrderSetup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMoveOrderSetup.Name = "toolStripMoveOrderSetup";
-            this.toolStripMoveOrderSetup.Size = new System.Drawing.Size(163, 44);
-            this.toolStripMoveOrderSetup.Text = "Move Order";
-            this.toolStripMoveOrderSetup.Visible = false;
-            // 
-            // tSWarehouses
-            // 
-            this.tSWarehouses.Enabled = false;
-            this.tSWarehouses.Name = "tSWarehouses";
-            this.tSWarehouses.Size = new System.Drawing.Size(180, 24);
-            this.tSWarehouses.Text = "Warehouses";
-            this.tSWarehouses.Click += new System.EventHandler(this.tSReceipt_Click);
-            // 
-            // TsCustomer
-            // 
-            this.TsCustomer.Enabled = false;
-            this.TsCustomer.Name = "TsCustomer";
-            this.TsCustomer.Size = new System.Drawing.Size(180, 24);
-            this.TsCustomer.Text = "Customer";
-            this.TsCustomer.Click += new System.EventHandler(this.TsIssue_Click);
-            // 
             // toolStoreSetup
             // 
             this.toolStoreSetup.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -899,14 +866,15 @@
             this.storeRoute,
             this.toolStores,
             this.regionToolStripMenuItem,
-            this.syncConsolidatedOrderToolStripMenuItem});
+            this.syncConsolidatedOrderToolStripMenuItem,
+            this.TsCustomer});
             this.toolStoreSetup.Font = new System.Drawing.Font("Roboto", 12F);
             this.toolStoreSetup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStoreSetup.Image = ((System.Drawing.Image)(resources.GetObject("toolStoreSetup.Image")));
             this.toolStoreSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStoreSetup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStoreSetup.Name = "toolStoreSetup";
-            this.toolStoreSetup.Size = new System.Drawing.Size(163, 44);
+            this.toolStoreSetup.Size = new System.Drawing.Size(154, 44);
             this.toolStoreSetup.Text = "Store";
             this.toolStoreSetup.Visible = false;
             // 
@@ -966,7 +934,7 @@
             this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRawMaterials.Name = "toolStripRawMaterials";
-            this.toolStripRawMaterials.Size = new System.Drawing.Size(163, 44);
+            this.toolStripRawMaterials.Size = new System.Drawing.Size(154, 44);
             this.toolStripRawMaterials.Text = "Raw Material";
             this.toolStripRawMaterials.Visible = false;
             this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
@@ -1074,7 +1042,7 @@
             this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownMenu.Name = "toolDropdownMenu";
-            this.toolDropdownMenu.Size = new System.Drawing.Size(163, 44);
+            this.toolDropdownMenu.Size = new System.Drawing.Size(143, 44);
             this.toolDropdownMenu.Text = "Menu";
             this.toolDropdownMenu.Visible = false;
             // 
@@ -1082,7 +1050,7 @@
             // 
             this.toolParentMenu.Enabled = false;
             this.toolParentMenu.Name = "toolParentMenu";
-            this.toolParentMenu.Size = new System.Drawing.Size(180, 24);
+            this.toolParentMenu.Size = new System.Drawing.Size(167, 24);
             this.toolParentMenu.Text = "Major Menu";
             this.toolParentMenu.Click += new System.EventHandler(this.toolParentMenu_Click);
             // 
@@ -1090,7 +1058,7 @@
             // 
             this.toolChildMenu.Enabled = false;
             this.toolChildMenu.Name = "toolChildMenu";
-            this.toolChildMenu.Size = new System.Drawing.Size(180, 24);
+            this.toolChildMenu.Size = new System.Drawing.Size(167, 24);
             this.toolChildMenu.Text = "Sub Menu";
             this.toolChildMenu.Click += new System.EventHandler(this.toolChildMenu_Click);
             // 
@@ -1098,7 +1066,7 @@
             // 
             this.toolGrandChildMenu.Enabled = false;
             this.toolGrandChildMenu.Name = "toolGrandChildMenu";
-            this.toolGrandChildMenu.Size = new System.Drawing.Size(180, 24);
+            this.toolGrandChildMenu.Size = new System.Drawing.Size(167, 24);
             this.toolGrandChildMenu.Text = "Modules";
             this.toolGrandChildMenu.Click += new System.EventHandler(this.toolGrandChildMenu_Click);
             // 
@@ -1117,7 +1085,7 @@
             this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolImportDry.Name = "toolImportDry";
-            this.toolImportDry.Size = new System.Drawing.Size(163, 44);
+            this.toolImportDry.Size = new System.Drawing.Size(143, 44);
             this.toolImportDry.Text = "Import Dry";
             this.toolImportDry.Visible = false;
             this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
@@ -1179,7 +1147,7 @@
             this.toolReceiving.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolReceiving.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolReceiving.Name = "toolReceiving";
-            this.toolReceiving.Size = new System.Drawing.Size(163, 44);
+            this.toolReceiving.Size = new System.Drawing.Size(143, 44);
             this.toolReceiving.Text = "Receiving";
             this.toolReceiving.Visible = false;
             // 
@@ -1227,7 +1195,7 @@
             this.toolPreparation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolPreparation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPreparation.Name = "toolPreparation";
-            this.toolPreparation.Size = new System.Drawing.Size(163, 44);
+            this.toolPreparation.Size = new System.Drawing.Size(143, 44);
             this.toolPreparation.Text = "Preparation";
             this.toolPreparation.Visible = false;
             // 
@@ -1327,7 +1295,7 @@
             this.toolStripDropDownButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(163, 44);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(140, 44);
             this.toolStripDropDownButton2.Text = "Preparation";
             this.toolStripDropDownButton2.Visible = false;
             // 
@@ -1794,6 +1762,14 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
+            // TsCustomer
+            // 
+            this.TsCustomer.Enabled = false;
+            this.TsCustomer.Name = "TsCustomer";
+            this.TsCustomer.Size = new System.Drawing.Size(301, 24);
+            this.TsCustomer.Text = "Customer";
+            this.TsCustomer.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1964,17 +1940,15 @@
         private System.Windows.Forms.ToolStripMenuItem regionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem syncConsolidatedOrderToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripMoveOrderSetup;
-        private System.Windows.Forms.ToolStripMenuItem tSWarehouses;
-        private System.Windows.Forms.ToolStripMenuItem TsCustomer;
         private System.Windows.Forms.ToolStripMenuItem readyForSchedulingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem approvedScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preparationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem moveOrderToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mRSCancelRemarksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownMiscellaneousDryWh;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripMoveOrderSetup;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuReceipt;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuIssue;
+        private System.Windows.Forms.ToolStripMenuItem TsCustomer;
     }
 }
 

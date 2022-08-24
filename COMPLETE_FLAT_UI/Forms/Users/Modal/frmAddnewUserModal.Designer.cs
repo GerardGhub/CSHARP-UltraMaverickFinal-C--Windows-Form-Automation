@@ -66,6 +66,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.btnRemove);
             this.materialCard1.Controls.Add(this.btnImage);
+            this.materialCard1.Controls.Add(this.btnUpdateTool);
             this.materialCard1.Controls.Add(this.pbImage);
             this.materialCard1.Controls.Add(this.Cbodepartment);
             this.materialCard1.Controls.Add(this.CboUnit);
@@ -414,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool.DrawShadows = true;
             this.btnUpdateTool.HighEmphasis = true;
             this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(27, 377);
+            this.btnUpdateTool.Location = new System.Drawing.Point(827, 227);
             this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateTool.Name = "btnUpdateTool";
@@ -506,7 +507,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.ClientSize = new System.Drawing.Size(966, 423);
             this.Controls.Add(this.matChkQAUserAccount);
             this.Controls.Add(this.metroButtonSave);
-            this.Controls.Add(this.btnUpdateTool);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialCard1);
             this.Margin = new System.Windows.Forms.Padding(1);

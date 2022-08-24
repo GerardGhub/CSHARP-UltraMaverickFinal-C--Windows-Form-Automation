@@ -45,6 +45,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnRemove = new System.Windows.Forms.Button();
             this.odbEmployeeImage = new System.Windows.Forms.OpenFileDialog();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtLastName = new MaterialSkin.Controls.MaterialTextBox();
             this.txtname = new MaterialSkin.Controls.MaterialTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -127,7 +127,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(652, 251);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(71, 20);
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
             this.textBox1.TabIndex = 575;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
@@ -156,6 +156,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cmbNotif.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNotif.FormattingEnabled = true;
+            this.cmbNotif.Items.AddRange(new object[] {
+            "On",
+            "Off"});
             this.cmbNotif.Location = new System.Drawing.Point(200, 235);
             this.cmbNotif.Margin = new System.Windows.Forms.Padding(1);
             this.cmbNotif.Name = "cmbNotif";
@@ -166,6 +169,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cmbLocation.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Items.AddRange(new object[] {
+            "Office",
+            "Production"});
             this.cmbLocation.Location = new System.Drawing.Point(672, 164);
             this.cmbLocation.Margin = new System.Windows.Forms.Padding(1);
             this.cmbLocation.Name = "cmbLocation";
@@ -294,6 +300,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.Size = new System.Drawing.Size(932, 282);
             this.materialCard2.TabIndex = 580;
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
+            this.pbImage.Location = new System.Drawing.Point(19, 19);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(146, 180);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 592;
+            this.pbImage.TabStop = false;
             // 
             // label2
             // 
@@ -461,17 +478,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label10.TabIndex = 554;
             this.label10.Text = "Department:";
             // 
-            // pbImage
-            // 
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
-            this.pbImage.Location = new System.Drawing.Point(19, 19);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(146, 180);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 592;
-            this.pbImage.TabStop = false;
-            // 
             // frmEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,7 +491,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit User Information";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditUser_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditUser_FormClosing_1);
             this.Load += new System.EventHandler(this.frmEditUser_Load);
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
@@ -500,7 +506,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.Label lblGenderSelected;
         private MaterialSkin.Controls.MaterialRadioButton matRadioFemale;
         private MaterialSkin.Controls.MaterialRadioButton matRadioMale;
-        private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton btnUpdateTool;
         private System.Windows.Forms.ComboBox cbousertype;
         private System.Windows.Forms.ComboBox cbodepartment;
@@ -525,5 +530,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private MaterialSkin.Controls.MaterialTextBox txtname;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pbImage;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

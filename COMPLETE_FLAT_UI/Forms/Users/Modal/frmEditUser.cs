@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
     public partial class frmEditUser : MaterialForm
     {
         frmUserManagement2 ths;
-        //Main Constructor Bugok
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         myclasses xClass = new myclasses();
 
         myclasses myClass = new myclasses();
@@ -41,8 +41,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private BinaryReader binaryReader;
         public Byte[] imageByte = null;
         public frmEditUser(frmUserManagement2 frm, string first_name, string last_name, string user_rights, 
-            string username, string password, string department, string position, string unit, string user_layout,
-            string requestor_type, string receiving_status, string gender, int  primary_key)
+            string username, string password, string department, string position, string unit, 
+            string user_layout,
+            string receiving_status,
+            string gender, int  primary_key)
         {
             InitializeComponent();
             ths = frm;
@@ -161,23 +163,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         }
         public void loadDepartment()
         {
-            ready = false;
+
             myClass.fillComboBoxDepartment(cbodepartment, "department_dropdown", dSet);
-            ready = true;
+
 
            sp_drop_department_id = cbodepartment.SelectedValue.ToString();
         }
 
 
-
-        //public void loadRequestorType()
-        //{
-    
-        //    myClass.fillComboBoxDepartment(cboRequestorType, "TypeofApprover_dropdown", dSet);
-        
-
-        //   sp_requestor_type_id = cboRequestorType.SelectedValue.ToString();
-        //}
 
         private void callDataBinding()
         {
@@ -190,7 +183,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             cboPosition.Text = position;
             cboUnit.Text = unit;
             cmbLocation.Text = user_layout;
-            //cboRequestorType.Text = requestor_type;
             cmbNotif.Text = receiving_status;
             lblGenderSelected.Text = gender;
         }
@@ -314,7 +306,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             {
 
 
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 txtname.BackColor = Color.Yellow;
                 txtname.Focus();
                 return;
@@ -323,7 +315,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             {
 
 
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 txtLastName.BackColor = Color.Yellow;
                 txtLastName.Focus();
                 return;
@@ -331,7 +323,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (cbousertype.Text.Trim() == "")
             {
 
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 cbousertype.BackColor = Color.Yellow;
                 cbousertype.Focus();
                 return;
@@ -339,7 +331,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (cboPosition.Text.Trim() == "")
             {
 
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 cboPosition.BackColor = Color.Yellow;
                 cboPosition.Focus();
                 return;
@@ -348,7 +340,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (txtuser.Text.Trim() == "")
             {
 
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 txtuser.BackColor = Color.Yellow;
                 txtuser.Focus();
                 return;
@@ -356,14 +348,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (txtpassword.Text.Trim() == "")
             {
 
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
                 txtpassword.BackColor = Color.Yellow;
                 txtpassword.Focus();
                 return;
             }
             if (lblGenderSelected.Text.Trim() == "")
             {
-                FillRequiredTextbox();
+                this.GlobalStatePopup.FillRequiredFields();
 
                 return;
             }
@@ -371,163 +363,70 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             metroButtonSave_Click(sender, e);
         }
 
-        public void FillRequiredTextbox()
+
+
+     
+
+        private void metroButtonSave_Click(object sender, EventArgs e)
         {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
-            popup.ContentColor = Color.Black;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public void SaveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public void UserNameAlreadyTaken()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Username Already Taken!";
-            popup.ContentColor = Color.Black;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public bool saveMode()
-        {
-            if (mode == "add")
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save " + txtname.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_userfile(0, txtuser.Text.Trim(), "", "", "validate");
-
-                if (dSet.Tables[0].Rows.Count > 0)
+                if (txtname.Text.Trim() == "")
                 {
-                    UserNameAlreadyTaken();
+
+
+                    this.GlobalStatePopup.FillRequiredFields();
+                    txtname.BackColor = Color.Yellow;
+                    txtname.Focus();
+                    return;
+                }
+                if (txtLastName.Text.Trim() == "")
+                {
+
+
+                    this.GlobalStatePopup.FillRequiredFields();
+                    txtLastName.BackColor = Color.Yellow;
+                    txtLastName.Focus();
+                    return;
+                }
+                if (cbousertype.Text.Trim() == "")
+                {
+
+                    this.GlobalStatePopup.FillRequiredFields();
+                    cbousertype.BackColor = Color.Yellow;
+                    cbousertype.Focus();
+                    return;
+                }
+                if (cboPosition.Text.Trim() == "")
+                {
+
+                    this.GlobalStatePopup.FillRequiredFields();
+                    cboPosition.BackColor = Color.Yellow;
+                    cboPosition.Focus();
+                    return;
+                }
+     
+                if (txtuser.Text.Trim() == "")
+                {
+
+                    this.GlobalStatePopup.FillRequiredFields();
+                    txtuser.BackColor = Color.Yellow;
                     txtuser.Focus();
-                    return false;
+                    return;
                 }
-                else
+                if (txtpassword.Text.Trim() == "")
                 {
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
-                        Convert.ToInt32(sp_user_rights_id),
-                        txtuser.Text.Trim(),
-                        txtpassword.Text.Trim(),
-                        txtname.Text.Trim(),
-                        cmbLocation.Text.Trim(),
-                        cmbNotif.Text.Trim(),
-                         sp_position_id,
-                        txtLastName.Text.Trim(),
-                        sp_drop_department_id,
-                        sp_requestor_type_id,
-                        sp_dept_unit_id,
-                        lblGenderSelected.Text.Trim(), 
-                        "add");
-                    textBox1.Text = "Save Gerard Singian";
-                    SaveSuccessfully();
-                    this.Close();
-                    return true;
+
+                    this.GlobalStatePopup.FillRequiredFields();
+                    txtpassword.BackColor = Color.Yellow;
+                    txtpassword.Focus();
+                    return;
                 }
-
-            }
-            else if (mode == "edit")
-            {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_userfile(primary_key,
-                    txtuser.Text.Trim(), "",
-                    cmbLocation.Text.Trim(), "getbyname");
-
-                dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_userfile(primary_key,
-                    txtuser.Text.Trim(), "", "", "getbyid");
-
-                if (dSet.Tables[0].Rows.Count > 0)
+                if (lblGenderSelected.Text.Trim() == "")
                 {
-                    int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-                    //if (tmpID == primary_key)
-                    //{
-                        dSet.Clear();
-                        dSet = g_objStoredProcCollection.sp_userfile(primary_key,
-                            Convert.ToInt32(cbousertype.SelectedValue.ToString()),
-                            txtuser.Text.Trim(),
-                            txtpassword.Text.Trim(),
-                            txtname.Text.Trim(),
-                            cmbLocation.Text.Trim(),
-                            cmbNotif.Text.Trim(),
-                            sp_position_id,
-                            txtLastName.Text.Trim(),
-                            sp_drop_department_id,
-                            sp_requestor_type_id,
-                            sp_dept_unit_id,
-                            lblGenderSelected.Text.Trim(), imageByte,
-                            "edit");
-                        SaveSuccessfully();
-                        textBox1.Text = "SaveGerardSingian";
-                        this.Close();
-                        return true;
-                    //}
-                    //else
-                    //{
-                    //    UserNameAlreadyTaken();
-                    //    txtuser.Focus();
-                    //    return false;
-                    //}
+                    this.GlobalStatePopup.FillRequiredFields();
+
+                    return;
                 }
                 else
                 {
@@ -542,106 +441,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         sp_position_id,
                         txtLastName.Text.Trim(),
                         sp_drop_department_id,
-                       sp_requestor_type_id,
+                        sp_requestor_type_id,
                         sp_dept_unit_id,
                         lblGenderSelected.Text.Trim(), imageByte,
                         "edit");
-                    SaveSuccessfully();
+                    this.GlobalStatePopup.SuccessFullySave();
                     textBox1.Text = "SaveGerardSingian";
-
                     this.Close();
-                    return true;
-                }
-            }
-            else if (mode == "delete")
-            {
-                dSet.Clear();
-
-
-                dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_userfile(temp_id, "", "", "", "delete");
-
-                return true;
-            }
-
-            return false;
-        }
-
-        private void metroButtonSave_Click(object sender, EventArgs e)
-        {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Save the New User " + txtname.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                if (txtname.Text.Trim() == "")
-                {
-
-
-                    FillRequiredTextbox();
-                    txtname.BackColor = Color.Yellow;
-                    txtname.Focus();
-                    return;
-                }
-                if (txtLastName.Text.Trim() == "")
-                {
-
-
-                    FillRequiredTextbox();
-                    txtLastName.BackColor = Color.Yellow;
-                    txtLastName.Focus();
-                    return;
-                }
-                if (cbousertype.Text.Trim() == "")
-                {
-
-                    FillRequiredTextbox();
-                    cbousertype.BackColor = Color.Yellow;
-                    cbousertype.Focus();
-                    return;
-                }
-                if (cboPosition.Text.Trim() == "")
-                {
-
-                    FillRequiredTextbox();
-                    cboPosition.BackColor = Color.Yellow;
-                    cboPosition.Focus();
-                    return;
-                }
-     
-                if (txtuser.Text.Trim() == "")
-                {
-
-                    FillRequiredTextbox();
-                    txtuser.BackColor = Color.Yellow;
-                    txtuser.Focus();
-                    return;
-                }
-                if (txtpassword.Text.Trim() == "")
-                {
-
-                    FillRequiredTextbox();
-                    txtpassword.BackColor = Color.Yellow;
-                    txtpassword.Focus();
-                    return;
-                }
-                if (lblGenderSelected.Text.Trim() == "")
-                {
-                    FillRequiredTextbox();
-      
-                    return;
-                }
-                else
-                {
-                    if (saveMode())
-                    {
-
-
-                        mode = "";
-                        SaveSuccessfully();
-
-                    
-
-
-
-                    }
+            
                 }
                 cmbLocation.Enabled = false;
                 cmbNotif.Enabled = false;
@@ -744,6 +551,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void txtpassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void frmEditUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            textBox1.Text = "SaveGerardSingian";
+        }
+
+        private void frmEditUser_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            //ths.displayUsers();
+            textBox1.Text = "SaveGerardSingian";
         }
     }
 }

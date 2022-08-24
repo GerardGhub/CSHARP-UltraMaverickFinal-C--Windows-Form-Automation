@@ -633,10 +633,10 @@ namespace COMPLETE_FLAT_UI
                     {
                         rMBarcodeReprintingToolStripMenuItem.Enabled = true;
                     }
-                    else if (form_name == "tSWarehouses")
-                    {
-                        this.tSWarehouses.Enabled = true;
-                    }
+                    //else if (form_name == "tSWarehouses")
+                    //{
+                    //    this.tSWarehouses.Enabled = true;
+                    //}
                     else if (form_name == "TsCustomer")
                     {
                         this.TsCustomer.Enabled = true;
@@ -1437,7 +1437,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStripMoveOrderSetup.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
             //Miscellaneous Process
-            this.toolStripDropDownMiscellaneousDryWh.Visible = false;
+            this.toolStripMoveOrderSetup.Visible = false;
             this.timeSubMenuIn.Start();
        
         }
@@ -1465,7 +1465,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStripDropDownButtonLabTest.Visible = true;
             this.timeSubMenuIn.Start();
             //Miscellaneouse Receipt Module Process
-            this.toolStripDropDownMiscellaneousDryWh.Visible = true;
+            this.toolStripMoveOrderSetup.Visible = true;
 
         }
 
@@ -1594,7 +1594,7 @@ namespace COMPLETE_FLAT_UI
             this.timeSubMenuIn.Start();
 
             //RM RECEIPT PROCESS MODULE
-            this.toolStripDropDownMiscellaneousDryWh.Visible = false;
+            this.toolStripMoveOrderSetup.Visible = false;
         }
 
         private void toolStripStoreArea_Click(object sender, EventArgs e)
@@ -1815,6 +1815,14 @@ namespace COMPLETE_FLAT_UI
         {
             FrmDryWhMiscellaneouseIssue FrmIssue = new FrmDryWhMiscellaneouseIssue();
             FrmIssue.ShowDialog();
+        }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmCustomers Customer = new frmCustomers();
+            Customer.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(Customer);
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
