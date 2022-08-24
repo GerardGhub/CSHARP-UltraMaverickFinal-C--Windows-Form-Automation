@@ -29,9 +29,9 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPosition));
             this.lstPosition = new System.Windows.Forms.ListBox();
             this.txtCreatedAt = new System.Windows.Forms.TextBox();
@@ -74,12 +74,12 @@ namespace ULTRAMAVERICK.Forms.Users
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstPosition.BackColor = System.Drawing.SystemColors.Control;
             this.lstPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstPosition.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstPosition.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPosition.FormattingEnabled = true;
-            this.lstPosition.ItemHeight = 20;
+            this.lstPosition.ItemHeight = 18;
             this.lstPosition.Location = new System.Drawing.Point(8, 13);
             this.lstPosition.Name = "lstPosition";
-            this.lstPosition.Size = new System.Drawing.Size(941, 240);
+            this.lstPosition.Size = new System.Drawing.Size(628, 234);
             this.lstPosition.TabIndex = 152;
             this.lstPosition.Click += new System.EventHandler(this.lstPosition_Click);
             this.lstPosition.SelectedIndexChanged += new System.EventHandler(this.lstPosition_SelectedIndexChanged);
@@ -93,7 +93,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedAt.Enabled = false;
             this.txtCreatedAt.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCreatedAt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtCreatedAt.Location = new System.Drawing.Point(812, 459);
+            this.txtCreatedAt.Location = new System.Drawing.Point(819, 423);
             this.txtCreatedAt.MaxLength = 100;
             this.txtCreatedAt.Name = "txtCreatedAt";
             this.txtCreatedAt.Size = new System.Drawing.Size(166, 15);
@@ -107,7 +107,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtCreatedBy.Enabled = false;
             this.txtCreatedBy.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCreatedBy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtCreatedBy.Location = new System.Drawing.Point(772, 377);
+            this.txtCreatedBy.Location = new System.Drawing.Point(779, 341);
             this.txtCreatedBy.MaxLength = 100;
             this.txtCreatedBy.Name = "txtCreatedBy";
             this.txtCreatedBy.Size = new System.Drawing.Size(168, 15);
@@ -121,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtModifiedBy.Enabled = false;
             this.txtModifiedBy.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModifiedBy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtModifiedBy.Location = new System.Drawing.Point(772, 411);
+            this.txtModifiedBy.Location = new System.Drawing.Point(779, 375);
             this.txtModifiedBy.MaxLength = 100;
             this.txtModifiedBy.Name = "txtModifiedBy";
             this.txtModifiedBy.Size = new System.Drawing.Size(167, 15);
@@ -134,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(670, 409);
+            this.label6.Location = new System.Drawing.Point(677, 373);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 17);
             this.label6.TabIndex = 177;
@@ -148,7 +148,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtModifiedAt.Enabled = false;
             this.txtModifiedAt.Font = new System.Drawing.Font("Segoe UI", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModifiedAt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtModifiedAt.Location = new System.Drawing.Point(812, 492);
+            this.txtModifiedAt.Location = new System.Drawing.Point(819, 456);
             this.txtModifiedAt.MaxLength = 100;
             this.txtModifiedAt.Name = "txtModifiedAt";
             this.txtModifiedAt.Size = new System.Drawing.Size(167, 15);
@@ -161,7 +161,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(720, 492);
+            this.label5.Location = new System.Drawing.Point(727, 456);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 17);
             this.label5.TabIndex = 175;
@@ -174,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(674, 375);
+            this.label4.Location = new System.Drawing.Point(681, 339);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 17);
             this.label4.TabIndex = 173;
@@ -187,7 +187,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(727, 456);
+            this.label19.Location = new System.Drawing.Point(734, 420);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(83, 17);
             this.label19.TabIndex = 168;
@@ -225,31 +225,31 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgv_table.AllowUserToDeleteRows = false;
             this.dgv_table.AllowUserToResizeColumns = false;
             this.dgv_table.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            this.dgv_table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_table.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_table.ColumnHeadersHeight = 45;
             this.dgv_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_table.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgv_table.EnableHeadersVisualStyles = false;
             this.dgv_table.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_table.Location = new System.Drawing.Point(947, 277);
+            this.dgv_table.Location = new System.Drawing.Point(779, 201);
             this.dgv_table.MultiSelect = false;
             this.dgv_table.Name = "dgv_table";
             this.dgv_table.ReadOnly = true;
             this.dgv_table.RowHeadersVisible = false;
             this.dgv_table.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgv_table.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_table.Size = new System.Drawing.Size(100, 94);
             this.dgv_table.TabIndex = 426;
@@ -378,12 +378,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard2.Controls.Add(this.lstPosition);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(22, 336);
+            this.materialCard2.Location = new System.Drawing.Point(22, 375);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(957, 280);
+            this.materialCard2.Size = new System.Drawing.Size(644, 280);
             this.materialCard2.TabIndex = 582;
             // 
             // panel1
@@ -400,7 +400,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -421,7 +421,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnAddTool.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTool.Image")));
             this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(74, 37);
+            this.btnAddTool.Size = new System.Drawing.Size(75, 37);
             this.btnAddTool.Text = "&New";
             this.btnAddTool.Click += new System.EventHandler(this.neww_Click);
             // 
@@ -430,7 +430,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnEditTool.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTool.Image")));
             this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(70, 37);
+            this.btnEditTool.Size = new System.Drawing.Size(72, 37);
             this.btnEditTool.Text = "&Edit";
             this.btnEditTool.Click += new System.EventHandler(this.editt_Click);
             // 
@@ -439,7 +439,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteTool.Image")));
             this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(92, 37);
+            this.btnDeleteTool.Size = new System.Drawing.Size(94, 37);
             this.btnDeleteTool.Text = "&Remove";
             this.btnDeleteTool.Click += new System.EventHandler(this.removee_Click);
             // 
@@ -448,7 +448,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
             this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(74, 37);
+            this.btnUpdateTool.Size = new System.Drawing.Size(77, 37);
             this.btnUpdateTool.Text = "&Save";
             this.btnUpdateTool.Visible = false;
             this.btnUpdateTool.Click += new System.EventHandler(this.savee_Click);
@@ -458,7 +458,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
             this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(83, 37);
+            this.btnCancelTool.Size = new System.Drawing.Size(88, 37);
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             this.btnCancelTool.Click += new System.EventHandler(this.cancel_Click);

@@ -73,7 +73,6 @@
             this.toolUserRights = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDepartment = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDepartmentUnit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTypeofApprover = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPosition = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDropdownLocation = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButtonLabTest = new System.Windows.Forms.ToolStripDropDownButton();
@@ -94,6 +93,7 @@
             this.toolStores = new System.Windows.Forms.ToolStripMenuItem();
             this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.syncConsolidatedOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripRawMaterials = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripModuleItemClass = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripModuleMajorCategory = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,7 +170,6 @@
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
-            this.TsCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -673,7 +672,6 @@
             this.toolUserRights,
             this.toolDepartment,
             this.toolDepartmentUnit,
-            this.toolTypeofApprover,
             this.toolPosition,
             this.toolDropdownLocation});
             this.toolDropdownUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -726,14 +724,6 @@
             this.toolDepartmentUnit.Size = new System.Drawing.Size(211, 24);
             this.toolDepartmentUnit.Text = "Unit";
             this.toolDepartmentUnit.Click += new System.EventHandler(this.toolDepartmentUnit_Click);
-            // 
-            // toolTypeofApprover
-            // 
-            this.toolTypeofApprover.Enabled = false;
-            this.toolTypeofApprover.Name = "toolTypeofApprover";
-            this.toolTypeofApprover.Size = new System.Drawing.Size(211, 24);
-            this.toolTypeofApprover.Text = "Type of Approver";
-            this.toolTypeofApprover.Click += new System.EventHandler(this.toolTypeofApprover_Click);
             // 
             // toolPosition
             // 
@@ -848,14 +838,14 @@
             // toolStripMenuReceipt
             // 
             this.toolStripMenuReceipt.Name = "toolStripMenuReceipt";
-            this.toolStripMenuReceipt.Size = new System.Drawing.Size(180, 24);
+            this.toolStripMenuReceipt.Size = new System.Drawing.Size(134, 24);
             this.toolStripMenuReceipt.Text = "Receipt";
             this.toolStripMenuReceipt.Click += new System.EventHandler(this.toolStripMenuReceipt_Click);
             // 
             // toolStripMenuIssue
             // 
             this.toolStripMenuIssue.Name = "toolStripMenuIssue";
-            this.toolStripMenuIssue.Size = new System.Drawing.Size(180, 24);
+            this.toolStripMenuIssue.Size = new System.Drawing.Size(134, 24);
             this.toolStripMenuIssue.Text = "Issue";
             this.toolStripMenuIssue.Click += new System.EventHandler(this.toolStripMenuIssue_Click);
             // 
@@ -912,6 +902,14 @@
             this.syncConsolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
             this.syncConsolidatedOrderToolStripMenuItem.Text = "Sync Consolidated Order Setter";
             this.syncConsolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.syncConsolidatedOrderToolStripMenuItem_Click);
+            // 
+            // TsCustomer
+            // 
+            this.TsCustomer.Enabled = false;
+            this.TsCustomer.Name = "TsCustomer";
+            this.TsCustomer.Size = new System.Drawing.Size(301, 24);
+            this.TsCustomer.Text = "Customer";
+            this.TsCustomer.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
             // 
             // toolStripRawMaterials
             // 
@@ -1762,14 +1760,6 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
-            // TsCustomer
-            // 
-            this.TsCustomer.Enabled = false;
-            this.TsCustomer.Name = "TsCustomer";
-            this.TsCustomer.Size = new System.Drawing.Size(301, 24);
-            this.TsCustomer.Text = "Customer";
-            this.TsCustomer.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
-            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1846,7 +1836,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolUserRights;
         private System.Windows.Forms.ToolStripMenuItem toolDepartment;
         private System.Windows.Forms.ToolStripMenuItem toolDepartmentUnit;
-        private System.Windows.Forms.ToolStripMenuItem toolTypeofApprover;
         private System.Windows.Forms.ToolStripMenuItem toolPosition;
         private System.Windows.Forms.ToolStripMenuItem toolDropdownLocation;
         private System.Windows.Forms.ToolStripButton toolClosePanelSelection;

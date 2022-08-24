@@ -527,11 +527,11 @@ namespace COMPLETE_FLAT_UI
 
                     }
 
-                    else if (form_name == "frmTypeofApprover.cs")
-                    {
-                        toolTypeofApprover.Enabled = true;
+                    //else if (form_name == "frmTypeofApprover.cs")
+                    //{
+                    //    toolTypeofApprover.Enabled = true;
 
-                    }
+                    //}
 
 
                     else if (form_name == "frmPosition.cs")
