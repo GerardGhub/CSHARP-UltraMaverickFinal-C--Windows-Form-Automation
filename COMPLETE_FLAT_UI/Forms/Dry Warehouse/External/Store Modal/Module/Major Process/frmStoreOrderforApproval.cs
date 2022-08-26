@@ -1864,7 +1864,7 @@ public void LoadCategoryDropdownForAllocation()
             }
             if (this.GlobalVariable.for_approval_store_module_formLoad == "1")
             {
-                g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+                g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); 
 
                 this.Load_search();
             }

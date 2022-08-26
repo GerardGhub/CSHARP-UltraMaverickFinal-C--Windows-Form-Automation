@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -17,49 +18,54 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmUpdateLotData : MaterialForm
     {
         frmLotManagement ths;
-        //myclasses xClass = new myclasses();
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
+        Lot_Management Lots = new Lot_Management();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
-        public frmUpdateLotData(frmLotManagement frm, string created_by, string sp_lot_number, string sp_description, string sp_category, int primary_id, string totalSku)
+        public frmUpdateLotData(
+            frmLotManagement frm,
+            string Created_by,
+            string Lot_number,
+            string Description,
+            string Category,
+            int Primary_id,
+            string TotalSku)
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.created_by = created_by;
-            this.sp_lot_number = sp_lot_number;
-            this.sp_description = sp_description;
-            this.sp_category = sp_category;
-            this.primary_id = primary_id;
-            this.SpTotalSku = totalSku;
+            this.Lots.Added_By = Created_by;
+            this.Lots.Lot_Number = Lot_number;
+            this.Lots.Description = Description;
+            this.Lots.Category = Category;
+            this.primary_id = Primary_id;
+            this.SpTotalSku = TotalSku;
    
         }
 
-        public string created_by { get; set; }
-        public string sp_lot_number { get; set; }
-        public string sp_description { get; set; }
-        public string sp_category { get; set; }
+
+
+
         public int primary_id { get; set; }
         public string SpTotalSku { get; set; }
         private void frmUpdateLotData_Load(object sender, EventArgs e)
         {
-            this.FirstLoadBindingOrb();
-            
+            this.FirstLoadBindingExpilict();
+
+
                 this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-                this.objStorProc = myClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
 
         }
 
-        private void FirstLoadBindingOrb()
+        private void FirstLoadBindingExpilict()
         {
-            this.txtcreatedBy.Text = created_by;
-            this.matlotnumber.Text = sp_lot_number;
-            this.matdescription.Text = sp_description;
-            this.cboMajorCategory.Text = sp_category;
+            this.Lots.Added_By = this.Lots.Added_By;
+            this.matlotnumber.Text = this.Lots.Lot_Number;
+            this.matdescription.Text = this.Lots.Description;
+            this.cboMajorCategory.Text = this.Lots.Category;
             this.mattotalsku.Text  = SpTotalSku;
         }
 
@@ -94,8 +100,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_lot_management(primary_id,
-                    matlotnumber.Text, matdescription.Text, lblMajorCatId.Text, matcreatedby.Text, "", matcreatedby.Text, "", "edit");
+                this.dSet = g_objStoredProcCollection.sp_lot_management(primary_id,
+               this.matlotnumber.Text, matdescription.Text, lblMajorCatId.Text, this.Lots.Added_By, "", this.Lots.Added_By, "", "edit");
                 this.GlobalStatePopup.UpdatedSuccessfully();
                 this.Close();
             }

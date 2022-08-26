@@ -142,18 +142,22 @@
     <Compile Include="API\Data\DepartmentUnitRepository.cs" />
     <Compile Include="API\Data\DryWHReceiptRepository.cs" />
     <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
+    <Compile Include="API\Data\ParentFormsRepository.cs" />
     <Compile Include="API\Data\TblCustomersRepository.cs" />
     <Compile Include="API\Entities\Department.cs" />
     <Compile Include="API\Entities\DepartmentUnit.cs" />
     <Compile Include="API\Entities\DryWHIssue.cs" />
     <Compile Include="API\Entities\DryWHReceipt.cs" />
     <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
+    <Compile Include="API\Entities\Lot_Management.cs" />
+    <Compile Include="API\Entities\ParentForms.cs" />
     <Compile Include="API\Entities\Position.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
     <Compile Include="API\Interfaces\IDepartmentUnitRepository.cs" />
     <Compile Include="API\Interfaces\IDryWHReceiptRepository.cs" />
     <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
+    <Compile Include="API\Interfaces\IParentFormsRepository.cs" />
     <Compile Include="API\Interfaces\ITblCustomersRepository.cs" />
     <Compile Include="Barcode Reprinting\frmBarcodeReprinting.cs">
       <SubType>Form</SubType>
@@ -368,6 +372,12 @@
     </Compile>
     <Compile Include="Forms\Lab Test\frmLabTestModule.Designer.cs">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.Designer.cs">
+      <DependentUpon>FrmAddNewMajorAvailable.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\Modal\AddNewDepartment.cs">
       <SubType>Form</SubType>
@@ -903,6 +913,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Lab Test\frmLabTestModule.resx">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.resx">
+      <DependentUpon>FrmAddNewMajorAvailable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Modal\AddNewDepartment.resx">
       <DependentUpon>AddNewDepartment.cs</DependentUpon>

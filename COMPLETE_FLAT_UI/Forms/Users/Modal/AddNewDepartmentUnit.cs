@@ -22,8 +22,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         IStoredProcedures g_objStoredProcCollection = null;
         DepartmentUnit DeptUnit = new DepartmentUnit();
         DepartmentUnitRepository DepartmentUnitRepositorys = new DepartmentUnitRepository();
-
-
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public AddNewDepartmentUnit(
