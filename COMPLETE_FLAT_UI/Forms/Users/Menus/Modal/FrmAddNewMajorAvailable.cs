@@ -91,21 +91,23 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 return;
             }
 
-
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_ParentForms(0,
-                txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "validate");
-
-            if (dSet.Tables[0].Rows.Count > 0)
+            if (this.ParentFormEntity.Mode == "Add")
             {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.txtMaterialMenu.Focus();
-                return;
-            }
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?" + txtMaterialMenu.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-              
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_ParentForms(0,
+                    txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "validate");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.txtMaterialMenu.Focus();
+                    return;
+                }
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?" + txtMaterialMenu.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
                     dSet.Clear();
                     dSet = g_objStoredProcCollection
                     .sp_ParentForms(0,
@@ -118,15 +120,67 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                     this.ParentFormEntity.Department,
                     "add");
 
-           
+
                     this.UserForLoop();
-   
+
+
+                }
+                else
+                {
+
+                    return;
+                }
 
             }
+            //edit data
             else
+
             {
 
-                return;
+                if (this.ParentFormEntity.Parent_Form_Name == this.txtMaterialMenu.Text.Trim())
+                {
+
+                }
+                else
+                {
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection.sp_ParentForms(0,
+                        txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "validate");
+
+                    if (dSet.Tables[0].Rows.Count > 0)
+                    {
+                        this.GlobalStatePopup.DataAlreadyExist();
+                        this.txtMaterialMenu.Focus();
+                        return;
+                    }
+                }
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection.sp_ParentForms(ParentFormEntity.Parent_Id,
+                        this.txtMaterialMenu.Text.Trim(),
+                        DateTime.Now.ToString(),
+                        this.ParentFormEntity.Created_By,
+                        DateTime.Now.ToString(),
+                        this.ParentFormEntity.Created_By,
+                        this.ParentFormEntity.Created_By,
+                        "",
+                        "edit");
+
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.Close();
+
+
+
+
+                }
+                else
+                {
+
+                    return;
+                }
             }
 
 

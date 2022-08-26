@@ -372,38 +372,11 @@ namespace ULTRAMAVERICK.Forms.Users
             metroButtonDelete_Click(sender, e);
         }
 
-        public void DeletedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Deleted Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
+  
 
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Delete the Parent Menu Information ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                 {
@@ -411,17 +384,20 @@ namespace ULTRAMAVERICK.Forms.Users
                     mode = "delete";
                     if (saveMode())
                     {
-                        getAllParentMenu();
+
                
 
                         mode = "";
-    
-                        DeletedSuccessfully();
+
+                        this.dSet_temp.Clear();
+                        this.dSet_temp = g_objStoredProcCollection.sp_ParentForms(this.ParentFormEntity.Parent_Id, "", "", "", "", "", "", "", "delete");
+
+                        this.GlobalStatePopup.InactiveSuccessfully();
+                        this.getAllParentMenu();
                         load_search();
                         doSearch();
 
-                        matBtnEDit.Visible = true;
-                        lstParentMenu_Click(sender, e);
+
                     }
                 }
                 //}
@@ -468,100 +444,25 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void txtMaterialMenu_TextChanged(object sender, EventArgs e)
         {
-            if(lbltotalrecords.Text =="0")
-            {
-
-            }
-            else
-            {
-                //showvalue();
-                //doSearch();
-            }
+    
           
        
         }
 
-        private void materialBtnNew_Click(object sender, EventArgs e)
-        {
-            mode = "add";
-            cboDepartmentMaterial.Visible = true;
-            txtMaterialDepartment.Visible = false;
-            matBtnDelete.Visible = false;
-            materialBtnNew.Visible = false;
+ 
 
 
-            txtMaterialMenu.Enabled = true;
-            txtMaterialMenu.Text = string.Empty;
-            matBtnCancel.Visible = true;
-
-
-            sp_created_at = (dNow.ToString("M/d/yyyy"));
-            txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            this.Sp_CreatedByAndUserID = userinfo.user_id.ToString();
-            matBtnSave.Visible = true;
-            matBtnEDit.Visible = false;
-            cboDepartmentMaterial.Enabled = true;
-            loadDepartment();
-            txtMaterialMenu.Focus();
-            
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void cboDepartmentMaterial_SelectionChangeCommitted_1(object sender, EventArgs e)
         {
            sp_department_id = cboDepartmentMaterial.SelectedValue.ToString();
         }
 
-        private void matBtnDelete_Click(object sender, EventArgs e)
-        {
-            metroButtonDelete_Click(sender, e);
-        }
-
-        private void matBtnCancel_Click(object sender, EventArgs e)
-        {
-
-            matBtnCancel.Visible = false;
-            materialBtnNew.Visible = true;
-            txtMaterialMenu.Enabled = false;
-            matBtnDelete.Visible = true;
-            matBtnSave.Visible = false;
-            matBtnEDit.Visible = true;
-            matBtnDelete.Visible = true;
-            cboDepartmentMaterial.Enabled = false;
-            cboDepartmentMaterial.Visible = false;
-            txtMaterialDepartment.Visible = true;
-        }
-
-        private void matBtnSave_Click(object sender, EventArgs e)
-        {
-            metroButtonSave_Click(sender, e);
-        }
+      
+     
 
 
 
-
-        private void InsertMajorMenuasPartial()
-        {
-
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
-                Convert.ToInt32(sp_user_rights_id),
-                "s",
-                "s",
-               "s",
-                "s",
-                "s",
-                "s",
-                "s",
-                "s",
-                "s",
-                "s",
-                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
-        }
 
         private void matBtnNext_Click(object sender, EventArgs e)
         {
@@ -670,7 +571,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnDeleteTool_Click_1(object sender, EventArgs e)
         {
-            metroButtonDelete_Click(sender, e);
+            this.metroButtonDelete_Click(sender, e);
         }
 
         private void btnUpdateTool_Click_1(object sender, EventArgs e)
@@ -747,7 +648,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     {
                         this.ParentFormEntity.Total_Touched = Convert.ToInt32(this.DgvMajorMenu.CurrentRow.Cells["TOTAL_TOUCHED"].Value);
                         this.ParentFormEntity.Parent_Form_Name = this.DgvMajorMenu.CurrentRow.Cells["parent_form_name"].Value.ToString();
-
+                        this.ParentFormEntity.Parent_Id = Convert.ToInt32(this.DgvMajorMenu.CurrentRow.Cells["parent_id"].Value);
                         if (this.ParentFormEntity.Total_Touched == 0)
                         {
                             this.matBtnEDit.Enabled = true;
