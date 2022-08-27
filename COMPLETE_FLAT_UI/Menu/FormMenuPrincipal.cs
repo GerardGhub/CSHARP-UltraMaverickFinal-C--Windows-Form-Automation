@@ -394,9 +394,9 @@ namespace COMPLETE_FLAT_UI
         }
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
-        {            // Calling the Stored PROC 
+        {           
 
- 
+
 
             this.ConnectionInit();
 
@@ -406,12 +406,12 @@ namespace COMPLETE_FLAT_UI
 
             this.showReceivingData();
 
-   
+
 
 
             //btnUsers.Enabled = true;
-            this.lblFirstName.Text = userinfo.emp_name.ToString() + new string(' ', 1) + userinfo.emp_lastname.ToString();// First Name Session
-            //lblLastName.Text = userinfo.emp_lastname.ToUpper(); // Last Name Session
+            this.lblFirstName.Text = userinfo.emp_name.ToString().ToUpper() + new string(' ', 1) + userinfo.emp_lastname.ToString().ToUpper();// First Name Session
+
             this.lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
             MostrarFormLogo();// loading logo
                               //rights here
@@ -656,7 +656,7 @@ namespace COMPLETE_FLAT_UI
 
 
             //MessageBox.Show(this.TotalLabTestReceivingViewing);
-            //bool v = Adorner.AddBadgeTos(btnDashBoard1, "123");
+            //bool v = Adorner.AddBadgeTo(btnDashBoard1, "123");
 
         }
 
@@ -1408,6 +1408,7 @@ namespace COMPLETE_FLAT_UI
             }
         }
 
+
         private void btnDashBoard1_Click_1(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
@@ -1436,6 +1437,9 @@ namespace COMPLETE_FLAT_UI
             //Miscellaneouse Receipt
             this.toolStripMoveOrderSetup.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
+
+            //Inventory 
+            this.toolStripInventoryDry.Visible = false;
             //Miscellaneous Process
             this.toolStripMoveOrderSetup.Visible = false;
             this.timeSubMenuIn.Start();
@@ -1458,6 +1462,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStripRawMaterials.Visible = false;
             //Inventory Viewing
             this.toolStripInventoryDry.Visible = true;
+
             //Store Collections
             this.toolStoreSetup.Visible = false;
             //Miscellaneouse Receipt

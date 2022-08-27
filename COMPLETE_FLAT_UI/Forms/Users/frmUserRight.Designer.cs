@@ -766,6 +766,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtMaterialRights.TabIndex = 569;
             this.txtMaterialRights.Text = "";
             this.txtMaterialRights.TextChanged += new System.EventHandler(this.txtMaterialRights_TextChanged);
+            this.txtMaterialRights.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaterialRights_KeyPress);
             // 
             // materialCard1
             // 

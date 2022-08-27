@@ -2102,5 +2102,10 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             metroButtonDelete_Click(sender, e);
         }
+
+        private void txtMaterialRights_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }
