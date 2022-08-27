@@ -451,7 +451,12 @@ namespace COMPLETE_FLAT_UI
 
 
               
-                    if (parent_form_name == "User")
+                    if (parent_form_name == "USERS")
+                    {
+                        btnUsers1.Visible = true;
+                    }
+
+                    else if (parent_form_name == "DASHBOARD")
                     {
                         btnUsers1.Visible = true;
                     }
