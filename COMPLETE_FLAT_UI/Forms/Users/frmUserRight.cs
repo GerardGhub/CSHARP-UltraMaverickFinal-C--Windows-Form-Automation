@@ -86,13 +86,13 @@ namespace ULTRAMAVERICK.Forms.Users
             this.ConnectionInit();
 
       
-            displayUserRights();
-            listViewuser_rights_Click(sender, e);
-            FalseButton();
-            HideExistingMaterialCard();
+            this.displayUserRights();
+            this.listViewuser_rights_Click(sender, e);
+            this.FalseButton();
+            this.HideExistingMaterialCard();
 
 
-            loadParentMenu();
+            this.loadParentMenu();
             ListViewmenu.Enabled = false;
          
 
@@ -119,7 +119,9 @@ namespace ULTRAMAVERICK.Forms.Users
         
   
             xClass.fillListBox_Id(listBoxParentTag, "filter_users_parenttagged_at_userights", dSet, p_id, 0, 0);
-          
+
+            //this.tabPage2.Text = "MAJOR MENU TAGGED " + this.listBoxParentTag.Items.Count.ToString() + " ";
+
         }
 
 
@@ -199,7 +201,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
 
                 }
-                materialTxtModuelAvail.DataSource = dv;
+                this.materialTxtModuelAvail.DataSource = dv;
+                //this.tabPage3.Text = "MAJOR MENU AVAIL "+  this.materialTxtModuelAvail.RowCount.ToString() +" ";
 
             }
 
@@ -408,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnMetroSave_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Save the New User Type", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (txtMaterialRights.Text.Trim() == string.Empty)
                 {
@@ -420,7 +423,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     if (saveMode())
                     {
-                        displayUserRights();
+                        this.displayUserRights();
                         btnEditTool.Visible = true;
                         btnUpdateTool.Visible = false;
                         if (listViewuser_rights.Items.Count > 0)
@@ -430,8 +433,8 @@ namespace ULTRAMAVERICK.Forms.Users
                             listViewuser_rights.SelectedIndex = index;
                         }
                         btnCancel_Click("", e);
-                        materialBtnNew.Visible = true;
-     
+                        this.materialBtnNew.Visible = true;
+                        this.txtMaterialRights.Enabled = false;
                         this.GlobalStatePopup.UpdatedSuccessfully();
                     }
                 }
@@ -493,19 +496,17 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
 
-                        //p_id = Convert.ToInt32(listBoxParentTag.SelectedValue.ToString());
+               
                         if (listBoxParentTag.Items.Count > 0)
                         {
-                            //var SelectedDataRowParent = (listBoxParentTag.SelectedItem as DataRowView)["parent_id"].ToString();
-
-
+            
                             var SelectedDataRowParent = (listBoxParentTag.SelectedItem as DataRowView)["user_rights_id"].ToString();
 
 
 
 
                             dv.RowFilter = "user_rights_id = " + SelectedDataRowParent + "";
-                            //dv.RowFilter = "count = '" + lblparentmenuid.Text + "'";
+  
                         }
                     }
                     else if (myglobal.global_module == "VISITORS")

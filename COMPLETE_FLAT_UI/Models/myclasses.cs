@@ -74,6 +74,20 @@ namespace ULTRAMAVERICK.Models
             eListBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
             g_objStoredProcFill = null;
         }
+
+        public void fillListBoxMajorMenu(ListBox eListBox, string eTablename, DataSet dSet)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null, null, null, null);
+
+            eListBox.DataSource = dSet.Tables[0].DefaultView;
+
+            eListBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
+
+            eListBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+            g_objStoredProcFill = null;
+        }
         public void fillListBox_Id(ListBox eListBox, string eTablename, DataSet dSet, int id, int userRightsId, int menuId)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();

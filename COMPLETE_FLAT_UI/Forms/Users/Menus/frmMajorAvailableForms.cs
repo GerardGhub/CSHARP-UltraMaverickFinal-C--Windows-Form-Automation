@@ -29,7 +29,7 @@ namespace ULTRAMAVERICK.Forms.Users
         string mode = "";
         DataSet dSet = new DataSet();
         Boolean ready = false;
-        //int temp_id = 0;
+        int temp_id = 0;
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         ParentForms ParentFormEntity = new ParentForms();
@@ -41,7 +41,7 @@ namespace ULTRAMAVERICK.Forms.Users
         MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
 
         public string sp_department_id { get; set; }
-        public int temp_id { get; set; }
+   
         public string sp_user_rights_id { get; set; }
         public string sp_created_at { get; set; }
         public string Sp_CreatedByAndUserID { get; set; }
@@ -543,7 +543,7 @@ namespace ULTRAMAVERICK.Forms.Users
            FrmAddNewMajorAvailable addNew = 
             new  FrmAddNewMajorAvailable(
             this,
-            userinfo.user_id,
+            userinfo.user_rights_id,
             "Add", 
             this.ParentFormEntity.Parent_Id,
             this.ParentFormEntity.Parent_Form_Name

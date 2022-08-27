@@ -41,12 +41,13 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void FrmAddNewParentForm_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
-      
+            getAllParentMenu();
             this.DisplayUserRightsData();
 
             if (this.ParentFormEntity.Mode == "Add")
             {
                 this.Text = "Add New Parent Form";
+               
             }
             else
             {
@@ -119,8 +120,10 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                     this.ParentFormEntity.Created_By,
                     this.ParentFormEntity.Department,
                     "add");
-
-
+                    this.ConnectionInit();
+          
+                    this.getAllParentMenu();
+                    this.showvalue();
                     this.UserForLoop();
 
 
@@ -186,6 +189,13 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
         }
 
+
+        private void getAllParentMenu()
+        {
+            myClass.fillListBoxMajorMenu(lstParentMenu, "ParentFormsListView", dSet);
+        }
+
+
         public void UserForLoop()
         {
         
@@ -203,8 +213,8 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 "s4",
                 "s3",
                 "s2",
-                Convert.ToInt32(this.ParentFormEntity.UserRightsId).ToString(),
-                Convert.ToInt32(this.ParentFormEntity.UserRightsId).ToString(), "addModuleRightsMajorPartial");
+                Convert.ToInt32(this.temp_id).ToString(),
+                Convert.ToInt32(this.temp_id).ToString(), "addModuleRightsMajorPartial");
 
             if (this.dgvUserRights.Rows.Count >= 1)
             {
@@ -244,6 +254,36 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void txtMaterialMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void lstParentMenu_SelectedValueChanged(object sender, EventArgs e)
+        {
+         
+         
+            
+        }
+
+        private void showvalue()
+        {
+
+            if (lstParentMenu.Items.Count > 0)
+            {
+                temp_id = Convert.ToInt32(lstParentMenu.SelectedValue.ToString());
+
+                //MessageBox.Show(lstParentMenu.SelectedValue.ToString());
+            }
+
+
+        }
+
+        private void lstParentMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lstParentMenu_CursorChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 
