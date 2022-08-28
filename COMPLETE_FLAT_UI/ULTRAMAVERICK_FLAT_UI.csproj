@@ -144,6 +144,7 @@
     <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
     <Compile Include="API\Data\ParentFormsRepository.cs" />
     <Compile Include="API\Data\TblCustomersRepository.cs" />
+    <Compile Include="API\Entities\Available_Menu.cs" />
     <Compile Include="API\Entities\Department.cs" />
     <Compile Include="API\Entities\DepartmentUnit.cs" />
     <Compile Include="API\Entities\DryWHIssue.cs" />

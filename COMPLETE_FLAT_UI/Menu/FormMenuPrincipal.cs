@@ -734,16 +734,13 @@ namespace COMPLETE_FLAT_UI
                 {
                     string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
 
-
-
                     if (form_name == "toolDropdownMenu")
                     {
-                        toolDropdownMenu.Visible = true;
+                        this.toolDropdownMenu.Visible = true;
                     }
-                    else if (form_name == "toolDropdownUser")
+                    else if (form_name == "toolDropdownUserManager")
                     {
-                        toolDropdownUser.Visible = true;
-                        /*  MostrarFormLogo()*/
+                        this.toolDropdownUserManager.Visible = true;
 
                     }
                     //Raw Mats //Dry
@@ -827,7 +824,7 @@ namespace COMPLETE_FLAT_UI
             toolStripRawMaterials.Visible = false;
             SubMenu();
             toolDropdownMenu.Visible = false;
-            toolDropdownUser.Visible = false;
+            toolDropdownUserManager.Visible = false;
             //Research And Development
             toolStripRawMaterials.Visible = true;
 
@@ -1459,7 +1456,7 @@ namespace COMPLETE_FLAT_UI
             this.SubMenu();
             this.toolDropdownMenu.Visible = false;
             //User Data Collection
-            this.toolDropdownUser.Visible = false;
+            this.toolDropdownUserManager.Visible = false;
             //Research And Development
             //RM Preparation
             this.toolPreparation.Visible = true;
@@ -1498,7 +1495,7 @@ namespace COMPLETE_FLAT_UI
             this.SubMenu();
             this.toolImportDry.Visible = false;
             //User major Menu
-            this.toolDropdownUser.Visible = false;
+            this.toolDropdownUserManager.Visible = false;
             this.toolDropdownMenu.Visible = false;
       
         }
@@ -1589,7 +1586,7 @@ namespace COMPLETE_FLAT_UI
             this.toolStripRawMaterials.Visible = false;
             this.SubMenu();
             this.toolDropdownMenu.Visible = false;
-            this.toolDropdownUser.Visible = false;
+            this.toolDropdownUserManager.Visible = false;
             //Research And Development
             toolPreparation.Visible = false;
             this.toolStripRawMaterials.Visible = true;
