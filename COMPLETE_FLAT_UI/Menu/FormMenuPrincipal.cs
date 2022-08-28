@@ -574,10 +574,41 @@ namespace COMPLETE_FLAT_UI
                     }
 
 
-                    //else if (form_name == "toolDropdownLocation")
-                    //{
-                    //    this.toolDropdownLocation.Enabled = true;
-                    //}
+                    //Import Dry
+                    else if (form_name == "dryRawMaterialsToolStripMenuItem")
+                    {
+                        this.dryRawMaterialsToolStripMenuItem.Enabled = true;
+
+                    }
+                    else if (form_name == "poSummaryToolStripMenuItem")
+                    {
+                        this.poSummaryToolStripMenuItem.Enabled = true;
+
+                    }
+                    else if (form_name == "ImportStoreDry")
+                    {
+                        this.ImportStoreDry.Enabled = true;
+
+                    }
+                    else if (form_name == "consolidatedOrderToolStripMenuItem")
+                    {
+                        this.consolidatedOrderToolStripMenuItem.Enabled = true;
+
+                    }
+                    else if (form_name == "orderRESTAPIToolStripMenuItem")
+                    {
+                        this.orderRESTAPIToolStripMenuItem.Enabled = true;
+
+                    }
+                    else if (form_name == "pendingOrderToolStripMenuItem")
+                    {
+                        this.pendingOrderToolStripMenuItem.Enabled = true;
+
+                    }
+                    //End Import Dry
+
+
+
                     //End User Manager
 
                     //Start Menu
