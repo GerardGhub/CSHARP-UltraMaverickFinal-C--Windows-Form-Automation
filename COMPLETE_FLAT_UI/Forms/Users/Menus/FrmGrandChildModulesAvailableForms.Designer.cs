@@ -351,7 +351,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_id.MinimumWidth = 12;
             this.menu_id.Name = "menu_id";
             this.menu_id.ReadOnly = true;
-            this.menu_id.Width = 49;
+            this.menu_id.Width = 47;
             // 
             // count
             // 
@@ -362,7 +362,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.count.MinimumWidth = 12;
             this.count.Name = "count";
             this.count.ReadOnly = true;
-            this.count.Width = 136;
+            this.count.Width = 134;
             // 
             // ChildForm
             // 
@@ -373,7 +373,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.ChildForm.MinimumWidth = 12;
             this.ChildForm.Name = "ChildForm";
             this.ChildForm.ReadOnly = true;
-            this.ChildForm.Width = 112;
+            this.ChildForm.Width = 110;
             // 
             // menu_name
             // 
@@ -383,7 +383,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_name.MinimumWidth = 12;
             this.menu_name.Name = "menu_name";
             this.menu_name.ReadOnly = true;
-            this.menu_name.Width = 98;
+            this.menu_name.Width = 96;
             // 
             // menu_form_name
             // 
@@ -393,7 +393,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_form_name.MinimumWidth = 12;
             this.menu_form_name.Name = "menu_form_name";
             this.menu_form_name.ReadOnly = true;
-            this.menu_form_name.Width = 160;
+            this.menu_form_name.Width = 158;
             // 
             // created_at
             // 
@@ -402,7 +402,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_at.MinimumWidth = 12;
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
-            this.created_at.Width = 145;
+            this.created_at.Width = 143;
             // 
             // created_by
             // 
@@ -411,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_by.MinimumWidth = 12;
             this.created_by.Name = "created_by";
             this.created_by.ReadOnly = true;
-            this.created_by.Width = 126;
+            this.created_by.Width = 124;
             // 
             // updated_at
             // 
@@ -420,7 +420,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_at.MinimumWidth = 12;
             this.updated_at.Name = "updated_at";
             this.updated_at.ReadOnly = true;
-            this.updated_at.Width = 147;
+            this.updated_at.Width = 145;
             // 
             // updated_by
             // 
@@ -429,7 +429,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_by.MinimumWidth = 12;
             this.updated_by.Name = "updated_by";
             this.updated_by.ReadOnly = true;
-            this.updated_by.Width = 128;
+            this.updated_by.Width = 126;
             // 
             // Column1
             // 
@@ -439,7 +439,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
-            this.Column1.Width = 45;
+            this.Column1.Width = 48;
             // 
             // dgvUserRights
             // 

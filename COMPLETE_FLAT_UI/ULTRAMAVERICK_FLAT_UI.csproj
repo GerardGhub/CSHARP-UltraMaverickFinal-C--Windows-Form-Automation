@@ -145,6 +145,7 @@
     <Compile Include="API\Data\ParentFormsRepository.cs" />
     <Compile Include="API\Data\TblCustomersRepository.cs" />
     <Compile Include="API\Entities\Available_Menu.cs" />
+    <Compile Include="API\Entities\Available_Menu_GrandChild.cs" />
     <Compile Include="API\Entities\Department.cs" />
     <Compile Include="API\Entities\DepartmentUnit.cs" />
     <Compile Include="API\Entities\DryWHIssue.cs" />
@@ -710,11 +711,11 @@
     <Compile Include="Forms\Users\frmDepartmentUnit.Designer.cs">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Menus\frmModulesAvailableForms.cs">
+    <Compile Include="Forms\Users\Menus\FrmGrandChildModulesAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Menus\frmModulesAvailableForms.Designer.cs">
-      <DependentUpon>frmModulesAvailableForms.cs</DependentUpon>
+    <Compile Include="Forms\Users\Menus\FrmGrandChildModulesAvailableForms.Designer.cs">
+      <DependentUpon>FrmGrandChildModulesAvailableForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmLocation.cs">
       <SubType>Form</SubType>
@@ -1080,8 +1081,8 @@
     <EmbeddedResource Include="Forms\Users\frmDepartmentUnit.resx">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Menus\frmModulesAvailableForms.resx">
-      <DependentUpon>frmModulesAvailableForms.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\Menus\FrmGrandChildModulesAvailableForms.resx">
+      <DependentUpon>FrmGrandChildModulesAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmLocation.resx">
       <DependentUpon>frmLocation.cs</DependentUpon>

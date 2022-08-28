@@ -456,9 +456,9 @@ namespace COMPLETE_FLAT_UI
                         btnUsers1.Visible = true;
                     }
 
-                    else if (parent_form_name == "DASHBOARD")
+                    else if (parent_form_name == "SETUP")
                     {
-                        btnUsers1.Visible = true;
+                       this.BtnSetUp.Visible = true;
                     }
                     else if (parent_form_name == "bt")
                     {
@@ -467,9 +467,9 @@ namespace COMPLETE_FLAT_UI
                     }
 
 
-                    else if (parent_form_name == "Dry Warehouse")
+                    else if (parent_form_name == "DRY WAREHOUSE")
                     {
-                        btnDryWarehouse1.Visible = true;
+                        this.btnDryWarehouse1.Visible = true;
                     }
 
                     //Phase 2 Muna ito

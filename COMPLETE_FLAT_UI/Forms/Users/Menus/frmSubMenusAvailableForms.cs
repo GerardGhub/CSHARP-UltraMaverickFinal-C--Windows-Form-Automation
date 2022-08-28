@@ -68,12 +68,9 @@ namespace ULTRAMAVERICK.Forms.Users
         public void loadParentMenu()
         {
           
-          
-            //ready = false;
-            myClass.fillComboBoxDepartment(cboParentMenu, "parentform_dropdown", dSet);
-            //ready = true;
+            this.myClass.fillComboBoxDepartment(cboParentMenu, "parentform_dropdown", dSet);
 
-            txtcount.Text = cboParentMenu.SelectedValue.ToString();
+            this.txtcount.Text = cboParentMenu.SelectedValue.ToString();
 
         }
 
@@ -82,9 +79,9 @@ namespace ULTRAMAVERICK.Forms.Users
             try
             {
                
-                myClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
+                this.myClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
 
-                lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
+                this.lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
             }
             catch (Exception ex)
             {

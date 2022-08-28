@@ -84,8 +84,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private void frmUserRight_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
-
-      
             this.displayUserRights();
             this.listViewuser_rights_Click(sender, e);
             this.FalseButton();
@@ -970,7 +968,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.ConnectionInit();
                 this.LoadMenuByUsers();
                 this.GlobalStatePopup.SaveUpdateMenuNotifications();
-                btnUnselectAll_Click(sender, e);
+                this.load_search_ChildMenu(); //New
+                this.btnUnselectAll_Click(sender, e);
 
               
             }
@@ -1824,9 +1823,8 @@ namespace ULTRAMAVERICK.Forms.Users
       
          
             materialTextBoxSubMenuAvail.Visible = true;
-            //
-  
-            //dataView
+            
+
             dataView.Enabled = true;
         }
 
