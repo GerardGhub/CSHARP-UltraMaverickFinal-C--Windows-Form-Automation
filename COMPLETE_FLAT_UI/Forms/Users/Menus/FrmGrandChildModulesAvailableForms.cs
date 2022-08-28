@@ -559,9 +559,9 @@ namespace ULTRAMAVERICK.Forms.Users
                         "add");
 
                     this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.displayGrandChildFormsData();
 
-      
-           
+
                     this.matBtnNext_Click(new object(), new System.EventArgs());
                     this.displayUserRightsData();
                     this.displayGrandChildFormsData();
