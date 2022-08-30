@@ -156,6 +156,7 @@
     <Compile Include="API\Entities\Position.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
+    <Compile Include="API\Extensions\Modules.cs" />
     <Compile Include="API\Interfaces\IDepartmentUnitRepository.cs" />
     <Compile Include="API\Interfaces\IDryWHReceiptRepository.cs" />
     <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
@@ -1252,7 +1253,6 @@
     <Folder Include="API\Controllers\" />
     <Folder Include="API\DTOs\" />
     <Folder Include="API\Errors\" />
-    <Folder Include="API\Extensions\" />
     <Folder Include="API\Helpers\" />
     <Folder Include="API\Middleware\" />
     <Folder Include="Form ViewModels\" />

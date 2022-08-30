@@ -34,6 +34,7 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Miscellaneous;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
 using ULTRAMAVERICK.Menu.View_Models;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation;
+using ULTRAMAVERICK.API.Extensions;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -42,7 +43,7 @@ namespace COMPLETE_FLAT_UI
 
 
         ReportDocument rpt = new ReportDocument();
-   
+        Modules Module = new Modules();
         //Constructor
         public Byte[] imageByte = null;
         myclasses xClass = new myclasses();
@@ -504,201 +505,131 @@ namespace COMPLETE_FLAT_UI
 
             if (dset_rights.Tables.Count > 0)
             {
-                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
-                {
-                    string form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+                this.Module.SubMenu(
+            
+                    this.dset_rights,
+                    this.toolUserManagement,
+                    this.toolUserRights,
+                    this.toolDepartment,
+                    this.toolDepartmentUnit,
+                    this.toolPosition,
+                    this.toolStripMenuReceipt,
+                    this.toolStripMenuIssue,
+                    this.toolDryStorePreparation,
+                    this.toolDryInternalPreparation,
+                    this.allocationModule,
+                    this.forApprovalToolStripMenuItem,
+                    this.approvedOrderToolStripMenuItem,
+                    this.preparationToolStripMenuItem,
+                    this.moveOrderToolStripMenuItem2,
+                    this.readyForSchedulingToolStripMenuItem,
+                    this.approvedScheduleToolStripMenuItem,
+                    this.preparationToolStripMenuItem1,
+                    this.toolStripMenuDryLabTest,
+                    this.toolStripMenuItemLabTransaction,
+                    this.toolStripMenuItemRMNearlyExpiryMgmt,
+                    this.dryRawMaterialsToolStripMenuItem,
+                    this.poSummaryToolStripMenuItem,
+                    this.ImportStoreDry,
+                    this.consolidatedOrderToolStripMenuItem,
+                    this.orderRESTAPIToolStripMenuItem,
+                    this.pendingOrderToolStripMenuItem,
+                    this.toolParentMenu,
+                    this.toolChildMenu,
+                    this.toolGrandChildMenu,
+                    this.listOfReceivingToolStripMenuItem,
+                    this.rMReceivingToolStripMenuItem,
+                    this.rMBarcodeModuleToolStripMenuItem,
+                    this.rMBarcodeReprintingToolStripMenuItem,
+                    this.dryWHInventorySubMenu
+                    );
 
 
-                    //User Manager
-                    if (form_name == "toolUserManagement")
-                    {
-                        this.toolUserManagement.Enabled = true;
-                    }
-
-                    else if (form_name == "toolUserRights")
-                    {
-                        this.toolUserRights.Enabled = true;
-
-                    }
-
-                    else if (form_name == "toolDepartment")
-                    {
-                        this.toolDepartment.Enabled = true;
-
-                    }
-
-                    else if (form_name == "toolDepartmentUnit")
-                    {
-                        this.toolDepartmentUnit.Enabled = true;
-
-                    }
-
-                    else if (form_name == "toolStripMenuReceipt")
-                    {
-                        this.toolStripMenuReceipt.Enabled = true;
-
-                    }
-
-                    else if (form_name == "toolStripMenuIssue")
-                    {
-                        this.toolStripMenuIssue.Enabled = true;
-
-                    }
-                    //Preparation
-                    else if (form_name == "toolDryStorePreparation")
-                    {
-                        this.toolDryStorePreparation.Enabled = true;
-
-                    }
-                    else if (form_name == "toolDryInternalPreparation")
-                    {
-                        this.toolDryInternalPreparation.Enabled = true;
-
-                    }
-                    else if (form_name == "allocationModule")
-                    {
-                        this.allocationModule.Enabled = true;
-
-                    }
-
-
-                    else if (form_name == "toolPosition")
-                    {
-                        this.toolPosition.Enabled = true;
-
-                    }
-                    else if (form_name == "toolStripMenuDryLabTest")
-                    {
-                        this.toolStripMenuDryLabTest.Enabled = true;
-
-                    }
-
-
-                    //Import Dry
-                    else if (form_name == "dryRawMaterialsToolStripMenuItem")
-                    {
-                        this.dryRawMaterialsToolStripMenuItem.Enabled = true;
-
-                    }
-                    else if (form_name == "poSummaryToolStripMenuItem")
-                    {
-                        this.poSummaryToolStripMenuItem.Enabled = true;
-
-                    }
-                    else if (form_name == "ImportStoreDry")
-                    {
-                        this.ImportStoreDry.Enabled = true;
-
-                    }
-                    else if (form_name == "consolidatedOrderToolStripMenuItem")
-                    {
-                        this.consolidatedOrderToolStripMenuItem.Enabled = true;
-
-                    }
-                    else if (form_name == "orderRESTAPIToolStripMenuItem")
-                    {
-                        this.orderRESTAPIToolStripMenuItem.Enabled = true;
-
-                    }
-                    else if (form_name == "pendingOrderToolStripMenuItem")
-                    {
-                        this.pendingOrderToolStripMenuItem.Enabled = true;
-
-                    }
-                    //End Import Dry
+     
+            
 
 
 
-                    //End User Manager
+           
 
-                    //Start Menu
-                    else if (form_name == "toolParentMenu")
-                    {
-                        this.toolParentMenu.Enabled = true;
-                    }
 
-                    else if (form_name == "toolChildMenu")
-                    {
-                        this.toolChildMenu.Enabled = true;
-                    }
 
-                    else if (form_name == "toolGrandChildMenu")
-                    {
-                        this.toolGrandChildMenu.Enabled = true;
-                    }
+               
 
-                    //Import Dry
 
-                    else if (form_name == "frmImportRawMatsExcel.cs")
-                    {
-                        dryRawMaterialsToolStripMenuItem.Enabled = true;
-                    }
-                    else if (form_name == "frmImportPoSummary.cs")
-                    {
-                        poSummaryToolStripMenuItem.Enabled = true;
-                    }
 
-                    // Raw Materials
+                //    //Import Dry
 
-                    else if (form_name == "frmItemClass.cs")
-                    {
-                        toolStripModuleItemClass.Enabled = true;
-                    }
-                    else if (form_name == "frmMajorCategory.cs")
-                    {
-                        toolStripModuleMajorCategory.Enabled = true;
-                    }
-                    else if (form_name == "frmSubCategory.cs")
-                    {
-                        toolStripModuleSubCategory.Enabled = true;
-                    }
-                    else if (form_name == "frmPrimaryUnit.cs")
-                    {
-                        toolStripModulePrimaryUnit.Enabled = true;
-                    }
-                    else if (form_name == "frmItemType.cs")
-                    {
-                        toolStripModuleItemType.Enabled = true;
-                    }
-                    else if (form_name == "frmDryRawMaterials")
-                    {
-                        toolModuleRawMaterialsDry.Enabled = true;
-                    }
-                    else if (form_name == "frmManageActivePrimaryUnit.cs")
-                    {
-                        toolModulePrimaryUnitMgmt.Enabled = true;
-                    }
-                    else if (form_name == "dryWHInventorySubMenu")
-                    {
-                        this.dryWHInventorySubMenu.Enabled = true;
-                    }
-                    else if (form_name == "listOfReceivingToolStripMenuItem")
-                    {
-                        this.listOfReceivingToolStripMenuItem.Enabled = true;
-                    }
-                    else if (form_name == "rMReceivingToolStripMenuItem")
-                    {
-                        this.rMReceivingToolStripMenuItem.Enabled = true;
-                    }
-                    else if (form_name == "frmLotManagement.cs")
-                    {
-                        lotManagementToolStripMenuItem.Enabled = true;
-                    }
-                    else if (form_name == "rMBarcodeModuleToolStripMenuItem")
-                    {
-                        this.rMBarcodeModuleToolStripMenuItem.Enabled = true;
-                    }
-                    else if (form_name == "rMBarcodeReprintingToolStripMenuItem")
-                    {
-                        this.rMBarcodeReprintingToolStripMenuItem.Enabled = true;
-                    }
+                //    else if (form_name == "frmImportRawMatsExcel.cs")
+                //    {
+                //        dryRawMaterialsToolStripMenuItem.Enabled = true;
+                //    }
+                //    else if (form_name == "frmImportPoSummary.cs")
+                //    {
+                //        poSummaryToolStripMenuItem.Enabled = true;
+                //    }
 
-                    else if (form_name == "TsCustomer")
-                    {
-                        this.TsCustomer.Enabled = true;
-                    }
+                //    // Raw Materials
 
-                }
+                //    else if (form_name == "frmItemClass.cs")
+                //    {
+                //        toolStripModuleItemClass.Enabled = true;
+                //    }
+                //    else if (form_name == "frmMajorCategory.cs")
+                //    {
+                //        toolStripModuleMajorCategory.Enabled = true;
+                //    }
+                //    else if (form_name == "frmSubCategory.cs")
+                //    {
+                //        toolStripModuleSubCategory.Enabled = true;
+                //    }
+                //    else if (form_name == "frmPrimaryUnit.cs")
+                //    {
+                //        toolStripModulePrimaryUnit.Enabled = true;
+                //    }
+                //    else if (form_name == "frmItemType.cs")
+                //    {
+                //        toolStripModuleItemType.Enabled = true;
+                //    }
+                //    else if (form_name == "frmDryRawMaterials")
+                //    {
+                //        toolModuleRawMaterialsDry.Enabled = true;
+                //    }
+                //    else if (form_name == "frmManageActivePrimaryUnit.cs")
+                //    {
+                //        toolModulePrimaryUnitMgmt.Enabled = true;
+                //    }
+                //    else if (form_name == "dryWHInventorySubMenu")
+                //    {
+                //        this.dryWHInventorySubMenu.Enabled = true;
+                //    }
+                //    else if (form_name == "listOfReceivingToolStripMenuItem")
+                //    {
+                //        this.listOfReceivingToolStripMenuItem.Enabled = true;
+                //    }
+                //    else if (form_name == "rMReceivingToolStripMenuItem")
+                //    {
+                //        this.rMReceivingToolStripMenuItem.Enabled = true;
+                //    }
+                //    else if (form_name == "frmLotManagement.cs")
+                //    {
+                //        lotManagementToolStripMenuItem.Enabled = true;
+                //    }
+                //    else if (form_name == "rMBarcodeModuleToolStripMenuItem")
+                //    {
+                //        this.rMBarcodeModuleToolStripMenuItem.Enabled = true;
+                //    }
+                //    else if (form_name == "rMBarcodeReprintingToolStripMenuItem")
+                //    {
+                //        this.rMBarcodeReprintingToolStripMenuItem.Enabled = true;
+                //    }
+
+                //    else if (form_name == "TsCustomer")
+                //    {
+                //        this.TsCustomer.Enabled = true;
+                //    }
+
+                //}
             }
 
      
@@ -1879,6 +1810,14 @@ namespace COMPLETE_FLAT_UI
             frmCustomers Customer = new frmCustomers();
             Customer.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(Customer);
+        }
+
+        private void moveOrderToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            frmStoreOrderDispatching fm = new frmStoreOrderDispatching();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
