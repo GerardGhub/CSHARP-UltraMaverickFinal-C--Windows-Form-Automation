@@ -46,9 +46,7 @@ namespace COMPLETE_FLAT_UI
         Modules Module = new Modules();
         //Constructor
         public Byte[] imageByte = null;
-        myclasses xClass = new myclasses();
 
-        IStoredProcedures objStorProc = null;
         DataSet dset_rights = new DataSet();
         DataSet dSet = new DataSet();
         int rights_id = 0;
@@ -390,8 +388,8 @@ namespace COMPLETE_FLAT_UI
 
         private void ConnectionInit()
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+
         }
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
@@ -405,7 +403,7 @@ namespace COMPLETE_FLAT_UI
            
             this.RoundPictureAss();
 
-            this.showReceivingData();
+            this.ShowReceivingData();
 
 
 
@@ -431,18 +429,18 @@ namespace COMPLETE_FLAT_UI
           
             if (user_section_controlBox == "Office")
             {
-                ControlBox = true;
+                this.ControlBox = true;
             }
             else
             {
-                ControlBox = false;
+                this.ControlBox = false;
             }
 
             //get_accessible_menu
 
             //Start of Major Menu
             dset_rights.Clear();
-            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
+            dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
 
             if (dset_rights.Tables.Count > 0)
             {
@@ -501,7 +499,7 @@ namespace COMPLETE_FLAT_UI
             //END
             //MODULES
             dset_rights.Clear();
-            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu_grandChild", "", rights_id);
+            dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_grandChild", "", rights_id);
 
             if (dset_rights.Tables.Count > 0)
             {
@@ -562,91 +560,8 @@ namespace COMPLETE_FLAT_UI
                     );
 
 
-     
-            
-
-
-
-           
-
-
-
+    
                
-
-
-
-                //    //Import Dry
-
-                //    else if (form_name == "frmImportRawMatsExcel.cs")
-                //    {
-                //        dryRawMaterialsToolStripMenuItem.Enabled = true;
-                //    }
-                //    else if (form_name == "frmImportPoSummary.cs")
-                //    {
-                //        poSummaryToolStripMenuItem.Enabled = true;
-                //    }
-
-                //    // Raw Materials
-
-                //    else if (form_name == "frmItemClass.cs")
-                //    {
-                //        toolStripModuleItemClass.Enabled = true;
-                //    }
-                //    else if (form_name == "frmMajorCategory.cs")
-                //    {
-                //        toolStripModuleMajorCategory.Enabled = true;
-                //    }
-                //    else if (form_name == "frmSubCategory.cs")
-                //    {
-                //        toolStripModuleSubCategory.Enabled = true;
-                //    }
-                //    else if (form_name == "frmPrimaryUnit.cs")
-                //    {
-                //        toolStripModulePrimaryUnit.Enabled = true;
-                //    }
-                //    else if (form_name == "frmItemType.cs")
-                //    {
-                //        toolStripModuleItemType.Enabled = true;
-                //    }
-                //    else if (form_name == "frmDryRawMaterials")
-                //    {
-                //        toolModuleRawMaterialsDry.Enabled = true;
-                //    }
-                //    else if (form_name == "frmManageActivePrimaryUnit.cs")
-                //    {
-                //        toolModulePrimaryUnitMgmt.Enabled = true;
-                //    }
-                //    else if (form_name == "dryWHInventorySubMenu")
-                //    {
-                //        this.dryWHInventorySubMenu.Enabled = true;
-                //    }
-                //    else if (form_name == "listOfReceivingToolStripMenuItem")
-                //    {
-                //        this.listOfReceivingToolStripMenuItem.Enabled = true;
-                //    }
-                //    else if (form_name == "rMReceivingToolStripMenuItem")
-                //    {
-                //        this.rMReceivingToolStripMenuItem.Enabled = true;
-                //    }
-                //    else if (form_name == "frmLotManagement.cs")
-                //    {
-                //        lotManagementToolStripMenuItem.Enabled = true;
-                //    }
-                //    else if (form_name == "rMBarcodeModuleToolStripMenuItem")
-                //    {
-                //        this.rMBarcodeModuleToolStripMenuItem.Enabled = true;
-                //    }
-                //    else if (form_name == "rMBarcodeReprintingToolStripMenuItem")
-                //    {
-                //        this.rMBarcodeReprintingToolStripMenuItem.Enabled = true;
-                //    }
-
-                //    else if (form_name == "TsCustomer")
-                //    {
-                //        this.TsCustomer.Enabled = true;
-                //    }
-
-                //}
             }
 
      
@@ -671,7 +586,7 @@ namespace COMPLETE_FLAT_UI
             try
             {
 
-                xClass.fillDataGridView(this.dgvParseData, "DryWarehouseLabTestReceivingViewing", this.dSet);
+                myClass.fillDataGridView(this.dgvParseData, "DryWarehouseLabTestReceivingViewing", this.dSet);
 
                 this.Menu.TotalLabTestReceivingViewing = this.dgvParseData.RowCount.ToString();
             }
@@ -690,7 +605,7 @@ namespace COMPLETE_FLAT_UI
             try
             {
                 
-                xClass.fillDataGridView(this.dgvParseData, "Store_Order_Cancelled_by_WH_Checker", dSet);
+                myClass.fillDataGridView(this.dgvParseData, "Store_Order_Cancelled_by_WH_Checker", dSet);
 
                 this.Menu.TotalStoreOrderCancelatWhChecker = this.dgvParseData.RowCount.ToString();
             }
@@ -708,7 +623,7 @@ namespace COMPLETE_FLAT_UI
             try
             {
 
-                xClass.fillDataGridView(this.dgvParseData, "Store_Order_Dispatched_by_Logistic_Checker", this.dSet);
+                myClass.fillDataGridView(this.dgvParseData, "Store_Order_Dispatched_by_Logistic_Checker", this.dSet);
 
                 this.Menu.TotalStoreOrderDistinctLogisticChecker = this.dgvParseData.RowCount.ToString();
             }
@@ -725,7 +640,7 @@ namespace COMPLETE_FLAT_UI
         private void SubMenu()
         {
             dset_rights.Clear();
-            dset_rights = objStorProc.sp_getFilterTables("get_accessible_menu", "", rights_id);
+            dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu", "", rights_id);
 
             if (dset_rights.Tables.Count > 0)
             {
@@ -791,12 +706,12 @@ namespace COMPLETE_FLAT_UI
             }
         }
 
-        private void showReceivingData()      //method for loading available_menus
+        private void ShowReceivingData()      //method for loading available_menus
         {
             try
             {
 
-               this.xClass.fillDataGridView(dgvParseData, "Po_Receiving_Warehouse", this.dSet);       
+               this.myClass.fillDataGridView(dgvParseData, "Po_Receiving_Warehouse", this.dSet);       
                this.Menu.total_receiving_dry_wh = dgvParseData.RowCount.ToString();
             }
             catch (Exception ex)
@@ -817,19 +732,14 @@ namespace COMPLETE_FLAT_UI
         //METODOS PARA ABRIR OTROS FORMULARIOS Y MOSTRAR FORM DE LOGO Al CERRAR ----------------------------------------------------------
         private void btnListaClientes_Click(object sender, EventArgs e)
         {
-            panelMenuSelection.Visible = true;
+            this.panelMenuSelection.Visible = true;
 
-            SubMenu();
+            this.SubMenu();
 
             //Research And Development
-            toolStripRawMaterials.Visible = false;
-            toolImportDry.Visible = false;
+            this.toolStripRawMaterials.Visible = false;
+            this.toolImportDry.Visible = false;
             this.timeSubMenuIn.Start();
-
-
-            //FormListaClientes fm = new FormListaClientes();
-            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            //AbrirFormEnPanel(fm);
         }
 
 
@@ -864,14 +774,7 @@ namespace COMPLETE_FLAT_UI
             
         }
 
-   
-
-        private void btnLogin_Click_1(object sender, EventArgs e)
-        {
-            frmUserRight fm = new frmUserRight();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+  
 
         private void btnMinimizeFinal_Click(object sender, EventArgs e)
         {
@@ -929,58 +832,11 @@ namespace COMPLETE_FLAT_UI
 
  
 
-        private void btnPosition_Click(object sender, EventArgs e)
-        {
-            frmPosition fm = new frmPosition();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
-
-        private void btnDepartment_Click(object sender, EventArgs e)
-        {
-            frmDepartment fm = new frmDepartment();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
-
-        private void btnParentMenu_Click(object sender, EventArgs e)
-        {
-            frmMajorAvailableForms fm = new frmMajorAvailableForms();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
-
-        private void btnChildMenu_Click(object sender, EventArgs e)
-        {
-            frmSubMenusAvailableForms fm = new frmSubMenusAvailableForms();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
-
-        private void btnTypeofApprove_Click(object sender, EventArgs e)
-        {
-            frmTypeofApprover fm = new frmTypeofApprover();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            //frmDashBoardFormMenu asd = new frmDashBoardFormMenu();
-            //asd.ShowDialog();
 
 
-            frmDashBoardFormMenu addNew = new frmDashBoardFormMenu(this);
-            addNew.ShowDialog();
-        }
+
 
  
-
-        private void toolClosePanelSelection_Click(object sender, EventArgs e)
-        {
-          
-        }
-
 
         private void NormalSizeofSideBar()
         {
@@ -1007,13 +863,7 @@ namespace COMPLETE_FLAT_UI
         }
     
 
-        private void btnGrandChildForms_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmModulesAvailableForms fm = new frmModulesAvailableForms();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+
 
         private void toolDepartment_Click(object sender, EventArgs e)
         {
@@ -1047,13 +897,7 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
-        private void toolTypeofApprover_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmTypeofApprover fm = new frmTypeofApprover();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+ 
 
         private void toolPosition_Click(object sender, EventArgs e)
         {
@@ -1087,32 +931,9 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
-        private void btnApproverTagging_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmTaggingofApprover fm = new frmTaggingofApprover();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        } 
 
-        private void themeToggle_CheckedChanged(object sender, EventArgs e)
-        {
-            //PanelHeader.BackColor = MaterialSkinManager.Themes.DARK;
 
-            //if (themeToggle.Checked)
-            //{
-            //    ThemeManager.Theme = MaterialSkinManager.Themes.DARK;
-            //}
-            //else
-            //{
-            //    ThemeManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            //}
-        }
 
-        private void btnDashBoard_Click(object sender, EventArgs e)
-        {
-            panelMenuSelection.Visible = false;
-        }
 
         private void toolDropdownUser_Click(object sender, EventArgs e)
         {
@@ -1171,13 +992,7 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
-        private void toolDropdownLocation_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmLocation fm = new frmLocation();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+    
 
         private void toolModuleRawMaterialsDry_Click(object sender, EventArgs e)
         {
@@ -1276,11 +1091,7 @@ namespace COMPLETE_FLAT_UI
 
   
 
-        private void pictureBox10_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
 
-        }
 
         private void timerSubMenuOut_Tick(object sender, EventArgs e)
         {
@@ -1298,29 +1109,6 @@ namespace COMPLETE_FLAT_UI
                 panelMenuSelection.Width = panelMenuSelection.Width + 5;
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                //this.Close();
-
-                //frmLoginForm Login = new frmLoginForm();
-                //Login.ShowDialog();
-
-                //this.Hide();
-                //frmLoginForm sistema = new frmLoginForm();
-                //sistema.ShowDialog();
-
-                Application.Exit();
-            }
-            else
-            {
-
-                return;
-            }
-
-      
-        }
 
         private void listOfReceivingToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1351,21 +1139,8 @@ namespace COMPLETE_FLAT_UI
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmDryWHInventory fm = new frmDryWHInventory();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
 
-        private void dryWHInventoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmDryWHInventory fm = new frmDryWHInventory();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+
 
         private void rMBarcodeReprintingToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1385,32 +1160,8 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        private void btnDashBoard1_Click(object sender, EventArgs e)
-        {
-            panelMenuSelection.Visible = false;
-        }
-
-        private void btnLogout1_Click(object sender, EventArgs e)
-        {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                //this.Close();
-
-                //frmLoginForm Login = new frmLoginForm();
-                //Login.ShowDialog();
-
-                //this.Hide();
-                //frmLoginForm sistema = new frmLoginForm();
-                //sistema.ShowDialog();
-
-                Application.Exit();
-            }
-            else
-            {
-
-                return;
-            }
-        }
+   
+   
 
 
         private void btnDashBoard1_Click_1(object sender, EventArgs e)
@@ -1501,15 +1252,6 @@ namespace COMPLETE_FLAT_UI
         {
                     }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnProductionPlanner1_Click(object sender, EventArgs e)
-        {
-            this.MainMajorData.Visible = false;
-        }
 
         private void btnProductionPlanner1_Click_1(object sender, EventArgs e)
         {
@@ -1563,13 +1305,7 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
-        private void warehouseCrewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmWarehouseCrewMgmt fm = new frmWarehouseCrewMgmt();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+      
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -1682,13 +1418,7 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(StoreOrderCancelled);
         }
 
-        private void allocationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmAllocationModule AllocationModule = new frmAllocationModule();
-            AllocationModule.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(AllocationModule);
-        }
+
 
         private void PanelHeader_Paint(object sender, PaintEventArgs e)
         {
@@ -1701,13 +1431,7 @@ namespace COMPLETE_FLAT_UI
             ViewNotification.ShowDialog();
         }
 
-        private void moveOrderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmStoreOrderDispatching fm = new frmStoreOrderDispatching();
-            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
-        }
+
 
         private void toolStripMenuItemRMNearlyExpiryMgmt_Click(object sender, EventArgs e)
         {
@@ -1749,28 +1473,9 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(SyncOrderForm);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.showLabTestForReceiving();
-            MessageBox.Show(this.Menu.TotalLabTestReceivingViewing);
-        }
+   
 
-        private void tSReceipt_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmDryWarehouses Warehouses = new frmDryWarehouses();
-            Warehouses.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(Warehouses);
-        }
-
-        private void TsIssue_Click(object sender, EventArgs e)
-        {
-            this.NormalSizeofSideBar();
-            frmCustomers Customer = new frmCustomers();
-            Customer.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(Customer);
-        }
-
+ 
         private void readyForSchedulingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
