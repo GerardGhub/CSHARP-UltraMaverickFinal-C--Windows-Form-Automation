@@ -45,7 +45,24 @@ namespace ULTRAMAVERICK.API.Extensions
             ToolStripMenuItem ToolrMReceivingToolStripMenuItem,
             ToolStripMenuItem ToolrMBarcodeModuleToolStripMenuItem,
             ToolStripMenuItem ToolrMBarcodeReprintingToolStripMenuItem,
-            ToolStripMenuItem TooldryWHInventorySubMenu
+            ToolStripMenuItem TooldryWHInventorySubMenu,
+            ToolStripMenuItem ToolStripStoreArea,
+            ToolStripMenuItem ToolstoreRoute,
+            ToolStripMenuItem ToolStores,
+            ToolStripMenuItem ToolregionToolStripMenuItem,
+            ToolStripMenuItem ToolsyncConsolidatedOrderToolStripMenuItem,
+            ToolStripMenuItem ToolTsCustomer,
+            ToolStripMenuItem ToolStripModuleItemClass,
+            ToolStripMenuItem ToolStripModuleMajorCategory,
+            ToolStripMenuItem ToolStripModuleSubCategory,
+            ToolStripMenuItem ToolStripModulePrimaryUnit,
+            ToolStripMenuItem ToolStripModuleItemType,
+            ToolStripMenuItem ToolModuleRawMaterialsDry,
+            ToolStripMenuItem ToolModuleConversionMgmt,
+            ToolStripMenuItem ToollotManagementToolStripMenuItem,
+            ToolStripMenuItem ToolaverageOrderTrendToolStripMenuItem,
+            ToolStripMenuItem ToolorderCancelRemarksToolStripMenuItem,
+            ToolStripMenuItem ToolmRSCancelRemarksToolStripMenuItem
             )
         {
             for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
@@ -228,6 +245,84 @@ namespace ULTRAMAVERICK.API.Extensions
                     TooldryWHInventorySubMenu.Enabled = true;
                 }
                 //End Inventory
+
+                //Setup Store
+                else if (form_name == "toolStripStoreArea")
+                {
+                    ToolStripStoreArea.Enabled = true;
+                }
+                else if (form_name == "storeRoute")
+                {
+                    ToolstoreRoute.Enabled = true;
+                }
+
+                else if (form_name == "toolStores")
+                {
+                    ToolStores.Enabled = true;
+                }
+                else if (form_name == "regionToolStripMenuItem")
+                {
+                    ToolregionToolStripMenuItem.Enabled = true;
+                }
+                else if (form_name == "syncConsolidatedOrderToolStripMenuItem")
+                {
+                    ToolsyncConsolidatedOrderToolStripMenuItem.Enabled = true;
+                }
+                else if (form_name == "TsCustomer")
+                {
+                    ToolTsCustomer.Enabled = true;
+                }
+
+                //Setup End
+
+                //Raw Material
+                else if (form_name == "toolStripModuleItemClass")
+                {
+                    ToolStripModuleItemClass.Enabled = true;
+                }
+                else if (form_name == "toolStripModuleMajorCategory")
+                {
+                    ToolStripModuleMajorCategory.Enabled = true;
+                }
+                else if (form_name == "toolStripModuleSubCategory")
+                {
+                    ToolStripModuleSubCategory.Enabled = true;
+                }
+                else if (form_name == "toolStripModulePrimaryUnit")
+                {
+                    ToolStripModulePrimaryUnit.Enabled = true;
+                }
+                else if (form_name == "toolStripModuleItemType")
+                {
+                    ToolStripModuleItemType.Enabled = true;
+                }
+                else if (form_name == "toolModuleRawMaterialsDry")
+                {
+                    ToolModuleRawMaterialsDry.Enabled = true;
+                }
+                else if (form_name == "toolModuleConversionMgmt")
+                {
+                    ToolModuleConversionMgmt.Enabled = true;
+                }
+
+                else if (form_name == "lotManagementToolStripMenuItem")
+                {
+                    ToollotManagementToolStripMenuItem.Enabled = true;
+                }
+                else if (form_name == "averageOrderTrendToolStripMenuItem")
+                {
+                    ToolaverageOrderTrendToolStripMenuItem.Enabled = true;
+                }
+                else if (form_name == "orderCancelRemarksToolStripMenuItem")
+                {
+                    ToolorderCancelRemarksToolStripMenuItem.Enabled = true;
+                }
+                else if (form_name == "mRSCancelRemarksToolStripMenuItem")
+                {
+                    ToolmRSCancelRemarksToolStripMenuItem.Enabled = true;
+                }
+
+                //End Raw Material
 
             }
         }

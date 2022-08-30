@@ -541,7 +541,24 @@ namespace COMPLETE_FLAT_UI
                     this.rMReceivingToolStripMenuItem,
                     this.rMBarcodeModuleToolStripMenuItem,
                     this.rMBarcodeReprintingToolStripMenuItem,
-                    this.dryWHInventorySubMenu
+                    this.dryWHInventorySubMenu,
+                    this.toolStripStoreArea,
+                    this.storeRoute,
+                    this.toolStores,
+                    this.regionToolStripMenuItem,
+                    this.syncConsolidatedOrderToolStripMenuItem,
+                    this.TsCustomer,
+                    this.toolStripModuleItemClass,
+                    this.toolStripModuleMajorCategory,
+                    this.toolStripModuleSubCategory,
+                    this.toolStripModulePrimaryUnit,
+                    this.toolStripModuleItemType,
+                    this.toolModuleRawMaterialsDry,
+                    this.toolModuleConversionMgmt,
+                    this.lotManagementToolStripMenuItem,
+                    this.averageOrderTrendToolStripMenuItem,
+                    this.orderCancelRemarksToolStripMenuItem,
+                    this.mRSCancelRemarksToolStripMenuItem
                     );
 
 
@@ -1569,7 +1586,7 @@ namespace COMPLETE_FLAT_UI
             this.toolDropdownUserManager.Visible = false;
             //Research And Development
             toolPreparation.Visible = false;
-            this.toolStripRawMaterials.Visible = true;
+
             this.toolImportDry.Visible = false;
             //Store Collection
             //this.toolStoreSetup.Visible = true;
