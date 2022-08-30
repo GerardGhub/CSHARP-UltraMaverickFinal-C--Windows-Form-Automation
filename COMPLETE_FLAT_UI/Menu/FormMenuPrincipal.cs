@@ -182,35 +182,28 @@ namespace COMPLETE_FLAT_UI
         private void btnMenu_Click(object sender, EventArgs e)
         {
             //-------CON EFECTO SLIDING
-            if (panelMenu.Width == 185)
+            if (this.panelMenu.Width == 185)
             {
                 this.tmContraerMenu.Start();
-                lblFirstName.Visible = false;
+                this.lblFirstName.Visible = false;
                
-                lblPosition.Visible = false;
-                pbImage.Visible = false;
-                ClearDashboardtext();
+                this.lblPosition.Visible = false;
+                this.pbImage.Visible = false;
+                this.ClearDashboardtext();
 
 
             }
-            else if (panelMenu.Width == 55)
+            else if (this.panelMenu.Width == 55)
             {
                 this.tmExpandirMenu.Start();
-                lblFirstName.Visible = true;
+                this.lblFirstName.Visible = true;
             
-                lblPosition.Visible = true;
-                pbImage.Visible = true;
-                DashboardEpicComebackofText();
+                this.lblPosition.Visible = true;
+                this.pbImage.Visible = true;
+                this.DashboardEpicComebackofText();
             }
 
-            //-------SIN EFECTO 
-            //if (panelMenu.Width == 55)
-            //{
-            //    panelMenu.Width = 230;
-            //}
-            //else
 
-            //    panelMenu.Width = 55;
          
         }
 

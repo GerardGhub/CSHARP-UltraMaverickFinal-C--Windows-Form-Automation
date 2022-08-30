@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.TxtDepartmentUnit = new MaterialSkin.Controls.MaterialTextBox();
+            this.TxtPosition = new MaterialSkin.Controls.MaterialTextBox();
             this.CboDepartment = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.TxtDepartmentUnit);
+            this.materialCard1.Controls.Add(this.TxtPosition);
             this.materialCard1.Controls.Add(this.CboDepartment);
             this.materialCard1.Controls.Add(this.label1);
             this.materialCard1.Controls.Add(this.textBox1);
@@ -56,22 +56,23 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.Size = new System.Drawing.Size(542, 229);
             this.materialCard1.TabIndex = 2;
             // 
-            // TxtDepartmentUnit
+            // TxtPosition
             // 
-            this.TxtDepartmentUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtDepartmentUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtDepartmentUnit.Depth = 0;
-            this.TxtDepartmentUnit.Font = new System.Drawing.Font("Roboto", 12F);
-            this.TxtDepartmentUnit.Hint = "Department Unit";
-            this.TxtDepartmentUnit.Location = new System.Drawing.Point(58, 99);
-            this.TxtDepartmentUnit.Margin = new System.Windows.Forms.Padding(1);
-            this.TxtDepartmentUnit.MaxLength = 50;
-            this.TxtDepartmentUnit.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtDepartmentUnit.Multiline = false;
-            this.TxtDepartmentUnit.Name = "TxtDepartmentUnit";
-            this.TxtDepartmentUnit.Size = new System.Drawing.Size(424, 50);
-            this.TxtDepartmentUnit.TabIndex = 601;
-            this.TxtDepartmentUnit.Text = "";
+            this.TxtPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPosition.Depth = 0;
+            this.TxtPosition.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtPosition.Hint = "Position";
+            this.TxtPosition.Location = new System.Drawing.Point(58, 99);
+            this.TxtPosition.Margin = new System.Windows.Forms.Padding(1);
+            this.TxtPosition.MaxLength = 50;
+            this.TxtPosition.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtPosition.Multiline = false;
+            this.TxtPosition.Name = "TxtPosition";
+            this.TxtPosition.Size = new System.Drawing.Size(424, 50);
+            this.TxtPosition.TabIndex = 601;
+            this.TxtPosition.Text = "";
+            this.TxtPosition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPosition_KeyPress);
             // 
             // CboDepartment
             // 
@@ -125,6 +126,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.BtnExecute.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnExecute.UseAccentColor = false;
             this.BtnExecute.UseVisualStyleBackColor = true;
+            this.BtnExecute.Click += new System.EventHandler(this.BtnExecute_Click);
             // 
             // FrmAddNewPosition
             // 
@@ -137,6 +139,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Name = "FrmAddNewPosition";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAddNewPosition";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAddNewPosition_FormClosing);
             this.Load += new System.EventHandler(this.FrmAddNewPosition_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
@@ -147,7 +150,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         #endregion
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialTextBox TxtDepartmentUnit;
+        private MaterialSkin.Controls.MaterialTextBox TxtPosition;
         private MetroFramework.Controls.MetroComboBox CboDepartment;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;

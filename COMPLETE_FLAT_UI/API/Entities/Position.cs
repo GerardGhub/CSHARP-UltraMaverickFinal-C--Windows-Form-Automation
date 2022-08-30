@@ -17,5 +17,6 @@ namespace ULTRAMAVERICK.API.Entities
         public string Modified_Date { get; set; }
         public bool Is_Active { get; set; }
         public string Primary_User_Id { get; set; }
+        public string Mode { get; set; }
     }
 }
