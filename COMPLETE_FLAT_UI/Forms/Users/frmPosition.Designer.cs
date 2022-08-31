@@ -45,11 +45,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.DgvPosition = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
-            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.position_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +52,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modified_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
+            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -271,6 +271,63 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DgvPosition.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.DgvPosition.CurrentCellChanged += new System.EventHandler(this.DgvPosition_CurrentCellChanged);
             // 
+            // position_id
+            // 
+            this.position_id.DataPropertyName = "position_id";
+            this.position_id.FillWeight = 40.60914F;
+            this.position_id.HeaderText = "ID";
+            this.position_id.MinimumWidth = 12;
+            this.position_id.Name = "position_id";
+            this.position_id.ReadOnly = true;
+            // 
+            // position_name
+            // 
+            this.position_name.DataPropertyName = "position_name";
+            this.position_name.FillWeight = 99.49239F;
+            this.position_name.HeaderText = "POSITION";
+            this.position_name.MinimumWidth = 12;
+            this.position_name.Name = "position_name";
+            this.position_name.ReadOnly = true;
+            // 
+            // cust_company
+            // 
+            this.cust_company.DataPropertyName = "created_by";
+            this.cust_company.FillWeight = 99.49239F;
+            this.cust_company.HeaderText = "CREATED BY";
+            this.cust_company.MinimumWidth = 12;
+            this.cust_company.Name = "cust_company";
+            this.cust_company.ReadOnly = true;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.FillWeight = 99.49239F;
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            // 
+            // department_name
+            // 
+            this.department_name.DataPropertyName = "department_name";
+            this.department_name.HeaderText = "DEPARTMENT";
+            this.department_name.Name = "department_name";
+            this.department_name.ReadOnly = true;
+            // 
+            // modified_by
+            // 
+            this.modified_by.DataPropertyName = "modified_by";
+            this.modified_by.HeaderText = "MODIFIED BY";
+            this.modified_by.Name = "modified_by";
+            this.modified_by.ReadOnly = true;
+            // 
+            // modified_date
+            // 
+            this.modified_date.DataPropertyName = "modified_date";
+            this.modified_date.HeaderText = "MODIFIED DATE";
+            this.modified_date.Name = "modified_date";
+            this.modified_date.ReadOnly = true;
+            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -333,6 +390,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matRadioActive.TabStop = true;
             this.matRadioActive.Text = "Active";
             this.matRadioActive.UseVisualStyleBackColor = true;
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
             // 
             // matRadioNotActive
             // 
@@ -350,63 +408,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matRadioNotActive.TabStop = true;
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
-            // 
-            // position_id
-            // 
-            this.position_id.DataPropertyName = "position_id";
-            this.position_id.FillWeight = 40.60914F;
-            this.position_id.HeaderText = "ID";
-            this.position_id.MinimumWidth = 12;
-            this.position_id.Name = "position_id";
-            this.position_id.ReadOnly = true;
-            // 
-            // position_name
-            // 
-            this.position_name.DataPropertyName = "position_name";
-            this.position_name.FillWeight = 99.49239F;
-            this.position_name.HeaderText = "POSITION";
-            this.position_name.MinimumWidth = 12;
-            this.position_name.Name = "position_name";
-            this.position_name.ReadOnly = true;
-            // 
-            // cust_company
-            // 
-            this.cust_company.DataPropertyName = "created_by";
-            this.cust_company.FillWeight = 99.49239F;
-            this.cust_company.HeaderText = "CREATED BY";
-            this.cust_company.MinimumWidth = 12;
-            this.cust_company.Name = "cust_company";
-            this.cust_company.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.FillWeight = 99.49239F;
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            // 
-            // department_name
-            // 
-            this.department_name.DataPropertyName = "department_name";
-            this.department_name.HeaderText = "DEPARTMENT";
-            this.department_name.Name = "department_name";
-            this.department_name.ReadOnly = true;
-            // 
-            // modified_by
-            // 
-            this.modified_by.DataPropertyName = "modified_by";
-            this.modified_by.HeaderText = "MODIFIED BY";
-            this.modified_by.Name = "modified_by";
-            this.modified_by.ReadOnly = true;
-            // 
-            // modified_date
-            // 
-            this.modified_date.DataPropertyName = "modified_date";
-            this.modified_date.HeaderText = "MODIFIED DATE";
-            this.modified_date.Name = "modified_date";
-            this.modified_date.ReadOnly = true;
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
             // 
             // lbltotalrecords
             // 

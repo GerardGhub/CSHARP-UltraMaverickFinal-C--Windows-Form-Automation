@@ -43,13 +43,17 @@ namespace ULTRAMAVERICK.Forms.Users
 
             this.ConnectionInit();
 
-            getAllPosition(); // all UserFile Management
-            lstPosition_Click(sender, e); // Click Thge ListView
-            myglobal.global_module = "Active"; // Mode for Searching
-
-
+            this.GetAllPosition();
+            myglobal.global_module = "Active";
             this.textBox1.Text = String.Empty;
             this.HideDataGridColumn();
+            this.GetRadionDataChanged();
+        }
+
+        private void GetRadionDataChanged()
+        {
+            this.matRadioActive.Checked = true;
+
         }
         public void HideDataGridColumn()
         {
@@ -60,7 +64,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void ConnectionInit()
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); 
         }
 
 
@@ -70,9 +74,9 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             try
             {
-                if (dset_emp.Tables.Count > 0)
+                if (this.dset_emp.Tables.Count > 0)
                 {
-                    DataView dv = new DataView(dset_emp.Tables[0]);
+                    DataView dv = new DataView(this.dset_emp.Tables[0]);
                     if (myglobal.global_module == "EMPLOYEE")
                     {
 
@@ -106,58 +110,53 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         public void load_search()
         {
-            dset_emp.Clear();
+            this.dset_emp.Clear();
+            if (this.matRadioActive.Checked == true)
+            {
+                this.dset_emp = this.g_objStoredProcCollection.sp_getMajorTables("positioncurrentcellchanged");
+            }
 
-            if (myglobal.global_module == "EMPLOYEE")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("employee"); }
-            else if (myglobal.global_module == "MICRO")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("micro_raw_materialsnew"); }
-            else if (myglobal.global_module == "Active")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("positioncurrentcellchanged"); }
-            else if (myglobal.global_module == "InActive")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("InactiveFeedCode"); }
-            else if (myglobal.global_module == "MACRO")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("macro_raw_materialsnew"); }
-            else if (myglobal.global_module == "RESIGNED EMPLOYEE")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("employee_B"); }
-            else if (myglobal.global_module == "PHONEBOOK")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("phonebook"); }
-            else if (myglobal.global_module == "DA")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("get_da"); }
-            else if (myglobal.global_module == "ATTENDANCE")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("attendance_monitoring"); }
-            else if (myglobal.global_module == "VISITORS")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("visitors"); }
+            else
+            {
+                this.dset_emp = this.g_objStoredProcCollection.sp_getMajorTables("positioncurrentcellchangedinactive");
+            }
 
-            doSearch();
+            this.doSearch();
 
         }
 
    
-        private void getAllPosition()
+        private void GetAllPosition()
         {
-
             try
             {
-
                 this.myClass.fillDataGridView(this.DgvPosition, "position", this.dSet);
-
                 this.lbltotalrecords.Text = this.DgvPosition.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
+        }
 
+        private void GetAllPositionInActive()
+        {
+            try
+            {
+                this.myClass.fillDataGridView(this.DgvPosition, "position_Inactive", this.dSet);
+                this.lbltotalrecords.Text = this.DgvPosition.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
 
         private void lstPosition_Click(object sender, EventArgs e)
         {
-            doSearch();
-  
+            this.doSearch(); 
         }
 
 
@@ -165,11 +164,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void cancel_Click(object sender, EventArgs e)
         {
            
-            btnCancelTool.Visible = false;
-            btnAddTool.Visible = true;
-            btnUpdateTool.Visible = false;
-            btnEditTool.Visible = true;
-            btnDeleteTool.Visible = true;
+            this.btnCancelTool.Visible = false;
+            this.btnAddTool.Visible = true;
+            this.btnUpdateTool.Visible = false;
+            this.btnEditTool.Visible = true;
+            this.btnDeleteTool.Visible = true;
 
         }
 
@@ -214,15 +213,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void neww_Click(object sender, EventArgs e)
         {
-            mode = "add";
-            btnUpdateTool.Visible = true;
-            btnAddTool.Visible = false;
+            this.mode = "add";
+            this.btnUpdateTool.Visible = true;
+            this.btnAddTool.Visible = false;
 
-            btnCancelTool.Visible = true;
+            this.btnCancelTool.Visible = true;
        
             this.PositionEntity.Position_Id = userinfo.user_id;
-            btnUpdateTool.Visible = true;
-            btnEditTool.Visible = false;
+            this.btnUpdateTool.Visible = true;
+            this.btnEditTool.Visible = false;
 
 
             FrmAddNewPosition addNew = new FrmAddNewPosition(this,
@@ -243,14 +242,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
             if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
             {
-                mode = "edit";
-                btnEditTool.Visible = false;
-                btnAddTool.Visible = false;
-                btnCancelTool.Visible = true;
-                btnDeleteTool.Visible = false;
-                btnUpdateTool.Visible = true;
+                this.mode = "edit";
+                this.btnEditTool.Visible = false;
+                this.btnAddTool.Visible = false;
+                this.btnCancelTool.Visible = true;
+                this. btnDeleteTool.Visible = false;
+                this.btnUpdateTool.Visible = true;
 
-                FrmAddNewPosition addNew = new FrmAddNewPosition(this,
+                FrmAddNewPosition addNew = new FrmAddNewPosition(
+                this,
                 userinfo.user_id,
                 "Edit",
                 Convert.ToInt32(this.PositionEntity.Department_Id),
@@ -303,6 +303,36 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
             this.load_search();
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.btnDeleteTool.Text = "&InActive";
+                this.ConnectionInit();
+                this.GetAllPosition();
+            }
+            else
+            {
+                this.ConnectionInit();
+                this.GetAllPositionInActive();
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.ConnectionInit();
+                this.GetAllPosition();
+            }
+            else
+            {
+                this.btnDeleteTool.Text = "&Activate";
+                this.ConnectionInit();
+                this.GetAllPositionInActive();
+            }
         }
     }
 }
