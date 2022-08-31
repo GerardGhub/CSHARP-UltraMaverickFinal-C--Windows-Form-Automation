@@ -84,6 +84,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.CboDepartment.Size = new System.Drawing.Size(424, 29);
             this.CboDepartment.TabIndex = 600;
             this.CboDepartment.UseSelectable = true;
+            this.CboDepartment.SelectionChangeCommitted += new System.EventHandler(this.CboDepartment_SelectionChangeCommitted);
             // 
             // label1
             // 

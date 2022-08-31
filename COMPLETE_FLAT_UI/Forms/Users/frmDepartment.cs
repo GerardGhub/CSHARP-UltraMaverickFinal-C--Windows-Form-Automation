@@ -438,5 +438,10 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.getAllDepartmentInactive();
             }
         }
+
+        private void materialCard2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

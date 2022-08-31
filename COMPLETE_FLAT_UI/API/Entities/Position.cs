@@ -11,6 +11,7 @@ namespace ULTRAMAVERICK.API.Entities
         public int Position_Id { get; set; }
         public string Position_Name { get; set; }
         public string Department_Id { get; set; }
+        public string Department_Name { get; set; }
         public string Created_By { get; set; }
         public string Created_At { get; set; }
         public string Modified_By { get; set; }

@@ -37,9 +37,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         }
 
-        private void AddNewDepartment_Load(object sender, EventArgs e)
+
+        public void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
+        }
+        private void AddNewDepartment_Load(object sender, EventArgs e)
+        {
+            this.ConnectionInit();
 
             if (this.Dept.Mode == "Add")
             {
