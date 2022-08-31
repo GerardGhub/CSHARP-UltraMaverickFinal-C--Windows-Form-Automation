@@ -29,7 +29,7 @@ namespace ULTRAMAVERICK.Forms.Users
         DataSet dSet = new DataSet();
         Boolean ready = false;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        int temp_id = 0;
+  
         DataSet dSet_temp = new DataSet();
         Position PositionEntity = new Position();
         public frmPosition()
@@ -37,10 +37,6 @@ namespace ULTRAMAVERICK.Forms.Users
             InitializeComponent();
         }
 
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void frmPosition_Load(object sender, EventArgs e)
         {
@@ -50,7 +46,6 @@ namespace ULTRAMAVERICK.Forms.Users
             getAllPosition(); // all UserFile Management
             lstPosition_Click(sender, e); // Click Thge ListView
             myglobal.global_module = "Active"; // Mode for Searching
-            //load_search(); //Bind the Information
 
 
             this.textBox1.Text = String.Empty;
@@ -159,8 +154,6 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
 
-  
-
         private void lstPosition_Click(object sender, EventArgs e)
         {
             doSearch();
@@ -168,47 +161,6 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-
-
-        private void metroButtonDelete_Click(object sender, EventArgs e)
-        {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
-                {
-
-
-
-                        mode = "";
-
-                    this.dSet_temp.Clear();
-                    this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "delete");
-                    this.GlobalStatePopup.InactiveSuccessfully();
-
-                    this.frmPosition_Load(sender, e);
-                        btnEditTool.Visible = true;
-
-                    
-                }
-                
-
-            }
-            else
-            {
-
-                btnEditTool.Visible = true;
-                return;
-            }
-        }
-  
 
         private void cancel_Click(object sender, EventArgs e)
         {
@@ -268,7 +220,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             btnCancelTool.Visible = true;
        
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+            this.PositionEntity.Position_Id = userinfo.user_id;
             btnUpdateTool.Visible = true;
             btnEditTool.Visible = false;
 
@@ -316,10 +268,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         }
 
-        private void txtname_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
-        }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {  
