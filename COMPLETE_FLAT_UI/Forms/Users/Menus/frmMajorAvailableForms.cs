@@ -40,28 +40,19 @@ namespace ULTRAMAVERICK.Forms.Users
         }
         MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
 
-        public string sp_department_id { get; set; }
-   
-        public string sp_user_rights_id { get; set; }
-        public string sp_created_at { get; set; }
-        public string Sp_CreatedByAndUserID { get; set; }
-        public string Sp_modified_at { get; set; }
         private void frmParentAvailableForms_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-
-            myglobal.global_module = "Active"; // Mode for Searching
-            this.load_search(); //Bind the Information
-      
-
-
-            this.getAllParentMenu(); // all Parent Menu Forms
-
-            this.displayUserRightsData();
+            this.ConnectionInit();
+            myglobal.global_module = "Active"; 
+            this.getAllParentMenu();
             this.textBox1.Text = String.Empty;
             this.GetRadionDataChanged();
         }
 
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
+        }
 
         private void GetRadionDataChanged()
         {
@@ -69,18 +60,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         }
 
-        private void displayUserRightsData()      //method for loading available_menus
-        {
    
-            myClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
-      
-
-        }
-     
 
         private void  getAllParentMenu()
         {
-
             try
             {
 
@@ -95,16 +78,22 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
 
-
-
-
-        private void metroButtonSave_Click(object sender, EventArgs e)
+        private void getAllParentMenuInactive()
         {
-            
-               
+            try
+            {
+
+                this.myClass.fillDataGridView(this.DgvMajorMenu, "ParentFormsInactive", this.dSet);
+
+                this.lbltotalrecords.Text = this.DgvMajorMenu.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
-    
 
         DataSet dset_emp = new DataSet();
         private void doSearch()
@@ -149,9 +138,21 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             dset_emp.Clear();
 
-            
-            if (myglobal.global_module == "Active")
-            { dset_emp = g_objStoredProcCollection.sp_getMajorTables("ParentFormscurrentcellchanged"); }
+            if (this.matRadioActive.Checked == true)
+            {
+                if (myglobal.global_module == "Active")
+                { dset_emp = g_objStoredProcCollection.sp_getMajorTables("ParentFormscurrentcellchanged"); }
+            }
+
+            else
+            {
+                if (myglobal.global_module == "Active")
+                { dset_emp = g_objStoredProcCollection.sp_getMajorTables("ParentFormscurrentcellchangedInActive"); }
+            }
+
+
+
+       
        
             this.doSearch();
 
@@ -161,13 +162,16 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void PutInactiveData()
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (this.matRadioActive.Checked == true)
             {
-                if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
-                {
 
-                    mode = "delete";
-                
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
+                    {
+
+                        mode = "delete";
+
                         mode = "";
 
                         this.dSet_temp.Clear();
@@ -185,73 +189,63 @@ namespace ULTRAMAVERICK.Forms.Users
 
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.frmParentAvailableForms_Load(new object(), new System.EventArgs());
-                    
+
+                    }
+
+
                 }
-               
-
-            }
-            else
-            {
-
-                this.matBtnEDit.Visible = true;
-                return;
-            }
-        }
-
-
-
-
-        private void matBtnNext_Click(object sender, EventArgs e)
-        {
-        
-
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
-                Convert.ToInt32(sp_user_rights_id),
-                "s10",
-                "s9",
-               "s8",
-                "7",
-                "s6",
-                "s5",
-                "s4",
-                "s3",
-                "s2",
-                Convert.ToInt32(temp_id).ToString(),
-                Convert.ToInt32(temp_id).ToString(), "addModuleRightsMajorPartial");
-
-            if (dgvUserRights.Rows.Count >= 1)
-            {
-                int i = dgvUserRights.CurrentRow.Index + 1;
-                if (i >= -1 && i < dgvUserRights.Rows.Count)
-                    dgvUserRights.CurrentCell = dgvUserRights.Rows[i].Cells[0];
                 else
                 {
 
-                    displayUserRightsData();
-
+                    this.matBtnEDit.Visible = true;
                     return;
                 }
 
             }
-            matBtnNext_Click(sender, e);
 
-        }
-
-        private void dgvUserRights_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (dgvUserRights.Rows.Count > 0)
+            else
             {
-                if (dgvUserRights.CurrentRow != null)
+                //
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (dgvUserRights.CurrentRow.Cells["user_rights_name"].Value != null)
+                    if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
-                        sp_user_rights_id = dgvUserRights.CurrentRow.Cells["user_rights_id"].Value.ToString();
-  
+
+                        mode = "activate";
+
+                        mode = "";
+
+                        this.dSet_temp.Clear();
+                        this.dSet_temp = this.g_objStoredProcCollection
+                        .sp_ParentForms(
+                       this.ParentFormEntity.Parent_Id,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "activate");
+
+                        this.GlobalStatePopup.ActivatedSuccessfully();
+                        this.frmParentAvailableForms_Load(new object(), new System.EventArgs());
+
                     }
+
+
                 }
+                else
+                {
+
+                    this.matBtnEDit.Visible = true;
+                    return;
+                }
+
             }
+
         }
+
 
         private void btnAddTool_Click_1(object sender, EventArgs e)
         {
@@ -259,12 +253,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnDelete.Visible = false;
             this.materialBtnNew.Visible = false;
             this.matBtnCancel.Visible = true;
-
-
-            this.sp_created_at = (dNow.ToString("M/d/yyyy"));
-            this.txtCreatedBy.Text = userinfo.emp_name.ToUpper();
-            this.Sp_CreatedByAndUserID = userinfo.user_id.ToString();
-    
             this.matBtnEDit.Visible = false;
 
 
@@ -317,8 +305,6 @@ namespace ULTRAMAVERICK.Forms.Users
                     this.matBtnCancel.Visible = true;
                     this.matBtnDelete.Visible = false;
                     this.matBtnSave.Visible = true;
-                    this.Sp_modified_at = (dNow.ToString("M/d/yyyy"));
-                    this.txtModifiedBy.Text = userinfo.emp_name.ToUpper();
 
 
                     FrmAddNewMajorAvailable addNew =
@@ -335,10 +321,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             }
 
-        private void txtMaterialMenu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
-        }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -374,6 +357,36 @@ namespace ULTRAMAVERICK.Forms.Users
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
             this.load_search();
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.matBtnDelete.Text = "&InActive";
+                this.ConnectionInit();
+                this.getAllParentMenu();
+            }
+            else
+            {
+                this.ConnectionInit();
+                this.getAllParentMenuInactive();
+            }
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.ConnectionInit();
+                this.getAllParentMenu();
+            }
+            else
+            {
+                this.matBtnDelete.Text = "&Activate";
+                this.ConnectionInit();
+                this.getAllParentMenuInactive();
+            }
         }
     }
 }

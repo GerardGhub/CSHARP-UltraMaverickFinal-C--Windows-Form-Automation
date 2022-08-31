@@ -14,6 +14,7 @@ using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.API.Entities;
+using ULTRAMAVERICK.Forms.Users.Menus.Modal;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
@@ -509,6 +510,19 @@ namespace ULTRAMAVERICK.Forms.Users
             txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
             txtmname.Select();
             txtmname.Focus();
+
+
+            FrmAddNewSubMenu addNew =
+             new FrmAddNewSubMenu(
+             this,
+             userinfo.user_rights_id,
+             "Add",
+             this.AvailableMenuEntity.Menu_Id,
+             this.AvailableMenuEntity.Menu_Name
+             );
+            addNew.ShowDialog();
+
+
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

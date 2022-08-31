@@ -174,40 +174,86 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void removee_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+
+            if (this.matRadioActive.Checked == true)
             {
-                if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
+
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
+                    {
 
 
 
-                    mode = "";
+                        mode = "";
 
-                    this.dSet_temp.Clear();
-                    this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "delete");
-                    this.GlobalStatePopup.InactiveSuccessfully();
+                        this.dSet_temp.Clear();
+                        this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "delete");
+                        this.GlobalStatePopup.InactiveSuccessfully();
 
-                    this.frmPosition_Load(sender, e);
-                    btnEditTool.Visible = true;
+                        this.frmPosition_Load(sender, e);
+                        btnEditTool.Visible = true;
+
+
+                    }
 
 
                 }
+                else
+                {
 
-
+                    btnEditTool.Visible = true;
+                    return;
+                }
             }
             else
             {
+                //Start
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
+                    {
 
-                btnEditTool.Visible = true;
-                return;
+
+
+                        mode = "activate";
+
+                        this.dSet_temp.Clear();
+                        this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "activate");
+                        this.GlobalStatePopup.InactiveSuccessfully();
+
+                        this.frmPosition_Load(sender, e);
+                        btnEditTool.Visible = true;
+
+
+                    }
+
+
+                }
+                else
+                {
+
+                    btnEditTool.Visible = true;
+                    return;
+                }
+
             }
         }
 

@@ -382,6 +382,12 @@
     <Compile Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.Designer.cs">
       <DependentUpon>FrmAddNewMajorAvailable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.Designer.cs">
+      <DependentUpon>FrmAddNewSubMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\Modal\AddNewDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -919,6 +925,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.resx">
       <DependentUpon>FrmAddNewMajorAvailable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.resx">
+      <DependentUpon>FrmAddNewSubMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Modal\AddNewDepartment.resx">
       <DependentUpon>AddNewDepartment.cs</DependentUpon>
