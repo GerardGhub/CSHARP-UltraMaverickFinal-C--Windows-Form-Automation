@@ -182,7 +182,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         this.PositionEntity.Department_Id,
                         this.PositionEntity.Created_By,
                         this.PositionEntity.Created_At,
-                        this.PositionEntity.Modified_Date,
+                        this.PositionEntity.Created_By,
                         this.PositionEntity.Created_By,
                         this.PositionEntity.Created_By,
                         "edit");
