@@ -32,7 +32,9 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             int UserId,
             string Mode,
             int MenuId,
-            string MenuName)
+            string MenuName,
+            string Count,
+            string MenuFormName)
         {
             InitializeComponent();
             ths = frm;
@@ -41,23 +43,28 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.Available_MenuEntity.Mode = Mode;
             this.Available_MenuEntity.Menu_Id = MenuId;
             this.Available_MenuEntity.Menu_Name = MenuName;
+            this.Available_MenuEntity.Count = Count;
+            this.Available_MenuEntity.Menu_Form_Name = MenuFormName;
 
         }
 
         private void FrmAddNewSubMenu_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
-            this.getLoadDropdownParentMenu();
+
             this.displayUserRightsData();
             if (this.Available_MenuEntity.Mode == "Add")
             {
                 this.Text = "Add New Sub Menu";
-
+                this.getLoadDropdownParentMenu();
             }
             else
             {
                 this.Text = "Update Sub Menu";
-                //this.txtMaterialMenu.Text = this.ParentFormEntity.Parent_Form_Name;
+
+                this.cboParentMenu.Text = Available_MenuEntity.Count;
+                this.txtmname.Text = this.Available_MenuEntity.Menu_Name;
+                this.txtfname.Text = this.Available_MenuEntity.Menu_Form_Name;
 
             }
 
@@ -116,57 +123,127 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             }
 
 
-            this.dSet.Clear();
-            this.dSet = this.g_objStoredProcCollection
-            .sp_available_menu(0, 
-            this.txtmname.Text, 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "getbyname");
 
-            if (this.dSet.Tables[0].Rows.Count > 0)
+            if (this.Available_MenuEntity.Mode == "Add")
             {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.txtmname.Focus();
-                return;
-            }
-            else
-            {
-                //metroSave_Click(sender, e);
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                this.dSet.Clear();
+                this.dSet = this.g_objStoredProcCollection
+                .sp_available_menu(0,
+                this.txtmname.Text,
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "getbyname");
+
+                if (this.dSet.Tables[0].Rows.Count > 0)
                 {
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_available_menu(0,
-                    this.txtmname.Text.Trim(),
-                    this.txtfname.Text.Trim(),
-                    this.Available_MenuEntity.Count,
-                    this.Available_MenuEntity.Created_At,
-                    this.Available_MenuEntity.Created_By,
-                    this.Available_MenuEntity.Updated_At,
-                    this.Available_MenuEntity.Updated_By,
-                    "add");
-
-                    //this.displayChildFormsData();
-                    this.ConnectionInit();
-                    this.GetLatestCountOfSubMenu();
-                    this.LoopOverAll();
-                    this.displayUserRightsData();
-                    //this.displayChildFormsData();
-
-                }
-
-                else
-                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.txtmname.Focus();
                     return;
                 }
+                else
+                {
+                    //metroSave_Click(sender, e);
+
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        dSet.Clear();
+                        dSet = g_objStoredProcCollection.sp_available_menu(0,
+                        this.txtmname.Text.Trim(),
+                        this.txtfname.Text.Trim(),
+                        this.Available_MenuEntity.Count,
+                        this.Available_MenuEntity.Created_At,
+                        this.Available_MenuEntity.Created_By,
+                        this.Available_MenuEntity.Updated_At,
+                        this.Available_MenuEntity.Updated_By,
+                        "add");
+
+              
+                        this.ConnectionInit();
+                        this.GetLatestCountOfSubMenu();
+                        this.LoopOverAll();
+                        this.displayUserRightsData();
+        
+
+                    }
+
+                    else
+                    {
+                        return;
+                    }
 
                 }
+            }
 
+            else
+            {
+
+                //Start
+                this.dSet.Clear();
+                this.dSet = this.g_objStoredProcCollection
+                .sp_available_menu(0,
+                this.txtmname.Text,
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "getbyname");
+
+               
+                    if (this.txtmname.Text == this.Available_MenuEntity.Menu_Name)
+                    {
+                    //MessageBox.Show(this.Available_MenuEntity.Menu_Name.ToString());
+                }
+                    else
+                    {
+                        if (this.dSet.Tables[0].Rows.Count > 0)
+                        {
+                            this.GlobalStatePopup.DataAlreadyExist();
+                            this.txtmname.Focus();
+                            return;
+                        }
+                    }
+
+ 
+            
+          
+
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        dSet.Clear();
+                        dSet = g_objStoredProcCollection.sp_available_menu(
+                        this.Available_MenuEntity.Menu_Id,
+                        this.txtmname.Text.Trim(),
+                        this.txtfname.Text.Trim(),
+                        this.Available_MenuEntity.Count,
+                        this.Available_MenuEntity.Created_At,
+                        this.Available_MenuEntity.Created_By,
+                        this.Available_MenuEntity.Updated_At,
+                        this.Available_MenuEntity.Updated_By,
+                        "edit");
+
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.Close();
+
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+
+                
+
+
+
+                //End
+            }
 
             }
 
@@ -267,8 +344,32 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void cboParentMenu_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.Available_MenuEntity.Count = this.cboParentMenu.SelectedValue.ToString();
-            this.txtmname.Text = String.Empty;
-            this.txtfname.Text = String.Empty;
+
+        }
+
+        private void cboParentMenu_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.Available_MenuEntity.Count = this.cboParentMenu.SelectedValue.ToString();
+        }
+
+        private void cboParentMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboParentMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboParentMenu_Click(object sender, EventArgs e)
+        {
+            this.getLoadDropdownParentMenu();
         }
     }
 }
