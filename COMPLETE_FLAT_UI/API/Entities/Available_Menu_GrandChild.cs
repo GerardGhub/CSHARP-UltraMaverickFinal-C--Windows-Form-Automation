@@ -18,5 +18,8 @@ namespace ULTRAMAVERICK.API.Entities
         public string Updated_At { get; set; }
         public string Updated_By { get; set; }
         public string Tagging_RelationShip { get; set; }
+        public int UserRightsId { get; set; }
+        public string ChildForm { get; set; }
+        public string Mode { get; set; }
     }
 }

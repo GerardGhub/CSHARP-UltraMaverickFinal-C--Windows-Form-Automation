@@ -14,6 +14,7 @@ using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.API.Entities;
+using ULTRAMAVERICK.Forms.Users.Menus.Modal;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
@@ -45,8 +46,9 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
             this.displayGrandChildFormsData();
-            this.loadChildMenu();
-            this.displayUserRightsData();  
+            //this.loadChildMenu();
+            //this.displayUserRightsData();
+            this.textBox1.Text = String.Empty;
         }
 
     
@@ -60,7 +62,7 @@ namespace ULTRAMAVERICK.Forms.Users
         }
     }
 
-        private void displayUserRightsData()      //method for loading available_menus
+        private void displayUserRightsData()      
         {
 
         this.myClass.fillDataGridView(dgvUserRights, "user_rights", dSet);
@@ -235,9 +237,11 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (dgvGrandChildForms.CurrentRow.Cells["menu_id"].Value != null)
                     {
                         p_id = Convert.ToInt32(dgvGrandChildForms.CurrentRow.Cells["menu_id"].Value);
-                        txtfname.Text = dgvGrandChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
-                        txtgchild.Text = dgvGrandChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
+                       this.AvailableMenuGrandChildEntity.Menu_Id = Convert.ToInt32(dgvGrandChildForms.CurrentRow.Cells["menu_id"].Value);
+                       this.AvailableMenuGrandChildEntity.Menu_Form_Name = dgvGrandChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
+                       this.AvailableMenuGrandChildEntity.Menu_Name = dgvGrandChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
                         txtParentName.Text = dgvGrandChildForms.CurrentRow.Cells["count"].Value.ToString();
+                       this.AvailableMenuGrandChildEntity.ChildForm = dgvGrandChildForms.CurrentRow.Cells["ChildForm"].Value.ToString();
                         cboChildMenu.Text = dgvGrandChildForms.CurrentRow.Cells["ChildForm"].Value.ToString();
 
                         this.AvailableMenuGrandChildEntity.Created_At = dgvGrandChildForms.CurrentRow.Cells["created_at"].Value.ToString();
@@ -477,11 +481,28 @@ namespace ULTRAMAVERICK.Forms.Users
             txtgchild.Select();
             txtgchild.Focus();
 
+
+
+            FrmAddNewModule addNew =
+             new FrmAddNewModule(
+             this,
+             userinfo.user_id,
+             "Add",
+             this.AvailableMenuGrandChildEntity.Menu_Id,
+             this.AvailableMenuGrandChildEntity.Menu_Name,
+             this.AvailableMenuGrandChildEntity.Menu_Form_Name,
+             this.AvailableMenuGrandChildEntity.Parent_Menu,
+             this.AvailableMenuGrandChildEntity.ChildForm);
+            addNew.ShowDialog();
+
+
+
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (dgvGrandChildForms.RowCount > 0)
+            if (this.dgvGrandChildForms.RowCount > 0)
             {
                 temp_hid = dgvGrandChildForms.CurrentRow.Index;
                 txtfname.Enabled = true;
@@ -492,6 +513,19 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 btn_visible(false);
                 txt_read_only(false);
+
+
+                FrmAddNewModule addNew =
+                 new FrmAddNewModule(
+                 this,
+                 userinfo.user_id,
+                 "Edit",
+                 this.AvailableMenuGrandChildEntity.Menu_Id,
+                 this.AvailableMenuGrandChildEntity.Menu_Name,
+                 this.AvailableMenuGrandChildEntity.Menu_Form_Name,
+                 this.AvailableMenuGrandChildEntity.Parent_Menu,
+                 this.AvailableMenuGrandChildEntity.ChildForm);
+                addNew.ShowDialog();
             }
         }
 
@@ -703,6 +737,12 @@ namespace ULTRAMAVERICK.Forms.Users
                 e.Value = e.Value.ToString().ToUpper();
                 e.FormattingApplied = true;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.btnCancelTool_Click_1(sender, e);
+            this.frmGrandChildAvailableForms_Load(sender, e);
         }
     }
 }

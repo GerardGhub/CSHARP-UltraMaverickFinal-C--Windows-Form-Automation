@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 {
-    partial class FrmAddNewSubMenu
+    partial class FrmAddNewModule
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.cboParentMenu = new System.Windows.Forms.ComboBox();
+            this.cboChildMenu = new System.Windows.Forms.ComboBox();
             this.txtfname = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtmname = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtgchild = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BtnExecute = new MaterialSkin.Controls.MaterialButton();
@@ -50,34 +50,32 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.cboParentMenu);
+            this.materialCard1.Controls.Add(this.cboChildMenu);
             this.materialCard1.Controls.Add(this.txtfname);
-            this.materialCard1.Controls.Add(this.txtmname);
+            this.materialCard1.Controls.Add(this.txtgchild);
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.textBox1);
             this.materialCard1.Controls.Add(this.BtnExecute);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(40, 84);
+            this.materialCard1.Location = new System.Drawing.Point(41, 77);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(542, 338);
-            this.materialCard1.TabIndex = 3;
+            this.materialCard1.TabIndex = 4;
             // 
-            // cboParentMenu
+            // cboChildMenu
             // 
-            this.cboParentMenu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboParentMenu.FormattingEnabled = true;
-            this.cboParentMenu.Location = new System.Drawing.Point(52, 64);
-            this.cboParentMenu.Name = "cboParentMenu";
-            this.cboParentMenu.Size = new System.Drawing.Size(441, 27);
-            this.cboParentMenu.TabIndex = 579;
-            this.cboParentMenu.SelectedIndexChanged += new System.EventHandler(this.cboParentMenu_SelectedIndexChanged);
-            this.cboParentMenu.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
-            this.cboParentMenu.Click += new System.EventHandler(this.cboParentMenu_Click);
-            this.cboParentMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboParentMenu_KeyPress);
+            this.cboChildMenu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboChildMenu.FormattingEnabled = true;
+            this.cboChildMenu.Location = new System.Drawing.Point(52, 64);
+            this.cboChildMenu.Name = "cboChildMenu";
+            this.cboChildMenu.Size = new System.Drawing.Size(441, 27);
+            this.cboChildMenu.TabIndex = 579;
+            this.cboChildMenu.SelectionChangeCommitted += new System.EventHandler(this.cboChildMenu_SelectionChangeCommitted);
+            this.cboChildMenu.Click += new System.EventHandler(this.cboChildMenu_Click);
             // 
             // txtfname
             // 
@@ -98,36 +96,36 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.txtfname.Text = "";
             this.txtfname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfname_KeyPress);
             // 
-            // txtmname
+            // txtgchild
             // 
-            this.txtmname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtmname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmname.Depth = 0;
-            this.txtmname.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmname.Hint = "Sub Menu";
-            this.txtmname.Location = new System.Drawing.Point(51, 120);
-            this.txtmname.Margin = new System.Windows.Forms.Padding(1);
-            this.txtmname.MaxLength = 50;
-            this.txtmname.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmname.Multiline = false;
-            this.txtmname.Name = "txtmname";
-            this.txtmname.Size = new System.Drawing.Size(442, 50);
-            this.txtmname.TabIndex = 577;
-            this.txtmname.Text = "";
-            this.txtmname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmname_KeyPress);
+            this.txtgchild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtgchild.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtgchild.Depth = 0;
+            this.txtgchild.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtgchild.Hint = "Module";
+            this.txtgchild.Location = new System.Drawing.Point(51, 120);
+            this.txtgchild.Margin = new System.Windows.Forms.Padding(1);
+            this.txtgchild.MaxLength = 50;
+            this.txtgchild.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtgchild.Multiline = false;
+            this.txtgchild.Name = "txtgchild";
+            this.txtgchild.Size = new System.Drawing.Size(442, 50);
+            this.txtgchild.TabIndex = 577;
+            this.txtgchild.Text = "";
+            this.txtgchild.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtgchild_KeyPress);
             // 
             // materialLabel1
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(64, 40);
+            this.materialLabel1.Location = new System.Drawing.Point(62, 40);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(86, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(73, 19);
             this.materialLabel1.TabIndex = 575;
-            this.materialLabel1.Text = "Major Menu";
+            this.materialLabel1.Text = "Sub Menu";
             // 
             // textBox1
             // 
@@ -164,53 +162,53 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             // 
             this.dgvUserRights.AllowUserToAddRows = false;
             this.dgvUserRights.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvUserRights.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            this.dgvUserRights.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvUserRights.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUserRights.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvUserRights.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUserRights.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvUserRights.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserRights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserRights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvUserRights.ColumnHeadersHeight = 35;
             this.dgvUserRights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.user_rights_id,
             this.user_rights_name});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserRights.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserRights.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvUserRights.EnableHeadersVisualStyles = false;
             this.dgvUserRights.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvUserRights.Location = new System.Drawing.Point(642, 106);
+            this.dgvUserRights.Location = new System.Drawing.Point(652, 93);
             this.dgvUserRights.Name = "dgvUserRights";
             this.dgvUserRights.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserRights.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserRights.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvUserRights.RowHeadersVisible = false;
             this.dgvUserRights.RowHeadersWidth = 102;
             this.dgvUserRights.RowTemplate.DividerHeight = 5;
             this.dgvUserRights.RowTemplate.Height = 40;
             this.dgvUserRights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUserRights.Size = new System.Drawing.Size(327, 316);
-            this.dgvUserRights.TabIndex = 580;
+            this.dgvUserRights.Size = new System.Drawing.Size(336, 305);
+            this.dgvUserRights.TabIndex = 586;
             this.dgvUserRights.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -255,21 +253,21 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.user_rights_name.ReadOnly = true;
             this.user_rights_name.Width = 82;
             // 
-            // FrmAddNewSubMenu
+            // FrmAddNewModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 443);
+            this.ClientSize = new System.Drawing.Size(1059, 443);
             this.Controls.Add(this.dgvUserRights);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmAddNewSubMenu";
+            this.Name = "FrmAddNewModule";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAddNewSubMenu";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAddNewSubMenu_FormClosing);
-            this.Load += new System.EventHandler(this.FrmAddNewSubMenu_Load);
+            this.Text = "FrmAddNewModule";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAddNewModule_FormClosing);
+            this.Load += new System.EventHandler(this.FrmAddNewModule_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserRights)).EndInit();
@@ -280,14 +278,14 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         #endregion
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
+        private System.Windows.Forms.ComboBox cboChildMenu;
+        private MaterialSkin.Controls.MaterialTextBox txtfname;
+        private MaterialSkin.Controls.MaterialTextBox txtgchild;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton BtnExecute;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialTextBox txtmname;
-        private MaterialSkin.Controls.MaterialTextBox txtfname;
         private Guna.UI2.WinForms.Guna2DataGridView dgvUserRights;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_name;
-        private System.Windows.Forms.ComboBox cboParentMenu;
     }
 }

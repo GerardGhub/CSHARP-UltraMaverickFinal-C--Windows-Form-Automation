@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,29 +96,37 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             if (this.ParentFormEntity.Mode == "Add")
             {
 
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_ParentForms(0,
-                    txtMaterialMenu.Text.Trim(), "", "", "", "", "", "", "validate");
+                this.dSet.Clear();
+                this.dSet = this.g_objStoredProcCollection
+                    .sp_ParentForms(0,
+                    this.txtMaterialMenu.Text.Trim(),
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "validate");
 
-                if (dSet.Tables[0].Rows.Count > 0)
+                if (this.dSet.Tables[0].Rows.Count > 0)
                 {
                     this.GlobalStatePopup.DataAlreadyExist();
                     this.txtMaterialMenu.Focus();
                     return;
                 }
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?" + txtMaterialMenu.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection
+                    this.dSet.Clear();
+                    this.dSet = this.g_objStoredProcCollection
                     .sp_ParentForms(0,
-                    txtMaterialMenu.Text.Trim(),
+                    this.txtMaterialMenu.Text.Trim(),
                     DateTime.Now.ToString(),
-                    this.ParentFormEntity.Created_By,
+                    userinfo.user_id.ToString(),
                     this.ParentFormEntity.Updated_At,
                     this.ParentFormEntity.Created_By,
-                    this.ParentFormEntity.Created_By,
+                    userinfo.user_id.ToString(),
                     this.ParentFormEntity.Department,
                     "add");
                     this.ConnectionInit();

@@ -70,14 +70,14 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
    
-        private void displayChildFormsData()      //method for loading available_menus
+        private void displayChildFormsData()    
         {
             try
             {
                
-                this.myClass.fillDataGridView(dgvChildForms, "available_menu", dSet);
+                this.myClass.fillDataGridView(this.dgvChildForms, "available_menu", dSet);
 
-                this.lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
+                this.lbltotalrecords.Text = this.dgvChildForms.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -93,16 +93,15 @@ namespace ULTRAMAVERICK.Forms.Users
             try
             {
 
-                this.myClass.fillDataGridView(dgvChildForms, "available_menu_inactive", dSet);
+                this.myClass.fillDataGridView(this.dgvChildForms, "available_menu_inactive", dSet);
 
-                this.lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
+                this.lbltotalrecords.Text = this.dgvChildForms.RowCount.ToString();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-
 
         }
 
@@ -112,40 +111,38 @@ namespace ULTRAMAVERICK.Forms.Users
      
         private void btn_visible(Boolean val)
         {
-            btnAddTool.Visible = val;
-            btnEditTool.Visible = val;
-            btnDeleteTool.Visible = val;
-    
-
-            btnUpdateTool.Visible = !val;
-            btnCancelTool.Visible = !val;
+            this.btnAddTool.Visible = val;
+            this.btnEditTool.Visible = val;
+            this.btnDeleteTool.Visible = val;
+            this.btnUpdateTool.Visible = !val;
+            this.btnCancelTool.Visible = !val;
         }
 
         private void btnCancelTool_Click(object sender, EventArgs e)
         {
-            mode = "";
+            this.mode = "";
             this.btn_visible(true);
             this.dgvChildForms_CurrentCellChanged(sender, e);
         }
 
         private void dgvChildForms_CurrentCellChanged(object sender, EventArgs e)
         {
-            showValue();
+            this.ShowValue();
         }
 
-        private void showValue()
+        private void ShowValue()
         {
-            if (dgvChildForms.Rows.Count > 0)
+            if (this.dgvChildForms.Rows.Count > 0)
             {
-                if (dgvChildForms.CurrentRow != null)
+                if (this.dgvChildForms.CurrentRow != null)
                 {
-                    if (dgvChildForms.CurrentRow.Cells["menu_id"].Value != null)
+                    if (this.dgvChildForms.CurrentRow.Cells["menu_id"].Value != null)
                     {
-                        this.p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
-                        this.AvailableMenuEntity.Menu_Id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
-                        this.AvailableMenuEntity.Menu_Form_Name = dgvChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
-                        this.AvailableMenuEntity.Menu_Name = dgvChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
-                        this.AvailableMenuEntity.Count = dgvChildForms.CurrentRow.Cells["count"].Value.ToString();
+                        this.p_id = Convert.ToInt32(this.dgvChildForms.CurrentRow.Cells["menu_id"].Value);
+                        this.AvailableMenuEntity.Menu_Id = Convert.ToInt32(this.dgvChildForms.CurrentRow.Cells["menu_id"].Value);
+                        this.AvailableMenuEntity.Menu_Form_Name = this.dgvChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
+                        this.AvailableMenuEntity.Menu_Name = this.dgvChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
+                        this.AvailableMenuEntity.Count = this.dgvChildForms.CurrentRow.Cells["count"].Value.ToString();
  
                     }
                 }
@@ -155,37 +152,19 @@ namespace ULTRAMAVERICK.Forms.Users
 
       
 
-     
-
-
-     
-
- 
-
-
-        private void metroSave_Click(object sender, EventArgs e)
-        {
-            //Start
-
-
-            //End
-
-        }
-
-
 
         private void dgvChildForms_CurrentCellChanged_1(object sender, EventArgs e)
         {
-            if (mode == "add")
+            if (this.mode == "add")
             {
-                dgvChildForms.Enabled = false;
+                this.dgvChildForms.Enabled = false;
             }
             else
             {
-                dgvChildForms.Enabled = true;
+                this.dgvChildForms.Enabled = true;
                
             }
-            showValue();
+            this.ShowValue();
         }
 
 
