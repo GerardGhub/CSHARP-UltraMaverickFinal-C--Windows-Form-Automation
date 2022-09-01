@@ -155,6 +155,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (dgvChildForms.CurrentRow.Cells["menu_id"].Value != null)
                     {
                         this.p_id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
+                        this.AvailableMenuEntity.Menu_Id = Convert.ToInt32(dgvChildForms.CurrentRow.Cells["menu_id"].Value);
                         this.txtfname.Text = dgvChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
                         this.txtmname.Text = dgvChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
                         this.cboParentMenu.Text = dgvChildForms.CurrentRow.Cells["count"].Value.ToString();
@@ -627,6 +628,12 @@ namespace ULTRAMAVERICK.Forms.Users
         private void txtmname_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.toolStripButton5_Click(sender,  e);
+            this.frmChildAvailableForms_Load(sender, e);
         }
     }
 }

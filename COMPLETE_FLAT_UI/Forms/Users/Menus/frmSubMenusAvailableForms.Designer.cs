@@ -48,6 +48,15 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtmname = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvChildForms = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tagging_Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUserRights = new Guna.UI2.WinForms.Guna2DataGridView();
             this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,15 +73,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtcount = new System.Windows.Forms.TextBox();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menu_form_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tagging_Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChildForms)).BeginInit();
@@ -83,7 +84,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // metroSave
             // 
-            this.metroSave.Location = new System.Drawing.Point(954, 413);
+            this.metroSave.Location = new System.Drawing.Point(779, 234);
             this.metroSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroSave.Name = "metroSave";
             this.metroSave.Size = new System.Drawing.Size(68, 20);
@@ -95,7 +96,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // metroFinalSaving
             // 
-            this.metroFinalSaving.Location = new System.Drawing.Point(945, 460);
+            this.metroFinalSaving.Location = new System.Drawing.Point(770, 281);
             this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1);
             this.metroFinalSaving.Name = "metroFinalSaving";
             this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
@@ -180,7 +181,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtfname.MouseState = MaterialSkin.MouseState.OUT;
             this.txtfname.Multiline = false;
             this.txtfname.Name = "txtfname";
-            this.txtfname.Size = new System.Drawing.Size(928, 50);
+            this.txtfname.Size = new System.Drawing.Size(332, 50);
             this.txtfname.TabIndex = 2;
             this.txtfname.Text = "";
             this.txtfname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfname_KeyPress);
@@ -192,8 +193,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtmname.Depth = 0;
             this.txtmname.Enabled = false;
             this.txtmname.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmname.Hint = "Child Menu";
-            this.txtmname.Location = new System.Drawing.Point(737, 25);
+            this.txtmname.Hint = "Sub Menu";
+            this.txtmname.Location = new System.Drawing.Point(290, 17);
             this.txtmname.Margin = new System.Windows.Forms.Padding(1);
             this.txtmname.MaxLength = 50;
             this.txtmname.MouseState = MaterialSkin.MouseState.OUT;
@@ -218,7 +219,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(990, 406);
+            this.materialCard2.Size = new System.Drawing.Size(780, 406);
             this.materialCard2.TabIndex = 554;
             // 
             // dgvChildForms
@@ -281,7 +282,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvChildForms.RowTemplate.DividerHeight = 5;
             this.dgvChildForms.RowTemplate.Height = 40;
             this.dgvChildForms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChildForms.Size = new System.Drawing.Size(980, 394);
+            this.dgvChildForms.Size = new System.Drawing.Size(770, 394);
             this.dgvChildForms.TabIndex = 577;
             this.dgvChildForms.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvChildForms.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -307,6 +308,86 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvChildForms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvChildForms.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvChildForms_CellFormatting);
             this.dgvChildForms.CurrentCellChanged += new System.EventHandler(this.dgvChildForms_CurrentCellChanged_1);
+            // 
+            // menu_id
+            // 
+            this.menu_id.DataPropertyName = "menu_id";
+            this.menu_id.FillWeight = 40.60914F;
+            this.menu_id.HeaderText = "ID";
+            this.menu_id.MinimumWidth = 12;
+            this.menu_id.Name = "menu_id";
+            this.menu_id.ReadOnly = true;
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "count";
+            this.count.FillWeight = 99.49239F;
+            this.count.HeaderText = "PARENT MENU";
+            this.count.MinimumWidth = 12;
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            // 
+            // menu_name
+            // 
+            this.menu_name.DataPropertyName = "menu_name";
+            this.menu_name.FillWeight = 99.49239F;
+            this.menu_name.HeaderText = "CHILD MENU";
+            this.menu_name.MinimumWidth = 12;
+            this.menu_name.Name = "menu_name";
+            this.menu_name.ReadOnly = true;
+            // 
+            // menu_form_name
+            // 
+            this.menu_form_name.DataPropertyName = "menu_form_name";
+            this.menu_form_name.FillWeight = 99.49239F;
+            this.menu_form_name.HeaderText = "FORM NAME";
+            this.menu_form_name.MinimumWidth = 12;
+            this.menu_form_name.Name = "menu_form_name";
+            this.menu_form_name.ReadOnly = true;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.FillWeight = 99.49239F;
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.FillWeight = 99.49239F;
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.FillWeight = 99.49239F;
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            // 
+            // Tagging_Relationship
+            // 
+            this.Tagging_Relationship.DataPropertyName = "Tagging_Relationship";
+            this.Tagging_Relationship.HeaderText = "RELATIONSHIP";
+            this.Tagging_Relationship.MinimumWidth = 12;
+            this.Tagging_Relationship.Name = "Tagging_Relationship";
+            this.Tagging_Relationship.ReadOnly = true;
+            this.Tagging_Relationship.Visible = false;
             // 
             // dgvUserRights
             // 
@@ -573,85 +654,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label3.TabIndex = 665;
             this.label3.Text = "Items";
             // 
-            // menu_id
+            // textBox1
             // 
-            this.menu_id.DataPropertyName = "menu_id";
-            this.menu_id.FillWeight = 40.60914F;
-            this.menu_id.HeaderText = "ID";
-            this.menu_id.MinimumWidth = 12;
-            this.menu_id.Name = "menu_id";
-            this.menu_id.ReadOnly = true;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "count";
-            this.count.FillWeight = 99.49239F;
-            this.count.HeaderText = "PARENT MENU";
-            this.count.MinimumWidth = 12;
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            // 
-            // menu_name
-            // 
-            this.menu_name.DataPropertyName = "menu_name";
-            this.menu_name.FillWeight = 99.49239F;
-            this.menu_name.HeaderText = "CHILD MENU";
-            this.menu_name.MinimumWidth = 12;
-            this.menu_name.Name = "menu_name";
-            this.menu_name.ReadOnly = true;
-            // 
-            // menu_form_name
-            // 
-            this.menu_form_name.DataPropertyName = "menu_form_name";
-            this.menu_form_name.FillWeight = 99.49239F;
-            this.menu_form_name.HeaderText = "FORM NAME";
-            this.menu_form_name.MinimumWidth = 12;
-            this.menu_form_name.Name = "menu_form_name";
-            this.menu_form_name.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.FillWeight = 99.49239F;
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.FillWeight = 99.49239F;
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.FillWeight = 99.49239F;
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            // 
-            // Tagging_Relationship
-            // 
-            this.Tagging_Relationship.DataPropertyName = "Tagging_Relationship";
-            this.Tagging_Relationship.HeaderText = "RELATIONSHIP";
-            this.Tagging_Relationship.MinimumWidth = 12;
-            this.Tagging_Relationship.Name = "Tagging_Relationship";
-            this.Tagging_Relationship.ReadOnly = true;
-            this.Tagging_Relationship.Visible = false;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(401, 260);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 666;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // frmSubMenusAvailableForms
             // 
@@ -659,6 +672,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.panel1);
@@ -725,5 +739,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tagging_Relationship;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

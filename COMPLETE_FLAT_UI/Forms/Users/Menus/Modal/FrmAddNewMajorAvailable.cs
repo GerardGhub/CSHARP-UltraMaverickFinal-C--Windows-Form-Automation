@@ -41,7 +41,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void FrmAddNewParentForm_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
-            getAllParentMenu();
+            this.getAllParentMenu();
             this.DisplayUserRightsData();
 
             if (this.ParentFormEntity.Mode == "Add")

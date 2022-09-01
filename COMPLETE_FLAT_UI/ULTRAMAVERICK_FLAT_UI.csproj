@@ -139,6 +139,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Data\Available_MenuRepository.cs" />
     <Compile Include="API\Data\DepartmentUnitRepository.cs" />
     <Compile Include="API\Data\DryWHReceiptRepository.cs" />
     <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
     <Compile Include="API\Extensions\Modules.cs" />
+    <Compile Include="API\Interfaces\IAvailable_MenuRepository.cs" />
     <Compile Include="API\Interfaces\IDepartmentUnitRepository.cs" />
     <Compile Include="API\Interfaces\IDryWHReceiptRepository.cs" />
     <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
