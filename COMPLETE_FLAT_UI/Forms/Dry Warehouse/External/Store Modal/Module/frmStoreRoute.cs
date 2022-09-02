@@ -9,48 +9,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
     public partial class frmStoreRoute : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-        int p_id = 0;
         DateTime dNow = DateTime.Now;
         DataSet dSet_temp = new DataSet();
-
-
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        TblRoute TblRouteEntity = new TblRoute();
+        string mode = "";
         public frmStoreRoute()
         {
             InitializeComponent();
         }
 
         public string sp_user_id { get; set; }
-        public string sp_area_name { get; set; }
-        public string sp_typeof_mode { get; set; }
+
         private void frmStoreRoute_Load(object sender, EventArgs e)
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             this.sp_user_id = userinfo.user_id.ToString();
             this.showStoreRoute();
             this.LoadRecords();
             this.LoadingrefresherOrb();
-
+            this.GetRadionDataChanged();
             this.SearchMethodJarVarCallingSP();
+        }
+
+        public void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+
+        }
+
+        private void GetRadionDataChanged()
+        {
+            this.matRadioActive.Checked = true;
+
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("tblRouteSpMajor");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("tblRouteSpMajor");
 
         }
 
@@ -59,7 +68,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-                xClass.fillDataGridView(dgvRawMats, "tblRouteSpMinor", dSet);
+                myClass.fillDataGridView(dgvRawMats, "tblRouteSpMinor", dSet);
 
                 lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
             }
@@ -70,13 +79,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             this.dgvRawMats.Columns["route_id"].Visible = false;
             this.dgvRawMats.Columns["is_active"].Visible = false;
-            //this.dgvRawMats.Columns["modified_at"].Visible = false;
-            //this.dgvRawMats.Columns["modified_by"].Visible = false;
+          
+        }
+
+
+        private void showStoreRouteInActive()    //method for loading available_menus
+        {
+            try
+            {
+
+                this.myClass.fillDataGridView(dgvRawMats, "tblRouteSpMinorInActive", dSet);
+
+                this.lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.dgvRawMats.Columns["route_id"].Visible = false;
+            this.dgvRawMats.Columns["is_active"].Visible = false;
+
         }
 
         private void LoadingrefresherOrb()
         {
-            this.sp_typeof_mode = "";
+            this.TblRouteEntity.Mode = "";
             if (textBox1.Text == "data Already Save!")
             {
                 matBtnEdit.Visible = false;
@@ -110,11 +138,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {
-            this.sp_typeof_mode = "add";
+            this.TblRouteEntity.Mode = "add";
 
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
-            frmAddNewRoute addNew = new frmAddNewRoute(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
+            frmAddNewRoute addNew = new frmAddNewRoute(this, 
+                sp_user_id,
+                TblRouteEntity.Route_Name,
+                TblRouteEntity.Mode,
+                this.TblRouteEntity.Route_Id);
             addNew.ShowDialog();
         }
 
@@ -190,10 +222,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            this.sp_typeof_mode = "edit";
+            this.TblRouteEntity.Mode = "edit";
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
-            frmAddNewRoute addNew = new frmAddNewRoute(this, sp_user_id, sp_area_name, sp_typeof_mode, p_id);
+            frmAddNewRoute addNew = new frmAddNewRoute(this, 
+                sp_user_id,
+                TblRouteEntity.Route_Name,
+                TblRouteEntity.Mode,
+                this.TblRouteEntity.Route_Id);
             addNew.ShowDialog();
         }
 
@@ -209,13 +245,122 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     if (this.dgvRawMats.CurrentRow.Cells["route_name"].Value != null)
                     {
-                        this.p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["route_id"].Value);
-                        sp_area_name = dgvRawMats.CurrentRow.Cells["route_name"].Value.ToString();
+                        this.TblRouteEntity.Route_Id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["route_id"].Value);
+                        this.TblRouteEntity.Route_Name  = this.dgvRawMats.CurrentRow.Cells["route_name"].Value.ToString();
 
 
                     }
                 }
             }
         }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.ConnectionInit();
+                this.showStoreRoute();
+            }
+            else
+            {
+                this.matBtnDelete.Text = "&Activate";
+                this.ConnectionInit();
+                this.showStoreRouteInActive();
+            }
+        }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+                this.matBtnDelete.Text = "&InActive";
+                this.ConnectionInit();
+                this.showStoreRoute();
+            }
+            else
+            {
+                this.ConnectionInit();
+                this.showStoreRouteInActive();
+            }
+        }
+
+        private void matBtnDelete_Click(object sender, EventArgs e)
+        {
+            this.PutInactiveData();
+        }
+        private void PutInactiveData()
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
+                    {
+                        this.mode = "delete";
+                        this.dSet.Clear();
+                        this.dSet = g_objStoredProcCollection
+                            .sp_tblRoute(
+                            this.TblRouteEntity.Route_Id,
+                            this.TblRouteEntity.Route_Name,
+                            userinfo.user_id.ToString(),
+                            "",
+                            "",
+                            "",
+                            "delete");
+                        this.GlobalStatePopup.InactiveSuccessfully();
+                        this.frmStoreRoute_Load(new object(), new System.EventArgs());
+
+                    }
+
+
+                }
+                else
+                {
+
+                    this.toolStripbtnEdit.Visible = true;
+                    return;
+                }
+
+            }
+
+            else
+            {
+                //
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
+                    {
+
+                        this.mode = "activate";
+                        this.dSet.Clear();
+                        this.dSet = g_objStoredProcCollection
+                            .sp_tblRoute(
+                            this.TblRouteEntity.Route_Id,
+                            this.TblRouteEntity.Route_Name,
+                            userinfo.user_id.ToString(),
+                            "",
+                            "",
+                            "",
+                            "activate");
+
+                        this.GlobalStatePopup.ActivatedSuccessfully();
+                        this.frmStoreRoute_Load(new object(), new System.EventArgs());
+
+                    }
+
+
+                }
+                else
+                {
+
+                    this.toolStripbtnEdit.Visible = true;
+                    return;
+                }
+
+            }
+
+        }
+
     }
 }

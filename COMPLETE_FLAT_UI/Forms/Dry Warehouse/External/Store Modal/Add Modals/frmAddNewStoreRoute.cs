@@ -1,4 +1,5 @@
-﻿using MaterialSkin;
+﻿using COMPLETE_FLAT_UI.Models;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -103,20 +104,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                     dSet.Clear();
                     dSet = objStorProc.sp_tblRoute(0,
-
-
-                        this.matTxtRouteName.Text.Trim(),
-                        this.created_by,
-                        "",
-                        "",
-                        "",
-                        "add");
+                    this.matTxtRouteName.Text.Trim(),
+                    userinfo.user_id.ToString(),
+                    "",
+                    "",
+                    "",
+                    "add");
 
 
 
                     this.textBox1.Text = "data Already Save!";
-                    this.GlobalStatePopup.CommittedSuccessFully();
-                    this.frmAddNewRoute_Load(new object(), new System.EventArgs());
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
 
                 }
 

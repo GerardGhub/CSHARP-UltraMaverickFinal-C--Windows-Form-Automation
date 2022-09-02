@@ -159,6 +159,7 @@
     <Compile Include="API\Entities\TblArea.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\TblRegion.cs" />
+    <Compile Include="API\Entities\TblRoute.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
     <Compile Include="API\Extensions\Modules.cs" />
     <Compile Include="API\Interfaces\IAvailable_MenuRepository.cs" />
@@ -598,11 +599,11 @@
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.Designer.cs">
       <DependentUpon>FrmAddNewStoreArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRoute.cs">
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRoute.Designer.cs">
-      <DependentUpon>frmAddNewRoute.cs</DependentUpon>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.Designer.cs">
+      <DependentUpon>frmAddNewStoreRoute.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.cs">
       <SubType>Form</SubType>
@@ -1043,8 +1044,8 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.resx">
       <DependentUpon>FrmAddNewStoreArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRoute.resx">
-      <DependentUpon>frmAddNewRoute.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.resx">
+      <DependentUpon>frmAddNewStoreRoute.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.resx">
       <DependentUpon>frmAddNewStore.cs</DependentUpon>
