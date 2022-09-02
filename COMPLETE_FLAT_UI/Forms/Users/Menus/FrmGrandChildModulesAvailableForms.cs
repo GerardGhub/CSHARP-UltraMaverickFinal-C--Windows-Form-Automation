@@ -122,7 +122,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void txt_read_only(Boolean val)
         {
-            this.txtcountChildId.ReadOnly = val;
+
         }
 
 
@@ -182,10 +182,6 @@ namespace ULTRAMAVERICK.Forms.Users
             mode = "add";
             btn_visible(false);
             txt_read_only(false);
-  
-            this.txtcountChildId.Enabled = true;
-
-            this.txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
 
      
 

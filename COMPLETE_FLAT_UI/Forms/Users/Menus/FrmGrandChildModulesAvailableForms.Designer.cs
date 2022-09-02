@@ -29,13 +29,11 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModulesAvailableForms));
-            this.txtCreatedByAndUserID = new System.Windows.Forms.TextBox();
-            this.txtcountChildId = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
@@ -72,36 +70,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStrip2.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtCreatedByAndUserID
-            // 
-            this.txtCreatedByAndUserID.BackColor = System.Drawing.Color.White;
-            this.txtCreatedByAndUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCreatedByAndUserID.Enabled = false;
-            this.txtCreatedByAndUserID.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreatedByAndUserID.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtCreatedByAndUserID.Location = new System.Drawing.Point(541, 11);
-            this.txtCreatedByAndUserID.MaxLength = 100;
-            this.txtCreatedByAndUserID.Name = "txtCreatedByAndUserID";
-            this.txtCreatedByAndUserID.ReadOnly = true;
-            this.txtCreatedByAndUserID.Size = new System.Drawing.Size(66, 13);
-            this.txtCreatedByAndUserID.TabIndex = 560;
-            this.txtCreatedByAndUserID.Visible = false;
-            // 
-            // txtcountChildId
-            // 
-            this.txtcountChildId.BackColor = System.Drawing.Color.White;
-            this.txtcountChildId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtcountChildId.Enabled = false;
-            this.txtcountChildId.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcountChildId.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtcountChildId.Location = new System.Drawing.Point(408, 11);
-            this.txtcountChildId.MaxLength = 100;
-            this.txtcountChildId.Name = "txtcountChildId";
-            this.txtcountChildId.ReadOnly = true;
-            this.txtcountChildId.Size = new System.Drawing.Size(66, 13);
-            this.txtcountChildId.TabIndex = 557;
-            this.txtcountChildId.Visible = false;
             // 
             // materialCard1
             // 
@@ -141,20 +109,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.AllowUserToAddRows = false;
             this.dgvGrandChildForms.AllowUserToDeleteRows = false;
             this.dgvGrandChildForms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvGrandChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvGrandChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvGrandChildForms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGrandChildForms.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvGrandChildForms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGrandChildForms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvGrandChildForms.ColumnHeadersHeight = 35;
             this.dgvGrandChildForms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvGrandChildForms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -168,14 +136,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_at,
             this.updated_by,
             this.Column1});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGrandChildForms.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrandChildForms.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvGrandChildForms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGrandChildForms.EnableHeadersVisualStyles = false;
             this.dgvGrandChildForms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -183,14 +151,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.MultiSelect = false;
             this.dgvGrandChildForms.Name = "dgvGrandChildForms";
             this.dgvGrandChildForms.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvGrandChildForms.RowHeadersVisible = false;
             this.dgvGrandChildForms.RowHeadersWidth = 102;
             this.dgvGrandChildForms.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -540,8 +508,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.txtCreatedByAndUserID);
-            this.Controls.Add(this.txtcountChildId);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "frmModulesAvailableForms";
             this.Text = "Modules";
@@ -562,8 +528,6 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtCreatedByAndUserID;
-        private System.Windows.Forms.TextBox txtcountChildId;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard2;
