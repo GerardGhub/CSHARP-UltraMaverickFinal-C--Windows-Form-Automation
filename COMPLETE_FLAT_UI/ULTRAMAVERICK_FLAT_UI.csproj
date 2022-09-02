@@ -158,6 +158,7 @@
     <Compile Include="API\Entities\Position.cs" />
     <Compile Include="API\Entities\TblArea.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
+    <Compile Include="API\Entities\TblRegion.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
     <Compile Include="API\Extensions\Modules.cs" />
     <Compile Include="API\Interfaces\IAvailable_MenuRepository.cs" />
@@ -344,11 +345,11 @@
       <DependentUpon>frmEditStore.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\Class\frmAllocationModuleClasses.cs" />
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmRegion.cs">
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmRegion.Designer.cs">
-      <DependentUpon>frmRegion.cs</DependentUpon>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.Designer.cs">
+      <DependentUpon>FrmStoreRegion.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.cs">
       <SubType>Form</SubType>
@@ -916,8 +917,8 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditStore.resx">
       <DependentUpon>frmEditStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmRegion.resx">
-      <DependentUpon>frmRegion.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.resx">
+      <DependentUpon>FrmStoreRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.resx">
       <DependentUpon>frmSyncConsolidatedOrderSetUp.cs</DependentUpon>

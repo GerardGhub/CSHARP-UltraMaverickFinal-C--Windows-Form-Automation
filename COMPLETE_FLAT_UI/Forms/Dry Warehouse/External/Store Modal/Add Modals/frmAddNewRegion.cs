@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Models;
 
@@ -16,55 +17,60 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
     public partial class frmAddNewRegion : MaterialForm
     {
         frmRegion ths;
-        myclasses xClass = new myclasses();
         DataSet dSet = new DataSet();
+        TblRegion TblRegionEntity = new TblRegion();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
-        public frmAddNewRegion(frmRegion frm, string created_by, string area_name, string mode, int identitys)
+        public frmAddNewRegion(frmRegion frm, string created_by, 
+            string RegionDescription, 
+            string mode, int identitys)
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.created_by = created_by;
-            this.sp_route_name = area_name;
-            this.modes = mode;
-            this.sp_route_id = identitys;
+            this.TblRegionEntity.Added_By = created_by;
+            this.TblRegionEntity.Region_Description = RegionDescription;
+            this.TblRegionEntity.Mode = mode;
+            this.TblRegionEntity.Region_Id = identitys;
         }
 
-        public string created_by { get; set; }
-        public string sp_route_name { get; set; }
-        public string modes { get; set; }
-        public int sp_route_id { get; set; }
+
+
+
+  
 
         private void frmAddNewRegion_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
+
             this.CallingMainFormWindowBinder();
+        }
+        private void ConnectionInit()
+        {
+           this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
         private void CallingMainFormWindowBinder()
         {
-            this.modes = modes;
+            this.TblRegionEntity.Mode = this.TblRegionEntity.Mode;
 
 
-            if (modes == "add")
+            if (TblRegionEntity.Mode == "add")
             {
                 this.Text = "Add New Region";
                 this.matbtnSave.Text = "ADD";
-                this.created_by = created_by;
+                this.TblRegionEntity.Added_By = this.TblRegionEntity.Added_By;
                 this.matTxtRegion.Text = String.Empty;
             }
             else
             {
                 this.Text = "Update Region";
                 this.matbtnSave.Text = "UPDATE";
-                this.created_by = created_by;
+                this.TblRegionEntity.Added_By = this.TblRegionEntity.Added_By;
 
-                this.matTxtRegion.Text = sp_route_name;
+                this.matTxtRegion.Text = this.TblRegionEntity.Region_Description;
             }
             this.matTxtRegion.Focus();
 
@@ -78,30 +84,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
 
         private void MetroSave()
         {
-            if (modes == "add")
+            if (this.TblRegionEntity.Added_By == "add")
             {
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_tblRegion(0,
-
-
-                        this.matTxtRegion.Text.Trim(),
-                        "1",
-                        this.created_by,
-                        "",
-                        "",
-                        "",
-                        "add");
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_tblRegion(0,
+                    this.matTxtRegion.Text.Trim(),
+                    "1",
+                    this.TblRegionEntity.Added_By,
+                    "",
+                    "",
+                    "",
+                    "add");
 
 
 
                     this.textBox1.Text = "data Already Save!";
-                    this.GlobalStatePopup.CommittedSuccessFully();
-                    this.frmAddNewRegion_Load(new object(), new System.EventArgs());
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
 
                 }
 
@@ -116,20 +120,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
+                    this.dSet.Clear();
+                    this.dSet = this.g_objStoredProcCollection
+                    .sp_tblRegion(TblRegionEntity.Region_Id, 
+                    this.matTxtRegion.Text.Trim(),
+                    "1",
+                    this.TblRegionEntity.Added_By,
+                    "",
+                    this.TblRegionEntity.Added_By,
+                    "",
+                    "edit");
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_tblRegion(sp_route_id, 
-                        this.matTxtRegion.Text.Trim(),
-                        "1",
-                        created_by,
-                        "",
-                       created_by,
-                        "",
-                        "edit");
-
-
-
-                    textBox1.Text = "data Already Save!";
+                    this.textBox1.Text = "data Already Save!";
                     this.GlobalStatePopup.UpdatedSuccessfully();
                     this.Close();
                 }
@@ -156,32 +158,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
                 return;
             }
 
-
-
-            dSet.Clear();
-            dSet = objStorProc.sp_tblRegion(0,
-                this.matTxtRegion.Text, "1", this.created_by, "", "", "", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.matTxtRegion.Text = String.Empty;
-
-
-                this.matTxtRegion.Focus();
-                return;
-            }
-            else
+            if (this.matTxtRegion.Text == this.TblRegionEntity.Region_Description)
             {
                 this.MetroSave();
             }
+            else
+            {
+                this.dSet.Clear();
+                this.dSet = g_objStoredProcCollection.sp_tblRegion(0,
+                    this.matTxtRegion.Text,
+                    "1",
+                    this.TblRegionEntity.Added_By,
+                    "",
+                    "",
+                    "",
+                    "getbyname");
 
+                if (this.dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.matTxtRegion.Text = String.Empty;
+                    this.matTxtRegion.Focus();
+                    return;
+                }
+                else
+                {
+                    this.MetroSave();
+                }
+            }
 
         }
 
         private void frmAddNewRegion_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.textBox1.Text = "Gerard Singian";
+        }
+
+        private void matTxtRegion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

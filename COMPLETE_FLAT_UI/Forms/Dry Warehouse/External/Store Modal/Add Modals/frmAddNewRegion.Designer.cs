@@ -65,6 +65,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.matTxtRegion.Size = new System.Drawing.Size(401, 50);
             this.matTxtRegion.TabIndex = 0;
             this.matTxtRegion.Text = "";
+            this.matTxtRegion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matTxtRegion_KeyPress);
             // 
             // textBox1
             // 
@@ -107,6 +108,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewRegion";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Region";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewRegion_FormClosed);
