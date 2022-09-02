@@ -109,25 +109,28 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
         private void BtnExecute_Click(object sender, EventArgs e)
         {
-            dSet.Clear();
-            dSet = g_objStoredProcCollection
-                .Sp_available_menu_grandChild(
-                0, 
-                this.txtgchild.Text,
-                this.Available_Menu_GrandChild_Entity.Parent_Menu,
-                "",
-                "",
-                "",
-                "",
-                "",
-                "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
+            if (this.Available_Menu_GrandChild_Entity.Mode == "Add")
             {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.txtgchild.Text = string.Empty;
-                this.txtgchild.Focus();
-                return;
+                this.dSet.Clear();
+                this.dSet = this.g_objStoredProcCollection
+                    .Sp_available_menu_grandChild(
+                    0,
+                    this.txtgchild.Text,
+                    this.Available_Menu_GrandChild_Entity.Parent_Menu,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "getbyname");
+
+                if (this.dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.txtgchild.Text = string.Empty;
+                    this.txtgchild.Focus();
+                    return;
+                }
             }
 
             if (this.cboChildMenu.Text.Trim() == string.Empty)
@@ -160,29 +163,105 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 return;
             }
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (this.Available_Menu_GrandChild_Entity.Mode == "Add")
             {
 
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
 
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0,
-                    this.txtgchild.Text.Trim(),
-                    this.txtfname.Text.Trim(),
-                    this.Available_Menu_GrandChild_Entity.Parent_Menu,
-                    this.Available_Menu_GrandChild_Entity.Created_At,
-                    this.Available_Menu_GrandChild_Entity.Created_By,
-                    this.Available_Menu_GrandChild_Entity.Updated_At,
-                    this.Available_Menu_GrandChild_Entity.Updated_By,
-                    "add");
 
-                this.GlobalStatePopup.UpdatedSuccessfully();
-                this.GetLatestCountOfSubMenu();
-                this.LoadLoopBulkInsert();
-                this.displayUserRightsData();
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0,
+                        this.txtgchild.Text.Trim(),
+                        this.txtfname.Text.Trim(),
+                        this.Available_Menu_GrandChild_Entity.Parent_Menu,
+                        this.Available_Menu_GrandChild_Entity.Created_At,
+                        this.Available_Menu_GrandChild_Entity.Created_By,
+                        this.Available_Menu_GrandChild_Entity.Updated_At,
+                        this.Available_Menu_GrandChild_Entity.Updated_By,
+                        "add");
+
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.GetLatestCountOfSubMenu();
+                    this.LoadLoopBulkInsert();
+                    this.displayUserRightsData();
+                }
+                else
+                {
+                    return;
+                }
             }
             else
+
             {
-                return;
+
+ 
+
+                if (this.Available_Menu_GrandChild_Entity.Menu_Name == this.txtgchild.Text
+                   /* && this.Available_Menu_GrandChild_Entity.Menu_Form_Name == this.txtfname.Text*/)
+                {
+
+                }
+                else
+                {
+
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection
+                        .Sp_available_menu_grandChild(0,
+                        this.txtgchild.Text,
+                        this.txtfname.Text,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "getbyname");
+
+                    if (this.dSet.Tables[0].Rows.Count > 0)
+                    {
+                        //MessageBox.Show("A");
+                        //return;
+                        this.GlobalStatePopup.DataAlreadyExist();
+                        return;
+                    }
+                    else
+                    {
+                        //MessageBox.Show("B");
+                        //return;
+                    }
+                }
+
+        
+
+                    //Start of Edit
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+                        this.dSet.Clear();
+                        this.dSet = this.g_objStoredProcCollection
+                        .Sp_available_menu_grandChild(
+                        this.Available_Menu_GrandChild_Entity.Menu_Id,
+                        this.txtgchild.Text.Trim(),
+                        this.txtfname.Text.Trim(),
+                        this.Available_Menu_GrandChild_Entity.Parent_Menu,
+                        this.Available_Menu_GrandChild_Entity.Created_At,
+                        this.Available_Menu_GrandChild_Entity.Created_By,
+                        this.Available_Menu_GrandChild_Entity.Updated_At,
+                        this.Available_Menu_GrandChild_Entity.Updated_By,
+                        "edit");
+
+                        this.GlobalStatePopup.UpdatedSuccessfully();
+                        this.Close();
+                }
+                else
+                {
+                    return;
+                }
+
+                //End of Edit
+
+
             }
 
             }
