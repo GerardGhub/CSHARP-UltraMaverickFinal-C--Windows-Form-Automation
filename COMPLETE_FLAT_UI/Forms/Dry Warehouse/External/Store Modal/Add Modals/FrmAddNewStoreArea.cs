@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -17,38 +18,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
     public partial class frmAddNewArea : MaterialForm
     {
-      frmAreaManagement ths;
-        myclasses xClass = new myclasses();
+       frmAreaManagement ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
+        TblArea TblAreaEntity = new TblArea();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmAddNewArea(frmAreaManagement frm, string created_by, string area_name, string mode, int identitys )
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.created_by = created_by;
-            this.sp_area_name = area_name;
+            this.TblAreaEntity.Added_By = created_by;
+ 
+            this.TblAreaEntity.Area_Name = area_name;
             this.modes = mode;
-            this.sp_area_id = identitys;
+            this.TblAreaEntity.Aread_Id = identitys;
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
-        public string created_by { get; set; }
-        public string sp_area_name { get; set; }
+     
+
         public string modes { get; set; }
-        public int sp_area_id { get; set; }
+
         private void frmAddNewArea_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            this.CallingMainFormWindowBinder();
-         
+            this.ConnectionInit();
+            this.CallingMainFormWindowBinder();        
+        }
+
+        public void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
         private void CallingMainFormWindowBinder()
@@ -56,22 +60,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.modes = modes;
          
          
-            if (modes == "add")
+            if (this.modes == "add")
             {
                 this.Text = "Add New Area";
                 this.materialButton1.Text = "ADD";
-                this.created_by = created_by;
-                this.mattxtStoreName.Text = String.Empty;
+                this.TblAreaEntity.Added_By = TblAreaEntity.Added_By;
+                this.MattxtStoreArea.Text = String.Empty;
             }
             else
             {
                 this.Text = "Update Area";
                 this.materialButton1.Text = "UPDATE";
-                this.created_by = created_by;
-              
-                this.mattxtStoreName.Text = sp_area_name;
+                this.TblAreaEntity.Added_By = TblAreaEntity.Added_By;
+
+                this.MattxtStoreArea.Text = this.TblAreaEntity.Area_Name;
             }
-            this.mattxtStoreName.Focus();
+            this.MattxtStoreArea.Focus();
 
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -91,32 +95,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            if (this.mattxtStoreName.Text == String.Empty)
+            if (this.MattxtStoreArea.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.mattxtStoreName.Focus();
+                this.MattxtStoreArea.Focus();
                 return;
             }
 
-        
-
-            dSet.Clear();
-            dSet = objStorProc.sp_tblArea(0,
-                this.mattxtStoreName.Text, 
-                this.created_by, "", "", "", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
+            if (this.MattxtStoreArea.Text == this.TblAreaEntity.Area_Name)
             {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.mattxtStoreName.Text = String.Empty;
-
-
-                this.mattxtStoreName.Focus();
-                return;
+                this.MetroSave();
             }
             else
             {
-                this.MetroSave();
+
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_tblArea(0,
+                    this.MattxtStoreArea.Text,
+                    this.TblAreaEntity.Added_By,
+                    "",
+                    "",
+                    "",
+                    "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.MattxtStoreArea.Text = String.Empty;
+
+
+                    this.MattxtStoreArea.Focus();
+                    return;
+                }
+                else
+                {
+                    this.MetroSave();
+                }
             }
 
 
@@ -134,12 +148,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_tblArea(0,
-
-
-                        mattxtStoreName.Text.Trim(),
-                        created_by,
+                    this.dSet.Clear();
+                    this.dSet = this.g_objStoredProcCollection
+                        .sp_tblArea(0,
+                        this.MattxtStoreArea.Text.Trim(),
+                        this.TblAreaEntity.Added_By,
                         "",
                         "",
                         "",
@@ -147,9 +160,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-                    textBox1.Text = "data Already Save!";
-                    this.GlobalStatePopup.CommittedSuccessFully();
-                    frmAddNewArea_Load(new object(), new System.EventArgs());
+                    this.textBox1.Text = "data Already Save!";
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
+
 
                 }
 
@@ -164,19 +178,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
+                
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_tblArea(this.sp_area_id, 
-                        this.mattxtStoreName.Text.Trim(),
-                        this.created_by,
-                        "",
-                       this.created_by,
-                        "",
-                        "edit");
+                   
+                this.dSet.Clear();
+                this.dSet = g_objStoredProcCollection
+                .sp_tblArea(this.TblAreaEntity.Aread_Id, 
+                this.MattxtStoreArea.Text.Trim(),
+                this.TblAreaEntity.Added_By,
+                "",
+                this.TblAreaEntity.Added_By,
+                "",
+                "edit");
 
 
 
-                    textBox1.Text = "data Already Save!";
+                    this.textBox1.Text = "data Already Save!";
                     this.GlobalStatePopup.UpdatedSuccessfully();
                     this.Close();
                 }

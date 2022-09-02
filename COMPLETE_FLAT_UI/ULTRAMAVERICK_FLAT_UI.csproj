@@ -156,6 +156,7 @@
     <Compile Include="API\Entities\Lot_Management.cs" />
     <Compile Include="API\Entities\ParentForms.cs" />
     <Compile Include="API\Entities\Position.cs" />
+    <Compile Include="API\Entities\TblArea.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
     <Compile Include="API\Extensions\Modules.cs" />
@@ -506,11 +507,11 @@
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.Designer.cs">
       <DependentUpon>frmNewStoreOrderApproved.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmAreaManagement.cs">
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmAreaManagement.Designer.cs">
-      <DependentUpon>frmAreaManagement.cs</DependentUpon>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.Designer.cs">
+      <DependentUpon>FrmStoreAreaManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Setup\frmDryRawMaterials.cs">
       <SubType>Form</SubType>
@@ -590,11 +591,11 @@
     <Compile Include="Forms\Dry Warehouse\Import\frmImportStore.Designer.cs">
       <DependentUpon>frmImportStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewArea.cs">
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewArea.Designer.cs">
-      <DependentUpon>frmAddNewArea.cs</DependentUpon>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.Designer.cs">
+      <DependentUpon>FrmAddNewStoreArea.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRoute.cs">
       <SubType>Form</SubType>
@@ -996,8 +997,8 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.resx">
       <DependentUpon>frmNewStoreOrderApproved.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\frmAreaManagement.resx">
-      <DependentUpon>frmAreaManagement.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.resx">
+      <DependentUpon>FrmStoreAreaManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmDryRawMaterials.resx">
       <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
@@ -1038,8 +1039,8 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportStore.resx">
       <DependentUpon>frmImportStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewArea.resx">
-      <DependentUpon>frmAddNewArea.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.resx">
+      <DependentUpon>FrmAddNewStoreArea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRoute.resx">
       <DependentUpon>frmAddNewRoute.cs</DependentUpon>
@@ -1278,6 +1279,7 @@
     <Folder Include="API\Helpers\" />
     <Folder Include="API\Middleware\" />
     <Folder Include="Form ViewModels\" />
+    <Folder Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\" />
     <Folder Include="Forms\Login\" />
     <Folder Include="Forms\MasterList SetUP\" />
   </ItemGroup>

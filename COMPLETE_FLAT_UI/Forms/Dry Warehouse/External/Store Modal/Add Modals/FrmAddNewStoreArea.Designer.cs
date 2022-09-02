@@ -34,7 +34,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.cmbStoreArea = new MetroFramework.Controls.MetroComboBox();
             this.cmbStoreRoute = new MetroFramework.Controls.MetroComboBox();
-            this.mattxtStoreName = new MaterialSkin.Controls.MaterialTextBox();
+            this.MattxtStoreArea = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtStoreCode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.cmbStoreArea);
             this.materialCard1.Controls.Add(this.cmbStoreRoute);
-            this.materialCard1.Controls.Add(this.mattxtStoreName);
+            this.materialCard1.Controls.Add(this.MattxtStoreArea);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(33, 92);
@@ -103,21 +103,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.cmbStoreRoute.TabIndex = 2;
             this.cmbStoreRoute.UseSelectable = true;
             // 
-            // mattxtStoreName
+            // MattxtStoreArea
             // 
-            this.mattxtStoreName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtStoreName.Depth = 0;
-            this.mattxtStoreName.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtStoreName.Hint = "Store Area";
-            this.mattxtStoreName.Location = new System.Drawing.Point(49, 56);
-            this.mattxtStoreName.MaxLength = 50;
-            this.mattxtStoreName.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtStoreName.Multiline = false;
-            this.mattxtStoreName.Name = "mattxtStoreName";
-            this.mattxtStoreName.Size = new System.Drawing.Size(401, 50);
-            this.mattxtStoreName.TabIndex = 0;
-            this.mattxtStoreName.Text = "";
-            this.mattxtStoreName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtStoreName_KeyPress);
+            this.MattxtStoreArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MattxtStoreArea.Depth = 0;
+            this.MattxtStoreArea.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MattxtStoreArea.Hint = "Store Area";
+            this.MattxtStoreArea.Location = new System.Drawing.Point(49, 56);
+            this.MattxtStoreArea.MaxLength = 50;
+            this.MattxtStoreArea.MouseState = MaterialSkin.MouseState.OUT;
+            this.MattxtStoreArea.Multiline = false;
+            this.MattxtStoreArea.Name = "MattxtStoreArea";
+            this.MattxtStoreArea.Size = new System.Drawing.Size(401, 50);
+            this.MattxtStoreArea.TabIndex = 0;
+            this.MattxtStoreArea.Text = "";
+            this.MattxtStoreArea.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtStoreName_KeyPress);
             // 
             // mattxtStoreCode
             // 
@@ -125,12 +125,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreCode.Depth = 0;
             this.mattxtStoreCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtStoreCode.Hint = "Store Code";
-            this.mattxtStoreCode.Location = new System.Drawing.Point(257, 39);
+            this.mattxtStoreCode.Location = new System.Drawing.Point(561, 39);
             this.mattxtStoreCode.MaxLength = 50;
             this.mattxtStoreCode.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtStoreCode.Multiline = false;
             this.mattxtStoreCode.Name = "mattxtStoreCode";
-            this.mattxtStoreCode.Size = new System.Drawing.Size(401, 50);
+            this.mattxtStoreCode.Size = new System.Drawing.Size(97, 50);
             this.mattxtStoreCode.TabIndex = 1;
             this.mattxtStoreCode.Text = "";
             this.mattxtStoreCode.Visible = false;
@@ -194,7 +194,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         #endregion
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialTextBox mattxtStoreName;
+        private MaterialSkin.Controls.MaterialTextBox MattxtStoreArea;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
