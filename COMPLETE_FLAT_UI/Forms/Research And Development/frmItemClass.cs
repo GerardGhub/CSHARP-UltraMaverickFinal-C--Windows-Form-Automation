@@ -42,8 +42,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             InitializeComponent();
         }
 
-        public string sp_modified_by { get; set; }
-        public string sp_bind_selected { get; set; }
+
+   
         private void frmItemClass_Load(object sender, EventArgs e)
         {
             this.ShowDataActivated();
@@ -294,7 +294,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             mode = "edit";
 
-            sp_modified_by = userinfo.emp_name.ToUpper();
+
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
@@ -390,7 +390,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             if (matRadioActive.Checked == true)
             {
-                this.sp_bind_selected = "1";
+
                 this.matBtnDelete.Text = "&InActive";
 
                 this.showItemClassData();
@@ -398,7 +398,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
             else if (matRadioNotActive.Checked == true)
             {
-                this.sp_bind_selected = "0";
+      
                 this.matBtnDelete.Text = "&Activate";
                 this.showItemClassDataInActive();
                 this.SearchMethodJarVarCallingSP();
@@ -413,7 +413,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             if (matRadioActive.Checked == true)
             {
-                this.sp_bind_selected = "1";
+
                 this.matBtnDelete.Text = "&InActive";
      
                 this.showItemClassData();
@@ -421,7 +421,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
             else if (matRadioNotActive.Checked == true)
             {
-                this.sp_bind_selected = "0";
+       
                 this.matBtnDelete.Text = "&Activate";
                 this.showItemClassDataInActive();
         

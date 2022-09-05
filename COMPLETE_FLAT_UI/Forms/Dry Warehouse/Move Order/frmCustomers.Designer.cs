@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 {
-    partial class frmCustomers
+    partial class FrmCustomers
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomers));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();

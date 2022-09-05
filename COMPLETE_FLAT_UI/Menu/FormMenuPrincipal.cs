@@ -1522,7 +1522,7 @@ namespace COMPLETE_FLAT_UI
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmCustomers Customer = new frmCustomers();
+            FrmCustomers Customer = new FrmCustomers();
             Customer.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(Customer);
         }

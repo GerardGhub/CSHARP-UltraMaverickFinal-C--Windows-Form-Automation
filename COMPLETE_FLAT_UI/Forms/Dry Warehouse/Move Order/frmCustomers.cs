@@ -16,7 +16,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 {
-    public partial class frmCustomers : MaterialForm
+    public partial class FrmCustomers : MaterialForm
     {
         myclasses xClass = new myclasses();
 
@@ -37,7 +37,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         DataSet dSet_temp = new DataSet();
 
 
-        public frmCustomers()
+        public FrmCustomers()
         {
             InitializeComponent();
         }

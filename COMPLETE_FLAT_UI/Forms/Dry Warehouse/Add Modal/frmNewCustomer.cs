@@ -19,7 +19,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
     public partial class frmNewCustomer : MaterialForm
     {
 
-        frmCustomers ths;
+        FrmCustomers ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -29,7 +29,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmNewCustomer(
-            frmCustomers frm,
+            FrmCustomers frm,
             int Created_by, 
             string Mode,
             string CustomerName,
