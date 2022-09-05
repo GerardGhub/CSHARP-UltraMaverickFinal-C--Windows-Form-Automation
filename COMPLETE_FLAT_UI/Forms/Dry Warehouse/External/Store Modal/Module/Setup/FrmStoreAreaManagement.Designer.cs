@@ -138,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtSearch.Size = new System.Drawing.Size(205, 50);
             this.txtSearch.TabIndex = 573;
             this.txtSearch.Text = "";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // dgvRawMats

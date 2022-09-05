@@ -14,7 +14,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    public partial class frmStoreRoute : MaterialForm
+    public partial class FrmStoreRoute : MaterialForm
     {
 
         IStoredProcedures g_objStoredProcCollection = null;
@@ -24,19 +24,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         TblRoute TblRouteEntity = new TblRoute();
-        string mode = "";
-        public frmStoreRoute()
+        string Mode = "";
+        public FrmStoreRoute()
         {
             InitializeComponent();
         }
 
-        public string sp_user_id { get; set; }
+        public string Sp_user_id { get; set; }
 
-        private void frmStoreRoute_Load(object sender, EventArgs e)
+        private void FrmStoreRoute_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
-            this.sp_user_id = userinfo.user_id.ToString();
-            this.showStoreRoute();
+            this.Sp_user_id = userinfo.user_id.ToString();
+            this.ShowStoreRoute();
             this.LoadRecordsProperties();
             this.LoadingrefresherOrb();
             this.GetRadionDataChanged();
@@ -73,7 +73,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        private void showStoreRoute()    //method for loading available_menus
+        private void ShowStoreRoute()    //method for loading available_menus
         {
             try
             {
@@ -93,7 +93,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
 
-        private void showStoreRouteInActive()    //method for loading available_menus
+        private void ShowStoreRouteInActive()    //method for loading available_menus
         {
             try
             {
@@ -134,6 +134,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             myglobal.global_module = "Active"; // Mode for Searching
 
         }
+
+
         private void LoadRecordsProperties()
         {
             if (lbltotalrecords.Text == "0")
@@ -146,26 +148,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void matBtnNew_Click(object sender, EventArgs e)
-        {
-            this.TblRouteEntity.Mode = "add";
 
-            this.materialBtnNew.Visible = false;
-            this.toolStripbtnEdit.Visible = false;
-            frmAddNewRoute addNew = new frmAddNewRoute(this, 
-                sp_user_id,
-                TblRouteEntity.Route_Name,
-                TblRouteEntity.Mode,
-                this.TblRouteEntity.Route_Id);
-            addNew.ShowDialog();
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            FrmStoreRoute_Load(sender, e);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            frmStoreRoute_Load(sender, e);
-        }
-
-        private void doSearchInTextBoxCmb()
+        private void DoSearchInTextBoxCmb()
         {
             try
             {
@@ -214,7 +204,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             this.SearchMethodJarVarCallingSP();
 
@@ -224,32 +214,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                this.doSearchInTextBoxCmb();
+                this.DoSearchInTextBoxCmb();
             }
             if (this.txtSearch.Text == "")
             {
-                this.doSearchInTextBoxCmb();
+                this.DoSearchInTextBoxCmb();
             }
         }
 
-        private void matBtnEdit_Click(object sender, EventArgs e)
+        private void MatBtnEdit_Click(object sender, EventArgs e)
         {
             this.TblRouteEntity.Mode = "edit";
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
-            frmAddNewRoute addNew = new frmAddNewRoute(this, 
-                sp_user_id,
+            FrmAddNewRoute addNew = new FrmAddNewRoute(this, 
+                Sp_user_id,
                 TblRouteEntity.Route_Name,
                 TblRouteEntity.Mode,
                 this.TblRouteEntity.Route_Id);
             addNew.ShowDialog();
         }
 
-        private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
+        private void DgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
-            this.showValueCell();
+            this.ShowValueCell();
         }
-        private void showValueCell()
+        private void ShowValueCell()
         {
             if (this.dgvRawMats.Rows.Count > 0)
             {
@@ -266,37 +256,37 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioNotActive_CheckedChanged(object sender, EventArgs e)
         {
             if (this.matRadioActive.Checked == true)
             {
                 this.ConnectionInit();
-                this.showStoreRoute();
+                this.ShowStoreRoute();
             }
             else
             {
                 this.matBtnDelete.Text = "&Activate";
                 this.ConnectionInit();
-                this.showStoreRouteInActive();
+                this.ShowStoreRouteInActive();
             }
         }
 
-        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioActive_CheckedChanged(object sender, EventArgs e)
         {
             if (this.matRadioActive.Checked == true)
             {
                 this.matBtnDelete.Text = "&InActive";
                 this.ConnectionInit();
-                this.showStoreRoute();
+                this.ShowStoreRoute();
             }
             else
             {
                 this.ConnectionInit();
-                this.showStoreRouteInActive();
+                this.ShowStoreRouteInActive();
             }
         }
 
-        private void matBtnDelete_Click(object sender, EventArgs e)
+        private void MatBtnDelete_Click(object sender, EventArgs e)
         {
             this.PutInactiveData();
         }
@@ -309,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
-                        this.mode = "delete";
+                        this.Mode = "delete";
                         this.dSet.Clear();
                         this.dSet = g_objStoredProcCollection
                             .sp_tblRoute(
@@ -321,7 +311,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             "",
                             "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
-                        this.frmStoreRoute_Load(new object(), new System.EventArgs());
+                        this.FrmStoreRoute_Load(new object(), new System.EventArgs());
 
                     }
 
@@ -344,7 +334,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
-                        this.mode = "activate";
+                        this.Mode = "activate";
                         this.dSet.Clear();
                         this.dSet = g_objStoredProcCollection
                             .sp_tblRoute(
@@ -357,7 +347,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             "activate");
 
                         this.GlobalStatePopup.ActivatedSuccessfully();
-                        this.frmStoreRoute_Load(new object(), new System.EventArgs());
+                        this.FrmStoreRoute_Load(new object(), new System.EventArgs());
 
                     }
 
@@ -374,15 +364,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        private void materialBtnNew_Click(object sender, EventArgs e)
+        private void MaterialBtnNew_Click(object sender, EventArgs e)
         {
 
             this.TblRouteEntity.Mode = "ADD";
 
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
-            frmAddNewRoute addNew = new frmAddNewRoute(this,
-                sp_user_id,
+            FrmAddNewRoute addNew = new FrmAddNewRoute(this,
+                Sp_user_id,
                 TblRouteEntity.Route_Name,
                 TblRouteEntity.Mode,
                 this.TblRouteEntity.Route_Id);
@@ -390,13 +380,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        private void toolStripbtnEdit_Click(object sender, EventArgs e)
+        private void ToolStripbtnEdit_Click(object sender, EventArgs e)
         {
                 this.TblRouteEntity.Mode = "edit";
                 this.materialBtnNew.Visible = false;
                 this.toolStripbtnEdit.Visible = false;
-                frmAddNewRoute addNew = new frmAddNewRoute(this,
-                sp_user_id,
+                FrmAddNewRoute addNew = new FrmAddNewRoute(this,
+                Sp_user_id,
                 TblRouteEntity.Route_Name,
                 TblRouteEntity.Mode,
                 this.TblRouteEntity.Route_Id);

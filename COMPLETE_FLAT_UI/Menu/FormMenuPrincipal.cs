@@ -1340,7 +1340,7 @@ namespace COMPLETE_FLAT_UI
         private void storeRoute_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmStoreRoute fm = new frmStoreRoute();
+            FrmStoreRoute fm = new FrmStoreRoute();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

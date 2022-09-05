@@ -162,7 +162,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreCode.Size = new System.Drawing.Size(401, 50);
             this.mattxtStoreCode.TabIndex = 0;
             this.mattxtStoreCode.Text = "";
-            this.mattxtStoreCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtStoreCode_KeyPress);
+            this.mattxtStoreCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MattxtStoreCode_KeyPress);
             // 
             // textBox1
             // 
@@ -176,7 +176,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.TabIndex = 478;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
             // 
             // materialButton1
             // 
@@ -195,7 +195,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            this.materialButton1.Click += new System.EventHandler(this.MaterialButton1_Click);
             // 
             // label1
             // 
@@ -222,8 +222,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Store";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewStore_FormClosed);
-            this.Load += new System.EventHandler(this.frmAddNewStore_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAddNewStore_FormClosed);
+            this.Load += new System.EventHandler(this.FrmAddNewStore_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.ResumeLayout(false);

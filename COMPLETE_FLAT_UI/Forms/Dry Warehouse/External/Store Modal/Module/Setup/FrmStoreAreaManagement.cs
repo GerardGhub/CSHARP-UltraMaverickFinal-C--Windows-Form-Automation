@@ -196,7 +196,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
-        private void matBtnEdit_Click(object sender, EventArgs e)
+        private void MatBtnEdit_Click(object sender, EventArgs e)
         {
             this.TblAreaEntity.Mode = "edit";
             this.materialBtnNew.Visible = false;
@@ -259,7 +259,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             this.SearchMethodJarVarCallingSP();
 

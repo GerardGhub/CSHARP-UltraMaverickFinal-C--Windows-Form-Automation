@@ -150,6 +150,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddNewConsolidatedOrderSync";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Consolidated Order Sync";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddNewConsolidatedOrderSync_FormClosed);

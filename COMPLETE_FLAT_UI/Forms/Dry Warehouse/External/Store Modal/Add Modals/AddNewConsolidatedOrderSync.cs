@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Models;
 
@@ -16,55 +17,61 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
     public partial class AddNewConsolidatedOrderSync : MaterialForm
     {
         frmSyncConsolidatedOrderSetUp ths;
-        myclasses xClass = new myclasses();
+
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
-        public AddNewConsolidatedOrderSync(frmSyncConsolidatedOrderSetUp frm, string created_by, string area_name, string mode, int identitys)
+        TblStoreOrderManageSyncing TblStoreOrderManageSyncingEntity = new TblStoreOrderManageSyncing();
+        public AddNewConsolidatedOrderSync(
+            frmSyncConsolidatedOrderSetUp frm,
+            string created_by, 
+            string time_from_desc, 
+            string mode, 
+            int identitys)
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.created_by = created_by;
-            this.sp_route_name = area_name;
-            this.modes = mode;
-            this.sp_route_id = identitys;
+            this.TblStoreOrderManageSyncingEntity.Added_By = created_by;
+            this.TblStoreOrderManageSyncingEntity.Time_From_Desc = time_from_desc;
+            this.TblStoreOrderManageSyncingEntity.Mode = mode;
+            this.TblStoreOrderManageSyncingEntity.Id = identitys;
         }
-        public string created_by { get; set; }
-        public string sp_route_name { get; set; }
-        public string modes { get; set; }
-        public int sp_route_id { get; set; }
+
 
         private void AddNewConsolidatedOrderSync_Load(object sender, EventArgs e)
         {
             this.InitilizeTimeAsync();
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
+            this.ConnectionInit();
             this.CallingMainFormWindowBinder();
+        }
+
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
         private void CallingMainFormWindowBinder()
         {
-            this.modes = modes;
+            this.TblStoreOrderManageSyncingEntity.Mode = TblStoreOrderManageSyncingEntity.Mode;
 
 
-            if (modes == "add")
+            if (TblStoreOrderManageSyncingEntity.Mode == "add")
             {
                 this.Text = "Add New Consolidated Order Sync";
                 this.matbtnSave.Text = "ADD";
-                this.created_by = created_by;
+                this.TblStoreOrderManageSyncingEntity.Added_By = TblStoreOrderManageSyncingEntity.Added_By;
                 this.bunifuTimeFrom.Text = String.Empty;
             }
             else
             {
                 this.Text = "Update Consolidated Order Sync";
                 this.matbtnSave.Text = "UPDATE";
-                this.created_by = created_by;
+                this.TblStoreOrderManageSyncingEntity.Added_By = this.TblStoreOrderManageSyncingEntity.Added_By;
 
-                this.bunifuTimeFrom.Text = sp_route_name;
+                this.bunifuTimeFrom.Text = this.TblStoreOrderManageSyncingEntity.Time_From_Desc;
             }
             this.bunifuTimeFrom.Focus();
 
@@ -98,12 +105,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
                 return;
             }
 
+            if (Convert.ToDateTime(this.bunifuTimeFrom.Value) >= Convert.ToDateTime(this.bunifuTimeFromTo.Value))
+            {
+                this.GlobalStatePopup.NoDataFound();
+                return;
+            }
+        
 
-            dSet.Clear();
-            dSet = objStorProc.sp_TblStoreOrderManageSyncing(0, this.bunifuTimeFrom.Text,
-                this.bunifuTimeFromTo.Text, this.created_by,"","", "", "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
+            this.dSet.Clear();
+            this.dSet = this.g_objStoredProcCollection
+                .sp_TblStoreOrderManageSyncing(0, 
+                this.bunifuTimeFrom.Text,
+                this.bunifuTimeFromTo.Text, 
+                this.TblStoreOrderManageSyncingEntity.Added_By,
+                "",
+                "",
+                "",
+                "getbyname");
+
+            if (this.dSet.Tables[0].Rows.Count > 0)
             {
                 this.GlobalStatePopup.DataAlreadyExist();
                 this.bunifuTimeFrom.Text = String.Empty;
@@ -121,18 +142,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
 
         private void MetroSave()
         {
-            if (modes == "add")
+            if (TblStoreOrderManageSyncingEntity.Added_By == "add")
             {
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_TblStoreOrderManageSyncing(0,
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_TblStoreOrderManageSyncing(0,
                          this.bunifuTimeFrom.Text.Trim(),
                         this.bunifuTimeFromTo.Text.Trim(),                    
-                        this.created_by,
+                        this.TblStoreOrderManageSyncingEntity.Added_By,
                         "",
                         "",
                         "",
@@ -156,17 +177,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
                 {
 
 
-                dSet.Clear();
-                dSet = objStorProc.sp_TblStoreOrderManageSyncing(sp_route_id,
+                this.dSet.Clear();
+                this.dSet = g_objStoredProcCollection.sp_TblStoreOrderManageSyncing(this.TblStoreOrderManageSyncingEntity.Id,
                 this.bunifuTimeFrom.Text.Trim(),
                 this.bunifuTimeFromTo.Text.Trim(),
-                created_by,
+                this.TblStoreOrderManageSyncingEntity.Added_By,
                 "",
-                created_by,
+                this.TblStoreOrderManageSyncingEntity.Added_By,
                 "",
                 "edit");
 
-                textBox1.Text = "data Already Save!";
+                this.textBox1.Text = "data Already Save!";
                 this.GlobalStatePopup.UpdatedSuccessfully();
                 this.Close();
 
@@ -186,7 +207,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ths.textBox1.Text = textBox1.Text;
+            ths.TextBox1.Text = textBox1.Text;
         }
     }
 }

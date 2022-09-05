@@ -17,9 +17,9 @@ using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    public partial class frmAddNewRoute : MaterialForm
+    public partial class FrmAddNewRoute : MaterialForm
     {
-        frmStoreRoute ths;
+        FrmStoreRoute ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -27,14 +27,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
-        public frmAddNewRoute(frmStoreRoute frm, 
+        public FrmAddNewRoute(FrmStoreRoute frm, 
             string created_by, 
             string area_name, 
             string mode, int identitys)
         {
             InitializeComponent();
             ths = frm;
-            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
+            textBox1.TextChanged += new EventHandler(TextBox1_TextChanged);
             this.created_by = created_by;
             this.TblRouteEntity.Route_Name = area_name;
             this.TblRouteEntity.Mode = mode;
@@ -49,7 +49,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         public int sp_route_id { get; set; }
-        private void frmAddNewRoute_Load(object sender, EventArgs e)
+        private void FrmAddNewRoute_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
 
@@ -86,12 +86,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
         }
 
-        private void frmAddNewRoute_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmAddNewRoute_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.textBox1.Text = "Gerard Singian";
         }
@@ -168,7 +168,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void MaterialButton1_Click(object sender, EventArgs e)
         {
             if (this.matTxtRouteName.Text == String.Empty)
             {
@@ -211,7 +211,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void matTxtRouteName_KeyPress(object sender, KeyPressEventArgs e)
+        private void MatTxtRouteName_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }

@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    partial class frmStoreRoute
+    partial class FrmStoreRoute
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStoreRoute));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStoreRoute));
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -106,7 +106,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.TabIndex = 582;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // txtSearch
             // 
@@ -124,7 +124,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtSearch.Size = new System.Drawing.Size(205, 50);
             this.txtSearch.TabIndex = 573;
             this.txtSearch.Text = "";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // label2
             // 
@@ -220,7 +220,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvRawMats.ThemeStyle.RowsStyle.Height = 40;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
-            this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
+            this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.DgvRawMats_CurrentCellChanged);
             // 
             // route_id
             // 
@@ -321,7 +321,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioActive.TabStop = true;
             this.matRadioActive.Text = "Active";
             this.matRadioActive.UseVisualStyleBackColor = true;
-            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.MatRadioActive_CheckedChanged);
             // 
             // matRadioNotActive
             // 
@@ -339,7 +339,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matRadioNotActive.TabStop = true;
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
-            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.MatRadioNotActive_CheckedChanged);
             // 
             // panel1
             // 
@@ -378,7 +378,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialBtnNew.Name = "materialBtnNew";
             this.materialBtnNew.Size = new System.Drawing.Size(82, 37);
             this.materialBtnNew.Text = "&New";
-            this.materialBtnNew.Click += new System.EventHandler(this.materialBtnNew_Click);
+            this.materialBtnNew.Click += new System.EventHandler(this.MaterialBtnNew_Click);
             // 
             // toolStripbtnEdit
             // 
@@ -387,7 +387,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.toolStripbtnEdit.Name = "toolStripbtnEdit";
             this.toolStripbtnEdit.Size = new System.Drawing.Size(78, 37);
             this.toolStripbtnEdit.Text = "&Edit";
-            this.toolStripbtnEdit.Click += new System.EventHandler(this.toolStripbtnEdit_Click);
+            this.toolStripbtnEdit.Click += new System.EventHandler(this.ToolStripbtnEdit_Click);
             // 
             // matBtnDelete
             // 
@@ -396,7 +396,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matBtnDelete.Name = "matBtnDelete";
             this.matBtnDelete.Size = new System.Drawing.Size(106, 37);
             this.matBtnDelete.Text = "&InActive";
-            this.matBtnDelete.Click += new System.EventHandler(this.matBtnDelete_Click);
+            this.matBtnDelete.Click += new System.EventHandler(this.MatBtnDelete_Click);
             // 
             // matBtnSave
             // 
@@ -429,7 +429,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.materialCard2);
             this.Name = "frmStoreRoute";
             this.Text = "Store Route";
-            this.Load += new System.EventHandler(this.frmStoreRoute_Load);
+            this.Load += new System.EventHandler(this.FrmStoreRoute_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();

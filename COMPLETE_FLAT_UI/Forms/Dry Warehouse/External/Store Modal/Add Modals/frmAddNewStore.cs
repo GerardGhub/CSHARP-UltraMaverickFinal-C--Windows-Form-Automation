@@ -36,7 +36,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             InitializeComponent();
             ths = frm;
-            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
+            textBox1.TextChanged += new EventHandler(TextBox1_TextChanged);
     
 
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -46,15 +46,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-        public string sp_user_id { get; set; }
+        public string Sp_user_id { get; set; }
 
-        private void frmAddNewStore_Load(object sender, EventArgs e)
+        private void FrmAddNewStore_Load(object sender, EventArgs e)
         {
 
             this.ConnectionInit();
-            this.loadAreaDropdown();
-            this.loadRouteDropdown();
-            this.loadRegionDropdown();
+            this.LoadAreaDropdown();
+            this.LoadRouteDropdown();
+            this.LoadRegionDropdown();
             this.WindowLoader();
             this.ClearComponents();
         }
@@ -67,7 +67,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void WindowLoader()
         {
-            this.sp_user_id = userinfo.user_id.ToString();
+            this.Sp_user_id = userinfo.user_id.ToString();
         }
 
         private void ClearComponents()
@@ -78,7 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
           
         }
 
-        public void loadRegionDropdown()
+        public void LoadRegionDropdown()
         {
 
             myClass.fillComboBoxDepartment(this.metroCmbRegion, "tblRegion_dropdown", dSet);
@@ -88,7 +88,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
 
-        public void loadAreaDropdown()
+        public void LoadAreaDropdown()
         {
 
             myClass.fillComboBoxDepartment(cmbStoreArea, "tblArea_dropdown", dSet);
@@ -97,7 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
-        public void loadRouteDropdown()
+        public void LoadRouteDropdown()
         {
 
             myClass.fillComboBoxDepartment(cmbStoreRoute, "tblRoute_dropdown", dSet);
@@ -106,14 +106,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = this.textBox1.Text;
         }
  
 
 
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void MaterialButton1_Click(object sender, EventArgs e)
         {
             if (this.mattxtStoreCode.Text == String.Empty)
             {
@@ -129,9 +129,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.Tbl_StoresEntity.Store_Area,
                 this.mattxtStoreCode.Text.Trim(),
                 this.Tbl_StoresEntity.Store_Route,
-                Convert.ToString(sp_user_id),
+                Convert.ToString(Sp_user_id),
                 "", 
-                Convert.ToString(sp_user_id),
+                Convert.ToString(Sp_user_id),
                 "",
                 this.metroCmbRegion.Text,
                 "getbystorecode");
@@ -173,13 +173,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
                 this.dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_tbl_stores(0,
+                this.dSet = g_objStoredProcCollection.sp_tbl_stores(0,
                     this.mattxtStoreName.Text.Trim(),
                     this.cmbStoreArea.Text.Trim(),
                     this.mattxtStoreCode.Text.Trim(),
                     this.cmbStoreRoute.Text.Trim(),
-                    Convert.ToString(sp_user_id), "",
-                    Convert.ToString(sp_user_id), "", this.metroCmbRegion.Text, "add");
+                    Convert.ToString(Sp_user_id), "",
+                    Convert.ToString(Sp_user_id), 
+                    "", 
+                    this.metroCmbRegion.Text,
+                    "add");
                 this.GlobalStatePopup.SuccessFullySave();
                 this.textBox1.Text = "Gerard Singian";
                 this.textBox1.Text = String.Empty;
@@ -192,17 +195,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             }
 
-        private void frmAddNewStore_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmAddNewStore_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.textBox1.Text = "Gerard Singian";
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void TextBox1_TextChanged_1(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
         }
 
-        private void mattxtStoreCode_KeyPress(object sender, KeyPressEventArgs e)
+        private void MattxtStoreCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }

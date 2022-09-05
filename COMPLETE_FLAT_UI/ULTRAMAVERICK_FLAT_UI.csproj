@@ -160,6 +160,7 @@
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\TblRegion.cs" />
     <Compile Include="API\Entities\TblRoute.cs" />
+    <Compile Include="API\Entities\TblStoreOrderManageSyncing.cs" />
     <Compile Include="API\Entities\Tbl_Stores.cs" />
     <Compile Include="API\Entities\UserFile.cs" />
     <Compile Include="API\Extensions\Modules.cs" />

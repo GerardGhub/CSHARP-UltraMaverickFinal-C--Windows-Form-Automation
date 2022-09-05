@@ -20,7 +20,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
 
-        DataSet dSet_temp = new DataSet();
+ 
         DataSet dSet = new DataSet();
         Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
         frmListofStore ths;
@@ -41,7 +41,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
-        public string sp_user_id { get; set; }
+        public string Sp_user_id { get; set; }
 
 
         private void frmEditStore_Load(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreName.Text = this.Tbl_StoresEntity.Store_Name;
             this.cmbStoreRoute.Text = this.Tbl_StoresEntity.Store_Route;
             this.cmbStoreArea.Text = this.Tbl_StoresEntity.Store_Area;
-            this.sp_user_id = userinfo.user_id.ToString();
+            this.Sp_user_id = userinfo.user_id.ToString();
             this.Tbl_StoresEntity.Stored_Id = this.Tbl_StoresEntity.Stored_Id;
             this.metroCmbRegion.Text = this.Tbl_StoresEntity.Region;
  
@@ -152,9 +152,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.Tbl_StoresEntity.Store_Area,
                     this.mattxtStoreCode.Text.Trim(),
                     this.Tbl_StoresEntity.Store_Route,
-                    Convert.ToString(sp_user_id),
+                    Convert.ToString(Sp_user_id),
                     "",
-                    Convert.ToString(sp_user_id),
+                    Convert.ToString(Sp_user_id),
                     "",
                     this.metroCmbRegion.Text,
                     "getbyname");
@@ -194,8 +194,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.cmbStoreArea.Text.Trim(),
                     this.mattxtStoreCode.Text.Trim(),
                     this.cmbStoreRoute.Text.Trim(),
-                    Convert.ToString(sp_user_id), "",
-                    Convert.ToString(sp_user_id), "",
+                    Convert.ToString(Sp_user_id), "",
+                    Convert.ToString(Sp_user_id), "",
                     this.metroCmbRegion.Text, "edit");
                 this.GlobalStatePopup.UpdatedSuccessfully();
                 this.Close();

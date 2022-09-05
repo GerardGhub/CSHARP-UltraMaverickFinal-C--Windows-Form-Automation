@@ -107,7 +107,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.textBox1.TabIndex = 582;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // txtSearch
             // 
@@ -125,7 +125,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.txtSearch.Size = new System.Drawing.Size(205, 50);
             this.txtSearch.TabIndex = 573;
             this.txtSearch.Text = "";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // label2
             // 
@@ -221,7 +221,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvRegion.ThemeStyle.RowsStyle.Height = 40;
             this.dgvRegion.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvRegion.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
-            this.dgvRegion.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged_1);
+            this.dgvRegion.CurrentCellChanged += new System.EventHandler(this.DgvRawMats_CurrentCellChanged_1);
             // 
             // region_id
             // 
@@ -318,7 +318,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matRadioActive.TabStop = true;
             this.matRadioActive.Text = "Active";
             this.matRadioActive.UseVisualStyleBackColor = true;
-            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.MatRadioActive_CheckedChanged);
             // 
             // matRadioNotActive
             // 
@@ -336,7 +336,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matRadioNotActive.TabStop = true;
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
-            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.MatRadioNotActive_CheckedChanged);
             // 
             // panel1
             // 
@@ -375,7 +375,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialBtnNew.Name = "materialBtnNew";
             this.materialBtnNew.Size = new System.Drawing.Size(75, 37);
             this.materialBtnNew.Text = "&New";
-            this.materialBtnNew.Click += new System.EventHandler(this.materialBtnNew_Click);
+            this.materialBtnNew.Click += new System.EventHandler(this.MaterialBtnNew_Click);
             // 
             // toolStripbtnEdit
             // 
@@ -384,7 +384,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.toolStripbtnEdit.Name = "toolStripbtnEdit";
             this.toolStripbtnEdit.Size = new System.Drawing.Size(72, 37);
             this.toolStripbtnEdit.Text = "&Edit";
-            this.toolStripbtnEdit.Click += new System.EventHandler(this.toolStripbtnEdit_Click);
+            this.toolStripbtnEdit.Click += new System.EventHandler(this.ToolStripbtnEdit_Click);
             // 
             // matBtnDelete
             // 
@@ -393,7 +393,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnDelete.Name = "matBtnDelete";
             this.matBtnDelete.Size = new System.Drawing.Size(94, 37);
             this.matBtnDelete.Text = "&InActive";
-            this.matBtnDelete.Click += new System.EventHandler(this.matBtnDelete_Click);
+            this.matBtnDelete.Click += new System.EventHandler(this.MatBtnDelete_Click);
             // 
             // matBtnSave
             // 

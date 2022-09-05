@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    partial class frmAddNewRoute
+    partial class FrmAddNewRoute
     {
         /// <summary>
         /// Required designer variable.
@@ -64,7 +64,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matTxtRouteName.Size = new System.Drawing.Size(401, 50);
             this.matTxtRouteName.TabIndex = 0;
             this.matTxtRouteName.Text = "";
-            this.matTxtRouteName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matTxtRouteName_KeyPress);
+            this.matTxtRouteName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MatTxtRouteName_KeyPress);
             // 
             // textBox1
             // 
@@ -76,7 +76,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.TabIndex = 475;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // materialButton1
             // 
@@ -95,7 +95,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            this.materialButton1.Click += new System.EventHandler(this.MaterialButton1_Click);
             // 
             // frmAddNewRoute
             // 
@@ -111,8 +111,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Route";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewRoute_FormClosed);
-            this.Load += new System.EventHandler(this.frmAddNewRoute_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAddNewRoute_FormClosed);
+            this.Load += new System.EventHandler(this.FrmAddNewRoute_Load);
             this.materialCard1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

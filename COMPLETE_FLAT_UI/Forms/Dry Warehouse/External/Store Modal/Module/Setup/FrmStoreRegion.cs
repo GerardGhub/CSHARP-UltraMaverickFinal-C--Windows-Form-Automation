@@ -31,15 +31,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             InitializeComponent();
         }
 
-        public string sp_user_id { get; set; }
+        public string Sp_user_id { get; set; }
 
  
 
         private void frmRegion_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
-            this.sp_user_id = userinfo.user_id.ToString();
-            this.showStoreRegion();
+            this.Sp_user_id = userinfo.user_id.ToString();
+            this.ShowStoreRegion();
             this.LoadRecords();
             this.LoadingrefresherOrb();
 
@@ -76,7 +76,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         }
 
-        private void showStoreRegion()    //method for loading available_menus
+        private void ShowStoreRegion()    //method for loading available_menus
         {
             try
             {
@@ -94,7 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
 
 
-        private void showStoreRegionInActive()    //method for loading available_menus
+        private void ShowStoreRegionInActive()    //method for loading available_menus
         {
             try
             {
@@ -149,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
 
-        private void doSearchInTextBoxCmb()
+        private void DoSearchInTextBoxCmb()
         {
             try
             {
@@ -185,7 +185,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         }
 
-        private void showValueCell()
+        private void ShowValueCell()
         {
             if (this.dgvRegion.Rows.Count > 0)
             {
@@ -200,14 +200,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
         }
 
-        private void dgvRawMats_CurrentCellChanged_1(object sender, EventArgs e)
+        private void DgvRawMats_CurrentCellChanged_1(object sender, EventArgs e)
         {
-            this.showValueCell();
+            this.ShowValueCell();
         }
 
 
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             this.SearchMethodJarVarCallingSP();
 
@@ -217,79 +217,79 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             else
             {
-                doSearchInTextBoxCmb();
+                DoSearchInTextBoxCmb();
             }
-            if (txtSearch.Text == "")
+            if (this.txtSearch.Text == "")
             {
-                doSearchInTextBoxCmb();
+                DoSearchInTextBoxCmb();
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             this.frmRegion_Load(sender, e);
         }
 
 
 
-        private void materialBtnNew_Click(object sender, EventArgs e)
+        private void MaterialBtnNew_Click(object sender, EventArgs e)
         {
             this.TblRegionEntity.Mode = "add";
 
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
             frmAddNewRegion addNew = new frmAddNewRegion(this,
-            sp_user_id,
+            Sp_user_id,
             this.TblRegionEntity.Region_Description,
             this.TblRegionEntity.Mode,
             this.TblRegionEntity.Region_Id);
             addNew.ShowDialog();
         }
 
-        private void toolStripbtnEdit_Click(object sender, EventArgs e)
+        private void ToolStripbtnEdit_Click(object sender, EventArgs e)
         {
             this.TblRegionEntity.Mode = "edit";
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
             frmAddNewRegion UpdateModal = new frmAddNewRegion(this,
-            sp_user_id,
+            Sp_user_id,
             this.TblRegionEntity.Region_Description,
             this.TblRegionEntity.Mode,
             this.TblRegionEntity.Region_Id);
             UpdateModal.ShowDialog();
         }
 
-        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioNotActive_CheckedChanged(object sender, EventArgs e)
         {
             if (this.matRadioActive.Checked == true)
             {
                 this.ConnectionInit();
-                this.showStoreRegion();
+                this.ShowStoreRegion();
             }
             else
             {
                 this.matBtnDelete.Text = "&Activate";
                 this.ConnectionInit();
-                this.showStoreRegionInActive();
+                this.ShowStoreRegionInActive();
             }
         }
 
-        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioActive_CheckedChanged(object sender, EventArgs e)
         {
             if (this.matRadioActive.Checked == true)
             {
                 this.matBtnDelete.Text = "&InActive";
                 this.ConnectionInit();
-                this.showStoreRegion();
+                this.ShowStoreRegion();
             }
             else
             {
                 this.ConnectionInit();
-                this.showStoreRegionInActive();
+                this.ShowStoreRegionInActive();
             }
         }
 
-        private void matBtnDelete_Click(object sender, EventArgs e)
+        private void MatBtnDelete_Click(object sender, EventArgs e)
         {
             this.PutInactiveData();
         }
