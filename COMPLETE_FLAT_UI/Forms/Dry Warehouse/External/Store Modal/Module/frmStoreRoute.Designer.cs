@@ -37,9 +37,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.matBtnEdit = new MaterialSkin.Controls.MaterialButton();
             this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
             this.route_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,9 +84,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.textBox1);
-            this.materialCard1.Controls.Add(this.matBtnEdit);
             this.materialCard1.Controls.Add(this.txtSearch);
-            this.materialCard1.Controls.Add(this.matBtnNew);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(25, 84);
@@ -112,26 +108,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // matBtnEdit
-            // 
-            this.matBtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnEdit.Depth = 0;
-            this.matBtnEdit.DrawShadows = true;
-            this.matBtnEdit.HighEmphasis = true;
-            this.matBtnEdit.Icon = null;
-            this.matBtnEdit.Location = new System.Drawing.Point(98, 15);
-            this.matBtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(53, 36);
-            this.matBtnEdit.TabIndex = 581;
-            this.matBtnEdit.Text = "Edit";
-            this.matBtnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnEdit.UseAccentColor = false;
-            this.matBtnEdit.UseVisualStyleBackColor = true;
-            this.matBtnEdit.Visible = false;
-            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
-            // 
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -149,25 +125,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.txtSearch.TabIndex = 573;
             this.txtSearch.Text = "";
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // matBtnNew
-            // 
-            this.matBtnNew.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnNew.Depth = 0;
-            this.matBtnNew.DrawShadows = true;
-            this.matBtnNew.HighEmphasis = true;
-            this.matBtnNew.Icon = null;
-            this.matBtnNew.Location = new System.Drawing.Point(19, 14);
-            this.matBtnNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnNew.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(53, 36);
-            this.matBtnNew.TabIndex = 580;
-            this.matBtnNew.Text = "New";
-            this.matBtnNew.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnNew.UseAccentColor = false;
-            this.matBtnNew.UseVisualStyleBackColor = true;
-            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
             // 
             // label2
             // 
@@ -421,6 +378,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialBtnNew.Name = "materialBtnNew";
             this.materialBtnNew.Size = new System.Drawing.Size(82, 37);
             this.materialBtnNew.Text = "&New";
+            this.materialBtnNew.Click += new System.EventHandler(this.materialBtnNew_Click);
             // 
             // toolStripbtnEdit
             // 
@@ -429,6 +387,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.toolStripbtnEdit.Name = "toolStripbtnEdit";
             this.toolStripbtnEdit.Size = new System.Drawing.Size(78, 37);
             this.toolStripbtnEdit.Text = "&Edit";
+            this.toolStripbtnEdit.Click += new System.EventHandler(this.toolStripbtnEdit_Click);
             // 
             // matBtnDelete
             // 
@@ -491,9 +450,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.Label lbltotalrecords;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         public System.Windows.Forms.TextBox textBox1;
-        private MaterialSkin.Controls.MaterialButton matBtnEdit;
         private MaterialSkin.Controls.MaterialTextBox txtSearch;
-        private MaterialSkin.Controls.MaterialButton matBtnNew;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvRawMats;
         private MaterialSkin.Controls.MaterialCard materialCard2;

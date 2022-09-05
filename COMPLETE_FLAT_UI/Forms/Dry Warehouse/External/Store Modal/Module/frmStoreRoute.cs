@@ -37,15 +37,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             this.sp_user_id = userinfo.user_id.ToString();
             this.showStoreRoute();
-            this.LoadRecords();
+            this.LoadRecordsProperties();
             this.LoadingrefresherOrb();
             this.GetRadionDataChanged();
-            this.SearchMethodJarVarCallingSP();
+            this.textBox1.Text = String.Empty;
+
         }
 
         public void ConnectionInit()
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.g_objStoredProcCollection = 
+                this.myClass.g_objStoredProc.GetCollections(); 
 
         }
 
@@ -59,7 +61,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("tblRouteSpMajor");
+            if (this.matRadioActive.Checked == true)
+            {
+                this.dset_emp_SearchEngines = this.g_objStoredProcCollection.sp_getMajorTables("tblRouteSpMajor");
+            }
+            else
+            {
+                this.dset_emp_SearchEngines = this.g_objStoredProcCollection.sp_getMajorTables("tblRouteSpMajorInActive");
+            }
+
 
         }
 
@@ -107,13 +117,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.TblRouteEntity.Mode = "";
             if (textBox1.Text == "data Already Save!")
             {
-                matBtnEdit.Visible = false;
+                this.toolStripbtnEdit.Visible = false;
             }
             else if (textBox1.Text == "Gerard Singian")
             {
-                textBox1.Text = string.Empty;
-                matBtnNew.Visible = true;
-                matBtnEdit.Visible = true;
+                this.textBox1.Text = string.Empty;
+                this.materialBtnNew.Visible = true;
+                this.toolStripbtnEdit.Visible = true;
             }
             else
             {
@@ -124,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             myglobal.global_module = "Active"; // Mode for Searching
 
         }
-        private void LoadRecords()
+        private void LoadRecordsProperties()
         {
             if (lbltotalrecords.Text == "0")
             {
@@ -132,7 +142,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                this.matBtnEdit.Visible = true;
+                this.toolStripbtnEdit.Visible = true;
             }
         }
 
@@ -140,8 +150,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.TblRouteEntity.Mode = "add";
 
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
+            this.materialBtnNew.Visible = false;
+            this.toolStripbtnEdit.Visible = false;
             frmAddNewRoute addNew = new frmAddNewRoute(this, 
                 sp_user_id,
                 TblRouteEntity.Route_Name,
@@ -206,25 +216,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (lbltotalrecords.Text == "0")
+            this.SearchMethodJarVarCallingSP();
+
+            if (this.lbltotalrecords.Text == "0")
             {
 
             }
             else
             {
-                doSearchInTextBoxCmb();
+                this.doSearchInTextBoxCmb();
             }
-            if (txtSearch.Text == "")
+            if (this.txtSearch.Text == "")
             {
-                doSearchInTextBoxCmb();
+                this.doSearchInTextBoxCmb();
             }
         }
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             this.TblRouteEntity.Mode = "edit";
-            this.matBtnNew.Visible = false;
-            this.matBtnEdit.Visible = false;
+            this.materialBtnNew.Visible = false;
+            this.toolStripbtnEdit.Visible = false;
             frmAddNewRoute addNew = new frmAddNewRoute(this, 
                 sp_user_id,
                 TblRouteEntity.Route_Name,
@@ -362,5 +374,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
+        private void materialBtnNew_Click(object sender, EventArgs e)
+        {
+
+            this.TblRouteEntity.Mode = "ADD";
+
+            this.materialBtnNew.Visible = false;
+            this.toolStripbtnEdit.Visible = false;
+            frmAddNewRoute addNew = new frmAddNewRoute(this,
+                sp_user_id,
+                TblRouteEntity.Route_Name,
+                TblRouteEntity.Mode,
+                this.TblRouteEntity.Route_Id);
+            addNew.ShowDialog();
+
+        }
+
+        private void toolStripbtnEdit_Click(object sender, EventArgs e)
+        {
+                this.TblRouteEntity.Mode = "edit";
+                this.materialBtnNew.Visible = false;
+                this.toolStripbtnEdit.Visible = false;
+                frmAddNewRoute addNew = new frmAddNewRoute(this,
+                sp_user_id,
+                TblRouteEntity.Route_Name,
+                TblRouteEntity.Mode,
+                this.TblRouteEntity.Route_Id);
+                addNew.ShowDialog();
+        }
     }
 }

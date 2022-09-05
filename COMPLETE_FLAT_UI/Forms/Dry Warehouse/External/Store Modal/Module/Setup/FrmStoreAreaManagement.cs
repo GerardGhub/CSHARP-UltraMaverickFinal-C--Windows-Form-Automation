@@ -156,6 +156,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            
             frmAreaManagement_Load(sender, e);
         }
 
@@ -281,7 +282,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void materialBtnNew_Click_1(object sender, EventArgs e)
         {
-            this.TblAreaEntity.Mode = "add";
+            this.TblAreaEntity.Mode = "ADD";
 
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
@@ -296,7 +297,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void toolStripbtnEdit_Click(object sender, EventArgs e)
         {
-            this.TblAreaEntity.Mode = "edit";
+            this.TblAreaEntity.Mode = "EDIT";
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
             frmAddNewArea addNew = new frmAddNewArea(this, 
@@ -433,5 +434,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
 
+        private void matBtnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

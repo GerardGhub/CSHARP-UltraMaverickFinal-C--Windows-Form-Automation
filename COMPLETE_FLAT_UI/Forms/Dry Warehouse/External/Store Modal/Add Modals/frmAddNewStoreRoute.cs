@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -19,22 +20,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     public partial class frmAddNewRoute : MaterialForm
     {
         frmStoreRoute ths;
-        myclasses xClass = new myclasses();
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+        TblRoute TblRouteEntity = new TblRoute();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
-        public frmAddNewRoute(frmStoreRoute frm, string created_by, string area_name, string mode, int identitys)
+        public frmAddNewRoute(frmStoreRoute frm, 
+            string created_by, 
+            string area_name, 
+            string mode, int identitys)
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
             this.created_by = created_by;
-            this.sp_route_name = area_name;
-            this.modes = mode;
+            this.TblRouteEntity.Route_Name = area_name;
+            this.TblRouteEntity.Mode = mode;
             this.sp_route_id = identitys;
 
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -43,21 +46,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
         public string created_by { get; set; }
-        public string sp_route_name { get; set; }
-        public string modes { get; set; }
+
+
         public int sp_route_id { get; set; }
         private void frmAddNewRoute_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
+
             this.CallingMainFormWindowBinder();
         }
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
+
         private void CallingMainFormWindowBinder()
         {
-            this.modes = modes;
+            this.TblRouteEntity.Mode = TblRouteEntity.Mode;
 
 
-            if (modes == "add")
+            if (TblRouteEntity.Mode == "ADD")
             {
                 this.Text = "Add New Route";
                 this.materialButton1.Text = "ADD";
@@ -70,7 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.materialButton1.Text = "UPDATE";
                 this.created_by = created_by;
 
-                this.matTxtRouteName.Text = sp_route_name;
+                this.matTxtRouteName.Text = TblRouteEntity.Route_Name;
             }
             this.matTxtRouteName.Focus();
 
@@ -95,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void MetroSave()
         {
-            if (modes == "add")
+            if (TblRouteEntity.Mode == "add")
             {
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -103,7 +111,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_tblRoute(0,
+                    dSet = g_objStoredProcCollection
+                        .sp_tblRoute(
+                    0,
                     this.matTxtRouteName.Text.Trim(),
                     userinfo.user_id.ToString(),
                     "",
@@ -131,8 +141,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
 
-                    dSet.Clear();
-                    dSet = objStorProc.sp_tblRoute(this.sp_route_id, 
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection
+                        .sp_tblRoute(this.sp_route_id, 
                         this.matTxtRouteName.Text.Trim(),
                         this.created_by,
                         "",
@@ -167,23 +178,36 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
 
 
-
-            dSet.Clear();
-            dSet = objStorProc.sp_tblRoute(0,
-                matTxtRouteName.Text, created_by, "", "", "", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.matTxtRouteName.Text = String.Empty;
-
-
-                this.matTxtRouteName.Focus();
-                return;
-            }
-            else
+            if (this.TblRouteEntity.Route_Name == this.matTxtRouteName.Text && this.TblRouteEntity.Mode != "ADD")
             {
                 this.MetroSave();
+
+            }
+            else 
+            {
+                this.dSet.Clear();
+                this.dSet = this.g_objStoredProcCollection
+                    .sp_tblRoute(0,
+                    this.matTxtRouteName.Text,
+                    this.created_by,
+                    "",
+                    "",
+                    "",
+                    "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.matTxtRouteName.Text = String.Empty;
+
+
+                    this.matTxtRouteName.Focus();
+                    return;
+                }
+                else
+                {
+                    this.MetroSave();
+                }
             }
         }
 
