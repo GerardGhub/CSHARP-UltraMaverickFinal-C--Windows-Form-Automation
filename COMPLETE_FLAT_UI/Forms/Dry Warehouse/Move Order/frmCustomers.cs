@@ -26,7 +26,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
+        int dSetDynamic = 0;
         string mode = "";
         int p_id = 0;
 
@@ -41,22 +41,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             InitializeComponent();
         }
-        public string sp_created_at { get; set; }
-        public string sp_created_by { get; set; }
-        public string sp_modified_at { get; set; }
-        public string sp_modified_by { get; set; }
-        public string sp_bind_selected { get; set; }
-        public string sp_user_id { get; set; }
-        public string sp_area_name { get; set; }
-        public string sp_typeof_mode { get; set; }
 
-        private void frmCustomers_Load(object sender, EventArgs e)
+        public string sp_bind_selected { get; set; }
+  
+
+
+
+        private void FrmCustomers_Load(object sender, EventArgs e)
         {
 
             this.ConnetionString();
             this.ShowDataActivated();
             myglobal.global_module = "Active"; // Mode for Searching
-            matRadioActive_CheckedChanged(sender, e);
+            this.matRadioActive_CheckedChanged(sender, e);
             this.textBox1.Text = String.Empty;
             this.TblCustomersEntity.Cust_Added_By = userinfo.user_id;
  
@@ -65,42 +62,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void ConnetionString()
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.g_objStoredProcCollection = this.myClass.g_objStoredProc.GetCollections(); 
         }
         private void ShowDataActivated()
         {
-            this.matRadioActive.Checked = true;
-      
+            this.matRadioActive.Checked = true;   
         }
 
 
   
 
-        DataSet dset_emp_SearchEngines = new DataSet();
-        private void SearchMethodJarVarCallingSP()
-        {
-            myglobal.global_module = "Active"; // Mode for Searching
-            dset_emp_SearchEngines.Clear();
-
-
-            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("MoveOrder_Customers_Active_Major");
-
-        }
 
         private void dgvitemClass_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.dgvCustomers.ClearSelection();
         }
 
-
-      
-
-    
-
-
         private void matRadioActive_CheckedChanged(object sender, EventArgs e)
         {
-            if (matRadioActive.Checked == true)
+            if (this.matRadioActive.Checked == true)
             {
             this.sp_bind_selected = "1";
             this.matBtnDelete.Text = "&InActive";
@@ -175,7 +155,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
             }
         }
-
+        DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSPInactive()
         {
             myglobal.global_module = "Active"; // Mode for Searching
@@ -185,21 +165,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void doSearchInTextBox()
         {
+           
             try
             {
+             
 
-
-                if (this.TblCustomerRepo.dSet.Tables.Count > 0)
+                if (this.matRadioActive.Checked == true)
                 {
-                    DataView dv = new DataView(this.TblCustomerRepo.dSet.Tables[0]);
+                    this.dSetDynamic = this.TblCustomerRepo.dSet.Tables.Count;
+                }
+                else
+                {
+                    this.dSetDynamic = this.dset_emp_SearchEngines.Tables.Count;
+                }
 
-                    if (myglobal.global_module == "Active")
+                if (this.dSetDynamic > 0)
+                {
+
+                    if (this.matRadioActive.Checked == true)
                     {
-                        dv.RowFilter = "cust_name like '%" + mattxtSearch.Text + "%' or cust_type like '%" + mattxtSearch.Text + "%' ";
+
+                        DataView dv = new DataView(this.TblCustomerRepo.dSet.Tables[0]);
+
+                        dv.RowFilter = "cust_name like '%" + mattxtSearch.Text + "%' " +
+                            "or cust_type like '%" + mattxtSearch.Text + "%' ";
+                        this.dgvCustomers.DataSource = dv;
+
+                    }
+                    else
+                    {
+                        DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
+
+                        dv.RowFilter = "cust_name like '%" + mattxtSearch.Text + "%' " +
+                            "or cust_type like '%" + mattxtSearch.Text + "%' ";
+                        this.dgvCustomers.DataSource = dv;
+
                     }
 
-                    this.dgvCustomers.DataSource = dv;
-                    lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
+
+
+          
+                    this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
                 }
             }
             catch (SyntaxErrorException)
@@ -228,73 +234,71 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
          
             this.ConnetionString();
-            if (sp_bind_selected == "1")
+            if (this.matRadioActive.Checked == true)
             {
               
                 this.TblCustomerRepo.GetCustomerSearchMajor(TblCustomersEntity.TotalRecords);
+                this.doSearchInTextBox();
             }
             else
             {
                 this.SearchMethodJarVarCallingSPInactive();
+                this.doSearchInTextBox();
             }
 
-        
-            if (this.lbltotalrecords.Text == "0")
-            {
+            //    }
 
-            }
-            else
-            {
-                if (mode == "add")
-                {
+            //if (this.lbltotalrecords.Text == "0")
+            //{
 
-                }
-                else
-                {
-                    doSearchInTextBox();
-                }
+            //}
+            //else
+            //{
+            //    if (mode == "add")
+            //    {
 
-            }
-            if (this.mattxtSearch.Text == String.Empty)
-            {
-                this.TblCustomerRepo.GetCustomer(dgvCustomers);
-                this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
-            }
+            //    }
+            //    else
+            //    {
+            //        doSearchInTextBox();
+            //    }
+
+            //}
+            //if (this.mattxtSearch.Text == String.Empty)
+            //{
+            //    this.TblCustomerRepo.GetCustomer(dgvCustomers);
+            //    this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
+            //}
         }
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {
-            this.sp_typeof_mode = "add";
+            this.TblCustomersEntity.Mode = "add";
 
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            matBtnCancel.Visible = true;
-           frmNewCustomer addNew = new frmNewCustomer(this, 
-               sp_user_id,
-               "Add",
-               this.TblCustomersEntity.Cust_Name,
-               this.TblCustomersEntity.Cust_Type,
-               this.TblCustomersEntity.Cust_Company,
-               this.TblCustomersEntity.Cust_Mobile,
-               this.TblCustomersEntity.Cust_LeadMan,
-               this.TblCustomersEntity.Cust_Address,
-               p_id
-               );
+            this.matBtnNew.Visible = false;
+            this.matBtnEdit.Visible = false;
+            this.matBtnCancel.Visible = true;
+            frmNewCustomer addNew = new frmNewCustomer(this, 
+            userinfo.user_id,
+            "Add",
+            this.TblCustomersEntity.Cust_Name,
+            this.TblCustomersEntity.Cust_Type,
+            this.TblCustomersEntity.Cust_Company,
+            this.TblCustomersEntity.Cust_Mobile,
+            this.TblCustomersEntity.Cust_LeadMan,
+            this.TblCustomersEntity.Cust_Address,
+            p_id
+            );
             addNew.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+ 
 
-            this.TblCustomerRepo.GetCustomer(dgvCustomers);
-            this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            //this.textBox1.Text = String.Empty;
-            matBtnCancel_Click(sender, e);
-            frmCustomers_Load(sender, e);
+         
+            this.matBtnCancel_Click(sender, e);
+            this.FrmCustomers_Load(sender, e);
         }
 
         private void matBtnCancel_Click(object sender, EventArgs e)
@@ -332,7 +336,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                         false,
                         "delete");
                     this.GlobalStatePopup.UpdatedSuccessfully();
-                    this.frmCustomers_Load(sender, e);
+                    this.FrmCustomers_Load(sender, e);
                 }
                 else
                 {
@@ -360,7 +364,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                         false,
                         "PutActivatedCustomer");
                     this.GlobalStatePopup.UpdatedSuccessfully();
-                    this.frmCustomers_Load(sender, e);
+                    this.FrmCustomers_Load(sender, e);
                 }
                 else
                 {
@@ -378,7 +382,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             frmNewCustomer addNew = new frmNewCustomer(this,
-                sp_user_id,
+                userinfo.user_id,
                 "Edit",
                this.TblCustomersEntity.Cust_Name,
                this.TblCustomersEntity.Cust_Type,

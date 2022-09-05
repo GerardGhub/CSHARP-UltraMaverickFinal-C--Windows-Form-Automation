@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmNewCustomer(
             frmCustomers frm,
-            string Created_by, 
+            int Created_by, 
             string Mode,
             string CustomerName,
             string CustomerType,
@@ -52,6 +52,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             this.TblCustomersEntity.Cust_LeadMan = LeadMan;
             this.TblCustomersEntity.Cust_Address = Address;
             this.TblCustomersEntity.Cust_Id = IndexOf;
+            this.TblCustomersEntity.Cust_Added_By = Created_by;
+            this.TblCustomersEntity.Cust_Updated_by = Created_by.ToString();
         }
 
         private void frmNewCustomer_Load(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
 
             if (this.TblCustomersEntity.Mode == "Add")
             {
-
+                this.TblCustomersEntity.Cust_Added_By = this.TblCustomersEntity.Cust_Added_By;
             }
             else if (this.TblCustomersEntity.Mode =="Edit")
             {
@@ -74,6 +76,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
                 this.TxtLeadMan.Text = this.TblCustomersEntity.Cust_LeadMan;
                 this.TxtAddress.Text = this.TblCustomersEntity.Cust_Address;
                 this.TblCustomersEntity.Cust_Id = this.TblCustomersEntity.Cust_Id;
+                this.TblCustomersEntity.Cust_Updated_by = this.TblCustomersEntity.Cust_Updated_by;
             }
      
         }
@@ -155,12 +158,48 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
                 else
                 {
                     this.MetroSave();
+
                 }
+
 
 
             }
             else
             {
+
+                if (this.TblCustomersEntity.Cust_Name == this.MatTxtName.Text)
+                {
+
+                }
+                else
+                {
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_tblCustomers(0,
+                        this.MatTxtName.Text.Trim(),
+                        this.metroCmbType.Text.Trim(),
+                        "",
+                        "",
+                        "",
+                        "",
+                        0,
+                        "",
+                        "",
+                        "",
+                        false,
+                        "getbyname");
+
+                    if (dSet.Tables[0].Rows.Count > 0)
+                    {
+                        this.GlobalStatePopup.DataAlreadyExist();
+
+
+
+                        this.MatTxtName.Focus();
+                        return;
+                    }
+                }
+
+
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
@@ -175,9 +214,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
                         this.TxtAddress.Text,
                        TblCustomersEntity.Cust_Added_By,
                         "",
+                        TblCustomersEntity.Cust_Updated_by,
                         "",
-                        "",
-                        false,
+                        true,
                         "edit");
                     this.GlobalStatePopup.UpdatedSuccessfully();
                     this.Close();
@@ -215,9 +254,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
                     this.TxtAddress.Text,
                    TblCustomersEntity.Cust_Added_By,
                     "",
+                    userinfo.user_id.ToString(),
                     "",
-                    "",
-                    false, 
+                    true, 
                     "add");
                 this.GlobalStatePopup.UpdatedSuccessfully();
                 this.Close();

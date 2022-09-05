@@ -88,7 +88,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
         private void LoadRecords()
         {
-            if (this.lbltotalrecords..Text == "0")
+            if (lbltotalrecords.Text == "0")
             {
 
             }

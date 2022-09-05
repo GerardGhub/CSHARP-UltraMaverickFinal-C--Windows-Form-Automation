@@ -29,19 +29,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomers));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomers));
             this.label2 = new System.Windows.Forms.Label();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.matBtnNew = new System.Windows.Forms.ToolStripButton();
+            this.matBtnEdit = new System.Windows.Forms.ToolStripButton();
+            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.matBtnSave = new System.Windows.Forms.ToolStripButton();
+            this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.metroFinalSaving = new MetroFramework.Controls.MetroButton();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -56,14 +60,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.cust_date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_date_updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroSave = new MetroFramework.Controls.MetroButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.matBtnNew = new System.Windows.Forms.ToolStripButton();
-            this.matBtnEdit = new System.Windows.Forms.ToolStripButton();
-            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
-            this.matBtnSave = new System.Windows.Forms.ToolStripButton();
-            this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.materialCard3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -156,6 +154,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // matBtnNew
+            // 
+            this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
+            this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnNew.Name = "matBtnNew";
+            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
+            this.matBtnNew.Text = "&New";
+            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
+            // 
+            // matBtnEdit
+            // 
+            this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
+            this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnEdit.Name = "matBtnEdit";
+            this.matBtnEdit.Size = new System.Drawing.Size(72, 33);
+            this.matBtnEdit.Text = "&Edit";
+            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
+            // 
+            // matBtnDelete
+            // 
+            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
+            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnDelete.Name = "matBtnDelete";
+            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
+            this.matBtnDelete.Text = "&InActive";
+            this.matBtnDelete.Click += new System.EventHandler(this.matBtnDelete_Click);
+            // 
+            // matBtnSave
+            // 
+            this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
+            this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnSave.Name = "matBtnSave";
+            this.matBtnSave.Size = new System.Drawing.Size(77, 44);
+            this.matBtnSave.Text = "&Save";
+            this.matBtnSave.Visible = false;
+            // 
+            // matBtnCancel
+            // 
+            this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
+            this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnCancel.Name = "matBtnCancel";
+            this.matBtnCancel.Size = new System.Drawing.Size(88, 44);
+            this.matBtnCancel.Text = "&Cancel";
+            this.matBtnCancel.Visible = false;
+            this.matBtnCancel.Click += new System.EventHandler(this.matBtnCancel_Click);
+            // 
             // lbltotalrecords
             // 
             this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -178,18 +222,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(321, 36);
             this.panel1.TabIndex = 606;
-            // 
-            // metroFinalSaving
-            // 
-            this.metroFinalSaving.Location = new System.Drawing.Point(415, 210);
-            this.metroFinalSaving.Margin = new System.Windows.Forms.Padding(1);
-            this.metroFinalSaving.Name = "metroFinalSaving";
-            this.metroFinalSaving.Size = new System.Drawing.Size(68, 20);
-            this.metroFinalSaving.TabIndex = 605;
-            this.metroFinalSaving.Text = "Saving";
-            this.metroFinalSaving.UseSelectable = true;
-            this.metroFinalSaving.Visible = false;
-            this.metroFinalSaving.Click += new System.EventHandler(this.metroFinalSaving_Click);
             // 
             // mattxtSearch
             // 
@@ -407,17 +439,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.cust_date_updated.Name = "cust_date_updated";
             this.cust_date_updated.ReadOnly = true;
             // 
-            // metroSave
-            // 
-            this.metroSave.Location = new System.Drawing.Point(402, 188);
-            this.metroSave.Margin = new System.Windows.Forms.Padding(1);
-            this.metroSave.Name = "metroSave";
-            this.metroSave.Size = new System.Drawing.Size(68, 20);
-            this.metroSave.TabIndex = 604;
-            this.metroSave.Text = "Add";
-            this.metroSave.UseSelectable = true;
-            this.metroSave.Visible = false;
-            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -445,53 +466,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.textBox1.TabIndex = 623;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // matBtnNew
-            // 
-            this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
-            this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(75, 33);
-            this.matBtnNew.Text = "&New";
-            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
-            // 
-            // matBtnEdit
-            // 
-            this.matBtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEdit.Image")));
-            this.matBtnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(72, 33);
-            this.matBtnEdit.Text = "&Edit";
-            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
-            // 
-            // matBtnDelete
-            // 
-            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
-            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
-            this.matBtnDelete.Text = "&InActive";
-            this.matBtnDelete.Click += new System.EventHandler(this.matBtnDelete_Click);
-            // 
-            // matBtnSave
-            // 
-            this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
-            this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(77, 44);
-            this.matBtnSave.Text = "&Save";
-            this.matBtnSave.Visible = false;
-            // 
-            // matBtnCancel
-            // 
-            this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
-            this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(88, 44);
-            this.matBtnCancel.Text = "&Cancel";
-            this.matBtnCancel.Visible = false;
-            this.matBtnCancel.Click += new System.EventHandler(this.matBtnCancel_Click);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // frmCustomers
             // 
@@ -503,14 +478,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.metroFinalSaving);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.metroSave);
             this.Controls.Add(this.materialCard2);
             this.MaximizeBox = false;
             this.Name = "frmCustomers";
             this.Text = "Customers";
-            this.Load += new System.EventHandler(this.frmCustomers_Load);
+            this.Load += new System.EventHandler(this.FrmCustomers_Load);
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -539,11 +512,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Panel panel1;
-        private MetroFramework.Controls.MetroButton metroFinalSaving;
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvCustomers;
-        private MetroFramework.Controls.MetroButton metroSave;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_name;

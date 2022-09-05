@@ -223,6 +223,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Add_Modal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewCustomer";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNewCustomer_FormClosing);
