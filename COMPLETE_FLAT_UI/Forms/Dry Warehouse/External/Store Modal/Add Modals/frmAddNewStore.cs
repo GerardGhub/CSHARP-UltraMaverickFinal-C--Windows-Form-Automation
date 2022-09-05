@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -19,18 +20,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     public partial class frmAddNewStore : MaterialForm
     {
         //Main Constructor Bugok
-        myclasses xClass = new myclasses();
-
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-    
+        Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
         Boolean ready = false;
         DataSet dSet = new DataSet();
         string mode = "";
         frmListofStore ths;
+
+
         public frmAddNewStore(frmListofStore frm)
         {
             InitializeComponent();
@@ -46,14 +47,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
         public string sp_user_id { get; set; }
-        public string sp_store_code { get; set; }
-        public string sp_store_name { get; set; }
-        public string sp_store_area { get; set; }
-        public string sp_store_route { get; set; }
+
         private void frmAddNewStore_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
+            this.ConnectionInit();
             this.loadAreaDropdown();
             this.loadRouteDropdown();
             this.loadRegionDropdown();
@@ -61,6 +59,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ClearComponents();
         }
 
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
+ 
 
         private void WindowLoader()
         {
@@ -120,14 +123,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
 
             //Check The store if existg on the system
-            dSet.Clear();
-            dSet = objStorProc.sp_tbl_stores(0,
-                this.sp_store_name,
-                this.sp_store_area,
+            this.dSet.Clear();
+            this.dSet = g_objStoredProcCollection.sp_tbl_stores(0,
+                this.Tbl_StoresEntity.Store_Name,
+                this.Tbl_StoresEntity.Store_Area,
                 this.mattxtStoreCode.Text.Trim(),
-                this.sp_store_route,
-                Convert.ToString(sp_user_id), "", 
-                Convert.ToString(sp_user_id), "",
+                this.Tbl_StoresEntity.Store_Route,
+                Convert.ToString(sp_user_id),
+                "", 
+                Convert.ToString(sp_user_id),
+                "",
                 this.metroCmbRegion.Text,
                 "getbystorecode");
 
@@ -167,18 +172,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
-                dSet.Clear();
-                dSet = objStorProc.sp_tbl_stores(0,
+                this.dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_tbl_stores(0,
                     this.mattxtStoreName.Text.Trim(),
                     this.cmbStoreArea.Text.Trim(),
                     this.mattxtStoreCode.Text.Trim(),
                     this.cmbStoreRoute.Text.Trim(),
                     Convert.ToString(sp_user_id), "",
                     Convert.ToString(sp_user_id), "", this.metroCmbRegion.Text, "add");
-                this.GlobalStatePopup.CommittedSuccessFully();
+                this.GlobalStatePopup.SuccessFullySave();
                 this.textBox1.Text = "Gerard Singian";
                 this.textBox1.Text = String.Empty;
-                this.frmAddNewStore_Load(sender, e);
+                this.Close();
             }
             else
             {

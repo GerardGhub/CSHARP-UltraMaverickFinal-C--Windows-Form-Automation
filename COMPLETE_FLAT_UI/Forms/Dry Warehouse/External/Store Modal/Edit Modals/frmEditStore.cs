@@ -9,52 +9,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    public partial class frmEditStore : MaterialForm
+    public partial class FrmEditStore : MaterialForm
     {   //Main Constructor Bugok
-        myclasses xClass = new myclasses();
 
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         DataSet dSet_temp = new DataSet();
         DataSet dSet = new DataSet();
-
+        Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
         frmListofStore ths;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        public frmEditStore(frmListofStore frm, string store_code, string store_name, 
-            string store_route, string store_area, string store_id, string region)
+        public FrmEditStore(frmListofStore frm, int store_id, string store_name, 
+            string store_route, string store_area, string store_code, string region)
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.SpStoreCode = store_code;
-            this.SpStoreName = store_name;
-            this.SpStoreRoute = store_route;
-            this.SpStoreArea = store_area;
-            this.Sp_Store_Id = store_id;
-            this.SpRegion = region;
+            this.Tbl_StoresEntity.Store_Code = store_code;
+            this.Tbl_StoresEntity.Store_Name = store_name;
+            this.Tbl_StoresEntity.Store_Route = store_route;
+            this.Tbl_StoresEntity.Store_Area = store_area;
+            this.Tbl_StoresEntity.Stored_Id = store_id;
+            this.Tbl_StoresEntity.Region = region;
         }
 
-        public string SpStoreCode { get; set; }
-        public string SpStoreName { get; set; }
-        public string SpStoreRoute { get; set; }
-        public string SpStoreArea { get; set; }
+
+
         public string sp_user_id { get; set; }
-        public string Sp_Store_Id { get; set; }
-        public string SpRegion { get; set; }
+
 
         private void frmEditStore_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
+ 
             this.BindDataintoTextBox();
-            //this.loadRegionDropdown();
+
         }
 
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
 
         public void loadRegionDropdown()
         {
@@ -87,13 +88,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void BindDataintoTextBox()
         {
             //Store Infromation Binding
-            this.mattxtStoreCode.Text = this.SpStoreCode;
-            this.mattxtStoreName.Text = this.SpStoreName;
-            this.cmbStoreRoute.Text = this.SpStoreRoute;
-            this.cmbStoreArea.Text = this.SpStoreArea;
+            this.mattxtStoreCode.Text = this.Tbl_StoresEntity.Store_Code;
+            this.mattxtStoreName.Text = this.Tbl_StoresEntity.Store_Name;
+            this.cmbStoreRoute.Text = this.Tbl_StoresEntity.Store_Route;
+            this.cmbStoreArea.Text = this.Tbl_StoresEntity.Store_Area;
             this.sp_user_id = userinfo.user_id.ToString();
-            this.Sp_Store_Id = this.Sp_Store_Id;
-            this.metroCmbRegion.Text = this.SpRegion;
+            this.Tbl_StoresEntity.Stored_Id = this.Tbl_StoresEntity.Stored_Id;
+            this.metroCmbRegion.Text = this.Tbl_StoresEntity.Region;
+ 
         }
 
 
@@ -102,7 +104,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             ths.textBox1.Text = textBox1.Text;
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void MaterialButton1_Click(object sender, EventArgs e)
         {
             if (this.mattxtStoreName.Text == String.Empty)
             {
@@ -111,24 +113,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 return;
             }
 
-            //Check The store if existg on the system
-            //dSet.Clear();
-            //dSet = objStorProc.sp_tbl_stores(0,
-            //    this.mattxtStoreName.Text.ToString(),
-            //    this.cmbStoreArea.Text,
-            //    this.mattxtStoreCode.Text.Trim(),
-            //    this.cmbStoreRoute.Text,
-            //    Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "getbystorecode");
 
-            //if (dSet.Tables[0].Rows.Count > 0)
-            //{
-            //    //RawMatsAlreadyExist();
-            //    this.GlobalStatePopup.DataAlreadyExist();
-            //    this.mattxtStoreCode.Text = String.Empty;
-            //    this.mattxtStoreCode.Focus();
-            //    return;
-
-            //}
 
 
             if (this.mattxtStoreName.Text == String.Empty)
@@ -153,28 +138,73 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
+            if (this.Tbl_StoresEntity.Store_Name == this.mattxtStoreName.Text)
+            {
+                this.SaveFunctionaliTY();
+            }
+            else
+            {
+
+                //Check The store if existg on the system
+                this.dSet.Clear();
+                this.dSet = g_objStoredProcCollection.sp_tbl_stores(0,
+                    this.mattxtStoreName.Text,
+                    this.Tbl_StoresEntity.Store_Area,
+                    this.mattxtStoreCode.Text.Trim(),
+                    this.Tbl_StoresEntity.Store_Route,
+                    Convert.ToString(sp_user_id),
+                    "",
+                    Convert.ToString(sp_user_id),
+                    "",
+                    this.metroCmbRegion.Text,
+                    "getbyname");
+
+                if (this.dSet.Tables[0].Rows.Count > 0)
+                {
+
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.mattxtStoreCode.Text = String.Empty;
+                    this.mattxtStoreCode.Focus();
+                    return;
+
+                }
+                else
+                {
+                    this.SaveFunctionaliTY();
+                }
+
+
+     
+
+            }
+
+        }
+
+        private void SaveFunctionaliTY()
+        {
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 dSet.Clear();
-                dSet = objStorProc.sp_tbl_stores(Convert.ToInt32(this.Sp_Store_Id),
+                dSet = g_objStoredProcCollection
+                    .sp_tbl_stores(Convert.ToInt32(
+                    this.Tbl_StoresEntity.Stored_Id),
                     this.mattxtStoreName.Text.Trim(),
                     this.cmbStoreArea.Text.Trim(),
                     this.mattxtStoreCode.Text.Trim(),
                     this.cmbStoreRoute.Text.Trim(),
-                    Convert.ToString(sp_user_id), "", 
-                    Convert.ToString(sp_user_id), "", 
+                    Convert.ToString(sp_user_id), "",
+                    Convert.ToString(sp_user_id), "",
                     this.metroCmbRegion.Text, "edit");
                 this.GlobalStatePopup.UpdatedSuccessfully();
                 this.Close();
-                
+
             }
             else
             {
                 return;
             }
-
 
         }
 
@@ -196,6 +226,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void metroCmbRegion_Click(object sender, EventArgs e)
         {
             this.loadRegionDropdown();
+        }
+
+        private void mattxtStoreCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void mattxtStoreName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

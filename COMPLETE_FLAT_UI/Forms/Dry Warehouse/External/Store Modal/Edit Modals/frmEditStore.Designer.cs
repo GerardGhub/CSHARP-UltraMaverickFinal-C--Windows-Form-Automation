@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    partial class frmEditStore
+    partial class FrmEditStore
     {
         /// <summary>
         /// Required designer variable.
@@ -67,10 +67,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             // metroCmbRegion
             // 
+            this.metroCmbRegion.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroCmbRegion.FormattingEnabled = true;
             this.metroCmbRegion.Location = new System.Drawing.Point(45, 446);
             this.metroCmbRegion.Name = "metroCmbRegion";
-            this.metroCmbRegion.Size = new System.Drawing.Size(401, 21);
+            this.metroCmbRegion.Size = new System.Drawing.Size(401, 27);
             this.metroCmbRegion.TabIndex = 10;
             this.metroCmbRegion.Click += new System.EventHandler(this.metroCmbRegion_Click);
             // 
@@ -88,19 +89,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // 
             // cmbStoreArea
             // 
+            this.cmbStoreArea.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStoreArea.FormattingEnabled = true;
             this.cmbStoreArea.Location = new System.Drawing.Point(45, 374);
             this.cmbStoreArea.Name = "cmbStoreArea";
-            this.cmbStoreArea.Size = new System.Drawing.Size(401, 21);
+            this.cmbStoreArea.Size = new System.Drawing.Size(401, 27);
             this.cmbStoreArea.TabIndex = 7;
             this.cmbStoreArea.Click += new System.EventHandler(this.cmbStoreArea_Click);
             // 
             // cmbStoreRoute
             // 
+            this.cmbStoreRoute.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStoreRoute.FormattingEnabled = true;
             this.cmbStoreRoute.Location = new System.Drawing.Point(45, 277);
             this.cmbStoreRoute.Name = "cmbStoreRoute";
-            this.cmbStoreRoute.Size = new System.Drawing.Size(401, 21);
+            this.cmbStoreRoute.Size = new System.Drawing.Size(401, 27);
             this.cmbStoreRoute.TabIndex = 6;
             this.cmbStoreRoute.Click += new System.EventHandler(this.cmbStoreRoute_Click);
             // 
@@ -142,6 +145,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreName.Size = new System.Drawing.Size(401, 50);
             this.mattxtStoreName.TabIndex = 1;
             this.mattxtStoreName.Text = "";
+            this.mattxtStoreName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtStoreName_KeyPress);
             // 
             // mattxtStoreCode
             // 
@@ -158,6 +162,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.mattxtStoreCode.Size = new System.Drawing.Size(401, 50);
             this.mattxtStoreCode.TabIndex = 0;
             this.mattxtStoreCode.Text = "";
+            this.mattxtStoreCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtStoreCode_KeyPress);
             // 
             // label1
             // 
@@ -200,9 +205,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            this.materialButton1.Click += new System.EventHandler(this.MaterialButton1_Click);
             // 
-            // frmEditStore
+            // FrmEditStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -213,7 +218,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Controls.Add(this.materialButton1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmEditStore";
+            this.Name = "FrmEditStore";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Store Information";

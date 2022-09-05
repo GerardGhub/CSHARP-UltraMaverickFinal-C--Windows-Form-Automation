@@ -52,7 +52,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void GetRadionDataChanged()
         {
             this.matRadioActive.Checked = true;
-
         }
 
         private void ConnectionInit()
