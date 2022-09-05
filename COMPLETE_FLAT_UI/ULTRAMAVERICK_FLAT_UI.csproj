@@ -153,6 +153,7 @@
     <Compile Include="API\Entities\DryWHIssue.cs" />
     <Compile Include="API\Entities\DryWHReceipt.cs" />
     <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
+    <Compile Include="API\Entities\Item_Class.cs" />
     <Compile Include="API\Entities\Lot_Management.cs" />
     <Compile Include="API\Entities\ParentForms.cs" />
     <Compile Include="API\Entities\Position.cs" />
@@ -384,6 +385,12 @@
     </Compile>
     <Compile Include="Forms\Lab Test\frmLabTestModule.Designer.cs">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Research And Development\Modal\FrmAddNewItemClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Research And Development\Modal\FrmAddNewItemClass.Designer.cs">
+      <DependentUpon>FrmAddNewItemClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.cs">
       <SubType>Form</SubType>
@@ -679,11 +686,11 @@
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.Designer.cs">
       <DependentUpon>frmStoreRoute.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmItemClass.cs">
+    <Compile Include="Forms\Research And Development\FrmItemClass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmItemClass.Designer.cs">
-      <DependentUpon>frmItemClass.cs</DependentUpon>
+    <Compile Include="Forms\Research And Development\FrmItemClass.Designer.cs">
+      <DependentUpon>FrmItemClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Research And Development\frmItemType.cs">
       <SubType>Form</SubType>
@@ -938,6 +945,9 @@
     <EmbeddedResource Include="Forms\Lab Test\frmLabTestModule.resx">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Research And Development\Modal\FrmAddNewItemClass.resx">
+      <DependentUpon>FrmAddNewItemClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.resx">
       <DependentUpon>FrmAddNewMajorAvailable.cs</DependentUpon>
     </EmbeddedResource>
@@ -1082,8 +1092,8 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.resx">
       <DependentUpon>frmStoreRoute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\frmItemClass.resx">
-      <DependentUpon>frmItemClass.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Research And Development\FrmItemClass.resx">
+      <DependentUpon>FrmItemClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Research And Development\frmItemType.resx">
       <DependentUpon>frmItemType.cs</DependentUpon>

@@ -948,7 +948,7 @@ namespace COMPLETE_FLAT_UI
         private void toolStripModuleItemClass_Click_1(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmItemClass fm = new frmItemClass();
+            FrmItemClass fm = new FrmItemClass();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

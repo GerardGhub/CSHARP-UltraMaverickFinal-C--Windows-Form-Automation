@@ -11,12 +11,14 @@ using COMPLETE_FLAT_UI.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
+using ULTRAMAVERICK.Forms.Research_And_Development.Modal;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
-    public partial class frmItemClass : MaterialForm
+    public partial class FrmItemClass : MaterialForm
     {
 
 
@@ -25,9 +27,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
+        Item_Class Item_ClassEntity = new Item_Class();
         string mode = "";
-        int p_id = 0;
+
         int temp_hid = 0;
         DateTime dNow = DateTime.Now;
         Boolean ready = false;
@@ -35,13 +37,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         DataSet dSet_temp = new DataSet();
 
-        public frmItemClass()
+        public FrmItemClass()
         {
             InitializeComponent();
         }
-        public string sp_created_at { get; set; }
-        public string sp_created_by { get; set; }
-        public string sp_modified_at { get; set; }
+
         public string sp_modified_by { get; set; }
         public string sp_bind_selected { get; set; }
         private void frmItemClass_Load(object sender, EventArgs e)
@@ -51,6 +51,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             myglobal.global_module = "Active"; // Mode for Searching
             this.showItemClassData();
             this.SearchMethodJarVarCallingSP();
+            this.textBox1.Text = String.Empty;
         }
         private void ConnetionString()
         {
@@ -173,92 +174,27 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         }
 
-        private void matBtnNew_Click(object sender, EventArgs e)
-        {
-            mode = "add";
-            matBtnEdit.Visible = false;
-            matBtnCancel.Visible = true;
-            txtmatItemClass.Enabled = true;
-            matBtnNew.Visible = false;
-            txtmatItemClass.Text = String.Empty;
-           sp_modified_at = String.Empty;
-            sp_modified_by = String.Empty;
-      
-           sp_created_at = (dNow.ToString("M/d/yyyy"));
-            sp_created_by = userinfo.emp_name.ToUpper();
-            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            matBtnSave.Visible = true;
-            txtmatItemClass.Select();
-            txtmatItemClass.Focus();
-        }
+
 
         private void matBtnCancel_Click(object sender, EventArgs e)
         {
             matBtnCancel.Visible = false;
             mode = "";
-            sp_created_at = String.Empty;
-           sp_created_by = String.Empty;
+
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
             matBtnNew.Visible = true;
             matBtnDelete.Visible = true;
-            txtmatItemClass.Enabled = false;
-        }
-
-        private void matBtnEdit_Click(object sender, EventArgs e)
-        {
-            mode = "edit";
-            sp_modified_at = (dNow.ToString("M/d/yyyy"));
-           sp_modified_by = userinfo.emp_name.ToUpper();
-            matBtnDelete.Visible = false;
-            matBtnCancel.Visible = true;
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            matBtnSave.Visible = true;
-            txtmatItemClass.Enabled = true;
-            txtmatItemClass.Focus();
-        }
-
-        private void dgvitemClass_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (dgvitemClass.Rows.Count > 0)
-            {
-                if (dgvitemClass.CurrentRow != null)
-                {
-                    if (dgvitemClass.CurrentRow.Cells["item_class_desc"].Value != null)
-                    {
-                        p_id = Convert.ToInt32(dgvitemClass.CurrentRow.Cells["item_class_id"].Value);
-                        txtmatItemClass.Text = dgvitemClass.CurrentRow.Cells["item_class_desc"].Value.ToString();
-                    
-                    }
-                }
-            }
-
-
 
         }
+
 
 
     
 
 
 
-        private void matBtnSave_Click(object sender, EventArgs e)
-        {
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.txtmatItemClass.Focus();
-                return;
-            }
-            else
-            {
-                this.metroSave_Click(sender, e);
-            }
-        }
 
 
   
@@ -271,40 +207,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
            
 
-                if (txtmatItemClass.Text.Trim() == string.Empty)
-                {
-
-                 
-                    this.GlobalStatePopup.FillRequiredFields();
-                    this.txtmatItemClass.Focus();
-                    return;
-                }
-
-                else
-                {
-                    if (saveMode())
-                    {
-                      
-                        string tmode = mode;
-
-                        if (tmode == "add")
-                        {
-                            dgvitemClass.CurrentCell = dgvitemClass[0, dgvitemClass.Rows.Count - 1];
-                            this.GlobalStatePopup.CommittedSuccessFully();
-                        }
-                        else
-                        {
-                            this.dgvitemClass.CurrentCell = this.dgvitemClass[0, temp_hid];
-
-                        }
-                        this.matBtnCancel_Click(sender, e);
-                        this.GlobalStatePopup.CommittedSuccessFully();
-                    }
-                    else
-
-                        metroFinalSaving_Click(sender, e);
-                    return;
-                }
             }
 
             else
@@ -314,112 +216,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         }
 
-
-
-        public bool saveMode()      
-        {
-
-            if (mode == "add")
-            {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_Item_Class(0, this.txtmatItemClass.Text, "", "", "", "", "getbyname");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    this.GlobalStatePopup.DataAlreadyExist();
-
-                    this.txtmatItemClass.Text = string.Empty;
-                    this.txtmatItemClass.Focus();
-                    return false;
-                }
-                else
-                {
-
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_Item_Class(0, 
-                        this.txtmatItemClass.Text.Trim(),
-                       
-                        this.sp_created_by,
-                        this.sp_created_at,
-                        this.sp_modified_at,
-                        this.sp_modified_by, "add");
-
-                    this.showItemClassData();
-         
-
-                    return true;
-                }
-            }
-            else if (mode == "edit")
-            {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
-
-                dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "getbyid");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-                    if (tmpID == p_id)
-                    {
-                        dSet.Clear();
-                        dSet = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text.Trim(),
-                           
-                            sp_created_by,
-                            sp_created_at,
-                           sp_modified_at,
-                            sp_modified_by, "edit");
-                        this.GlobalStatePopup.CommittedSuccessFully();
-                        this.showItemClassData();
-                        mode = "";
-                        matBtnCancel_Click(new object(), new System.EventArgs());
-                        return true;
-                    }
-                    else
-                    {
-                        //ItemClassAlreadyExist();
-                        txtmatItemClass.Text = String.Empty;
-                        txtmatItemClass.Focus();
-                        return false;
-                    }
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text.Trim(),
-
-                          sp_created_by,
-                          sp_created_at,
-                         sp_modified_at,
-                          sp_modified_by, "edit");
-                    this.GlobalStatePopup.CommittedSuccessFully();
-                    showItemClassData();
-                    mode = "";
-                    matBtnCancel_Click(new object(), new System.EventArgs());
-                }
-            }
-            else if (mode == "delete")
-            {
-
-                if (this.sp_bind_selected == "1")
-                {
-
-                    dSet_temp.Clear();
-                    dSet_temp = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete");
-                   
-                    return true;
-                }
-                else
-                {
-                    dSet_temp.Clear();
-                    dSet_temp = g_objStoredProcCollection.sp_Item_Class(p_id, txtmatItemClass.Text, "", "", "", "", "delete_activation");
-                    this.matRadioActive.Checked = true;
-                    return true;
-                }
-            }
-            return false;
-        }
 
 
 
@@ -429,36 +225,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
 
 
-            if (txtmatItemClass.Text.Trim() == string.Empty)
-            {
-               
-                this.GlobalStatePopup.FillRequiredFields();
-                txtmatItemClass.Focus();
-
-                return;
-            }
-            else
-            {
-                if (this.saveMode())
-                {
-                    this.GlobalStatePopup.DataAlreadyExist();
-                    string tmode = mode;
-
-                    if (tmode == "add")
-                    {
-                        this.dgvitemClass.CurrentCell = this.dgvitemClass[0, dgvitemClass.Rows.Count - 1];
-
-                    }
-                    else
-                    {
-                        this.dgvitemClass.CurrentCell = this.dgvitemClass[0, temp_hid];
-                    }
-                    matBtnCancel_Click(sender, e);
-                }
-                else
-
-                    return;
-            }
+      
         }
 
         private void dgvitemClass_CurrentCellChanged_1(object sender, EventArgs e)
@@ -469,12 +236,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 {
                     if (dgvitemClass.CurrentRow.Cells["item_class_desc"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvitemClass.CurrentRow.Cells["item_class_id"].Value);
-                        txtmatItemClass.Text = dgvitemClass.CurrentRow.Cells["item_class_desc"].Value.ToString();
-                        sp_created_by = dgvitemClass.CurrentRow.Cells["item_added_by"].Value.ToString();
-                       sp_created_at = dgvitemClass.CurrentRow.Cells["item_added_at"].Value.ToString();
-                       sp_modified_at = dgvitemClass.CurrentRow.Cells["item_updated_at"].Value.ToString();
-                        sp_modified_by = dgvitemClass.CurrentRow.Cells["item_updated_by"].Value.ToString();
+                        this.Item_ClassEntity.Item_Class_Id = Convert.ToInt32(dgvitemClass.CurrentRow.Cells["item_class_id"].Value);
+                     this.Item_ClassEntity.Item_Class_Desc = dgvitemClass.CurrentRow.Cells["item_class_desc"].Value.ToString();
+                        this.Item_ClassEntity.Item_Added_By = dgvitemClass.CurrentRow.Cells["item_added_by"].Value.ToString();
+                       this.Item_ClassEntity.Item_Added_At = dgvitemClass.CurrentRow.Cells["item_added_at"].Value.ToString();
+                       this.Item_ClassEntity.Item_Updated_At = dgvitemClass.CurrentRow.Cells["item_updated_at"].Value.ToString();
+                        this.Item_ClassEntity.Item_Updated_By = dgvitemClass.CurrentRow.Cells["item_updated_by"].Value.ToString();
+                  
                     }
                 }
             }
@@ -488,111 +256,102 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             mode = "add";
             matBtnEdit.Visible = false;
             matBtnCancel.Visible = true;
-            txtmatItemClass.Enabled = true;
+
             matBtnNew.Visible = false;
-            txtmatItemClass.Text = String.Empty;
-            sp_modified_at = String.Empty;
-            sp_modified_by = String.Empty;
+
+  
             matBtnDelete.Visible = false;
-            sp_created_at = (dNow.ToString("M/d/yyyy"));
-            sp_created_by = userinfo.emp_name.ToUpper();
+ 
 
             matBtnSave.Visible = true;
-            txtmatItemClass.Select();
-            txtmatItemClass.Focus();
+    
+
+            this.Item_ClassEntity.Mode = "ADD";
+            FrmAddNewItemClass addNew = 
+            new FrmAddNewItemClass(this,
+            userinfo.user_id,
+            this.Item_ClassEntity.Item_Class_Desc,
+            this.Item_ClassEntity.Mode,
+            this.Item_ClassEntity.Item_Class_Id);
+            addNew.ShowDialog();
+
+
         }
 
         private void btnCancelTool_Click(object sender, EventArgs e)
         {
             matBtnCancel.Visible = false;
             mode = "";
-            sp_created_at = String.Empty;
-            sp_created_by= String.Empty;
+
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
             matBtnNew.Visible = true;
             matBtnDelete.Visible = true;
-            txtmatItemClass.Enabled = false;
+       
         }
 
         private void btnEditTool_Click(object sender, EventArgs e)
         {
             mode = "edit";
-           sp_modified_at = (dNow.ToString("M/d/yyyy"));
+
             sp_modified_by = userinfo.emp_name.ToUpper();
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
             matBtnSave.Visible = true;
-            txtmatItemClass.Enabled = true;
-            txtmatItemClass.Focus();
+  
+
+            this.Item_ClassEntity.Mode = "EDIT";
+            FrmAddNewItemClass addNew =
+            new FrmAddNewItemClass(this,
+            userinfo.user_id,
+            this.Item_ClassEntity.Item_Class_Desc,
+            this.Item_ClassEntity.Mode,
+            this.Item_ClassEntity.Item_Class_Id);
+            addNew.ShowDialog();
         }
 
         private void btnDeleteTool_Click(object sender, EventArgs e)
         {
-            if (this.sp_bind_selected == "1")
+            if (this.matRadioActive.Checked == true)
             {
-
-                if (this.dgvitemClass.Rows.Count > 0)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Inactive the masterlist", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
+                    mode = "delete";
 
-                        mode = "delete";
-
-                        if (this.saveMode())
-                        {
-                            this.GlobalStatePopup.InactiveSuccessfully();
-                            this.showItemClassData();
-
-                            this.matBtnCancel_Click("", e);
-                        }
-                    }
-
-                    else
-                    {
-                        return;
-                    }
-
-
-
-
-
-
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = this.g_objStoredProcCollection.sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, "", "", "", "", "", "delete");
+                    this.GlobalStatePopup.InactiveSuccessfully();
+                    this.frmItemClass_Load(sender, e);
                 }
 
+                else
+                {
+                    return;
+                }
             }
             else
             {
-                if (dgvitemClass.Rows.Count > 0)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Activate the masterlist?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
+                    mode = "activate";
 
-                        this.mode = "delete";
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = this.g_objStoredProcCollection.sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, "", "", "", "", "", "activate");
+                    this.GlobalStatePopup.ActivatedSuccessfully();
+                    this.frmItemClass_Load(sender, e);
+                }
 
-                        if (this.saveMode())
-                        {
-                            this.GlobalStatePopup.ActivatedSuccessfully();
-                            this.showItemClassData();
-
-                            this.matBtnCancel_Click("", e);
-
-                        }
-                    }
-
-                    else
-                    {
-                        return;
-                    }
-
-
-
+                else
+                {
+                    return;
                 }
             }
+
+      
         }
 
 
@@ -600,25 +359,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
 
-            if(this.txtmatItemClass.Text == String.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                return;
-            }
-
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_Item_Class(0, txtmatItemClass.Text, "", "", "", "", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                this.GlobalStatePopup.DataAlreadyExist();
-                this.txtmatItemClass.Focus();
-                return;
-            }
-            else
-            {
-                this.metroSave_Click(sender, e);
-            }
+        
         }
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
@@ -693,36 +434,17 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void mattxtSearch_TextChanged_1(object sender, EventArgs e)
         {
-            this.ConnetionString();
-            if(sp_bind_selected == "1")
+    
+            if (this.matRadioActive.Checked == true)
             {
-                this.SearchMethodJarVarCallingSP();
+            
+            this.SearchMethodJarVarCallingSP();
             }
             else
             {
-                this.SearchMethodJarVarCallingSPInactive();
+            this.SearchMethodJarVarCallingSPInactive();
             }
-
-            if (mattxtSearch.Text == "")
-            {
-                showItemClassData();
-            }
-            if (lbltotalrecords.Text == "0")
-            {
-
-            }
-            else
-            {
-                if (mode == "add")
-                {
-
-                }
-                else
-                {
-                    doSearchInTextBox();
-                }
-
-            }
+            this.doSearchInTextBox();
         }
 
         private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -738,6 +460,17 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void txtmatItemClass_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.btnCancelTool_Click(sender, e);
+            this.frmItemClass_Load(sender, e);
+        }
+
+        private void FrmItemClass_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.textBox1.Text = "Gerard Singian";
         }
     }
 }
