@@ -403,10 +403,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 this.showItemClassDataInActive();
                 this.SearchMethodJarVarCallingSP();
             }
-            else
-            {
-
-            }
+           
         }
 
         private void matRadioActive_CheckedChanged(object sender, EventArgs e)
