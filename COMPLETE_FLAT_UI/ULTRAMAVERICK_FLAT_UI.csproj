@@ -160,6 +160,7 @@
     <Compile Include="API\Entities\ParentForms.cs" />
     <Compile Include="API\Entities\Position.cs" />
     <Compile Include="API\Entities\Primary_Unit.cs" />
+    <Compile Include="API\Entities\Raw_Materials_Dry.cs" />
     <Compile Include="API\Entities\Sub_Category.cs" />
     <Compile Include="API\Entities\TblArea.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />

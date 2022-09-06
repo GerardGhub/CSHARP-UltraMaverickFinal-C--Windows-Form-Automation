@@ -355,8 +355,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     "addRMLogs");
 
                 this.textBox1.Text = "data Already Save!";
-                this.GlobalStatePopup.CommittedSuccessFully();
-                this.frmAddNewItemModal_Load(new object(), new System.EventArgs());
+                this.GlobalStatePopup.SuccessFullySave();
+                this.Close();
 
             }
             

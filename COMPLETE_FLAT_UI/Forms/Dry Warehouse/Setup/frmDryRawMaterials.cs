@@ -58,14 +58,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.LoadRecords();
             this.LoadingrefresherOrb();
 
-            this.SearchMethodJarVarCallingSP();
+            //this.SearchMethodJarVarCallingSP();
         }
 
 
+ 
         private void ConnectionInit()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
 
         private void LoadRecords()
@@ -76,7 +77,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else
             {
-                this.matBtnEdit.Visible = true;
+                this.TsEdit.Visible = true;
             }
         }
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -150,13 +151,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if(textBox1.Text == "data Already Save!")
             {
-                matBtnEdit.Visible = false;
+                this.TsEdit.Visible = false;
             }
             else if(textBox1.Text == "Gerard Singian")
             {
                 textBox1.Text = string.Empty;
-                matBtnNew.Visible = true;
-                matBtnEdit.Visible = true;
+                this.TsNew.Visible = true;
+                this.TsEdit.Visible = true;
             }
             else
             {
@@ -188,39 +189,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
-        private void matBtnNew_Click(object sender, EventArgs e)
-        {
-            matBtnNew.Visible = false;
-            matBtnEdit.Visible = false;
-            frmAddNewItemModal addNew = new frmAddNewItemModal(this, sp_user_id);
-            addNew.ShowDialog();
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             frmDryRawMaterials_Load(sender, e);
         }
 
-        private void matBtnEdit_Click(object sender, EventArgs e)
-        {
-            this.matBtnEdit.Visible = false;
-            this.matBtnNew.Visible = false;
-            frmEditItemModal mywipwh = new frmEditItemModal(this, 
-                this.sp_user_id,items_code, 
-                this.items_description,
-                this.items_class,
-                this.majors_category,
-                this.subs_category,
-                this.primarys_unit,
-                this.conversions,
-                this.items_type,
-                this.primarys_key,
-                this.Sp_Buffer_Stocks,
-                this.SpExpirationDaysPrompting
-                );
-            mywipwh.ShowDialog();
-        }
-
+   
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
             this.showValueCell();
@@ -267,19 +242,40 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
-        private void guna2cmbMajorCat_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            doSearchInTextBoxCmb();
-        }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.TsNew.Visible = false;
+            this.TsEdit.Visible = false;
+            frmAddNewItemModal addNew = new frmAddNewItemModal(this, sp_user_id);
+            addNew.ShowDialog();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            this.TsEdit.Visible = false;
+            this.TsNew.Visible = false;
+            frmEditItemModal mywipwh = new frmEditItemModal(this,
+                this.sp_user_id, items_code,
+                this.items_description,
+                this.items_class,
+                this.majors_category,
+                this.subs_category,
+                this.primarys_unit,
+                this.conversions,
+                this.items_type,
+                this.primarys_key,
+                this.Sp_Buffer_Stocks,
+                this.SpExpirationDaysPrompting
+                );
+            mywipwh.ShowDialog();
         }
     }
     }

@@ -33,16 +33,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDryMiscellaneouseIssue));
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.matBtnEdit = new MaterialSkin.Controls.MaterialButton();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.matBtnNew = new MaterialSkin.Controls.MaterialButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,9 +53,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiration_prompting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.TsNew = new System.Windows.Forms.ToolStripButton();
+            this.TsEdit = new System.Windows.Forms.ToolStripButton();
+            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.matBtnSave = new System.Windows.Forms.ToolStripButton();
+            this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
+            this.materialCard3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -68,9 +80,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.matBtnEdit);
             this.materialCard1.Controls.Add(this.mattxtSearch);
-            this.materialCard1.Controls.Add(this.matBtnNew);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(11, 73);
@@ -80,26 +90,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.Size = new System.Drawing.Size(1001, 81);
             this.materialCard1.TabIndex = 0;
-            // 
-            // matBtnEdit
-            // 
-            this.matBtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnEdit.Depth = 0;
-            this.matBtnEdit.DrawShadows = true;
-            this.matBtnEdit.HighEmphasis = true;
-            this.matBtnEdit.Icon = null;
-            this.matBtnEdit.Location = new System.Drawing.Point(101, 36);
-            this.matBtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnEdit.Name = "matBtnEdit";
-            this.matBtnEdit.Size = new System.Drawing.Size(53, 36);
-            this.matBtnEdit.TabIndex = 473;
-            this.matBtnEdit.Text = "Edit";
-            this.matBtnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnEdit.UseAccentColor = false;
-            this.matBtnEdit.UseVisualStyleBackColor = true;
-            this.matBtnEdit.Visible = false;
-            this.matBtnEdit.Click += new System.EventHandler(this.matBtnEdit_Click);
             // 
             // mattxtSearch
             // 
@@ -120,25 +110,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             this.mattxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtSearch_KeyPress);
             // 
-            // matBtnNew
-            // 
-            this.matBtnNew.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnNew.Depth = 0;
-            this.matBtnNew.DrawShadows = true;
-            this.matBtnNew.HighEmphasis = true;
-            this.matBtnNew.Icon = null;
-            this.matBtnNew.Location = new System.Drawing.Point(22, 35);
-            this.matBtnNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnNew.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(53, 36);
-            this.matBtnNew.TabIndex = 5;
-            this.matBtnNew.Text = "New";
-            this.matBtnNew.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnNew.UseAccentColor = false;
-            this.matBtnNew.UseVisualStyleBackColor = true;
-            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
-            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -147,12 +118,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard2.Controls.Add(this.dgvRawMats);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(9, 181);
+            this.materialCard2.Location = new System.Drawing.Point(9, 233);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(1001, 535);
+            this.materialCard2.Size = new System.Drawing.Size(1001, 483);
             this.materialCard2.TabIndex = 1;
             // 
             // dgvRawMats
@@ -221,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(991, 523);
+            this.dgvRawMats.Size = new System.Drawing.Size(991, 471);
             this.dgvRawMats.TabIndex = 4;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -246,6 +217,157 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
+            // 
+            // item_id
+            // 
+            this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.item_id.DataPropertyName = "item_id";
+            this.item_id.FillWeight = 40.60914F;
+            this.item_id.Frozen = true;
+            this.item_id.HeaderText = "ITEM ID";
+            this.item_id.MinimumWidth = 12;
+            this.item_id.Name = "item_id";
+            this.item_id.ReadOnly = true;
+            this.item_id.Width = 12;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 59.93546F;
+            this.item_code.Frozen = true;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 104;
+            // 
+            // Item_description
+            // 
+            this.Item_description.DataPropertyName = "Item_description";
+            this.Item_description.FillWeight = 97.00433F;
+            this.Item_description.Frozen = true;
+            this.Item_description.HeaderText = "ITEM DESCRIPTION";
+            this.Item_description.MinimumWidth = 12;
+            this.Item_description.Name = "Item_description";
+            this.Item_description.ReadOnly = true;
+            this.Item_description.Width = 157;
+            // 
+            // item_class
+            // 
+            this.item_class.DataPropertyName = "item_class";
+            this.item_class.FillWeight = 77.07378F;
+            this.item_class.HeaderText = "ITEM CLASS";
+            this.item_class.MinimumWidth = 12;
+            this.item_class.Name = "item_class";
+            this.item_class.ReadOnly = true;
+            this.item_class.Width = 112;
+            // 
+            // major_category
+            // 
+            this.major_category.DataPropertyName = "major_category";
+            this.major_category.FillWeight = 115.8143F;
+            this.major_category.HeaderText = "MAJOR CATEGORY";
+            this.major_category.MinimumWidth = 12;
+            this.major_category.Name = "major_category";
+            this.major_category.ReadOnly = true;
+            this.major_category.Width = 155;
+            // 
+            // sub_category
+            // 
+            this.sub_category.DataPropertyName = "sub_category";
+            this.sub_category.FillWeight = 111.9698F;
+            this.sub_category.HeaderText = "SUB CATEGORY";
+            this.sub_category.MinimumWidth = 12;
+            this.sub_category.Name = "sub_category";
+            this.sub_category.ReadOnly = true;
+            this.sub_category.Width = 133;
+            // 
+            // primary_unit
+            // 
+            this.primary_unit.DataPropertyName = "primary_unit";
+            this.primary_unit.FillWeight = 113.0644F;
+            this.primary_unit.HeaderText = "PRIMARY UNIT";
+            this.primary_unit.MinimumWidth = 12;
+            this.primary_unit.Name = "primary_unit";
+            this.primary_unit.ReadOnly = true;
+            this.primary_unit.Width = 127;
+            // 
+            // conversion
+            // 
+            this.conversion.DataPropertyName = "conversion";
+            this.conversion.FillWeight = 112.6176F;
+            this.conversion.HeaderText = "CONVERSION";
+            this.conversion.MinimumWidth = 12;
+            this.conversion.Name = "conversion";
+            this.conversion.ReadOnly = true;
+            this.conversion.Width = 129;
+            // 
+            // item_type
+            // 
+            this.item_type.DataPropertyName = "item_type";
+            this.item_type.FillWeight = 109.4746F;
+            this.item_type.HeaderText = "ITEM TYPE";
+            this.item_type.MinimumWidth = 12;
+            this.item_type.Name = "item_type";
+            this.item_type.ReadOnly = true;
+            this.item_type.Width = 103;
+            // 
+            // buffer_stock
+            // 
+            this.buffer_stock.DataPropertyName = "buffer_stock";
+            this.buffer_stock.HeaderText = "BUFFER STOCKS";
+            this.buffer_stock.MinimumWidth = 12;
+            this.buffer_stock.Name = "buffer_stock";
+            this.buffer_stock.ReadOnly = true;
+            this.buffer_stock.Width = 140;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Visible = false;
+            this.created_at.Width = 130;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Visible = false;
+            this.created_by.Width = 113;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Visible = false;
+            this.updated_at.Width = 132;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Visible = false;
+            this.updated_by.Width = 115;
+            // 
+            // expiration_prompting
+            // 
+            this.expiration_prompting.DataPropertyName = "expiration_prompting";
+            this.expiration_prompting.HeaderText = "EXPIRATION PROMPTING";
+            this.expiration_prompting.Name = "expiration_prompting";
+            this.expiration_prompting.ReadOnly = true;
+            this.expiration_prompting.Width = 195;
             // 
             // textBox1
             // 
@@ -298,175 +420,155 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.TabIndex = 474;
             this.label2.Text = "Items";
             // 
-            // item_id
+            // materialCard3
             // 
-            this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.item_id.DataPropertyName = "item_id";
-            this.item_id.FillWeight = 40.60914F;
-            this.item_id.Frozen = true;
-            this.item_id.HeaderText = "ITEM ID";
-            this.item_id.MinimumWidth = 12;
-            this.item_id.Name = "item_id";
-            this.item_id.ReadOnly = true;
-            this.item_id.Width = 12;
+            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.matRadioActive);
+            this.materialCard3.Controls.Add(this.matRadioNotActive);
+            this.materialCard3.Depth = 0;
+            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard3.Location = new System.Drawing.Point(791, 164);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard3.Name = "materialCard3";
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard3.Size = new System.Drawing.Size(221, 59);
+            this.materialCard3.TabIndex = 613;
             // 
-            // item_code
+            // matRadioActive
             // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 59.93546F;
-            this.item_code.Frozen = true;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 116;
+            this.matRadioActive.AutoSize = true;
+            this.matRadioActive.Depth = 0;
+            this.matRadioActive.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matRadioActive.Location = new System.Drawing.Point(9, 14);
+            this.matRadioActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioActive.Name = "matRadioActive";
+            this.matRadioActive.Ripple = true;
+            this.matRadioActive.Size = new System.Drawing.Size(78, 37);
+            this.matRadioActive.TabIndex = 597;
+            this.matRadioActive.TabStop = true;
+            this.matRadioActive.Text = "Active";
+            this.matRadioActive.UseVisualStyleBackColor = true;
             // 
-            // Item_description
+            // matRadioNotActive
             // 
-            this.Item_description.DataPropertyName = "Item_description";
-            this.Item_description.FillWeight = 97.00433F;
-            this.Item_description.Frozen = true;
-            this.Item_description.HeaderText = "ITEM DESCRIPTION";
-            this.Item_description.MinimumWidth = 12;
-            this.Item_description.Name = "Item_description";
-            this.Item_description.ReadOnly = true;
-            this.Item_description.Width = 175;
+            this.matRadioNotActive.AutoSize = true;
+            this.matRadioNotActive.Depth = 0;
+            this.matRadioNotActive.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matRadioNotActive.Location = new System.Drawing.Point(103, 14);
+            this.matRadioNotActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioNotActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioNotActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioNotActive.Name = "matRadioNotActive";
+            this.matRadioNotActive.Ripple = true;
+            this.matRadioNotActive.Size = new System.Drawing.Size(103, 37);
+            this.matRadioNotActive.TabIndex = 598;
+            this.matRadioNotActive.TabStop = true;
+            this.matRadioNotActive.Text = "In - Active";
+            this.matRadioNotActive.UseVisualStyleBackColor = true;
             // 
-            // item_class
+            // panel1
             // 
-            this.item_class.DataPropertyName = "item_class";
-            this.item_class.FillWeight = 77.07378F;
-            this.item_class.HeaderText = "ITEM CLASS";
-            this.item_class.MinimumWidth = 12;
-            this.item_class.Name = "item_class";
-            this.item_class.ReadOnly = true;
-            this.item_class.Width = 124;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.toolStrip2);
+            this.panel1.Location = new System.Drawing.Point(12, 186);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(321, 36);
+            this.panel1.TabIndex = 614;
             // 
-            // major_category
+            // toolStrip2
             // 
-            this.major_category.DataPropertyName = "major_category";
-            this.major_category.FillWeight = 115.8143F;
-            this.major_category.HeaderText = "MAJOR CATEGORY";
-            this.major_category.MinimumWidth = 12;
-            this.major_category.Name = "major_category";
-            this.major_category.ReadOnly = true;
-            this.major_category.Width = 172;
+            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsNew,
+            this.TsEdit,
+            this.matBtnDelete,
+            this.matBtnSave,
+            this.matBtnCancel});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip2.Size = new System.Drawing.Size(321, 36);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
             // 
-            // sub_category
+            // TsNew
             // 
-            this.sub_category.DataPropertyName = "sub_category";
-            this.sub_category.FillWeight = 111.9698F;
-            this.sub_category.HeaderText = "SUB CATEGORY";
-            this.sub_category.MinimumWidth = 12;
-            this.sub_category.Name = "sub_category";
-            this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 148;
+            this.TsNew.Image = ((System.Drawing.Image)(resources.GetObject("TsNew.Image")));
+            this.TsNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsNew.Name = "TsNew";
+            this.TsNew.Size = new System.Drawing.Size(82, 33);
+            this.TsNew.Text = "&New";
+            this.TsNew.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // primary_unit
+            // TsEdit
             // 
-            this.primary_unit.DataPropertyName = "primary_unit";
-            this.primary_unit.FillWeight = 113.0644F;
-            this.primary_unit.HeaderText = "PRIMARY UNIT";
-            this.primary_unit.MinimumWidth = 12;
-            this.primary_unit.Name = "primary_unit";
-            this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 141;
+            this.TsEdit.Image = ((System.Drawing.Image)(resources.GetObject("TsEdit.Image")));
+            this.TsEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsEdit.Name = "TsEdit";
+            this.TsEdit.Size = new System.Drawing.Size(78, 33);
+            this.TsEdit.Text = "&Edit";
+            this.TsEdit.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // conversion
+            // matBtnDelete
             // 
-            this.conversion.DataPropertyName = "conversion";
-            this.conversion.FillWeight = 112.6176F;
-            this.conversion.HeaderText = "CONVERSION";
-            this.conversion.MinimumWidth = 12;
-            this.conversion.Name = "conversion";
-            this.conversion.ReadOnly = true;
-            this.conversion.Width = 131;
+            this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
+            this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnDelete.Name = "matBtnDelete";
+            this.matBtnDelete.Size = new System.Drawing.Size(106, 33);
+            this.matBtnDelete.Text = "&Remove";
             // 
-            // item_type
+            // matBtnSave
             // 
-            this.item_type.DataPropertyName = "item_type";
-            this.item_type.FillWeight = 109.4746F;
-            this.item_type.HeaderText = "ITEM TYPE";
-            this.item_type.MinimumWidth = 12;
-            this.item_type.Name = "item_type";
-            this.item_type.ReadOnly = true;
-            this.item_type.Width = 114;
+            this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
+            this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnSave.Name = "matBtnSave";
+            this.matBtnSave.Size = new System.Drawing.Size(84, 44);
+            this.matBtnSave.Text = "&Save";
+            this.matBtnSave.Visible = false;
             // 
-            // buffer_stock
+            // matBtnCancel
             // 
-            this.buffer_stock.DataPropertyName = "buffer_stock";
-            this.buffer_stock.HeaderText = "BUFFER STOCKS";
-            this.buffer_stock.MinimumWidth = 12;
-            this.buffer_stock.Name = "buffer_stock";
-            this.buffer_stock.ReadOnly = true;
-            this.buffer_stock.Width = 156;
+            this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
+            this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.matBtnCancel.Name = "matBtnCancel";
+            this.matBtnCancel.Size = new System.Drawing.Size(98, 44);
+            this.matBtnCancel.Text = "&Cancel";
+            this.matBtnCancel.Visible = false;
             // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Visible = false;
-            this.created_at.Width = 145;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Visible = false;
-            this.created_by.Width = 126;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Visible = false;
-            this.updated_at.Width = 147;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Visible = false;
-            this.updated_by.Width = 128;
-            // 
-            // expiration_prompting
-            // 
-            this.expiration_prompting.DataPropertyName = "expiration_prompting";
-            this.expiration_prompting.HeaderText = "EXPIRATION PROMPTING";
-            this.expiration_prompting.Name = "expiration_prompting";
-            this.expiration_prompting.ReadOnly = true;
-            this.expiration_prompting.Width = 217;
-            // 
-            // frmDryRawMaterials
+            // frmDryMiscellaneouseIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbltotalrecords);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.materialCard1);
             this.Margin = new System.Windows.Forms.Padding(1);
-            this.Name = "frmDryRawMaterials";
+            this.Name = "frmDryMiscellaneouseIssue";
             this.Text = "Dry Raw Materials";
             this.Load += new System.EventHandler(this.frmDryRawMaterials_Load);
             this.materialCard1.ResumeLayout(false);
-            this.materialCard1.PerformLayout();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
+            this.materialCard3.ResumeLayout(false);
+            this.materialCard3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,10 +579,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvRawMats;
-        private MaterialSkin.Controls.MaterialButton matBtnNew;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         public System.Windows.Forms.TextBox textBox1;
-        private MaterialSkin.Controls.MaterialButton matBtnEdit;
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
@@ -499,5 +599,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn expiration_prompting;
+        private MaterialSkin.Controls.MaterialCard materialCard3;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
+        private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton TsNew;
+        private System.Windows.Forms.ToolStripButton TsEdit;
+        private System.Windows.Forms.ToolStripButton matBtnDelete;
+        private System.Windows.Forms.ToolStripButton matBtnSave;
+        private System.Windows.Forms.ToolStripButton matBtnCancel;
     }
 }
