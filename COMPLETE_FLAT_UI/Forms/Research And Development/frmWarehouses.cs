@@ -380,5 +380,24 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
         }
+
+        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.matRadioActive.Checked == true)
+            {
+
+                this.matBtnDelete.Text = "&InActive";
+
+                this.ShowMajorCategoryData();
+
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+
+                this.matBtnDelete.Text = "&Activate";
+                this.ShowMajorCategoryDataInActive();
+
+            }
+        }
     }
 }

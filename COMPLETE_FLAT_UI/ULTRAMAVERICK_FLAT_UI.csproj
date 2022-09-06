@@ -158,6 +158,7 @@
     <Compile Include="API\Entities\Lot_Management.cs" />
     <Compile Include="API\Entities\ParentForms.cs" />
     <Compile Include="API\Entities\Position.cs" />
+    <Compile Include="API\Entities\Sub_Category.cs" />
     <Compile Include="API\Entities\TblArea.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
     <Compile Include="API\Entities\TblRegion.cs" />
@@ -388,6 +389,12 @@
     </Compile>
     <Compile Include="Forms\Lab Test\frmLabTestModule.Designer.cs">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Research And Development\Modal\AddNewCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Research And Development\Modal\AddNewCategory.Designer.cs">
+      <DependentUpon>AddNewCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Research And Development\Modal\FrmAddBNewWarehouses.cs">
       <SubType>Form</SubType>
@@ -953,6 +960,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Lab Test\frmLabTestModule.resx">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Research And Development\Modal\AddNewCategory.resx">
+      <DependentUpon>AddNewCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Research And Development\Modal\FrmAddBNewWarehouses.resx">
       <DependentUpon>FrmAddBNewWarehouses.cs</DependentUpon>
