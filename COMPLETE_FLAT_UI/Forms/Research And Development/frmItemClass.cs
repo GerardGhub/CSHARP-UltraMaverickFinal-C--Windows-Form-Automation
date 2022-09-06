@@ -46,7 +46,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
    
         private void frmItemClass_Load(object sender, EventArgs e)
         {
-            this.ShowDataActivated();
+            this.ShowDataRadioButtonActivated();
             this.ConnetionString();
             myglobal.global_module = "Active"; // Mode for Searching
             this.showItemClassData();
@@ -58,7 +58,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
  
         }
-        private void ShowDataActivated()
+        private void ShowDataRadioButtonActivated()
         {
             this.matRadioActive.Checked = true;
         }
