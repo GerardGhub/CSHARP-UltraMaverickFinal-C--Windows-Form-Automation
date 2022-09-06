@@ -92,7 +92,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.textBox1.TabIndex = 637;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // mattxtSearch
             // 
@@ -110,8 +110,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
             this.mattxtSearch.TabIndex = 638;
             this.mattxtSearch.Text = "";
-            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
-            this.mattxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtSearch_KeyPress);
+            this.mattxtSearch.TextChanged += new System.EventHandler(this.MattxtSearch_TextChanged);
+            this.mattxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MattxtSearch_KeyPress);
             // 
             // dgvPrimaryUnit
             // 
@@ -194,7 +194,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvPrimaryUnit.ThemeStyle.RowsStyle.Height = 40;
             this.dgvPrimaryUnit.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvPrimaryUnit.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
-            this.dgvPrimaryUnit.CurrentCellChanged += new System.EventHandler(this.dgvPrimaryUnit_CurrentCellChanged);
+            this.dgvPrimaryUnit.CurrentCellChanged += new System.EventHandler(this.DgvPrimaryUnit_CurrentCellChanged);
             // 
             // unit_id
             // 
@@ -302,7 +302,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnNew.Name = "matBtnNew";
             this.matBtnNew.Size = new System.Drawing.Size(75, 33);
             this.matBtnNew.Text = "&New";
-            this.matBtnNew.Click += new System.EventHandler(this.neww_Click);
+            this.matBtnNew.Click += new System.EventHandler(this.Neww_Click);
             // 
             // matBtnEdit
             // 
@@ -311,7 +311,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnEdit.Name = "matBtnEdit";
             this.matBtnEdit.Size = new System.Drawing.Size(72, 33);
             this.matBtnEdit.Text = "&Edit";
-            this.matBtnEdit.Click += new System.EventHandler(this.editt_Click);
+            this.matBtnEdit.Click += new System.EventHandler(this.Editt_Click);
             // 
             // matBtnDelete
             // 
@@ -320,7 +320,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnDelete.Name = "matBtnDelete";
             this.matBtnDelete.Size = new System.Drawing.Size(94, 33);
             this.matBtnDelete.Text = "&Remove";
-            this.matBtnDelete.Click += new System.EventHandler(this.removee_Click);
+            this.matBtnDelete.Click += new System.EventHandler(this.Removee_Click);
             // 
             // matBtnSave
             // 
@@ -330,7 +330,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnSave.Size = new System.Drawing.Size(77, 44);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
-            this.matBtnSave.Click += new System.EventHandler(this.savee_Click);
+            this.matBtnSave.Click += new System.EventHandler(this.Savee_Click);
             // 
             // matBtnCancel
             // 
@@ -340,7 +340,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnCancel.Size = new System.Drawing.Size(88, 44);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
-            this.matBtnCancel.Click += new System.EventHandler(this.canceel_Click);
+            this.matBtnCancel.Click += new System.EventHandler(this.Canceel_Click);
             // 
             // lbltotalrecords
             // 
@@ -400,7 +400,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matRadioActive.TabStop = true;
             this.matRadioActive.Text = "Active";
             this.matRadioActive.UseVisualStyleBackColor = true;
-            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.MatRadioActive_CheckedChanged);
             // 
             // matRadioNotActive
             // 
@@ -418,7 +418,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matRadioNotActive.TabStop = true;
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
-            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.MatRadioNotActive_CheckedChanged);
             // 
             // frmPrimaryUnit
             // 
@@ -435,7 +435,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.Name = "frmPrimaryUnit";
             this.Sizable = false;
             this.Text = "Primary Unit";
-            this.Load += new System.EventHandler(this.frmPrimaryUnit_Load);
+            this.Load += new System.EventHandler(this.FrmPrimaryUnit_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimaryUnit)).EndInit();

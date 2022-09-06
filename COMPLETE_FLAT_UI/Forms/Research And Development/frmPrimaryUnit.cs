@@ -22,12 +22,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
     {
 
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-        Primary_Unit PrimaryUnitEntity = new Primary_Unit();
+        readonly Primary_Unit PrimaryUnitEntity = new Primary_Unit();
         string mode = "";
         DateTime dNow = DateTime.Now;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
         DataSet dSet_temp = new DataSet();
@@ -36,7 +36,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             InitializeComponent();
         }
 
-        private void frmPrimaryUnit_Load(object sender, EventArgs e)
+        private void FrmPrimaryUnit_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
             this.ShowPrimaryUnitData();
@@ -93,27 +93,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
  
-  
 
-        private void metroSave_Click(object sender, EventArgs e)
+        private void DgvPrimaryUnit_CurrentCellChanged(object sender, EventArgs e)
         {
-            //Start
-    
+            this.ShowValueCell();
         }
 
-        private void metroFinalSaving_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-    
-
-        private void dgvPrimaryUnit_CurrentCellChanged(object sender, EventArgs e)
-        {
-            showValueCell();
-        }
-
-        private void showValueCell()
+        private void ShowValueCell()
         {
             if (dgvPrimaryUnit.Rows.Count > 0)
             {
@@ -132,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
         }
 
-        private void neww_Click(object sender, EventArgs e)
+        private void Neww_Click(object sender, EventArgs e)
         {
             this.mode = "add";
             this.matBtnEdit.Visible = false;
@@ -152,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         }
 
-        private void editt_Click(object sender, EventArgs e)
+        private void Editt_Click(object sender, EventArgs e)
         {
             this.mode = "edit";
             this.matBtnDelete.Visible = false;
@@ -171,7 +157,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             addNew.ShowDialog();
         }
 
-        private void removee_Click(object sender, EventArgs e)
+        private void Removee_Click(object sender, EventArgs e)
         {
             if (dgvPrimaryUnit.Rows.Count > 0)
             {
@@ -194,7 +180,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             "delete");
 
                         this.GlobalStatePopup.InactiveSuccessfully();
-                        this.frmPrimaryUnit_Load(sender, e);
+                        this.FrmPrimaryUnit_Load(sender, e);
                     }
 
                     else
@@ -222,7 +208,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             "activate");
 
                         this.GlobalStatePopup.ActivatedSuccessfully();
-                        this.frmPrimaryUnit_Load(sender, e);
+                        this.FrmPrimaryUnit_Load(sender, e);
                     }
 
                     else
@@ -239,7 +225,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
         }
 
-        private void canceel_Click(object sender, EventArgs e)
+        private void Canceel_Click(object sender, EventArgs e)
         {
             matBtnCancel.Visible = false;
             mode = "";
@@ -251,20 +237,20 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
        
         }
 
-        private void savee_Click(object sender, EventArgs e)
+        private void Savee_Click(object sender, EventArgs e)
         {
             
         }
 
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            this.canceel_Click(sender, e);
-            this.frmPrimaryUnit_Load(sender, e);
+            this.Canceel_Click(sender, e);
+            this.FrmPrimaryUnit_Load(sender, e);
         }
 
-        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioNotActive_CheckedChanged(object sender, EventArgs e)
         {
             if (matRadioActive.Checked == true)
             {
@@ -282,7 +268,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
         }
 
-        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioActive_CheckedChanged(object sender, EventArgs e)
         {
             if (matRadioActive.Checked == true)
             {
@@ -322,13 +308,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
 
 
-        private void mattxtSearch_TextChanged(object sender, EventArgs e)
+        private void MattxtSearch_TextChanged(object sender, EventArgs e)
         {
             this.SearchMethodJarVarCallingSP();
-            this.doSearchInTextBox();
+            this.DoSearchInTextBox();
         }
 
-        private void doSearchInTextBox()
+        private void DoSearchInTextBox()
         {
             try
             {
@@ -366,7 +352,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         }
 
-        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        private void MattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }

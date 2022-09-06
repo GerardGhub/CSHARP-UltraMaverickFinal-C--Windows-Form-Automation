@@ -11,6 +11,8 @@ using COMPLETE_FLAT_UI.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
+using ULTRAMAVERICK.Forms.Research_And_Development.Modal;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -18,46 +20,58 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
     public partial class frmItemType : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
+        readonly Item_Type ItemTypeEntity = new Item_Type();
         string mode = "";
-        int p_id = 0;
-        int temp_hid = 0;
-        DateTime dNow = DateTime.Now;
-        Boolean ready = false;
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
-        DataSet dSet_temp = new DataSet();
+        
+
+
 
         public frmItemType()
         {
             InitializeComponent();
         }
-        public string sp_created_by { get; set; }
-        public string sp_created_at { get; set; }
-        public string sp_modified_at { get; set; }
-        public string sp_modified_by { get; set; }
+
         private void frmItemType_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             myglobal.global_module = "Active"; // Mode for Searching
-            showItemTypeData();
-            SearchMethodJarVarCallingSP();
+            this.ShowItemTypeData();
+            this.ShowDataRadioButtonActivated();
+
+            this.TextBox1.Text = String.Empty;
+        }
+        private void ShowDataRadioButtonActivated()
+        {
+            this.matRadioActive.Checked = true;
+        }
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
         
-            dset_emp_SearchEngines.Clear();
+            this.dset_emp_SearchEngines.Clear();
 
+            if (this.matRadioActive.Checked == true)
+            {
+                this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("ItemTypeMajor");
+            }
+            else
+            {
+                this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("ItemTypeMajorInActive");
+            }
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("ItemTypeMajor");
 
         }
 
@@ -70,28 +84,19 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-                    if (myglobal.global_module == "EMPLOYEE")
-                    {
-
-                    }
-                    else if (myglobal.global_module == "Active")
-                    {
+            
 
 
                         //Gerard Singian Developer Man
 
 
 
-                        dv.RowFilter = "item_type_desc like '%" + mattxtSearch.Text + "%'";
+                        dv.RowFilter = "item_type_desc like '%" + this.MatTxtSearchBox.Text + "%'";
                
 
-                    }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-
-                    }
-                    dgvItemType.DataSource = dv;
-                    lbltotalrecords.Text = dgvItemType.RowCount.ToString();
+                
+                    this.DgvItemType.DataSource = dv;
+                    this.lbltotalrecords.Text = this.DgvItemType.RowCount.ToString();
                 }
             }
             catch (SyntaxErrorException)
@@ -112,14 +117,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         }
 
-        private void showItemTypeData()     //method for loading available_menus
+        private void ShowItemTypeData()     //method for loading available_menus
         {
             try
             {
-                ready = false;
-                xClass.fillDataGridView(dgvItemType, "Item_Type", dSet);
-                ready = true;
-                lbltotalrecords.Text = dgvItemType.RowCount.ToString();
+     
+                myClass.fillDataGridView(DgvItemType, "Item_Type", dSet);
+ 
+                lbltotalrecords.Text = DgvItemType.RowCount.ToString();
             }
             catch (Exception ex)
             {
@@ -130,408 +135,49 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         }
 
-        private void matBtnNew_Click(object sender, EventArgs e)
+        private void ShowItemTypeDataInActive()     //method for loading available_menus
         {
-            mode = "add";
-            matBtnEdit.Visible = false;
-            matBtnCancel.Visible = true;
-            txtmatItemType.Enabled = true;
-            matBtnNew.Visible = false;
-            txtmatItemType.Text = String.Empty;
-            this.sp_modified_at = String.Empty;
-            this.sp_modified_by = String.Empty;
-
-            sp_created_at = (dNow.ToString("M/d/yyyy"));
-            sp_created_by = userinfo.emp_name.ToUpper();
-            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            matBtnSave.Visible = true;
-            txtmatItemType.Select();
-            txtmatItemType.Focus();
-        }
-
-        private void matBtnCancel_Click(object sender, EventArgs e)
-        {
-            matBtnCancel.Visible = false;
-            mode = "";
-            sp_created_at = String.Empty;
-           sp_created_by = String.Empty;
-            matBtnEdit.Visible = true;
-            matBtnSave.Visible = false;
-            matBtnNew.Visible = true;
-            matBtnDelete.Visible = true;
-            txtmatItemType.Enabled = false;
-        }
-        public void DeletedSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Deleted Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        public bool saveMode()      //method for saving of data base on mode (add,edit,delete)
-        {
-
-            if (mode == "add")
-            {
-                dSet.Clear();
-                dSet = objStorProc.sp_Item_Type(0,
-                    txtmatItemType.Text, "", "", "", "", "getbyname");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    ItemTypeAlreadyExist();
-
-                    txtmatItemType.Text = string.Empty;
-                    txtmatItemType.Focus();
-                    return false;
-                }
-                else
-                {
-
-                dSet.Clear();
-                dSet = objStorProc.sp_Item_Type(0,
-                txtmatItemType.Text.Trim(),
-
-                sp_created_by,
-                sp_created_at,
-                this.sp_modified_at,
-                this.sp_modified_by, "add");
-
-                showItemTypeData();
-
-
-                    return true;
-                }
-            }
-            else if (mode == "edit")
-            {
-            dSet.Clear();
-            dSet = objStorProc.sp_Item_Type(0,
-            txtmatItemType.Text,
-            "", "", "", "", "getbyname");
-
-            dSet_temp.Clear();
-            dSet_temp = objStorProc.sp_Item_Type(p_id,
-            txtmatItemType.Text, "", "", "", "", "getbyid");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-            int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-            if (tmpID == p_id)
-            {
-            dSet.Clear();
-            dSet = objStorProc.sp_Item_Type(p_id,
-            txtmatItemType.Text.Trim(),
-
-            sp_created_by,
-            sp_created_at,
-            this.sp_modified_at,
-          this.sp_modified_by, "edit");
-            UpdateNotifications();
-            showItemTypeData();
-            mode = "";
-            matBtnCancel_Click(new object(), new System.EventArgs());
-            return true;
-            }
-            else
+            try
             {
 
-            txtmatItemType.Text = String.Empty;
-            txtmatItemType.Focus();
-            return false;
-            }
-            }
-            else
-            {
-            dSet.Clear();
-            dSet = objStorProc.sp_Item_Type(p_id,
-            txtmatItemType.Text.Trim(),
+                myClass.fillDataGridView(DgvItemType, "Item_TypeInActive", dSet);
 
-            sp_created_by,
-            sp_created_at,
-           this.sp_modified_at,
-            this.sp_modified_by, "edit");
-            this.UpdateNotifications();
-            this.showItemTypeData();
-            mode = "";
-            matBtnCancel_Click(new object(), new System.EventArgs());
+                lbltotalrecords.Text = DgvItemType.RowCount.ToString();
             }
-            }
-            else if (mode == "delete")
+            catch (Exception ex)
             {
 
-                dSet_temp.Clear();
-                dSet_temp = objStorProc.sp_Item_Type(p_id,
-                    txtmatItemType.Text, "", "", "", "", "delete");
-
-                return true;
-            }
-            return false;
-        }
-
-
-        private void matBtnDelete_Click(object sender, EventArgs e)
-        {
-        if (dgvItemType.Rows.Count > 0)
-        {
-
-        if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Type", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-        {
-
-
-        mode = "delete";
-
-        if (saveMode())
-        {
-        this.DeletedSuccessfully();
-        this.showItemTypeData();
-
-        this.matBtnCancel_Click("", e);
-        }
-        }
-
-        else
-        {
-        return;
-        }
-
-        }
-        }
-
-        public void ItemTypeAlreadyExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Item Type Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        private void matBtnSave_Click(object sender, EventArgs e)
-        {
-            dSet.Clear();
-            dSet = objStorProc.sp_Item_Type(0,
-                txtmatItemType.Text, "", "", "", "", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                ItemTypeAlreadyExist();
-
-
-
-                txtmatItemType.Focus();
-                return;
-            }
-            else
-            {
-                metroSave_Click(sender, e);
-            }
-        }
-
-        private void matBtnEdit_Click(object sender, EventArgs e)
-        {
-            this.mode = "edit";
-            this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
-           this.sp_modified_by = userinfo.emp_name.ToUpper();
-            this.matBtnDelete.Visible = false;
-            this.matBtnCancel.Visible = true;
-            this.matBtnNew.Visible = false;
-            this.matBtnEdit.Visible = false;
-            this.matBtnSave.Visible = true;
-            this.txtmatItemType.Enabled = true;
-            this.txtmatItemType.Focus();
-        }
-
-
-        public void FillRequiredFields()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Fill up the required fields!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        private void UpdateNotifications()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "SUCCESSFULLY UPDATE";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-        private void metroSave_Click(object sender, EventArgs e)
-        {
-            //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the  Item Type Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-
-
-
-                if (txtmatItemType.Text.Trim() == string.Empty)
-                {
-
-                    FillRequiredFields();
-                    txtmatItemType.Focus();
-                    return;
-                }
-
-                else
-                {
-                    if (saveMode())
-                    {
-
-                        string tmode = mode;
-
-                        if (tmode == "add")
-                        {
-                            dgvItemType.CurrentCell = dgvItemType[0, dgvItemType.Rows.Count - 1];
-                            UpdateNotifications();
-                        }
-                        else
-                        {
-                            dgvItemType.CurrentCell = dgvItemType[0, temp_hid];
-
-                        }
-                        matBtnCancel_Click(sender, e);
-                        UpdateNotifications();
-                    }
-                    else
-
-                        metroFinalSaving_Click(sender, e);
-                    return;
-                }
+                MessageBox.Show(ex.Message);
             }
 
-            else
-            {
-                return;
-            }
+
         }
 
-        private void metroFinalSaving_Click(object sender, EventArgs e)
-        {
-            if (txtmatItemType.Text.Trim() == string.Empty)
-            {
-                FillRequiredFields();
-                txtmatItemType.Focus();
-            }
-            else
-            {
-                if (saveMode())
-                {
-                    ItemTypeAlreadyExist();
-                    string tmode = mode;
 
-                    if (tmode == "add")
-                    {
-                        dgvItemType.CurrentCell = dgvItemType[0, dgvItemType.Rows.Count - 1];
 
-                    }
-                    else
-                    {
-                        dgvItemType.CurrentCell = dgvItemType[0, temp_hid];
-                    }
-                    matBtnCancel_Click(sender, e);
-                }
-                else
 
-                    return;
-            }
-        }
+
+
 
         private void dgvItemType_CurrentCellChanged(object sender, EventArgs e)
         {
-            showValueCell();
+            ShowValueCell();
         }
 
-        private void showValueCell()
+        private void ShowValueCell()
         {
-            if (dgvItemType.Rows.Count > 0)
+            if (DgvItemType.Rows.Count > 0)
             {
-                if (dgvItemType.CurrentRow != null)
+                if (DgvItemType.CurrentRow != null)
                 {
-                    if (dgvItemType.CurrentRow.Cells["item_type_desc"].Value != null)
+                    if (DgvItemType.CurrentRow.Cells["item_type_desc"].Value != null)
                     {
-                        p_id = Convert.ToInt32(dgvItemType.CurrentRow.Cells["item_type_id"].Value);
-                        txtmatItemType.Text = dgvItemType.CurrentRow.Cells["item_type_desc"].Value.ToString();
-                        sp_created_by = dgvItemType.CurrentRow.Cells["it_added_by"].Value.ToString();
-                        sp_created_at = dgvItemType.CurrentRow.Cells["it_added_at"].Value.ToString();
-                        this.sp_modified_at= dgvItemType.CurrentRow.Cells["it_updated_at"].Value.ToString();
-                        this.sp_modified_by = dgvItemType.CurrentRow.Cells["it_updated_by"].Value.ToString();
+                        this.ItemTypeEntity.Item_Type_Id = Convert.ToInt32(DgvItemType.CurrentRow.Cells["item_type_id"].Value);
+                        this.ItemTypeEntity.Item_Type_Desc = DgvItemType.CurrentRow.Cells["item_type_desc"].Value.ToString();
+                        this.ItemTypeEntity.It_Added_By = DgvItemType.CurrentRow.Cells["it_added_by"].Value.ToString();
+                        this.ItemTypeEntity.It_Added_At = DgvItemType.CurrentRow.Cells["it_added_at"].Value.ToString();
+                        this.ItemTypeEntity.It_Updated_At = DgvItemType.CurrentRow.Cells["it_updated_at"].Value.ToString();
+                        this.ItemTypeEntity.It_Updated_By = DgvItemType.CurrentRow.Cells["it_updated_by"].Value.ToString();
                     }
                 }
             }
@@ -542,73 +188,124 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             mode = "add";
             matBtnEdit.Visible = false;
             matBtnCancel.Visible = true;
-            txtmatItemType.Enabled = true;
+
             matBtnNew.Visible = false;
-            txtmatItemType.Text = String.Empty;
-          this.sp_modified_at = String.Empty;
-            this.sp_modified_by = String.Empty;
+
+
             matBtnDelete.Visible = false;
-            sp_created_at = (dNow.ToString("M/d/yyyy"));
-            sp_created_by = userinfo.emp_name.ToUpper();
-            //txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+      
+
             matBtnSave.Visible = true;
-            txtmatItemType.Select();
-            txtmatItemType.Focus();
+
+            this.ItemTypeEntity.Mode = "ADD";
+            FrmAddNewItemType addNew =
+            new FrmAddNewItemType(this,
+            userinfo.user_id,
+            this.ItemTypeEntity.Item_Type_Desc,
+            this.ItemTypeEntity.Mode,
+            this.ItemTypeEntity.Item_Type_Id);
+            addNew.ShowDialog();
+
+
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             matBtnCancel.Visible = false;
             mode = "";
-            sp_created_at = String.Empty;
-            sp_created_by = String.Empty;
+        
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
             matBtnNew.Visible = true;
             matBtnDelete.Visible = true;
-            txtmatItemType.Enabled = false;
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             mode = "edit";
-           this.sp_modified_at = (dNow.ToString("M/d/yyyy"));
-           this.sp_modified_by = userinfo.emp_name.ToUpper();
+
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
             matBtnSave.Visible = true;
-            txtmatItemType.Enabled = true;
-            txtmatItemType.Focus();
+
+
+
+            this.ItemTypeEntity.Mode = "EDIT";
+            FrmAddNewItemType addNew =
+            new FrmAddNewItemType(this,
+            userinfo.user_id,
+            this.ItemTypeEntity.Item_Type_Desc,
+            this.ItemTypeEntity.Mode,
+            this.ItemTypeEntity.Item_Type_Id);
+            addNew.ShowDialog();
+
+
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (dgvItemType.Rows.Count > 0)
+            if (DgvItemType.Rows.Count > 0)
             {
-
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to remove the Item Type", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (this.matRadioActive.Checked == true)
                 {
 
-
-                    mode = "delete";
-
-                    if (saveMode())
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        DeletedSuccessfully();
-                        showItemTypeData();
 
-                        matBtnCancel_Click("", e);
+
+                        this.mode = "delete";
+                        this.dSet.Clear();
+                        this.dSet =
+                            this.g_objStoredProcCollection.sp_Item_Type(this.ItemTypeEntity.Item_Type_Id,
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "delete");
+                        this.GlobalStatePopup.InactiveSuccessfully();
+                        this.frmItemType_Load(sender, e);
+
+
+                    }
+
+                    else
+                    {
+                        return;
                     }
                 }
-
                 else
                 {
-                    return;
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+
+                        this.mode = "activate";
+                        this.dSet.Clear();
+                        this.dSet =
+                            this.g_objStoredProcCollection.sp_Item_Type(this.ItemTypeEntity.Item_Type_Id,
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "activate");
+                        this.GlobalStatePopup.ActivatedSuccessfully();
+                        this.frmItemType_Load(sender, e);
+
+
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+
+
                 }
-
-
 
 
 
@@ -618,23 +315,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            dSet.Clear();
-            dSet = objStorProc.sp_Item_Type(0,
-                txtmatItemType.Text, "", "", "", "", "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                ItemTypeAlreadyExist();
-
-
-
-                txtmatItemType.Focus();
-                return;
-            }
-            else
-            {
-                metroSave_Click(sender, e);
-            }
         }
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
@@ -665,6 +346,37 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void txtmatItemType_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.toolStripButton5_Click(sender, e);
+            this.frmItemType_Load(sender, e);
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (matRadioActive.Checked == true)
+            {
+
+                this.matBtnDelete.Text = "&InActive";
+
+                this.ShowItemTypeData();
+
+            }
+            else if (matRadioNotActive.Checked == true)
+            {
+
+                this.matBtnDelete.Text = "&Activate";
+                this.ShowItemTypeDataInActive();
+
+            }
+        }
+
+        private void materialTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.SearchMethodJarVarCallingSP();
+            this.doSearchInTextBox();
         }
     }
 }

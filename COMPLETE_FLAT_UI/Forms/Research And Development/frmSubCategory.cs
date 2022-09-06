@@ -22,13 +22,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
     {
 
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
-        DataSet dSet = new DataSet();
-        Sub_Category SubCategoryEntity = new Sub_Category();
+        readonly myclasses myClass = new myclasses();
+        readonly DataSet dSet = new DataSet();
+        readonly Sub_Category SubCategoryEntity = new Sub_Category();
         string mode = "";
-  
-        DateTime dNow = DateTime.Now;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
         DataSet dSet_temp = new DataSet();

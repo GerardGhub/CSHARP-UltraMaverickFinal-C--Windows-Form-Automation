@@ -15,12 +15,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 {
     public partial class FrmAddNewItemClass : MaterialForm
     {
-        FrmItemClass ths;
+        readonly FrmItemClass ths;
         DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        Item_Class Item_ClassEntity = new Item_Class();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly Item_Class Item_ClassEntity = new Item_Class();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public FrmAddNewItemClass(
             FrmItemClass frm,
@@ -32,7 +32,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         {
             InitializeComponent();
             ths = frm;
-            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
+            textBox1.TextChanged += new EventHandler(TextBox1_TextChanged);
             this.Item_ClassEntity.Item_Added_By = Created_by.ToString();
             this.Item_ClassEntity.Item_Class_Desc = ItemClassDesc;
             this.Item_ClassEntity.Mode = Mode;
@@ -76,7 +76,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.myClass.g_objStoredProc.GetCollections();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
         }
@@ -94,6 +94,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.TxtMatItemClass.Focus();
                 return;
             }
+
+
 
 
             if (this.Item_ClassEntity.Item_Class_Desc == this.TxtMatItemClass.Text)

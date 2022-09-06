@@ -20,14 +20,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
     public partial class FrmItemClass : MaterialForm
     {
-
-
-        PopupNotifierClass  GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass  GlobalStatePopup = new PopupNotifierClass();
 
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-        Item_Class Item_ClassEntity = new Item_Class();
+        readonly Item_Class Item_ClassEntity = new Item_Class();
         string mode = "";
 
         int temp_hid = 0;
@@ -92,31 +90,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             {
 
 
-                if (dset_emp_SearchEngines.Tables.Count > 0)
+                if (this.dset_emp_SearchEngines.Tables.Count > 0)
                 {
-                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-                    if (myglobal.global_module == "EMPLOYEE")
-                    {
+                    DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
+              
 
-                    }
-                    else if (myglobal.global_module == "Active")
-                    {
+                        dv.RowFilter = "item_class_desc like '%" + this.mattxtSearch.Text + "%'";
 
-
-                        //Gerard Singian Developer Man
-
-
-
-
-                        dv.RowFilter = "item_class_desc like '%" + mattxtSearch.Text + "%'";
-
-                    }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-
-                    }
-                    dgvitemClass.DataSource = dv;
-                    lbltotalrecords.Text = dgvitemClass.RowCount.ToString();
+                   
+                    this.dgvitemClass.DataSource = dv;
+                    this.lbltotalrecords.Text = this.dgvitemClass.RowCount.ToString();
                 }
             }
             catch (SyntaxErrorException)
@@ -449,15 +432,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
 
-        private void txtmatItemClass_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
-        }
-
-        private void txtmatItemClass_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
+     
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

@@ -15,12 +15,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 {
     public partial class FrmAddBNewWarehouses : MaterialForm
     {
-        frmWarehouses ths;
+        readonly frmWarehouses ths;
         DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        Major_Category MajorCategoryEntity = new Major_Category();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly Major_Category MajorCategoryEntity = new Major_Category();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public FrmAddBNewWarehouses(
              frmWarehouses frm,
             int Created_by,
@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         {
             InitializeComponent();
             ths = frm;
-            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
+            textBox1.TextChanged += new EventHandler(TextBox1_TextChanged);
             this.MajorCategoryEntity.Mc_Added_By = Created_by.ToString();
             this.MajorCategoryEntity.Major_Category_Desc = MajorCategoryDesc;
             this.MajorCategoryEntity.Mode = Mode;
@@ -79,12 +79,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.textBox1.Text = "Gerard Singian";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             ths.TextBox1.Text = textBox1.Text;
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void MaterialButton1_Click(object sender, EventArgs e)
         {
 
 

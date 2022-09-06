@@ -76,7 +76,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.textBox1.TabIndex = 481;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // materialButton1
             // 
@@ -95,7 +95,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            this.materialButton1.Click += new System.EventHandler(this.MaterialButton1_Click);
             // 
             // FrmAddBNewWarehouses
             // 
