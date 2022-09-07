@@ -210,5 +210,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             this.DeptUnit.Department = cbodepartment.SelectedValue.ToString();
         }
+
+        private void TxtDepartmentUnit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

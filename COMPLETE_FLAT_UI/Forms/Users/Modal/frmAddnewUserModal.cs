@@ -480,9 +480,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         "add");
                     textBox1.Text = "SaveGerardSingian";
                     this.GlobalStatePopup.SuccessFullySave();
-              
 
-                    frmAddnewUserModal_Load(sender, e);
+
+                    this.Close();
            
            
                 }

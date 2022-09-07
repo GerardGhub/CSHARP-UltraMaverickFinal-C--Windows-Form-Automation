@@ -30,11 +30,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.TxtDepartmentUnit = new MaterialSkin.Controls.MaterialTextBox();
+            this.cbodepartment = new MetroFramework.Controls.MetroComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BtnExecute = new MaterialSkin.Controls.MaterialButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbodepartment = new MetroFramework.Controls.MetroComboBox();
-            this.TxtDepartmentUnit = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,48 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(542, 229);
             this.materialCard1.TabIndex = 1;
+            // 
+            // TxtDepartmentUnit
+            // 
+            this.TxtDepartmentUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtDepartmentUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtDepartmentUnit.Depth = 0;
+            this.TxtDepartmentUnit.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtDepartmentUnit.Hint = "Department Unit";
+            this.TxtDepartmentUnit.Location = new System.Drawing.Point(58, 99);
+            this.TxtDepartmentUnit.Margin = new System.Windows.Forms.Padding(1);
+            this.TxtDepartmentUnit.MaxLength = 50;
+            this.TxtDepartmentUnit.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtDepartmentUnit.Multiline = false;
+            this.TxtDepartmentUnit.Name = "TxtDepartmentUnit";
+            this.TxtDepartmentUnit.Size = new System.Drawing.Size(424, 50);
+            this.TxtDepartmentUnit.TabIndex = 601;
+            this.TxtDepartmentUnit.Text = "";
+            this.TxtDepartmentUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDepartmentUnit_KeyPress);
+            // 
+            // cbodepartment
+            // 
+            this.cbodepartment.FormattingEnabled = true;
+            this.cbodepartment.ItemHeight = 23;
+            this.cbodepartment.Location = new System.Drawing.Point(58, 40);
+            this.cbodepartment.Margin = new System.Windows.Forms.Padding(1);
+            this.cbodepartment.Name = "cbodepartment";
+            this.cbodepartment.Size = new System.Drawing.Size(424, 29);
+            this.cbodepartment.TabIndex = 600;
+            this.cbodepartment.UseSelectable = true;
+            this.cbodepartment.SelectedValueChanged += new System.EventHandler(this.cbodepartment_SelectedValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(55, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 599;
+            this.label1.Text = "Department:";
             // 
             // textBox1
             // 
@@ -86,47 +128,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.BtnExecute.UseAccentColor = false;
             this.BtnExecute.UseVisualStyleBackColor = true;
             this.BtnExecute.Click += new System.EventHandler(this.BtnExecute_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(55, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 599;
-            this.label1.Text = "Department:";
-            // 
-            // cbodepartment
-            // 
-            this.cbodepartment.FormattingEnabled = true;
-            this.cbodepartment.ItemHeight = 23;
-            this.cbodepartment.Location = new System.Drawing.Point(58, 40);
-            this.cbodepartment.Margin = new System.Windows.Forms.Padding(1);
-            this.cbodepartment.Name = "cbodepartment";
-            this.cbodepartment.Size = new System.Drawing.Size(424, 29);
-            this.cbodepartment.TabIndex = 600;
-            this.cbodepartment.UseSelectable = true;
-            this.cbodepartment.SelectedValueChanged += new System.EventHandler(this.cbodepartment_SelectedValueChanged);
-            // 
-            // TxtDepartmentUnit
-            // 
-            this.TxtDepartmentUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtDepartmentUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtDepartmentUnit.Depth = 0;
-            this.TxtDepartmentUnit.Font = new System.Drawing.Font("Roboto", 12F);
-            this.TxtDepartmentUnit.Hint = "Department Unit";
-            this.TxtDepartmentUnit.Location = new System.Drawing.Point(58, 99);
-            this.TxtDepartmentUnit.Margin = new System.Windows.Forms.Padding(1);
-            this.TxtDepartmentUnit.MaxLength = 50;
-            this.TxtDepartmentUnit.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtDepartmentUnit.Multiline = false;
-            this.TxtDepartmentUnit.Name = "TxtDepartmentUnit";
-            this.TxtDepartmentUnit.Size = new System.Drawing.Size(424, 50);
-            this.TxtDepartmentUnit.TabIndex = 601;
-            this.TxtDepartmentUnit.Text = "";
             // 
             // AddNewDepartmentUnit
             // 

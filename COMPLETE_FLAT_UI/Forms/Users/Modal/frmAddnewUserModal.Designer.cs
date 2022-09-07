@@ -30,6 +30,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnImage = new System.Windows.Forms.Button();
+            this.btnUpdateTool = new MaterialSkin.Controls.MaterialButton();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.Cbodepartment = new MetroFramework.Controls.MetroComboBox();
             this.CboUnit = new MetroFramework.Controls.MetroComboBox();
             this.cboPosition = new MetroFramework.Controls.MetroComboBox();
@@ -51,12 +55,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtFirstName = new MaterialSkin.Controls.MaterialTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnUpdateTool = new MaterialSkin.Controls.MaterialButton();
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
             this.matChkQAUserAccount = new MaterialSkin.Controls.MaterialCheckbox();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnImage = new System.Windows.Forms.Button();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +98,69 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.Size = new System.Drawing.Size(905, 282);
             this.materialCard1.TabIndex = 560;
             this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.White;
+            this.btnRemove.Enabled = false;
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
+            this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.Black;
+            this.btnRemove.Location = new System.Drawing.Point(87, 233);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(69, 27);
+            this.btnRemove.TabIndex = 597;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            // 
+            // btnImage
+            // 
+            this.btnImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.btnImage.FlatAppearance.BorderSize = 0;
+            this.btnImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
+            this.btnImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImage.ForeColor = System.Drawing.Color.White;
+            this.btnImage.Location = new System.Drawing.Point(9, 233);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(60, 27);
+            this.btnImage.TabIndex = 596;
+            this.btnImage.Text = "Select";
+            this.btnImage.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdateTool
+            // 
+            this.btnUpdateTool.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnUpdateTool.Depth = 0;
+            this.btnUpdateTool.DrawShadows = true;
+            this.btnUpdateTool.HighEmphasis = true;
+            this.btnUpdateTool.Icon = null;
+            this.btnUpdateTool.Location = new System.Drawing.Point(827, 227);
+            this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnUpdateTool.Name = "btnUpdateTool";
+            this.btnUpdateTool.Size = new System.Drawing.Size(58, 36);
+            this.btnUpdateTool.TabIndex = 572;
+            this.btnUpdateTool.Text = "SAVE";
+            this.btnUpdateTool.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnUpdateTool.UseAccentColor = false;
+            this.btnUpdateTool.UseVisualStyleBackColor = true;
+            this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
+            this.pbImage.Location = new System.Drawing.Point(10, 18);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(146, 180);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 595;
+            this.pbImage.TabStop = false;
             // 
             // Cbodepartment
             // 
@@ -408,25 +471,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // btnUpdateTool
-            // 
-            this.btnUpdateTool.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnUpdateTool.Depth = 0;
-            this.btnUpdateTool.DrawShadows = true;
-            this.btnUpdateTool.HighEmphasis = true;
-            this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(827, 227);
-            this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(58, 36);
-            this.btnUpdateTool.TabIndex = 572;
-            this.btnUpdateTool.Text = "SAVE";
-            this.btnUpdateTool.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnUpdateTool.UseAccentColor = false;
-            this.btnUpdateTool.UseVisualStyleBackColor = true;
-            this.btnUpdateTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
-            // 
             // metroButtonSave
             // 
             this.metroButtonSave.Location = new System.Drawing.Point(226, 42);
@@ -456,50 +500,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.matChkQAUserAccount.Visible = false;
             this.matChkQAUserAccount.CheckedChanged += new System.EventHandler(this.matChkQAUserAccount_CheckedChanged);
             // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.White;
-            this.btnRemove.Enabled = false;
-            this.btnRemove.FlatAppearance.BorderSize = 0;
-            this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
-            this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.Black;
-            this.btnRemove.Location = new System.Drawing.Point(87, 233);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(69, 27);
-            this.btnRemove.TabIndex = 597;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = false;
-            // 
-            // btnImage
-            // 
-            this.btnImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.btnImage.FlatAppearance.BorderSize = 0;
-            this.btnImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
-            this.btnImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
-            this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImage.ForeColor = System.Drawing.Color.White;
-            this.btnImage.Location = new System.Drawing.Point(9, 233);
-            this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(60, 27);
-            this.btnImage.TabIndex = 596;
-            this.btnImage.Text = "Select";
-            this.btnImage.UseVisualStyleBackColor = false;
-            // 
-            // pbImage
-            // 
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
-            this.pbImage.Location = new System.Drawing.Point(10, 18);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(146, 180);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 595;
-            this.pbImage.TabStop = false;
-            // 
             // frmAddnewUserModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,6 +513,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddnewUserModal";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add new User";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddnewUserModal_FormClosing);

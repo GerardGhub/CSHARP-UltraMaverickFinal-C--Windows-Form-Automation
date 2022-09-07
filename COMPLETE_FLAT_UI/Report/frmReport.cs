@@ -674,7 +674,7 @@ namespace ULTRAMAVERICK.Report
             else if (myglobal.REPORT_NAME == "MicroBook")
             {
                 rpt.Load(Rpt_Path + "\\DrybarcodeModule.rpt");
-                rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+                //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
                 rpt.Refresh();
 

@@ -16,17 +16,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmDryMiscellaneouseIssue : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
-        IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
-        DataSet dSet = new DataSet();
 
- 
+        IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
+        DataSet dSet = new DataSet();
         int p_id = 0;
-     
         DateTime dNow = DateTime.Now;
-        //Boolean ready = false;
+
 
 
         DataSet dSet_temp = new DataSet();
@@ -86,7 +82,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Raw_Materials_Dry_Major");
+            this.dset_emp_SearchEngines = this.g_objStoredProcCollection.sp_getMajorTables("Raw_Materials_Dry_Major");
 
         }
 
@@ -176,7 +172,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
              
-                xClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry", dSet);
+                this.myClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry", dSet);
             
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
