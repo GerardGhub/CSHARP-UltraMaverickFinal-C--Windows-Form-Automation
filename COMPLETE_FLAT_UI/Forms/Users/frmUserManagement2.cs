@@ -358,7 +358,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (dgvUsers.Rows.Count > 0)
                     {

@@ -76,25 +76,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             this.dset.Clear();
             this.LoadWindowsExecution();
-   
+
+
             this.loadCategoryDropdown();
-       
+            //return;
             this.LoadStateVisibility();
-        
+
+
+   
 
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
+        
             this.FormmLoadSearchState();
 
-
-
-
-
+      
 
 
 
             this.ValidateifTheTotalDataiSZero();
 
-
+            this.cmbArea_SelectionChangeCommitted(sender,e);
 
         }
 
@@ -105,7 +106,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.matbtnSave.Visible = false;
                 this.matcmbCategory.Enabled = false;
                 this.mattxtScanTheBarcode.Enabled = false;
-                this.guna2DgvMaterialPreparation.DataSource = null;
+                this.Guna2DgvMaterialPreparation.DataSource = null;
             }
 
         }
@@ -176,18 +177,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         {
                  
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
-                            //MessageBox.Show("Meron" + this.Sp_AssigneD_Task_By +"");
+             
                         }
                         else
                         {
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'  and area = '" + this.cmbArea.Text + "'    ";
-                            //MessageBox.Show("Wala");
+                     
                         }
 
                         //start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' and category = '" +this.matcmbCategory.Text+"'  or start_by_user_id = '0'
 
                         this.dgvStoreOrderApproval.DataSource = dv;
                         this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
+                    
                         this.DataGridParentVisibleFalse();
                         //End
                     }
@@ -433,20 +435,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void MaterialDatagridColumnVisibilittyFalse()
         {
 
-            this.guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["area"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["route"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["qty"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["data_refactoring_status"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["FK_dry_wh_orders_parent_id"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["date_ordered_materials"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["is_approved_preparation_date"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["fox"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["area"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["route"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["qty"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["data_refactoring_status"].Visible = false;
+            this.Guna2DgvMaterialPreparation.Columns["FK_dry_wh_orders_parent_id"].Visible = false;
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -486,9 +488,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                     }
 
-                    this.guna2DgvMaterialPreparation.DataSource = dv;
+                    this.Guna2DgvMaterialPreparation.DataSource = dv;
           
-                    this.lbltotaldata.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
+                    this.lbltotaldata.Text = this.Guna2DgvMaterialPreparation.RowCount.ToString();
 
                 }
             }
@@ -767,11 +769,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
       
 
-            if (this.guna2DgvMaterialPreparation.Rows.Count >= 1)
+            if (this.Guna2DgvMaterialPreparation.Rows.Count >= 1)
             {
-                int i = this.guna2DgvMaterialPreparation.CurrentRow.Index + 1;
-                if (i >= -1 && i < this.guna2DgvMaterialPreparation.Rows.Count)
-                    this.guna2DgvMaterialPreparation.CurrentCell = this.guna2DgvMaterialPreparation.Rows[i].Cells["item_code"];
+                int i = this.Guna2DgvMaterialPreparation.CurrentRow.Index + 1;
+                if (i >= -1 && i < this.Guna2DgvMaterialPreparation.Rows.Count)
+                    this.Guna2DgvMaterialPreparation.CurrentCell = this.Guna2DgvMaterialPreparation.Rows[i].Cells["item_code"];
                 //Cell na 0
                 else
                 {
@@ -882,22 +884,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void CurrentCellChangeofRawMaterials()
         {
 
-            if (this.guna2DgvMaterialPreparation.Rows.Count > 0)
+            if (this.Guna2DgvMaterialPreparation.Rows.Count > 0)
             {
-                if (this.guna2DgvMaterialPreparation.CurrentRow != null)
+                if (this.Guna2DgvMaterialPreparation.CurrentRow != null)
                 {
-                    if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["store_name"].Value != null)
+                    if (this.Guna2DgvMaterialPreparation.CurrentRow.Cells["store_name"].Value != null)
                     {
                        
-                        this.Sp_material_id = this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
-                        this.Sp_Material_Item_Description = this.guna2DgvMaterialPreparation.CurrentRow.Cells["description"].Value.ToString();
-                        this.Sp_Unit_Of_Measure = this.guna2DgvMaterialPreparation.CurrentRow.Cells["uom"].Value.ToString();
-                        this.Sp_Converted_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["converted_qty"].Value.ToString();
-                        this.Sp_Qty_Serve = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Serve_Qty"].Value.ToString();
-                        this.Sp_Item_Code = this.guna2DgvMaterialPreparation.CurrentRow.Cells["item_code"].Value.ToString();
-                        this.Sp_Is_WH_Cancel_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
-                        this.Sp_Data_Refactoring_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["data_refactoring_status"].Value.ToString();
-                        this.Sp_Remaining_Qty = this.guna2DgvMaterialPreparation.CurrentRow.Cells["Remaining_Qty"].Value.ToString();
+                        this.Sp_material_id = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
+                        this.Sp_Material_Item_Description = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["description"].Value.ToString();
+                        this.Sp_Unit_Of_Measure = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["uom"].Value.ToString();
+                        this.Sp_Converted_Qty = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["converted_qty"].Value.ToString();
+                        this.Sp_Qty_Serve = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["Serve_Qty"].Value.ToString();
+                        this.Sp_Item_Code = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.Sp_Is_WH_Cancel_Status = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
+                        this.Sp_Data_Refactoring_Status = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["data_refactoring_status"].Value.ToString();
+                        this.Sp_Remaining_Qty = this.Guna2DgvMaterialPreparation.CurrentRow.Cells["Remaining_Qty"].Value.ToString();
 
                     }
                 }
@@ -1216,7 +1218,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "CANCEL")
+            if (Guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "CANCEL")
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
@@ -1311,6 +1313,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void button1_Click(object sender, EventArgs e)
         {
             matcmbCategory_SelectionChangeCommitted(sender,  e);
+        }
+
+        private void lbltotalStoreforPreparation_TextChanged(object sender, EventArgs e)
+        {
+            //this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
+            if (this.lbltotalStoreforPreparation.Text == "0")
+            {
+                this.mattxtScanTheBarcode.Enabled = false;
+                this.mattxtScanTheBarcode.Visible = false;
+                this.materialCard4.Visible = false;
+                this.MatManipulatorNextPrev.Enabled = false;
+
+                this.matcmbCategory_SelectionChangeCommitted(sender, e);
+            }
+            else
+            {
+                this.mattxtScanTheBarcode.Visible = true;
+                this.materialCard4.Visible = true;
+                this.mattxtScanTheBarcode.Enabled = true;
+                this.MatManipulatorNextPrev.Enabled = true;
+            }
+        }
+
+        private void lbltotalStoreforPreparation_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
