@@ -29,13 +29,15 @@ namespace ULTRAMAVERICK.Forms.Users
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModulesAvailableForms));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.MatTxtSearchBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvGrandChildForms = new Guna.UI2.WinForms.Guna2DataGridView();
             this.menu_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,8 +60,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.MatTxtSearchBox = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
@@ -88,6 +88,36 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard1.Size = new System.Drawing.Size(972, 86);
             this.materialCard1.TabIndex = 561;
             // 
+            // MatTxtSearchBox
+            // 
+            this.MatTxtSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MatTxtSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MatTxtSearchBox.Depth = 0;
+            this.MatTxtSearchBox.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MatTxtSearchBox.Hint = "Search";
+            this.MatTxtSearchBox.Location = new System.Drawing.Point(741, 20);
+            this.MatTxtSearchBox.Margin = new System.Windows.Forms.Padding(1);
+            this.MatTxtSearchBox.MaxLength = 50;
+            this.MatTxtSearchBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatTxtSearchBox.Multiline = false;
+            this.MatTxtSearchBox.Name = "MatTxtSearchBox";
+            this.MatTxtSearchBox.Size = new System.Drawing.Size(205, 50);
+            this.MatTxtSearchBox.TabIndex = 670;
+            this.MatTxtSearchBox.Text = "";
+            this.MatTxtSearchBox.TextChanged += new System.EventHandler(this.MatTxtSearchBox_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(563, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 667;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -109,20 +139,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.AllowUserToAddRows = false;
             this.dgvGrandChildForms.AllowUserToDeleteRows = false;
             this.dgvGrandChildForms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvGrandChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvGrandChildForms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGrandChildForms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGrandChildForms.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvGrandChildForms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGrandChildForms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChildForms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGrandChildForms.ColumnHeadersHeight = 35;
             this.dgvGrandChildForms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvGrandChildForms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -136,14 +166,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_at,
             this.updated_by,
             this.Column1});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGrandChildForms.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrandChildForms.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGrandChildForms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGrandChildForms.EnableHeadersVisualStyles = false;
             this.dgvGrandChildForms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -151,14 +181,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.MultiSelect = false;
             this.dgvGrandChildForms.Name = "dgvGrandChildForms";
             this.dgvGrandChildForms.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrandChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrandChildForms.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGrandChildForms.RowHeadersVisible = false;
             this.dgvGrandChildForms.RowHeadersWidth = 102;
             this.dgvGrandChildForms.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -201,7 +231,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_id.MinimumWidth = 12;
             this.menu_id.Name = "menu_id";
             this.menu_id.ReadOnly = true;
-            this.menu_id.Width = 49;
+            this.menu_id.Width = 47;
             // 
             // count
             // 
@@ -212,7 +242,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.count.MinimumWidth = 12;
             this.count.Name = "count";
             this.count.ReadOnly = true;
-            this.count.Width = 136;
+            this.count.Width = 134;
             // 
             // ChildForm
             // 
@@ -223,7 +253,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.ChildForm.MinimumWidth = 12;
             this.ChildForm.Name = "ChildForm";
             this.ChildForm.ReadOnly = true;
-            this.ChildForm.Width = 112;
+            this.ChildForm.Width = 110;
             // 
             // menu_name
             // 
@@ -233,7 +263,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_name.MinimumWidth = 12;
             this.menu_name.Name = "menu_name";
             this.menu_name.ReadOnly = true;
-            this.menu_name.Width = 98;
+            this.menu_name.Width = 96;
             // 
             // menu_form_name
             // 
@@ -243,7 +273,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.menu_form_name.MinimumWidth = 12;
             this.menu_form_name.Name = "menu_form_name";
             this.menu_form_name.ReadOnly = true;
-            this.menu_form_name.Width = 160;
+            this.menu_form_name.Width = 158;
             // 
             // created_at
             // 
@@ -252,7 +282,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_at.MinimumWidth = 12;
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
-            this.created_at.Width = 145;
+            this.created_at.Width = 143;
             // 
             // created_by
             // 
@@ -261,7 +291,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_by.MinimumWidth = 12;
             this.created_by.Name = "created_by";
             this.created_by.ReadOnly = true;
-            this.created_by.Width = 126;
+            this.created_by.Width = 124;
             // 
             // updated_at
             // 
@@ -270,7 +300,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_at.MinimumWidth = 12;
             this.updated_at.Name = "updated_at";
             this.updated_at.ReadOnly = true;
-            this.updated_at.Width = 147;
+            this.updated_at.Width = 145;
             // 
             // updated_by
             // 
@@ -279,7 +309,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.updated_by.MinimumWidth = 12;
             this.updated_by.Name = "updated_by";
             this.updated_by.ReadOnly = true;
-            this.updated_by.Width = 128;
+            this.updated_by.Width = 126;
             // 
             // Column1
             // 
@@ -313,6 +343,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
+            this.panel1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(20, 222);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
@@ -342,47 +373,52 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // btnAddTool
             // 
+            this.btnAddTool.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTool.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTool.Image")));
             this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(75, 37);
+            this.btnAddTool.Size = new System.Drawing.Size(82, 37);
             this.btnAddTool.Text = "&New";
             this.btnAddTool.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // btnEditTool
             // 
+            this.btnEditTool.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditTool.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTool.Image")));
             this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(72, 37);
+            this.btnEditTool.Size = new System.Drawing.Size(78, 37);
             this.btnEditTool.Text = "&Edit";
             this.btnEditTool.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // btnDeleteTool
             // 
+            this.btnDeleteTool.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteTool.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteTool.Image")));
             this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(94, 37);
+            this.btnDeleteTool.Size = new System.Drawing.Size(106, 37);
             this.btnDeleteTool.Text = "&Remove";
             this.btnDeleteTool.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // btnUpdateTool
             // 
+            this.btnUpdateTool.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
             this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(77, 44);
+            this.btnUpdateTool.Size = new System.Drawing.Size(84, 44);
             this.btnUpdateTool.Text = "&Save";
             this.btnUpdateTool.Visible = false;
             this.btnUpdateTool.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // btnCancelTool
             // 
+            this.btnCancelTool.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
             this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(88, 44);
+            this.btnCancelTool.Size = new System.Drawing.Size(98, 44);
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             this.btnCancelTool.Click += new System.EventHandler(this.btnCancelTool_Click_1);
@@ -412,36 +448,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 666;
             this.label2.Text = "Items";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(563, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 667;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // MatTxtSearchBox
-            // 
-            this.MatTxtSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MatTxtSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MatTxtSearchBox.Depth = 0;
-            this.MatTxtSearchBox.Font = new System.Drawing.Font("Roboto", 12F);
-            this.MatTxtSearchBox.Hint = "Search";
-            this.MatTxtSearchBox.Location = new System.Drawing.Point(741, 20);
-            this.MatTxtSearchBox.Margin = new System.Windows.Forms.Padding(1);
-            this.MatTxtSearchBox.MaxLength = 50;
-            this.MatTxtSearchBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.MatTxtSearchBox.Multiline = false;
-            this.MatTxtSearchBox.Name = "MatTxtSearchBox";
-            this.MatTxtSearchBox.Size = new System.Drawing.Size(205, 50);
-            this.MatTxtSearchBox.TabIndex = 670;
-            this.MatTxtSearchBox.Text = "";
-            this.MatTxtSearchBox.TextChanged += new System.EventHandler(this.MatTxtSearchBox_TextChanged);
             // 
             // materialCard3
             // 
