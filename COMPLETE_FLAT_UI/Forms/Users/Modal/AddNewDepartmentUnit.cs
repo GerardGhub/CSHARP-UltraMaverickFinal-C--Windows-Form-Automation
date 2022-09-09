@@ -16,13 +16,13 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 {
     public partial class AddNewDepartmentUnit : MaterialForm
     {
-        frmDepartmentUnit ths;
+        readonly frmDepartmentUnit ths;
         DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        DepartmentUnit DeptUnit = new DepartmentUnit();
-        DepartmentUnitRepository DepartmentUnitRepositorys = new DepartmentUnitRepository();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly DepartmentUnit DeptUnit = new DepartmentUnit();
+        readonly DepartmentUnitRepository DepartmentUnitRepositorys = new DepartmentUnitRepository();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public AddNewDepartmentUnit(
             frmDepartmentUnit frm, 

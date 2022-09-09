@@ -20,18 +20,16 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 {
     public partial class frmEditUser : MaterialForm
     {
-        frmUserManagement2 ths;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        myclasses xClass = new myclasses();
-
-        myclasses myClass = new myclasses();
+        readonly frmUserManagement2 ths;
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         DataSet dSet_temp = new DataSet();
         DataSet dsImage= new DataSet();
-        int temp_id = 0;
+
         int s_id = 0;
-        Boolean ready = false;
+
         DataSet dSet = new DataSet();
         string mode = "";
 
@@ -85,16 +83,21 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void frmEditUser_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            loadUser_type(); // Load the UserType at User Rights
-            loadDepartment();
+            this.ConnectionInit();
 
-            callDataBinding();
-            textBox1.Text = String.Empty;
+            this.loadUser_type();
+            this.loadDepartment();
+
+            this.callDataBinding();
+
             loadImage();
             Gender();
+            
+        }
 
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
         public void Gender()
@@ -172,7 +175,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
 
 
-        private void callDataBinding()
+        public void callDataBinding()
         {
             txtname.Text = first_name;
             txtLastName.Text = last_name;
@@ -189,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ths.textBox1.Text = textBox1.Text;
+            ths.textBox2.Text = textBox1.Text;
         }
 
         private void frmEditUser_FormClosing(object sender, FormClosingEventArgs e)
@@ -239,9 +242,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
 
 
-            ready = false;
-            xClass.fillComboBoxFilter(cboUnit, "filter_section_dropdown", dSet, sp_drop_department_id, 0);
-            ready = true;
+ 
+            myClass.fillComboBoxFilter(cboUnit, "filter_section_dropdown", dSet, sp_drop_department_id, 0);
+      
             s_id = showValue(cboUnit);
 
 
@@ -249,22 +252,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         public int showValue(ComboBox cbo)
         {
             int ids = 0;
-            if (ready == true)
-            {
+           
                 if (cbo.Items.Count > 0)
                 {
                     ids = Convert.ToInt32(cbo.SelectedValue.ToString());
                 }
-            }
+         
             return ids;
         }
         public void loadPositionDropDown()
         {
-
-
-            ready = false;
-            xClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, sp_drop_department_id, 0);
-            ready = true;
+            myClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, sp_drop_department_id, 0);
             s_id = showValue(cboPosition);
 
 
@@ -486,7 +484,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             try
             {
-                ready = false;
+            
                 pbImage.Image = null;
                 pbImage.Refresh();
                 pbImage.BackgroundImage = new Bitmap(Properties.Resources.Buddy);
@@ -504,7 +502,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             odbEmployeeImage.Filter = "JPEG Images (.JPG)|*.jpg|GIF Images (.GIF)|*.gif|BITMAPS (.BMP)|*.bmp|PNG Images (.PNG)|*.png";
             odbEmployeeImage.Multiselect = false;
-            ready = true;
+ 
             if (odbEmployeeImage.ShowDialog() != DialogResult.Cancel)
             {
                 try
@@ -512,7 +510,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     pbImage.Image = null;
                     pbImage.Refresh();
                     pbImage.Image = Image.FromFile(odbEmployeeImage.FileName);
-                    ready = true;
+            
                     if (readImageByte(odbEmployeeImage.FileName))
                     {
                         btnRemove.Enabled = true;
@@ -520,7 +518,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
                 catch (Exception exception)
                 {
-                   ready = false;
+             
                     MessageBox.Show("Error  : Image Failed To Load \n\n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

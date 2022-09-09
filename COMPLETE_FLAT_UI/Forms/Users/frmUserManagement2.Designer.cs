@@ -79,6 +79,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -786,6 +787,8 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             // materialCard4
             // 
+            this.materialCard4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard4.Controls.Add(this.mattxtSearch);
             this.materialCard4.Depth = 0;
@@ -798,11 +801,24 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard4.Size = new System.Drawing.Size(985, 65);
             this.materialCard4.TabIndex = 673;
             // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(338, 178);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(145, 20);
+            this.textBox2.TabIndex = 674;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.Visible = false;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // frmUserManagement2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.materialCard4);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.textBox1);
@@ -879,5 +895,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
         private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
         private MaterialSkin.Controls.MaterialCard materialCard4;
+        public System.Windows.Forms.TextBox textBox2;
     }
 }

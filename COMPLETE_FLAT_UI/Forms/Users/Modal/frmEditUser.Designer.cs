@@ -374,7 +374,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtpassword.Multiline = false;
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Password = true;
             this.txtpassword.Size = new System.Drawing.Size(198, 50);
             this.txtpassword.TabIndex = 564;
             this.txtpassword.Text = "";
@@ -482,7 +481,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 381);
+            this.ClientSize = new System.Drawing.Size(966, 423);
             this.Controls.Add(this.materialCard2);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;

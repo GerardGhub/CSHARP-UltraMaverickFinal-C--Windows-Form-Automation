@@ -27,14 +27,13 @@ namespace ULTRAMAVERICK.Forms.Users
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
 
-        Boolean ready = false;
         DataSet dSet = new DataSet();
         string mode = "";
         public frmUserManagement2()
         {
             InitializeComponent();
         }
-        public string Name { get; set; }
+        public string EmpName { get; set; }
         public string LastName { get; set; }
         public string RightsName { get; set; }
         public string UserName { get; set; }
@@ -61,6 +60,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.displayUsers();
             this.matRadioActive.Checked = true;
             this.textBox1.Text = String.Empty;
+            this.textBox2.Text = String.Empty;
+            //this.textBox1.Visible = false;
             matRadioActive_CheckedChanged(sender, e);
         }
  
@@ -285,11 +286,13 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
 
                 //this.ConnectionINit();
-                this.displayUsers();
 
-                this.textBox1.Text = String.Empty;
+
+                //this.displayUsers();
+
+                //this.textBox1.Text = String.Empty;
                 this.frmUserManagement2_Load(sender, e);
-
+                //MessageBox.Show("A");
 
             }
 
@@ -532,6 +535,16 @@ namespace ULTRAMAVERICK.Forms.Users
             else
             {
 
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox2.Text == "SaveGerardSingian")
+            {
+
+
+                this.frmUserManagement2_Load(sender, e);
             }
         }
     }
