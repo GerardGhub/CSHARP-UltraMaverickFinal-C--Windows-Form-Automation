@@ -29,14 +29,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageActivePrimaryUnit));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -57,7 +57,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.mattxtPrimaryUnit = new MaterialSkin.Controls.MaterialTextBox();
             this.txtmatSearchUnit = new MaterialSkin.Controls.MaterialTextBox();
             this.lbltotalRecordsActiveUnits = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,20 +75,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.modified_at_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modified_by_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtmatid = new MaterialSkin.Controls.MaterialTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.btnAddTool = new System.Windows.Forms.ToolStripButton();
-            this.btnEditTool = new System.Windows.Forms.ToolStripButton();
-            this.btnDeleteTool = new System.Windows.Forms.ToolStripButton();
+            this.BtnNew = new System.Windows.Forms.ToolStripButton();
+            this.BtnActivateTool = new System.Windows.Forms.ToolStripButton();
+            this.BtnDeactivateTool = new System.Windows.Forms.ToolStripButton();
             this.btnUpdateTool = new System.Windows.Forms.ToolStripButton();
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lbltotalConversion = new System.Windows.Forms.Label();
+            this.LbltotalConversion = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtmatid = new MaterialSkin.Controls.MaterialTextBox();
+            this.mattxtPrimaryUnit = new MaterialSkin.Controls.MaterialTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             this.materialCard2.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -119,20 +119,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.AllowUserToAddRows = false;
             this.dgvRawMats.AllowUserToDeleteRows = false;
             this.dgvRawMats.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRawMats.ColumnHeadersHeight = 45;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.item_id,
@@ -148,14 +148,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_by,
             this.updated_at,
             this.updated_by});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -163,14 +163,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 30;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
@@ -188,14 +188,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvRawMats.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.dgvRawMats.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvRawMats.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvRawMats.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvRawMats.ThemeStyle.HeaderStyle.Height = 45;
             this.dgvRawMats.ThemeStyle.ReadOnly = true;
             this.dgvRawMats.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRawMats.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvRawMats.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRawMats.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvRawMats.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dgvRawMats.ThemeStyle.RowsStyle.Height = 40;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
@@ -374,25 +374,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSearch.Visible = false;
             this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged);
             // 
-            // mattxtPrimaryUnit
-            // 
-            this.mattxtPrimaryUnit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mattxtPrimaryUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtPrimaryUnit.Depth = 0;
-            this.mattxtPrimaryUnit.Enabled = false;
-            this.mattxtPrimaryUnit.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtPrimaryUnit.Hint = "Primary Unit";
-            this.mattxtPrimaryUnit.Location = new System.Drawing.Point(843, 33);
-            this.mattxtPrimaryUnit.Margin = new System.Windows.Forms.Padding(1);
-            this.mattxtPrimaryUnit.MaxLength = 50;
-            this.mattxtPrimaryUnit.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtPrimaryUnit.Multiline = false;
-            this.mattxtPrimaryUnit.Name = "mattxtPrimaryUnit";
-            this.mattxtPrimaryUnit.Size = new System.Drawing.Size(171, 50);
-            this.mattxtPrimaryUnit.TabIndex = 486;
-            this.mattxtPrimaryUnit.Text = "";
-            this.mattxtPrimaryUnit.Visible = false;
-            // 
             // txtmatSearchUnit
             // 
             this.txtmatSearchUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -471,22 +452,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvActiveUnits.AllowUserToAddRows = false;
             this.dgvActiveUnits.AllowUserToDeleteRows = false;
             this.dgvActiveUnits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dgvActiveUnits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvActiveUnits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvActiveUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvActiveUnits.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvActiveUnits.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvActiveUnits.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvActiveUnits.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActiveUnits.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActiveUnits.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvActiveUnits.ColumnHeadersHeight = 45;
             this.dgvActiveUnits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -501,28 +482,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.modified_at_units,
             this.modified_by_units,
             this.is_active});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvActiveUnits.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvActiveUnits.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvActiveUnits.EnableHeadersVisualStyles = false;
             this.dgvActiveUnits.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvActiveUnits.Location = new System.Drawing.Point(5, 42);
             this.dgvActiveUnits.MultiSelect = false;
             this.dgvActiveUnits.Name = "dgvActiveUnits";
             this.dgvActiveUnits.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActiveUnits.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActiveUnits.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvActiveUnits.RowHeadersVisible = false;
             this.dgvActiveUnits.RowHeadersWidth = 102;
             this.dgvActiveUnits.RowTemplate.DividerHeight = 5;
@@ -540,14 +521,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvActiveUnits.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvActiveUnits.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.dgvActiveUnits.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvActiveUnits.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvActiveUnits.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvActiveUnits.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvActiveUnits.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvActiveUnits.ThemeStyle.HeaderStyle.Height = 45;
             this.dgvActiveUnits.ThemeStyle.ReadOnly = true;
             this.dgvActiveUnits.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvActiveUnits.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvActiveUnits.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvActiveUnits.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvActiveUnits.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvActiveUnits.ThemeStyle.RowsStyle.Height = 40;
             this.dgvActiveUnits.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
@@ -656,24 +637,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.is_active.Name = "is_active";
             this.is_active.ReadOnly = true;
             // 
-            // txtmatid
-            // 
-            this.txtmatid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmatid.Depth = 0;
-            this.txtmatid.Enabled = false;
-            this.txtmatid.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmatid.Hint = "Item ID";
-            this.txtmatid.Location = new System.Drawing.Point(740, 10);
-            this.txtmatid.Margin = new System.Windows.Forms.Padding(1);
-            this.txtmatid.MaxLength = 50;
-            this.txtmatid.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmatid.Multiline = false;
-            this.txtmatid.Name = "txtmatid";
-            this.txtmatid.Size = new System.Drawing.Size(62, 50);
-            this.txtmatid.TabIndex = 487;
-            this.txtmatid.Text = "";
-            this.txtmatid.TextChanged += new System.EventHandler(this.txtmatid_TextChanged);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
@@ -682,62 +645,62 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.panel1.Location = new System.Drawing.Point(17, 582);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 48);
+            this.panel1.Size = new System.Drawing.Size(361, 48);
             this.panel1.TabIndex = 566;
             // 
             // toolStrip2
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddTool,
-            this.btnEditTool,
-            this.btnDeleteTool,
+            this.BtnNew,
+            this.BtnActivateTool,
+            this.BtnDeactivateTool,
             this.btnUpdateTool,
             this.btnCancelTool});
             this.toolStrip2.Location = new System.Drawing.Point(0, 1);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip2.Size = new System.Drawing.Size(280, 47);
+            this.toolStrip2.Size = new System.Drawing.Size(361, 47);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // btnAddTool
+            // BtnNew
             // 
-            this.btnAddTool.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTool.Image")));
-            this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(75, 44);
-            this.btnAddTool.Text = "&New";
-            this.btnAddTool.Click += new System.EventHandler(this.btnAddTool_Click);
+            this.BtnNew.Image = ((System.Drawing.Image)(resources.GetObject("BtnNew.Image")));
+            this.BtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnNew.Name = "BtnNew";
+            this.BtnNew.Size = new System.Drawing.Size(82, 44);
+            this.BtnNew.Text = "&New";
+            this.BtnNew.Click += new System.EventHandler(this.btnAddTool_Click);
             // 
-            // btnEditTool
+            // BtnActivateTool
             // 
-            this.btnEditTool.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTool.Image")));
-            this.btnEditTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditTool.Name = "btnEditTool";
-            this.btnEditTool.Size = new System.Drawing.Size(95, 44);
-            this.btnEditTool.Text = "&Activate";
-            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
+            this.BtnActivateTool.Image = ((System.Drawing.Image)(resources.GetObject("BtnActivateTool.Image")));
+            this.BtnActivateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnActivateTool.Name = "BtnActivateTool";
+            this.BtnActivateTool.Size = new System.Drawing.Size(107, 44);
+            this.BtnActivateTool.Text = "&Activate";
+            this.BtnActivateTool.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
-            // btnDeleteTool
+            // BtnDeactivateTool
             // 
-            this.btnDeleteTool.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteTool.Image")));
-            this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteTool.Name = "btnDeleteTool";
-            this.btnDeleteTool.Size = new System.Drawing.Size(108, 44);
-            this.btnDeleteTool.Text = "&Deactivate";
-            this.btnDeleteTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
+            this.BtnDeactivateTool.Image = ((System.Drawing.Image)(resources.GetObject("BtnDeactivateTool.Image")));
+            this.BtnDeactivateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnDeactivateTool.Name = "BtnDeactivateTool";
+            this.BtnDeactivateTool.Size = new System.Drawing.Size(123, 44);
+            this.BtnDeactivateTool.Text = "&Deactivate";
+            this.BtnDeactivateTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
             // 
             // btnUpdateTool
             // 
             this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
             this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(77, 44);
+            this.btnUpdateTool.Size = new System.Drawing.Size(84, 44);
             this.btnUpdateTool.Text = "&Save";
             this.btnUpdateTool.Visible = false;
             // 
@@ -746,7 +709,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
             this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(88, 44);
+            this.btnCancelTool.Size = new System.Drawing.Size(98, 44);
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             // 
@@ -780,6 +743,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.tabPage1.Controls.Add(this.materialCard2);
             this.tabPage1.Controls.Add(this.lbltotalrecords);
             this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -790,10 +754,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.lbltotalConversion);
+            this.tabPage2.Controls.Add(this.LbltotalConversion);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.materialCard1);
             this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -802,18 +767,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.tabPage2.Text = "Conversions";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lbltotalConversion
+            // LbltotalConversion
             // 
-            this.lbltotalConversion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalConversion.AutoSize = true;
-            this.lbltotalConversion.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalConversion.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalConversion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalConversion.Location = new System.Drawing.Point(902, 594);
-            this.lbltotalConversion.Name = "lbltotalConversion";
-            this.lbltotalConversion.Size = new System.Drawing.Size(31, 35);
-            this.lbltotalConversion.TabIndex = 567;
-            this.lbltotalConversion.Text = "0";
+            this.LbltotalConversion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LbltotalConversion.AutoSize = true;
+            this.LbltotalConversion.BackColor = System.Drawing.Color.Transparent;
+            this.LbltotalConversion.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbltotalConversion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.LbltotalConversion.Location = new System.Drawing.Point(902, 594);
+            this.LbltotalConversion.Name = "LbltotalConversion";
+            this.LbltotalConversion.Size = new System.Drawing.Size(31, 35);
+            this.LbltotalConversion.TabIndex = 567;
+            this.LbltotalConversion.Text = "0";
+            this.LbltotalConversion.TextChanged += new System.EventHandler(this.LbltotalConversion_TextChanged);
             // 
             // label4
             // 
@@ -827,6 +793,43 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label4.Size = new System.Drawing.Size(40, 15);
             this.label4.TabIndex = 568;
             this.label4.Text = "Items";
+            // 
+            // txtmatid
+            // 
+            this.txtmatid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmatid.Depth = 0;
+            this.txtmatid.Enabled = false;
+            this.txtmatid.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtmatid.Hint = "Item ID";
+            this.txtmatid.Location = new System.Drawing.Point(740, 10);
+            this.txtmatid.Margin = new System.Windows.Forms.Padding(1);
+            this.txtmatid.MaxLength = 50;
+            this.txtmatid.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtmatid.Multiline = false;
+            this.txtmatid.Name = "txtmatid";
+            this.txtmatid.Size = new System.Drawing.Size(62, 50);
+            this.txtmatid.TabIndex = 487;
+            this.txtmatid.Text = "";
+            this.txtmatid.TextChanged += new System.EventHandler(this.txtmatid_TextChanged);
+            // 
+            // mattxtPrimaryUnit
+            // 
+            this.mattxtPrimaryUnit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mattxtPrimaryUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mattxtPrimaryUnit.Depth = 0;
+            this.mattxtPrimaryUnit.Enabled = false;
+            this.mattxtPrimaryUnit.Font = new System.Drawing.Font("Roboto", 12F);
+            this.mattxtPrimaryUnit.Hint = "Primary Unit";
+            this.mattxtPrimaryUnit.Location = new System.Drawing.Point(878, 31);
+            this.mattxtPrimaryUnit.Margin = new System.Windows.Forms.Padding(1);
+            this.mattxtPrimaryUnit.MaxLength = 50;
+            this.mattxtPrimaryUnit.MouseState = MaterialSkin.MouseState.OUT;
+            this.mattxtPrimaryUnit.Multiline = false;
+            this.mattxtPrimaryUnit.Name = "mattxtPrimaryUnit";
+            this.mattxtPrimaryUnit.Size = new System.Drawing.Size(70, 50);
+            this.mattxtPrimaryUnit.TabIndex = 486;
+            this.mattxtPrimaryUnit.Text = "";
+            this.mattxtPrimaryUnit.Visible = false;
             // 
             // frmManageActivePrimaryUnit
             // 
@@ -874,19 +877,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Label label2;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
-        private MaterialSkin.Controls.MaterialTextBox mattxtPrimaryUnit;
         private MaterialSkin.Controls.MaterialTextBox txtmatSearchUnit;
         private System.Windows.Forms.Label lbltotalRecordsActiveUnits;
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvActiveUnits;
-        private MaterialSkin.Controls.MaterialTextBox txtmatid;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton btnAddTool;
-        private System.Windows.Forms.ToolStripButton btnEditTool;
+        private System.Windows.Forms.ToolStripButton BtnNew;
+        private System.Windows.Forms.ToolStripButton BtnActivateTool;
         private System.Windows.Forms.ToolStripButton btnUpdateTool;
-        private System.Windows.Forms.ToolStripButton btnDeleteTool;
+        private System.Windows.Forms.ToolStripButton BtnDeactivateTool;
         private System.Windows.Forms.ToolStripButton btnCancelTool;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
@@ -917,7 +918,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label lblItemDescription;
-        private System.Windows.Forms.Label lbltotalConversion;
+        private System.Windows.Forms.Label LbltotalConversion;
         private System.Windows.Forms.Label label4;
+        private MaterialSkin.Controls.MaterialTextBox txtmatid;
+        private MaterialSkin.Controls.MaterialTextBox mattxtPrimaryUnit;
     }
 }

@@ -1310,14 +1310,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            matcmbCategory_SelectionChangeCommitted(sender,  e);
-        }
+   
 
-        private void lbltotalStoreforPreparation_TextChanged(object sender, EventArgs e)
+        private void LbltotalStoreforPreparation_TextChanged(object sender, EventArgs e)
         {
-            //this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
+
             if (this.lbltotalStoreforPreparation.Text == "0")
             {
                 this.mattxtScanTheBarcode.Enabled = false;
@@ -1336,7 +1333,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
         }
 
-        private void lbltotalStoreforPreparation_Click(object sender, EventArgs e)
+        private void LbltotalStoreforPreparation_Click(object sender, EventArgs e)
         {
 
         }

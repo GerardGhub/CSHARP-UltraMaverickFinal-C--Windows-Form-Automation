@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -20,12 +21,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     {
         //Constructor bugok
         frmDryMiscellaneouseIssue ths;
-        DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
+        readonly Raw_Materials_Dry RawMaterialsDryEntity = new Raw_Materials_Dry();
+        private DataSet dSet = new DataSet();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmEditItemModal(frmDryMiscellaneouseIssue frm, string created_by,
             string item_code,
@@ -36,26 +36,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             string primary_unit,
             string conversion,
             string item_type,
-            string primary_key,
-            int buffer_stock,
-            string expiration_days_prompting
+            int primary_key,
+            double buffer_stock,
+            int expiration_days_prompting
             )
         {
             InitializeComponent();
             ths = frm;
-            textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.created_by = created_by;
-            this.item_code = item_code;
-            this.item_description = item_description;
-            this.item_class = item_class;
-            this.major_category = major_category;
-            this.sub_category = sub_category;
-            this.primary_unit = primary_unit;
-            this.conversion = conversion;
-            this.item_type = item_type;
-            this.primary_key = primary_key;
-            this.sp_buffer_stock = buffer_stock;
-            this.SpExpirationPrompting = expiration_days_prompting;
+            this.textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
+            this.RawMaterialsDryEntity.Created_By = created_by;
+            this.RawMaterialsDryEntity.Item_Code = item_code;
+            this.RawMaterialsDryEntity.Item_Description = item_description;
+            this.RawMaterialsDryEntity.Item_Class = item_class;
+            this.RawMaterialsDryEntity.Major_Category = major_category;
+            this.RawMaterialsDryEntity.Sub_Category = sub_category;
+            this.RawMaterialsDryEntity.Primary_Unit = primary_unit;
+            this.RawMaterialsDryEntity.Conversion = conversion;
+            this.RawMaterialsDryEntity.Item_Type = item_type;
+            this.RawMaterialsDryEntity.Item_Id = primary_key;
+            this.RawMaterialsDryEntity.Buffer_Stock = buffer_stock;
+            this.RawMaterialsDryEntity.Expiration_Prompting = expiration_days_prompting;
             //var materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
             //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -64,22 +64,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
 
-        public string created_by { get; set; }
-        public string item_code { get; set; }
-        public string item_description { get; set; }
-        public string item_class { get; set; }
-        public string major_category { get; set; }
-        public string sub_category { get; set; }
-        public string primary_unit { get; set; }
-        public string conversion { get; set; }
-        public string item_type { get; set; }
-        public string primary_key { get; set; }
-        public string sp_created_by { get; set; }
-        public string sp_created_at { get; set; }
-
-        public int sp_buffer_stock { get; set; }
-
-        public string SpExpirationPrompting { get; set; }
+       
 
         private const int CB_SETCUEBANNER = 0x1703;
 
@@ -87,9 +72,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string lParam);
         private void frmEditItemModal_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
+            this.ConnectionInit();
             this.SendMessageInComboboxPHolder();
 
             this.loadItemClassDropdown();
@@ -100,6 +83,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.FirstLoadBindingOrb();
         }
 
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+
+
+        }
 
         public void loadItemClassDropdown()
         {
@@ -160,17 +149,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void FirstLoadBindingOrb()
         {
-            this.sp_created_by = created_by;
-            this.txtMatItemCode.Text = item_code;
-            this.txtMatItemDesc.Text = item_description;
-            this.cboItemClass.Text = item_class;
-            this.cboMajorCategory.Text = major_category;
-            this.cboSubCat.Text = sub_category;
-            this.cboPrimaryUnit.Text = primary_unit;
-            this.txtmatConversion.Text = conversion;
-            this.cboItemType.Text = item_type;
-            this.mattxtBufferStocks.Text = this.sp_buffer_stock.ToString();
-            this.txtExpirationDaysPrompting.Text = SpExpirationPrompting;
+            this.RawMaterialsDryEntity.Created_By = RawMaterialsDryEntity.Created_By;
+            this.txtMatItemCode.Text = RawMaterialsDryEntity.Item_Code;
+            this.txtMatItemDesc.Text = RawMaterialsDryEntity.Item_Description;
+            this.cboItemClass.Text = RawMaterialsDryEntity.Item_Class;
+            this.cboMajorCategory.Text = RawMaterialsDryEntity.Major_Category;
+            this.cboSubCat.Text = RawMaterialsDryEntity.Sub_Category;
+            this.cboPrimaryUnit.Text = RawMaterialsDryEntity.Primary_Unit;
+            this.txtmatConversion.Text = RawMaterialsDryEntity.Conversion;
+            this.cboItemType.Text = RawMaterialsDryEntity.Item_Type;
+            this.mattxtBufferStocks.Text = RawMaterialsDryEntity.Buffer_Stock.ToString();
+            this.txtExpirationDaysPrompting.Text = RawMaterialsDryEntity.Expiration_Prompting.ToString();
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -221,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                 dSet.Clear();
-                dSet = objStorProc.sp_Raw_Materials_Dry(Convert.ToInt32(primary_key),
+                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(Convert.ToInt32(RawMaterialsDryEntity.Item_Id),
                     this.txtMatItemCode.Text.Trim(),
                     this.txtMatItemDesc.Text.Trim(),
                     this.cboItemClass.Text.Trim(),
@@ -230,10 +219,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.cboPrimaryUnit.Text.Trim(),
                     this.txtmatConversion.Text.Trim(),
                     this.cboItemType.Text.Trim(),
-                    this.sp_created_at,
-                    this.sp_created_by,
+                    this.RawMaterialsDryEntity.Created_At,
+                    this.RawMaterialsDryEntity.Created_By,
                     "", 
-                    this.sp_created_by,
+                    this.RawMaterialsDryEntity.Created_By,
                     float.Parse(this.mattxtBufferStocks.Text.Trim()),
                     this.txtExpirationDaysPrompting.Text.Trim(),
                     "edit");

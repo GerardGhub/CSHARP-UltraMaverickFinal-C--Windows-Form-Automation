@@ -11,6 +11,7 @@ using COMPLETE_FLAT_UI.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -18,47 +19,47 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmManageActivePrimaryUnit : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+       
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
-        DataSet dSet = new DataSet();
+        readonly myclasses myClass = new myclasses();
+        private DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         int p_id2 = 0;
         int p_id = 0;
-
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        Raw_Materials_Dry RawMaterialsDryEntity = new Raw_Materials_Dry();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmManageActivePrimaryUnit()
         {
             InitializeComponent();
         }
-        public string conversion_qty { get; set; }
-        public string MyItemCode { get; set; }
+
 
         public string sp_active_pu_primary_id { get; set; }
-        public string sp_active_pu_description { get; set; }
-        public string sp_actve_pu_conversion { get; set; }
-        public string sp_item_ide { get; set; }
+
         public string sp_item_primary_unit { get; set; }
-        public string Unit_id { get; set; }
+
         public string sp_user_id { get; set; }
              
         public string sp_item_primary_id { get; set; }
 
-        public string Sp_Item_Description { get; set; }
 
         private void frmManageActivePrimaryUnit_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             this.sp_user_id = userinfo.user_id.ToString();
             this.showRawMaterialsInDryWH();
             this.SearchMethodJarVarCallingSP();
             this.SearchMethodJarVarCallingSPUnits();
             myglobal.global_module = "Active"; // Mode for Searching
             this.HideControls();
+            this.textBox1.Text = String.Empty;
         }
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
+
         private void HideControls()
         {
             this.txtmatid.Visible = false;
@@ -70,7 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dset_emp_SearchEnginesonUnit.Clear();
 
 
-            this.dset_emp_SearchEnginesonUnit = objStorProc.sp_getMajorTables("PrimaryUnitManagementMajor");
+            this.dset_emp_SearchEnginesonUnit = g_objStoredProcCollection.sp_getMajorTables("PrimaryUnitManagementMajor");
 
         }
 
@@ -92,13 +93,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     else if (myglobal.global_module == "Active")
                     {
 
-
-                        //Gerard Singian Developer Man
-
-
-
-
-                        dv.RowFilter = "item_item_code = '" + MyItemCode + "' AND active_pu_conversion like '%" +txtmatSearchUnit.Text+"%' ";
+                        dv.RowFilter = "item_item_code = '" + RawMaterialsDryEntity.Item_Code + "' " +
+                            "AND active_pu_conversion like '%" +txtmatSearchUnit.Text+"%' ";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -148,7 +144,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                xClass.fillDataGridView(dgvRawMats, "Raw_Materials_Dry_IngredientsOnly", dSet);
+                myClass.fillDataGridView(dgvRawMats, "Raw_Materials_Dry_IngredientsOnly", dSet);
                 DataGridColumnHide();
                 lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
             }
@@ -165,7 +161,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.Columns["item_class"].Visible = false;
             this.dgvRawMats.Columns["major_category"].Visible = false;
             this.dgvRawMats.Columns["sub_category"].Visible = false;
-            //this.dgvRawMats.Columns["primary_unit"].Visible = false;
             this.dgvRawMats.Columns["conversion"].Visible = false;
             this.dgvRawMats.Columns["item_type"].Visible = false;
             this.dgvRawMats.Columns["created_at"].Visible = false;
@@ -179,7 +174,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("Raw_Materials_Dry_Major");
+            dset_emp_SearchEngines = g_objStoredProcCollection
+                .sp_getMajorTables("Raw_Materials_Dry_Major");
 
         }
         private void doSearchInTextBoxCmb()
@@ -238,7 +234,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
             this.showValueCell();
-            this.lbltotalConversion.Text = this.dgvActiveUnits.RowCount.ToString();
+            this.LbltotalConversion.Text = this.dgvActiveUnits.RowCount.ToString();
         }
 
         private void showValueCell()
@@ -251,8 +247,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     {
                         this.p_id = Convert.ToInt32(dgvRawMats.CurrentRow.Cells["item_id"].Value);
 
-                       this.Sp_Item_Description = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
-                        this.MyItemCode = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
+                       this.RawMaterialsDryEntity.Item_Description = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
+                        this.RawMaterialsDryEntity.Item_Code = dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
                         this.txtmatid.Text = dgvRawMats.CurrentRow.Cells["item_id"].Value.ToString();
                         this.sp_item_primary_unit = dgvRawMats.CurrentRow.Cells["primary_unit"].Value.ToString();
                         this.lblItemDescription.Text = dgvRawMats.CurrentRow.Cells["item_description"].Value.ToString();
@@ -316,11 +312,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     {
                         p_id2 = Convert.ToInt32(dgvActiveUnits.CurrentRow.Cells["id"].Value);
 
-                        conversion_qty = dgvActiveUnits.CurrentRow.Cells["active_pu_conversion"].Value.ToString();
+                       RawMaterialsDryEntity.Conversion = dgvActiveUnits.CurrentRow.Cells["active_pu_conversion"].Value.ToString();
 
                         mattxtPrimaryUnit.Text = dgvActiveUnits.CurrentRow.Cells["active_pu_description"].Value.ToString();
-                        //Unit_id = dgvActiveUnits.CurrentRow.Cells["id"].Value.ToString();
-
+          
                         sp_active_pu_primary_id = dgvActiveUnits.CurrentRow.Cells["active_pu_primary_id"].Value.ToString();
                         sp_item_primary_id = dgvActiveUnits.CurrentRow.Cells["item_primary_id"].Value.ToString();
                     }
@@ -332,10 +327,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             this.toolStrip2.Visible = false;
             frmAddNewUomConversion addNew = new frmAddNewUomConversion(this, 
-                this.conversion_qty, 
+                this.RawMaterialsDryEntity.Conversion, 
                 this.mattxtPrimaryUnit.Text, 
-                this.MyItemCode, 
-                this.Sp_Item_Description, 
+                this.RawMaterialsDryEntity.Item_Code, 
+                this.RawMaterialsDryEntity.Item_Description, 
                 this.sp_active_pu_primary_id, 
                 this.txtmatid.Text, 
                 this.sp_item_primary_unit);
@@ -372,7 +367,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
 
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "delete");
+                    dSet_temp = this.g_objStoredProcCollection.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "delete");
 
                     this.GlobalStatePopup.InactiveSuccessfully();
 
@@ -398,7 +393,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             dSet.Clear();
-            dSet = objStorProc.sp_PrimaryUnitManagement(0, sp_item_primary_id, "", "", "", "", "", "", "", "", "", "", "checkthedataActivate");
+            dSet = g_objStoredProcCollection.sp_PrimaryUnitManagement(0, sp_item_primary_id, "", "", "", "", "", "", "", "", "", "", "checkthedataActivate");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -420,10 +415,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
 
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_PrimaryUnitManagement(Convert.ToInt32(txtmatid.Text), "", "", "", "", "", "", "", "", "", "", "", "inactiveall");
+                    dSet_temp = g_objStoredProcCollection.sp_PrimaryUnitManagement(Convert.ToInt32(txtmatid.Text), "", "", "", "", "", "", "", "", "", "", "", "inactiveall");
 
                     dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "activate_conversion");
+                    dSet_temp = g_objStoredProcCollection.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "activate_conversion");
 
 
 
@@ -466,6 +461,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
+        }
+
+        private void LbltotalConversion_TextChanged(object sender, EventArgs e)
+        {
+            //if (this.LbltotalConversion.Text == "1")
+            //{
+            //    this.BtnActivateTool.Visible = false;
+            //}
+            //else
+            //{
+            //    this.BtnActivateTool.Visible = true;
+            //}
         }
     }
 }

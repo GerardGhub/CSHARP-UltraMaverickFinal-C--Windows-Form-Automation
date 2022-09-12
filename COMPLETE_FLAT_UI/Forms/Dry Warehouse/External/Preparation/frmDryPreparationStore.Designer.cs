@@ -664,8 +664,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.lbltotalStoreforPreparation.Size = new System.Drawing.Size(26, 29);
             this.lbltotalStoreforPreparation.TabIndex = 659;
             this.lbltotalStoreforPreparation.Text = "0";
-            this.lbltotalStoreforPreparation.TextChanged += new System.EventHandler(this.lbltotalStoreforPreparation_TextChanged);
-            this.lbltotalStoreforPreparation.Click += new System.EventHandler(this.lbltotalStoreforPreparation_Click);
+            this.lbltotalStoreforPreparation.TextChanged += new System.EventHandler(this.LbltotalStoreforPreparation_TextChanged);
+            this.lbltotalStoreforPreparation.Click += new System.EventHandler(this.LbltotalStoreforPreparation_Click);
             // 
             // label2
             // 

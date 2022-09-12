@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -19,12 +20,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmAddNewItemModal : MaterialForm
     {
         frmDryMiscellaneouseIssue ths;
-        myclasses xClass = new myclasses();
-        DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        private DataSet dSet = new DataSet();
+        readonly myclasses myClass = new myclasses();
+        readonly Raw_Materials_Dry RawMaterialsDryEntity = new Raw_Materials_Dry();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
         public frmAddNewItemModal(frmDryMiscellaneouseIssue frm, string created_by)
@@ -45,11 +45,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
         private void frmAddNewItemModal_Load(object sender, EventArgs e)
         {
-            
-                g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-                objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
 
-                this.txtMatItemCode.Focus();
+
+      
             this.CallingMainFormWindowBinder();
             this.loadItemClassDropdown();
             this.loadMajorCategoryDropdown();
@@ -57,6 +56,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.loadItemTypeDropdown();
             this.loadPrimaryUnitDropdown();
             this.CleartextBoxes();
+            this.txtMatItemCode.Focus();
+        }
+
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
         private void CleartextBoxes()
         {
@@ -121,7 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void CallingMainFormWindowBinder()
         {
-            this.txtcreatedBy.Text = created_by;
+            this.RawMaterialsDryEntity.Created_By = created_by;
           
          
         }
@@ -279,7 +284,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 this.txtMatItemCode.Text, 
                 this.txtMatItemDesc.Text,
                 "",
@@ -323,7 +328,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                 dSet.Clear();
-                dSet = objStorProc.sp_Raw_Materials_Dry(0,
+                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                     this.txtMatItemCode.Text.Trim(),
                     this.txtMatItemDesc.Text.Trim(),
                     this.cboItemClass.Text.Trim(),
@@ -332,14 +337,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.cboPrimaryUnit.Text.Trim(),
                     this.txtmatConversion.Text.Trim(),
                     this.cboItemType.Text.Trim(),
-                    this.txtcreatedAt.Text.Trim(),
-                    this.txtcreatedBy.Text.Trim(),
+                    this.RawMaterialsDryEntity.Created_At,
+                    this.RawMaterialsDryEntity.Created_By,
                     "","", Convert.ToInt32(this.mattxtBufferStocks.Text),
-                    "",
+                    this.txtExpirationDaysPrompting.Text,
                     "add");
 
                 dSet.Clear();
-                dSet = objStorProc.sp_Raw_Materials_Dry(0,
+                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                     this.txtMatItemCode.Text.Trim(),
                     this.txtMatItemDesc.Text.Trim(),
                     this.cboItemClass.Text.Trim(),
@@ -348,8 +353,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.lblPrimaryUnitID.Text.Trim(),
                     this.txtmatConversion.Text.Trim(),
                     this.cboItemType.Text.Trim(),
-                    this.txtcreatedAt.Text.Trim(),
-                    this.txtcreatedBy.Text.Trim(),
+                    this.RawMaterialsDryEntity.Created_At,
+                    this.RawMaterialsDryEntity.Created_By,
                     "", "", Convert.ToInt32(this.mattxtBufferStocks.Text),
                     "",
                     "addRMLogs");

@@ -21,8 +21,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     {
 
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
-        DataSet dSet = new DataSet();
+        readonly myclasses myClass = new myclasses();
+        private DataSet dSet = new DataSet();
 
    
         int p_id = 0;
@@ -32,7 +32,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         DataSet dSet_temp = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmLotManagement()
         {
             InitializeComponent();
@@ -387,6 +387,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             
             //this.matRadioNotActive.Checked = false;
  
+        }
+
+        private void metroSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroFinalSaving_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -195,7 +195,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             matBtnDelete.Visible = false;
       
 
-            matBtnSave.Visible = true;
+       
 
             this.ItemTypeEntity.Mode = "ADD";
             FrmAddNewItemType addNew =
@@ -229,7 +229,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
-            matBtnSave.Visible = true;
+       
 
 
 
@@ -320,27 +320,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
-            //if (mattxtSearch.Text == "")
-            //{
-            //    showItemTypeData();
-            //}
-            //if (lbltotalrecords.Text == "0")
-            //{
-
-            //}
-            //else
-            //{
-            //    if (mode == "add")
-            //    {
-
-            //    }
-            //    else
-            //    {
-            //        doSearchInTextBox();
-            //    }
-
-            //}
-            doSearchInTextBox();
+         
+            this.doSearchInTextBox();
         }
 
         private void txtmatItemType_KeyPress(object sender, KeyPressEventArgs e)

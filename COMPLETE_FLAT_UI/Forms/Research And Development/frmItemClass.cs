@@ -28,7 +28,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         readonly Item_Class Item_ClassEntity = new Item_Class();
         string mode = "";
 
-        int temp_hid = 0;
         DateTime dNow = DateTime.Now;
         Boolean ready = false;
 
@@ -42,12 +41,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
    
-        private void frmItemClass_Load(object sender, EventArgs e)
+        private void FrmItemClass_Load(object sender, EventArgs e)
         {
             this.ShowDataRadioButtonActivated();
             this.ConnetionString();
             myglobal.global_module = "Active"; // Mode for Searching
-            this.showItemClassData();
+            this.ShowItemClassData();
             this.SearchMethodJarVarCallingSP();
             this.textBox1.Text = String.Empty;
         }
@@ -121,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
 
 
-        private void showItemClassData()      //method for loading available_menus
+        private void ShowItemClassData()      //method for loading available_menus
         {
             try
             {
@@ -139,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         }
 
-        private void showItemClassDataInActive()      //method for loading available_menus
+        private void ShowItemClassDataInActive()      //method for loading available_menus
         {
             try
             {
@@ -158,58 +157,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         }
 
 
-
-        private void matBtnCancel_Click(object sender, EventArgs e)
-        {
-            matBtnCancel.Visible = false;
-            mode = "";
-
-            matBtnEdit.Visible = true;
-            matBtnSave.Visible = false;
-            matBtnNew.Visible = true;
-            matBtnDelete.Visible = true;
-
-        }
-
-
-
-    
-
-
-
-
-
-
-  
-
-        private void metroSave_Click(object sender, EventArgs e)
-        {
-            //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the  Item Class Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-
-           
-
-            }
-
-            else
-            {
-                return;
-            }
-
-        }
-
-
-
-
-
-
-        private void metroFinalSaving_Click(object sender, EventArgs e)
-        {
-
-
-      
-        }
 
         private void dgvitemClass_CurrentCellChanged_1(object sender, EventArgs e)
         {
@@ -246,7 +193,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             matBtnDelete.Visible = false;
  
 
-            matBtnSave.Visible = true;
+     
     
 
             this.Item_ClassEntity.Mode = "ADD";
@@ -282,8 +229,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
-            matBtnSave.Visible = true;
-  
+     
 
             this.Item_ClassEntity.Mode = "EDIT";
             FrmAddNewItemClass addNew =
@@ -307,7 +253,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     this.dSet_temp.Clear();
                     this.dSet_temp = this.g_objStoredProcCollection.sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, "", "", "", "", "", "delete");
                     this.GlobalStatePopup.InactiveSuccessfully();
-                    this.frmItemClass_Load(sender, e);
+                    this.FrmItemClass_Load(sender, e);
                 }
 
                 else
@@ -325,7 +271,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     this.dSet_temp.Clear();
                     this.dSet_temp = this.g_objStoredProcCollection.sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, "", "", "", "", "", "activate");
                     this.GlobalStatePopup.ActivatedSuccessfully();
-                    this.frmItemClass_Load(sender, e);
+                    this.FrmItemClass_Load(sender, e);
                 }
 
                 else
@@ -339,71 +285,47 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
 
-        private void btnUpdateTool_Click(object sender, EventArgs e)
+        private void BtnUpdateTool_Click(object sender, EventArgs e)
         {
 
         
         }
 
-        private void mattxtSearch_TextChanged(object sender, EventArgs e)
-        {
-            if (mattxtSearch.Text == "")
-            {
-                showItemClassData();
-            }
-            if (lbltotalrecords.Text == "0")
-            {
-
-            }
-            else
-            {
-                if (mode == "add")
-                {
-
-                }
-                else
-                {
-                    doSearchInTextBox();
-                }
-
-            }
-        }
-
-        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioNotActive_CheckedChanged(object sender, EventArgs e)
         {
             if (matRadioActive.Checked == true)
             {
 
                 this.matBtnDelete.Text = "&InActive";
 
-                this.showItemClassData();
+                this.ShowItemClassData();
                 this.SearchMethodJarVarCallingSP();
             }
             else if (matRadioNotActive.Checked == true)
             {
       
                 this.matBtnDelete.Text = "&Activate";
-                this.showItemClassDataInActive();
+                this.ShowItemClassDataInActive();
                 this.SearchMethodJarVarCallingSP();
             }
            
         }
 
-        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioActive_CheckedChanged(object sender, EventArgs e)
         {
             if (matRadioActive.Checked == true)
             {
 
                 this.matBtnDelete.Text = "&InActive";
      
-                this.showItemClassData();
+                this.ShowItemClassData();
     
             }
             else if (matRadioNotActive.Checked == true)
             {
        
                 this.matBtnDelete.Text = "&Activate";
-                this.showItemClassDataInActive();
+                this.ShowItemClassDataInActive();
         
             }
             else
@@ -412,7 +334,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
         }
 
-        private void mattxtSearch_TextChanged_1(object sender, EventArgs e)
+        private void MattxtSearch_TextChanged_1(object sender, EventArgs e)
         {
     
             if (this.matRadioActive.Checked == true)
@@ -427,17 +349,17 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.doSearchInTextBox();
         }
 
-        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        private void MattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
 
      
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             this.btnCancelTool_Click(sender, e);
-            this.frmItemClass_Load(sender, e);
+            this.FrmItemClass_Load(sender, e);
         }
 
         private void FrmItemClass_FormClosed(object sender, FormClosedEventArgs e)

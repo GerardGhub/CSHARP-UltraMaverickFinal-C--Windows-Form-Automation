@@ -19,13 +19,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmAddNewUomConversion : MaterialForm
     {
         frmManageActivePrimaryUnit ths;
-        myclasses xClass = new myclasses();
+
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
-        public frmAddNewUomConversion(frmManageActivePrimaryUnit frm, string conversion_qty, string primary_unit, 
-            string item_code, string item_description, string sp_active_pu_primary_id, string item_id,
+        public frmAddNewUomConversion(
+            frmManageActivePrimaryUnit frm,
+            string conversion_qty, 
+            string primary_unit, 
+            string item_code, 
+            string item_description, 
+            string sp_active_pu_primary_id, 
+            string item_id,
             string sp_item_primary_unit)
         {
             InitializeComponent();
@@ -49,12 +56,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void frmAddNewUomConversion_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-            LoadDataIntheUltimateOrbWeaver();
-            lbluserid.Text = userinfo.user_id.ToString();
+            this.ConnectionInit();
+            this.LoadDataIntheUltimateOrbWeaver();
+            this.lbluserid.Text = userinfo.user_id.ToString();
         }
 
+        public void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
 
         private void LoadDataIntheUltimateOrbWeaver()
         {
@@ -74,67 +84,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             textBox1.Text = "Gerard Singian";
         }
-        public void SaveSuccessfully()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Successfully Save";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
-
-
-        }
-
-        public void ConversionAlreadyExist()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Conversion Already Exist!";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-        }
 
             private void btnUpdateTool_Click(object sender, EventArgs e)
         {
 
             dSet.Clear();
-            dSet = objStorProc.sp_PrimaryUnitManagement(0, txtMatConversion.Text, txtMatItemDesc.Text, "", "", "", "","","","","","", "getbyname");
+            dSet = g_objStoredProcCollection.sp_PrimaryUnitManagement(0, txtMatConversion.Text, txtMatItemDesc.Text, "", "", "", "","","","","","", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                ConversionAlreadyExist();
+                this.GlobalStatePopup.DataAlreadyExist();
 
 
                 txtMatConversion.Text = String.Empty;
@@ -144,21 +105,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-            if (txtMatConversion.Text == String.Empty)
+            if (this.txtMatConversion.Text == String.Empty)
             {
-                FillRequiredTextbox();
-                txtMatConversion.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                this.txtMatConversion.Focus();
                 return;
             }
             else
             {
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a new  primary unit conversion ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_PrimaryUnitManagement(0,
+                    dSet = g_objStoredProcCollection.sp_PrimaryUnitManagement(0,
                          sp_active_pu_primary_id,
                         txtMatPrimaryUnit.Text.Trim(),
                         txtMatConversion.Text.Trim(),
@@ -173,7 +134,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         "add");
                     textBox1.Text = "data Already Save!";
                     DispossalofTextboxEmpty();
-                    SaveSuccessfully();
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
 
 
                 }
@@ -189,33 +151,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             txtMatConversion.Text = String.Empty;
         }
-        public void FillRequiredTextbox()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "FILL UP THE REQUIRED FIELDS";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
-
+ 
         private void txtMatConversion_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -227,6 +163,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(txtMatConversion.Text + ch, out x))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtMatConversion_TextChanged(object sender, EventArgs e)
+        {
+            if(this.txtMatConversion.Text == String.Empty)
+            {
+                this.BtnSaveTool.Visible = false;
+            }
+            else
+            {
+                this.BtnSaveTool.Visible = true;
             }
         }
     }
