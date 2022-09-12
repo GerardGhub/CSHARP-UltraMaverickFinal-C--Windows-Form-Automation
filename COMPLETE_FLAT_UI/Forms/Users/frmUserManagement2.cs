@@ -326,7 +326,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             if (this.matRadioActive.Checked == true)
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (dgvUsers.Rows.Count > 0)
                     {
@@ -347,7 +347,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                         }
                     }
-                    //}
+                    
 
                 }
                 else
@@ -361,7 +361,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     if (dgvUsers.Rows.Count > 0)
                     {
@@ -375,20 +375,20 @@ namespace ULTRAMAVERICK.Forms.Users
 
                             mode = "";
                             this.GlobalStatePopup.ActivatedSuccessfully();
-                            toolStrip2.Visible = true;
-                            frmUserManagement2_Load(sender, e);
+                            this.toolStrip2.Visible = true;
+                            this.frmUserManagement2_Load(sender, e);
 
 
 
                         }
                     }
-                    //}
+                    
 
                 }
                 else
                 {
 
-                    toolStrip2.Visible = true;
+                    this.toolStrip2.Visible = true;
                     return;
                 }
             }
@@ -542,10 +542,14 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             if (this.textBox2.Text == "SaveGerardSingian")
             {
-
-
+                this.toolStrip2.Visible = true;
                 this.frmUserManagement2_Load(sender, e);
             }
+        }
+
+        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

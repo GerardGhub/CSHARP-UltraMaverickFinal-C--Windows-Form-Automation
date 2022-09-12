@@ -54,7 +54,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtFirstName = new MaterialSkin.Controls.MaterialTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.metroButtonSave = new MetroFramework.Controls.MetroButton();
             this.matChkQAUserAccount = new MaterialSkin.Controls.MaterialCheckbox();
             this.lblgenderLabel = new System.Windows.Forms.Label();
             this.odbEmployeeImage = new System.Windows.Forms.OpenFileDialog();
@@ -75,7 +74,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.Controls.Add(this.cboPosition);
             this.materialCard1.Controls.Add(this.CmBLocation);
             this.materialCard1.Controls.Add(this.cmbNotif);
-            this.materialCard1.Controls.Add(this.lblGenderSelected);
             this.materialCard1.Controls.Add(this.matRadioFemale);
             this.materialCard1.Controls.Add(this.matRadioMale);
             this.materialCard1.Controls.Add(this.CboUserType);
@@ -157,7 +155,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
             this.pbImage.Location = new System.Drawing.Point(10, 18);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(158, 180);
@@ -249,7 +246,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.lblGenderSelected.BackColor = System.Drawing.Color.Transparent;
             this.lblGenderSelected.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.lblGenderSelected.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblGenderSelected.Location = new System.Drawing.Point(496, 211);
+            this.lblGenderSelected.Location = new System.Drawing.Point(869, 389);
             this.lblGenderSelected.Name = "lblGenderSelected";
             this.lblGenderSelected.Size = new System.Drawing.Size(46, 13);
             this.lblGenderSelected.TabIndex = 579;
@@ -453,7 +450,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(357, 35);
+            this.textBox1.Location = new System.Drawing.Point(707, 386);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 561;
@@ -461,23 +458,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // metroButtonSave
-            // 
-            this.metroButtonSave.Location = new System.Drawing.Point(226, 42);
-            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1);
-            this.metroButtonSave.Name = "metroButtonSave";
-            this.metroButtonSave.Size = new System.Drawing.Size(68, 20);
-            this.metroButtonSave.TabIndex = 573;
-            this.metroButtonSave.Text = "Add";
-            this.metroButtonSave.UseSelectable = true;
-            this.metroButtonSave.Visible = false;
-            this.metroButtonSave.Click += new System.EventHandler(this.metroButtonSave_Click);
-            // 
             // matChkQAUserAccount
             // 
             this.matChkQAUserAccount.AutoSize = true;
             this.matChkQAUserAccount.Depth = 0;
-            this.matChkQAUserAccount.Location = new System.Drawing.Point(145, 377);
+            this.matChkQAUserAccount.Location = new System.Drawing.Point(30, 377);
             this.matChkQAUserAccount.Margin = new System.Windows.Forms.Padding(0);
             this.matChkQAUserAccount.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matChkQAUserAccount.MouseState = MaterialSkin.MouseState.HOVER;
@@ -511,9 +496,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 423);
             this.Controls.Add(this.matChkQAUserAccount);
-            this.Controls.Add(this.metroButtonSave);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.lblGenderSelected);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -555,7 +540,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton btnUpdateTool;
-        private MetroFramework.Controls.MetroButton metroButtonSave;
         private MaterialSkin.Controls.MaterialCheckbox matChkQAUserAccount;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnImage;

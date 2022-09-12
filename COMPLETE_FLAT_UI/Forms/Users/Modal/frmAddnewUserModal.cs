@@ -207,6 +207,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void btnUpdateTool_Click(object sender, EventArgs e)
         {
+
+          
             if (TxtFirstName.Text.Trim() == "")
             {
                 this.GlobalStatePopup.FillRequiredFields();
@@ -288,7 +290,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cboUnit_SelectionChangeCommitted(sender, e);
             this.cbodepartment_SelectedValueChanged(sender, e);
         
-
+           
+     
                 dSet.Clear();
             dSet = g_objStoredProcCollection.sp_userfile(0, TxtUserName.Text.Trim(), this.TxtFirstName.Text, this.TxtLastName.Text, "getbyname");
 
@@ -302,11 +305,142 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             }
             else
             {
-                this.metroButtonSave_Click(sender, e);
+                this.SaveFunctionality();
             }
         }
 
        
+        private void SaveFunctionality()
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new user " + TxtFirstName.Text + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (TxtFirstName.Text.Trim() == "")
+                {
+                    this.GlobalStatePopup.FillRequiredFields();
+                    TxtFirstName.BackColor = Color.Yellow;
+                    TxtFirstName.Focus();
+                    return;
+                }
+                if (TxtLastName.Text.Trim() == "")
+                {
+                    this.GlobalStatePopup.FillRequiredFields();
+                    TxtLastName.BackColor = Color.Yellow;
+                    TxtLastName.Focus();
+                    return;
+                }
+                if (CboUserType.Text.Trim() == "")
+                {
+                    this.GlobalStatePopup.FillRequiredFields();
+                    CboUserType.BackColor = Color.Yellow;
+                    CboUserType.Focus();
+                    return;
+                }
+                if (cboPosition.Text.Trim() == "")
+                {
+
+                    this.GlobalStatePopup.FillRequiredFields();
+                    cboPosition.BackColor = Color.Yellow;
+                    cboPosition.Focus();
+                    return;
+                }
+
+                if (TxtUserName.Text.Trim() == "")
+                {
+                    this.GlobalStatePopup.FillRequiredFields();
+                    TxtUserName.BackColor = Color.Yellow;
+                    TxtUserName.Focus();
+                    return;
+                }
+                if (TxtPassword.Text.Trim() == "")
+                {
+                    this.GlobalStatePopup.FillRequiredFields();
+                    TxtPassword.BackColor = Color.Yellow;
+                    TxtPassword.Focus();
+                    return;
+                }
+                if (lblGenderSelected.Text.Trim() == "")
+                {
+                    this.GlobalStatePopup.FillRequiredFields();
+                    lblgenderLabel.BackColor = Color.Yellow;
+                    return;
+                }
+                else
+                {
+                    if (pbImage.Image == null)
+                    {
+                        this.mode = "WithoutImage";
+                    }
+                    else
+                    {
+                        this.mode = "WithImage";
+                    }
+
+                    if (this.mode == "WithImage")
+                    {
+
+                        dSet.Clear();
+                        dSet = g_objStoredProcCollection.sp_userfile(0,
+                            Convert.ToInt32(this.UserFileEntity.User_Rights_Id),
+                            TxtUserName.Text.Trim(),
+                            TxtPassword.Text.Trim(),
+                            TxtFirstName.Text.Trim(),
+                            CmBLocation.Text.Trim(),
+                            cmbNotif.Text.Trim(),
+                            this.UserFileEntity.Position,
+                            TxtLastName.Text.Trim(),
+                            this.UserFileEntity.Department,
+                            UserFileEntity.Requestor_Type,
+                            this.UserFileEntity.Unit,
+                            lblGenderSelected.Text.Trim(),
+                            imageByte,
+                            "add");
+                        textBox1.Text = "SaveGerardSingian";
+                        this.GlobalStatePopup.SuccessFullySave();
+
+
+                        this.Close();
+                    }
+
+                    else
+                    {
+
+                        dSet.Clear();
+                        dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
+                            Convert.ToInt32(this.UserFileEntity.User_Rights_Id),
+                            TxtUserName.Text.Trim(),
+                            TxtPassword.Text.Trim(),
+                            TxtFirstName.Text.Trim(),
+                            CmBLocation.Text.Trim(),
+                            cmbNotif.Text.Trim(),
+                            this.UserFileEntity.Position,
+                            TxtLastName.Text.Trim(),
+                            this.UserFileEntity.Department,
+                            UserFileEntity.Requestor_Type,
+                            this.UserFileEntity.Unit,
+                            lblGenderSelected.Text.Trim(),
+                            "add");
+                        textBox1.Text = "SaveGerardSingian";
+                        this.GlobalStatePopup.SuccessFullySave();
+
+
+                        this.Close();
+                    }
+
+
+
+                }
+                CmBLocation.Enabled = false;
+                cmbNotif.Enabled = false;
+                TxtFirstName.Enabled = false;
+
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
 
     
 
