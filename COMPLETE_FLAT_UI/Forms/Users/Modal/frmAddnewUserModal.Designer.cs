@@ -40,7 +40,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.CmBLocation = new MetroFramework.Controls.MetroComboBox();
             this.cmbNotif = new MetroFramework.Controls.MetroComboBox();
             this.lblGenderSelected = new System.Windows.Forms.Label();
-            this.lblgenderLabel = new System.Windows.Forms.Label();
             this.matRadioFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioMale = new MaterialSkin.Controls.MaterialRadioButton();
             this.CboUserType = new MetroFramework.Controls.MetroComboBox();
@@ -57,6 +56,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
             this.matChkQAUserAccount = new MaterialSkin.Controls.MaterialCheckbox();
+            this.lblgenderLabel = new System.Windows.Forms.Label();
+            this.odbEmployeeImage = new System.Windows.Forms.OpenFileDialog();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +65,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.lblgenderLabel);
             this.materialCard1.Controls.Add(this.btnRemove);
             this.materialCard1.Controls.Add(this.btnImage);
             this.materialCard1.Controls.Add(this.btnUpdateTool);
@@ -74,7 +76,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.Controls.Add(this.CmBLocation);
             this.materialCard1.Controls.Add(this.cmbNotif);
             this.materialCard1.Controls.Add(this.lblGenderSelected);
-            this.materialCard1.Controls.Add(this.lblgenderLabel);
             this.materialCard1.Controls.Add(this.matRadioFemale);
             this.materialCard1.Controls.Add(this.matRadioMale);
             this.materialCard1.Controls.Add(this.CboUserType);
@@ -115,6 +116,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnRemove.TabIndex = 597;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnImage
             // 
@@ -131,6 +133,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnImage.TabIndex = 596;
             this.btnImage.Text = "Select";
             this.btnImage.UseVisualStyleBackColor = false;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnUpdateTool
             // 
@@ -157,7 +160,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
             this.pbImage.Location = new System.Drawing.Point(10, 18);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(146, 180);
+            this.pbImage.Size = new System.Drawing.Size(158, 180);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 595;
             this.pbImage.TabStop = false;
@@ -252,18 +255,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.lblGenderSelected.TabIndex = 579;
             this.lblGenderSelected.Text = "Gender:";
             this.lblGenderSelected.Visible = false;
-            // 
-            // lblgenderLabel
-            // 
-            this.lblgenderLabel.AutoSize = true;
-            this.lblgenderLabel.BackColor = System.Drawing.Color.Transparent;
-            this.lblgenderLabel.Font = new System.Drawing.Font("Roboto", 8.25F);
-            this.lblgenderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblgenderLabel.Location = new System.Drawing.Point(407, 211);
-            this.lblgenderLabel.Name = "lblgenderLabel";
-            this.lblgenderLabel.Size = new System.Drawing.Size(46, 13);
-            this.lblgenderLabel.TabIndex = 578;
-            this.lblgenderLabel.Text = "Gender:";
             // 
             // matRadioFemale
             // 
@@ -499,6 +490,21 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.matChkQAUserAccount.Visible = false;
             this.matChkQAUserAccount.CheckedChanged += new System.EventHandler(this.matChkQAUserAccount_CheckedChanged);
             // 
+            // lblgenderLabel
+            // 
+            this.lblgenderLabel.AutoSize = true;
+            this.lblgenderLabel.BackColor = System.Drawing.Color.Transparent;
+            this.lblgenderLabel.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.lblgenderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblgenderLabel.Location = new System.Drawing.Point(613, 251);
+            this.lblgenderLabel.Name = "lblgenderLabel";
+            this.lblgenderLabel.Size = new System.Drawing.Size(0, 13);
+            this.lblgenderLabel.TabIndex = 579;
+            // 
+            // odbEmployeeImage
+            // 
+            this.odbEmployeeImage.Title = "Select Image";
+            // 
             // frmAddnewUserModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,7 +540,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private MetroFramework.Controls.MetroComboBox CmBLocation;
         private MetroFramework.Controls.MetroComboBox cmbNotif;
         private System.Windows.Forms.Label lblGenderSelected;
-        private System.Windows.Forms.Label lblgenderLabel;
         private MaterialSkin.Controls.MaterialRadioButton matRadioFemale;
         private MaterialSkin.Controls.MaterialRadioButton matRadioMale;
         private MetroFramework.Controls.MetroComboBox CboUserType;
@@ -555,5 +560,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnImage;
         private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Label lblgenderLabel;
+        private System.Windows.Forms.OpenFileDialog odbEmployeeImage;
     }
 }

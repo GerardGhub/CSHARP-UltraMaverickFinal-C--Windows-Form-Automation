@@ -480,6 +480,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 return false;
             }
         }
+
+
         private void loadDefaultImage()
         {
             try
@@ -519,7 +521,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 catch (Exception exception)
                 {
              
-                    MessageBox.Show("Error  : Image Failed To Load \n\n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error  : Image Failed To Load \n\n\n" + exception.Message, "UM Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -538,23 +540,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-            selectEmployeeImage();
+            this.selectEmployeeImage();
         }
 
-        private void txtuser_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
-        }
+  
 
-        private void txtpassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
-        }
-
-        private void frmEditUser_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            textBox1.Text = "SaveGerardSingian";
-        }
 
         private void frmEditUser_FormClosing_1(object sender, FormClosingEventArgs e)
         {

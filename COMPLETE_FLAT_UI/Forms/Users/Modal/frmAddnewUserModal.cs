@@ -13,6 +13,8 @@ using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.API.Entities;
+using System.IO;
+using COMPLETE_FLAT_UI.Models;
 
 namespace ULTRAMAVERICK.Forms.Users.Modal
 {
@@ -27,9 +29,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         DataSet dSet = new DataSet();
         string mode = "";
         frmUserManagement2 ths;
-        public Byte[] imageByte = null;
         readonly UserFile UserFileEntity = new UserFile();
 
+        private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
+        private FileStream fileStream;
+        private BinaryReader binaryReader;
+        public Byte[] imageByte = null;
 
 
         public frmAddnewUserModal(
@@ -117,49 +122,50 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void NewData()
         {
-            mode = "add";
-            matRadioMale.Enabled = true;
-            matRadioFemale.Enabled = true;
-            TxtFirstName.Focus();
-            TxtFirstName.Enabled = true;
-            CboUnit.Text = String.Empty;
+            this.mode = "add";
+            this.matRadioMale.Enabled = true;
+            this.matRadioFemale.Enabled = true;
+            this.TxtFirstName.Focus();
+            this.TxtFirstName.Enabled = true;
+            this.CboUnit.Text = String.Empty;
 
-            CboUserType.Enabled = true;
-            CboUserType.Text = String.Empty;
+            this.CboUserType.Enabled = true;
+            this.CboUserType.Text = String.Empty;
 
-            CboUnit.Enabled = true;
-            TxtPassword.Enabled = true;
-            TxtPassword.Text = String.Empty;
-
- 
-            TxtUserName.Enabled = true;
-            TxtUserName.Text = String.Empty;
+            this.CboUnit.Enabled = true;
+            this.TxtPassword.Enabled = true;
+            this.TxtPassword.Text = String.Empty;
 
 
-            TxtLastName.Enabled = true;
-            disable_text(false);
-            CmBLocation.Enabled = true;
-            cmbNotif.Enabled = true;
-      
-            cboPosition.Enabled = true;
-            Cbodepartment.Enabled = true;
+            this.TxtUserName.Enabled = true;
+            this.TxtUserName.Text = String.Empty;
 
-            EmptyTextField();
-            TxtFirstName.Text = String.Empty;
-            TxtFirstName.Focus();
+
+            this.TxtLastName.Enabled = true;
+            this.disable_text(false);
+            this.CmBLocation.Enabled = true;
+            this.cmbNotif.Enabled = true;
+
+            this.cboPosition.Enabled = true;
+            this.Cbodepartment.Enabled = true;
+
+            this.EmptyTextField();
+            this.TxtFirstName.Text = String.Empty;
+            this.TxtFirstName.Focus();
         }
 
         private void EmptyTextField()
         {
-            TxtFirstName.Text = String.Empty;
-            TxtLastName.Text = String.Empty;
-            CboUserType.Text = String.Empty;
-            cboPosition.Text = String.Empty;
-            TxtUserName.Text = String.Empty;
-            TxtPassword.Text = String.Empty;
-            CmBLocation.Text = String.Empty;
-            cmbNotif.Text = String.Empty;
-            Cbodepartment.Text = string.Empty;
+            this.TxtFirstName.Text = String.Empty;
+            this.TxtLastName.Text = String.Empty;
+            this.CboUserType.Text = String.Empty;
+            this.cboPosition.Text = String.Empty;
+            this.TxtUserName.Text = String.Empty;
+            this.TxtPassword.Text = String.Empty;
+            this.CmBLocation.Text = String.Empty;
+            this.cmbNotif.Text = String.Empty;
+            this.Cbodepartment.Text = string.Empty;
+            this.lblGenderSelected.Text = String.Empty;
 
         }
 
@@ -203,8 +209,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             if (TxtFirstName.Text.Trim() == "")
             {
-
-
                 this.GlobalStatePopup.FillRequiredFields();
                 TxtFirstName.BackColor = Color.Yellow;
                 TxtFirstName.Focus();
@@ -279,15 +283,20 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 return;
             }
 
+            //Combobox Bind Parameters
+            this.cboPosition_SelectionChangeCommitted(sender, e);
+            this.cboUnit_SelectionChangeCommitted(sender, e);
+            this.cbodepartment_SelectedValueChanged(sender, e);
+        
 
-
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_userfile(0, TxtUserName.Text.Trim(), "", "", "validate");
+                dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0, TxtUserName.Text.Trim(), this.TxtFirstName.Text, this.TxtLastName.Text, "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
 
                 this.GlobalStatePopup.DataAlreadyExist();
+                this.TxtUserName.Text = String.Empty;
                 this.TxtUserName.Focus();
                 return;
             }
@@ -299,132 +308,15 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
        
 
-        public bool saveMode()
-        {
-            if (mode == "add")
-            {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_userfile(0, TxtUserName.Text.Trim(), "", "", "validate");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-             
-                    this.GlobalStatePopup.DataAlreadyExist();
-                    TxtUserName.Focus();
-                    return false;
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
-                        Convert.ToInt32(this.UserFileEntity.User_Rights_Id),
-                        TxtUserName.Text.Trim(),
-                        TxtPassword.Text.Trim(),
-                        TxtFirstName.Text.Trim(),
-                        CmBLocation.Text.Trim(),
-                        cmbNotif.Text.Trim(),
-                        this.UserFileEntity.Position,
-                        TxtLastName.Text.Trim(),
-                        this.UserFileEntity.Department,
-                        UserFileEntity.Requestor_Type,
-                        this.UserFileEntity.Unit,
-                        lblGenderSelected.Text.Trim(),
-                        "add");
-                    textBox1.Text = "Save Gerard Singian";
-           
-                       this.GlobalStatePopup.SuccessFullySave();
-                    //return true;
-                }
-
-            }
-            else if (mode == "edit")
-            {
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_userfile(temp_id,
-                    TxtUserName.Text.Trim(), "",
-                    CmBLocation.Text.Trim(), "getbyname");
-
-                dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_userfile(temp_id,
-                    TxtUserName.Text.Trim(), "", "", "getbyid");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-                    if (tmpID == temp_id)
-                    {
-                        dSet.Clear();
-                        dSet = g_objStoredProcCollection.sp_userfile(temp_id,
-                            Convert.ToInt32(CboUserType.SelectedValue.ToString()),
-                            TxtUserName.Text.Trim(),
-                            TxtPassword.Text.Trim(),
-                            TxtFirstName.Text.Trim(),
-                            CmBLocation.Text.Trim(),
-                            cmbNotif.Text.Trim(),
-                            this.UserFileEntity.Position,
-                            TxtLastName.Text.Trim(),
-                            this.UserFileEntity.Department,
-                            UserFileEntity.Requestor_Type,
-                            this.UserFileEntity.Unit,
-                            lblGenderSelected.Text.Trim(), imageByte,
-                            "edit");
-                        matRadioMale.Enabled = false;
-                        matRadioFemale.Enabled = false;
-                        return true;
-                    }
-                    else
-                    {
-                        this.GlobalStatePopup.DataAlreadyExist();
-                        this.TxtUserName.Focus();
-                        return false;
-                    }
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(temp_id,
-                        Convert.ToInt32(CboUserType.SelectedValue.ToString()),
-                        TxtUserName.Text.Trim(),
-                        TxtPassword.Text.Trim(),
-                        TxtFirstName.Text.Trim(),
-                        CmBLocation.Text.Trim(),
-                        cmbNotif.Text.Trim(),
-                        this.UserFileEntity.Position,
-                        TxtLastName.Text.Trim(),
-                        this.UserFileEntity.Department,
-                        UserFileEntity.Requestor_Type,
-                        this.UserFileEntity.Unit,
-                        lblGenderSelected.Text.Trim(), imageByte,
-                        "edit");
-
-                    matRadioMale.Enabled = false;
-                    matRadioFemale.Enabled = false;
-                    return true;
-                }
-            }
-            else if (mode == "delete")
-            {
-                dSet.Clear();
-
-
-                dSet_temp.Clear();
-                dSet_temp = g_objStoredProcCollection.sp_userfile(temp_id, "", "", "", "delete");
-
-                return true;
-            }
-
-            return false;
-        }
+    
 
 
         private void metroButtonSave_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Save the New User " + TxtFirstName.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new user " + TxtFirstName.Text + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (TxtFirstName.Text.Trim() == "")
                 {
-
-
                     this.GlobalStatePopup.FillRequiredFields();
                     TxtFirstName.BackColor = Color.Yellow;
                     TxtFirstName.Focus();
@@ -432,8 +324,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
                 if (TxtLastName.Text.Trim() == "")
                 {
-
-
                     this.GlobalStatePopup.FillRequiredFields();
                     TxtLastName.BackColor = Color.Yellow;
                     TxtLastName.Focus();
@@ -441,7 +331,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
                 if (CboUserType.Text.Trim() == "")
                 {
-
                     this.GlobalStatePopup.FillRequiredFields();
                     CboUserType.BackColor = Color.Yellow;
                     CboUserType.Focus();
@@ -458,7 +347,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
    
                 if (TxtUserName.Text.Trim() == "")
                 {
-
                     this.GlobalStatePopup.FillRequiredFields();
                     TxtUserName.BackColor = Color.Yellow;
                     TxtUserName.Focus();
@@ -481,7 +369,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 {
 
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
+                    dSet = g_objStoredProcCollection.sp_userfile(0,
                         Convert.ToInt32(this.UserFileEntity.User_Rights_Id),
                         TxtUserName.Text.Trim(),
                         TxtPassword.Text.Trim(),
@@ -494,6 +382,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         UserFileEntity.Requestor_Type,
                         this.UserFileEntity.Unit,
                         lblGenderSelected.Text.Trim(),
+                        imageByte,
                         "add");
                     textBox1.Text = "SaveGerardSingian";
                     this.GlobalStatePopup.SuccessFullySave();
@@ -642,6 +531,90 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void txtpassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            this.selectEmployeeImage();
+        }
+
+
+        private Boolean readImageByte(String path)
+        {
+            try
+            {
+                imageByte = new byte[Convert.ToInt32(null)];
+                fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+                binaryReader = new BinaryReader(fileStream);
+                imageByte = binaryReader.ReadBytes((Int32)fileStream.Length);
+                pbImage.Image = null;
+                pbImage.Refresh();
+                pbImage.Image = Image.FromFile(path);
+                return true;
+            }
+            catch (Exception exception)
+            {
+                loadDefaultImage();
+                MessageBox.Show("Error  :  Image failed to Read\n\nPlease Try it again!!!\n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+        }
+
+        private void loadDefaultImage()
+        {
+            try
+            {
+
+                pbImage.Image = null;
+                pbImage.Refresh();
+                pbImage.BackgroundImage = new Bitmap(Properties.Resources.Buddy);
+                // Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Buddy.png");
+                imageByte = new byte[Convert.ToInt32(null)];
+                btnRemove.Enabled = false;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+
+        private void selectEmployeeImage()
+        {
+            odbEmployeeImage.Filter = "JPEG Images (.JPG)|*.jpg|GIF Images (.GIF)|*.gif|BITMAPS (.BMP)|*.bmp|PNG Images (.PNG)|*.png";
+            odbEmployeeImage.Multiselect = false;
+
+            if (odbEmployeeImage.ShowDialog() != DialogResult.Cancel)
+            {
+                try
+                {
+                    pbImage.Image = null;
+                    pbImage.Refresh();
+                    pbImage.Image = Image.FromFile(odbEmployeeImage.FileName);
+
+                    if (readImageByte(odbEmployeeImage.FileName))
+                    {
+                        btnRemove.Enabled = true;
+                    }
+                }
+                catch (Exception exception)
+                {
+
+                    MessageBox.Show("Error  : Image Failed To Load \n\n\n" + exception.Message, "UM Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Remove The Image?", "Remove Image", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                loadDefaultImage();
+
+                frmUserManagement2 sa = new frmUserManagement2();
+
+                sa.ActivitiesLogs(userinfo.emp_name + " Remove Image");
+            }
         }
     }
 }

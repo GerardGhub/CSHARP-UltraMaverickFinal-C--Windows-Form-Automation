@@ -307,7 +307,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
             this.pbImage.Location = new System.Drawing.Point(19, 19);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(146, 180);
+            this.pbImage.Size = new System.Drawing.Size(158, 180);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 592;
             this.pbImage.TabStop = false;
