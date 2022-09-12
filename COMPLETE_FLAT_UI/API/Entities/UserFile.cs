@@ -22,6 +22,8 @@ namespace ULTRAMAVERICK.API.Entities
         public string Unit { get; set; }
         public string Receiving_Status { get; set; }
         public string Gender { get; set; }
+        public string Requestor_Type { get; set; }
+
         public string Mode { get; set; }
     }
 }

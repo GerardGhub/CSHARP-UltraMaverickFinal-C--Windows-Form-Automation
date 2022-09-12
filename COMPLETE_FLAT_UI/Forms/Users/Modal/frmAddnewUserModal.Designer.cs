@@ -351,7 +351,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.TxtPassword.Multiline = false;
             this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Password = true;
             this.TxtPassword.Size = new System.Drawing.Size(198, 50);
             this.TxtPassword.TabIndex = 564;
             this.TxtPassword.Text = "";

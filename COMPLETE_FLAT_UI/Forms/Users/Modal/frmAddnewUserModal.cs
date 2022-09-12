@@ -18,19 +18,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 {
     public partial class frmAddnewUserModal : MaterialForm
     {
-
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        myclasses myClass = new myclasses();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
+
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
-        int s_id = 0;
-        Boolean ready = false;
         DataSet dSet = new DataSet();
         string mode = "";
         frmUserManagement2 ths;
         public Byte[] imageByte = null;
-        UserFile User = new UserFile();
+        readonly UserFile UserFileEntity = new UserFile();
 
 
 
@@ -54,41 +52,30 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.User.Mode = Mode;
-            this.User.Employee_Name = FirstName;
-            this.User.Employee_LastName = LastName;
-            this.User.User_Rights_Name = UserRightsName;
-            this.User.Department = Department;
-            this.User.Unit = Unit;
-            this.User.Position = Position;
-            this.User.UserName = UserName;
-            this.User.Password = Password;
-            this.User.User_Section = UserLayout;
-            this.User.Receiving_Status = ReceivingStatus;
-            this.User.Gender = Gender;
+            this.UserFileEntity.Mode = Mode;
+            this.UserFileEntity.Employee_Name = FirstName;
+            this.UserFileEntity.Employee_LastName = LastName;
+            this.UserFileEntity.User_Rights_Name = UserRightsName;
+            this.UserFileEntity.Department = Department;
+            this.UserFileEntity.Unit = Unit;
+            this.UserFileEntity.Position = Position;
+            this.UserFileEntity.UserName = UserName;
+            this.UserFileEntity.Password = Password;
+            this.UserFileEntity.User_Section = UserLayout;
+            this.UserFileEntity.Receiving_Status = ReceivingStatus;
+            this.UserFileEntity.Gender = Gender;
         }
 
-        public string requestor_id { get; set; }
-        public string department_id { get; set; }
-
-        public string sp_user_rights_id { get; set; }
-        public string sp_position_id { get; set; }
-
-        public string sp_unit_id { get; set; }
-
-        protected override CreateParams CreateParams
+  
+        private void ConnectionInit()
         {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle = cp.ExStyle | 0x2000000;
-                return cp;
-            }
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
+
 
         private void frmAddnewUserModal_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.ConnectionInit();
             this.loadUser_type(); // Load the UserType at User Rights
      
             this.loadDepartment(); // Loading the Depeartment
@@ -191,18 +178,13 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
    
         public void loadUser_type()
         {
-            ready = false;
-            myClass.fillComboBox(CboUserType, "user_type", dSet);
-            ready = true;
+            this.myClass.fillComboBox(CboUserType, "user_type", dSet);
         }
 
         public void loadDepartment()
         {
- 
-            myClass.fillComboBoxDepartment(Cbodepartment, "department_dropdown", dSet);
-
-
-            department_id = Cbodepartment.SelectedValue.ToString();
+            this.myClass.fillComboBoxDepartment(Cbodepartment, "department_dropdown", dSet);
+            this.UserFileEntity.Department = this.Cbodepartment.SelectedValue.ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -276,8 +258,43 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 lblgenderLabel.BackColor = Color.Yellow;
                 return;
             }
+            if (CmBLocation.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+               CmBLocation.BackColor = Color.Yellow;
+                return;
+            }
 
-            metroButtonSave_Click(sender, e);
+            if (cmbNotif.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                cmbNotif.BackColor = Color.Yellow;
+                return;
+            }
+
+            if (this.lblGenderSelected.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+           
+                return;
+            }
+
+
+
+            dSet.Clear();
+            dSet = g_objStoredProcCollection.sp_userfile(0, TxtUserName.Text.Trim(), "", "", "validate");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+
+                this.GlobalStatePopup.DataAlreadyExist();
+                this.TxtUserName.Focus();
+                return;
+            }
+            else
+            {
+                this.metroButtonSave_Click(sender, e);
+            }
         }
 
        
@@ -300,17 +317,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 {
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
-                        Convert.ToInt32(sp_user_rights_id),
+                        Convert.ToInt32(this.UserFileEntity.User_Rights_Id),
                         TxtUserName.Text.Trim(),
                         TxtPassword.Text.Trim(),
                         TxtFirstName.Text.Trim(),
                         CmBLocation.Text.Trim(),
                         cmbNotif.Text.Trim(),
-                         sp_position_id,
+                        this.UserFileEntity.Position,
                         TxtLastName.Text.Trim(),
-                        department_id,
-                        requestor_id,
-                        sp_unit_id,
+                        this.UserFileEntity.Department,
+                        UserFileEntity.Requestor_Type,
+                        this.UserFileEntity.Unit,
                         lblGenderSelected.Text.Trim(),
                         "add");
                     textBox1.Text = "Save Gerard Singian";
@@ -344,11 +361,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                             TxtFirstName.Text.Trim(),
                             CmBLocation.Text.Trim(),
                             cmbNotif.Text.Trim(),
-                            sp_position_id,
+                            this.UserFileEntity.Position,
                             TxtLastName.Text.Trim(),
-                            department_id,
-                            requestor_id,
-                            sp_unit_id,
+                            this.UserFileEntity.Department,
+                            UserFileEntity.Requestor_Type,
+                            this.UserFileEntity.Unit,
                             lblGenderSelected.Text.Trim(), imageByte,
                             "edit");
                         matRadioMale.Enabled = false;
@@ -372,11 +389,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         TxtFirstName.Text.Trim(),
                         CmBLocation.Text.Trim(),
                         cmbNotif.Text.Trim(),
-                        sp_position_id,
+                        this.UserFileEntity.Position,
                         TxtLastName.Text.Trim(),
-                        department_id,
-                       requestor_id,
-                        sp_unit_id,
+                        this.UserFileEntity.Department,
+                        UserFileEntity.Requestor_Type,
+                        this.UserFileEntity.Unit,
                         lblGenderSelected.Text.Trim(), imageByte,
                         "edit");
 
@@ -465,17 +482,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_userfileIncrement(0,
-                        Convert.ToInt32(sp_user_rights_id),
+                        Convert.ToInt32(this.UserFileEntity.User_Rights_Id),
                         TxtUserName.Text.Trim(),
                         TxtPassword.Text.Trim(),
                         TxtFirstName.Text.Trim(),
                         CmBLocation.Text.Trim(),
                         cmbNotif.Text.Trim(),
-                         sp_position_id,
+                        this.UserFileEntity.Position,
                         TxtLastName.Text.Trim(),
-                        department_id,
-                        requestor_id,
-                        sp_unit_id,
+                        this.UserFileEntity.Department,
+                        UserFileEntity.Requestor_Type,
+                        this.UserFileEntity.Unit,
                         lblGenderSelected.Text.Trim(),
                         "add");
                     textBox1.Text = "SaveGerardSingian";
@@ -500,37 +517,42 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void cbousertype_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            sp_user_rights_id = CboUserType.SelectedValue.ToString();
+            this.UserFileEntity.User_Rights_Id = Convert.ToInt32(CboUserType.SelectedValue);
         }
 
         public void loadUnit()
         {
-            myClass.fillComboBoxFilter(CboUnit, "filter_section_dropdown", dSet, department_id, 0);
-            s_id = showValue(CboUnit);
+            this.myClass.fillComboBoxFilter(CboUnit, 
+                "filter_section_dropdown", 
+                dSet, 
+                this.UserFileEntity.Department, 0);
+            this.temp_id = showValue(CboUnit);
         }
 
         public int showValue(ComboBox cbo)
         {
             int ids = 0;
-            if (ready == true)
-            {
+         
                 if (cbo.Items.Count > 0)
                 {
                     ids = Convert.ToInt32(cbo.SelectedValue.ToString());
                 }
-            }
+         
             return ids;
         }
 
         public void loadPositionDropDown()
         {
-            myClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, department_id, 0);
-            s_id = showValue(cboPosition);
+            myClass.fillComboBoxFilter(cboPosition, 
+                "filter_position_dropdown", 
+                dSet, 
+                this.UserFileEntity.Department, 0);
+            this.temp_id = showValue(cboPosition);
         }
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
         {
-            department_id = Cbodepartment.SelectedValue.ToString();
-            //loadUnit();
+            this.UserFileEntity.Department = this.Cbodepartment.SelectedValue.ToString();
+      
 
             if (Cbodepartment.Text.Trim() != "")
             {
@@ -548,12 +570,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void cboUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            sp_unit_id = CboUnit.SelectedValue.ToString();
+            this.UserFileEntity.Unit = this.CboUnit.SelectedValue.ToString();
         }
 
         private void cboPosition_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            sp_position_id = cboPosition.SelectedValue.ToString();
+            this.UserFileEntity.Position = this.cboPosition.SelectedValue.ToString();
         }
 
 
