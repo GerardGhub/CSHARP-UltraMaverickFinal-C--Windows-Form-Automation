@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
 
@@ -22,6 +23,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         DataSet dSet = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        Lot_Management LotManagementEntity = new Lot_Management();
 
         private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
 
@@ -54,10 +56,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
         private void CallingMainFormWindowBinder()
         {
-            this.matcreatedby.Text = created_by;
+            this.LotManagementEntity.Added_By = created_by;
 
             //Disabled Some TextBoxes
-            this.matcreatedby.Enabled = false;
+  
             this.mattotalsku.Enabled = false;
             this.mattotalsku.Text = "0";
      
@@ -97,9 +99,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 matlotnumber.Text,
                 matdescription.Text,
                 lblMajorCatId.Text,
-                matcreatedby.Text,
+                this.LotManagementEntity.Added_By,
                 "",
-                matcreatedby.Text,
+                this.LotManagementEntity.Added_By,
                 "", "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
@@ -112,7 +114,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else
             {
-                //metroSave_Click(sender, e);
+              
                 this.MetroSavingRequest();
             }
         }
@@ -128,7 +130,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                 this.dSet.Clear();
                 this.dSet = g_objStoredProcCollection.sp_lot_management(0,
-                    matlotnumber.Text, matdescription.Text, lblMajorCatId.Text, matcreatedby.Text, "", matcreatedby.Text, "", "add");
+                    matlotnumber.Text, 
+                    matdescription.Text, 
+                    lblMajorCatId.Text,
+                    this.LotManagementEntity.Added_By, 
+                    "", 
+                    this.LotManagementEntity.Added_By, 
+                    "", "add");
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.Close();
             }
@@ -139,32 +147,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
 
-        //public void SaveSuccessfully()
-        //{
 
-        //    PopupNotifier popup = new PopupNotifier();
-        //    popup.Image = Resources.new_logo;
-        //    popup.TitleText = "Ultra Maverick Notifications";
-        //    popup.TitleColor = Color.White;
-        //    popup.TitlePadding = new Padding(95, 7, 0, 0);
-        //    popup.TitleFont = new Font("Tahoma", 10);
-        //    popup.ContentText = "Successfully Save";
-        //    popup.ContentColor = Color.White;
-        //    popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-        //    popup.Size = new Size(350, 100);
-        //    popup.ImageSize = new Size(70, 80);
-        //    popup.BodyColor = Color.Green;
-        //    popup.Popup();
-        //    popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-        //    popup.Delay = 500;
-        //    popup.AnimationInterval = 10;
-        //    popup.AnimationDuration = 1000;
-
-
-        //    popup.ShowOptionsButton = true;
-
-
-        //}
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
@@ -175,35 +158,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.Text = "Gerard Singian";
         }
 
-        private void btnImage_Click(object sender, EventArgs e)
-        {
-            this.selectEmployeeImage();
-        }
-        private void selectEmployeeImage()
-        {
-            //odbEmployeeImage.Filter = "JPEG Images (.JPG)|*.jpg|GIF Images (.GIF)|*.gif|BITMAPS (.BMP)|*.bmp|PNG Images (.PNG)|*.png";
-            //odbEmployeeImage.Multiselect = false;
-            //ready = true;
-            //if (odbEmployeeImage.ShowDialog() != DialogResult.Cancel)
-            //{
-            //    try
-            //    {
-            //        pbImage.Image = null;
-            //        pbImage.Refresh();
-            //        pbImage.Image = Image.FromFile(odbEmployeeImage.FileName);
-            //        ready = true;
-            //        if (readImageByte(odbEmployeeImage.FileName))
-            //        {
-            //            btnRemove.Enabled = true;
-            //        }
-            //    }
-            //    catch (Exception exception)
-            //    {
-            //        ready = false;
-            //        MessageBox.Show("Error  : Image Failed To Load \n\n\n" + exception.Message, "HR Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-        }
+
 
         private void matlotnumber_KeyPress(object sender, KeyPressEventArgs e)
         {

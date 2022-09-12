@@ -93,7 +93,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnNew.Name = "matBtnNew";
             this.matBtnNew.Size = new System.Drawing.Size(75, 33);
             this.matBtnNew.Text = "&New";
-            this.matBtnNew.Click += new System.EventHandler(this.matBtnNew_Click);
+            this.matBtnNew.Click += new System.EventHandler(this.MatBtnNew_Click);
             // 
             // matBtnEdit
             // 
@@ -239,8 +239,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.ThemeStyle.RowsStyle.Height = 40;
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvLotData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
-            this.dgvLotData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLotData_CellFormatting);
-            this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.dgvLotData_CurrentCellChanged);
+            this.dgvLotData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvLotData_CellFormatting);
+            this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.DgvLotData_CurrentCellChanged);
             // 
             // id
             // 
@@ -314,7 +314,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.TabIndex = 622;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // lbltotalrecords
             // 
@@ -359,7 +359,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnViewItems.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matBtnViewItems.UseAccentColor = false;
             this.matBtnViewItems.UseVisualStyleBackColor = true;
-            this.matBtnViewItems.Click += new System.EventHandler(this.matBtnViewItems_Click);
+            this.matBtnViewItems.Click += new System.EventHandler(this.MatBtnViewItems_Click);
             // 
             // materialCard3
             // 
@@ -393,7 +393,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matRadioActive.TabStop = true;
             this.matRadioActive.Text = "Active";
             this.matRadioActive.UseVisualStyleBackColor = true;
-            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.MatRadioActive_CheckedChanged);
             // 
             // matRadioNotActive
             // 
@@ -411,7 +411,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matRadioNotActive.TabStop = true;
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
-            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.MatRadioNotActive_CheckedChanged);
             // 
             // matBtnStatuses
             // 
@@ -430,7 +430,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnStatuses.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matBtnStatuses.UseAccentColor = false;
             this.matBtnStatuses.UseVisualStyleBackColor = true;
-            this.matBtnStatuses.Click += new System.EventHandler(this.materialButton1_Click);
+            this.matBtnStatuses.Click += new System.EventHandler(this.MaterialButton1_Click);
             // 
             // mattxtSearch
             // 
@@ -448,7 +448,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSearch.Size = new System.Drawing.Size(205, 50);
             this.mattxtSearch.TabIndex = 628;
             this.mattxtSearch.Text = "";
-            this.mattxtSearch.TextChanged += new System.EventHandler(this.mattxtSearch_TextChanged_1);
+            this.mattxtSearch.TextChanged += new System.EventHandler(this.MattxtSearch_TextChanged_1);
             // 
             // frmLotManagement
             // 
