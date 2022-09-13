@@ -149,6 +149,7 @@
     <Compile Include="API\Data\TblCustomersRepository.cs" />
     <Compile Include="API\Entities\Available_Menu.cs" />
     <Compile Include="API\Entities\Available_Menu_GrandChild.cs" />
+    <Compile Include="API\Entities\Avg_Order_Trend.cs" />
     <Compile Include="API\Entities\Department.cs" />
     <Compile Include="API\Entities\DepartmentUnit.cs" />
     <Compile Include="API\Entities\DryWHIssue.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="API\Entities\Position.cs" />
     <Compile Include="API\Entities\Primary_Unit.cs" />
     <Compile Include="API\Entities\Raw_Materials_Dry.cs" />
+    <Compile Include="API\Entities\Store_Order_Activation_Remarks.cs" />
     <Compile Include="API\Entities\Sub_Category.cs" />
     <Compile Include="API\Entities\TblArea.cs" />
     <Compile Include="API\Entities\TblCustomers.cs" />
@@ -216,6 +218,18 @@
     </Compile>
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.Designer.cs">
       <DependentUpon>frmCancelAllocationOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.Designer.cs">
+      <DependentUpon>FrmAddNewOrderTrend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.Designer.cs">
+      <DependentUpon>FrmAddOrderActivationRemarks.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.cs">
       <SubType>Form</SubType>
@@ -889,6 +903,12 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.resx">
       <DependentUpon>frmCancelAllocationOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.resx">
+      <DependentUpon>FrmAddNewOrderTrend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.resx">
+      <DependentUpon>FrmAddOrderActivationRemarks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.resx">
       <DependentUpon>frmCancelInternalApprovedOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -1336,7 +1356,6 @@
     <Folder Include="API\Helpers\" />
     <Folder Include="API\Middleware\" />
     <Folder Include="Form ViewModels\" />
-    <Folder Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\" />
     <Folder Include="Forms\Login\" />
     <Folder Include="Forms\MasterList SetUP\" />
   </ItemGroup>
