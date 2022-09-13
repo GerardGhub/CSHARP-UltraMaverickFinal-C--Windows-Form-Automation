@@ -9,24 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.API.Entities;
+using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Modal;
 using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 {
     public partial class frmInternalOrderActivationRemarks : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
+        readonly Internal_Order_Activation_Remarks InternalOrderActivationRemarksEntity = new Internal_Order_Activation_Remarks();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         string mode = "";
-        int p_id = 0;
-        int temp_hid = 0;
+
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         DataSet dSet_temp = new DataSet();
 
@@ -34,13 +33,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             InitializeComponent();
         }
-        public string sp_created_at { get; set; }
-        public string sp_created_by { get; set; }
-        public string sp_updated_date { get; set; }
-        public string sp_updated_by { get; set; }
+
         public string sp_bind_selected { get; set; }
-        public string sp_added_by { get; set; }
-        public string sp_date_added { get; set; }
+
 
         private void frmInternalOrderActivationRemarks_Load(object sender, EventArgs e)
         {
@@ -49,17 +44,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             myglobal.global_module = "Active"; // Mode for Searching
             this.ShowDataStoreOrderActivationRemarks();
             this.SearchMethodJarVarCallingSP();
-
+            this.TextBox1.Text = String.Empty;
         }
 
-        //method for loading available_menus
+
         private void ShowDataStoreOrderActivationRemarks()
         {
             try
             {
-                this.ready = false;
-                xClass.fillDataGridView(this.dgvAVGOrderTrend, "internal_order_activation_remarks_activated_minor", dSet);
-                this.ready = true;
+
+                myClass.fillDataGridView(this.dgvAVGOrderTrend, "internal_order_activation_remarks_activated_minor", dSet);
+
                 this.lbltotalrecords.Text = this.dgvAVGOrderTrend.RowCount.ToString();
             }
             catch (Exception ex)
@@ -79,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = objStorProc.sp_getMajorTables("internal_order_activation_remarks_activated_major");
+            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("internal_order_activation_remarks_activated_major");
 
             this.VisibilityFalseForDataGridColumn();
 
@@ -95,7 +90,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void ConnetionString()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
         private void ShowDataActivated()
         {
@@ -110,14 +105,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.matBtnDelete.Text = "&InActive";
                 this.matBtnEdit.Visible = true;
                 this.ShowDataStoreOrderActivationRemarks();
-                //this.SearchMethodJarVarCallingSP();
+          
             }
             else if (matRadioNotActive.Checked == true)
             {
                 this.sp_bind_selected = "0";
                 this.matBtnDelete.Text = "&Activate";
                 this.ShowDataStoreOrderDeactivatedRemarks();
-                //this.SearchMethodJarVarCallingSP();
+               
             }
             else
             {
@@ -131,7 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-                xClass.fillDataGridView(this.dgvAVGOrderTrend, "internal_order_activation_remarks_deactivated_minor", dSet);       
+                myClass.fillDataGridView(this.dgvAVGOrderTrend, "internal_order_activation_remarks_deactivated_minor", dSet);       
                 this.lbltotalrecords.Text = this.dgvAVGOrderTrend.RowCount.ToString();
             }
             catch (Exception ex)
@@ -189,13 +184,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     if (this.dgvAVGOrderTrend.CurrentRow.Cells["soar_desc"].Value != null)
                     {
-                        p_id = Convert.ToInt32(this.dgvAVGOrderTrend.CurrentRow.Cells["soar_id"].Value);
-                        this.txtmatRemarks.Text = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_desc"].Value.ToString();
-                        this.matcmbType.Text = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_type"].Value.ToString();
-                        this.sp_added_by = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_added_by"].Value.ToString();
-                        this.sp_date_added = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_date_added"].Value.ToString();
-                        this.sp_updated_date = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_updated_date"].Value.ToString();
-                        this.sp_updated_by = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_updated_by"].Value.ToString();
+                        this.InternalOrderActivationRemarksEntity.Soar_id = Convert.ToInt32(this.dgvAVGOrderTrend.CurrentRow.Cells["soar_id"].Value);
+                        this.InternalOrderActivationRemarksEntity.Soar_Desc = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_desc"].Value.ToString();
+                        this.InternalOrderActivationRemarksEntity.Soar_Type = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_type"].Value.ToString();
+                        this.InternalOrderActivationRemarksEntity.Soar_Added_By = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_added_by"].Value.ToString();
+                        this.InternalOrderActivationRemarksEntity.Soar_Date_Added = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_date_added"].Value.ToString();
+                        this.InternalOrderActivationRemarksEntity.Soar_Updated_Date = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_updated_date"].Value.ToString();
+                        this.InternalOrderActivationRemarksEntity.Soar_Updated_By = this.dgvAVGOrderTrend.CurrentRow.Cells["soar_updated_by"].Value.ToString();
 
                     }
                 }
@@ -210,288 +205,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matBtnEdit.Visible = false;
             //Cancel
             this.matBtnCancel.Visible = true;
-            //TextBVox Enabled True
-            this.txtmatRemarks.Enabled = true;
-            this.matcmbType.Enabled = true;
+
             //Button Visibility
             this.matBtnNew.Visible = false;
             this.matBtnDelete.Visible = false;
             this.matBtnSave.Visible = true;
-            //String Textbox Empty
-            this.txtmatRemarks.Text = String.Empty;
-            this.sp_updated_date = String.Empty;
-            this.sp_updated_by = String.Empty;
-            this.matcmbType.Text = String.Empty;
-            //Binding User Session Date ETC
-            this.sp_date_added = (dNow.ToString("M/d/yyyy"));
-            this.sp_added_by = userinfo.emp_name.ToUpper();
 
-            //Focus Events 
-            this.txtmatRemarks.Select();
-            this.txtmatRemarks.Focus();
+            this.InternalOrderActivationRemarksEntity.Mode = "ADD";
+            FrmMrsActivationRemarks addNew =
+            new FrmMrsActivationRemarks(this,
+            userinfo.user_id,
+            this.InternalOrderActivationRemarksEntity.Soar_Desc,
+            this.InternalOrderActivationRemarksEntity.Soar_Type,
+            this.InternalOrderActivationRemarksEntity.Mode,
+            this.InternalOrderActivationRemarksEntity.Soar_id);
+            addNew.ShowDialog();
+
         }
 
         private void matBtnSave_Click(object sender, EventArgs e)
         {
-            if (this.txtmatRemarks.Text == String.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                this.txtmatRemarks.Focus();
-                return;
-            }
-            else if (this.matcmbType.Text == String.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                this.matcmbType.Focus();
-                return;
-            }
-
-            dSet.Clear();
-            dSet = objStorProc.sp_internal_order_activation_remarks(0,
-                this.txtmatRemarks.Text.Trim(),
-               this.matcmbType.Text.Trim(), "", "", "", "", "getbyname");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                this.GlobalStatePopup.DataAlreadyExist();
-
-                this.txtmatRemarks.Text = String.Empty;
-                this.matcmbType.Text = String.Empty;
-                this.txtmatRemarks.Focus();
-                this.matBtnCancel_Click(sender, e);
-                return;
-            }
-            else
-            {
-                this.SaveProcessClicker();
-            }
-        }
-
-        public bool saveMode()      //method for saving of data base on mode (add,edit,delete)
-        {
-
-            if (mode == "add")
-            {
-                dSet.Clear();
-                dSet = objStorProc.sp_internal_order_activation_remarks(0,
-                    this.txtmatRemarks.Text.Trim(),
-                    this.matcmbType.Text.Trim(),
-                    "",
-                    "",
-                    "",
-                    "",
-                    "getbyname");
-
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
-                    this.GlobalStatePopup.DataAlreadyExist();
-
-                    this.txtmatRemarks.Text = string.Empty;
-                    this.txtmatRemarks.Focus();
-                    return false;
-                }
-                else
-                {
-
-                    dSet.Clear();
-                    dSet = objStorProc.sp_internal_order_activation_remarks(0,
-                        this.txtmatRemarks.Text.Trim(),
-                        this.matcmbType.Text.Trim(),
-                        this.sp_added_by,
-                        this.sp_date_added,
-                        "",
-                        "",
-                        "add");
-
-                    this.ShowDataStoreOrderActivationRemarks();
-
-
-                    return true;
-                }
-            }
-            else if (this.mode == "edit")
-            {
-                this.dSet.Clear();
-                this.dSet = objStorProc.sp_internal_order_activation_remarks(0,
-                this.txtmatRemarks.Text.Trim(),
-                this.matcmbType.Text.Trim(),
-                this.sp_added_by,
-                this.sp_date_added,
-                this.sp_updated_by,
-                this.sp_updated_date,
-                "getbyname");
-
-                this.dSet_temp.Clear();
-                this.dSet_temp = objStorProc.sp_internal_order_activation_remarks(
-                p_id,
-                this.txtmatRemarks.Text.Trim(),
-                this.matcmbType.Text.Trim(),
-                "", 
-                "",
-                "",
-                "",
-                "getbyid");
-
-                if (this.dSet.Tables[0].Rows.Count > 0)
-                {
-                    int tmpID = Convert.ToInt32(dSet.Tables[0].Rows[0][0].ToString());
-                    if (tmpID == p_id)
-                    {
-                        dSet.Clear();
-                        dSet = objStorProc.sp_internal_order_activation_remarks(p_id,
-                        this.txtmatRemarks.Text.Trim(),
-                        this.matcmbType.Text.Trim(),
-                        this.sp_added_by,
-                        this.sp_date_added,
-                        this.sp_updated_by,
-                        this.sp_updated_date,
-                        "edit");
-                        this.GlobalStatePopup.CommittedSuccessFully();
-                        this.ShowDataStoreOrderActivationRemarks();
-                        this.mode = "";
-                        matBtnCancel_Click(new object(), new System.EventArgs());
-                        return true;
-                    }
-                    else
-                    {
-
-                        this.txtmatRemarks.Text = String.Empty;
-                        this.txtmatRemarks.Focus();
-                        return false;
-                    }
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_internal_order_activation_remarks(
-                    this.p_id,
-                    this.txtmatRemarks.Text.Trim(),
-                    this.matcmbType.Text.Trim(),
-                    this.sp_added_by,
-                    this.sp_date_added,
-                    this.sp_updated_by,
-                    this.sp_updated_date, "edit");
-                    this.GlobalStatePopup.UpdatedSuccessfully();
-                    this.ShowDataStoreOrderActivationRemarks();
-                    this.mode = "";
-                    matBtnCancel_Click(new object(), new System.EventArgs());
-                }
-            }
-            else if (this.mode == "delete")
-            {
-                this.sp_updated_date = (dNow.ToString("M/d/yyyy"));
-                this.sp_updated_by = userinfo.emp_name.ToUpper();
-
-                if (this.sp_bind_selected == "1")
-                {
-
-                    dSet_temp.Clear();
-                    dSet_temp = objStorProc.sp_internal_order_activation_remarks(p_id,
-                    this.txtmatRemarks.Text.Trim(),
-                    this.matcmbType.Text.Trim(),
-                    "",
-                    "",
-                    this.sp_updated_by,
-                    this.sp_updated_date,
-                    "delete");
-
-                    return true;
-                }
-                else
-                {
-                    this.dSet_temp.Clear();
-                    this.dSet_temp = objStorProc.sp_internal_order_activation_remarks(
-                    this.p_id,
-                    this.txtmatRemarks.Text.Trim(),
-                    this.matcmbType.Text.Trim(), "", "",
-                    this.sp_updated_by,
-                    this.sp_updated_date,
-                    "delete_activation");
-                    this.matRadioActive.Checked = true;
-                    return true;
-                }
-            }
-            return false;
+      
         }
 
 
 
-        private void SaveProcessClicker()
-        {
-            //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to commit the Information?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                if (this.txtmatRemarks.Text.Trim() == string.Empty)
-                {
-                    this.GlobalStatePopup.FillRequiredFields();
-                    this.txtmatRemarks.Focus();
-                    return;
-                }
-
-                else
-                {
-                    if (this.saveMode())
-                    {
-                        string tmode = mode;
-
-                        if (tmode == "add")
-                        {
-                            this.dgvAVGOrderTrend.CurrentCell = this.dgvAVGOrderTrend[0, this.dgvAVGOrderTrend.Rows.Count - 1];
-                            this.GlobalStatePopup.CommittedSuccessFully();
-                        }
-                        else
-                        {
-                            this.dgvAVGOrderTrend.CurrentCell = this.dgvAVGOrderTrend[0, temp_hid];
-
-                        }
-                        this.matBtnCancel_Click(new object(), new System.EventArgs());
-                        this.GlobalStatePopup.CommittedSuccessFully();
-                    }
-                    else
-
-                        this.MetroFinalSavingEntry();
-                    return;
-                }
-            }
-
-            else
-            {
-                return;
-            }
-        }
 
 
 
-        private void MetroFinalSavingEntry()
-        {
-            if (this.txtmatRemarks.Text.Trim() == string.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                this.txtmatRemarks.Focus();
-            }
-            else
-            {
-                if (this.saveMode())
-                {
-                    this.GlobalStatePopup.DataAlreadyExist();
-                    string tmode = mode;
-
-                    if (tmode == "add")
-                    {
-                        this.dgvAVGOrderTrend.CurrentCell = this.dgvAVGOrderTrend[0, this.dgvAVGOrderTrend.Rows.Count - 1];
-
-                    }
-                    else
-                    {
-                        this.dgvAVGOrderTrend.CurrentCell = this.dgvAVGOrderTrend[0, temp_hid];
-                    }
-                    this.matBtnCancel_Click(new object(), new System.EventArgs());
-                }
-                else
-
-                    return;
-            }
-        }
 
 
         private void matBtnCancel_Click(object sender, EventArgs e)
@@ -499,9 +240,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //Mode of System
             this.mode = "";
 
-            //String Empty
-            this.sp_created_at = String.Empty;
-            this.sp_created_by = String.Empty;
 
             //Button Visibility
             this.matBtnEdit.Visible = true;
@@ -510,28 +248,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matBtnDelete.Visible = true;
             this.matBtnCancel.Visible = false;
 
-            //Textbox Enabled Conditional Statement
-            this.txtmatRemarks.Enabled = false;
-            this.matcmbType.Enabled = false;
+       
         }
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             //Mode
             mode = "edit";
-            //System Binding
-            this.sp_updated_date = (dNow.ToString("M/d/yyyy"));
-            this.sp_updated_by = userinfo.emp_name.ToUpper();
+
+
             //Button Controls Visibility
             this.matBtnDelete.Visible = false;
             this.matBtnCancel.Visible = true;
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
             this.matBtnSave.Visible = true;
-            //Button Enabled and TextBox
-            this.txtmatRemarks.Enabled = true;
-            this.matcmbType.Enabled = true;
-            this.txtmatRemarks.Focus();
+
+
+
+            this.InternalOrderActivationRemarksEntity.Mode = "EDIT";
+            FrmMrsActivationRemarks addNew =
+            new FrmMrsActivationRemarks(this,
+            userinfo.user_id,
+            this.InternalOrderActivationRemarksEntity.Soar_Desc,
+            this.InternalOrderActivationRemarksEntity.Soar_Type,
+            this.InternalOrderActivationRemarksEntity.Mode,
+            this.InternalOrderActivationRemarksEntity.Soar_id);
+            addNew.ShowDialog();
+
         }
 
         private void matBtnDelete_Click(object sender, EventArgs e)
@@ -546,13 +290,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     {
 
                         mode = "delete";
+                        dSet_temp.Clear();
+                        dSet_temp = g_objStoredProcCollection
+                            .sp_internal_order_activation_remarks(this.InternalOrderActivationRemarksEntity.Soar_id,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "delete");
 
-                        if (this.saveMode())
-                        {
-                            this.GlobalStatePopup.InactiveSuccessfully();
-                            this.ShowDataStoreOrderActivationRemarks();
-                            this.matBtnCancel_Click("", e);
-                        }
+                        this.GlobalStatePopup.InactiveSuccessfully();
+                     
                     }
 
                     else
@@ -571,16 +321,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the information", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
-                        this.mode = "delete";
+                        //this.mode = "delete";
 
-                        if (this.saveMode())
-                        {
-                            this.GlobalStatePopup.ActivatedSuccessfully();
-                            this.ShowDataStoreOrderActivationRemarks();
+                        //if (this.saveMode())
+                        //{
+                        //    this.GlobalStatePopup.ActivatedSuccessfully();
+                        //    this.ShowDataStoreOrderActivationRemarks();
 
-                            this.matBtnCancel_Click("", e);
+                        //    this.matBtnCancel_Click("", e);
 
-                        }
+                        //}
                     }
 
                     else
@@ -604,7 +354,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("internal_order_activation_remarks_deactivated_major");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("internal_order_activation_remarks_deactivated_major");
 
         }
 
@@ -675,6 +425,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 }
 
             }
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.matBtnCancel_Click(sender, e);
+            this.frmInternalOrderActivationRemarks_Load(sender, e);
         }
     }
 }
