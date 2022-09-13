@@ -30,8 +30,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.matcmbType = new MaterialSkin.Controls.MaterialComboBox();
-            this.txtmatRemarks = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatcmbType = new MaterialSkin.Controls.MaterialComboBox();
+            this.TxtmatRemarks = new MaterialSkin.Controls.MaterialTextBox();
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.MatBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
@@ -40,8 +40,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.matcmbType);
-            this.materialCard1.Controls.Add(this.txtmatRemarks);
+            this.materialCard1.Controls.Add(this.MatcmbType);
+            this.materialCard1.Controls.Add(this.TxtmatRemarks);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(32, 90);
@@ -52,49 +52,49 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.materialCard1.Size = new System.Drawing.Size(495, 200);
             this.materialCard1.TabIndex = 482;
             // 
-            // matcmbType
+            // MatcmbType
             // 
-            this.matcmbType.AutoResize = false;
-            this.matcmbType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.matcmbType.Depth = 0;
-            this.matcmbType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.matcmbType.DropDownHeight = 174;
-            this.matcmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.matcmbType.DropDownWidth = 121;
-            this.matcmbType.Enabled = false;
-            this.matcmbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.matcmbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.matcmbType.FormattingEnabled = true;
-            this.matcmbType.Hint = "Type";
-            this.matcmbType.IntegralHeight = false;
-            this.matcmbType.ItemHeight = 43;
-            this.matcmbType.Items.AddRange(new object[] {
+            this.MatcmbType.AutoResize = false;
+            this.MatcmbType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.MatcmbType.Depth = 0;
+            this.MatcmbType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.MatcmbType.DropDownHeight = 174;
+            this.MatcmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MatcmbType.DropDownWidth = 121;
+            this.MatcmbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.MatcmbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.MatcmbType.FormattingEnabled = true;
+            this.MatcmbType.Hint = "Type";
+            this.MatcmbType.IntegralHeight = false;
+            this.MatcmbType.ItemHeight = 43;
+            this.MatcmbType.Items.AddRange(new object[] {
             "Cancel",
             "Return"});
-            this.matcmbType.Location = new System.Drawing.Point(53, 32);
-            this.matcmbType.MaxDropDownItems = 4;
-            this.matcmbType.MouseState = MaterialSkin.MouseState.OUT;
-            this.matcmbType.Name = "matcmbType";
-            this.matcmbType.Size = new System.Drawing.Size(386, 49);
-            this.matcmbType.TabIndex = 602;
+            this.MatcmbType.Location = new System.Drawing.Point(53, 32);
+            this.MatcmbType.MaxDropDownItems = 4;
+            this.MatcmbType.MouseState = MaterialSkin.MouseState.OUT;
+            this.MatcmbType.Name = "MatcmbType";
+            this.MatcmbType.Size = new System.Drawing.Size(386, 49);
+            this.MatcmbType.TabIndex = 602;
+            this.MatcmbType.SelectionChangeCommitted += new System.EventHandler(this.MatcmbType_SelectionChangeCommitted);
             // 
-            // txtmatRemarks
+            // TxtmatRemarks
             // 
-            this.txtmatRemarks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmatRemarks.Depth = 0;
-            this.txtmatRemarks.Enabled = false;
-            this.txtmatRemarks.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmatRemarks.Hint = "Remarks";
-            this.txtmatRemarks.Location = new System.Drawing.Point(53, 119);
-            this.txtmatRemarks.Margin = new System.Windows.Forms.Padding(1);
-            this.txtmatRemarks.MaxLength = 50;
-            this.txtmatRemarks.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmatRemarks.Multiline = false;
-            this.txtmatRemarks.Name = "txtmatRemarks";
-            this.txtmatRemarks.Size = new System.Drawing.Size(386, 50);
-            this.txtmatRemarks.TabIndex = 1;
-            this.txtmatRemarks.Text = "";
-            this.txtmatRemarks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatRemarks_KeyPress);
+            this.TxtmatRemarks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtmatRemarks.Depth = 0;
+            this.TxtmatRemarks.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtmatRemarks.Hint = "Remarks";
+            this.TxtmatRemarks.Location = new System.Drawing.Point(53, 119);
+            this.TxtmatRemarks.Margin = new System.Windows.Forms.Padding(1);
+            this.TxtmatRemarks.MaxLength = 50;
+            this.TxtmatRemarks.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtmatRemarks.Multiline = false;
+            this.TxtmatRemarks.Name = "TxtmatRemarks";
+            this.TxtmatRemarks.Size = new System.Drawing.Size(386, 50);
+            this.TxtmatRemarks.TabIndex = 1;
+            this.TxtmatRemarks.Text = "";
+            this.TxtmatRemarks.TextChanged += new System.EventHandler(this.TxtmatRemarks_TextChanged);
+            this.TxtmatRemarks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatRemarks_KeyPress);
             // 
             // TextBox1
             // 
@@ -142,6 +142,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmOrderActivationRemarks";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmOrderActivationRemarks_FormClosed);
             this.Load += new System.EventHandler(this.FrmOrderActivationRemarks_Load);
             this.materialCard1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -154,7 +155,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.Windows.Forms.TextBox TextBox1;
         private MaterialSkin.Controls.MaterialButton MatBtnSave;
-        private MaterialSkin.Controls.MaterialTextBox txtmatRemarks;
-        private MaterialSkin.Controls.MaterialComboBox matcmbType;
+        private MaterialSkin.Controls.MaterialTextBox TxtmatRemarks;
+        private MaterialSkin.Controls.MaterialComboBox MatcmbType;
     }
 }

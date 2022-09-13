@@ -35,58 +35,157 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             InitializeComponent();
             ths = frm;
             TextBox1.TextChanged += new EventHandler(TextBox1_TextChanged);
-            this.AvgOrderTrendEntity.Added_By = Created_by.ToString();
-            this.AvgOrderTrendEntity.Avg_Desc = AverageDesc;
-            this.AvgOrderTrendEntity.Avg_Days = AverageDays;
-            this.AvgOrderTrendEntity.Mode = Mode;
-            this.AvgOrderTrendEntity.Avg_Id = AverageIdentity;
-            this.AvgOrderTrendEntity.Updated_By = Created_by.ToString();
+            this.StoreOrderActivationRemarksEntity.Soar_Added_By = Created_by.ToString();
+            this.StoreOrderActivationRemarksEntity.Soar_Desc = SoarDesc;
+            this.StoreOrderActivationRemarksEntity.Soar_type = SoarType;
+            this.StoreOrderActivationRemarksEntity.Mode = Mode;
+            this.StoreOrderActivationRemarksEntity.Soar_Id = SoarIdentity;
+            this.StoreOrderActivationRemarksEntity.Soar_Updated_By = Created_by.ToString();
         }
 
         private void FrmOrderActivationRemarks_Load(object sender, EventArgs e)
         {
-
+            this.ConnectionInit();
+            this.LoadTaskMode();
         }
-
-        private void MatBtnSave_Click(object sender, EventArgs e)
+        private void LoadTaskMode()
         {
-            if (this.txtmatRemarks.Text == String.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                this.txtmatRemarks.Focus();
-                return;
-            }
-            else if (this.matcmbType.Text == String.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                this.matcmbType.Focus();
-                return;
-            }
+            this.StoreOrderActivationRemarksEntity.Mode = StoreOrderActivationRemarksEntity.Mode;
 
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_store_order_activation_remarks(0,
-                this.txtmatRemarks.Text.Trim(),
-               this.matcmbType.Text.Trim(), "", "", "", "", "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
+            if (StoreOrderActivationRemarksEntity.Mode == "ADD")
             {
-                this.GlobalStatePopup.DataAlreadyExist();
+                this.Text = "Add New Activation Remarks";
+                this.MatBtnSave.Text = "ADD";
+                this.StoreOrderActivationRemarksEntity.Soar_Added_By = this.StoreOrderActivationRemarksEntity.Soar_Added_By;
 
-                this.txtmatRemarks.Text = String.Empty;
-                this.matcmbType.Text = String.Empty;
-                this.txtmatRemarks.Focus();
-       
-                return;
             }
             else
             {
+                this.Text = "Update Activation Remarks";
+                this.MatBtnSave.Text = "UPDATE";
+                this.StoreOrderActivationRemarksEntity.Soar_Updated_By = this.StoreOrderActivationRemarksEntity.Soar_Updated_By;
+                this.StoreOrderActivationRemarksEntity.Soar_Id = this.StoreOrderActivationRemarksEntity.Soar_Id;
+                this.MatcmbType.Text = this.StoreOrderActivationRemarksEntity.Soar_type;
+                this.TxtmatRemarks.Text = this.StoreOrderActivationRemarksEntity.Soar_Desc;
+            }
+            
+        }
+
+
+
+
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection =
+            this.myClass.g_objStoredProc.GetCollections();
+        }
+
+
+
+
+        private void MatBtnSave_Click(object sender, EventArgs e)
+        {
+            if (this.TxtmatRemarks.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.TxtmatRemarks.Focus();
+                return;
+            }
+            else if (this.MatcmbType.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.MatcmbType.Focus();
+                return;
+            }
+
+
+            if (this.StoreOrderActivationRemarksEntity.Soar_type == this.MatcmbType.Text
+                && this.StoreOrderActivationRemarksEntity.Soar_Desc == this.TxtmatRemarks.Text)
+            {
                 this.SaveProcessClicker();
             }
+            else
+            {
+
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_store_order_activation_remarks(0,
+                    this.TxtmatRemarks.Text.Trim(),
+                   this.MatcmbType.Text.Trim(), "", "", "", "", "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+
+                    this.TxtmatRemarks.Text = String.Empty;
+                    this.MatcmbType.Text = String.Empty;
+                    this.TxtmatRemarks.Focus();
+
+                    return;
+                }
+                else
+                {
+                    this.SaveProcessClicker();
+                }
+            }
+
         }
 
         private void SaveProcessClicker()
         {
 
+            if (this.StoreOrderActivationRemarksEntity.Mode == "ADD")
+            {
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+                    dSet.Clear();
+                    dSet = this.g_objStoredProcCollection
+                        .sp_store_order_activation_remarks(0,
+                        this.TxtmatRemarks.Text.Trim(),
+                        this.MatcmbType.Text.Trim(),
+                        this.StoreOrderActivationRemarksEntity.Soar_Added_By,
+                        this.StoreOrderActivationRemarksEntity.Soar_Date_Added,
+                        "",
+                        "",
+                        "add");
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
+
+
+                }
+                else
+                {
+                    return;
+                }
+
+
+            }
+            else
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    dSet.Clear();
+                    dSet = this.g_objStoredProcCollection
+                        .sp_store_order_activation_remarks(StoreOrderActivationRemarksEntity.Soar_Id,
+                        this.TxtmatRemarks.Text.Trim(),
+                        this.MatcmbType.Text.Trim(),
+                        this.StoreOrderActivationRemarksEntity.Soar_Added_By,
+                        this.StoreOrderActivationRemarksEntity.Soar_Date_Added,
+                        this.StoreOrderActivationRemarksEntity.Soar_Updated_By,
+                        "",
+                        "edit");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.Close();
+
+
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
 
         private void txtmatRemarks_KeyPress(object sender, KeyPressEventArgs e)
@@ -96,7 +195,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            ths.textBox1.Text = TextBox1.Text;
+            ths.TextBox1.Text = TextBox1.Text;
+        }
+
+        private void TxtmatRemarks_TextChanged(object sender, EventArgs e)
+        {
+            this.ValueChanger();
+        }
+
+        private void ValueChanger()
+        {
+            if (this.MatcmbType.Text == String.Empty)
+            {
+                this.MatBtnSave.Visible = false;
+            }
+            else if (this.TxtmatRemarks.Text == String.Empty)
+            {
+                this.MatBtnSave.Visible = false;
+            }
+            else
+            {
+                this.MatBtnSave.Visible = true;
+            }
+        }
+
+        private void MatcmbType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.ValueChanger();
+        }
+
+        private void FrmOrderActivationRemarks_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.TextBox1.Text = "Gerard Singian";
         }
     }
 }

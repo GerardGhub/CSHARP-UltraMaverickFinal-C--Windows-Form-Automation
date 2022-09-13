@@ -48,6 +48,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             myglobal.global_module = "Active"; // Mode for Searching
             this.ShowDataStoreOrderActivationRemarks();
             this.SearchMethodJarVarCallingSP();
+            this.TextBox1.Text = String.Empty;
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -57,7 +58,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("store_order_activation_remarks_activated_major");
+            dset_emp_SearchEngines = this.g_objStoredProcCollection
+                .sp_getMajorTables("store_order_activation_remarks_activated_major");
 
             this.VisibilityFalseForDataGridColumn();
 
@@ -231,7 +233,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
             this.matBtnSave.Visible = true;
-   
+
+
+            this.StoreOrderActivationRemarksEntity.Mode = "EDIT";
+            FrmOrderActivationRemarks addNew =
+            new FrmOrderActivationRemarks(this,
+            userinfo.user_id,
+            this.StoreOrderActivationRemarksEntity.Soar_Desc,
+            this.StoreOrderActivationRemarksEntity.Soar_type,
+            this.StoreOrderActivationRemarksEntity.Mode,
+            this.StoreOrderActivationRemarksEntity.Soar_Id);
+            addNew.ShowDialog();
+
         }
 
         private void dgvAVGOrderTrend_CurrentCellChanged(object sender, EventArgs e)
@@ -406,8 +419,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
-            this.ConnetionString();
-            if (this.sp_bind_selected == "1")
+       
+            if (this.matRadioActive.Checked == true)
             {
                 this.SearchMethodJarVarCallingSP();
             }
@@ -415,32 +428,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.SearchMethodJarVarCallingSPInactive();
             }
-
-            if (this.mattxtSearch.Text == String.Empty)
-            {
-                this.ShowDataStoreOrderActivationRemarks();
-                return;
-            }
-            if (this.lbltotalrecords.Text == "0")
-            {
-
-            }
-            else
-            {
-
-                if (this.mode == "add")
-                {
-
-                }
-                else
-                {
-
-                    this.doSearchInTextBox();
-
-                }
-
-            }
-            //End of Method of Searching
+            this.doSearchInTextBox();
+      
+       
         }
 
         private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
@@ -485,6 +475,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.matBtnCancel_Click(sender,e);
+
+            this.frmStoreOrderCancelRemarks_Load(sender, e);
         }
     }
 }

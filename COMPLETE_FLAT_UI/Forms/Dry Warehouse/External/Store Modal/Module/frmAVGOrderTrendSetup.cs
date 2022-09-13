@@ -257,8 +257,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
      
-            this.ConnetionString();
-            if (this.Sp_bind_selected == "1")
+     
+            if (this.matRadioActive.Checked == true)
             {
                 this.SearchMethodJarVarCallingSP();
             }
@@ -266,32 +266,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.SearchMethodJarVarCallingSPInactive();
             }
+            this.doSearchInTextBox();
 
-            if (this.mattxtSearch.Text == String.Empty)
-            {
-                this.showAVGTrendData();
-                return;
-            }
-            if (this.lbltotalrecords.Text == "0")
-            {
-
-            }
-            else
-            {
-  
-                if (this.mode == "add")
-                {
-       
-                }
-                else
-                {
-             
-                    doSearchInTextBox();
-           
-                }
-
-            }
-            //End of Method of Searching
+      
+          
         }
 
         private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)

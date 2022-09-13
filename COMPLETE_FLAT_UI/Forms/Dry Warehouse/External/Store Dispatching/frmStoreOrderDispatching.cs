@@ -1185,7 +1185,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     return;
                 }
 
-            return;
+            //////return;gagi 913 2022
             this.Sp_Selected_Item = "";
             this.AutoPrintPreviewLooping();
         }

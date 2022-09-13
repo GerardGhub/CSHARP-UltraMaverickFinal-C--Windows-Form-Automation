@@ -46,10 +46,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
 
         private void FrmAddNewOrderTrend_Load(object sender, EventArgs e)
         {
-            {
+            
                 this.ConnectionInit();
                 this.LoadTaskMode();
-            }
+            
         }
 
 
