@@ -19,11 +19,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmAddNewLotModal : MaterialForm
     {
         frmLotManagement ths;
-        myclasses myClass = new myclasses();
-        DataSet dSet = new DataSet();
+        readonly myclasses myClass = new myclasses();
+        private DataSet dSet = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        Lot_Management LotManagementEntity = new Lot_Management();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly Lot_Management LotManagementEntity = new Lot_Management();
 
         private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
 

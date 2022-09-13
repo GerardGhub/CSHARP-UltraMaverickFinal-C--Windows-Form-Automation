@@ -11,6 +11,7 @@ using COMPLETE_FLAT_UI.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Setup;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Properties;
@@ -23,30 +24,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         IStoredProcedures g_objStoredProcCollection = null;
         readonly myclasses myClass = new myclasses();
         private DataSet dSet = new DataSet();
-
-   
+        readonly Lot_Management LotManagementEntity = new Lot_Management();
         int p_id = 0;
-
-
-
-        DataSet dSet_temp = new DataSet();
+        readonly DataSet dSet_temp = new DataSet();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+
+
         public frmLotManagement()
         {
             InitializeComponent();
         }
         //User Binding
-        public string Sp_user_id { get; set; }
+ 
         public string ErrorDetails { get; set; }
-        public string Sp_id { get; set; }
-        public string Sp_lot_number { get; set; }
-        public string Sp_description { get; set; }
-        public string Sp_category { get; set; }
         public string Sp_Total_SKU { get; set; }
         private void frmLotManagement_Load(object sender, EventArgs e)
         {
             this.ConnectionInitializer();
-            Sp_user_id = userinfo.user_id.ToString();
+            LotManagementEntity.Added_By = userinfo.user_id.ToString();
             this.ShowLotMasterlist();
             this.LoadingrefresherOrb();
             this.SearchMethodJarVarCallingSP();
@@ -58,15 +53,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
+
         private void IfTheISNullOrEmpty()
         {
             if(this.lbltotalrecords.Text != "0")
             {
                 this.matRadioActive.Checked = true;
             }
-        
-
-       
         }
 
         private void SearchMethodJarVarCallingSP()
@@ -107,9 +100,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
             }
-
-
-
 
             myglobal.global_module = "Active"; // Mode for Searching
 
@@ -158,7 +148,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             matBtnNew.Visible = false;
             matBtnEdit.Visible = false;
-            frmAddNewLotModal addNew = new frmAddNewLotModal(this, Sp_user_id);
+            frmAddNewLotModal addNew = new frmAddNewLotModal(this, this.LotManagementEntity.Added_By);
             addNew.ShowDialog();
         }
 
@@ -191,7 +181,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                        dv.RowFilter = "lot_number = '" + mattxtSearch.Text + "' or description like '%" + mattxtSearch.Text + "%' ";
+                        dv.RowFilter = "lot_number = '" + mattxtSearch.Text + "' " +
+                            "or description like '%" + mattxtSearch.Text + "%'" +
+                            "or category like '%" + mattxtSearch.Text + "%'  ";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -225,10 +217,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
            frmUpdateLotData addNew = new frmUpdateLotData(this, 
-               this.Sp_user_id, 
-               this.Sp_lot_number, 
-               this.Sp_description, 
-               this.Sp_category, this.p_id, this.Sp_Total_SKU);
+               this.LotManagementEntity.Added_By, 
+               this.LotManagementEntity.Lot_Number, 
+               this.LotManagementEntity.Description, 
+               this.LotManagementEntity.Category, 
+               this.p_id, 
+               this.Sp_Total_SKU);
             addNew.ShowDialog();
         }
 
@@ -246,9 +240,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     if (dgvLotData.CurrentRow.Cells["lot_number"].Value != null)
                     {
                         this.p_id = Convert.ToInt32(this.dgvLotData.CurrentRow.Cells["id"].Value);
-                        this.Sp_lot_number = this.dgvLotData.CurrentRow.Cells["lot_number"].Value.ToString();
-                        this.Sp_description = this.dgvLotData.CurrentRow.Cells["description"].Value.ToString();
-                        this.Sp_category = this.dgvLotData.CurrentRow.Cells["category"].Value.ToString();
+                        this.LotManagementEntity.Lot_Number = this.dgvLotData.CurrentRow.Cells["lot_number"].Value.ToString();
+                        this.LotManagementEntity.Description = this.dgvLotData.CurrentRow.Cells["description"].Value.ToString();
+                        this.LotManagementEntity.Category = this.dgvLotData.CurrentRow.Cells["category"].Value.ToString();
                         this.Sp_Total_SKU = this.dgvLotData.CurrentRow.Cells["TOTALSKU"].Value.ToString();
                    
                     }
@@ -266,84 +260,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
-        private void MatBtnViewItems_Click(object sender, EventArgs e)
-        {
 
-            frmViewItemsInLotArea mywipwh = new frmViewItemsInLotArea(this, 
-                Sp_lot_number, 
-                Sp_description, 
-                Sp_category);
-            mywipwh.ShowDialog();
-
-
-        }
-
-        private void MaterialButton1_Click(object sender, EventArgs e)
-        {
-            if(this.Sp_Total_SKU != "0")
-            {
-                this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
-                return;
-            }
-
-            if(this.matBtnStatuses.Text=="DEACTIVATE")
-            {
-
-        
-            //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data "+Sp_description+"?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                this.dSet.Clear();
-                this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
-                    this.Sp_user_id, 
-                    "LotDescription", 
-                    "MajorCategoryId", 
-                    "CreatedBY", 
-                    "",
-                    "Sample",
-                    "", 
-                    "delete");
-                this.GlobalStatePopup.UpdatedSuccessfully();
-                this.matRadioNotActive.Checked = true;
-            }
-                else if (this.matRadioNotActive.Checked == true)
-                {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data" + Sp_description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        this.dSet.Clear();
-                        this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
-                            this.Sp_user_id,
-                            "LotDescription",
-                            "MajorCategoryId",
-                            "CreatedBY",
-                            "", 
-                            "Sample", 
-                            "",
-                            "activate");
-                        this.GlobalStatePopup.UpdatedSuccessfully();
-                        this.matRadioActive.Checked = true;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-            //End of Else if fucking Sh!t
-                else
-            {
-                return;
-            }
-
-
-            }
-
-
-
-
-
-
-
-        }
 
         private void MattxtSearch_TextChanged_1(object sender, EventArgs e)
         {
@@ -370,12 +287,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 this.matRadioNotActive.Checked = true;
-                this.matBtnStatuses.Text = "ACTIVATE";
+                this.matBtnDelete.Text = "&Activate";
                 this.ConnectionInitializer();
                 this.ShowLotMasterlistDeactivated();
                 if(this.lbltotalrecords.Text == "0")
                 {
-                    this.matBtnStatuses.Visible = false;
+                    this.matBtnDelete.Visible = false;
                 }
 
             }
@@ -394,7 +311,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.matRadioActive.Checked = true;
            
 
-                this.matBtnStatuses.Text = "DEACTIVATE";
+                this.matBtnDelete.Text = "&Inactive";
                 this.frmLotManagement_Load(sender, e);
             }
 
@@ -402,6 +319,96 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
  
         }
 
-    
+        private void matBtnDelete_Click(object sender, EventArgs e)
+        {
+            if (this.Sp_Total_SKU != "0")
+            {
+                this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
+                return;
+            }
+
+            if (this.matBtnDelete.Text == "&Inactive")
+            {
+
+
+                //Start
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data " + this.LotManagementEntity.Description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
+                        this.LotManagementEntity.Added_By,
+                        "LotDescription",
+                        "MajorCategoryId",
+                        "CreatedBY",
+                        "",
+                        "Sample",
+                        "",
+                        "delete");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.matRadioNotActive.Checked = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            else
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data" + this.LotManagementEntity.Description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
+                        this.LotManagementEntity.Added_By,
+                        "LotDescription",
+                        "MajorCategoryId",
+                        "CreatedBY",
+                        "",
+                        "Sample",
+                        "",
+                        "activate");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.matRadioActive.Checked = true;
+                }
+                else
+                {
+                    return;
+                }
+
+          
+
+            }
+            
+
+
+        }
+
+        private void lbltotalrecords_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lbltotalrecords.Text != "0")
+            {
+                this.matBtnDelete.Visible = true;
+            }
+        }
+
+        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void dgvLotData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (this.dgvLotData.Columns[e.ColumnIndex].Name == "ViewItems")
+            {
+                    frmViewItemsInLotArea mywipwh = new frmViewItemsInLotArea(this,
+                    this.LotManagementEntity.Lot_Number,
+                    this.LotManagementEntity.Description,
+                    this.LotManagementEntity.Category);
+                    mywipwh.ShowDialog();
+            }
+
+
+        }
     }
 }
