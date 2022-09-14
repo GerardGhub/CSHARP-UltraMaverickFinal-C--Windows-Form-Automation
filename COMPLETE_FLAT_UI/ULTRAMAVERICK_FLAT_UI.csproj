@@ -462,11 +462,11 @@
     <Compile Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.Designer.cs">
       <DependentUpon>FrmAddNewSubMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\AddNewDepartment.cs">
+    <Compile Include="Forms\Users\Modal\FrmAddNewDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\AddNewDepartment.Designer.cs">
-      <DependentUpon>AddNewDepartment.cs</DependentUpon>
+    <Compile Include="Forms\Users\Modal\FrmAddNewDepartment.Designer.cs">
+      <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\Modal\AddNewDepartmentUnit.cs">
       <SubType>Form</SubType>
@@ -1030,8 +1030,8 @@
     <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.resx">
       <DependentUpon>FrmAddNewSubMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\AddNewDepartment.resx">
-      <DependentUpon>AddNewDepartment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewDepartment.resx">
+      <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Modal\AddNewDepartmentUnit.resx">
       <DependentUpon>AddNewDepartmentUnit.cs</DependentUpon>

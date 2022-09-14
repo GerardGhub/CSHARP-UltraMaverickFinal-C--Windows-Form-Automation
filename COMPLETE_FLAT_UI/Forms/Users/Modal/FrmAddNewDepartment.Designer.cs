@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Users.Modal
 {
-    partial class AddNewDepartment
+    partial class FrmAddNewDepartment
     {
         /// <summary>
         /// Required designer variable.
@@ -100,8 +100,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtDepartment.Size = new System.Drawing.Size(465, 50);
             this.TxtDepartment.TabIndex = 1;
             this.TxtDepartment.Text = "";
+            this.TxtDepartment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDepartment_KeyPress);
             // 
-            // AddNewDepartment
+            // FrmAddNewDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,7 +110,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddNewDepartment";
+            this.Name = "FrmAddNewDepartment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewDepartment";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddNewDepartment_FormClosing);

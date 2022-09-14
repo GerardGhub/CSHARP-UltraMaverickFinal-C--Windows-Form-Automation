@@ -14,7 +14,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Users.Modal
 {
-    public partial class AddNewDepartment : MaterialForm
+    public partial class FrmAddNewDepartment : MaterialForm
     {
         frmDepartment ths;
         DataSet dSet = new DataSet();
@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
-        public AddNewDepartment(frmDepartment frm, int UserId, string Mode, int DepartmentId, string DepartmentName)
+        public FrmAddNewDepartment(frmDepartment frm, int UserId, string Mode, int DepartmentId, string DepartmentName)
         {
             InitializeComponent();
             ths = frm;
@@ -210,6 +210,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             }
             //close
 
+        }
+
+        private void TxtDepartment_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

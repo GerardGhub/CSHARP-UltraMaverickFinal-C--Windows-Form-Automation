@@ -20,18 +20,14 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmDepartment : MaterialForm
     {
-
-        myclasses myClass = new myclasses();
-        IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
         DateTime dNow = DateTime.Now;
         string mode = "";
         DataSet dSet = new DataSet();
-        Boolean ready = false;
-
         DataSet dSet_temp = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
-        Department Dept = new Department();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly Department DeptEntity = new Department();
 
         public frmDepartment()
         {
@@ -102,7 +98,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
               else
             {
-                dset_emp = g_objStoredProcCollection.sp_getMajorTables("departmentcurrentcellchangedinactive'");
+                dset_emp = g_objStoredProcCollection.sp_getMajorTables("departmentcurrentcellchangedinactive");
             }
 
 
@@ -207,7 +203,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                         dSet_temp.Clear();
-                        dSet_temp = g_objStoredProcCollection.sp_department(this.Dept.Department_Id, "", "", "", "", "", "", "", "delete");
+                        dSet_temp = g_objStoredProcCollection.sp_department(this.DeptEntity.Department_Id, 
+                            "", 
+                            "", 
+                            "", 
+                            "", 
+                            "", 
+                            "",
+                            "", 
+                            "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.frmDepartment_Load(sender, e);
                     }
@@ -231,7 +235,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                         dSet_temp.Clear();
-                        dSet_temp = g_objStoredProcCollection.sp_department(this.Dept.Department_Id, "", "", "", "", "", "", "", "activate");
+                        dSet_temp = g_objStoredProcCollection.sp_department(this.DeptEntity.Department_Id, "", "", "", "", "", "", "", "activate");
                         this.GlobalStatePopup.ActivatedSuccessfully();
                         this.frmDepartment_Load(sender, e);
                     }
@@ -250,47 +254,11 @@ namespace ULTRAMAVERICK.Forms.Users
 
   
 
-        private void btnCancelTool_Click(object sender, EventArgs e)
-        {
-     
-            btnCancelTool.Visible = false;
-            btnAddTool.Visible = true;
-
-            btnUpdateTool.Visible = false;
-            btnEditTool.Visible = true;
-            btnDeleteTool.Visible = true;
        
-        }
 
    
 
 
-        private void txtCreatedByAndUserID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void matBtnNew_Click(object sender, EventArgs e)
-        {
-            mode = "add";
-            btnUpdateTool.Visible = true;
-            btnAddTool.Visible = false;
-            btnDeleteTool.Visible = false;
-
-
-            btnCancelTool.Visible = true;
-
-
-
-
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
-            btnUpdateTool.Visible = true;
-            btnEditTool.Visible = false;
-
-
-        }
 
 
 
@@ -306,14 +274,16 @@ namespace ULTRAMAVERICK.Forms.Users
 
             btnCancelTool.Visible = true;
 
-            txtCreatedByAndUserID.Text = userinfo.user_id.ToString();
+
             btnUpdateTool.Visible = true;
             btnEditTool.Visible = false;
 
 
-                AddNewDepartment addNew = new AddNewDepartment(this,
+                FrmAddNewDepartment addNew = new FrmAddNewDepartment(this,
                 userinfo.user_id,
-                "Add", this.Dept.Department_Id, this.Dept.Department_Name
+                "Add", 
+                this.DeptEntity.Department_Id, 
+                this.DeptEntity.Department_Name
                 );
                 addNew.ShowDialog();
 
@@ -337,9 +307,11 @@ namespace ULTRAMAVERICK.Forms.Users
                 btnUpdateTool.Visible = true;
 
 
-                AddNewDepartment addNew = new AddNewDepartment(this,
+                FrmAddNewDepartment addNew = new FrmAddNewDepartment(this,
                 userinfo.user_id,
-                "Edit", this.Dept.Department_Id, this.Dept.Department_Name
+                "Edit", 
+                this.DeptEntity.Department_Id, 
+                this.DeptEntity.Department_Name
                 );
                 addNew.ShowDialog();
 
@@ -381,9 +353,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void DgvDepartment_CurrentCellChanged(object sender, EventArgs e)
         {
-
             this.showDepartmentDetails();
-
         }
 
         private void showDepartmentDetails()
@@ -394,9 +364,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     if (DgvDepartment.CurrentRow.Cells["department_name"].Value != null)
                     {
-                        this.Dept.Department_Id = Convert.ToInt32(DgvDepartment.CurrentRow.Cells["department_id"].Value);
-                        this.Dept.Department_Name = DgvDepartment.CurrentRow.Cells["department_name"].Value.ToString();
-                        
+                        this.DeptEntity.Department_Id = Convert.ToInt32(DgvDepartment.CurrentRow.Cells["department_id"].Value);
+                        this.DeptEntity.Department_Name = DgvDepartment.CurrentRow.Cells["department_name"].Value.ToString();                       
                     }
 
                 }
@@ -404,12 +373,11 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
-        {
-            
+        {           
             this.load_search();
         }
 
-        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioActive_CheckedChanged(object sender, EventArgs e)
         {
             if (this.matRadioActive.Checked == true)
             {
@@ -424,7 +392,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
 
-        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioNotActive_CheckedChanged(object sender, EventArgs e)
         {
             if (this.matRadioActive.Checked == true)
             {
@@ -442,6 +410,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void materialCard2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

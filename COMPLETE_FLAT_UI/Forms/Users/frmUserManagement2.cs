@@ -28,33 +28,37 @@ namespace ULTRAMAVERICK.Forms.Users
         UserFile UserFileEntity = new UserFile();
         DataSet dSet = new DataSet();
         string mode = "";
+
+
         public frmUserManagement2()
         {
             InitializeComponent();
         }
   
  
-
-
-
         private void ConnectionInit()
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.g_objStoredProcCollection = 
+            this.myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
+
         private void frmUserManagement2_Load(object sender, EventArgs e)
         {
 
             this.ConnectionInit();
 
-
             this.displayUsers();
             this.matRadioActive.Checked = true;
-            this.textBox1.Text = String.Empty;
-            this.textBox2.Text = String.Empty;
+            this.StringEmpty();
  
             MatRadioActive_CheckedChanged(sender, e);
         }
  
+        public void StringEmpty()
+        {
+            this.textBox1.Text = String.Empty;
+            this.textBox2.Text = String.Empty;
+        }
 
 
         public void load_search()
