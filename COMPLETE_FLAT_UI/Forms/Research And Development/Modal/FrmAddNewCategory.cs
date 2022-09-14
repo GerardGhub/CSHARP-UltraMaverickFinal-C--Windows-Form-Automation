@@ -13,7 +13,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 {
-    public partial class AddNewCategory : MaterialForm
+    public partial class FrmAddNewCategory : MaterialForm
     {
         readonly frmSubCategory ths;
         DataSet dSet = new DataSet();
@@ -21,7 +21,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         IStoredProcedures g_objStoredProcCollection = null;
         readonly Sub_Category SubCategoryEntity = new Sub_Category();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        public AddNewCategory(
+        public FrmAddNewCategory(
             frmSubCategory frm,
             int Created_by,
             string SubCategoryDesc,
@@ -109,6 +109,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 return;
+            }
+
+            if (this.SubCategoryEntity.Mode == "ADD")
+            {
+                this.SubCategoryEntity.Sub_Category_Desc = String.Empty;
             }
 
             if (this.SubCategoryEntity.Sub_Category_Desc == this.TxtSubCategory.Text)

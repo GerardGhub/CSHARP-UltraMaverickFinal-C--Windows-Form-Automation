@@ -41,6 +41,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
             this.ShowSubCategoryData();
             this.CheckBoxActivated();
+            this.TextBox1.Text = String.Empty;
         }
 
         private void CheckBoxActivated()
@@ -132,8 +133,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
             this.SubCategoryEntity.Mode = "ADD";
-            AddNewCategory addNew =
-            new AddNewCategory(this,
+            FrmAddNewCategory addNew =
+            new FrmAddNewCategory(this,
             userinfo.user_id,
             this.SubCategoryEntity.Sub_Category_Desc,
             this.SubCategoryEntity.Mode,
@@ -238,8 +239,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
             this.SubCategoryEntity.Mode = "EDIT";
-            AddNewCategory addNew =
-            new AddNewCategory(this,
+            FrmAddNewCategory addNew =
+            new FrmAddNewCategory(this,
             userinfo.user_id,
             this.SubCategoryEntity.Sub_Category_Desc,
             this.SubCategoryEntity.Mode,
@@ -375,6 +376,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
+        }
+
+        private void MatTxtSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
 
         //

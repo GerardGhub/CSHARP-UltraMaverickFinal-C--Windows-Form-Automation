@@ -53,14 +53,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 
             if (Item_ClassEntity.Mode == "ADD")
             {
-                this.Text = "Add New Class";
+                this.Text = "Add New Item Class";
                 this.materialButton1.Text = "ADD";
                 this.Item_ClassEntity.Item_Added_By = this.Item_ClassEntity.Item_Added_By;
                 this.TxtMatItemClass.Text = String.Empty;
             }
             else
             {
-                this.Text = "Update Class";
+                this.Text = "Update Item Class";
                 this.materialButton1.Text = "UPDATE";
                 this.Item_ClassEntity.Item_Updated_By = this.Item_ClassEntity.Item_Updated_By;
                 this.Item_ClassEntity.Item_Class_Id = this.Item_ClassEntity.Item_Class_Id;
@@ -96,6 +96,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             }
 
 
+            if (Item_ClassEntity.Mode == "ADD")
+            {
+                this.Item_ClassEntity.Item_Class_Desc = String.Empty;
+            }
 
 
             if (this.Item_ClassEntity.Item_Class_Desc == this.TxtMatItemClass.Text)

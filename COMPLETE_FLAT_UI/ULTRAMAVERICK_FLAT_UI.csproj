@@ -414,11 +414,11 @@
     <Compile Include="Forms\Lab Test\frmLabTestModule.Designer.cs">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\AddNewCategory.cs">
+    <Compile Include="Forms\Research And Development\Modal\FrmAddNewCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\AddNewCategory.Designer.cs">
-      <DependentUpon>AddNewCategory.cs</DependentUpon>
+    <Compile Include="Forms\Research And Development\Modal\FrmAddNewCategory.Designer.cs">
+      <DependentUpon>FrmAddNewCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Research And Development\Modal\AddPrimaryUnit.cs">
       <SubType>Form</SubType>
@@ -1006,8 +1006,8 @@
     <EmbeddedResource Include="Forms\Lab Test\frmLabTestModule.resx">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\Modal\AddNewCategory.resx">
-      <DependentUpon>AddNewCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Research And Development\Modal\FrmAddNewCategory.resx">
+      <DependentUpon>FrmAddNewCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Research And Development\Modal\AddPrimaryUnit.resx">
       <DependentUpon>AddPrimaryUnit.cs</DependentUpon>

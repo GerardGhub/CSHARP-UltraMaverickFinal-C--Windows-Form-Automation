@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 {
-    partial class AddNewCategory
+    partial class FrmAddNewCategory
     {
         /// <summary>
         /// Required designer variable.

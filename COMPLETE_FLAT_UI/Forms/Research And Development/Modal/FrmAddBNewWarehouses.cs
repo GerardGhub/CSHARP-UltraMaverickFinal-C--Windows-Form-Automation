@@ -97,6 +97,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             }
 
 
+            if (this.MajorCategoryEntity.Mode == "ADD")
+            {
+                this.MajorCategoryEntity.Major_Category_Desc = String.Empty;
+            }
+
             if (this.MajorCategoryEntity.Major_Category_Desc == this.TxtMajorCategory.Text)
             {
                 this.DoSaveFunctionality();
