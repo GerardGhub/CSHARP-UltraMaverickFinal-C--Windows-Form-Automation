@@ -85,7 +85,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(972, 86);
+            this.materialCard1.Size = new System.Drawing.Size(972, 70);
             this.materialCard1.TabIndex = 561;
             // 
             // MatTxtSearchBox
@@ -95,7 +95,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.MatTxtSearchBox.Depth = 0;
             this.MatTxtSearchBox.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtSearchBox.Hint = "Search";
-            this.MatTxtSearchBox.Location = new System.Drawing.Point(741, 20);
+            this.MatTxtSearchBox.Location = new System.Drawing.Point(755, 10);
             this.MatTxtSearchBox.Margin = new System.Windows.Forms.Padding(1);
             this.MatTxtSearchBox.MaxLength = 50;
             this.MatTxtSearchBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -105,6 +105,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.MatTxtSearchBox.TabIndex = 670;
             this.MatTxtSearchBox.Text = "";
             this.MatTxtSearchBox.TextChanged += new System.EventHandler(this.MatTxtSearchBox_TextChanged);
+            this.MatTxtSearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MatTxtSearchBox_KeyPress);
             // 
             // textBox1
             // 
@@ -126,12 +127,12 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard2.Controls.Add(this.dgvGrandChildForms);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(20, 274);
+            this.materialCard2.Location = new System.Drawing.Point(20, 230);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(977, 452);
+            this.materialCard2.Size = new System.Drawing.Size(977, 496);
             this.materialCard2.TabIndex = 579;
             // 
             // dgvGrandChildForms
@@ -195,7 +196,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChildForms.RowTemplate.DividerHeight = 5;
             this.dgvGrandChildForms.RowTemplate.Height = 40;
             this.dgvGrandChildForms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGrandChildForms.Size = new System.Drawing.Size(967, 440);
+            this.dgvGrandChildForms.Size = new System.Drawing.Size(967, 484);
             this.dgvGrandChildForms.TabIndex = 578;
             this.dgvGrandChildForms.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvGrandChildForms.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -344,7 +345,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(20, 222);
+            this.panel1.Location = new System.Drawing.Point(20, 183);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 40);
@@ -354,7 +355,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -430,7 +431,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(879, 729);
+            this.lbltotalrecords.Location = new System.Drawing.Point(881, 729);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 665;
@@ -457,7 +458,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard3.Controls.Add(this.matRadioNotActive);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(776, 195);
+            this.materialCard3.Location = new System.Drawing.Point(776, 165);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";

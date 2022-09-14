@@ -258,7 +258,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.btnCancelTool_Click("", e);
@@ -290,7 +290,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "activate");
                         this.GlobalStatePopup.ActivatedSuccessfully();
                         this.btnCancelTool_Click("", e);
@@ -404,6 +404,11 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.displayGrandChildFormsDataInActive();
             }
 
+        }
+
+        private void MatTxtSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }
