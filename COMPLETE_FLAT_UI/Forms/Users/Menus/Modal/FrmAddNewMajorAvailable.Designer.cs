@@ -143,7 +143,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.dgvUserRights.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUserRights.EnableHeadersVisualStyles = false;
             this.dgvUserRights.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvUserRights.Location = new System.Drawing.Point(39, 328);
+            this.dgvUserRights.Location = new System.Drawing.Point(39, 349);
             this.dgvUserRights.Name = "dgvUserRights";
             this.dgvUserRights.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -159,7 +159,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.dgvUserRights.RowTemplate.DividerHeight = 5;
             this.dgvUserRights.RowTemplate.Height = 40;
             this.dgvUserRights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUserRights.Size = new System.Drawing.Size(225, 219);
+            this.dgvUserRights.Size = new System.Drawing.Size(225, 198);
             this.dgvUserRights.TabIndex = 579;
             this.dgvUserRights.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvUserRights.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -211,7 +211,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.lstParentMenu.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstParentMenu.FormattingEnabled = true;
             this.lstParentMenu.ItemHeight = 18;
-            this.lstParentMenu.Location = new System.Drawing.Point(630, 256);
+            this.lstParentMenu.Location = new System.Drawing.Point(630, 263);
             this.lstParentMenu.Margin = new System.Windows.Forms.Padding(4);
             this.lstParentMenu.Name = "lstParentMenu";
             this.lstParentMenu.Size = new System.Drawing.Size(233, 54);
@@ -224,7 +224,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 331);
+            this.ClientSize = new System.Drawing.Size(621, 344);
             this.Controls.Add(this.lstParentMenu);
             this.Controls.Add(this.dgvUserRights);
             this.Controls.Add(this.materialCard1);

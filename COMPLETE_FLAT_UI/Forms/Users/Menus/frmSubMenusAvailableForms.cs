@@ -20,9 +20,9 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmSubMenusAvailableForms : MaterialForm
     {
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         public Byte[] imageByte = null;
 
@@ -30,8 +30,7 @@ namespace ULTRAMAVERICK.Forms.Users
         int p_id = 0;
         int temp_hid = 0;
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
-        Available_Menu AvailableMenuEntity = new Available_Menu();
+        readonly Available_Menu AvailableMenuEntity = new Available_Menu();
 
         DataSet dSet_temp = new DataSet();
 
@@ -143,7 +142,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         this.AvailableMenuEntity.Menu_Form_Name = this.dgvChildForms.CurrentRow.Cells["menu_form_name"].Value.ToString();
                         this.AvailableMenuEntity.Menu_Name = this.dgvChildForms.CurrentRow.Cells["menu_name"].Value.ToString();
                         this.AvailableMenuEntity.Count = this.dgvChildForms.CurrentRow.Cells["count"].Value.ToString();
- 
+                        this.AvailableMenuEntity.MajorMenuID = Convert.ToInt32(this.dgvChildForms.CurrentRow.Cells["MajorMenuID"].Value);
                     }
                 }
             }
@@ -215,7 +214,8 @@ namespace ULTRAMAVERICK.Forms.Users
              this.AvailableMenuEntity.Menu_Id,
              this.AvailableMenuEntity.Menu_Name,
              this.AvailableMenuEntity.Count,
-             this.AvailableMenuEntity.Menu_Form_Name
+             this.AvailableMenuEntity.Menu_Form_Name,
+             this.AvailableMenuEntity.MajorMenuID
              );
             addNew.ShowDialog();
 
@@ -243,7 +243,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.AvailableMenuEntity.Menu_Id,
                 this.AvailableMenuEntity.Menu_Name,
                 this.AvailableMenuEntity.Count,
-                this.AvailableMenuEntity.Menu_Form_Name
+                this.AvailableMenuEntity.Menu_Form_Name,
+                this.AvailableMenuEntity.MajorMenuID
                 );
                 addNew.ShowDialog();
 
@@ -378,11 +379,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialTextBox1_TextChanged(object sender, EventArgs e)
         {
-            //if (this.MatTxtSearchBox.Text == String.Empty)
-            //{
-            //    this.displayChildFormsData();
-            //}
+   
             this.SearchSubMenuData();
+        }
+
+        private void MatTxtSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

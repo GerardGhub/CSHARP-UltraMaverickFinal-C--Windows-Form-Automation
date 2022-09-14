@@ -22,17 +22,16 @@ namespace ULTRAMAVERICK.Forms.Users
     {
  
         public Byte[] imageByte = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         myglobal pointer_module = new myglobal();
         DateTime dNow = DateTime.Now;
         string mode = "";
         DataSet dSet = new DataSet();
-        Boolean ready = false;
-        int temp_id = 0;
+
         DataSet dSet_temp = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        ParentForms ParentFormEntity = new ParentForms();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly ParentForms ParentFormEntity = new ParentForms();
 
         public frmMajorAvailableForms()
         {
@@ -387,6 +386,11 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.ConnectionInit();
                 this.getAllParentMenuInactive();
             }
+        }
+
+        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

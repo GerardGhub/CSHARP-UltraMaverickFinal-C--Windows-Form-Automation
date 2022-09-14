@@ -20,7 +20,8 @@ namespace ULTRAMAVERICK.API.Entities
         public string Tagging_RelationShip { get; set; }
         public string Mode { get; set; }
         public string ParentMenuName { get; set; }
-       public  int User_Rights_Id { get; set; }
+        public  int User_Rights_Id { get; set; }
+        public int MajorMenuID { get; set; }
 
     }
 }

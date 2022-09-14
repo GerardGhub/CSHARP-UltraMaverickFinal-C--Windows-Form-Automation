@@ -34,9 +34,9 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.cboParentMenu = new System.Windows.Forms.ComboBox();
-            this.txtfname = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtmname = new MaterialSkin.Controls.MaterialTextBox();
+            this.CboParentMenu = new System.Windows.Forms.ComboBox();
+            this.Txtfname = new MaterialSkin.Controls.MaterialTextBox();
+            this.Txtmname = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BtnExecute = new MaterialSkin.Controls.MaterialButton();
@@ -50,9 +50,9 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.cboParentMenu);
-            this.materialCard1.Controls.Add(this.txtfname);
-            this.materialCard1.Controls.Add(this.txtmname);
+            this.materialCard1.Controls.Add(this.CboParentMenu);
+            this.materialCard1.Controls.Add(this.Txtfname);
+            this.materialCard1.Controls.Add(this.Txtmname);
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Controls.Add(this.textBox1);
             this.materialCard1.Controls.Add(this.BtnExecute);
@@ -66,55 +66,55 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.materialCard1.Size = new System.Drawing.Size(542, 338);
             this.materialCard1.TabIndex = 3;
             // 
-            // cboParentMenu
+            // CboParentMenu
             // 
-            this.cboParentMenu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboParentMenu.FormattingEnabled = true;
-            this.cboParentMenu.Location = new System.Drawing.Point(52, 64);
-            this.cboParentMenu.Name = "cboParentMenu";
-            this.cboParentMenu.Size = new System.Drawing.Size(441, 27);
-            this.cboParentMenu.TabIndex = 579;
-            this.cboParentMenu.SelectedIndexChanged += new System.EventHandler(this.cboParentMenu_SelectedIndexChanged);
-            this.cboParentMenu.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
-            this.cboParentMenu.Click += new System.EventHandler(this.cboParentMenu_Click);
-            this.cboParentMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboParentMenu_KeyPress);
+            this.CboParentMenu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CboParentMenu.FormattingEnabled = true;
+            this.CboParentMenu.Location = new System.Drawing.Point(52, 64);
+            this.CboParentMenu.Name = "CboParentMenu";
+            this.CboParentMenu.Size = new System.Drawing.Size(441, 27);
+            this.CboParentMenu.TabIndex = 579;
+            this.CboParentMenu.SelectedIndexChanged += new System.EventHandler(this.cboParentMenu_SelectedIndexChanged);
+            this.CboParentMenu.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
+            this.CboParentMenu.Click += new System.EventHandler(this.cboParentMenu_Click);
+            this.CboParentMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboParentMenu_KeyPress);
             // 
-            // txtfname
+            // Txtfname
             // 
-            this.txtfname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txtfname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtfname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtfname.Depth = 0;
-            this.txtfname.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtfname.Hint = "Developer Form Name";
-            this.txtfname.Location = new System.Drawing.Point(51, 197);
-            this.txtfname.Margin = new System.Windows.Forms.Padding(1);
-            this.txtfname.MaxLength = 50;
-            this.txtfname.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtfname.Multiline = false;
-            this.txtfname.Name = "txtfname";
-            this.txtfname.Size = new System.Drawing.Size(442, 50);
-            this.txtfname.TabIndex = 578;
-            this.txtfname.Text = "";
-            this.txtfname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfname_KeyPress);
+            this.Txtfname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txtfname.Depth = 0;
+            this.Txtfname.Font = new System.Drawing.Font("Roboto", 12F);
+            this.Txtfname.Hint = "Form Name";
+            this.Txtfname.Location = new System.Drawing.Point(51, 197);
+            this.Txtfname.Margin = new System.Windows.Forms.Padding(1);
+            this.Txtfname.MaxLength = 50;
+            this.Txtfname.MouseState = MaterialSkin.MouseState.OUT;
+            this.Txtfname.Multiline = false;
+            this.Txtfname.Name = "Txtfname";
+            this.Txtfname.Size = new System.Drawing.Size(442, 50);
+            this.Txtfname.TabIndex = 578;
+            this.Txtfname.Text = "";
+            this.Txtfname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfname_KeyPress);
             // 
-            // txtmname
+            // Txtmname
             // 
-            this.txtmname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtmname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmname.Depth = 0;
-            this.txtmname.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtmname.Hint = "Sub Menu";
-            this.txtmname.Location = new System.Drawing.Point(51, 120);
-            this.txtmname.Margin = new System.Windows.Forms.Padding(1);
-            this.txtmname.MaxLength = 50;
-            this.txtmname.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtmname.Multiline = false;
-            this.txtmname.Name = "txtmname";
-            this.txtmname.Size = new System.Drawing.Size(442, 50);
-            this.txtmname.TabIndex = 577;
-            this.txtmname.Text = "";
-            this.txtmname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmname_KeyPress);
+            this.Txtmname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txtmname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Txtmname.Depth = 0;
+            this.Txtmname.Font = new System.Drawing.Font("Roboto", 12F);
+            this.Txtmname.Hint = "Sub Menu";
+            this.Txtmname.Location = new System.Drawing.Point(51, 120);
+            this.Txtmname.Margin = new System.Windows.Forms.Padding(1);
+            this.Txtmname.MaxLength = 50;
+            this.Txtmname.MouseState = MaterialSkin.MouseState.OUT;
+            this.Txtmname.Multiline = false;
+            this.Txtmname.Name = "Txtmname";
+            this.Txtmname.Size = new System.Drawing.Size(442, 50);
+            this.Txtmname.TabIndex = 577;
+            this.Txtmname.Text = "";
+            this.Txtmname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmname_KeyPress);
             // 
             // materialLabel1
             // 
@@ -283,11 +283,11 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton BtnExecute;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialTextBox txtmname;
-        private MaterialSkin.Controls.MaterialTextBox txtfname;
+        private MaterialSkin.Controls.MaterialTextBox Txtmname;
+        private MaterialSkin.Controls.MaterialTextBox Txtfname;
         private Guna.UI2.WinForms.Guna2DataGridView dgvUserRights;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_name;
-        private System.Windows.Forms.ComboBox cboParentMenu;
+        private System.Windows.Forms.ComboBox CboParentMenu;
     }
 }

@@ -24,7 +24,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         Available_Menu Available_MenuEntity = new Available_Menu();
        Available_MenuRepository Available_MenuRepo = new Available_MenuRepository();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        int temp_id = 0;
+
         int GetLatestKeyOfMenuIdentity = 0;
 
         public FrmAddNewSubMenu(
@@ -34,7 +34,8 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             int MenuId,
             string MenuName,
             string Count,
-            string MenuFormName)
+            string MenuFormName,
+            int MajorMenuID)
         {
             InitializeComponent();
             ths = frm;
@@ -45,6 +46,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.Available_MenuEntity.Menu_Name = MenuName;
             this.Available_MenuEntity.Count = Count;
             this.Available_MenuEntity.Menu_Form_Name = MenuFormName;
+            this.Available_MenuEntity.MajorMenuID = MajorMenuID;
 
         }
 
@@ -62,10 +64,10 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             {
                 this.Text = "Update Sub Menu";
 
-                this.cboParentMenu.Text = Available_MenuEntity.Count;
-                this.txtmname.Text = this.Available_MenuEntity.Menu_Name;
-                this.txtfname.Text = this.Available_MenuEntity.Menu_Form_Name;
-
+                this.CboParentMenu.Text = Available_MenuEntity.Count;
+                this.Txtmname.Text = this.Available_MenuEntity.Menu_Name;
+                this.Txtfname.Text = this.Available_MenuEntity.Menu_Form_Name;
+                this.Available_MenuEntity.MajorMenuID = this.Available_MenuEntity.MajorMenuID;
             }
 
         }
@@ -80,9 +82,9 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         public void getLoadDropdownParentMenu()
         {
 
-            this.myClass.fillComboBoxDepartment(this.cboParentMenu, "parentform_dropdown", dSet);
+            this.myClass.fillComboBoxDepartment(this.CboParentMenu, "parentform_dropdown", dSet);
 
-            this.Available_MenuEntity.Count = this.cboParentMenu.SelectedValue.ToString();
+            this.Available_MenuEntity.Count = this.CboParentMenu.SelectedValue.ToString();
 
         }
 
@@ -103,22 +105,22 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
         private void BtnExecute_Click(object sender, EventArgs e)
         {
-            if (this.cboParentMenu.Text == String.Empty)
+            if (this.CboParentMenu.Text == String.Empty)
             {
             this.GlobalStatePopup.FillRequiredFields();
-            this.cboParentMenu.Focus();
+            this.CboParentMenu.Focus();
             return;
             }
-            else if (this.txtmname.Text == String.Empty)
+            else if (this.Txtmname.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.txtmname.Focus();
+                this.Txtmname.Focus();
                 return;
             }
-            else if (this.txtfname.Text == String.Empty)
+            else if (this.Txtfname.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.txtfname.Focus();
+                this.Txtfname.Focus();
                 return;
             }
 
@@ -130,7 +132,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 this.dSet.Clear();
                 this.dSet = this.g_objStoredProcCollection
                 .sp_available_menu(0,
-                this.txtmname.Text,
+                this.Txtmname.Text,
                 "",
                 "",
                 "",
@@ -142,7 +144,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 if (this.dSet.Tables[0].Rows.Count > 0)
                 {
                     this.GlobalStatePopup.DataAlreadyExist();
-                    this.txtmname.Focus();
+                    this.Txtmname.Focus();
                     return;
                 }
                 else
@@ -153,8 +155,8 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                     {
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_available_menu(0,
-                        this.txtmname.Text.Trim(),
-                        this.txtfname.Text.Trim(),
+                        this.Txtmname.Text.Trim(),
+                        this.Txtfname.Text.Trim(),
                         this.Available_MenuEntity.Count,
                         this.Available_MenuEntity.Created_At,
                         this.Available_MenuEntity.Created_By,
@@ -186,7 +188,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 this.dSet.Clear();
                 this.dSet = this.g_objStoredProcCollection
                 .sp_available_menu(0,
-                this.txtmname.Text,
+                this.Txtmname.Text,
                 "",
                 "",
                 "",
@@ -196,7 +198,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 "getbyname");
 
                
-                    if (this.txtmname.Text == this.Available_MenuEntity.Menu_Name)
+                    if (this.Txtmname.Text == this.Available_MenuEntity.Menu_Name)
                     {
                     //MessageBox.Show(this.Available_MenuEntity.Menu_Name.ToString());
                 }
@@ -205,7 +207,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                         if (this.dSet.Tables[0].Rows.Count > 0)
                         {
                             this.GlobalStatePopup.DataAlreadyExist();
-                            this.txtmname.Focus();
+                            this.Txtmname.Focus();
                             return;
                         }
                     }
@@ -216,12 +218,15 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
+                    //MessageBox.Show(this.Available_MenuEntity.MajorMenuID.ToString());
+                    //return;
+
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_available_menu(
                         this.Available_MenuEntity.Menu_Id,
-                        this.txtmname.Text.Trim(),
-                        this.txtfname.Text.Trim(),
-                        this.Available_MenuEntity.Count,
+                        this.Txtmname.Text.Trim(),
+                        this.Txtfname.Text.Trim(),
+                        this.Available_MenuEntity.MajorMenuID.ToString(),
                         this.Available_MenuEntity.Created_At,
                         this.Available_MenuEntity.Created_By,
                         this.Available_MenuEntity.Updated_At,
@@ -343,7 +348,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
         private void cboParentMenu_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.Available_MenuEntity.Count = this.cboParentMenu.SelectedValue.ToString();
+            this.Available_MenuEntity.Count = this.CboParentMenu.SelectedValue.ToString();
 
         }
 
@@ -354,7 +359,8 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.Available_MenuEntity.Count = this.cboParentMenu.SelectedValue.ToString();
+            this.Available_MenuEntity.Count = this.CboParentMenu.SelectedValue.ToString();
+            this.Available_MenuEntity.MajorMenuID = Convert.ToInt32(this.CboParentMenu.SelectedValue);
         }
 
         private void cboParentMenu_KeyPress(object sender, KeyPressEventArgs e)
