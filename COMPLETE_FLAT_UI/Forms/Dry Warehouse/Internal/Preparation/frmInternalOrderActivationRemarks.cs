@@ -74,7 +74,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             dset_emp_SearchEngines.Clear();
 
 
-            dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("internal_order_activation_remarks_activated_major");
+            dset_emp_SearchEngines = g_objStoredProcCollection
+                .sp_getMajorTables("internal_order_activation_remarks_activated_major");
 
             this.VisibilityFalseForDataGridColumn();
 
@@ -321,16 +322,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the information", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
-                        //this.mode = "delete";
-
-                        //if (this.saveMode())
-                        //{
-                        //    this.GlobalStatePopup.ActivatedSuccessfully();
-                        //    this.ShowDataStoreOrderActivationRemarks();
-
-                        //    this.matBtnCancel_Click("", e);
-
-                        //}
+                        dSet_temp.Clear();
+                        dSet_temp = g_objStoredProcCollection
+                            .sp_internal_order_activation_remarks(this.InternalOrderActivationRemarksEntity.Soar_id,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "delete_activation");
                     }
 
                     else
@@ -354,7 +355,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("internal_order_activation_remarks_deactivated_major");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection
+                .sp_getMajorTables("internal_order_activation_remarks_deactivated_major");
 
         }
 
@@ -392,7 +394,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
             this.ConnetionString();
-            if (this.sp_bind_selected == "1")
+            if (this.matRadioActive.Checked == true)
             {
                 this.SearchMethodJarVarCallingSP();
             }
@@ -401,30 +403,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.SearchMethodJarVarCallingSPInactive();
             }
 
-            if (this.mattxtSearch.Text == String.Empty)
-            {
-                this.ShowDataStoreOrderActivationRemarks();
-                return;
-            }
-            if (this.lbltotalrecords.Text == "0")
-            {
-
-            }
-            else
-            {
-
-                if (this.mode == "add")
-                {
-
-                }
-                else
-                {
+     
 
                     this.doSearchInTextBox();
 
-                }
-
-            }
+           
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
