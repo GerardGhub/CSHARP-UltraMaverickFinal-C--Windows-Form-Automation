@@ -125,7 +125,7 @@ namespace ULTRAMAVERICK.Forms.Users
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -146,7 +146,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("materialBtnNew.Image")));
             this.materialBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.materialBtnNew.Name = "materialBtnNew";
-            this.materialBtnNew.Size = new System.Drawing.Size(82, 37);
+            this.materialBtnNew.Size = new System.Drawing.Size(77, 37);
             this.materialBtnNew.Text = "&New";
             this.materialBtnNew.Click += new System.EventHandler(this.btnAddTool_Click_1);
             // 
@@ -155,7 +155,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnEDit.Image = ((System.Drawing.Image)(resources.GetObject("matBtnEDit.Image")));
             this.matBtnEDit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnEDit.Name = "matBtnEDit";
-            this.matBtnEDit.Size = new System.Drawing.Size(78, 37);
+            this.matBtnEDit.Size = new System.Drawing.Size(72, 37);
             this.matBtnEDit.Text = "&Edit";
             this.matBtnEDit.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
@@ -164,7 +164,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(106, 37);
+            this.matBtnDelete.Size = new System.Drawing.Size(97, 37);
             this.matBtnDelete.Text = "&InActive";
             this.matBtnDelete.Click += new System.EventHandler(this.btnDeleteTool_Click_1);
             // 
@@ -173,17 +173,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(84, 37);
+            this.matBtnSave.Size = new System.Drawing.Size(79, 37);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             this.matBtnSave.Click += new System.EventHandler(this.btnUpdateTool_Click_1);
             // 
             // matBtnCancel
             // 
+            this.matBtnCancel.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(98, 37);
+            this.matBtnCancel.Size = new System.Drawing.Size(90, 37);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             this.matBtnCancel.Click += new System.EventHandler(this.btnCancelTool_Click_1);

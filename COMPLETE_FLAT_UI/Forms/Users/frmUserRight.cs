@@ -18,14 +18,14 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmUserRight : MaterialForm
     {
-        myclasses xClass = new myclasses();
+        
         IStoredProcedures g_objStoredProcCollection = null;
         DataSet dSet = new DataSet();
         Boolean ready = false;
         string mode = "";
         int p_id = 0;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        myclasses myClass = new myclasses();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet_temp = new DataSet();
         myglobal pointer_module = new myglobal();
         DataSet dsetHeader = new DataSet();
@@ -116,7 +116,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         
   
-            xClass.fillListBox_Id(listBoxParentTag, "filter_users_parenttagged_at_userights", dSet, p_id, 0, 0);
+            myClass.fillListBox_Id(listBoxParentTag, "filter_users_parenttagged_at_userights", dSet, p_id, 0, 0);
 
             //this.tabPage2.Text = "MAJOR MENU TAGGED " + this.listBoxParentTag.Items.Count.ToString() + " ";
 
@@ -127,7 +127,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
 
-            xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, 0);
+            myClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, 0);
 
             this.lbltotalGrandChildActive.Text = this.listBoxGrandChildTag.Items.Count.ToString();
 
@@ -225,9 +225,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         public void displayUserRights()
         {
-            ready = false;
-            xClass.fillListBox(listViewuser_rights, "user_rights", dSet);
-            ready = true;
+    
+            myClass.fillListBox(listViewuser_rights, "user_rights", dSet);
+
             lbltotalrecordsrights.Text = listViewuser_rights.Items.Count.ToString();
             if (lbltotalrecordsrights.Text == "0")
             {
@@ -770,7 +770,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             //GetMenuByUsers
       
-            xClass.fillListBox_Id(ListViewmenu, "filter_users", dSet, p_id, 0, 0);
+            myClass.fillListBox_Id(ListViewmenu, "filter_users", dSet, p_id, 0, 0);
    
             lbltotalChildActive.Text = ListViewmenu.Items.Count.ToString();
         }
@@ -1614,7 +1614,7 @@ namespace ULTRAMAVERICK.Forms.Users
             {
                 var SelectedDataRowParent = (ListViewmenu.SelectedItem as DataRowView)["menu_id"].ToString();
 
-                xClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, Convert.ToInt32(SelectedDataRowParent));
+                myClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, Convert.ToInt32(SelectedDataRowParent));
                 ready = true;
                 lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
             }

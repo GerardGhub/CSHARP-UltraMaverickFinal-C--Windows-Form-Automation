@@ -20,12 +20,12 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmUserManagement2 : MaterialForm
     {
-        myclasses myClass = new myclasses();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly myclasses myClass = new myclasses();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
-        UserFile UserFileEntity = new UserFile();
+        readonly UserFile UserFileEntity = new UserFile();
         DataSet dSet = new DataSet();
         string mode = "";
 
