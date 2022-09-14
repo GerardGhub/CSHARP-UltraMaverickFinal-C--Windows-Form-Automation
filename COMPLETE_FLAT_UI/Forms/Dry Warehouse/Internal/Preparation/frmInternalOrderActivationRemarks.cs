@@ -210,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //Button Visibility
             this.matBtnNew.Visible = false;
             this.matBtnDelete.Visible = false;
-            this.matBtnSave.Visible = true;
+
 
             this.InternalOrderActivationRemarksEntity.Mode = "ADD";
             FrmMrsActivationRemarks addNew =
@@ -263,7 +263,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matBtnCancel.Visible = true;
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
-            this.matBtnSave.Visible = true;
+
 
 
 
@@ -303,6 +303,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         "delete");
 
                         this.GlobalStatePopup.InactiveSuccessfully();
+                        this.frmInternalOrderActivationRemarks_Load(sender, e);
                      
                     }
 
@@ -332,6 +333,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         "",
                         "",
                         "delete_activation");
+
+                        this.GlobalStatePopup.ActivatedSuccessfully();
+                        this.frmInternalOrderActivationRemarks_Load(sender, e);
                     }
 
                     else
@@ -414,6 +418,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.matBtnCancel_Click(sender, e);
             this.frmInternalOrderActivationRemarks_Load(sender, e);
+        }
+
+        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

@@ -23,27 +23,17 @@ namespace ULTRAMAVERICK.Forms.Users
         myclasses myClass = new myclasses();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
-        UserFile User = new UserFile();
         DataSet dSet_temp = new DataSet();
         int temp_id = 0;
-
+        UserFile UserFileEntity = new UserFile();
         DataSet dSet = new DataSet();
         string mode = "";
         public frmUserManagement2()
         {
             InitializeComponent();
         }
-        public string EmpName { get; set; }
-        public string LastName { get; set; }
-        public string RightsName { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string Department { get; set; }
-        public string Positionx { get; set; }
-        public string Unitx { get; set; }
-        public string UserSection { get; set; }
-        public string ReceivingStatus { get; set; }
-        public string Gender { get; set; }
+  
+ 
 
 
 
@@ -61,8 +51,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matRadioActive.Checked = true;
             this.textBox1.Text = String.Empty;
             this.textBox2.Text = String.Empty;
-            //this.textBox1.Visible = false;
-            matRadioActive_CheckedChanged(sender, e);
+ 
+            MatRadioActive_CheckedChanged(sender, e);
         }
  
 
@@ -125,10 +115,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 return;
             }
         }
-        public void FormClose()
-        {
-            this.Close();
-        }
+   
         public void displayUsers()     
         {
 
@@ -143,21 +130,21 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords.Text = this.dgvUsers.RowCount.ToString();
         }
 
-        private void dgvUsers_CurrentCellChanged(object sender, EventArgs e)
+        private void DgvUsers_CurrentCellChanged(object sender, EventArgs e)
         {
             showActiveUser();
 
-            Name = User.Employee_Name;
-            LastName = User.Employee_Name;
-            RightsName = User.User_Rights_Name;
-            UserName = User.UserName;
-            Password = User.Password;
-            Department = User.Department;
-            Positionx = User.Position;
-            Unitx = User.Unit;
-            UserSection = User.User_Section;
-            Gender = User.Gender;
-            ReceivingStatus = User.Receiving_Status;
+            UserFileEntity.Employee_Name = UserFileEntity.Employee_Name;
+            UserFileEntity.Employee_LastName = UserFileEntity.Employee_LastName;
+            UserFileEntity.User_Rights_Name = UserFileEntity.User_Rights_Name;
+            UserFileEntity.UserName = UserFileEntity.UserName;
+            UserFileEntity.Password = UserFileEntity.Password;
+            UserFileEntity.Department = UserFileEntity.Department;
+            UserFileEntity.Position = UserFileEntity.Position;
+            UserFileEntity.Unit = UserFileEntity.Unit;
+            UserFileEntity.User_Section = UserFileEntity.User_Section;
+            UserFileEntity.Gender = UserFileEntity.Gender;
+            UserFileEntity.Receiving_Status = UserFileEntity.Receiving_Status;
         }
 
         public void showActiveUser()
@@ -171,17 +158,17 @@ namespace ULTRAMAVERICK.Forms.Users
                     {
 
                        temp_id = Convert.ToInt32(dgvUsers.CurrentRow.Cells["userfile_id"].Value.ToString());
-                       User.Employee_Name = this.dgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
-                       User.Employee_LastName = this.dgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
-                       User.User_Rights_Name = this.dgvUsers.CurrentRow.Cells["user_rights_name"].Value.ToString();
-                       User.UserName = this.dgvUsers.CurrentRow.Cells["username"].Value.ToString();
-                       User.Password = this.dgvUsers.CurrentRow.Cells["password"].Value.ToString();
-                       User.Position = this.dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
-                       User.User_Section = this.dgvUsers.CurrentRow.Cells["user_section"].Value.ToString();
-                       User.Unit = this.dgvUsers.CurrentRow.Cells["Unit"].Value.ToString();
-                       User.Receiving_Status  = this.dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();                   
-                       User.Department = this.dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
-                       User.Gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
+                        UserFileEntity.Employee_Name = this.dgvUsers.CurrentRow.Cells["employee_name"].Value.ToString();
+                        UserFileEntity.Employee_LastName = this.dgvUsers.CurrentRow.Cells["employee_lastname"].Value.ToString();
+                        UserFileEntity.User_Rights_Name = this.dgvUsers.CurrentRow.Cells["user_rights_name"].Value.ToString();
+                        UserFileEntity.UserName = this.dgvUsers.CurrentRow.Cells["username"].Value.ToString();
+                        UserFileEntity.Password = this.dgvUsers.CurrentRow.Cells["password"].Value.ToString();
+                        UserFileEntity.Position = this.dgvUsers.CurrentRow.Cells["Position"].Value.ToString();
+                        UserFileEntity.User_Section = this.dgvUsers.CurrentRow.Cells["user_section"].Value.ToString();
+                        UserFileEntity.Unit = this.dgvUsers.CurrentRow.Cells["Unit"].Value.ToString();
+                        UserFileEntity.Receiving_Status  = this.dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();
+                        UserFileEntity.Department = this.dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
+                        UserFileEntity.Gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
                         if (this.lblGenderSelected.Text == "Male")
                         {
                             this.matRadioMale.Checked = true;
@@ -222,17 +209,17 @@ namespace ULTRAMAVERICK.Forms.Users
            frmAddnewUserModal addNew = new frmAddnewUserModal(
                this,
                "Add",
-               User.Employee_Name,
-               User.Employee_LastName,
-               User.User_Rights_Name,
-               User.UserName,
-               User.Password,
-               User.Department,
-               User.Position,
-               User.Unit,
-               User.User_Section,
-               User.Receiving_Status,
-               User.Gender,
+               UserFileEntity.Employee_Name,
+               UserFileEntity.Employee_LastName,
+               UserFileEntity.User_Rights_Name,
+               UserFileEntity.UserName,
+               UserFileEntity.Password,
+               UserFileEntity.Department,
+               UserFileEntity.Position,
+               UserFileEntity.Unit,
+               UserFileEntity.User_Section,
+               UserFileEntity.Receiving_Status,
+               UserFileEntity.Gender,
                temp_id
                );
             addNew.ShowDialog();
@@ -285,14 +272,9 @@ namespace ULTRAMAVERICK.Forms.Users
                     this.toolStrip2.Visible = true;
                 }
 
-                //this.ConnectionINit();
-
-
-                //this.displayUsers();
-
-                //this.textBox1.Text = String.Empty;
+    
                 this.frmUserManagement2_Load(sender, e);
-                //MessageBox.Show("A");
+        
 
             }
 
@@ -399,22 +381,21 @@ namespace ULTRAMAVERICK.Forms.Users
    
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-   
-                
+                  
             toolStrip2.Visible = false;
             frmEditUser addNew = new frmEditUser(
                this,
                Name,
-               LastName,
-               RightsName,
-               UserName,
-               Password,
-               Department,
-               Positionx,
-               Unitx,
-               UserSection,
-               ReceivingStatus,
-               User.Gender,
+               UserFileEntity.Employee_LastName,
+               UserFileEntity.User_Rights_Name,
+               UserFileEntity.UserName,
+               UserFileEntity.Password,
+               UserFileEntity.Department,
+               UserFileEntity.Position,
+               UserFileEntity.Unit,
+               UserFileEntity.User_Section,
+               UserFileEntity.Receiving_Status,
+               UserFileEntity.Gender,
                 temp_id);
             addNew.ShowDialog();
         }
@@ -450,38 +431,18 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.toolStrip2.Visible = false;
-            frmAddnewUserModal addNew = new frmAddnewUserModal(
-                this,
-                "Edit",
-                User.Employee_Name,
-                User.Employee_LastName,
-                User.User_Rights_Name,
-                User.UserName,
-                User.Password,
-                User.Department,
-                User.Position,
-                User.Unit,
-                User.User_Section,
-                User.Receiving_Status,
-                User.Gender,
-                temp_id
-                );
-            addNew.ShowDialog();
-        }
 
-        private void mattxtSearch_TextChanged_1(object sender, EventArgs e)
+
+        private void MattxtSearch_TextChanged_1(object sender, EventArgs e)
         {
                this.load_search();
-                doSearchOnMaterialTextBox();
+                this.doSearchOnMaterialTextBox();
             
           
 
         }
 
-        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioNotActive_CheckedChanged(object sender, EventArgs e)
         {
             if (matRadioActive.Checked == true)
             {
@@ -510,7 +471,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         }
 
-        private void matRadioActive_CheckedChanged(object sender, EventArgs e)
+        private void MatRadioActive_CheckedChanged(object sender, EventArgs e)
         {
             if (matRadioActive.Checked == true)
             {
@@ -538,7 +499,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
             if (this.textBox2.Text == "SaveGerardSingian")
             {
@@ -547,7 +508,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
 
-        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        private void MattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
