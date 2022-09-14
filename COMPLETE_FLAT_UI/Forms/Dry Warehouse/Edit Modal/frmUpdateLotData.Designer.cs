@@ -49,7 +49,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.DrawShadows = true;
             this.matBtnSave.HighEmphasis = true;
             this.matBtnSave.Icon = null;
-            this.matBtnSave.Location = new System.Drawing.Point(572, 201);
+            this.matBtnSave.Location = new System.Drawing.Point(570, 353);
             this.matBtnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSave.Name = "matBtnSave";
@@ -65,11 +65,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(401, 120);
+            this.label2.Location = new System.Drawing.Point(344, 135);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(93, 14);
             this.label2.TabIndex = 593;
             this.label2.Text = "Major Category:";
             // 
@@ -79,15 +79,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matdescription.Depth = 0;
             this.matdescription.Font = new System.Drawing.Font("Roboto", 12F);
             this.matdescription.Hint = "Lot Description";
-            this.matdescription.Location = new System.Drawing.Point(398, 40);
+            this.matdescription.Location = new System.Drawing.Point(345, 41);
             this.matdescription.Margin = new System.Windows.Forms.Padding(1);
             this.matdescription.MaxLength = 50;
             this.matdescription.MouseState = MaterialSkin.MouseState.OUT;
             this.matdescription.Multiline = false;
             this.matdescription.Name = "matdescription";
-            this.matdescription.Size = new System.Drawing.Size(245, 50);
+            this.matdescription.Size = new System.Drawing.Size(250, 50);
             this.matdescription.TabIndex = 1;
             this.matdescription.Text = "";
+            this.matdescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matdescription_KeyPress);
             // 
             // matlotnumber
             // 
@@ -102,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matlotnumber.MouseState = MaterialSkin.MouseState.OUT;
             this.matlotnumber.Multiline = false;
             this.matlotnumber.Name = "matlotnumber";
-            this.matlotnumber.Size = new System.Drawing.Size(245, 50);
+            this.matlotnumber.Size = new System.Drawing.Size(250, 50);
             this.matlotnumber.TabIndex = 0;
             this.matlotnumber.Text = "";
             // 
@@ -110,7 +111,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.cboMajorCategory);
-            this.materialCard1.Controls.Add(this.matBtnSave);
             this.materialCard1.Controls.Add(this.lblMajorCatId);
             this.materialCard1.Controls.Add(this.mattotalsku);
             this.materialCard1.Controls.Add(this.label2);
@@ -118,12 +118,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.matlotnumber);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(12, 87);
+            this.materialCard1.Location = new System.Drawing.Point(23, 87);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(679, 262);
+            this.materialCard1.Size = new System.Drawing.Size(628, 253);
             this.materialCard1.TabIndex = 482;
             // 
             // cboMajorCategory
@@ -131,7 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboMajorCategory.Enabled = false;
             this.cboMajorCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboMajorCategory.FormattingEnabled = true;
-            this.cboMajorCategory.Location = new System.Drawing.Point(398, 134);
+            this.cboMajorCategory.Location = new System.Drawing.Point(345, 150);
             this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1);
             this.cboMajorCategory.Name = "cboMajorCategory";
             this.cboMajorCategory.Size = new System.Drawing.Size(245, 28);
@@ -143,7 +143,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblMajorCatId.BackColor = System.Drawing.Color.Transparent;
             this.lblMajorCatId.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMajorCatId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblMajorCatId.Location = new System.Drawing.Point(475, 120);
+            this.lblMajorCatId.Location = new System.Drawing.Point(439, 136);
             this.lblMajorCatId.Name = "lblMajorCatId";
             this.lblMajorCatId.Size = new System.Drawing.Size(86, 13);
             this.lblMajorCatId.TabIndex = 599;
@@ -157,13 +157,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattotalsku.Enabled = false;
             this.mattotalsku.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattotalsku.Hint = "Total SKU";
-            this.mattotalsku.Location = new System.Drawing.Point(35, 112);
+            this.mattotalsku.Location = new System.Drawing.Point(35, 130);
             this.mattotalsku.Margin = new System.Windows.Forms.Padding(1);
             this.mattotalsku.MaxLength = 50;
             this.mattotalsku.MouseState = MaterialSkin.MouseState.OUT;
             this.mattotalsku.Multiline = false;
             this.mattotalsku.Name = "mattotalsku";
-            this.mattotalsku.Size = new System.Drawing.Size(245, 50);
+            this.mattotalsku.Size = new System.Drawing.Size(250, 50);
             this.mattotalsku.TabIndex = 597;
             this.mattotalsku.Text = "";
             // 
@@ -171,7 +171,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(517, 393);
+            this.textBox1.Location = new System.Drawing.Point(152, 365);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 481;
@@ -183,8 +183,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 363);
+            this.ClientSize = new System.Drawing.Size(675, 397);
             this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;

@@ -79,6 +79,17 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void materialButton1_Click(object sender, EventArgs e)
         {
 
+            if(this.TxtMatItemType.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.TxtMatItemType.Focus();
+                return;
+            }
+
+            if (this.ItemTypeEntity.Mode == "ADD")
+            {
+                this.ItemTypeEntity.Item_Type_Desc = String.Empty;
+            }
 
             if (this.ItemTypeEntity.Item_Type_Desc == this.TxtMatItemType.Text)
             {

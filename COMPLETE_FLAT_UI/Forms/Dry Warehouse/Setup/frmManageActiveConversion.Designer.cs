@@ -652,7 +652,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -673,7 +673,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.BtnNew.Image = ((System.Drawing.Image)(resources.GetObject("BtnNew.Image")));
             this.BtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnNew.Name = "BtnNew";
-            this.BtnNew.Size = new System.Drawing.Size(82, 44);
+            this.BtnNew.Size = new System.Drawing.Size(77, 44);
             this.BtnNew.Text = "&New";
             this.BtnNew.Click += new System.EventHandler(this.btnAddTool_Click);
             // 
@@ -682,7 +682,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.BtnActivateTool.Image = ((System.Drawing.Image)(resources.GetObject("BtnActivateTool.Image")));
             this.BtnActivateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnActivateTool.Name = "BtnActivateTool";
-            this.BtnActivateTool.Size = new System.Drawing.Size(107, 44);
+            this.BtnActivateTool.Size = new System.Drawing.Size(97, 44);
             this.BtnActivateTool.Text = "&Activate";
             this.BtnActivateTool.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
@@ -691,7 +691,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.BtnDeactivateTool.Image = ((System.Drawing.Image)(resources.GetObject("BtnDeactivateTool.Image")));
             this.BtnDeactivateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnDeactivateTool.Name = "BtnDeactivateTool";
-            this.BtnDeactivateTool.Size = new System.Drawing.Size(123, 44);
+            this.BtnDeactivateTool.Size = new System.Drawing.Size(112, 44);
             this.BtnDeactivateTool.Text = "&Deactivate";
             this.BtnDeactivateTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
             // 
@@ -700,7 +700,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.btnUpdateTool.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateTool.Image")));
             this.btnUpdateTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpdateTool.Name = "btnUpdateTool";
-            this.btnUpdateTool.Size = new System.Drawing.Size(84, 44);
+            this.btnUpdateTool.Size = new System.Drawing.Size(79, 44);
             this.btnUpdateTool.Text = "&Save";
             this.btnUpdateTool.Visible = false;
             // 
@@ -709,7 +709,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.btnCancelTool.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelTool.Image")));
             this.btnCancelTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelTool.Name = "btnCancelTool";
-            this.btnCancelTool.Size = new System.Drawing.Size(98, 44);
+            this.btnCancelTool.Size = new System.Drawing.Size(90, 44);
             this.btnCancelTool.Text = "&Cancel";
             this.btnCancelTool.Visible = false;
             // 

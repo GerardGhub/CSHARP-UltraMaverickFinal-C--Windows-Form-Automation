@@ -359,5 +359,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBox();
         }
+
+        private void MatTxtSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }
