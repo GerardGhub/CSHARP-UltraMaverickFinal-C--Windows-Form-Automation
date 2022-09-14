@@ -380,5 +380,10 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.GetAllPositionInActive();
             }
         }
+
+        private void mattxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

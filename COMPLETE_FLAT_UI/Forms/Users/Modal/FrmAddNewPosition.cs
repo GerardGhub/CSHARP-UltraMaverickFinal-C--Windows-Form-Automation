@@ -18,12 +18,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
     {
         frmPosition ths;
         DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        Position PositionEntity = new Position();
+        readonly Position PositionEntity = new Position();
         string mode = "";
-        TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public FrmAddNewPosition(
             frmPosition frm,
             int UserId, 

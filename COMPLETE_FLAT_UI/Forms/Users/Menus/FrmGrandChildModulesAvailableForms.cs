@@ -20,18 +20,17 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmModulesAvailableForms : MaterialForm
     {
-
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         public Byte[] imageByte = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-        Available_Menu_GrandChild AvailableMenuGrandChildEntity = new Available_Menu_GrandChild();
+        readonly Available_Menu_GrandChild AvailableMenuGrandChildEntity = new Available_Menu_GrandChild();
         string mode = "";
         int p_id = 0;
         int temp_hid = 0;
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
+
 
 
         DataSet dSet_temp = new DataSet();

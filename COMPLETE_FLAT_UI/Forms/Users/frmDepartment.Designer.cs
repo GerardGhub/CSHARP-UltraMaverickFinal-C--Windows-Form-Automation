@@ -48,11 +48,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.DgvDepartment = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +55,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialCard1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -317,6 +317,64 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DgvDepartment.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.DgvDepartment.CurrentCellChanged += new System.EventHandler(this.DgvDepartment_CurrentCellChanged);
             // 
+            // department_id
+            // 
+            this.department_id.DataPropertyName = "department_id";
+            this.department_id.FillWeight = 40.60914F;
+            this.department_id.HeaderText = "ID";
+            this.department_id.MinimumWidth = 12;
+            this.department_id.Name = "department_id";
+            this.department_id.ReadOnly = true;
+            // 
+            // department_name
+            // 
+            this.department_name.DataPropertyName = "department_name";
+            this.department_name.FillWeight = 99.49239F;
+            this.department_name.HeaderText = "DEPARTMENT";
+            this.department_name.MinimumWidth = 12;
+            this.department_name.Name = "department_name";
+            this.department_name.ReadOnly = true;
+            // 
+            // cust_company
+            // 
+            this.cust_company.DataPropertyName = "created_by";
+            this.cust_company.FillWeight = 99.49239F;
+            this.cust_company.HeaderText = "CREATED BY";
+            this.cust_company.MinimumWidth = 12;
+            this.cust_company.Name = "cust_company";
+            this.cust_company.ReadOnly = true;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.FillWeight = 99.49239F;
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "is_active";
+            this.is_active.HeaderText = "IsActive";
+            this.is_active.Name = "is_active";
+            this.is_active.ReadOnly = true;
+            this.is_active.Visible = false;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -394,64 +452,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
             this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.MatRadioNotActive_CheckedChanged);
-            // 
-            // department_id
-            // 
-            this.department_id.DataPropertyName = "department_id";
-            this.department_id.FillWeight = 40.60914F;
-            this.department_id.HeaderText = "ID";
-            this.department_id.MinimumWidth = 12;
-            this.department_id.Name = "department_id";
-            this.department_id.ReadOnly = true;
-            // 
-            // department_name
-            // 
-            this.department_name.DataPropertyName = "department_name";
-            this.department_name.FillWeight = 99.49239F;
-            this.department_name.HeaderText = "DEPARTMENT";
-            this.department_name.MinimumWidth = 12;
-            this.department_name.Name = "department_name";
-            this.department_name.ReadOnly = true;
-            // 
-            // cust_company
-            // 
-            this.cust_company.DataPropertyName = "created_by";
-            this.cust_company.FillWeight = 99.49239F;
-            this.cust_company.HeaderText = "CREATED BY";
-            this.cust_company.MinimumWidth = 12;
-            this.cust_company.Name = "cust_company";
-            this.cust_company.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.FillWeight = 99.49239F;
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            // 
-            // is_active
-            // 
-            this.is_active.DataPropertyName = "is_active";
-            this.is_active.HeaderText = "IsActive";
-            this.is_active.Name = "is_active";
-            this.is_active.ReadOnly = true;
-            this.is_active.Visible = false;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
             // 
             // frmDepartment
             // 
