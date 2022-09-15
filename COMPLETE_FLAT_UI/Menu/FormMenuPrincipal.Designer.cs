@@ -89,9 +89,9 @@
             this.toolStripMenuIssue = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStoreSetup = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripStoreArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeRoute = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStores = new System.Windows.Forms.ToolStripMenuItem();
-            this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.syncConsolidatedOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripRawMaterials = new System.Windows.Forms.ToolStripDropDownButton();
@@ -753,6 +753,7 @@
             // 
             // toolStripMenuItem6
             // 
+            this.toolStripMenuItem6.Enabled = false;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(251, 24);
             this.toolStripMenuItem6.Text = "Preparation Department";
@@ -878,6 +879,14 @@
             this.toolStripStoreArea.Text = "Store Area";
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
+            // regionToolStripMenuItem
+            // 
+            this.regionToolStripMenuItem.Enabled = false;
+            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
+            this.regionToolStripMenuItem.Text = "Region";
+            this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
+            // 
             // storeRoute
             // 
             this.storeRoute.Enabled = false;
@@ -893,14 +902,6 @@
             this.toolStores.Size = new System.Drawing.Size(301, 24);
             this.toolStores.Text = "Stores";
             this.toolStores.Click += new System.EventHandler(this.toolStores_Click);
-            // 
-            // regionToolStripMenuItem
-            // 
-            this.regionToolStripMenuItem.Enabled = false;
-            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
-            this.regionToolStripMenuItem.Text = "Region";
-            this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
             // syncConsolidatedOrderToolStripMenuItem
             // 

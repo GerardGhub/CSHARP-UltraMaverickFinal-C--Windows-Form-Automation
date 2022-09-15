@@ -210,6 +210,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialTxtModuelAvail.Columns["user_rights_id"].Visible = false;
             this.materialTxtModuelAvail.Columns["ID"].Visible = false;
             this.materialTxtModuelAvail.Columns["menu_name"].HeaderText = "MENU";
+
         }
 
         public void FalseButton()
@@ -271,15 +272,14 @@ namespace ULTRAMAVERICK.Forms.Users
 
         public void ShowValue()
         {
-            if (ready == true)
-            {
+         
                 if (listViewuser_rights.Items.Count > 0)
                 {
                     p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
                     txtMaterialRights.Text = listViewuser_rights.Text;
                     //p_id = int.Parse(lbl.Text);
                 }
-            }
+            
         }
 
         public void GrandChildshowvalue()
@@ -764,6 +764,7 @@ namespace ULTRAMAVERICK.Forms.Users
             loadMenu_byUsers_GChildTagged();
             loadMenu_byUsers_ParentTagged();
             lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
+            MessageBox.Show(p_id.ToString()); //Buje
         }
          public void LoadMenuByUsers()
         {
@@ -1990,6 +1991,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])//your specific tabname
             {
+          
                 materialBtnUpdateMenu_Click(sender, e);
                 materialSubMenuCancel_Click(sender, e);
             }
@@ -2105,6 +2107,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private void txtMaterialRights_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void listViewuser_rights_SelectedValueChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 }
