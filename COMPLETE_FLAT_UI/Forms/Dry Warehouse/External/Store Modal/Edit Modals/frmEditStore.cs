@@ -17,26 +17,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     public partial class FrmEditStore : MaterialForm
     {   //Main Constructor Bugok
 
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-
- 
         DataSet dSet = new DataSet();
-        Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
+        readonly Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
         frmListofStore ths;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        public FrmEditStore(frmListofStore frm, int store_id, string store_name, 
-            string store_route, string store_area, string store_code, string region)
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        public FrmEditStore(frmListofStore frm, 
+            int Store_id, 
+            string Store_name,
+            string Store_area,
+            string Store_code,
+            string Store_route,  
+            string Region)
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.Tbl_StoresEntity.Store_Code = store_code;
-            this.Tbl_StoresEntity.Store_Name = store_name;
-            this.Tbl_StoresEntity.Store_Route = store_route;
-            this.Tbl_StoresEntity.Store_Area = store_area;
-            this.Tbl_StoresEntity.Stored_Id = store_id;
-            this.Tbl_StoresEntity.Region = region;
+            this.Tbl_StoresEntity.Store_Code = Store_code;
+            this.Tbl_StoresEntity.Store_Name = Store_name;
+            this.Tbl_StoresEntity.Store_Route = Store_route;
+            this.Tbl_StoresEntity.Store_Area = Store_area;
+            this.Tbl_StoresEntity.Stored_Id = Store_id;
+            this.Tbl_StoresEntity.Region = Region;
         }
 
 

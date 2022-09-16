@@ -18,14 +18,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     {
 
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
-
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
         DateTime dNow = DateTime.Now;
-
-
         DataSet dSet_temp = new DataSet();
         public frmListofStore()
         {
@@ -130,9 +127,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
           
                 toolStripMain.Visible = false;
-                FrmEditStore addNew = new FrmEditStore(this, 
+                FrmEditStore addNew = new FrmEditStore(
+                this, 
                 this.Tbl_StoresEntity.Stored_Id,
-
                 this.Tbl_StoresEntity.Store_Name,
                 this.Tbl_StoresEntity.Store_Area,
                 this.Tbl_StoresEntity.Store_Code,
@@ -183,7 +180,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.Tbl_StoresEntity.Store_Area,
                         this.Tbl_StoresEntity.Store_Code,
                         this.Tbl_StoresEntity.Store_Route,
-                        Convert.ToString(sp_user_id), "", Convert.ToString(sp_user_id), "", "", "delete");
+                        Convert.ToString(sp_user_id), 
+                        "", 
+                        Convert.ToString(sp_user_id), 
+                        userinfo.user_id.ToString(),
+                        "", 
+                        "delete");
                     this.GlobalStatePopup.InactiveSuccessfully();
                     this.frmListofStore_Load(sender, e);
                 }
@@ -209,9 +211,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.Tbl_StoresEntity.Store_Code,
                         this.Tbl_StoresEntity.Store_Route,
                         Convert.ToString(sp_user_id),
-                        "", 
-                        Convert.ToString(sp_user_id), 
-                        "", 
+                        "",
+                        Convert.ToString(sp_user_id),
+                        userinfo.user_id.ToString(),
                         "",
                         "activate");
                     this.GlobalStatePopup.InactiveSuccessfully();
@@ -323,6 +325,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         }
 
-
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

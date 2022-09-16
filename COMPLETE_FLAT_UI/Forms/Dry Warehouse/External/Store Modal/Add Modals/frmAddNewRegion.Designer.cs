@@ -33,6 +33,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.matTxtRegion = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.matbtnSave = new MaterialSkin.Controls.MaterialButton();
+            this.MatBtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.matbtnSave.DrawShadows = true;
             this.matbtnSave.HighEmphasis = true;
             this.matbtnSave.Icon = null;
-            this.matbtnSave.Location = new System.Drawing.Point(470, 305);
+            this.matbtnSave.Location = new System.Drawing.Point(34, 306);
             this.matbtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matbtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnSave.Name = "matbtnSave";
@@ -98,11 +99,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.matbtnSave.UseVisualStyleBackColor = true;
             this.matbtnSave.Click += new System.EventHandler(this.matbtnSave_Click);
             // 
+            // MatBtnCancel
+            // 
+            this.MatBtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatBtnCancel.Depth = 0;
+            this.MatBtnCancel.DrawShadows = true;
+            this.MatBtnCancel.HighEmphasis = true;
+            this.MatBtnCancel.Icon = null;
+            this.MatBtnCancel.Location = new System.Drawing.Point(452, 306);
+            this.MatBtnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.MatBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatBtnCancel.Name = "MatBtnCancel";
+            this.MatBtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatBtnCancel.TabIndex = 478;
+            this.MatBtnCancel.Text = "CANCEL";
+            this.MatBtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatBtnCancel.UseAccentColor = false;
+            this.MatBtnCancel.UseVisualStyleBackColor = true;
+            this.MatBtnCancel.Click += new System.EventHandler(this.MatBtnCancel_Click);
+            // 
             // frmAddNewRegion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 357);
+            this.Controls.Add(this.MatBtnCancel);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.matbtnSave);
             this.MaximizeBox = false;
@@ -126,5 +147,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
         private MaterialSkin.Controls.MaterialTextBox matTxtRegion;
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton matbtnSave;
+        private MaterialSkin.Controls.MaterialButton MatBtnCancel;
     }
 }

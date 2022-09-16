@@ -217,11 +217,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             else
             {
-                DoSearchInTextBoxCmb();
+                this.DoSearchInTextBoxCmb();
             }
             if (this.txtSearch.Text == "")
             {
-                DoSearchInTextBoxCmb();
+                this.DoSearchInTextBoxCmb();
             }
         }
 
@@ -234,7 +234,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void MaterialBtnNew_Click(object sender, EventArgs e)
         {
-            this.TblRegionEntity.Mode = "add";
+            this.TblRegionEntity.Mode = "ADD";
 
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
@@ -248,7 +248,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void ToolStripbtnEdit_Click(object sender, EventArgs e)
         {
-            this.TblRegionEntity.Mode = "edit";
+            this.TblRegionEntity.Mode = "EDIT";
             this.materialBtnNew.Visible = false;
             this.toolStripbtnEdit.Visible = false;
             frmAddNewRegion UpdateModal = new frmAddNewRegion(this,

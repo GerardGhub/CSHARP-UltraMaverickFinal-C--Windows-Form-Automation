@@ -307,7 +307,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             this.TblRouteEntity.Route_Name,
                             userinfo.user_id.ToString(),
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "",
                             "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
@@ -329,7 +329,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 //
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
@@ -342,7 +342,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                             this.TblRouteEntity.Route_Name,
                             userinfo.user_id.ToString(),
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "",
                             "activate");
 
@@ -391,6 +391,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 TblRouteEntity.Mode,
                 this.TblRouteEntity.Route_Id);
                 addNew.ShowDialog();
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

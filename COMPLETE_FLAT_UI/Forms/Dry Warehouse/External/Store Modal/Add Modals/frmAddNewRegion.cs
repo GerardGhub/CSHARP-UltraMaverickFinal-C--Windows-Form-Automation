@@ -18,14 +18,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
     {
         frmRegion ths;
         DataSet dSet = new DataSet();
-        TblRegion TblRegionEntity = new TblRegion();
-        myclasses myClass = new myclasses();
+        readonly TblRegion TblRegionEntity = new TblRegion();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
-        public frmAddNewRegion(frmRegion frm, string created_by, 
+        public frmAddNewRegion(frmRegion frm, 
+            string created_by, 
             string RegionDescription, 
-            string mode, int identitys)
+            string mode, 
+            int identitys)
         {
             InitializeComponent();
             ths = frm;
@@ -57,19 +59,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.TblRegionEntity.Mode = this.TblRegionEntity.Mode;
 
 
-            if (TblRegionEntity.Mode == "add")
+            if (TblRegionEntity.Mode == "ADD")
             {
                 this.Text = "Add New Region";
                 this.matbtnSave.Text = "ADD";
                 this.TblRegionEntity.Added_By = this.TblRegionEntity.Added_By;
-                this.matTxtRegion.Text = String.Empty;
             }
             else
             {
                 this.Text = "Update Region";
                 this.matbtnSave.Text = "UPDATE";
                 this.TblRegionEntity.Added_By = this.TblRegionEntity.Added_By;
-
                 this.matTxtRegion.Text = this.TblRegionEntity.Region_Description;
             }
             this.matTxtRegion.Focus();
@@ -84,7 +84,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
 
         private void MetroSave()
         {
-            if (this.TblRegionEntity.Added_By == "add")
+            if (this.TblRegionEntity.Mode == "ADD")
             {
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -158,6 +158,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
                 return;
             }
 
+            if (this.TblRegionEntity.Mode == "ADD")
+            {
+                this.TblRegionEntity.Region_Description = String.Empty;
+            }
+
             if (this.matTxtRegion.Text == this.TblRegionEntity.Region_Description)
             {
                 this.MetroSave();
@@ -197,6 +202,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
         private void matTxtRegion_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -40,12 +40,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvRegion = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.region_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.region_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
@@ -57,6 +51,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
+            this.region_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.region_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegion)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -159,7 +159,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvRegion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvRegion.ColumnHeadersHeight = 30;
+            this.dgvRegion.ColumnHeadersHeight = 40;
             this.dgvRegion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRegion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.region_id,
@@ -197,7 +197,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvRegion.RowTemplate.DividerHeight = 5;
             this.dgvRegion.RowTemplate.Height = 40;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegion.Size = new System.Drawing.Size(963, 475);
+            this.dgvRegion.Size = new System.Drawing.Size(963, 478);
             this.dgvRegion.TabIndex = 5;
             this.dgvRegion.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRegion.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -212,7 +212,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvRegion.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvRegion.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvRegion.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvRegion.ThemeStyle.HeaderStyle.Height = 30;
+            this.dgvRegion.ThemeStyle.HeaderStyle.Height = 40;
             this.dgvRegion.ThemeStyle.ReadOnly = true;
             this.dgvRegion.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRegion.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -223,52 +223,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvRegion.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRegion.CurrentCellChanged += new System.EventHandler(this.DgvRawMats_CurrentCellChanged_1);
             // 
-            // region_id
-            // 
-            this.region_id.DataPropertyName = "region_id";
-            this.region_id.FillWeight = 40.60914F;
-            this.region_id.HeaderText = "REGION ID";
-            this.region_id.MinimumWidth = 12;
-            this.region_id.Name = "region_id";
-            this.region_id.ReadOnly = true;
-            // 
-            // region_description
-            // 
-            this.region_description.DataPropertyName = "region_description";
-            this.region_description.FillWeight = 59.93546F;
-            this.region_description.HeaderText = "DESCRIPTION";
-            this.region_description.MinimumWidth = 12;
-            this.region_description.Name = "region_description";
-            this.region_description.ReadOnly = true;
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
-            // 
-            // modified_by
-            // 
-            this.modified_by.DataPropertyName = "modified_by";
-            this.modified_by.HeaderText = "MODIFIED BY";
-            this.modified_by.Name = "modified_by";
-            this.modified_by.ReadOnly = true;
-            // 
-            // modified_at
-            // 
-            this.modified_at.DataPropertyName = "modified_at";
-            this.modified_at.HeaderText = "MODIFIED DATE";
-            this.modified_at.Name = "modified_at";
-            this.modified_at.ReadOnly = true;
-            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -278,12 +232,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard2.Controls.Add(this.dgvRegion);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(20, 233);
+            this.materialCard2.Location = new System.Drawing.Point(20, 230);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(973, 487);
+            this.materialCard2.Size = new System.Drawing.Size(973, 490);
             this.materialCard2.TabIndex = 581;
             // 
             // materialCard3
@@ -294,7 +248,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard3.Controls.Add(this.matRadioNotActive);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(772, 157);
+            this.materialCard3.Location = new System.Drawing.Point(772, 151);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
@@ -342,7 +296,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(20, 176);
+            this.panel1.Location = new System.Drawing.Point(20, 166);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(578, 40);
@@ -413,6 +367,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             // 
+            // region_id
+            // 
+            this.region_id.DataPropertyName = "region_id";
+            this.region_id.FillWeight = 40.60914F;
+            this.region_id.HeaderText = "ID";
+            this.region_id.MinimumWidth = 12;
+            this.region_id.Name = "region_id";
+            this.region_id.ReadOnly = true;
+            // 
+            // region_description
+            // 
+            this.region_description.DataPropertyName = "region_description";
+            this.region_description.FillWeight = 59.93546F;
+            this.region_description.HeaderText = "DESCRIPTION";
+            this.region_description.MinimumWidth = 12;
+            this.region_description.Name = "region_description";
+            this.region_description.ReadOnly = true;
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.Name = "added_by";
+            this.added_by.ReadOnly = true;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            // 
+            // modified_by
+            // 
+            this.modified_by.DataPropertyName = "modified_by";
+            this.modified_by.HeaderText = "MODIFIED BY";
+            this.modified_by.Name = "modified_by";
+            this.modified_by.ReadOnly = true;
+            // 
+            // modified_at
+            // 
+            this.modified_at.DataPropertyName = "modified_at";
+            this.modified_at.HeaderText = "MODIFIED DATE";
+            this.modified_at.Name = "modified_at";
+            this.modified_at.ReadOnly = true;
+            // 
             // frmRegion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,12 +451,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvRegion;
         private MaterialSkin.Controls.MaterialCard materialCard2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn region_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn region_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn added_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modified_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modified_at;
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
         private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
@@ -467,5 +461,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private System.Windows.Forms.ToolStripButton matBtnDelete;
         private System.Windows.Forms.ToolStripButton matBtnSave;
         private System.Windows.Forms.ToolStripButton matBtnCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn region_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn region_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn added_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modified_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modified_at;
     }
 }
