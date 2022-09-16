@@ -17,14 +17,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmAreaManagement : MaterialForm
     {
-        myclasses xClass = new myclasses();
+  
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         string mode = "";
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int p_id = 0;
-        TblArea TblAreaEntity = new TblArea();
+        readonly TblArea TblAreaEntity = new TblArea();
         DateTime dNow = DateTime.Now;
 
 
@@ -118,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                this.xClass.fillDataGridView(this.dgvRawMats, "tblAreaSpMinor", this.dSet);
+                this.myClass.fillDataGridView(this.dgvRawMats, "tblAreaSpMinor", this.dSet);
 
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
@@ -138,7 +138,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                this.xClass.fillDataGridView(this.dgvRawMats, "tblAreaSpMinor_InActive", this.dSet);
+                this.myClass.fillDataGridView(this.dgvRawMats, "tblAreaSpMinor_InActive", this.dSet);
 
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
@@ -332,7 +332,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             this.TblAreaEntity.Area_Name,
                             this.TblAreaEntity.Added_By,
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "",
                             "delete");
 
@@ -372,7 +372,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             this.TblAreaEntity.Area_Name,
                             this.TblAreaEntity.Added_By,
                             "",
-                            "",
+                           userinfo.user_id.ToString(),
                             "",
                             "activate");
 

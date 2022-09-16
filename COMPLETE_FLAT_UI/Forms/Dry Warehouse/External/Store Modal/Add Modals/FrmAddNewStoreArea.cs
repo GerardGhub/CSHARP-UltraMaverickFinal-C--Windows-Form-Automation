@@ -24,16 +24,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         TblArea TblAreaEntity = new TblArea();
         IStoredProcedures g_objStoredProcCollection = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        public frmAddNewArea(frmAreaManagement frm, string created_by, string area_name, string mode, int identitys )
+        public frmAddNewArea(
+            frmAreaManagement frm, 
+            string Created_by, 
+            string Area_name, 
+            string Mode, 
+            int Identitys )
         {
             InitializeComponent();
             ths = frm;
             textBox1.TextChanged += new EventHandler(textBox1_TextChanged);
-            this.TblAreaEntity.Added_By = created_by;
- 
-            this.TblAreaEntity.Area_Name = area_name;
-            this.modes = mode;
-            this.TblAreaEntity.Aread_Id = identitys;
+            this.TblAreaEntity.Added_By = Created_by;
+            this.TblAreaEntity.Area_Name = Area_name;
+            this.TblAreaEntity.Mode = Mode;
+            this.TblAreaEntity.Aread_Id = Identitys;
+            this.TblAreaEntity.Modified_By = Created_by;
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -42,7 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
      
 
-        public string modes { get; set; }
+
 
         private void frmAddNewArea_Load(object sender, EventArgs e)
         {
@@ -57,21 +62,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void CallingMainFormWindowBinder()
         {
-            this.modes = modes;
+            this.TblAreaEntity.Mode = TblAreaEntity.Mode;
          
          
-            if (this.modes == "add")
+            if (this.TblAreaEntity.Mode == "ADD")
             {
                 this.Text = "Add New Area";
                 this.materialButton1.Text = "ADD";
                 this.TblAreaEntity.Added_By = TblAreaEntity.Added_By;
-                this.MattxtStoreArea.Text = String.Empty;
+
             }
             else
             {
                 this.Text = "Update Area";
                 this.materialButton1.Text = "UPDATE";
-                this.TblAreaEntity.Added_By = TblAreaEntity.Added_By;
+                this.TblAreaEntity.Modified_By = TblAreaEntity.Modified_By;
 
                 this.MattxtStoreArea.Text = this.TblAreaEntity.Area_Name;
             }
@@ -102,15 +107,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 return;
             }
 
+
+            if (this.TblAreaEntity.Mode == "ADD")
+            {
+                this.TblAreaEntity.Area_Name = String.Empty;
+            }
+
             if (this.MattxtStoreArea.Text == this.TblAreaEntity.Area_Name)
             {
                 this.MetroSave();
             }
             else
             {
+       
 
                 dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_tblArea(0,
+                dSet = g_objStoredProcCollection
+                    .sp_tblArea(0,
                     this.MattxtStoreArea.Text,
                     this.TblAreaEntity.Added_By,
                     "",
@@ -141,8 +154,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void MetroSave()
         {
-            if (modes == "add")
-            {
+            if (TblAreaEntity.Mode == "ADD")
+                {
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
@@ -216,6 +229,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void mattxtStoreName_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
