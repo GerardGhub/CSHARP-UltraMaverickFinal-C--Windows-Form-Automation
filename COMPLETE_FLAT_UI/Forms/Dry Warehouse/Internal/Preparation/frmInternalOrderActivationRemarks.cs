@@ -287,7 +287,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the information?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         mode = "delete";
@@ -298,9 +298,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         "",
                         "",
                         "",
+                        userinfo.user_id.ToString(),
                         "",
-                        "",
-                        "delete");
+                        "delete"); ;
 
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.frmInternalOrderActivationRemarks_Load(sender, e);
@@ -320,7 +320,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the information", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         dSet_temp.Clear();
@@ -330,7 +330,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         "",
                         "",
                         "",
-                        "",
+                         userinfo.user_id.ToString(),
                         "",
                         "delete_activation");
 

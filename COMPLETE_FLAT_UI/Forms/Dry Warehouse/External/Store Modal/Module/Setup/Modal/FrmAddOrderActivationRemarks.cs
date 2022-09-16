@@ -228,5 +228,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         {
             this.TextBox1.Text = "Gerard Singian";
         }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

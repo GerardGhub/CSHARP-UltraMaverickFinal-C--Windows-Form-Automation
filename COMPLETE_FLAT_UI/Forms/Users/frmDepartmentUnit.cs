@@ -220,7 +220,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         this.DeptUnit.Updated_By = dgvUnits.CurrentRow.Cells["updated_by"].Value.ToString();
                         this.DeptUnit.Created_At = dgvUnits.CurrentRow.Cells["created_at"].Value.ToString();
                         this.DeptUnit.Created_By = dgvUnits.CurrentRow.Cells["created_by"].Value.ToString();
-  
+                        this.DeptUnit.Department_Id = Convert.ToInt32(dgvUnits.CurrentRow.Cells["department_id"].Value);
                     }
                 }
             }
@@ -231,17 +231,21 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void DgvUnits_CurrentCellChanged_1(object sender, EventArgs e)
         {
-            showValue();
+            this.showValue();
         }
 
         private void ToolStripButton2_Click(object sender, EventArgs e)
         {
-            this.mode = "add";
+            this.mode = "ADD";
             this.btn_visible(false);
 
-            AddNewDepartmentUnit addNew = new AddNewDepartmentUnit(this,
+            AddNewUnit addNew = new AddNewUnit(this,
             userinfo.user_id,
-            "Add", this.DeptUnit.Unit_Id, this.DeptUnit.Department, this.DeptUnit.Unit_Description
+            "ADD", 
+            this.DeptUnit.Unit_Id, 
+            this.DeptUnit.Department, 
+            this.DeptUnit.Unit_Description,
+            this.DeptUnit.Department_Id
             );
             addNew.ShowDialog();
 
@@ -249,13 +253,14 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void ToolStripButton3_Click(object sender, EventArgs e)
         {
-                AddNewDepartmentUnit addNew = 
-                new AddNewDepartmentUnit(this,
+                AddNewUnit addNew = 
+                new AddNewUnit(this,
                 userinfo.user_id,
                 "Edit", 
                 this.DeptUnit.Unit_Id, 
                 this.DeptUnit.Department, 
-                this.DeptUnit.Unit_Description
+                this.DeptUnit.Unit_Description,
+                this.DeptUnit.Department_Id
                 );
                 addNew.ShowDialog();
 
@@ -281,13 +286,21 @@ namespace ULTRAMAVERICK.Forms.Users
                 if (this.matRadioActive.Checked == true)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         mode = "delete";
 
                         dSet_temp.Clear();
-                        dSet_temp = g_objStoredProcCollection.sp_DepartmentUnit(this.DeptUnit.Unit_Id, "", "", "", "", "", "", "delete");
+                        dSet_temp = g_objStoredProcCollection
+                            .sp_DepartmentUnit(this.DeptUnit.Unit_Id,
+                            "",
+                            "", 
+                            "",
+                            userinfo.user_id.ToString(),
+                            "", 
+                            userinfo.user_id.ToString(), 
+                            "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.frmDepartmentUnit_Load(sender, e);
                     }
@@ -299,14 +312,21 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
                 else
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
                         mode = "activate";
 
                         dSet_temp.Clear();
-                        dSet_temp = g_objStoredProcCollection.sp_DepartmentUnit(this.DeptUnit.Unit_Id,
-                            "", "", "", "", "", "", "activate");
+                        dSet_temp = g_objStoredProcCollection
+                            .sp_DepartmentUnit(this.DeptUnit.Unit_Id,
+                            "",
+                            "", 
+                            "",
+                           userinfo.user_id.ToString(),
+                            "",
+                                userinfo.user_id.ToString(),
+                            "activate");
                         this.GlobalStatePopup.ActivatedSuccessfully();
                         this.frmDepartmentUnit_Load(sender, e);
                     }

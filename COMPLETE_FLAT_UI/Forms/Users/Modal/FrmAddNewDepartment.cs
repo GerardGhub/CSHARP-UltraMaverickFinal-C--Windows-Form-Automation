@@ -18,11 +18,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
     {
         frmDepartment ths;
         DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        Department Dept = new Department();
-        TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly Department Dept = new Department();
+        readonly TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
         public FrmAddNewDepartment(frmDepartment frm, int UserId, string Mode, int DepartmentId, string DepartmentName)
@@ -46,12 +46,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             this.ConnectionInit();
 
-            if (this.Dept.Mode == "Add")
+            if (this.Dept.Mode == "ADD")
             {
-
+                this.Text = "Add New Department";
             }
             else
             {
+                this.Text = "Update Department";
+
                 this.TxtDepartment.Text = Dept.Department_Name;
                 this.Dept.Department_Id = Dept.Department_Id;
             }
@@ -72,8 +74,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
 
 
-            if (this.Dept.Mode == "Add")
+         if (this.Dept.Mode == "ADD")
             {
+                this.Dept.Department_Name = String.Empty;
+            }
+            if (this.Dept.Department_Name == this.TxtDepartment.Text)
+            {
+                this.SaveFunctionality();
+            }
+            else
+            {
+
                 dSet = g_objStoredProcCollection
                     .sp_department(
                     this.Dept.Department_Id,
@@ -87,11 +98,22 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     this.GlobalStatePopup.DataAlreadyExist();
                     return;
                 }
-             
-                
-                
+                else
+                {
+                    this.SaveFunctionality();
+                }
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            }
+        }
+
+        public void SaveFunctionality()
+        {
+
+            if (this.Dept.Mode == "Add")
+            {
+
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     if (this.TxtDepartment.Text.Trim() == "")
                     {
@@ -107,7 +129,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
                     else
                     {
-                           
+
 
 
 
@@ -142,10 +164,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             else
             {
 
-                if(this.Dept.Department_Name == this.TxtDepartment.Text.Trim())
+                if (this.Dept.Department_Name == this.TxtDepartment.Text.Trim())
                 {
 
-           
+
                 }
                 else
                 {
@@ -209,12 +231,16 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
             }
             //close
-
         }
 
         private void TxtDepartment_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void MatbtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

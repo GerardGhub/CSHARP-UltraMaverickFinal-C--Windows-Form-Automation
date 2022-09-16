@@ -33,6 +33,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BtnExecute = new MaterialSkin.Controls.MaterialButton();
             this.TxtDepartment = new MaterialSkin.Controls.MaterialTextBox();
+            this.MatbtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +41,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.textBox1);
-            this.materialCard1.Controls.Add(this.BtnExecute);
             this.materialCard1.Controls.Add(this.TxtDepartment);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -49,7 +49,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(542, 229);
+            this.materialCard1.Size = new System.Drawing.Size(542, 193);
             this.materialCard1.TabIndex = 0;
             // 
             // textBox1
@@ -71,7 +71,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.BtnExecute.DrawShadows = true;
             this.BtnExecute.HighEmphasis = true;
             this.BtnExecute.Icon = null;
-            this.BtnExecute.Location = new System.Drawing.Point(447, 166);
+            this.BtnExecute.Location = new System.Drawing.Point(37, 283);
             this.BtnExecute.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnExecute.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnExecute.Name = "BtnExecute";
@@ -102,12 +102,33 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtDepartment.Text = "";
             this.TxtDepartment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDepartment_KeyPress);
             // 
+            // MatbtnCancel
+            // 
+            this.MatbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatbtnCancel.Depth = 0;
+            this.MatbtnCancel.DrawShadows = true;
+            this.MatbtnCancel.HighEmphasis = true;
+            this.MatbtnCancel.Icon = null;
+            this.MatbtnCancel.Location = new System.Drawing.Point(502, 283);
+            this.MatbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MatbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatbtnCancel.Name = "MatbtnCancel";
+            this.MatbtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatbtnCancel.TabIndex = 574;
+            this.MatbtnCancel.Text = "CANCEL";
+            this.MatbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatbtnCancel.UseAccentColor = false;
+            this.MatbtnCancel.UseVisualStyleBackColor = true;
+            this.MatbtnCancel.Click += new System.EventHandler(this.MatbtnCancel_Click);
+            // 
             // FrmAddNewDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 331);
+            this.Controls.Add(this.MatbtnCancel);
             this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.BtnExecute);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddNewDepartment";
@@ -118,6 +139,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,5 +149,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private MaterialSkin.Controls.MaterialButton BtnExecute;
         private MaterialSkin.Controls.MaterialTextBox TxtDepartment;
         private System.Windows.Forms.TextBox textBox1;
+        private MaterialSkin.Controls.MaterialButton MatbtnCancel;
     }
 }

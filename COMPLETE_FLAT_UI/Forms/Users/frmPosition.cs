@@ -20,18 +20,16 @@ namespace ULTRAMAVERICK.Forms.Users
 {
     public partial class frmPosition : MaterialForm
     {
-
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        myglobal pointer_module = new myglobal();
+        readonly myglobal pointer_module = new myglobal();
         DateTime dNow = DateTime.Now;
         string mode = "";
         DataSet dSet = new DataSet();
         Boolean ready = false;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-  
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass(); 
         DataSet dSet_temp = new DataSet();
-        Position PositionEntity = new Position();
+        readonly Position PositionEntity = new Position();
         public frmPosition()
         {
             InitializeComponent();
@@ -194,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "",
                             "",
                             "delete");
@@ -233,7 +231,7 @@ namespace ULTRAMAVERICK.Forms.Users
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "",
                             "",
                             "activate");
@@ -259,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void neww_Click(object sender, EventArgs e)
         {
-            this.mode = "add";
+            this.mode = "ADD";
             this.btnUpdateTool.Visible = true;
             this.btnAddTool.Visible = false;
 
@@ -272,7 +270,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             FrmAddNewPosition addNew = new FrmAddNewPosition(this,
             userinfo.user_id,
-            "Add", 
+            "ADD", 
             Convert.ToInt32(this.PositionEntity.Department_Id),
             this.PositionEntity.Department_Name,
             this.PositionEntity.Position_Name,
@@ -338,7 +336,8 @@ namespace ULTRAMAVERICK.Forms.Users
                         this.PositionEntity.Position_Id = Convert.ToInt32(this.DgvPosition.CurrentRow.Cells["position_id"].Value);
                         this.PositionEntity.Position_Name = this.DgvPosition.CurrentRow.Cells["position_name"].Value.ToString();
                         this.PositionEntity.Department_Id = this.DgvPosition.CurrentRow.Cells["department_id"].Value.ToString();
-                        this.PositionEntity.Department_Name = this.DgvPosition.CurrentRow.Cells["department_name"].Value.ToString();
+                        this.PositionEntity.Department_Name = this.DgvPosition.CurrentRow.Cells["unit_description"].Value.ToString();
+
                     }
 
                 }

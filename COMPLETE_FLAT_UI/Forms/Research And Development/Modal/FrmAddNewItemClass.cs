@@ -200,5 +200,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

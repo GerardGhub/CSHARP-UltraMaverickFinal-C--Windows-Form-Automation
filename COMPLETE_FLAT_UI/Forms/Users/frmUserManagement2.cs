@@ -389,7 +389,7 @@ namespace ULTRAMAVERICK.Forms.Users
             toolStrip2.Visible = false;
             frmEditUser addNew = new frmEditUser(
                this,
-               Name,
+               UserFileEntity.Employee_Name,
                UserFileEntity.Employee_LastName,
                UserFileEntity.User_Rights_Name,
                UserFileEntity.UserName,

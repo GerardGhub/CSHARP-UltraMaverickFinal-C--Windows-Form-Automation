@@ -318,7 +318,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         "this.matcmbType.Text.Trim()",
                         "",
                         "",
-                        "",
+                        userinfo.user_id.ToString(),
                         "",
                         "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
@@ -349,7 +349,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         "this.matcmbType.Text.Trim()",
                         "",
                         "",
-                        "",
+                        userinfo.user_id.ToString(),
                         "",
                         "delete_activation");
                         this.GlobalStatePopup.ActivatedSuccessfully();

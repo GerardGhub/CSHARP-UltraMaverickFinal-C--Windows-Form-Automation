@@ -182,7 +182,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnDeleteTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteTool.Name = "btnDeleteTool";
             this.btnDeleteTool.Size = new System.Drawing.Size(97, 37);
-            this.btnDeleteTool.Text = "&Remove";
+            this.btnDeleteTool.Text = "&InActive";
             this.btnDeleteTool.Click += new System.EventHandler(this.removee_Click);
             // 
             // btnUpdateTool

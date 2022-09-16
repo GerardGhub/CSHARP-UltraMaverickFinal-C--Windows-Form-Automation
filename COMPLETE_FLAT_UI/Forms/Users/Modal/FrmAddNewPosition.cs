@@ -21,9 +21,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         readonly Position PositionEntity = new Position();
-        string mode = "";
+        int currentUnitId = 0;
         readonly TblCustomersRepository TblCustomersRepositorys = new TblCustomersRepository();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        int touch = 0;
         public FrmAddNewPosition(
             frmPosition frm,
             int UserId, 
@@ -41,13 +42,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.PositionEntity.Department_Name = Department_Name;
             this.PositionEntity.Position_Name = Position_Name;
             this.PositionEntity.Position_Id = Position_Id;
+            this.currentUnitId = Department_Id;
         }
 
         private void FrmAddNewPosition_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
 
-            if (this.PositionEntity.Mode == "Add")
+            if (this.PositionEntity.Mode == "ADD")
             {
                 this.Text = "Add New Position";
             }
@@ -55,18 +57,17 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             {
                 this.Text = "Update Position Information";
                 this.PositionEntity.Department_Id = this.PositionEntity.Department_Id;
-                this.CboDepartment.Text = this.PositionEntity.Department_Name;
+                this.CboUnit.Text = this.PositionEntity.Department_Name;
                 this.TxtPosition.Text = this.PositionEntity.Position_Name;
                 this.PositionEntity.Created_By = this.PositionEntity.Created_By;
             }
 
-            this.LoadDepartment();
         }
 
-        public void LoadDepartment()
+        public void LoadUnit()
         {
-            this.myClass.fillComboBoxDepartment(CboDepartment, "department_dropdown", dSet);
-            this.PositionEntity.Department_Id = CboDepartment.SelectedValue.ToString();
+            this.myClass.fillComboBoxDepartment(CboUnit, "department_unit_dropdown", dSet);
+            this.PositionEntity.Department_Id = CboUnit.SelectedValue.ToString();
         }
 
         private void ConnectionInit()
@@ -84,47 +85,106 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1.Text = "FormClosed";
         }
 
+
+        public void LoadCurrentUnit()
+        {
+            //MessageBox.Show(this.PositionEntity.Department_Id);
+            //return;
+
+            myClass.fillCmbTransactionNo(CboUnit, "department_unit_dropdown_params", dSet, Convert.ToInt32(this.PositionEntity.Department_Id));
+
+
+            this.PositionEntity.Department_Id = CboUnit.SelectedValue.ToString();
+        }
+
+
         private void BtnExecute_Click(object sender, EventArgs e)
         {
-            if (this.PositionEntity.Mode == "Add")
+            if (this.CboUnit.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.CboUnit.Focus();
+                return;
+            }
+
+            if(this.TxtPosition.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.TxtPosition.Focus();
+                return;
+            }
+
+
+            if (this.touch == 1)
+            {
+
+            }
+            else
+            {
+                this.LoadCurrentUnit();
+            }
+
+            if (this.PositionEntity.Mode == "ADD")
+            {
+                this.PositionEntity.Position_Name = String.Empty;
+                //this.PositionEntity.Department_Id = String.Empty;
+            }
+
+            if (this.PositionEntity.Position_Name == TxtPosition.Text
+             && this.PositionEntity.Department_Id == this.currentUnitId.ToString())
+            {
+                this.SaveFunctionality();
+            }
+            else
+            {
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_position(0,
+                    this.TxtPosition.Text,
+                    this.PositionEntity.Department_Id,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.TxtPosition.Focus();
+                    return;
+                }
+                else
+                {
+                    SaveFunctionality();
+                }
+            }
+
+        }
+
+       private void SaveFunctionality()
+        {
+            if (this.PositionEntity.Mode == "ADD")
             {
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_position(0,
-                        this.TxtPosition.Text.Trim(),
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "validate");
 
-                    if (dSet.Tables[0].Rows.Count > 0)
-                    {
-                        this.GlobalStatePopup.DataAlreadyExist();
-                        this.TxtPosition.Focus();
-                        return;
-                    }
-                    else
-                    {
-                        this.dSet.Clear();
-                        this.dSet = g_objStoredProcCollection.sp_position(0,
-                        this.TxtPosition.Text.Trim(),
-                        this.PositionEntity.Department_Id,
-                        this.PositionEntity.Created_By,
-                        this.PositionEntity.Created_At,
-                        this.PositionEntity.Modified_Date,
-                        this.PositionEntity.Modified_By,
-                        this.PositionEntity.Created_By,
-                        "add");
-                        this.GlobalStatePopup.SuccessFullySave();
-                        this.Close();
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection.sp_position(0,
+                    this.TxtPosition.Text.Trim(),
+                    this.PositionEntity.Department_Id,
+                    this.PositionEntity.Created_By,
+                    this.PositionEntity.Created_At,
+                    this.PositionEntity.Modified_Date,
+                    this.PositionEntity.Modified_By,
+                    this.PositionEntity.Created_By,
+                    "add");
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
 
-                    }
+
 
                 }
 
@@ -154,10 +214,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 if (this.dSet.Tables[0].Rows.Count > 0)
                 {
                     string PostName = this.dSet.Tables[0].Rows[0][1].ToString();
-              
+
                     if (PostName == this.PositionEntity.Position_Name)
                     {
-                      
+
                     }
                     else
                     {
@@ -173,23 +233,23 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
-            
-                        this.dSet.Clear();
-                        this.dSet = g_objStoredProcCollection
-                        .sp_position(
-                        this.PositionEntity.Position_Id,
-                        this.TxtPosition.Text.Trim(),
-                        this.PositionEntity.Department_Id,
-                        this.PositionEntity.Created_By,
-                        this.PositionEntity.Created_At,
-                        this.PositionEntity.Created_By,
-                        this.PositionEntity.Created_By,
-                        this.PositionEntity.Created_By,
-                        "edit");
-                        this.GlobalStatePopup.UpdatedSuccessfully();
-                        this.Close();
 
-                    
+                    this.dSet.Clear();
+                    this.dSet = g_objStoredProcCollection
+                    .sp_position(
+                    this.PositionEntity.Position_Id,
+                    this.TxtPosition.Text.Trim(),
+                    this.PositionEntity.Department_Id,
+                    this.PositionEntity.Created_By,
+                    this.PositionEntity.Created_At,
+                    this.PositionEntity.Created_By,
+                    this.PositionEntity.Created_By,
+                    this.PositionEntity.Created_By,
+                    "edit");
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.Close();
+
+
 
                 }
 
@@ -201,7 +261,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
 
             }
-
         }
 
         private void TxtPosition_KeyPress(object sender, KeyPressEventArgs e)
@@ -211,7 +270,30 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void CboDepartment_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.PositionEntity.Department_Id = this.CboDepartment.SelectedValue.ToString();
+            this.PositionEntity.Department_Id = this.CboUnit.SelectedValue.ToString();
+            touch = 1;
+        }
+
+        private void MatbtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CboDepartment_Click(object sender, EventArgs e)
+        {
+            this.LoadUnit();
+        }
+
+        private void CbDepartment_Click(object sender, EventArgs e)
+        {
+            this.LoadUnit();
+            this.touch = 1;
+        }
+
+        private void CbDepartment_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.PositionEntity.Department_Id = this.CboUnit.SelectedValue.ToString();
+  
         }
     }
 }

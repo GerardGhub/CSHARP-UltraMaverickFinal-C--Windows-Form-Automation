@@ -16,6 +16,7 @@ namespace ULTRAMAVERICK.API.Entities
         public string Created_At { get; set; }
         public string Created_By { get; set; }
         public bool Is_Active { get; set; }
+        public int Department_Id { get; set; }
         public string Mode { get; set; }
     }
 }

@@ -251,7 +251,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     mode = "delete";
 
                     this.dSet_temp.Clear();
-                    this.dSet_temp = this.g_objStoredProcCollection.sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, "", "", "", "", "", "delete");
+                    this.dSet_temp = this.g_objStoredProcCollection
+                        .sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, 
+                        "", 
+                        "", 
+                        "", 
+                        userinfo.user_id.ToString(), 
+                        "",
+                        "delete");
                     this.GlobalStatePopup.InactiveSuccessfully();
                     this.FrmItemClass_Load(sender, e);
                 }
@@ -269,7 +276,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     mode = "activate";
 
                     this.dSet_temp.Clear();
-                    this.dSet_temp = this.g_objStoredProcCollection.sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, "", "", "", "", "", "activate");
+                    this.dSet_temp = this.g_objStoredProcCollection
+                        .sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, 
+                        "",
+                        "",
+                        "",
+                        userinfo.user_id.ToString(),
+                        "",
+                        "activate");
                     this.GlobalStatePopup.ActivatedSuccessfully();
                     this.FrmItemClass_Load(sender, e);
                 }

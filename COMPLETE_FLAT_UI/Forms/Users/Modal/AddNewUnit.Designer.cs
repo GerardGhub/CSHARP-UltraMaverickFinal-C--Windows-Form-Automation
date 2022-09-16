@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Users.Modal
 {
-    partial class AddNewDepartmentUnit
+    partial class AddNewUnit
     {
         /// <summary>
         /// Required designer variable.
@@ -30,22 +30,22 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.CbDepartment = new System.Windows.Forms.ComboBox();
             this.TxtDepartmentUnit = new MaterialSkin.Controls.MaterialTextBox();
-            this.cbodepartment = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BtnExecute = new MaterialSkin.Controls.MaterialButton();
+            this.MatbtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.CbDepartment);
             this.materialCard1.Controls.Add(this.TxtDepartmentUnit);
-            this.materialCard1.Controls.Add(this.cbodepartment);
             this.materialCard1.Controls.Add(this.label1);
             this.materialCard1.Controls.Add(this.textBox1);
-            this.materialCard1.Controls.Add(this.BtnExecute);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(40, 80);
@@ -53,8 +53,20 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(542, 229);
+            this.materialCard1.Size = new System.Drawing.Size(542, 210);
             this.materialCard1.TabIndex = 1;
+            this.materialCard1.Click += new System.EventHandler(this.materialCard1_Click);
+            // 
+            // CbDepartment
+            // 
+            this.CbDepartment.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbDepartment.FormattingEnabled = true;
+            this.CbDepartment.Location = new System.Drawing.Point(58, 38);
+            this.CbDepartment.Name = "CbDepartment";
+            this.CbDepartment.Size = new System.Drawing.Size(424, 31);
+            this.CbDepartment.TabIndex = 602;
+            this.CbDepartment.SelectedValueChanged += new System.EventHandler(this.CbDepartment_SelectedValueChanged);
+            this.CbDepartment.Click += new System.EventHandler(this.CbDepartment_Click);
             // 
             // TxtDepartmentUnit
             // 
@@ -73,18 +85,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtDepartmentUnit.TabIndex = 601;
             this.TxtDepartmentUnit.Text = "";
             this.TxtDepartmentUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDepartmentUnit_KeyPress);
-            // 
-            // cbodepartment
-            // 
-            this.cbodepartment.FormattingEnabled = true;
-            this.cbodepartment.ItemHeight = 23;
-            this.cbodepartment.Location = new System.Drawing.Point(58, 40);
-            this.cbodepartment.Margin = new System.Windows.Forms.Padding(1);
-            this.cbodepartment.Name = "cbodepartment";
-            this.cbodepartment.Size = new System.Drawing.Size(424, 29);
-            this.cbodepartment.TabIndex = 600;
-            this.cbodepartment.UseSelectable = true;
-            this.cbodepartment.SelectedValueChanged += new System.EventHandler(this.cbodepartment_SelectedValueChanged);
             // 
             // label1
             // 
@@ -117,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.BtnExecute.DrawShadows = true;
             this.BtnExecute.HighEmphasis = true;
             this.BtnExecute.Icon = null;
-            this.BtnExecute.Location = new System.Drawing.Point(424, 176);
+            this.BtnExecute.Location = new System.Drawing.Point(40, 304);
             this.BtnExecute.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnExecute.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnExecute.Name = "BtnExecute";
@@ -129,15 +129,36 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.BtnExecute.UseVisualStyleBackColor = true;
             this.BtnExecute.Click += new System.EventHandler(this.BtnExecute_Click);
             // 
-            // AddNewDepartmentUnit
+            // MatbtnCancel
+            // 
+            this.MatbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatbtnCancel.Depth = 0;
+            this.MatbtnCancel.DrawShadows = true;
+            this.MatbtnCancel.HighEmphasis = true;
+            this.MatbtnCancel.Icon = null;
+            this.MatbtnCancel.Location = new System.Drawing.Point(505, 304);
+            this.MatbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MatbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatbtnCancel.Name = "MatbtnCancel";
+            this.MatbtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatbtnCancel.TabIndex = 574;
+            this.MatbtnCancel.Text = "CANCEL";
+            this.MatbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatbtnCancel.UseAccentColor = false;
+            this.MatbtnCancel.UseVisualStyleBackColor = true;
+            this.MatbtnCancel.Click += new System.EventHandler(this.MatbtnCancel_Click);
+            // 
+            // AddNewUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 335);
+            this.ClientSize = new System.Drawing.Size(621, 354);
+            this.Controls.Add(this.MatbtnCancel);
             this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.BtnExecute);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddNewDepartmentUnit";
+            this.Name = "AddNewUnit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewDepartmentUnit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddNewDepartmentUnit_FormClosing);
@@ -145,6 +166,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -154,7 +176,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton BtnExecute;
         private System.Windows.Forms.Label label1;
-        private MetroFramework.Controls.MetroComboBox cbodepartment;
         private MaterialSkin.Controls.MaterialTextBox TxtDepartmentUnit;
+        private MaterialSkin.Controls.MaterialButton MatbtnCancel;
+        private System.Windows.Forms.ComboBox CbDepartment;
     }
 }

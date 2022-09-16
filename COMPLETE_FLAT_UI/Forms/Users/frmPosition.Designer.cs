@@ -30,10 +30,10 @@ namespace ULTRAMAVERICK.Forms.Users
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPosition));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -44,13 +44,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnCancelTool = new System.Windows.Forms.ToolStripButton();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.DgvPosition = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.position_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cust_company = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
@@ -58,6 +51,13 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.position_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cust_company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -181,20 +181,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DgvPosition.AllowUserToAddRows = false;
             this.DgvPosition.AllowUserToDeleteRows = false;
             this.DgvPosition.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.DgvPosition.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DgvPosition.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvPosition.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvPosition.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.DgvPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvPosition.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvPosition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvPosition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvPosition.ColumnHeadersHeight = 50;
             this.DgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvPosition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -202,17 +202,17 @@ namespace ULTRAMAVERICK.Forms.Users
             this.position_name,
             this.cust_company,
             this.created_at,
-            this.department_name,
+            this.unit_description,
             this.modified_by,
             this.modified_date});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvPosition.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvPosition.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvPosition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvPosition.EnableHeadersVisualStyles = false;
             this.DgvPosition.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -220,14 +220,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DgvPosition.MultiSelect = false;
             this.DgvPosition.Name = "DgvPosition";
             this.DgvPosition.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvPosition.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvPosition.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvPosition.RowHeadersVisible = false;
             this.DgvPosition.RowHeadersWidth = 102;
             this.DgvPosition.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -259,63 +259,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DgvPosition.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.DgvPosition.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.DgvPosition.CurrentCellChanged += new System.EventHandler(this.DgvPosition_CurrentCellChanged);
-            // 
-            // position_id
-            // 
-            this.position_id.DataPropertyName = "position_id";
-            this.position_id.FillWeight = 40.60914F;
-            this.position_id.HeaderText = "ID";
-            this.position_id.MinimumWidth = 12;
-            this.position_id.Name = "position_id";
-            this.position_id.ReadOnly = true;
-            // 
-            // position_name
-            // 
-            this.position_name.DataPropertyName = "position_name";
-            this.position_name.FillWeight = 99.49239F;
-            this.position_name.HeaderText = "POSITION";
-            this.position_name.MinimumWidth = 12;
-            this.position_name.Name = "position_name";
-            this.position_name.ReadOnly = true;
-            // 
-            // cust_company
-            // 
-            this.cust_company.DataPropertyName = "created_by";
-            this.cust_company.FillWeight = 99.49239F;
-            this.cust_company.HeaderText = "CREATED BY";
-            this.cust_company.MinimumWidth = 12;
-            this.cust_company.Name = "cust_company";
-            this.cust_company.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.FillWeight = 99.49239F;
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            // 
-            // department_name
-            // 
-            this.department_name.DataPropertyName = "department_name";
-            this.department_name.HeaderText = "DEPARTMENT";
-            this.department_name.Name = "department_name";
-            this.department_name.ReadOnly = true;
-            // 
-            // modified_by
-            // 
-            this.modified_by.DataPropertyName = "modified_by";
-            this.modified_by.HeaderText = "MODIFIED BY";
-            this.modified_by.Name = "modified_by";
-            this.modified_by.ReadOnly = true;
-            // 
-            // modified_date
-            // 
-            this.modified_date.DataPropertyName = "modified_date";
-            this.modified_date.HeaderText = "MODIFIED DATE";
-            this.modified_date.Name = "modified_date";
-            this.modified_date.ReadOnly = true;
             // 
             // textBox1
             // 
@@ -426,6 +369,63 @@ namespace ULTRAMAVERICK.Forms.Users
             this.label3.TabIndex = 617;
             this.label3.Text = "Items";
             // 
+            // position_id
+            // 
+            this.position_id.DataPropertyName = "position_id";
+            this.position_id.FillWeight = 40.60914F;
+            this.position_id.HeaderText = "ID";
+            this.position_id.MinimumWidth = 12;
+            this.position_id.Name = "position_id";
+            this.position_id.ReadOnly = true;
+            // 
+            // position_name
+            // 
+            this.position_name.DataPropertyName = "position_name";
+            this.position_name.FillWeight = 99.49239F;
+            this.position_name.HeaderText = "POSITION";
+            this.position_name.MinimumWidth = 12;
+            this.position_name.Name = "position_name";
+            this.position_name.ReadOnly = true;
+            // 
+            // cust_company
+            // 
+            this.cust_company.DataPropertyName = "created_by";
+            this.cust_company.FillWeight = 99.49239F;
+            this.cust_company.HeaderText = "CREATED BY";
+            this.cust_company.MinimumWidth = 12;
+            this.cust_company.Name = "cust_company";
+            this.cust_company.ReadOnly = true;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.FillWeight = 99.49239F;
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            // 
+            // unit_description
+            // 
+            this.unit_description.DataPropertyName = "unit_description";
+            this.unit_description.HeaderText = "UNIT";
+            this.unit_description.Name = "unit_description";
+            this.unit_description.ReadOnly = true;
+            // 
+            // modified_by
+            // 
+            this.modified_by.DataPropertyName = "modified_by";
+            this.modified_by.HeaderText = "MODIFIED BY";
+            this.modified_by.Name = "modified_by";
+            this.modified_by.ReadOnly = true;
+            // 
+            // modified_date
+            // 
+            this.modified_date.DataPropertyName = "modified_date";
+            this.modified_date.HeaderText = "MODIFIED DATE";
+            this.modified_date.Name = "modified_date";
+            this.modified_date.ReadOnly = true;
+            // 
             // frmPosition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,14 +473,14 @@ namespace ULTRAMAVERICK.Forms.Users
         private MaterialSkin.Controls.MaterialCard materialCard4;
         private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
         private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
+        private System.Windows.Forms.Label lbltotalrecords;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn position_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn position_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_company;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn department_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit_description;
         private System.Windows.Forms.DataGridViewTextBoxColumn modified_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn modified_date;
-        private System.Windows.Forms.Label lbltotalrecords;
-        private System.Windows.Forms.Label label3;
     }
 }

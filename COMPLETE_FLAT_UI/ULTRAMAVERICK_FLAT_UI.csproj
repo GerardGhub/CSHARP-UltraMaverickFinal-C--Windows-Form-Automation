@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>D:\Programacion\instaladores\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,8 +30,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -468,11 +468,11 @@
     <Compile Include="Forms\Users\Modal\FrmAddNewDepartment.Designer.cs">
       <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\AddNewDepartmentUnit.cs">
+    <Compile Include="Forms\Users\Modal\AddNewUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\AddNewDepartmentUnit.Designer.cs">
-      <DependentUpon>AddNewDepartmentUnit.cs</DependentUpon>
+    <Compile Include="Forms\Users\Modal\AddNewUnit.Designer.cs">
+      <DependentUpon>AddNewUnit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\Modal\FrmAddNewPosition.cs">
       <SubType>Form</SubType>
@@ -1033,8 +1033,8 @@
     <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewDepartment.resx">
       <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\AddNewDepartmentUnit.resx">
-      <DependentUpon>AddNewDepartmentUnit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\Modal\AddNewUnit.resx">
+      <DependentUpon>AddNewUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewPosition.resx">
       <DependentUpon>FrmAddNewPosition.cs</DependentUpon>

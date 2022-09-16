@@ -243,8 +243,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             "",
                             "",
                             "",
-                            "",
-                            "",
+                           userinfo.user_id.ToString(),
+                          userinfo.user_id.ToString(),
                             "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.FrmMajorCategory_Load(sender, e);
@@ -260,7 +260,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 else
 
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         this.mode = "activate";
                         this.dSet_temp.Clear();
@@ -269,8 +269,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             "",
                             "",
                             "",
-                            "",
-                            "",
+                                   userinfo.user_id.ToString(),
+                            userinfo.user_id.ToString(),
                             "activate");
                         this.GlobalStatePopup.ActivatedSuccessfully();
                         this.FrmMajorCategory_Load(sender, e);
@@ -398,6 +398,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 this.ShowMajorCategoryDataInActive();
 
             }
+        }
+
+        private void MatTxtSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }
