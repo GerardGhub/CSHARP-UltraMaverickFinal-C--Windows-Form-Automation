@@ -245,14 +245,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.LotManagementEntity.Category = this.dgvLotData.CurrentRow.Cells["category"].Value.ToString();
                         this.Sp_Total_SKU = this.dgvLotData.CurrentRow.Cells["TOTALSKU"].Value.ToString();
                    
-                        if (this.Sp_Total_SKU == "0")
-                        {
-                            this.matBtnDelete.Visible = true;
-                        }
-                        else
-                        {
-                            this.matBtnDelete.Visible = false;
-                        }
+                        //if (this.Sp_Total_SKU == "0")
+                        //{
+                        //    this.matBtnDelete.Visible = true;
+                        //}
+                        //else
+                        //{
+                        //    this.matBtnDelete.Visible = false;
+                        //}
                     }
                 }
             }
@@ -332,7 +332,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (this.Sp_Total_SKU != "0")
             {
                 this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
-                return;
+                //return;
             }
 
             if (this.matBtnDelete.Text == "&Inactive")
@@ -340,7 +340,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data " + this.LotManagementEntity.Description + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,

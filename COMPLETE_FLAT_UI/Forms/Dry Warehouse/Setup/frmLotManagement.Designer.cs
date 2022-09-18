@@ -43,13 +43,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvLotData = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lot_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +51,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewItems = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -110,7 +110,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnDelete.Name = "matBtnDelete";
             this.matBtnDelete.Size = new System.Drawing.Size(93, 33);
             this.matBtnDelete.Text = "&Inactive";
-            this.matBtnDelete.Visible = false;
             this.matBtnDelete.Click += new System.EventHandler(this.matBtnDelete_Click);
             // 
             // matBtnSave
@@ -118,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(77, 33);
+            this.matBtnSave.Size = new System.Drawing.Size(77, 44);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             // 
@@ -127,7 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(88, 33);
+            this.matBtnCancel.Size = new System.Drawing.Size(88, 44);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
             // 
@@ -244,6 +243,75 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvLotData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvLotData_CellFormatting);
             this.dgvLotData.CurrentCellChanged += new System.EventHandler(this.DgvLotData_CurrentCellChanged);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // lot_number
+            // 
+            this.lot_number.DataPropertyName = "lot_number";
+            this.lot_number.FillWeight = 99.49239F;
+            this.lot_number.HeaderText = "LOT NO.";
+            this.lot_number.MinimumWidth = 12;
+            this.lot_number.Name = "lot_number";
+            this.lot_number.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.FillWeight = 99.49239F;
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 12;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.FillWeight = 99.49239F;
+            this.category.HeaderText = "CATEGORY";
+            this.category.MinimumWidth = 12;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // TOTALSKU
+            // 
+            this.TOTALSKU.DataPropertyName = "TOTALSKU";
+            this.TOTALSKU.HeaderText = "TOTAL SKU";
+            this.TOTALSKU.MinimumWidth = 12;
+            this.TOTALSKU.Name = "TOTALSKU";
+            this.TOTALSKU.ReadOnly = true;
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.FillWeight = 99.49239F;
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.MinimumWidth = 12;
+            this.added_by.Name = "added_by";
+            this.added_by.ReadOnly = true;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.MinimumWidth = 12;
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            // 
+            // ViewItems
+            // 
+            this.ViewItems.HeaderText = "ACTION";
+            this.ViewItems.Name = "ViewItems";
+            this.ViewItems.ReadOnly = true;
+            this.ViewItems.Text = "VIEW ITEMS";
+            this.ViewItems.UseColumnTextForButtonValue = true;
+            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -354,75 +422,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSearch.Text = "";
             this.mattxtSearch.TextChanged += new System.EventHandler(this.MattxtSearch_TextChanged_1);
             this.mattxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mattxtSearch_KeyPress);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // lot_number
-            // 
-            this.lot_number.DataPropertyName = "lot_number";
-            this.lot_number.FillWeight = 99.49239F;
-            this.lot_number.HeaderText = "LOT NO.";
-            this.lot_number.MinimumWidth = 12;
-            this.lot_number.Name = "lot_number";
-            this.lot_number.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.FillWeight = 99.49239F;
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 12;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.FillWeight = 99.49239F;
-            this.category.HeaderText = "CATEGORY";
-            this.category.MinimumWidth = 12;
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // TOTALSKU
-            // 
-            this.TOTALSKU.DataPropertyName = "TOTALSKU";
-            this.TOTALSKU.HeaderText = "TOTAL SKU";
-            this.TOTALSKU.MinimumWidth = 12;
-            this.TOTALSKU.Name = "TOTALSKU";
-            this.TOTALSKU.ReadOnly = true;
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.FillWeight = 99.49239F;
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.MinimumWidth = 12;
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.MinimumWidth = 12;
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
-            // 
-            // ViewItems
-            // 
-            this.ViewItems.HeaderText = "ACTION";
-            this.ViewItems.Name = "ViewItems";
-            this.ViewItems.ReadOnly = true;
-            this.ViewItems.Text = "VIEW ITEMS";
-            this.ViewItems.UseColumnTextForButtonValue = true;
             // 
             // frmLotManagement
             // 
