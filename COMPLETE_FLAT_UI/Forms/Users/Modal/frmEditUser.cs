@@ -92,7 +92,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
             loadImage();
             Gender();
-            
+            this.cmbNotif.Text = "On";
+            this.CmbLocation.Text = "Office";
         }
 
         private void ConnectionInit()
@@ -185,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             cbodepartment.Text = department;
             cboPosition.Text = position;
             cboUnit.Text = unit;
-            cmbLocation.Text = user_layout;
+            CmbLocation.Text = user_layout;
             cmbNotif.Text = receiving_status;
             lblGenderSelected.Text = gender;
         }
@@ -434,7 +435,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                         txtuser.Text.Trim(),
                         txtpassword.Text.Trim(),
                         txtname.Text.Trim(),
-                        cmbLocation.Text.Trim(),
+                        CmbLocation.Text.Trim(),
                         cmbNotif.Text.Trim(),
                         sp_position_id,
                         txtLastName.Text.Trim(),
@@ -448,7 +449,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     this.Close();
             
                 }
-                cmbLocation.Enabled = false;
+                CmbLocation.Enabled = false;
                 cmbNotif.Enabled = false;
                 txtname.Enabled = false;
 

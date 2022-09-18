@@ -87,11 +87,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
 
             this.NewData();
-
+            this.cmbNotif.Text = "On";
+            this.CmBLocation.Text = "Office";
 
             //if (this.User.Mode =="Edit")
             //{
-   
+
             //    this.TxtFirstName.Text = this.User.Employee_Name;   this.TxtFirstName.Enabled = false;
             //    this.TxtLastName.Text = this.User.Employee_LastName; this.TxtLastName.Enabled = false;
             //    this.CboUserType.Text = this.User.User_Rights_Name;
@@ -102,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             //    this.TxtPassword.Text = this.User.Password;
             //    this.CmBLocation.Text = this.User.User_Section;
             //    this.cmbNotif.Text = this.User.Receiving_Status;
-                
+
             //    if (this.User.Gender == "Male")
             //    {
             //        this.matRadioMale.Checked = true;
@@ -115,7 +116,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             //else
             //{
 
-        
+
             //}
         }
 

@@ -36,7 +36,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnUpdateTool = new MaterialSkin.Controls.MaterialButton();
             this.cmbNotif = new System.Windows.Forms.ComboBox();
-            this.cmbLocation = new System.Windows.Forms.ComboBox();
+            this.CmbLocation = new System.Windows.Forms.ComboBox();
             this.cbousertype = new System.Windows.Forms.ComboBox();
             this.cbodepartment = new System.Windows.Forms.ComboBox();
             this.cboUnit = new System.Windows.Forms.ComboBox();
@@ -64,7 +64,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             // metroButtonSave
             // 
-            this.metroButtonSave.Location = new System.Drawing.Point(743, 212);
+            this.metroButtonSave.Location = new System.Drawing.Point(842, 212);
             this.metroButtonSave.Margin = new System.Windows.Forms.Padding(1);
             this.metroButtonSave.Name = "metroButtonSave";
             this.metroButtonSave.Size = new System.Drawing.Size(68, 20);
@@ -91,7 +91,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.matRadioFemale.AutoSize = true;
             this.matRadioFemale.Depth = 0;
-            this.matRadioFemale.Location = new System.Drawing.Point(516, 228);
+            this.matRadioFemale.Location = new System.Drawing.Point(771, 158);
             this.matRadioFemale.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioFemale.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioFemale.MouseState = MaterialSkin.MouseState.HOVER;
@@ -108,7 +108,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.matRadioMale.AutoSize = true;
             this.matRadioMale.Depth = 0;
-            this.matRadioMale.Location = new System.Drawing.Point(420, 229);
+            this.matRadioMale.Location = new System.Drawing.Point(675, 159);
             this.matRadioMale.Margin = new System.Windows.Forms.Padding(0);
             this.matRadioMale.MouseLocation = new System.Drawing.Point(-1, -1);
             this.matRadioMale.MouseState = MaterialSkin.MouseState.HOVER;
@@ -140,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool.DrawShadows = true;
             this.btnUpdateTool.HighEmphasis = true;
             this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(852, 230);
+            this.btnUpdateTool.Location = new System.Drawing.Point(888, 371);
             this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateTool.Name = "btnUpdateTool";
@@ -159,24 +159,26 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cmbNotif.Items.AddRange(new object[] {
             "On",
             "Off"});
-            this.cmbNotif.Location = new System.Drawing.Point(200, 235);
+            this.cmbNotif.Location = new System.Drawing.Point(213, 384);
             this.cmbNotif.Margin = new System.Windows.Forms.Padding(1);
             this.cmbNotif.Name = "cmbNotif";
             this.cmbNotif.Size = new System.Drawing.Size(180, 31);
             this.cmbNotif.TabIndex = 591;
+            this.cmbNotif.Visible = false;
             // 
-            // cmbLocation
+            // CmbLocation
             // 
-            this.cmbLocation.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Items.AddRange(new object[] {
+            this.CmbLocation.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbLocation.FormattingEnabled = true;
+            this.CmbLocation.Items.AddRange(new object[] {
             "Office",
             "Production"});
-            this.cmbLocation.Location = new System.Drawing.Point(672, 164);
-            this.cmbLocation.Margin = new System.Windows.Forms.Padding(1);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(238, 31);
-            this.cmbLocation.TabIndex = 589;
+            this.CmbLocation.Location = new System.Drawing.Point(429, 381);
+            this.CmbLocation.Margin = new System.Windows.Forms.Padding(1);
+            this.CmbLocation.Name = "CmbLocation";
+            this.CmbLocation.Size = new System.Drawing.Size(238, 31);
+            this.CmbLocation.TabIndex = 589;
+            this.CmbLocation.Visible = false;
             // 
             // cbousertype
             // 
@@ -264,14 +266,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.cmbNotif);
             this.materialCard2.Controls.Add(this.textBox1);
             this.materialCard2.Controls.Add(this.metroButtonSave);
             this.materialCard2.Controls.Add(this.lblGenderSelected);
             this.materialCard2.Controls.Add(this.matRadioFemale);
             this.materialCard2.Controls.Add(this.matRadioMale);
-            this.materialCard2.Controls.Add(this.btnUpdateTool);
-            this.materialCard2.Controls.Add(this.cmbLocation);
             this.materialCard2.Controls.Add(this.btnRemove);
             this.materialCard2.Controls.Add(this.cbousertype);
             this.materialCard2.Controls.Add(this.btnImage);
@@ -281,8 +280,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard2.Controls.Add(this.cboUnit);
             this.materialCard2.Controls.Add(this.cboPosition);
             this.materialCard2.Controls.Add(this.label3);
-            this.materialCard2.Controls.Add(this.label4);
-            this.materialCard2.Controls.Add(this.label5);
             this.materialCard2.Controls.Add(this.txtpassword);
             this.materialCard2.Controls.Add(this.txtuser);
             this.materialCard2.Controls.Add(this.label6);
@@ -304,6 +301,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // pbImage
             // 
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbImage.Image = global::ULTRAMAVERICK.Properties.Resources.Buddy;
             this.pbImage.Location = new System.Drawing.Point(19, 19);
             this.pbImage.Name = "pbImage";
@@ -318,7 +316,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(521, 212);
+            this.label2.Location = new System.Drawing.Point(776, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 579;
@@ -331,7 +329,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(432, 212);
+            this.label3.Location = new System.Drawing.Point(687, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 578;
@@ -343,11 +341,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(672, 145);
+            this.label4.Location = new System.Drawing.Point(429, 362);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 566;
             this.label4.Text = "System Type:";
+            this.label4.Visible = false;
             // 
             // label5
             // 
@@ -355,11 +354,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(201, 213);
+            this.label5.Location = new System.Drawing.Point(214, 362);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 565;
             this.label5.Text = "Notification:";
+            this.label5.Visible = false;
             // 
             // txtpassword
             // 
@@ -482,7 +482,12 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 423);
+            this.Controls.Add(this.cmbNotif);
             this.Controls.Add(this.materialCard2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.CmbLocation);
+            this.Controls.Add(this.btnUpdateTool);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -496,6 +501,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -510,7 +516,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.ComboBox cbodepartment;
         private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.ComboBox cboUnit;
-        private System.Windows.Forms.ComboBox cmbLocation;
+        private System.Windows.Forms.ComboBox CmbLocation;
         private System.Windows.Forms.ComboBox cmbNotif;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnImage;

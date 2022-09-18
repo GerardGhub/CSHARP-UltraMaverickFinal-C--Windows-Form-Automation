@@ -420,14 +420,14 @@ namespace COMPLETE_FLAT_UI
 
             this.user_section_controlBox = userinfo.user_section;
           
-            if (user_section_controlBox == "Office")
-            {
-                this.ControlBox = true;
-            }
-            else
-            {
-                this.ControlBox = false;
-            }
+            //if (user_section_controlBox == "Office")
+            //{
+            //    this.ControlBox = true;
+            //}
+            //else
+            //{
+            //    this.ControlBox = false;
+            //}
 
             //get_accessible_menu
 
@@ -553,8 +553,8 @@ namespace COMPLETE_FLAT_UI
                     );
 
 
-    
-               
+                this.ShowInTaskbar = false;
+
             }
 
      
