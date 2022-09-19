@@ -64,8 +64,7 @@ namespace ULTRAMAVERICK.Forms.Users
   
      
   
-            //5th Material Card
-            txtGChildName.Visible = false;
+
             
 
             //6th Material Card
@@ -104,6 +103,7 @@ namespace ULTRAMAVERICK.Forms.Users
             loadMenu_byUsers_ParentTagged();
 
             this.ShowValue();
+            this.listViewuser_rights_SelectedIndexChanged(sender, e);
         }
         private void ConnectionInit()
         {
@@ -402,7 +402,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnEditTool.Visible = true;
             txtMaterialRights.ReadOnly = true;
             listViewuser_rights.Enabled = true;
-            dataView.Visible = false;
+
 
          
         }
@@ -447,10 +447,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnAddMenu_Click(object sender, EventArgs e)
         {
-            dataView.Visible = true;
+ 
        
             btnCancelUpdateMenu.Visible = true;
-            dataView.Enabled = true;
+        
             ListViewmenu.Enabled = true;
            listViewuser_rights.Enabled = false;
 
@@ -503,7 +503,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
 
-                            dv.RowFilter = "user_rights_id = " + SelectedDataRowParent + "";
+                            dv.RowFilter = "user_rights_id = " + SelectedDataRowParent + " and parent_form_name= '" + this.materialTextBoxMenuAvailable.Text + "'  ";
   
                         }
                     }
@@ -520,6 +520,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.dataView.Columns["is_active"].Visible = false;
                 this.dataView.Columns["menu_id1"].Visible = false;
                 this.dataView.Columns["user_rights_id"].Visible = false;
+                this.dataView.Columns["parent_form_name"].Visible = false;
                 this.dataView.Columns["menu_name"].HeaderText = "MENU";
 
             }
@@ -732,7 +733,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnCancelUpdateMenu.Visible = false;
     
             deselectAll();
-            dataView.Enabled = false;
+  
             ListViewmenu.Enabled = false;
             listViewuser_rights.Enabled = true;
          
@@ -763,8 +764,8 @@ namespace ULTRAMAVERICK.Forms.Users
             this.LoadMenuByUsers();
             loadMenu_byUsers_GChildTagged();
             loadMenu_byUsers_ParentTagged();
-            lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
-            MessageBox.Show(p_id.ToString()); //Buje
+            //lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
+            //MessageBox.Show(p_id.ToString()); //Buje
         }
          public void LoadMenuByUsers()
         {
@@ -852,7 +853,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnEditTool.Visible = true;
             txtMaterialRights.ReadOnly = true;
             listViewuser_rights.Enabled = true;
-            dataView.Visible = false;
+         
           
        
         }
@@ -1140,10 +1141,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnUpdateTheMenu_Click(object sender, EventArgs e)
         {
-            dataView.Visible = true;
+      
         
             btnCancelUpdateMenu.Visible = true;
-            dataView.Enabled = true;
+   
             ListViewmenu.Enabled = true;
             listViewuser_rights.Enabled = false;
             dgvGrandChild.Visible = true;
@@ -1172,7 +1173,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dgvTagParentMenu.Enabled = false;
 
             deselectAll();
-            dataView.Enabled = false;
+
             ListViewmenu.Enabled = false;
             listViewuser_rights.Enabled = true;
            
@@ -1207,43 +1208,43 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void ListViewmenu_DoubleClick(object sender, EventArgs e)
         {
-            txtMaterialChildName.Text = ListViewmenu.Text;
+            //txtMaterialChildName.Text = ListViewmenu.Text;
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Removed The Access on Selected Form Menu", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                if (ListViewmenu.Items.Count > 0)
-                {
-                    this.ShowKey();
+            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Removed The Access on Selected Form Menu", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //{
+            //    if (ListViewmenu.Items.Count > 0)
+            //    {
+            //        this.ShowKey();
 
-                    if (listViewuser_rights.Items.Count > 0)
-                    {
-                        p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
-                    }
+            //        if (listViewuser_rights.Items.Count > 0)
+            //        {
+            //            p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
+            //        }
 
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
+            //        dSet.Clear();
+            //        dSet = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
 
 
-                    dSet_temp.Clear();
-                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
+            //        dSet_temp.Clear();
+            //        dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
 
 
                    
-                    this.LoadMenuByUsers();
-                    ListViewmenu_Click(sender, e);
-                    load_search_ChildMenu();
+            //        this.LoadMenuByUsers();
+            //        ListViewmenu_Click(sender, e);
+            //        load_search_ChildMenu();
 
 
-                    this.GlobalStatePopup.UpdatedSuccessfully();
+            //        this.GlobalStatePopup.UpdatedSuccessfully();
 
-                }
+            //    }
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                return;
-            }
+            //    return;
+            //}
         }
 
         private void ShowKey()
@@ -1350,28 +1351,7 @@ namespace ULTRAMAVERICK.Forms.Users
          
         }
 
-        private void dataView_CurrentCellChanged(object sender, EventArgs e)
-        {
-
-            if (this.dataView.Rows.Count > 0)
-            {
-                if (this.dataView.CurrentRow != null)
-                {
-                    if (this.dataView.CurrentRow.Cells["menu_id"].Value != null)
-                    {
-                        this.p_id = Convert.ToInt32(this.dataView.CurrentRow.Cells["menu_id"].Value);
-                        
-                        this.txtchildid.Text = this.dataView.CurrentRow.Cells["menu_id"].Value.ToString();
-
-                        this.materialTextBoxSubMenuAvail.Text = this.dataView.CurrentRow.Cells["menu_name"].Value.ToString();
-
-
-                    }
-                }
-            }
-
-
-        }
+   
 
         private void txtchildid_TextChanged(object sender, EventArgs e)
         {
@@ -1403,29 +1383,8 @@ namespace ULTRAMAVERICK.Forms.Users
      
         }
 
-        private void dataView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            //if (dataView.CurrentCell.OwningColumn == dataView.Columns["chkSelected"] && dataView.IsCurrentCellDirty)
-            //{
-            //    dataView.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
-            //    //your code goes here
-            //    CheckChildTagging();
-            //}
-        }
 
-        private void dgvGrandChild_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            if (dgvGrandChild.CurrentCell.OwningColumn == dgvGrandChild.Columns["chkSelected"] && dgvGrandChild.IsCurrentCellDirty)
-            {
-                dgvGrandChild.CommitEdit(DataGridViewDataErrorContexts.Commit);
-
-                //your code goes here
-                CheckGrandChildTagging();
-            }
-
-          
-        }
         private void  CheckGrandChildTagging()
         {
 
@@ -1574,7 +1533,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     p_id = Convert.ToInt32(listBoxParentTag.SelectedValue.ToString());
                 this.IdentityOfParentMenu = Convert.ToInt32(listBoxParentTag.SelectedValue.ToString());
-                materialTextBoxMenuAvailable.Text = listBoxParentTag.Text;
+                this.materialTextBoxMenuAvailable.Text = listBoxParentTag.Text;
 
                 }
             MessageBox.Show(materialTextBoxMenuAvailable.Text);
@@ -1671,7 +1630,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnEditTool.Visible = true;
             txtMaterialRights.ReadOnly = true;
             listViewuser_rights.Enabled = true;
-            dataView.Visible = false;
+      
             btnCancelTool.Visible = false;
             
             materialButtonCancel.Visible = false;
@@ -1824,7 +1783,7 @@ namespace ULTRAMAVERICK.Forms.Users
             materialTextBoxSubMenuAvail.Visible = true;
             
 
-            dataView.Enabled = true;
+
         }
 
         private void materialSubMenuCancel_Click(object sender, EventArgs e)
@@ -1859,28 +1818,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void MaterialBtnShowModule_Click(object sender, EventArgs e)
         {
-            this.ShowModule();
 
-        }
-        private void ShowModule()
-        {
-      
-            txtGChildName.Visible = true;
 
         }
 
-        private void matCancelmaterialBtnShowModuleAvail_Click(object sender, EventArgs e)
-        {
-     
-            CancelModuleSelection();
-        }
 
-        private void CancelModuleSelection()
-        {
-          
-            txtGChildName.Visible = false;
-       
-        }
+  
+    
 
         private void materialBtnShowModuleAvail_Click(object sender, EventArgs e)
         {
@@ -1981,6 +1925,11 @@ namespace ULTRAMAVERICK.Forms.Users
             materialBtnUpdateMenu_Click(new object(), new System.EventArgs());
             materialSubMenuCancel_Click(new object(), new System.EventArgs());
         }
+
+        private void CallSubMenuOnTab5()
+        {
+            this.materialButtonUpdateSubMenu_Click(new object(), new System.EventArgs());
+        }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage1"])//your specific tabname
@@ -2008,11 +1957,13 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage4"])//your specific tabname
             {
                 MaterialBtnShowModule_Click(sender, e);
+                //Call tab 5
+                this.CallSubMenuOnTab5();
             }
-            else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage5"])//your specific tabname
-            {
-                materialButtonUpdateSubMenu_Click(sender, e);
-            }
+            //else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage5"])//your specific tabname
+            //{
+            //    materialButtonUpdateSubMenu_Click(sender, e);
+            //}
 
         }
 
@@ -2040,7 +1991,7 @@ namespace ULTRAMAVERICK.Forms.Users
             btnEditTool.Visible = true;
             txtMaterialRights.ReadOnly = true;
             listViewuser_rights.Enabled = true;
-            dataView.Visible = false;
+
             btnCancelTool.Visible = false;
 
             materialButtonCancel.Visible = false;
@@ -2206,6 +2157,179 @@ namespace ULTRAMAVERICK.Forms.Users
         private void BtnUnTaggedMajor_Click(object sender, EventArgs e)
         {
             this.ToolDeleteTagMenu_Click(sender, e);
+        }
+
+        private void dataView_CurrentCellChanged_1(object sender, EventArgs e)
+        {
+
+            if (this.dataView.Rows.Count > 0)
+            {
+                if (this.dataView.CurrentRow != null)
+                {
+                    if (this.dataView.CurrentRow.Cells["menu_id"].Value != null)
+                    {
+                        this.p_id = Convert.ToInt32(this.dataView.CurrentRow.Cells["menu_id"].Value);
+
+                        this.txtchildid.Text = this.dataView.CurrentRow.Cells["menu_id"].Value.ToString();
+
+                        this.materialTextBoxSubMenuAvail.Text = this.dataView.CurrentRow.Cells["menu_name"].Value.ToString();
+
+
+                    }
+                }
+            }
+        }
+
+
+
+        private void dataView_DoubleClick_1(object sender, EventArgs e)
+        {
+            //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to the tag?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //{
+            //    btnMenuUpdate_Click(sender, e);
+            //    //this.ParentForm.Refresh();
+
+            //}
+            //else
+            //{
+
+            //    return;
+            //}
+        }
+
+        private void BtnSubMenuTag_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to the update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.btnMenuUpdate_Click(sender, e);
+                //this.ParentForm.Refresh();
+
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
+        private void BtnSubMenuUntagged_Click(object sender, EventArgs e)
+        {
+            txtMaterialChildName.Text = ListViewmenu.Text;
+
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to untagged the data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (ListViewmenu.Items.Count > 0)
+                {
+                    this.ShowKey();
+
+                    if (listViewuser_rights.Items.Count > 0)
+                    {
+                        p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
+                    }
+
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
+
+
+                    dSet_temp.Clear();
+                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
+
+
+
+                    this.LoadMenuByUsers();
+                    ListViewmenu_Click(sender, e);
+                    load_search_ChildMenu();
+
+
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+
+                }
+
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to untagged the data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+                if (listBoxGrandChildTag.Items.Count > 0)
+                {
+                    showKeyGrandChild();
+
+                    if (listViewuser_rights.Items.Count > 0)
+                    {
+                        p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
+                    }
+
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
+
+
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtGChildName.Text.Trim(), "delete_LogsGChild");
+
+
+                    this.GlobalStatePopup.SuccessFullyUntag();
+
+                    this.GetAllTaggedParentMenu();
+                    loadMenu_byUsers_GChildTagged();
+                    ListViewmenu_Click_1(sender, e);
+                }
+
+
+            }
+            else
+            {
+
+                return;
+            }
+        }
+
+        private void dgvGrandChild_CurrentCellChanged_1(object sender, EventArgs e)
+        {
+            if (dgvGrandChild.Rows.Count > 0)
+            {
+                if (dgvGrandChild.CurrentRow != null)
+                {
+                    if (dgvGrandChild.CurrentRow.Cells["primary_menu_id"].Value != null)
+                    {
+
+                        txtchildprimarymenuid.Text = dgvGrandChild.CurrentRow.Cells["primary_menu_id"].Value.ToString();
+                        materialTextBoxModuleAvail.Text = dgvGrandChild.CurrentRow.Cells["menu_name"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+        private void dgvGrandChild_CurrentCellDirtyStateChanged_1(object sender, EventArgs e)
+        {
+            if (dgvGrandChild.CurrentCell.OwningColumn == dgvGrandChild.Columns["chkSelected"] && dgvGrandChild.IsCurrentCellDirty)
+            {
+                dgvGrandChild.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                //your code goes here
+                CheckGrandChildTagging();
+            }
+        }
+
+        private void BtnModuleTag_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the Modules ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                btnTaggingGchild_Click(sender, e);
+
+            }
+            else
+            {
+
+                return;
+            }
         }
     }
 }
