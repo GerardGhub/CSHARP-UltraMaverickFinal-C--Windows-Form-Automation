@@ -52,10 +52,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.position_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modified_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -77,7 +78,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(974, 76);
+            this.materialCard1.Size = new System.Drawing.Size(974, 69);
             this.materialCard1.TabIndex = 431;
             // 
             // panel1
@@ -85,7 +86,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(25, 195);
+            this.panel1.Location = new System.Drawing.Point(25, 184);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(578, 40);
@@ -199,10 +200,11 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvPosition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.position_id,
+            this.department_name,
+            this.unit_description,
             this.position_name,
             this.cust_company,
             this.created_at,
-            this.unit_description,
             this.modified_by,
             this.modified_date});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -279,7 +281,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.mattxtSearch.Depth = 0;
             this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSearch.Hint = "Search";
-            this.mattxtSearch.Location = new System.Drawing.Point(773, 98);
+            this.mattxtSearch.Location = new System.Drawing.Point(773, 97);
             this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtSearch.MaxLength = 50;
             this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
@@ -299,7 +301,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialCard4.Controls.Add(this.matRadioNotActive);
             this.materialCard4.Depth = 0;
             this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard4.Location = new System.Drawing.Point(778, 175);
+            this.materialCard4.Location = new System.Drawing.Point(778, 169);
             this.materialCard4.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
@@ -378,6 +380,20 @@ namespace ULTRAMAVERICK.Forms.Users
             this.position_id.Name = "position_id";
             this.position_id.ReadOnly = true;
             // 
+            // department_name
+            // 
+            this.department_name.DataPropertyName = "department_name";
+            this.department_name.HeaderText = "DEPARTMENT";
+            this.department_name.Name = "department_name";
+            this.department_name.ReadOnly = true;
+            // 
+            // unit_description
+            // 
+            this.unit_description.DataPropertyName = "unit_description";
+            this.unit_description.HeaderText = "UNIT";
+            this.unit_description.Name = "unit_description";
+            this.unit_description.ReadOnly = true;
+            // 
             // position_name
             // 
             this.position_name.DataPropertyName = "position_name";
@@ -404,13 +420,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.created_at.MinimumWidth = 12;
             this.created_at.Name = "created_at";
             this.created_at.ReadOnly = true;
-            // 
-            // unit_description
-            // 
-            this.unit_description.DataPropertyName = "unit_description";
-            this.unit_description.HeaderText = "UNIT";
-            this.unit_description.Name = "unit_description";
-            this.unit_description.ReadOnly = true;
             // 
             // modified_by
             // 
@@ -476,10 +485,11 @@ namespace ULTRAMAVERICK.Forms.Users
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn position_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn department_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit_description;
         private System.Windows.Forms.DataGridViewTextBoxColumn position_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_company;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unit_description;
         private System.Windows.Forms.DataGridViewTextBoxColumn modified_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn modified_date;
     }

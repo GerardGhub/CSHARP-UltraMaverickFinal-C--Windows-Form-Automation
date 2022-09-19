@@ -570,7 +570,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             myClass.fillComboBoxFilter(cboPosition, 
                 "filter_position_dropdown", 
                 dSet, 
-                this.UserFileEntity.Department, 0);
+                this.UserFileEntity.Unit, 0);
             this.temp_id = showValue(cboPosition);
         }
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
@@ -587,7 +587,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
             if (Cbodepartment.Text.Trim() != "")
             {
-                loadPositionDropDown();
+                //loadPositionDropDown();
                 cboPosition.Text = String.Empty;
             }
         }
@@ -595,6 +595,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void cboUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.UserFileEntity.Unit = this.CboUnit.SelectedValue.ToString();
+            this.loadPositionDropDown();
         }
 
         private void cboPosition_SelectionChangeCommitted(object sender, EventArgs e)
