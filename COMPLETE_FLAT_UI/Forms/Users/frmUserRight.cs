@@ -61,16 +61,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             //4th  Material Card
   
-  
-     
-  
-
-            
-
-            //6th Material Card
-
-         
-  
+ 
 
             //
             materialBtnNew.Visible = true;
@@ -1602,68 +1593,9 @@ namespace ULTRAMAVERICK.Forms.Users
             txtGChildName.Text = listBoxGrandChildTag.Text;
         }
 
-        private void materialLabel1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void materialBtnNew_Click(object sender, EventArgs e)
-        {
-            mode = "add";
-            materialBtnNew.Visible = false;
-            btnCancelTool.Visible = true;
-            btnUpdateTool.Visible = true;
-            txtMaterialRights.ReadOnly = false;
-            btnDeleteTool.Visible = false;
-            btnUpdateTheMenu.Visible = false;
-            btnEditTool.Visible = false;
-            txtMaterialRights.Text = "";
-            txtMaterialRights.Focus();
-            listViewuser_rights.Enabled = false;
-        }
-
-        private void btnCancelTool_Click_1(object sender, EventArgs e)
-        {
-            mode = "";
-            materialBtnNew.Visible = true;
-            btnUpdateTool.Visible = false;
-            btnEditTool.Visible = true;
-            txtMaterialRights.ReadOnly = true;
-            listViewuser_rights.Enabled = true;
-      
-            btnCancelTool.Visible = false;
-            
-            materialButtonCancel.Visible = false;
-            MenuDeActivate();
-        }
-
-        private void btnUpdateTool_Click_1(object sender, EventArgs e)
-        {
-            if (this.txtMaterialRights.Text.Trim() == string.Empty)
-            {
-                this.GlobalStatePopup.FillUserRights();
-                this.txtMaterialRights.Focus();
-                return;
-
-            }
-            btnMetroSave_Click(sender, e);
-        }
-
-        private void btnEditTool_Click_1(object sender, EventArgs e)
-        {
-            mode = "edit";
-            txtMaterialRights.ReadOnly = false;
-            txtMaterialRights.Focus();
-            listViewuser_rights.Enabled = false;
-            btnUpdateTool.Visible = true;
-            btnEditTool.Visible = false;
-            materialBtnNew.Visible = false;
-            btnCancelTool.Visible = true;
-            btnDeleteTool.Visible = false;
-            //Menu
-            //MenuActivate();
-         
-        }
+  
         private void MenuActivate()
         {
 
@@ -1677,20 +1609,6 @@ namespace ULTRAMAVERICK.Forms.Users
             materialCard1.Visible = false;
             materialBtnUpdateMenu.Visible = false;
         
-        }
-        private void btnDeleteTool_Click_1(object sender, EventArgs e)
-        {
-            if (this.txtMaterialRights.Text.Trim() == string.Empty)
-            {
-                this.GlobalStatePopup.SelectUserRights();
-                this.listViewuser_rights.Enabled = true;
-
-                this.txtMaterialRights.Focus();
-
-                return;
-
-            }
-            metroButtonDelete_Click(sender, e);
         }
 
         private void materialBtnUpdateMenu_Click(object sender, EventArgs e)
@@ -1800,20 +1718,7 @@ namespace ULTRAMAVERICK.Forms.Users
         
         }
 
-        private void materialBtnShowModuleCancel_Click(object sender, EventArgs e)
-        {
     
-            showSubMenuTagged();
-            ListViewmenu.Enabled = true;
-        }
-
-        private void showSubMenuTagged()
-        {
-      
-           
-            materialBtnShowAvailSubMenu.Visible = true;
-  
-        }
 
 
         private void MaterialBtnShowModule_Click(object sender, EventArgs e)
@@ -1823,43 +1728,7 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-  
-    
-
-        private void materialBtnShowModuleAvail_Click(object sender, EventArgs e)
-        {
-         
-      
-            //Buttons
-       
-
-  
-        }
-
-        private void materialBtnCancelModule_Click(object sender, EventArgs e)
-        {
-            
-
-
-
-        }
-
  
-
-        private void materialBtnReset_Click(object sender, EventArgs e)
-        {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to reset?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                frmUserRight_Load(sender, e);
-            }
-            else
-            {
-                return;
-            }
-
-
-            }
-
         private void matBtnMenu_Click(object sender, EventArgs e)
         {
             MenuActivate();
@@ -1943,27 +1812,18 @@ namespace ULTRAMAVERICK.Forms.Users
                 matBtnMenu_Click(sender, e);
                 materialBtnMenuAVlCancel_Click(sender, e);
 
-                ////Code for Tab 3
-                //materialBtnUpdateMenu_Click(sender, e);
-                //materialSubMenuCancel_Click(sender, e);
+          
                 this.CallAvailbleMajorMenuOnTab3();
+                this.listBoxParentTag_Click(sender, e);
             }
-            //else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])//your specific tabname
-            //{
-
-            //    materialBtnUpdateMenu_Click(sender, e);
-            //    materialSubMenuCancel_Click(sender, e);
-            //}
+         
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage4"])//your specific tabname
             {
                 MaterialBtnShowModule_Click(sender, e);
                 //Call tab 5
                 this.CallSubMenuOnTab5();
             }
-            //else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage5"])//your specific tabname
-            //{
-            //    materialButtonUpdateSubMenu_Click(sender, e);
-            //}
+      
 
         }
 
@@ -2199,7 +2059,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void BtnSubMenuTag_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to the update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.btnMenuUpdate_Click(sender, e);
                 //this.ParentForm.Refresh();
