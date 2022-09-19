@@ -72,128 +72,128 @@ namespace ULTRAMAVERICK.API.Extensions
                 //User Manager
                 if (form_name == "toolUserManagement")
                 { 
-                    ToolUserManagement.Enabled = true;
+                    ToolUserManagement.Visible = true;
                 }
                 else if (form_name == "toolUserRights")
                 {
-                    ToolUserRights.Enabled = true;
+                    ToolUserRights.Visible = true;
 
                 }
                 else if (form_name == "toolDepartment")
                 {
-                    ToolDepartment.Enabled = true;
+                    ToolDepartment.Visible = true;
 
                 }
                 else if (form_name == "toolDepartmentUnit")
                 {
-                    ToolDepartmentUnit.Enabled = true;
+                    ToolDepartmentUnit.Visible = true;
 
                 }
                 else if (form_name == "toolPosition")
                 {
-                    ToolPosition.Enabled = true;
+                    ToolPosition.Visible = true;
 
                 }
                 else if (form_name == "toolStripMenuReceipt")
                 {
-                    ToolStripMenuReceipt.Enabled = true;
+                    ToolStripMenuReceipt.Visible = true;
 
                 }
                 else if (form_name == "toolStripMenuIssue")
                 {
-                    ToolStripMenuIssue.Enabled = true;
+                    ToolStripMenuIssue.Visible = true;
                 }
 
                 // Preparation
                 else if (form_name == "toolDryStorePreparation")
                 {
-                    ToolDryStorePreparation.Enabled = true;
+                    ToolDryStorePreparation.Visible = true;
 
                 }
                 else if (form_name == "toolDryInternalPreparation")
                 {
-                    ToolDryInternalPreparation.Enabled = true;
+                    ToolDryInternalPreparation.Visible = true;
 
                 }
                 else if (form_name == "allocationModule")
                 {
-                    ToolAllocationModule.Enabled = true;
+                    ToolAllocationModule.Visible = true;
 
                 }
                 else if (form_name == "forApprovalToolStripMenuItem")
                 {
-                    ToolforApprovalToolStripMenuItem.Enabled = true;
+                    ToolforApprovalToolStripMenuItem.Visible = true;
 
                 }
                 else if (form_name == "approvedOrderToolStripMenuItem")
                 {
-                    ToolapprovedOrderToolStripMenuItem.Enabled = true;
+                    ToolapprovedOrderToolStripMenuItem.Visible = true;
 
                 }
                 else if (form_name == "preparationToolStripMenuItem")
                 {
-                    ToolpreparationToolStripMenuItem.Enabled = true;
+                    ToolpreparationToolStripMenuItem.Visible = true;
 
                 }
                 else if (form_name == "moveOrderToolStripMenuItem2")
                 {
-                    ToolmoveOrderToolStripMenuItem2.Enabled = true;
+                    ToolmoveOrderToolStripMenuItem2.Visible = true;
                 }
                 else if (form_name == "readyForSchedulingToolStripMenuItem")
                 {
-                    ToolreadyForSchedulingToolStripMenuItem.Enabled = true;
+                    ToolreadyForSchedulingToolStripMenuItem.Visible = true;
                 }
                 else if (form_name == "approvedScheduleToolStripMenuItem")
                 {
-                    ToolapprovedScheduleToolStripMenuItem.Enabled = true;
+                    ToolapprovedScheduleToolStripMenuItem.Visible = true;
                 }
                 else if (form_name == "preparationToolStripMenuItem1")
                 {
-                    ToolpreparationToolStripMenuItem1.Enabled = true;
+                    ToolpreparationToolStripMenuItem1.Visible = true;
                 }
                 //Lab Test 
                 else if (form_name == "toolStripMenuDryLabTest")
                 {
-                    TooltoolStripMenuDryLabTest.Enabled = true;
+                    TooltoolStripMenuDryLabTest.Visible = true;
                 }
                 else if (form_name == "toolStripMenuItemLabTransaction")
                 {
-                    ToolStripMenuItemLabTransaction.Enabled = true;
+                    ToolStripMenuItemLabTransaction.Visible = true;
                 }
                 else if (form_name == "toolStripMenuItemRMNearlyExpiryMgmt")
                 {
-                    ToolStripMenuItemRMNearlyExpiryMgmt.Enabled = true;
+                    ToolStripMenuItemRMNearlyExpiryMgmt.Visible = true;
                 }
 
                 //    //Import Dry
                 else if (form_name == "dryRawMaterialsToolStripMenuItem")
                 {
-                    TooldryRawMaterialsToolStripMenuItem.Enabled = true;
+                    TooldryRawMaterialsToolStripMenuItem.Visible = true;
 
                 }
                 else if (form_name == "poSummaryToolStripMenuItem")
                 {
-                    ToolpoSummaryToolStripMenuItem.Enabled = true;
+                    ToolpoSummaryToolStripMenuItem.Visible = true;
 
                 }
                 else if (form_name == "ImportStoreDry")
                 {
-                    ToolImportStoreDry.Enabled = true;
+                    ToolImportStoreDry.Visible = true;
 
                 }
                 else if (form_name == "consolidatedOrderToolStripMenuItem")
                 {
-                    ToolconsolidatedOrderToolStripMenuItem.Enabled = true;
+                    ToolconsolidatedOrderToolStripMenuItem.Visible = true;
 
                 }
                 else if (form_name == "orderRESTAPIToolStripMenuItem")
                 {
-                    ToolorderRESTAPIToolStripMenuItem.Enabled = true;
+                    ToolorderRESTAPIToolStripMenuItem.Visible = true;
 
                 }
                 else if (form_name == "pendingOrderToolStripMenuItem")
                 {
-                    ToolpendingOrderToolStripMenuItem.Enabled = true;
+                    ToolpendingOrderToolStripMenuItem.Visible = true;
 
                 }
                 //    //End Import Dry
@@ -203,74 +203,74 @@ namespace ULTRAMAVERICK.API.Extensions
                 //Start Menu
                 else if (form_name == "toolParentMenu")
                 {
-                    ToolParentMenu.Enabled = true;
+                    ToolParentMenu.Visible = true;
                 }
 
                 else if (form_name == "toolChildMenu")
                 {
-                    ToolChildMenu.Enabled = true;
+                    ToolChildMenu.Visible = true;
                 }
 
                 else if (form_name == "toolGrandChildMenu")
                 {
-                    ToolGrandChildMenu.Enabled = true;
+                    ToolGrandChildMenu.Visible = true;
                 }
                 //End Menu
 
                 //Receiving
                 else if (form_name == "listOfReceivingToolStripMenuItem")
                 {
-                    ToollistOfReceivingToolStripMenuItem.Enabled = true;
+                    ToollistOfReceivingToolStripMenuItem.Visible = true;
                 }
 
                 else if (form_name == "rMReceivingToolStripMenuItem")
                 {
-                    ToolrMReceivingToolStripMenuItem.Enabled = true;
+                    ToolrMReceivingToolStripMenuItem.Visible = true;
                 }
 
                 else if (form_name == "rMBarcodeModuleToolStripMenuItem")
                 {
-                    ToolrMBarcodeModuleToolStripMenuItem.Enabled = true;
+                    ToolrMBarcodeModuleToolStripMenuItem.Visible = true;
                 }
 
                 else if (form_name == "rMBarcodeReprintingToolStripMenuItem")
                 {
-                    ToolrMBarcodeReprintingToolStripMenuItem.Enabled = true;
+                    ToolrMBarcodeReprintingToolStripMenuItem.Visible = true;
                 }
 
                 //END Receiving
                 //Start Inventory
                 else if (form_name == "dryWHInventorySubMenu")
                 {
-                    TooldryWHInventorySubMenu.Enabled = true;
+                    TooldryWHInventorySubMenu.Visible = true;
                 }
                 //End Inventory
 
                 //Setup Store
                 else if (form_name == "toolStripStoreArea")
                 {
-                    ToolStripStoreArea.Enabled = true;
+                    ToolStripStoreArea.Visible = true;
                 }
                 else if (form_name == "storeRoute")
                 {
-                    ToolstoreRoute.Enabled = true;
+                    ToolstoreRoute.Visible = true;
                 }
 
                 else if (form_name == "toolStores")
                 {
-                    ToolStores.Enabled = true;
+                    ToolStores.Visible = true;
                 }
                 else if (form_name == "regionToolStripMenuItem")
                 {
-                    ToolregionToolStripMenuItem.Enabled = true;
+                    ToolregionToolStripMenuItem.Visible = true;
                 }
                 else if (form_name == "syncConsolidatedOrderToolStripMenuItem")
                 {
-                    ToolsyncConsolidatedOrderToolStripMenuItem.Enabled = true;
+                    ToolsyncConsolidatedOrderToolStripMenuItem.Visible = true;
                 }
                 else if (form_name == "TsCustomer")
                 {
-                    ToolTsCustomer.Enabled = true;
+                    ToolTsCustomer.Visible = true;
                 }
 
                 //Setup End
@@ -278,48 +278,48 @@ namespace ULTRAMAVERICK.API.Extensions
                 //Raw Material
                 else if (form_name == "toolStripModuleItemClass")
                 {
-                    ToolStripModuleItemClass.Enabled = true;
+                    ToolStripModuleItemClass.Visible = true;
                 }
                 else if (form_name == "toolStripModuleMajorCategory")
                 {
-                    ToolStripModuleMajorCategory.Enabled = true;
+                    ToolStripModuleMajorCategory.Visible = true;
                 }
                 else if (form_name == "toolStripModuleSubCategory")
                 {
-                    ToolStripModuleSubCategory.Enabled = true;
+                    ToolStripModuleSubCategory.Visible = true;
                 }
                 else if (form_name == "toolStripModulePrimaryUnit")
                 {
-                    ToolStripModulePrimaryUnit.Enabled = true;
+                    ToolStripModulePrimaryUnit.Visible = true;
                 }
                 else if (form_name == "toolStripModuleItemType")
                 {
-                    ToolStripModuleItemType.Enabled = true;
+                    ToolStripModuleItemType.Visible = true;
                 }
                 else if (form_name == "toolModuleRawMaterialsDry")
                 {
-                    ToolModuleRawMaterialsDry.Enabled = true;
+                    ToolModuleRawMaterialsDry.Visible = true;
                 }
                 else if (form_name == "toolModuleConversionMgmt")
                 {
-                    ToolModuleConversionMgmt.Enabled = true;
+                    ToolModuleConversionMgmt.Visible = true;
                 }
 
                 else if (form_name == "lotManagementToolStripMenuItem")
                 {
-                    ToollotManagementToolStripMenuItem.Enabled = true;
+                    ToollotManagementToolStripMenuItem.Visible = true;
                 }
                 else if (form_name == "averageOrderTrendToolStripMenuItem")
                 {
-                    ToolaverageOrderTrendToolStripMenuItem.Enabled = true;
+                    ToolaverageOrderTrendToolStripMenuItem.Visible = true;
                 }
                 else if (form_name == "orderCancelRemarksToolStripMenuItem")
                 {
-                    ToolorderCancelRemarksToolStripMenuItem.Enabled = true;
+                    ToolorderCancelRemarksToolStripMenuItem.Visible = true;
                 }
                 else if (form_name == "mRSCancelRemarksToolStripMenuItem")
                 {
-                    ToolmRSCancelRemarksToolStripMenuItem.Enabled = true;
+                    ToolmRSCancelRemarksToolStripMenuItem.Visible = true;
                 }
 
                 //End Raw Material
