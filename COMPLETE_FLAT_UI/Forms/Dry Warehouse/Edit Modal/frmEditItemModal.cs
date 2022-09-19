@@ -19,10 +19,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
     public partial class frmEditItemModal : MaterialForm
     {
-        //Constructor bugok
+       
         frmDryMiscellaneouseIssue ths;
         readonly Raw_Materials_Dry RawMaterialsDryEntity = new Raw_Materials_Dry();
-        private DataSet dSet = new DataSet();
+        DataSet dSet = new DataSet();
+        DataSet dSet2 = new DataSet();
         readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
@@ -65,6 +66,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
        
+        public string IsExpirable { get; set; }
 
         private const int CB_SETCUEBANNER = 0x1703;
 
@@ -82,6 +84,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.loadPrimaryUnitDropdown();
             this.FirstLoadBindingOrb();
         }
+
+
 
         private void ConnectionInit()
         {
@@ -179,7 +183,30 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void cboSubCat_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            this.LoadSubCategoryDropdownIsExpirable();
         }
+
+        public void LoadSubCategoryDropdownIsExpirable()
+        {
+
+            myClass.fillCmbTransactionNo(cboSubCatExpirable, "Sub_Category_dropdown_Is_expirable", dSet2, Convert.ToInt32(this.lblIDSubCat.Text));
+
+
+            this.IsExpirable = cboSubCatExpirable.SelectedValue.ToString();
+
+            if (this.IsExpirable == "1")
+            {
+                this.txtmatConversion.Visible = true;
+                this.txtExpirationDaysPrompting.Visible = true;
+            }
+            else
+            {
+                this.txtmatConversion.Visible = false;
+                this.txtExpirationDaysPrompting.Visible = false;
+            }
+        }
+
+
 
         private void cboItemType_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -372,6 +399,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
         private void materialCard1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtmatConversion_TextChanged(object sender, EventArgs e)
         {
 
         }

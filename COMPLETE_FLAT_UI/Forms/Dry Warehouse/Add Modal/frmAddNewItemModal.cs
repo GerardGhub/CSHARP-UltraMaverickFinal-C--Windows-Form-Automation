@@ -20,10 +20,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
     public partial class frmAddNewItemModal : MaterialForm
     {
         frmDryMiscellaneouseIssue ths;
-        private DataSet dSet = new DataSet();
+        DataSet dSet = new DataSet();
+        DataSet dSet2 = new DataSet();
         readonly myclasses myClass = new myclasses();
         readonly Raw_Materials_Dry RawMaterialsDryEntity = new Raw_Materials_Dry();
-        IStoredProcedures g_objStoredProcCollection = null;
+        private IStoredProcedures g_objStoredProcCollection = null;
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
@@ -42,6 +43,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         }
 
         public string created_by { get; set; }
+        public string IsExpirable { get; set; }
         MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
         private void frmAddNewItemModal_Load(object sender, EventArgs e)
         {
@@ -102,6 +104,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
             this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+        }
+
+        public void LoadSubCategoryDropdownIsExpirable()
+        {
+
+            myClass.fillCmbTransactionNo(cboSubCatExpirable, "Sub_Category_dropdown_Is_expirable", dSet2, Convert.ToInt32(this.lblIDSubCat.Text));
+
+
+            this.IsExpirable = cboSubCatExpirable.SelectedValue.ToString();
+   
+            if (this.IsExpirable == "1")
+            {
+                this.txtmatConversion.Visible = true;
+                this.txtExpirationDaysPrompting.Visible = true;
+            }
+            else
+            {
+                this.txtmatConversion.Visible = false;
+                this.txtExpirationDaysPrompting.Visible = false;
+            }
         }
 
 
@@ -170,6 +192,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 txtmatConversion.Enabled = true;
                 txtmatConversion.Focus();
             }
+
+            this.LoadSubCategoryDropdownIsExpirable();
         }
 
         private void cboItemType_SelectionChangeCommitted(object sender, EventArgs e)
@@ -427,6 +451,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.txtmatConversion.Enabled = true;
                 this.txtmatConversion.Focus();
             }
+        }
+
+        private void mattxtBufferStocks_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(this.mattxtBufferStocks.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtExpirationDaysPrompting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
+            {
+                if (Regex.IsMatch(
+                 txtExpirationDaysPrompting.Text,
+                 "^\\d*\\.\\d{1}$")) e.Handled = true;
+            }
+            else e.Handled = e.KeyChar != (char)Keys.Back;
         }
     }
 }

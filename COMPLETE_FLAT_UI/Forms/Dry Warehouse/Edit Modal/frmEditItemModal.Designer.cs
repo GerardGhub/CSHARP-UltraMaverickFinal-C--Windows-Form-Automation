@@ -52,6 +52,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboMajorCategory = new System.Windows.Forms.ComboBox();
             this.cboSubCat = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboSubCatExpirable = new MetroFramework.Controls.MetroComboBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,15 +127,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Depth = 0;
             this.txtmatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatConversion.Hint = "Conversion";
-            this.txtmatConversion.Location = new System.Drawing.Point(289, 157);
+            this.txtmatConversion.Location = new System.Drawing.Point(610, 153);
             this.txtmatConversion.Margin = new System.Windows.Forms.Padding(1);
             this.txtmatConversion.MaxLength = 50;
             this.txtmatConversion.MouseState = MaterialSkin.MouseState.OUT;
             this.txtmatConversion.Multiline = false;
             this.txtmatConversion.Name = "txtmatConversion";
-            this.txtmatConversion.Size = new System.Drawing.Size(280, 50);
+            this.txtmatConversion.Size = new System.Drawing.Size(245, 50);
             this.txtmatConversion.TabIndex = 586;
             this.txtmatConversion.Text = "";
+            this.txtmatConversion.TextChanged += new System.EventHandler(this.txtmatConversion_TextChanged);
             this.txtmatConversion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatConversion_KeyPress);
             // 
             // label4
@@ -258,13 +260,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtBufferStocks.Depth = 0;
             this.mattxtBufferStocks.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtBufferStocks.Hint = "Buffer Stock";
-            this.mattxtBufferStocks.Location = new System.Drawing.Point(610, 156);
+            this.mattxtBufferStocks.Location = new System.Drawing.Point(293, 153);
             this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtBufferStocks.MaxLength = 50;
             this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtBufferStocks.Multiline = false;
             this.mattxtBufferStocks.Name = "mattxtBufferStocks";
-            this.mattxtBufferStocks.Size = new System.Drawing.Size(244, 50);
+            this.mattxtBufferStocks.Size = new System.Drawing.Size(275, 50);
             this.mattxtBufferStocks.TabIndex = 601;
             this.mattxtBufferStocks.Text = "";
             this.mattxtBufferStocks.TextChanged += new System.EventHandler(this.mattxtBufferStocks_TextChanged);
@@ -302,9 +304,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(293, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 14);
+            this.label2.Size = new System.Drawing.Size(83, 14);
             this.label2.TabIndex = 598;
-            this.label2.Text = "Sub Categgory:";
+            this.label2.Text = "Sub Category:";
             // 
             // label1
             // 
@@ -314,9 +316,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(24, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 14);
+            this.label1.Size = new System.Drawing.Size(93, 14);
             this.label1.TabIndex = 597;
-            this.label1.Text = "Major Categgory:";
+            this.label1.Text = "Major Category:";
             // 
             // cboItemClass
             // 
@@ -378,7 +380,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(532, 366);
+            this.textBox1.Location = new System.Drawing.Point(663, 373);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 476;
@@ -386,11 +388,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // cboSubCatExpirable
+            // 
+            this.cboSubCatExpirable.FormattingEnabled = true;
+            this.cboSubCatExpirable.ItemHeight = 23;
+            this.cboSubCatExpirable.Location = new System.Drawing.Point(326, 364);
+            this.cboSubCatExpirable.Margin = new System.Windows.Forms.Padding(1);
+            this.cboSubCatExpirable.Name = "cboSubCatExpirable";
+            this.cboSubCatExpirable.PromptText = "Sub Category";
+            this.cboSubCatExpirable.Size = new System.Drawing.Size(236, 29);
+            this.cboSubCatExpirable.TabIndex = 605;
+            this.cboSubCatExpirable.UseSelectable = true;
+            this.cboSubCatExpirable.Visible = false;
+            // 
             // frmEditItemModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 417);
+            this.Controls.Add(this.cboSubCatExpirable);
             this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
@@ -434,5 +450,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialTextBox mattxtBufferStocks;
         private MaterialSkin.Controls.MaterialTextBox txtExpirationDaysPrompting;
+        private MetroFramework.Controls.MetroComboBox cboSubCatExpirable;
     }
 }

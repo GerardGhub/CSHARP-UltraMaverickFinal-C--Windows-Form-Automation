@@ -36,7 +36,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BtnExecute = new MaterialSkin.Controls.MaterialButton();
             this.MatbtnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -117,11 +119,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.BtnExecute.DrawShadows = true;
             this.BtnExecute.HighEmphasis = true;
             this.BtnExecute.Icon = null;
-            this.BtnExecute.Location = new System.Drawing.Point(40, 304);
+            this.BtnExecute.Location = new System.Drawing.Point(2, 3);
             this.BtnExecute.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnExecute.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnExecute.Name = "BtnExecute";
-            this.BtnExecute.Size = new System.Drawing.Size(58, 36);
+            this.BtnExecute.Size = new System.Drawing.Size(58, 28);
             this.BtnExecute.TabIndex = 573;
             this.BtnExecute.Text = "SAVE";
             this.BtnExecute.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -136,11 +138,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.MatbtnCancel.DrawShadows = true;
             this.MatbtnCancel.HighEmphasis = true;
             this.MatbtnCancel.Icon = null;
-            this.MatbtnCancel.Location = new System.Drawing.Point(505, 304);
+            this.MatbtnCancel.Location = new System.Drawing.Point(64, 3);
             this.MatbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MatbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatbtnCancel.Name = "MatbtnCancel";
-            this.MatbtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatbtnCancel.Size = new System.Drawing.Size(77, 28);
             this.MatbtnCancel.TabIndex = 574;
             this.MatbtnCancel.Text = "CANCEL";
             this.MatbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -148,14 +150,27 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.MatbtnCancel.UseVisualStyleBackColor = true;
             this.MatbtnCancel.Click += new System.EventHandler(this.MatbtnCancel_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.MatbtnCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BtnExecute, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(436, 307);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(146, 34);
+            this.tableLayoutPanel1.TabIndex = 575;
+            // 
             // AddNewUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 354);
-            this.Controls.Add(this.MatbtnCancel);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.BtnExecute);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddNewUnit";
@@ -165,8 +180,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Load += new System.EventHandler(this.AddNewDepartmentUnit_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -179,5 +195,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private MaterialSkin.Controls.MaterialTextBox TxtDepartmentUnit;
         private MaterialSkin.Controls.MaterialButton MatbtnCancel;
         private System.Windows.Forms.ComboBox CbDepartment;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

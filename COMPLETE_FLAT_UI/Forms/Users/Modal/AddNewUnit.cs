@@ -118,115 +118,126 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 this.GlobalStatePopup.FillRequiredFields();
                 this.TxtDepartmentUnit.Focus();
             }
+
+            if (this.DeptUnit.Mode == "ADD")
+            {
+                this.DeptUnit.Department = String.Empty;
+            }
+
+            if (this.DeptUnit.Department == this.CbDepartment.Text && this.TxtDepartmentUnit.Text == this.DeptUnit.Unit_Description)
+            {
+                this.SaveFunctionality();
+            }
             else
             {
-                if (this.DeptUnit.Mode == "ADD")
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_DepartmentUnit(0, TxtDepartmentUnit.Text, this.DeptUnit.Department,
+                   "", "", "", "", "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
                 {
+                    this.GlobalStatePopup.DataAlreadyExist();
 
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_DepartmentUnit(0, TxtDepartmentUnit.Text, this.DeptUnit.Department,
-                       "", "", "", "", "getbyname");
-
-                    if (dSet.Tables[0].Rows.Count > 0)
-                    {
-                        this.GlobalStatePopup.DataAlreadyExist();
-
-                        TxtDepartmentUnit.Text = string.Empty;
-                        TxtDepartmentUnit.Focus();
-                        return;
-                    }
-
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-
-                    
-                       
-                            dSet.Clear();
-                            dSet = g_objStoredProcCollection
-                                .sp_DepartmentUnit(0,
-                                this.TxtDepartmentUnit.Text.Trim(),
-                                this.DeptUnit.Department,
-                                this.DeptUnit.Created_By,
-                                this.DeptUnit.Created_By,
-                               this.DeptUnit.Created_By,
-                                this.DeptUnit.Created_By,
-                                "add");
-
-                            this.GlobalStatePopup.SuccessFullySave();
-                            this.Close();
-
-                        
-
-
-
-                    }
-                    else
-                    {
-                        return;
-                    }
-
+                    TxtDepartmentUnit.Text = string.Empty;
+                    TxtDepartmentUnit.Focus();
+                    return;
                 }
+            }
 
-                else
-                {
-
-                    if (this.DeptUnit.Unit_Description == this.TxtDepartmentUnit.Text)
-                    { }
-                    else
-                    {
-                        dSet.Clear();
-                        dSet = g_objStoredProcCollection.sp_DepartmentUnit(0, TxtDepartmentUnit.Text, "", "", "", "", "", "getbyname");
-
-                        if (dSet.Tables[0].Rows.Count > 0)
-                        {
-                            this.GlobalStatePopup.DataAlreadyExist();
-
-                            TxtDepartmentUnit.Text = string.Empty;
-                            TxtDepartmentUnit.Focus();
-                            return;
-                        }
-
-                    }
-
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-
-                      
-
-                        dSet.Clear();
-                        dSet = g_objStoredProcCollection
-                            .sp_DepartmentUnit(this.DeptUnit.Unit_Id,
-                            this.TxtDepartmentUnit.Text.Trim(),
-                            this.DeptUnit.Department,
-                            this.DeptUnit.Created_By,
-                            this.DeptUnit.Created_By,
-                           this.DeptUnit.Created_By,
-                            this.DeptUnit.Created_By,
-                            "edit");
-
-                        this.GlobalStatePopup.SuccessFullySave();
-                        this.Close();
+  
 
 
 
-                    }
-                    else
-                    {
-                        return;
-                    }
-
-
-                }
-                //END OF FUCKING CONTRACT
 
             }
 
+        private void SaveFunctionality()
+        {
+            if (this.DeptUnit.Mode == "ADD")
+            {
+
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_DepartmentUnit(0, TxtDepartmentUnit.Text, this.DeptUnit.Department,
+                   "", "", "", "", "getbyname");
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+
+                    TxtDepartmentUnit.Text = string.Empty;
+                    TxtDepartmentUnit.Focus();
+                    return;
+                }
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
 
 
 
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection
+                        .sp_DepartmentUnit(0,
+                        this.TxtDepartmentUnit.Text.Trim(),
+                        this.DeptUnit.Department,
+                        this.DeptUnit.Created_By,
+                        this.DeptUnit.Created_By,
+                       this.DeptUnit.Created_By,
+                        this.DeptUnit.Created_By,
+                        "add");
+
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
+
+
+
+
+
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
+            else
+            {
+
+             
+
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+
+
+
+                    dSet.Clear();
+                    dSet = g_objStoredProcCollection
+                        .sp_DepartmentUnit(this.DeptUnit.Unit_Id,
+                        this.TxtDepartmentUnit.Text.Trim(),
+                        this.DeptUnit.Department,
+                        this.DeptUnit.Created_By,
+                        this.DeptUnit.Created_By,
+                       this.DeptUnit.Created_By,
+                        this.DeptUnit.Created_By,
+                        "edit");
+
+                    this.GlobalStatePopup.SuccessFullySave();
+                    this.Close();
+
+
+
+                }
+                else
+                {
+                    return;
+                }
+
+
+            }
+            //END OF FUCKING CONTRACT
         }
 
-     
+
 
         private void TxtDepartmentUnit_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -78,6 +78,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             {
                 this.Dept.Department_Name = String.Empty;
             }
+
+
+
+
             if (this.Dept.Department_Name == this.TxtDepartment.Text)
             {
                 this.SaveFunctionality();
@@ -109,7 +113,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         public void SaveFunctionality()
         {
 
-            if (this.Dept.Mode == "Add")
+            if (this.Dept.Mode == "ADD")
             {
 
 
