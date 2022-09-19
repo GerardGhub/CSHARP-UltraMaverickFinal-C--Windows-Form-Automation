@@ -24,7 +24,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         TblRoute TblRouteEntity = new TblRoute();
-        string Mode = "";
+ 
         public FrmStoreRoute()
         {
             InitializeComponent();
@@ -299,7 +299,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
-                        this.Mode = "delete";
+                 
                         this.dSet.Clear();
                         this.dSet = g_objStoredProcCollection
                             .sp_tblRoute(
@@ -329,12 +329,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 //
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
-                        this.Mode = "activate";
+               
                         this.dSet.Clear();
                         this.dSet = g_objStoredProcCollection
                             .sp_tblRoute(

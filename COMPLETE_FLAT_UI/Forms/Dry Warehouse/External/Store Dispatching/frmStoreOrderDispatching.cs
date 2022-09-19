@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
         //Variable Declaration
-        int p_id = 0;
+
         int counterstrike = 0;
         string Rpt_Path = "";
         ReportDocument rpt = new ReportDocument();
