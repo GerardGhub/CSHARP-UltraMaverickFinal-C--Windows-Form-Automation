@@ -47,11 +47,11 @@ namespace ULTRAMAVERICK.Forms.Users
 
             this.ConnectionInit();
 
-            this.displayUsers();
+            this.DisplayUsers();
             this.matRadioActive.Checked = true;
             this.StringEmpty();
  
-            MatRadioActive_CheckedChanged(sender, e);
+            this.MatRadioActive_CheckedChanged(sender, e);
         }
  
         public void StringEmpty()
@@ -120,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Users
             }
         }
    
-        public void displayUsers()     
+        public void DisplayUsers()     
         {
 
             this.myClass.fillDataGridView(this.dgvUsers, "usercurrentcellchangedminor", dSet);
@@ -196,9 +196,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
-            if(mattxtSearch.Text == String.Empty)
+            if(this.mattxtSearch.Text == String.Empty)
             {
-                displayUsers();
+                this.DisplayUsers();
             }
             else
             {
@@ -455,7 +455,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                 this.ConnectionInit();
-                this.displayUsers();
+                this.DisplayUsers();
 
 
             }
@@ -484,7 +484,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
                 this.ConnectionInit();
-                this.displayUsers();
+                this.DisplayUsers();
 
 
             }

@@ -100,20 +100,21 @@ namespace ULTRAMAVERICK.Models
             g_objStoredProcFill = null;
         }
 
-        public void fillListBox_Fedora(ListBox eListBox, string eTablename, DataSet dSet, int id, int userRightsId, int menuId)
+
+        public void fillListBox_Id_String(ListBox eListBox, string eTablename, DataSet dSet, int id, int userRightsId, string menuName)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
-            dSet = g_objStoredProcFill.sp_getMenu_by_user(eTablename, id, userRightsId, menuId);
+            dSet = g_objStoredProcFill.sp_getMenu_by_user_Menu_Name(eTablename, id, userRightsId, menuName);
 
             eListBox.DataSource = dSet.Tables[0];
             eListBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
-            eListBox.DisplayMember = dSet.Tables[0].Columns[2].ToString();
-            //  eListBox.DisplayMember = dSet.Tables[0].Columns[3].ToString();
             eListBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
             g_objStoredProcFill = null;
         }
 
+
+       
 
 
         public void fillComboBox(ComboBox eComboBox, string eTablename, DataSet dSet)

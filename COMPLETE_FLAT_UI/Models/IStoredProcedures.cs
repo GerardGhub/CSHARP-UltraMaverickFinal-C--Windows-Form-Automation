@@ -723,6 +723,7 @@ namespace ULTRAMAVERICK.Models
 
         //show accessible menu for selected user
         DataSet sp_getMenu_by_user(string eTablename, int user_id, int userRightsId, int menuId);
+        DataSet sp_getMenu_by_user_Menu_Name(string eTablename, int user_id, int userRightsId, string menuName);
 
 
 
