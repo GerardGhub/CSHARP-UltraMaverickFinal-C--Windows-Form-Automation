@@ -41,8 +41,11 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.user_rights_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lstParentMenu = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.MatBtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserRights)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -50,7 +53,6 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.txtMaterialMenu);
             this.materialCard1.Controls.Add(this.textBox1);
-            this.materialCard1.Controls.Add(this.BtnExecute);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(39, 82);
@@ -58,7 +60,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(542, 229);
+            this.materialCard1.Size = new System.Drawing.Size(542, 206);
             this.materialCard1.TabIndex = 2;
             // 
             // txtMaterialMenu
@@ -98,7 +100,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.BtnExecute.DrawShadows = true;
             this.BtnExecute.HighEmphasis = true;
             this.BtnExecute.Icon = null;
-            this.BtnExecute.Location = new System.Drawing.Point(424, 134);
+            this.BtnExecute.Location = new System.Drawing.Point(2, 3);
             this.BtnExecute.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnExecute.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnExecute.Name = "BtnExecute";
@@ -211,7 +213,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.lstParentMenu.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstParentMenu.FormattingEnabled = true;
             this.lstParentMenu.ItemHeight = 18;
-            this.lstParentMenu.Location = new System.Drawing.Point(630, 263);
+            this.lstParentMenu.Location = new System.Drawing.Point(630, 265);
             this.lstParentMenu.Margin = new System.Windows.Forms.Padding(4);
             this.lstParentMenu.Name = "lstParentMenu";
             this.lstParentMenu.Size = new System.Drawing.Size(233, 54);
@@ -220,11 +222,45 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.lstParentMenu.SelectedValueChanged += new System.EventHandler(this.lstParentMenu_SelectedValueChanged);
             this.lstParentMenu.CursorChanged += new System.EventHandler(this.lstParentMenu_CursorChanged);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.MatBtnCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BtnExecute, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(433, 294);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(148, 44);
+            this.tableLayoutPanel1.TabIndex = 581;
+            // 
+            // MatBtnCancel
+            // 
+            this.MatBtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatBtnCancel.Depth = 0;
+            this.MatBtnCancel.DrawShadows = true;
+            this.MatBtnCancel.HighEmphasis = true;
+            this.MatBtnCancel.Icon = null;
+            this.MatBtnCancel.Location = new System.Drawing.Point(64, 3);
+            this.MatBtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MatBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatBtnCancel.Name = "MatBtnCancel";
+            this.MatBtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatBtnCancel.TabIndex = 582;
+            this.MatBtnCancel.Text = "CANCEL";
+            this.MatBtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatBtnCancel.UseAccentColor = false;
+            this.MatBtnCancel.UseVisualStyleBackColor = true;
+            this.MatBtnCancel.Click += new System.EventHandler(this.MatBtnCancel_Click);
+            // 
             // FrmAddNewMajorAvailable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 344);
+            this.ClientSize = new System.Drawing.Size(621, 349);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lstParentMenu);
             this.Controls.Add(this.dgvUserRights);
             this.Controls.Add(this.materialCard1);
@@ -239,6 +275,8 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserRights)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +291,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_rights_name;
         private System.Windows.Forms.ListBox lstParentMenu;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MaterialSkin.Controls.MaterialButton MatBtnCancel;
     }
 }

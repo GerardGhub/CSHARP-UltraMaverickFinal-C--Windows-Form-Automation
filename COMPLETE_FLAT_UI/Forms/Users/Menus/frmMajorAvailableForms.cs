@@ -171,7 +171,6 @@ namespace ULTRAMAVERICK.Forms.Users
 
                         mode = "delete";
 
-                        mode = "";
 
                         this.dSet_temp.Clear();
                         this.dSet_temp = this.g_objStoredProcCollection
@@ -195,7 +194,6 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
                 else
                 {
-
                     this.matBtnEDit.Visible = true;
                     return;
                 }
@@ -205,7 +203,7 @@ namespace ULTRAMAVERICK.Forms.Users
             else
             {
                 //
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {

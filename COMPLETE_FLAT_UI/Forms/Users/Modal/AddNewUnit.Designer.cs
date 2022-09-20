@@ -93,11 +93,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(57, 21);
+            this.label1.Location = new System.Drawing.Point(57, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 14);
+            this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 599;
             this.label1.Text = "Department:";
             // 
@@ -124,7 +124,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.BtnExecute.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnExecute.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnExecute.Name = "BtnExecute";
-            this.BtnExecute.Size = new System.Drawing.Size(58, 28);
+            this.BtnExecute.Size = new System.Drawing.Size(58, 36);
             this.BtnExecute.TabIndex = 573;
             this.BtnExecute.Text = "SAVE";
             this.BtnExecute.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -143,7 +143,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.MatbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MatbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatbtnCancel.Name = "MatbtnCancel";
-            this.MatbtnCancel.Size = new System.Drawing.Size(77, 28);
+            this.MatbtnCancel.Size = new System.Drawing.Size(77, 36);
             this.MatbtnCancel.TabIndex = 574;
             this.MatbtnCancel.Text = "CANCEL";
             this.MatbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -158,11 +158,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.MatbtnCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.BtnExecute, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(436, 307);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(438, 300);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(146, 34);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(146, 45);
             this.tableLayoutPanel1.TabIndex = 575;
             // 
             // AddNewUnit

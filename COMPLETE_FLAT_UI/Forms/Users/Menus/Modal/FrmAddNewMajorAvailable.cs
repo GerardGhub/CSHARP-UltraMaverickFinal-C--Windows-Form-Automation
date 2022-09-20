@@ -19,11 +19,11 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
     {
         frmMajorAvailableForms ths;
         DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        ParentForms ParentFormEntity = new ParentForms();
-        ParentFormsRepository ParentFormsRepo = new ParentFormsRepository();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly ParentForms ParentFormEntity = new ParentForms();
+        readonly ParentFormsRepository ParentFormsRepo = new ParentFormsRepository();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int temp_id = 0;
         public FrmAddNewMajorAvailable(frmMajorAvailableForms frm,
             int UserId,
@@ -293,6 +293,11 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void lstParentMenu_CursorChanged(object sender, EventArgs e)
         {
          
+        }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 
