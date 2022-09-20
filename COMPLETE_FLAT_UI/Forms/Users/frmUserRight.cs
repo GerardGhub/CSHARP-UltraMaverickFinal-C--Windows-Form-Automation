@@ -91,7 +91,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.HideExistingMaterialCard();
 
 
-            this.loadParentMenu();
+   
             ListViewmenu.Enabled = false;
          
 
@@ -142,30 +142,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
             this.lbltotalGrandChildActive.Text = this.listBoxGrandChildTag.Items.Count.ToString();
 
-            this.ModuleMenuTagged = this.listBoxGrandChildTag.Items.Count;
-
-            if (this.ModuleMenuTagged == 0)
-            {
-                this.BtnUntaggedModule.Enabled = false;
-            }
-            else
-            {
-                this.BtnUntaggedModule.Enabled = true;
-            }
+    
 
         }
 
 
 
 
-        public void loadParentMenu()
-        {
-            //ready = false;
-            //myClass.fillComboBoxDepartment(cboParentMenu, "parentform_dropdown", dSet);
-            //ready = true;
-
-            //lblparentmenuid.Text = cboParentMenu.SelectedValue.ToString();
-        }
 
 
 
@@ -223,6 +206,10 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.DgvModuelAvail.DataSource = dv;
 
                 this.MajorMenuForTagging = this.DgvModuelAvail.RowCount;
+
+
+
+
                 if(this.MajorMenuForTagging == 0)
                 {
                     this.BtnTagMajor.Enabled = false;
@@ -627,6 +614,16 @@ namespace ULTRAMAVERICK.Forms.Users
 
                     }
                      dgvGrandChild.DataSource = dv;
+                    this.ModuleMenuForTagging = dgvGrandChild.RowCount;
+
+                    if (this.ModuleMenuForTagging == 0)
+                    {
+                        this.BtnModuleTag.Enabled = false;
+                    }
+                    else
+                    {
+                        this.BtnModuleTag.Enabled = true;
+                    }
     
                 }
             }
@@ -814,8 +811,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.LoadMenuByUsers();
             loadMenu_byUsers_GChildTagged();
             loadMenu_byUsers_ParentTagged();
-            //lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
-            //MessageBox.Show(p_id.ToString()); //Buje
+ 
         }
          public void LoadMenuByUsers()
         {
@@ -1528,11 +1524,11 @@ namespace ULTRAMAVERICK.Forms.Users
             load_search_GrandChildMenu();
             ListViewmenu.Enabled = true;
       
-            Sample();
+            this.LoadModule();
             txtGChildName.Text = listBoxGrandChildTag.Text;
         }
 
-        public void Sample()
+        public void LoadModule()
         {
           
             if(ListViewmenu.Items.Count > 0)
@@ -1542,7 +1538,19 @@ namespace ULTRAMAVERICK.Forms.Users
                 myClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, Convert.ToInt32(SelectedDataRowParent));
             
                 lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
-          
+
+                // Validations Button
+                this.ModuleMenuTagged = this.listBoxGrandChildTag.Items.Count;
+
+                if (this.ModuleMenuTagged == 0)
+                {
+                    this.BtnUntaggedModule.Enabled = false;
+                }
+                else
+                {
+                    this.BtnUntaggedModule.Enabled = true;
+                }
+
             }
          
         }
@@ -1689,6 +1697,20 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
+        private void MenuClick()
+        {
+            MenuActivate();
+
+            this.listBoxParentTag.Enabled = true;
+            this.DgvModuelAvail.Enabled = true;
+            //Rights Hide
+            this.materialBtnNew.Visible = false;
+            this.btnEditTool.Visible = false;
+            this.btnUpdateTool.Visible = false;
+            this.btnDeleteTool.Visible = false;
+            this.btnCancelTool.Visible = false;
+        }
+
  
         private void matBtnMenu_Click(object sender, EventArgs e)
         {
@@ -1770,7 +1792,8 @@ namespace ULTRAMAVERICK.Forms.Users
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
             {
    
-                matBtnMenu_Click(sender, e);
+ 
+                this.MenuClick();
                 materialBtnMenuAVlCancel_Click(sender, e);
 
           
@@ -1784,9 +1807,18 @@ namespace ULTRAMAVERICK.Forms.Users
                 //Call tab 5
                 this.CallSubMenuOnTab5();
             }
-      
+
+            //else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage6"])//your specific tabname
+            //{
+
+            //    //Call tab 5
+            //    this.loadMenu_byUsers_GChildTagged();
+            //}
+
 
         }
+
+
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {

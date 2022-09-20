@@ -82,7 +82,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtGChildName = new MaterialSkin.Controls.MaterialTextBox();
             this.materialButtonUpdateSubMenu = new MaterialSkin.Controls.MaterialButton();
             this.materialBtnShowAvailSubMenu = new MaterialSkin.Controls.MaterialButton();
-            this.matBtnMenu = new MaterialSkin.Controls.MaterialButton();
             this.lblidMark = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -96,20 +95,25 @@ namespace ULTRAMAVERICK.Forms.Users
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.DgvModuelAvail = new System.Windows.Forms.DataGridView();
+            this.chkSelectedMajor = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.BtnTagMajor = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtMaterialMenuName = new MaterialSkin.Controls.MaterialTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.DataView = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
             this.BtnSubForMenuTag = new System.Windows.Forms.Button();
             this.materialTextBoxSubMenuAvail = new MaterialSkin.Controls.MaterialTextBox();
+            this.DataView = new System.Windows.Forms.DataGridView();
+            this.chkSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.BtnSubMenuUntagged = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvGrandChild = new System.Windows.Forms.DataGridView();
+            this.chkSelectorModule = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.materialCard8 = new MaterialSkin.Controls.MaterialCard();
             this.BtnModuleTag = new System.Windows.Forms.Button();
             this.materialTextBoxModuleAvail = new MaterialSkin.Controls.MaterialTextBox();
@@ -132,11 +136,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.lbltotalGrandChildActive = new System.Windows.Forms.Label();
             this.groupRightsAvailable = new System.Windows.Forms.GroupBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.chkSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.chkSelectedMajor = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.chkSelectorModule = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.materialCard3.SuspendLayout();
             this.materialCard1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -148,18 +147,18 @@ namespace ULTRAMAVERICK.Forms.Users
             ((System.ComponentModel.ISupportInitialize)(this.DgvModuelAvail)).BeginInit();
             this.materialCard4.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataView)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.materialCard6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataView)).BeginInit();
             this.materialCard5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrandChild)).BeginInit();
             this.materialCard8.SuspendLayout();
             this.materialCard7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTagParentMenu)).BeginInit();
             this.groupRightsAvailable.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewuser_rights
@@ -389,7 +388,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.listBoxGrandChildTag.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxGrandChildTag.FormattingEnabled = true;
             this.listBoxGrandChildTag.ItemHeight = 18;
-            this.listBoxGrandChildTag.Location = new System.Drawing.Point(3, 99);
+            this.listBoxGrandChildTag.Location = new System.Drawing.Point(3, 100);
             this.listBoxGrandChildTag.Name = "listBoxGrandChildTag";
             this.listBoxGrandChildTag.Size = new System.Drawing.Size(449, 436);
             this.listBoxGrandChildTag.TabIndex = 560;
@@ -414,7 +413,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.txtparentidmenu.BackColor = System.Drawing.Color.White;
             this.txtparentidmenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtparentidmenu.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtparentidmenu.Location = new System.Drawing.Point(484, 6);
+            this.txtparentidmenu.Location = new System.Drawing.Point(463, 38);
             this.txtparentidmenu.MaxLength = 100;
             this.txtparentidmenu.Name = "txtparentidmenu";
             this.txtparentidmenu.ReadOnly = true;
@@ -714,28 +713,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialBtnShowAvailSubMenu.Visible = false;
             this.materialBtnShowAvailSubMenu.Click += new System.EventHandler(this.materialBtnShowAvailSubMenu_Click);
             // 
-            // matBtnMenu
-            // 
-            this.matBtnMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnMenu.Depth = 0;
-            this.matBtnMenu.DrawShadows = true;
-            this.matBtnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.matBtnMenu.HighEmphasis = true;
-            this.matBtnMenu.Icon = null;
-            this.matBtnMenu.Location = new System.Drawing.Point(705, 26);
-            this.matBtnMenu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnMenu.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnMenu.Name = "matBtnMenu";
-            this.matBtnMenu.Size = new System.Drawing.Size(63, 36);
-            this.matBtnMenu.TabIndex = 597;
-            this.matBtnMenu.Text = "MENU";
-            this.matBtnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.matBtnMenu.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnMenu.UseAccentColor = false;
-            this.matBtnMenu.UseVisualStyleBackColor = true;
-            this.matBtnMenu.Visible = false;
-            this.matBtnMenu.Click += new System.EventHandler(this.matBtnMenu_Click);
-            // 
             // lblidMark
             // 
             this.lblidMark.AutoSize = true;
@@ -944,6 +921,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DgvModuelAvail.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.materialTxtModuelAvail_RowPostPaint);
             this.DgvModuelAvail.DoubleClick += new System.EventHandler(this.materialTxtModuelAvail_DoubleClick);
             // 
+            // chkSelectedMajor
+            // 
+            this.chkSelectedMajor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chkSelectedMajor.HeaderText = "✓";
+            this.chkSelectedMajor.MinimumWidth = 12;
+            this.chkSelectedMajor.Name = "chkSelectedMajor";
+            this.chkSelectedMajor.Width = 24;
+            // 
             // materialCard4
             // 
             this.materialCard4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1021,6 +1006,74 @@ namespace ULTRAMAVERICK.Forms.Users
             this.tabPage4.Text = "SUB MENU TAGGED";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.ListViewmenu, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.materialCard6, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.DataView, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.materialCard5, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 7);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.93694F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.06306F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(926, 555);
+            this.tableLayoutPanel2.TabIndex = 585;
+            // 
+            // materialCard6
+            // 
+            this.materialCard6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard6.Controls.Add(this.BtnSubForMenuTag);
+            this.materialCard6.Controls.Add(this.materialTextBoxSubMenuAvail);
+            this.materialCard6.Depth = 0;
+            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard6.Location = new System.Drawing.Point(477, 14);
+            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard6.Name = "materialCard6";
+            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard6.Size = new System.Drawing.Size(435, 66);
+            this.materialCard6.TabIndex = 583;
+            // 
+            // BtnSubForMenuTag
+            // 
+            this.BtnSubForMenuTag.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnSubForMenuTag.Font = new System.Drawing.Font("Roboto", 24F);
+            this.BtnSubForMenuTag.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnSubForMenuTag.Location = new System.Drawing.Point(11, 13);
+            this.BtnSubForMenuTag.Name = "BtnSubForMenuTag";
+            this.BtnSubForMenuTag.Size = new System.Drawing.Size(75, 45);
+            this.BtnSubForMenuTag.TabIndex = 585;
+            this.BtnSubForMenuTag.Text = "<";
+            this.BtnSubForMenuTag.UseVisualStyleBackColor = true;
+            this.BtnSubForMenuTag.Click += new System.EventHandler(this.BtnSubMenuTag_Click);
+            // 
+            // materialTextBoxSubMenuAvail
+            // 
+            this.materialTextBoxSubMenuAvail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialTextBoxSubMenuAvail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBoxSubMenuAvail.Depth = 0;
+            this.materialTextBoxSubMenuAvail.Enabled = false;
+            this.materialTextBoxSubMenuAvail.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialTextBoxSubMenuAvail.Hint = "Sub Menu Available";
+            this.materialTextBoxSubMenuAvail.Location = new System.Drawing.Point(99, 10);
+            this.materialTextBoxSubMenuAvail.MaxLength = 50;
+            this.materialTextBoxSubMenuAvail.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBoxSubMenuAvail.Multiline = false;
+            this.materialTextBoxSubMenuAvail.Name = "materialTextBoxSubMenuAvail";
+            this.materialTextBoxSubMenuAvail.Size = new System.Drawing.Size(317, 50);
+            this.materialTextBoxSubMenuAvail.TabIndex = 584;
+            this.materialTextBoxSubMenuAvail.Text = "";
+            // 
             // DataView
             // 
             this.DataView.AllowUserToAddRows = false;
@@ -1076,53 +1129,13 @@ namespace ULTRAMAVERICK.Forms.Users
             this.DataView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DataView_RowPostPaint);
             this.DataView.DoubleClick += new System.EventHandler(this.dataView_DoubleClick_1);
             // 
-            // materialCard6
+            // chkSelected
             // 
-            this.materialCard6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard6.Controls.Add(this.BtnSubForMenuTag);
-            this.materialCard6.Controls.Add(this.materialTextBoxSubMenuAvail);
-            this.materialCard6.Depth = 0;
-            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard6.Location = new System.Drawing.Point(477, 14);
-            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard6.Name = "materialCard6";
-            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard6.Size = new System.Drawing.Size(435, 66);
-            this.materialCard6.TabIndex = 583;
-            // 
-            // BtnSubForMenuTag
-            // 
-            this.BtnSubForMenuTag.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnSubForMenuTag.Font = new System.Drawing.Font("Roboto", 24F);
-            this.BtnSubForMenuTag.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnSubForMenuTag.Location = new System.Drawing.Point(11, 13);
-            this.BtnSubForMenuTag.Name = "BtnSubForMenuTag";
-            this.BtnSubForMenuTag.Size = new System.Drawing.Size(75, 45);
-            this.BtnSubForMenuTag.TabIndex = 585;
-            this.BtnSubForMenuTag.Text = "<";
-            this.BtnSubForMenuTag.UseVisualStyleBackColor = true;
-            this.BtnSubForMenuTag.Click += new System.EventHandler(this.BtnSubMenuTag_Click);
-            // 
-            // materialTextBoxSubMenuAvail
-            // 
-            this.materialTextBoxSubMenuAvail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTextBoxSubMenuAvail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBoxSubMenuAvail.Depth = 0;
-            this.materialTextBoxSubMenuAvail.Enabled = false;
-            this.materialTextBoxSubMenuAvail.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBoxSubMenuAvail.Hint = "Sub Menu Available";
-            this.materialTextBoxSubMenuAvail.Location = new System.Drawing.Point(99, 10);
-            this.materialTextBoxSubMenuAvail.MaxLength = 50;
-            this.materialTextBoxSubMenuAvail.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBoxSubMenuAvail.Multiline = false;
-            this.materialTextBoxSubMenuAvail.Name = "materialTextBoxSubMenuAvail";
-            this.materialTextBoxSubMenuAvail.Size = new System.Drawing.Size(317, 50);
-            this.materialTextBoxSubMenuAvail.TabIndex = 584;
-            this.materialTextBoxSubMenuAvail.Text = "";
+            this.chkSelected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chkSelected.HeaderText = "✓";
+            this.chkSelected.MinimumWidth = 12;
+            this.chkSelected.Name = "chkSelected";
+            this.chkSelected.Width = 24;
             // 
             // materialCard5
             // 
@@ -1183,6 +1196,26 @@ namespace ULTRAMAVERICK.Forms.Users
             this.tabPage6.Text = "MODULES TAGGED";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.dgvGrandChild, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.materialCard8, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.listBoxGrandChildTag, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.materialCard7, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(16, 10);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.66849F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.33151F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(911, 549);
+            this.tableLayoutPanel3.TabIndex = 587;
+            // 
             // dgvGrandChild
             // 
             this.dgvGrandChild.AllowUserToAddRows = false;
@@ -1216,7 +1249,7 @@ namespace ULTRAMAVERICK.Forms.Users
             dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGrandChild.DefaultCellStyle = dataGridViewCellStyle50;
             this.dgvGrandChild.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvGrandChild.Location = new System.Drawing.Point(458, 99);
+            this.dgvGrandChild.Location = new System.Drawing.Point(458, 100);
             this.dgvGrandChild.MultiSelect = false;
             this.dgvGrandChild.Name = "dgvGrandChild";
             dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1238,6 +1271,14 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvGrandChild.CurrentCellChanged += new System.EventHandler(this.dgvGrandChild_CurrentCellChanged_1);
             this.dgvGrandChild.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvGrandChild_CurrentCellDirtyStateChanged_1);
             this.dgvGrandChild.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvGrandChild_RowPostPaint);
+            // 
+            // chkSelectorModule
+            // 
+            this.chkSelectorModule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chkSelectorModule.HeaderText = "✓";
+            this.chkSelectorModule.MinimumWidth = 12;
+            this.chkSelectorModule.Name = "chkSelectorModule";
+            this.chkSelectorModule.Width = 24;
             // 
             // materialCard8
             // 
@@ -1563,70 +1604,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.toolStrip2.Text = "toolStrip2";
             this.toolStrip2.Visible = false;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.ListViewmenu, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.materialCard6, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.DataView, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.materialCard5, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 7);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.93694F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.06306F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(926, 555);
-            this.tableLayoutPanel2.TabIndex = 585;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.dgvGrandChild, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.materialCard8, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.listBoxGrandChildTag, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.materialCard7, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(16, 10);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.66849F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.33151F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(911, 549);
-            this.tableLayoutPanel3.TabIndex = 587;
-            // 
-            // chkSelected
-            // 
-            this.chkSelected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chkSelected.HeaderText = "✓";
-            this.chkSelected.MinimumWidth = 12;
-            this.chkSelected.Name = "chkSelected";
-            this.chkSelected.Width = 24;
-            // 
-            // chkSelectedMajor
-            // 
-            this.chkSelectedMajor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chkSelectedMajor.HeaderText = "✓";
-            this.chkSelectedMajor.MinimumWidth = 12;
-            this.chkSelectedMajor.Name = "chkSelectedMajor";
-            this.chkSelectedMajor.Width = 24;
-            // 
-            // chkSelectorModule
-            // 
-            this.chkSelectorModule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chkSelectorModule.HeaderText = "✓";
-            this.chkSelectorModule.MinimumWidth = 12;
-            this.chkSelectorModule.Name = "chkSelectorModule";
-            this.chkSelectorModule.Width = 24;
-            // 
             // frmUserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1636,7 +1613,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.Controls.Add(this.button4);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblidMark);
-            this.Controls.Add(this.matBtnMenu);
             this.Controls.Add(this.materialBtnShowAvailSubMenu);
             this.Controls.Add(this.materialButtonUpdateSubMenu);
             this.Controls.Add(this.txtchildprimarymenuid);
@@ -1678,10 +1654,12 @@ namespace ULTRAMAVERICK.Forms.Users
             ((System.ComponentModel.ISupportInitialize)(this.DgvModuelAvail)).EndInit();
             this.materialCard4.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataView)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.materialCard6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataView)).EndInit();
             this.materialCard5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrandChild)).EndInit();
             this.materialCard8.ResumeLayout(false);
             this.materialCard7.ResumeLayout(false);
@@ -1690,8 +1668,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.groupRightsAvailable.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1730,7 +1706,6 @@ namespace ULTRAMAVERICK.Forms.Users
         private MaterialSkin.Controls.MaterialTextBox txtGChildName;
         private MaterialSkin.Controls.MaterialButton materialButtonUpdateSubMenu;
         private MaterialSkin.Controls.MaterialButton materialBtnShowAvailSubMenu;
-        private MaterialSkin.Controls.MaterialButton matBtnMenu;
         private System.Windows.Forms.Label lblidMark;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
