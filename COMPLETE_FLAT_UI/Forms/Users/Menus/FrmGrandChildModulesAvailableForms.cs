@@ -251,7 +251,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                         this.dSet_temp.Clear();
                         this.dSet_temp = g_objStoredProcCollection
-                            .Sp_available_menu_grandChild(
+                            .sp_available_menu_grandChild(
                             this.AvailableMenuGrandChildEntity.Menu_Id,
                             "",
                             "",
@@ -283,7 +283,7 @@ namespace ULTRAMAVERICK.Forms.Users
                       
                         this.dSet_temp.Clear();
                         this.dSet_temp = g_objStoredProcCollection
-                            .Sp_available_menu_grandChild(
+                            .sp_available_menu_grandChild(
                             this.AvailableMenuGrandChildEntity.Menu_Id,
                             "",
                             "",

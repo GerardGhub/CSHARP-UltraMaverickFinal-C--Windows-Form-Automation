@@ -682,7 +682,7 @@ namespace ULTRAMAVERICK.Models
 
 
 
-        DataSet Sp_available_menu_grandChild(int menu_id,
+        DataSet sp_available_menu_grandChild(int menu_id,
       string menu_name,
       string menu_form_name,
       string parent_menu,

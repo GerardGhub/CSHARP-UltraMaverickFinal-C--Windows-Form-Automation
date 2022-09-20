@@ -73,7 +73,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 this.txtgchild.Text = Available_Menu_GrandChild_Entity.Menu_Name;
                 this.txtfname.Text = Available_Menu_GrandChild_Entity.Menu_Form_Name;
                 this.cboChildMenu.Text = Available_Menu_GrandChild_Entity.ChildForm;
-          
+           
 
             }
         }
@@ -157,17 +157,19 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 && this.Available_Menu_GrandChild_Entity.Menu_Form_Name == this.txtfname.Text)
 
             {
+
                 this.SaveFunctionality();
             }
             else
             {
                 this.dSet.Clear();
                 this.dSet = this.g_objStoredProcCollection
-                    .Sp_available_menu_grandChild(
+                    .sp_available_menu_grandChild(
                     0,
                     this.txtgchild.Text,
+                         this.txtfname.Text,
                     this.Available_Menu_GrandChild_Entity.Parent_Menu,
-                    this.txtfname.Text,
+               
                     "",
                     "",
                     "",
@@ -204,7 +206,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
 
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.Sp_available_menu_grandChild(0,
+                    dSet = g_objStoredProcCollection.sp_available_menu_grandChild(0,
                         this.txtgchild.Text.Trim(),
                         this.txtfname.Text.Trim(),
                         this.Available_Menu_GrandChild_Entity.Parent_Menu,
@@ -228,6 +230,37 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
             {
 
+                if (this.Available_Menu_GrandChild_Entity.Parent_Menu == SubMenuModuleBindId)
+                {
+
+                }
+                else
+                {
+                    this.dSet.Clear();
+                    this.dSet = this.g_objStoredProcCollection
+                        .sp_available_menu_grandChild(
+                        0,
+                        this.txtgchild.Text,
+                             this.txtfname.Text,
+                        SubMenuModuleBindId,
+
+                        "",
+                        "",
+                        "",
+                        "",
+                        "getbyname");
+
+                    if (this.dSet.Tables[0].Rows.Count > 0)
+                    {
+                        this.GlobalStatePopup.DataAlreadyExist();
+                        this.txtgchild.Text = string.Empty;
+                        this.txtgchild.Focus();
+                        return;
+                    }
+                 
+                }
+
+      
 
 
                 //Start of Edit
@@ -237,7 +270,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
                     this.dSet.Clear();
                     this.dSet = this.g_objStoredProcCollection
-                    .Sp_available_menu_grandChild(
+                    .sp_available_menu_grandChild(
                     this.Available_Menu_GrandChild_Entity.Menu_Id,
                     this.txtgchild.Text.Trim(),
                     this.txtfname.Text.Trim(),
