@@ -58,8 +58,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.MatBtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroButtonSave
@@ -140,7 +143,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool.DrawShadows = true;
             this.btnUpdateTool.HighEmphasis = true;
             this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(888, 371);
+            this.btnUpdateTool.Location = new System.Drawing.Point(2, 3);
             this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateTool.Name = "btnUpdateTool";
@@ -206,7 +209,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.cboUnit.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUnit.FormattingEnabled = true;
-            this.cboUnit.Location = new System.Drawing.Point(424, 100);
+            this.cboUnit.Location = new System.Drawing.Point(423, 102);
             this.cboUnit.Margin = new System.Windows.Forms.Padding(1);
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Size = new System.Drawing.Size(197, 31);
@@ -474,17 +477,50 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label5.Text = "Notification:";
             this.label5.Visible = false;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.btnUpdateTool, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.MatBtnCancel, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(806, 367);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(139, 45);
+            this.tableLayoutPanel1.TabIndex = 592;
+            // 
+            // MatBtnCancel
+            // 
+            this.MatBtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatBtnCancel.Depth = 0;
+            this.MatBtnCancel.DrawShadows = true;
+            this.MatBtnCancel.HighEmphasis = true;
+            this.MatBtnCancel.Icon = null;
+            this.MatBtnCancel.Location = new System.Drawing.Point(64, 3);
+            this.MatBtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MatBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatBtnCancel.Name = "MatBtnCancel";
+            this.MatBtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatBtnCancel.TabIndex = 595;
+            this.MatBtnCancel.Text = "CANCEL";
+            this.MatBtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatBtnCancel.UseAccentColor = false;
+            this.MatBtnCancel.UseVisualStyleBackColor = true;
+            this.MatBtnCancel.Click += new System.EventHandler(this.MatBtnCancel_Click);
+            // 
             // frmEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 423);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cmbNotif);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CmbLocation);
-            this.Controls.Add(this.btnUpdateTool);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -497,6 +533,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,5 +571,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pbImage;
         public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MaterialSkin.Controls.MaterialButton MatBtnCancel;
     }
 }

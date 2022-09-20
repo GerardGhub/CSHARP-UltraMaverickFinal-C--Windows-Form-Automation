@@ -57,8 +57,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.matChkQAUserAccount = new MaterialSkin.Controls.MaterialCheckbox();
             this.odbEmployeeImage = new System.Windows.Forms.OpenFileDialog();
+            this.MatBtnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -185,9 +188,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.CboUnit.Enabled = false;
             this.CboUnit.FormattingEnabled = true;
             this.CboUnit.ItemHeight = 23;
-            this.CboUnit.Items.AddRange(new object[] {
-            "Office",
-            "Production"});
             this.CboUnit.Location = new System.Drawing.Point(398, 101);
             this.CboUnit.Margin = new System.Windows.Forms.Padding(1);
             this.CboUnit.Name = "CboUnit";
@@ -385,7 +385,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnUpdateTool.DrawShadows = true;
             this.btnUpdateTool.HighEmphasis = true;
             this.btnUpdateTool.Icon = null;
-            this.btnUpdateTool.Location = new System.Drawing.Point(875, 376);
+            this.btnUpdateTool.Location = new System.Drawing.Point(2, 3);
             this.btnUpdateTool.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdateTool.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdateTool.Name = "btnUpdateTool";
@@ -459,7 +459,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(707, 386);
+            this.textBox1.Location = new System.Drawing.Point(301, 364);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 561;
@@ -488,16 +488,49 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.odbEmployeeImage.Title = "Select Image";
             // 
+            // MatBtnCancel
+            // 
+            this.MatBtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatBtnCancel.Depth = 0;
+            this.MatBtnCancel.DrawShadows = true;
+            this.MatBtnCancel.HighEmphasis = true;
+            this.MatBtnCancel.Icon = null;
+            this.MatBtnCancel.Location = new System.Drawing.Point(64, 3);
+            this.MatBtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MatBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatBtnCancel.Name = "MatBtnCancel";
+            this.MatBtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatBtnCancel.TabIndex = 583;
+            this.MatBtnCancel.Text = "CANCEL";
+            this.MatBtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatBtnCancel.UseAccentColor = false;
+            this.MatBtnCancel.UseVisualStyleBackColor = true;
+            this.MatBtnCancel.Click += new System.EventHandler(this.MatBtnCancel_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.MatBtnCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnUpdateTool, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(792, 371);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(145, 47);
+            this.tableLayoutPanel1.TabIndex = 583;
+            // 
             // frmAddnewUserModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 423);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.matChkQAUserAccount);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.btnUpdateTool);
             this.Controls.Add(this.cmbNotif);
             this.Controls.Add(this.CmBLocation);
             this.Controls.Add(this.label15);
@@ -513,6 +546,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,5 +583,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Label lblgenderLabel;
         private System.Windows.Forms.OpenFileDialog odbEmployeeImage;
+        private MaterialSkin.Controls.MaterialButton MatBtnCancel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -22,8 +22,16 @@ namespace ULTRAMAVERICK.Forms.Users
         
         IStoredProcedures g_objStoredProcCollection = null;
         DataSet dSet = new DataSet();
+
         int MajorMenuTagged = 0;
         int MajorMenuForTagging = 0;
+
+        int SubMenuTagged = 0;
+        int SubMenuForTagging = 0;
+
+        int ModuleMenuTagged = 0;
+        int ModuleMenuForTagging = 0;
+
         string mode = "";
         int p_id = 0;
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
@@ -92,7 +100,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.GetAllTaggedParentMenu(); 
             this.userFileEntity.UserFile_id = userinfo.user_id; // ID of User
             this.userFileEntity.Employee_Name = userinfo.emp_name.ToUpper(); // First Name Session
-            materialTxtModuelAvail.RowsDefaultCellStyle.ForeColor = Color.Black;
+            DgvModuelAvail.RowsDefaultCellStyle.ForeColor = Color.Black;
             loadMenu_byUsers_GChildTagged();
             loadMenu_byUsers_ParentTagged();
 
@@ -113,7 +121,7 @@ namespace ULTRAMAVERICK.Forms.Users
   
             myClass.fillListBox_Id(listBoxParentTag, "filter_users_parenttagged_at_userights", dSet, p_id, 0, 0);
 
-            //this.tabPage2.Text = "MAJOR MENU TAGGED " + this.listBoxParentTag.Items.Count.ToString() + " ";
+
             this.MajorMenuTagged = this.listBoxParentTag.Items.Count;
             if (this.MajorMenuTagged == 0)
             {
@@ -134,6 +142,16 @@ namespace ULTRAMAVERICK.Forms.Users
 
             this.lbltotalGrandChildActive.Text = this.listBoxGrandChildTag.Items.Count.ToString();
 
+            this.ModuleMenuTagged = this.listBoxGrandChildTag.Items.Count;
+
+            if (this.ModuleMenuTagged == 0)
+            {
+                this.BtnUntaggedModule.Enabled = false;
+            }
+            else
+            {
+                this.BtnUntaggedModule.Enabled = true;
+            }
 
         }
 
@@ -202,9 +220,9 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
 
                 }
-                this.materialTxtModuelAvail.DataSource = dv;
-                //this.tabPage3.Text = "MAJOR MENU AVAIL "+  this.materialTxtModuelAvail.RowCount.ToString() +" ";
-                this.MajorMenuForTagging = this.materialTxtModuelAvail.RowCount;
+                this.DgvModuelAvail.DataSource = dv;
+
+                this.MajorMenuForTagging = this.DgvModuelAvail.RowCount;
                 if(this.MajorMenuForTagging == 0)
                 {
                     this.BtnTagMajor.Enabled = false;
@@ -216,12 +234,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
             }
 
-            this.materialTxtModuelAvail.Columns["menu_id"].Visible = false;
-            this.materialTxtModuelAvail.Columns["department"].Visible = false;
-            this.materialTxtModuelAvail.Columns["is_active"].Visible = false;
-            this.materialTxtModuelAvail.Columns["user_rights_id"].Visible = false;
-            this.materialTxtModuelAvail.Columns["ID"].Visible = false;
-            this.materialTxtModuelAvail.Columns["menu_name"].HeaderText = "MENU";
+            this.DgvModuelAvail.Columns["menu_id"].Visible = false;
+            this.DgvModuelAvail.Columns["department"].Visible = false;
+            this.DgvModuelAvail.Columns["is_active"].Visible = false;
+            this.DgvModuelAvail.Columns["user_rights_id"].Visible = false;
+            this.DgvModuelAvail.Columns["ID"].Visible = false;
+            this.DgvModuelAvail.Columns["menu_name"].HeaderText = "MENU";
 
         }
 
@@ -523,17 +541,31 @@ namespace ULTRAMAVERICK.Forms.Users
                     {
 
                     }
-                    dataView.DataSource = dv;
-                    //lblrecords.Text = dgv_table.RowCount.ToString();
+                    this.DataView.DataSource = dv;
+                
+                    this.SubMenuForTagging = DataView.RowCount;
+                    if (this.SubMenuForTagging == 0 )
+                    {
+                        this.BtnSubForMenuTag.Enabled = false;
+                    }
+                    else
+                    {
+                        this.BtnSubForMenuTag.Enabled = true;
+                    }
+
+
                 }
-                this.dataView.Columns["menu_id"].Visible = false;
-                this.dataView.Columns["menu_form_name"].Visible = false;
-                this.dataView.Columns["count"].Visible = false;
-                this.dataView.Columns["is_active"].Visible = false;
-                this.dataView.Columns["menu_id1"].Visible = false;
-                this.dataView.Columns["user_rights_id"].Visible = false;
-                this.dataView.Columns["parent_form_name"].Visible = false;
-                this.dataView.Columns["menu_name"].HeaderText = "MENU";
+                this.DataView.Columns["menu_id"].Visible = false;
+                this.DataView.Columns["menu_form_name"].Visible = false;
+                this.DataView.Columns["count"].Visible = false;
+                this.DataView.Columns["is_active"].Visible = false;
+                this.DataView.Columns["menu_id1"].Visible = false;
+                this.DataView.Columns["user_rights_id"].Visible = false;
+                this.DataView.Columns["parent_form_name"].Visible = false;
+                this.DataView.Columns["menu_name"].HeaderText = "MENU";
+
+
+
 
             }
             catch (SyntaxErrorException)
@@ -554,8 +586,14 @@ namespace ULTRAMAVERICK.Forms.Users
 
      
 
-        private void doSearchGrandChildredMenu()
+        private void DoSearchGrandChildredMenu()
         {
+            if (this.ListViewmenu.Items.Count == 0)
+            {
+                return;
+            }
+
+
             try
             {
 
@@ -689,7 +727,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
              dset_emp_grandchildTagging = g_objStoredProcCollection.sp_getMajorTables("GrandChildMenuTagging"); 
      
-            doSearchGrandChildredMenu();
+            DoSearchGrandChildredMenu();
 
         }
 
@@ -760,13 +798,13 @@ namespace ULTRAMAVERICK.Forms.Users
 
         public void selectAll()
         {
-            for (int i = 0; i < dataView.RowCount; i++) { dataView.Rows[i].Cells[0].Value = true; }
+            for (int i = 0; i < DataView.RowCount; i++) { DataView.Rows[i].Cells[0].Value = true; }
             btnSelectAll.Visible = false;
     
         }
         public void deselectAll()
         {
-            for (int i = 0; i < dataView.RowCount; i++) { dataView.Rows[i].Cells[0].Value = false; }
+            for (int i = 0; i < DataView.RowCount; i++) { DataView.Rows[i].Cells[0].Value = false; }
     
         
         }
@@ -783,10 +821,20 @@ namespace ULTRAMAVERICK.Forms.Users
         {
 
             //GetMenuByUsers
-      
-            //myClass.fillListBox_Id(ListViewmenu, "filter_users", dSet, p_id, 0, 0);
+     
             myClass.fillListBox_Id_String(ListViewmenu, "filter_users", dSet, p_id, 0, this.materialTextBoxMenuAvailable.Text);
             lbltotalChildActive.Text = ListViewmenu.Items.Count.ToString();
+
+            this.SubMenuTagged = ListViewmenu.Items.Count;
+            if (this.SubMenuTagged == 0)
+            {
+                this.BtnSubMenuUntagged.Enabled = false;
+            }
+            else
+            {
+                this.BtnSubMenuUntagged.Enabled = true;
+            }
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -906,17 +954,40 @@ namespace ULTRAMAVERICK.Forms.Users
          
         }
 
+
+        private void SavePerItemsMajorMenu(DataGridViewRow row)
+        {
+
+            this.dSet =
+                this.g_objStoredProcCollection
+                .sp_user_rights_details(0, p_id,
+                Convert.ToInt32(row.Cells["menu_id"].Value),
+                "",
+                this.userFileEntity.UserFile_id.ToString(),
+                "Parent",
+                this.userFileEntity.Employee_Name,
+                row.Cells["ID"].Value.ToString(),
+                "add");
+        }
+
         private void TagParentMenu()
         {
         
            this.ShowValue();
           
-            this.dSet.Clear();
-              
-            this.dSet = g_objStoredProcCollection.sp_user_rights_details(0, p_id, Convert.ToInt32(txtmenuid.Text),"" , 
-                this.userFileEntity.UserFile_id.ToString(), "Parent", 
-                this.userFileEntity.Employee_Name, 
-                this.txtIDParent.Text.Trim(), "add");
+     
+
+            foreach (DataGridViewRow row in DgvModuelAvail.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["chkSelectedMajor"].Value) == true)
+                {
+         
+                    this.SavePerItemsMajorMenu(row);
+
+                }
+
+            }
+
 
             this.LoadMenuByUsers();
             this.loadMenu_byUsers_ParentTagged();
@@ -935,12 +1006,12 @@ namespace ULTRAMAVERICK.Forms.Users
         private void CheckChildTagging()
         {
             this.ShowValue();
-            for (int n = 0; n < dataView.RowCount; n++)
+            for (int n = 0; n < DataView.RowCount; n++)
             {
-                if (Convert.ToBoolean(dataView.Rows[n].Cells[0].Value))
+                if (Convert.ToBoolean(DataView.Rows[n].Cells[0].Value))
                 {
                     this.dSet.Clear();
-                    this.dSet = g_objStoredProcCollection.sp_getMenu_by_user("get_already_added_forms", 0, p_id, Convert.ToInt32(dataView.Rows[n].Cells[1].Value));
+                    this.dSet = g_objStoredProcCollection.sp_getMenu_by_user("get_already_added_forms", 0, p_id, Convert.ToInt32(DataView.Rows[n].Cells[1].Value));
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
                         string temp = dSet.Tables[0].Rows[0][2].ToString();
@@ -956,9 +1027,9 @@ namespace ULTRAMAVERICK.Forms.Users
         private void btnMenuUpdate_Click(object sender, EventArgs e)
         {
             int x = 0;
-            for (int i = 0; i < dataView.RowCount; i++)
+            for (int i = 0; i < DataView.RowCount; i++)
             {
-                if (Convert.ToBoolean(dataView.Rows[i].Cells[0].Value))
+                if (Convert.ToBoolean(DataView.Rows[i].Cells[0].Value))
                     x++;
             }
             if (x <= 0)
@@ -971,15 +1042,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 this.ShowValue();
 
-                for (int i = 0; i < dataView.RowCount; i++)
+                for (int i = 0; i < DataView.RowCount; i++)
                 {
                     dSet.Clear();
-                    if (Convert.ToBoolean(dataView.Rows[i].Cells[0].Value))
+                    if (Convert.ToBoolean(DataView.Rows[i].Cells[0].Value))
                     {
                         p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
-                        this.dSet = this.g_objStoredProcCollection.sp_user_rights_details(0, p_id, Convert.ToInt32(dataView.Rows[i].Cells[1].Value),"", 
+                        this.dSet = this.g_objStoredProcCollection.sp_user_rights_details(0, p_id, Convert.ToInt32(DataView.Rows[i].Cells[1].Value),"", 
                             this.userFileEntity.UserFile_id.ToString(), "Child", 
-                            this.userFileEntity.Employee_Name, Convert.ToString(dataView.Rows[i].Cells[6].Value), "add");
+                            this.userFileEntity.Employee_Name, Convert.ToString(DataView.Rows[i].Cells[6].Value), "add");
                     }
                 }
                 this.ConnectionInit();
@@ -1051,24 +1122,7 @@ namespace ULTRAMAVERICK.Forms.Users
         
         }
 
-        private void dgvParentMenu_DoubleClick(object sender, EventArgs e)
-        {
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Insert The Policy", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                TagParentMenu();
-             
-
-            }
-            else
-            {
-
-                return;
-            }
-
-
-
-        }
 
         private void dgvTagParentMenu_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -1245,24 +1299,50 @@ namespace ULTRAMAVERICK.Forms.Users
        
 
             this.ShowValue();
-       
-            dSet.Clear();
-           
-            dSet = g_objStoredProcCollection.sp_user_rights_details(0, p_id, Convert.ToInt32(txtchildprimarymenuid.Text), "", 
-                this.userFileEntity.UserFile_id.ToString(), "GrandChild", 
-                this.userFileEntity.Employee_Name, Convert.ToString(txtchildprimarymenuid.Text), "add");
+
+            foreach (DataGridViewRow row in dgvGrandChild.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["chkSelectorModule"].Value) == true)
+                {
+
+                    this.SavePerItemsModuleMenu(row);
+
+                }
+
+            }
+
+            //dSet = g_objStoredProcCollection
+            //    .sp_user_rights_details(0, p_id, Convert.ToInt32(txtchildprimarymenuid.Text), "", 
+            //    this.userFileEntity.UserFile_id.ToString(), "GrandChild", 
+            //    this.userFileEntity.Employee_Name, Convert.ToString(txtchildprimarymenuid.Text), "add");
            
 
    
-            loadMenu_byUsers_GChildTagged();
-            this.GlobalStatePopup.SaveUpdateMenuNotifications();
+
+            
+ 
             btnUnSelectAlGrandChild_Click(sender, e);
             btnCancelListViewMenu_Click(sender, e);
             ListViewmenu_Click_1(sender, e);
-         
+            this.loadMenu_byUsers_GChildTagged();
+            this.GlobalStatePopup.SaveUpdateMenuNotifications();
         }
 
-   
+        private void SavePerItemsModuleMenu(DataGridViewRow row)
+        {
+            this.dSet = g_objStoredProcCollection
+            .sp_user_rights_details(
+            0, 
+            p_id, 
+            Convert.ToInt32(row.Cells["primary_menu_id"].Value), 
+            "",
+            this.userFileEntity.UserFile_id.ToString(), 
+            "GrandChild",
+            this.userFileEntity.Employee_Name, 
+            Convert.ToString(row.Cells["primary_menu_id"].Value),
+            "add");
+        }
+
 
         private void txtchildid_TextChanged(object sender, EventArgs e)
         {
@@ -1316,12 +1396,12 @@ namespace ULTRAMAVERICK.Forms.Users
         private void CheckParentTaggingMenu()
         {
             this.ShowValue();
-            for (int n = 0; n < materialTxtModuelAvail.RowCount; n++)
+            for (int n = 0; n < DgvModuelAvail.RowCount; n++)
             {
-                if (Convert.ToBoolean(materialTxtModuelAvail.Rows[n].Cells[0].Value))
+                if (Convert.ToBoolean(DgvModuelAvail.Rows[n].Cells[0].Value))
                 {
                     this.dSet.Clear();
-                    this.dSet = g_objStoredProcCollection.sp_getMenu_by_user("get_already_added_forms_Parent", 0, p_id, Convert.ToInt32(materialTxtModuelAvail.Rows[n].Cells[1].Value));
+                    this.dSet = g_objStoredProcCollection.sp_getMenu_by_user("get_already_added_forms_Parent", 0, p_id, Convert.ToInt32(DgvModuelAvail.Rows[n].Cells[1].Value));
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
                         string temp = dSet.Tables[0].Rows[0][2].ToString();
@@ -1462,6 +1542,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 myClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, Convert.ToInt32(SelectedDataRowParent));
             
                 lbltotalGrandChildActive.Text = listBoxGrandChildTag.Items.Count.ToString();
+          
             }
          
         }
@@ -1535,7 +1616,7 @@ namespace ULTRAMAVERICK.Forms.Users
         {
             showSubMenu();
             listBoxParentTag.Enabled = false;
-            materialTxtModuelAvail.Enabled = false;
+            DgvModuelAvail.Enabled = false;
 
         }
 
@@ -1592,7 +1673,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.materialBtnShowAvailSubMenu.Visible = false;
 
             this.listBoxParentTag.Enabled = true;
-            this.materialTxtModuelAvail.Enabled = true;
+            this.DgvModuelAvail.Enabled = true;
    
             this.materialButtonUpdateSubMenu.Visible = true;
         
@@ -1614,7 +1695,7 @@ namespace ULTRAMAVERICK.Forms.Users
             MenuActivate();
         
             this.listBoxParentTag.Enabled = true;
-            this.materialTxtModuelAvail.Enabled = true;
+            this.DgvModuelAvail.Enabled = true;
             //Rights Hide
             this.materialBtnNew.Visible = false;
             this.btnEditTool.Visible = false;
@@ -1699,7 +1780,7 @@ namespace ULTRAMAVERICK.Forms.Users
          
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage4"])//your specific tabname
             {
-                MaterialBtnShowModule_Click(sender, e);
+
                 //Call tab 5
                 this.CallSubMenuOnTab5();
             }
@@ -1817,18 +1898,15 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialTxtModuelAvail_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (materialTxtModuelAvail.RowCount > 0)
+            if (this.DgvModuelAvail.RowCount > 0)
             {
-                if (materialTxtModuelAvail.CurrentRow != null)
+                if (this.DgvModuelAvail.CurrentRow != null)
                 {
-                    if (materialTxtModuelAvail.CurrentRow.Cells["menu_name"].Value != null)
+                    if (this.DgvModuelAvail.CurrentRow.Cells["menu_name"].Value != null)
                     {
-
-                        txtMaterialMenuName.Text = materialTxtModuelAvail.CurrentRow.Cells["menu_name"].Value.ToString();
-                        txtIDParent.Text = materialTxtModuelAvail.CurrentRow.Cells["ID"].Value.ToString();
-                        txtmenuid.Text = materialTxtModuelAvail.CurrentRow.Cells["menu_id"].Value.ToString();
-
-
+                        this.txtMaterialMenuName.Text = DgvModuelAvail.CurrentRow.Cells["menu_name"].Value.ToString();
+                        this.txtIDParent.Text = DgvModuelAvail.CurrentRow.Cells["ID"].Value.ToString();
+                        this.txtmenuid.Text = DgvModuelAvail.CurrentRow.Cells["menu_id"].Value.ToString();
                     }
 
                 }
@@ -1859,9 +1937,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialTxtModuelAvail_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (materialTxtModuelAvail.CurrentCell.OwningColumn == materialTxtModuelAvail.Columns["chkSelected"] && materialTxtModuelAvail.IsCurrentCellDirty)
+            if (DgvModuelAvail.CurrentCell.OwningColumn == DgvModuelAvail.Columns["chkSelected"] && DgvModuelAvail.IsCurrentCellDirty)
             {
-                materialTxtModuelAvail.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                DgvModuelAvail.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
                 //your code goes here
                 CheckParentTaggingMenu();
@@ -1872,15 +1950,22 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void Button6_Click(object sender, EventArgs e)
         {
-     
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Tagged?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            //foreach (DataGridViewRow row in DgvModuelAvail.Rows)
+            //{
+            //    if (Convert.ToBoolean(row.Cells["chkSelectedMajor"].Value) == true)
+            //    {
+            //        MessageBox.Show(row.Cells["menu_id"].Value.ToString());
+            //    }
+
+            //}
+            this.dSet.Clear();
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Tag?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.TagParentMenu();
             }
             else
             {
-
                 return;
             }
 
@@ -1894,17 +1979,17 @@ namespace ULTRAMAVERICK.Forms.Users
         private void dataView_CurrentCellChanged_1(object sender, EventArgs e)
         {
 
-            if (this.dataView.Rows.Count > 0)
+            if (this.DataView.Rows.Count > 0)
             {
-                if (this.dataView.CurrentRow != null)
+                if (this.DataView.CurrentRow != null)
                 {
-                    if (this.dataView.CurrentRow.Cells["menu_id"].Value != null)
+                    if (this.DataView.CurrentRow.Cells["menu_id"].Value != null)
                     {
-                        this.p_id = Convert.ToInt32(this.dataView.CurrentRow.Cells["menu_id"].Value);
+                        this.p_id = Convert.ToInt32(this.DataView.CurrentRow.Cells["menu_id"].Value);
 
-                        this.txtchildid.Text = this.dataView.CurrentRow.Cells["menu_id"].Value.ToString();
+                        this.txtchildid.Text = this.DataView.CurrentRow.Cells["menu_id"].Value.ToString();
 
-                        this.materialTextBoxSubMenuAvail.Text = this.dataView.CurrentRow.Cells["menu_name"].Value.ToString();
+                        this.materialTextBoxSubMenuAvail.Text = this.DataView.CurrentRow.Cells["menu_name"].Value.ToString();
 
 
                     }
@@ -2042,8 +2127,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void BtnModuleTag_Click(object sender, EventArgs e)
         {
-      
 
+            dSet.Clear();
 
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the Modules ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
@@ -2055,6 +2140,38 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 return;
             }
+        }
+
+        private void DataView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            var rowIdx = (e.RowIndex + 1).ToString();
+
+            var centerFormat = new StringFormat()
+            {
+                // right alignment might actually make more sense for numbers
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+        }
+
+        private void dgvGrandChild_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            var rowIdx = (e.RowIndex + 1).ToString();
+
+            var centerFormat = new StringFormat()
+            {
+                // right alignment might actually make more sense for numbers
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
     }
 }

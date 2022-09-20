@@ -753,5 +753,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 sa.ActivitiesLogs(userinfo.emp_name + " Remove Image");
             }
         }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

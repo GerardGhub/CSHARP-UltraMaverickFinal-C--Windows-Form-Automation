@@ -263,8 +263,14 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         }
         public void loadPositionDropDown()
         {
-            myClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, sp_drop_department_id, 0);
-            s_id = showValue(cboPosition);
+            myClass.fillComboBoxFilter(cboPosition,
+            "filter_position_dropdown",
+            dSet,
+            this.sp_dept_unit_id, 0);
+            this.s_id = showValue(cboPosition);
+
+            //myClass.fillComboBoxFilter(cboPosition, "filter_position_dropdown", dSet, sp_drop_department_id, 0);
+            //s_id = showValue(cboPosition);
 
 
         }
@@ -282,7 +288,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
             if (cbodepartment.Text.Trim() != "")
             {
-                loadPositionDropDown();
+                //loadPositionDropDown();
                 cboPosition.Text = String.Empty;
             }
         }
@@ -290,6 +296,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void cboUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
             sp_dept_unit_id = cboUnit.SelectedValue.ToString();
+            this.loadPositionDropDown();
         }
 
         private void cboPosition_SelectionChangeCommitted(object sender, EventArgs e)
@@ -551,6 +558,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
             //ths.displayUsers();
             textBox1.Text = "SaveGerardSingian";
+        }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
