@@ -57,9 +57,10 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 this.Text = "Update Unit Information";
                 this.TxtDepartmentUnit.Text = this.DeptUnit.Unit_Description;
                 this.DeptUnit.Unit_Id = DeptUnit.Unit_Id;
-                this.DeptUnit.Department = this.DeptUnit.Department;
+                //this.DeptUnit.Department = this.DeptUnit.Department;
                 this.CbDepartment.Text = this.DeptUnit.Department;
                 this.DeptUnit.Department_Id = DeptUnit.Department_Id;
+                
             }
        
         }
@@ -74,7 +75,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             myClass.fillComboBox(CbDepartment, "department_dropdown", dSet );
 
             //myClass.fillCmbTransactionNo(CbDepartment, "department_dropdown", dSet, );
-            this.DeptUnit.Department = CbDepartment.SelectedValue.ToString();
+            //this.DeptUnit.Department = CbDepartment.SelectedValue.ToString();
         }
         public void LoadCurrentDepartment()
         {
@@ -103,7 +104,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
                 else
                 {
-                this.LoadCurrentDepartment();
+                if (this.DeptUnit.Mode == "ADD") { }
+                else { this.LoadCurrentDepartment(); }
+            
                 }
 
             if (CbDepartment.Text.Trim() == string.Empty)
@@ -122,16 +125,22 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (this.DeptUnit.Mode == "ADD")
             {
                 this.DeptUnit.Department = String.Empty;
+                this.DeptUnit.Unit_Description = String.Empty;
             }
 
-            if (this.DeptUnit.Department == this.CbDepartment.Text && this.TxtDepartmentUnit.Text == this.DeptUnit.Unit_Description)
+ 
+
+            if (this.DeptUnit.Department == this.DeptUnit.Department_Id.ToString() 
+                && this.TxtDepartmentUnit.Text == this.DeptUnit.Unit_Description)
             {
                 this.SaveFunctionality();
             }
             else
             {
                 dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_DepartmentUnit(0, TxtDepartmentUnit.Text, this.DeptUnit.Department,
+                dSet = g_objStoredProcCollection
+                    .sp_DepartmentUnit(0, TxtDepartmentUnit.Text, 
+                    this.DeptUnit.Department_Id.ToString(),
                    "", "", "", "", "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
@@ -142,12 +151,11 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     TxtDepartmentUnit.Focus();
                     return;
                 }
+                else
+                {
+                    this.SaveFunctionality();
+                }
             }
-
-  
-
-
-
 
             }
 
@@ -178,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     dSet = g_objStoredProcCollection
                         .sp_DepartmentUnit(0,
                         this.TxtDepartmentUnit.Text.Trim(),
-                        this.DeptUnit.Department,
+                        this.DeptUnit.Department_Id.ToString(),
                         this.DeptUnit.Created_By,
                         this.DeptUnit.Created_By,
                        this.DeptUnit.Created_By,
@@ -214,7 +222,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     dSet = g_objStoredProcCollection
                         .sp_DepartmentUnit(this.DeptUnit.Unit_Id,
                         this.TxtDepartmentUnit.Text.Trim(),
-                        this.DeptUnit.Department,
+                        this.DeptUnit.Department_Id.ToString(),
                         this.DeptUnit.Created_By,
                         this.DeptUnit.Created_By,
                        this.DeptUnit.Created_By,
@@ -251,18 +259,24 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void materialCard1_Click(object sender, EventArgs e)
         {
-            this.LoadDepartment();
+
         }
 
         private void CbDepartment_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.DeptUnit.Department = CbDepartment.SelectedValue.ToString();
+
         }
 
         private void CbDepartment_Click(object sender, EventArgs e)
         {
             this.LoadDepartment();
             this.touch = 1;
+        }
+
+        private void CbDepartment_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            DeptUnit.Department_Id = Convert.ToInt32(CbDepartment.SelectedValue);
+
         }
     }
 }

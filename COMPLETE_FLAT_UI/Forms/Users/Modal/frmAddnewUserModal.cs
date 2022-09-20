@@ -190,7 +190,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         public void loadDepartment()
         {
-            this.myClass.fillComboBoxDepartment(Cbodepartment, "department_dropdown", dSet);
+            this.myClass.fillComboBoxDepartment(Cbodepartment, "department_dropdown_with_unit", dSet);
             this.UserFileEntity.Department = this.Cbodepartment.SelectedValue.ToString();
         }
 
@@ -572,6 +572,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 dSet, 
                 this.UserFileEntity.Unit, 0);
             this.temp_id = showValue(cboPosition);
+            //MessageBox.Show(this.UserFileEntity.Unit);
         }
         private void cbodepartment_SelectedValueChanged(object sender, EventArgs e)
         {

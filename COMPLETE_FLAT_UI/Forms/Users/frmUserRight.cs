@@ -22,7 +22,8 @@ namespace ULTRAMAVERICK.Forms.Users
         
         IStoredProcedures g_objStoredProcCollection = null;
         DataSet dSet = new DataSet();
-
+        int MajorMenuTagged = 0;
+        int MajorMenuForTagging = 0;
         string mode = "";
         int p_id = 0;
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
@@ -104,15 +105,24 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
+     
         public void loadMenu_byUsers_ParentTagged()
         {
 
-        
+        //PUki
   
             myClass.fillListBox_Id(listBoxParentTag, "filter_users_parenttagged_at_userights", dSet, p_id, 0, 0);
 
             //this.tabPage2.Text = "MAJOR MENU TAGGED " + this.listBoxParentTag.Items.Count.ToString() + " ";
-
+            this.MajorMenuTagged = this.listBoxParentTag.Items.Count;
+            if (this.MajorMenuTagged == 0)
+            {
+                this.BtnUnTaggedMajor.Enabled = false;
+            }
+            else
+            {
+                this.BtnUnTaggedMajor.Enabled = true;
+            }
         }
 
 
@@ -194,6 +204,15 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
                 this.materialTxtModuelAvail.DataSource = dv;
                 //this.tabPage3.Text = "MAJOR MENU AVAIL "+  this.materialTxtModuelAvail.RowCount.ToString() +" ";
+                this.MajorMenuForTagging = this.materialTxtModuelAvail.RowCount;
+                if(this.MajorMenuForTagging == 0)
+                {
+                    this.BtnTagMajor.Enabled = false;
+                }
+                else
+                {
+                    this.BtnTagMajor.Enabled = true;
+                }
 
             }
 

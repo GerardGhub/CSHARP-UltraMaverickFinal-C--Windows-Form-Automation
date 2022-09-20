@@ -67,6 +67,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.CbDepartment.Name = "CbDepartment";
             this.CbDepartment.Size = new System.Drawing.Size(424, 31);
             this.CbDepartment.TabIndex = 602;
+            this.CbDepartment.SelectionChangeCommitted += new System.EventHandler(this.CbDepartment_SelectionChangeCommitted);
             this.CbDepartment.SelectedValueChanged += new System.EventHandler(this.CbDepartment_SelectedValueChanged);
             this.CbDepartment.Click += new System.EventHandler(this.CbDepartment_Click);
             // 
@@ -174,6 +175,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddNewUnit";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewDepartmentUnit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddNewDepartmentUnit_FormClosing);

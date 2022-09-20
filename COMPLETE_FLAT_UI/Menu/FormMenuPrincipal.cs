@@ -452,7 +452,7 @@ namespace COMPLETE_FLAT_UI
                     {
                        this.BtnSetUp.Visible = true;
                     }
-                    else if (parent_form_name == "bt")
+                    else if (parent_form_name == "DASHBOARD")
                     {
                         btnDashBoard1.Visible = true;
                       /*  MostrarFormLogo()*/;

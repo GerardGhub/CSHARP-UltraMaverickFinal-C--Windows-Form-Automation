@@ -201,9 +201,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.cboPosition.Enabled = false;
             this.cboPosition.FormattingEnabled = true;
             this.cboPosition.ItemHeight = 23;
-            this.cboPosition.Items.AddRange(new object[] {
-            "Office",
-            "Production"});
             this.cboPosition.Location = new System.Drawing.Point(647, 100);
             this.cboPosition.Margin = new System.Windows.Forms.Padding(1);
             this.cboPosition.Name = "cboPosition";
