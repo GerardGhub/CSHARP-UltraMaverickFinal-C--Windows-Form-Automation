@@ -18,7 +18,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
     public partial class FrmAddNewModule : MaterialForm
     {
         frmModulesAvailableForms ths;
-
+        string SubMenuModuleBindId = "";
         DataSet dSet = new DataSet();
         DataSet dSetCheckAvailableMenuCount = new DataSet();
         myclasses myClass = new myclasses();
@@ -37,7 +37,8 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             string MenuName,
             string MenuFormName,
             string ParentMenu,
-            string ChildForm
+            string ChildForm,
+            int SubMenuId
             )
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.Available_Menu_GrandChild_Entity.Menu_Name = MenuName;
             this.Available_Menu_GrandChild_Entity.Menu_Form_Name = MenuFormName;
             this.Available_Menu_GrandChild_Entity.Parent_Menu = ParentMenu;
+            this.SubMenuModuleBindId = SubMenuId.ToString();
             this.Available_Menu_GrandChild_Entity.ChildForm = ChildForm;
 
         }
@@ -71,9 +73,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 this.txtgchild.Text = Available_Menu_GrandChild_Entity.Menu_Name;
                 this.txtfname.Text = Available_Menu_GrandChild_Entity.Menu_Form_Name;
                 this.cboChildMenu.Text = Available_Menu_GrandChild_Entity.ChildForm;
-                //this.cboParentMenu.Text = Available_MenuEntity.Count;
-                //this.txtmname.Text = this.Available_MenuEntity.Menu_Name;
-                //this.txtfname.Text = this.Available_MenuEntity.Menu_Form_Name;
+          
 
             }
         }
@@ -105,42 +105,11 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void cboChildMenu_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.Available_Menu_GrandChild_Entity.Parent_Menu = this.cboChildMenu.SelectedValue.ToString();
+
         }
 
         private void BtnExecute_Click(object sender, EventArgs e)
         {
-            if (this.Available_Menu_GrandChild_Entity.Mode == "Add")
-            {
-                this.dSet.Clear();
-                this.dSet = this.g_objStoredProcCollection
-                    .Sp_available_menu_grandChild(
-                    0,
-                    this.txtgchild.Text,
-                    this.Available_Menu_GrandChild_Entity.Parent_Menu,
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "getbyname");
-
-                if (this.dSet.Tables[0].Rows.Count > 0)
-                {
-                    this.GlobalStatePopup.DataAlreadyExist();
-                    this.txtgchild.Text = string.Empty;
-                    this.txtgchild.Focus();
-                    return;
-                }
-            }
-
-            if (this.cboChildMenu.Text.Trim() == string.Empty)
-            {
-                this.GlobalStatePopup.FillRequiredFields();
-                this.cboChildMenu.Focus();
-                return;
-            }
-
-
             if (this.txtgchild.Text.Trim() == string.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
@@ -155,6 +124,13 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 return;
             }
 
+            if (this.cboChildMenu.Text.Trim() == string.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboChildMenu.Focus();
+                return;
+            }
+
             if (this.Available_Menu_GrandChild_Entity.Parent_Menu == string.Empty)
             {
 
@@ -162,6 +138,63 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 this.cboChildMenu.Focus();
                 return;
             }
+
+
+            string SelectionSubMenu = "";
+
+            if (this.Available_Menu_GrandChild_Entity.Mode == "Add")
+            {
+                this.Available_Menu_GrandChild_Entity.Menu_Name = String.Empty;
+                SelectionSubMenu = SubMenuModuleBindId;
+            }
+            else
+            {
+                SelectionSubMenu = this.Available_Menu_GrandChild_Entity.Parent_Menu;
+            }
+
+            if (this.Available_Menu_GrandChild_Entity.Parent_Menu == SelectionSubMenu
+                && this.Available_Menu_GrandChild_Entity.Menu_Name == this.txtgchild.Text
+                && this.Available_Menu_GrandChild_Entity.Menu_Form_Name == this.txtfname.Text)
+
+            {
+                this.SaveFunctionality();
+            }
+            else
+            {
+                this.dSet.Clear();
+                this.dSet = this.g_objStoredProcCollection
+                    .Sp_available_menu_grandChild(
+                    0,
+                    this.txtgchild.Text,
+                    this.Available_Menu_GrandChild_Entity.Parent_Menu,
+                    this.txtfname.Text,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "getbyname");
+
+                if (this.dSet.Tables[0].Rows.Count > 0)
+                {
+                    this.GlobalStatePopup.DataAlreadyExist();
+                    this.txtgchild.Text = string.Empty;
+                    this.txtgchild.Focus();
+                    return;
+                }
+                else
+                {
+                    this.SaveFunctionality();
+                }
+            }
+
+
+
+
+            }
+
+
+        private void SaveFunctionality()
+        {
 
             if (this.Available_Menu_GrandChild_Entity.Mode == "Add")
             {
@@ -195,64 +228,28 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
             {
 
- 
 
-                if (this.Available_Menu_GrandChild_Entity.Menu_Name == this.txtgchild.Text
-                   /* && this.Available_Menu_GrandChild_Entity.Menu_Form_Name == this.txtfname.Text*/)
+
+                //Start of Edit
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
-                }
-                else
-                {
 
                     this.dSet.Clear();
-                    this.dSet = g_objStoredProcCollection
-                        .Sp_available_menu_grandChild(0,
-                        this.txtgchild.Text,
-                        this.txtfname.Text,
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "getbyname");
+                    this.dSet = this.g_objStoredProcCollection
+                    .Sp_available_menu_grandChild(
+                    this.Available_Menu_GrandChild_Entity.Menu_Id,
+                    this.txtgchild.Text.Trim(),
+                    this.txtfname.Text.Trim(),
+                    this.Available_Menu_GrandChild_Entity.Parent_Menu,
+                    this.Available_Menu_GrandChild_Entity.Created_At,
+                    this.Available_Menu_GrandChild_Entity.Created_By,
+                    this.Available_Menu_GrandChild_Entity.Updated_At,
+                    this.Available_Menu_GrandChild_Entity.Updated_By,
+                    "edit");
 
-                    if (this.dSet.Tables[0].Rows.Count > 0)
-                    {
-                        //MessageBox.Show("A");
-                        //return;
-                        this.GlobalStatePopup.DataAlreadyExist();
-                        return;
-                    }
-                    else
-                    {
-                        //MessageBox.Show("B");
-                        //return;
-                    }
-                }
-
-        
-
-                    //Start of Edit
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-
-
-                        this.dSet.Clear();
-                        this.dSet = this.g_objStoredProcCollection
-                        .Sp_available_menu_grandChild(
-                        this.Available_Menu_GrandChild_Entity.Menu_Id,
-                        this.txtgchild.Text.Trim(),
-                        this.txtfname.Text.Trim(),
-                        this.Available_Menu_GrandChild_Entity.Parent_Menu,
-                        this.Available_Menu_GrandChild_Entity.Created_At,
-                        this.Available_Menu_GrandChild_Entity.Created_By,
-                        this.Available_Menu_GrandChild_Entity.Updated_At,
-                        this.Available_Menu_GrandChild_Entity.Updated_By,
-                        "edit");
-
-                        this.GlobalStatePopup.UpdatedSuccessfully();
-                        this.Close();
+                    this.GlobalStatePopup.UpdatedSuccessfully();
+                    this.Close();
                 }
                 else
                 {
@@ -264,7 +261,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
             }
 
-            }
+        }
 
         private void LoadLoopBulkInsert()
         {
@@ -355,6 +352,11 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
+        }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

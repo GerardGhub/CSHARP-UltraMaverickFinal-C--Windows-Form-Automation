@@ -157,6 +157,7 @@ namespace ULTRAMAVERICK.Forms.Users
                         this.AvailableMenuGrandChildEntity.Created_By = dgvGrandChildForms.CurrentRow.Cells["created_by"].Value.ToString();
                         this.AvailableMenuGrandChildEntity.Updated_At = dgvGrandChildForms.CurrentRow.Cells["updated_at"].Value.ToString();
                         this.AvailableMenuGrandChildEntity.Updated_By = dgvGrandChildForms.CurrentRow.Cells["updated_by"].Value.ToString();
+                        this.AvailableMenuGrandChildEntity.SubMenuID = Convert.ToInt32(dgvGrandChildForms.CurrentRow.Cells["parent_menu"].Value);
 
                     }
                 }
@@ -179,10 +180,8 @@ namespace ULTRAMAVERICK.Forms.Users
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             mode = "add";
-            btn_visible(false);
-            txt_read_only(false);
-
-     
+            this.btn_visible(false);
+            this.txt_read_only(false);
 
 
 
@@ -195,7 +194,8 @@ namespace ULTRAMAVERICK.Forms.Users
              this.AvailableMenuGrandChildEntity.Menu_Name,
              this.AvailableMenuGrandChildEntity.Menu_Form_Name,
              this.AvailableMenuGrandChildEntity.Parent_Menu,
-             this.AvailableMenuGrandChildEntity.ChildForm);
+             this.AvailableMenuGrandChildEntity.ChildForm,
+             this.AvailableMenuGrandChildEntity.SubMenuID);
             addNew.ShowDialog();
 
 
@@ -223,7 +223,8 @@ namespace ULTRAMAVERICK.Forms.Users
                  this.AvailableMenuGrandChildEntity.Menu_Name,
                  this.AvailableMenuGrandChildEntity.Menu_Form_Name,
                  this.AvailableMenuGrandChildEntity.Parent_Menu,
-                 this.AvailableMenuGrandChildEntity.ChildForm);
+                 this.AvailableMenuGrandChildEntity.ChildForm,
+                 this.AvailableMenuGrandChildEntity.SubMenuID);
                  addNew.ShowDialog();
             }
         }

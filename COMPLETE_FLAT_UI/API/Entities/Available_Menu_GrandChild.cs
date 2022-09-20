@@ -21,5 +21,6 @@ namespace ULTRAMAVERICK.API.Entities
         public int UserRightsId { get; set; }
         public string ChildForm { get; set; }
         public string Mode { get; set; }
+        public int SubMenuID { get; set; }
     }
 }
