@@ -234,7 +234,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             {
                 if (this.matRadioActive.Checked == true)
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         this.mode = "delete";
                         this.dSet_temp.Clear();
@@ -260,7 +260,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 else
 
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         this.mode = "activate";
                         this.dSet_temp.Clear();

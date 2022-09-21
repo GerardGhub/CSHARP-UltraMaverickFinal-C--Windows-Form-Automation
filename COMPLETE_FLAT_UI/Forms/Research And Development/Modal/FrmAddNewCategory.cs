@@ -69,19 +69,19 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
                 this.Text = "Update Warehouses";
-                this.materialButton1.Text = "UPDATE";
+                this.materialButton1.Text = "SAVE";
                 this.SubCategoryEntity.Sc_Updated_By = this.SubCategoryEntity.Sc_Updated_By;
                 this.SubCategoryEntity.Sub_Category_Id = this.SubCategoryEntity.Sub_Category_Id;
                 this.TxtSubCategory.Text = SubCategoryEntity.Sub_Category_Desc;
                 this.SubCategoryEntity.Sub_Category_Desc = SubCategoryEntity.Sub_Category_Desc;
                 this.SubCategoryEntity.Is_Expirable = this.SubCategoryEntity.Is_Expirable;
 
-                if (this.SubCategoryEntity.Is_Expirable == "1")
+                if (this.SubCategoryEntity.Is_Expirable == "EXPIRABLE")
                 {
                     this.matRadioExpirable.Checked = true;
                     this.matRadioNotExpirable.Checked = false;
                 }
-                else if (this.SubCategoryEntity.Is_Expirable == "0")
+                else if (this.SubCategoryEntity.Is_Expirable == "NON-EXPIRABLE")
                 {
                     matRadioExpirable.Checked = false;
                     matRadioNotExpirable.Checked = true;
@@ -244,6 +244,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void AddNewCategory_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.textBox1.Text = "Gerard Singian";
+        }
+
+        private void MatbtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

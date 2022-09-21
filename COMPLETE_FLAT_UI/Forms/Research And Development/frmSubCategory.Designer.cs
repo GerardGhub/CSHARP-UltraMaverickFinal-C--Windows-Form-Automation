@@ -316,7 +316,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
             this.matBtnDelete.Size = new System.Drawing.Size(97, 33);
-            this.matBtnDelete.Text = "&Remove";
+            this.matBtnDelete.Text = "&InActive";
             this.matBtnDelete.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // matBtnSave

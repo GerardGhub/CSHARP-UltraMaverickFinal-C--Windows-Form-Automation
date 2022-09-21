@@ -65,7 +65,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
                 this.Text = "Update Warehouses";
-                this.materialButton1.Text = "UPDATE";
+                this.materialButton1.Text = "SAVE";
                 this.MajorCategoryEntity.Mc_Updated_By = this.MajorCategoryEntity.Mc_Updated_By;
                 this.MajorCategoryEntity.Major_Category_Id = this.MajorCategoryEntity.Major_Category_Id;
                 this.TxtMajorCategory.Text = MajorCategoryEntity.Major_Category_Desc;
@@ -159,7 +159,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
                 // CPU - Bound or IO-Bound operations
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = this.g_objStoredProcCollection
@@ -188,6 +188,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void TxtMajorCategory_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

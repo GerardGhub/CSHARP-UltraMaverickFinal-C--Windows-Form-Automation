@@ -161,7 +161,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (this.matRadioActive.Checked == true)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
 
 
@@ -174,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "",
                             "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
@@ -191,7 +191,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 else
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
 
@@ -204,7 +204,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "",
                             "activate");
                         this.GlobalStatePopup.ActivatedSuccessfully();

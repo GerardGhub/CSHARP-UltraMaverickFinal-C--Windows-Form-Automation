@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
                 this.Text = "Update Primary Unit";
-                this.materialButton1.Text = "UPDATE";
+                this.materialButton1.Text = "SAVE";
                 this.PrimaryUnitEntity.Pm_Updated_By = this.PrimaryUnitEntity.Pm_Updated_By;
                 this.PrimaryUnitEntity.Unit_Id = this.PrimaryUnitEntity.Unit_Id;
                 this.TxtMatPrimaryUnit.Text = PrimaryUnitEntity.Unit_Desc;
@@ -139,7 +139,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             if (this.PrimaryUnitEntity.Mode == "ADD")
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                         this.dSet.Clear();
                         this.dSet = this.g_objStoredProcCollection
@@ -162,7 +162,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the new data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = this.g_objStoredProcCollection
@@ -188,6 +188,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void TxtMatPrimaryUnit_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
