@@ -324,7 +324,7 @@ namespace COMPLETE_FLAT_UI
         private void RoundPictureAss()
         {
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
-            gp.AddEllipse(0, 0, pbImage.Width - 3, pbImage.Height - 3);
+            gp.AddEllipse(0, 0, pbImage.Width - 10, pbImage.Height - 3);
             Region rg = new Region(gp);
             pbImage.Region = rg;
         }
@@ -553,7 +553,10 @@ namespace COMPLETE_FLAT_UI
                     );
 
 
-                this.ShowInTaskbar = false;
+                //this.ShowInTaskbar = false;
+                btnMaximizedFinal_Click(sender, e);
+
+
 
             }
 
@@ -786,7 +789,7 @@ namespace COMPLETE_FLAT_UI
             btnNormalFinal.Visible = true;
 
 
-            this.ShowInTaskbar = false;
+            //this.ShowInTaskbar = false;
 
         }
 
@@ -801,20 +804,15 @@ namespace COMPLETE_FLAT_UI
 
         private void btnCloseFinal_Click(object sender, EventArgs e)
         {
-            //UpdateUserPasswordModal uptsetting = new UpdateUserPasswordModal();
-            //uptsetting.ShowDialog();
+          
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                //this.Close();
+    
 
-                //frmLoginForm Login = new frmLoginForm();
-                //Login.ShowDialog();
-
-                //this.Hide();
-                //frmLoginForm sistema = new frmLoginForm();
-                //sistema.ShowDialog();
-
-                Application.Exit();
+                this.Hide();
+                frmLoginForm sistema = new frmLoginForm();
+                sistema.ShowDialog();
+                this.Close();
             }
             else
             {

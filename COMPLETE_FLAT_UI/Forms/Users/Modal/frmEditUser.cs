@@ -372,7 +372,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void SaveFunctionality()
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save " + txtname.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (txtname.Text.Trim() == "")
                 {
@@ -466,100 +466,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         }
      
 
-        private void metroButtonSave_Click(object sender, EventArgs e)
-        {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save " + txtname.Text + "", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                if (txtname.Text.Trim() == "")
-                {
-
-
-                    this.GlobalStatePopup.FillRequiredFields();
-                    txtname.BackColor = Color.Yellow;
-                    txtname.Focus();
-                    return;
-                }
-                if (txtLastName.Text.Trim() == "")
-                {
-
-
-                    this.GlobalStatePopup.FillRequiredFields();
-                    txtLastName.BackColor = Color.Yellow;
-                    txtLastName.Focus();
-                    return;
-                }
-                if (cbousertype.Text.Trim() == "")
-                {
-
-                    this.GlobalStatePopup.FillRequiredFields();
-                    cbousertype.BackColor = Color.Yellow;
-                    cbousertype.Focus();
-                    return;
-                }
-                if (cboPosition.Text.Trim() == "")
-                {
-
-                    this.GlobalStatePopup.FillRequiredFields();
-                    cboPosition.BackColor = Color.Yellow;
-                    cboPosition.Focus();
-                    return;
-                }
-     
-                if (txtuser.Text.Trim() == "")
-                {
-
-                    this.GlobalStatePopup.FillRequiredFields();
-                    txtuser.BackColor = Color.Yellow;
-                    txtuser.Focus();
-                    return;
-                }
-                if (txtpassword.Text.Trim() == "")
-                {
-
-                    this.GlobalStatePopup.FillRequiredFields();
-                    txtpassword.BackColor = Color.Yellow;
-                    txtpassword.Focus();
-                    return;
-                }
-                if (lblGenderSelected.Text.Trim() == "")
-                {
-                    this.GlobalStatePopup.FillRequiredFields();
-
-                    return;
-                }
-                else
-                {
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_userfile(primary_key,
-                        Convert.ToInt32(cbousertype.SelectedValue.ToString()),
-                        txtuser.Text.Trim(),
-                        txtpassword.Text.Trim(),
-                        txtname.Text.Trim(),
-                        CmbLocation.Text.Trim(),
-                        cmbNotif.Text.Trim(),
-                        sp_position_id,
-                        txtLastName.Text.Trim(),
-                        sp_drop_department_id,
-                        sp_requestor_type_id,
-                        sp_dept_unit_id,
-                        lblGenderSelected.Text.Trim(), imageByte,
-                        "edit");
-                    this.GlobalStatePopup.SuccessFullySave();
-                    textBox1.Text = "SaveGerardSingian";
-                    this.Close();
-            
-                }
-                CmbLocation.Enabled = false;
-                cmbNotif.Enabled = false;
-                txtname.Enabled = false;
-
-            }
-            else
-            {
-
-                return;
-            }
-        }
+      
    
         private Boolean readImageByte(String path)
         {
