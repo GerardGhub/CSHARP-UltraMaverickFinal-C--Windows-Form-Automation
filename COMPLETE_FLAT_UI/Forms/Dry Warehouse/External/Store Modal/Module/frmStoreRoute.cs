@@ -16,14 +16,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
     public partial class FrmStoreRoute : MaterialForm
     {
-
-        IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         DateTime dNow = DateTime.Now;
         DataSet dSet_temp = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        TblRoute TblRouteEntity = new TblRoute();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly TblRoute TblRouteEntity = new TblRoute();
  
         public FrmStoreRoute()
         {
@@ -329,7 +328,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 //
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {

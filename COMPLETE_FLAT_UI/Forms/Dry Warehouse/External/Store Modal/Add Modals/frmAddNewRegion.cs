@@ -68,7 +68,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             else
             {
                 this.Text = "Update Region";
-                this.matbtnSave.Text = "UPDATE";
+                this.matbtnSave.Text = "SAVE";
                 this.TblRegionEntity.Added_By = this.TblRegionEntity.Added_By;
                 this.matTxtRegion.Text = this.TblRegionEntity.Region_Description;
             }

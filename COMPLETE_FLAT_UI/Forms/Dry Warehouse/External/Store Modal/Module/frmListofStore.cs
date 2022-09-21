@@ -170,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to inactive?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
                     dSet.Clear();
@@ -200,7 +200,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     dSet.Clear();

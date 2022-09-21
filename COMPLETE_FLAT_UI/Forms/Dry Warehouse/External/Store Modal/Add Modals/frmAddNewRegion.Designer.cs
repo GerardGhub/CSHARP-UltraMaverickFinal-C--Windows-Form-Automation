@@ -34,7 +34,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.matbtnSave = new MaterialSkin.Controls.MaterialButton();
             this.MatBtnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -87,7 +89,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.matbtnSave.DrawShadows = true;
             this.matbtnSave.HighEmphasis = true;
             this.matbtnSave.Icon = null;
-            this.matbtnSave.Location = new System.Drawing.Point(34, 306);
+            this.matbtnSave.Location = new System.Drawing.Point(4, 6);
             this.matbtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matbtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnSave.Name = "matbtnSave";
@@ -106,7 +108,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.MatBtnCancel.DrawShadows = true;
             this.MatBtnCancel.HighEmphasis = true;
             this.MatBtnCancel.Icon = null;
-            this.MatBtnCancel.Location = new System.Drawing.Point(452, 306);
+            this.MatBtnCancel.Location = new System.Drawing.Point(70, 6);
             this.MatBtnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnCancel.Name = "MatBtnCancel";
@@ -118,14 +120,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.MatBtnCancel.UseVisualStyleBackColor = true;
             this.MatBtnCancel.Click += new System.EventHandler(this.MatBtnCancel_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.matbtnSave, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.MatBtnCancel, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(379, 299);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(151, 49);
+            this.tableLayoutPanel1.TabIndex = 479;
+            // 
             // frmAddNewRegion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 357);
-            this.Controls.Add(this.MatBtnCancel);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.matbtnSave);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddNewRegion";
@@ -136,8 +151,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.Load += new System.EventHandler(this.frmAddNewRegion_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -148,5 +164,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton matbtnSave;
         private MaterialSkin.Controls.MaterialButton MatBtnCancel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

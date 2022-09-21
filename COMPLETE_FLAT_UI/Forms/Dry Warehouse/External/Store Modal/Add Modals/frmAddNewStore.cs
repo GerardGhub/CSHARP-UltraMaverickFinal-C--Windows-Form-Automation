@@ -20,15 +20,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
     public partial class frmAddNewStore : MaterialForm
     {
         //Main Constructor Bugok
-        myclasses myClass = new myclasses();
-        IStoredProcedures g_objStoredProcCollection = null;
-
+        readonly myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
         DataSet dSet_temp = new DataSet();
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
-        Boolean ready = false;
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly Tbl_Stores Tbl_StoresEntity = new Tbl_Stores();
         DataSet dSet = new DataSet();
-        string mode = "";
         frmListofStore ths;
 
 
@@ -169,7 +166,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 this.dSet.Clear();
