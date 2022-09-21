@@ -30,11 +30,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.TxtmatAverageqty = new MaterialSkin.Controls.MaterialTextBox();
             this.Txtmatavgdescription = new MaterialSkin.Controls.MaterialTextBox();
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.MatBtnSave = new MaterialSkin.Controls.MaterialButton();
-            this.TxtmatAverageqty = new MaterialSkin.Controls.MaterialTextBox();
+            this.BtnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -51,6 +54,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(495, 200);
             this.materialCard1.TabIndex = 479;
+            // 
+            // TxtmatAverageqty
+            // 
+            this.TxtmatAverageqty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtmatAverageqty.Depth = 0;
+            this.TxtmatAverageqty.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtmatAverageqty.Hint = "Average Quantity";
+            this.TxtmatAverageqty.Location = new System.Drawing.Point(42, 112);
+            this.TxtmatAverageqty.MaxLength = 50;
+            this.TxtmatAverageqty.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtmatAverageqty.Multiline = false;
+            this.TxtmatAverageqty.Name = "TxtmatAverageqty";
+            this.TxtmatAverageqty.Size = new System.Drawing.Size(401, 50);
+            this.TxtmatAverageqty.TabIndex = 1;
+            this.TxtmatAverageqty.Text = "";
+            this.TxtmatAverageqty.TextChanged += new System.EventHandler(this.TxtmatAverageqty_TextChanged);
+            this.TxtmatAverageqty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtmatAverageqty_KeyPress);
             // 
             // Txtmatavgdescription
             // 
@@ -73,7 +93,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             // 
             this.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox1.Location = new System.Drawing.Point(209, 304);
+            this.TextBox1.Location = new System.Drawing.Point(96, 304);
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Size = new System.Drawing.Size(145, 20);
             this.TextBox1.TabIndex = 481;
@@ -88,7 +108,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.MatBtnSave.DrawShadows = true;
             this.MatBtnSave.HighEmphasis = true;
             this.MatBtnSave.Icon = null;
-            this.MatBtnSave.Location = new System.Drawing.Point(470, 304);
+            this.MatBtnSave.Location = new System.Drawing.Point(4, 6);
             this.MatBtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnSave.Name = "MatBtnSave";
@@ -101,31 +121,48 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.MatBtnSave.Visible = false;
             this.MatBtnSave.Click += new System.EventHandler(this.materialButton1_Click);
             // 
-            // TxtmatAverageqty
+            // BtnCancel
             // 
-            this.TxtmatAverageqty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtmatAverageqty.Depth = 0;
-            this.TxtmatAverageqty.Font = new System.Drawing.Font("Roboto", 12F);
-            this.TxtmatAverageqty.Hint = "Average Quantity";
-            this.TxtmatAverageqty.Location = new System.Drawing.Point(42, 112);
-            this.TxtmatAverageqty.MaxLength = 50;
-            this.TxtmatAverageqty.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtmatAverageqty.Multiline = false;
-            this.TxtmatAverageqty.Name = "TxtmatAverageqty";
-            this.TxtmatAverageqty.Size = new System.Drawing.Size(401, 50);
-            this.TxtmatAverageqty.TabIndex = 1;
-            this.TxtmatAverageqty.Text = "";
-            this.TxtmatAverageqty.TextChanged += new System.EventHandler(this.TxtmatAverageqty_TextChanged);
-            this.TxtmatAverageqty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtmatAverageqty_KeyPress);
+            this.BtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnCancel.Depth = 0;
+            this.BtnCancel.DrawShadows = true;
+            this.BtnCancel.HighEmphasis = true;
+            this.BtnCancel.Icon = null;
+            this.BtnCancel.Location = new System.Drawing.Point(70, 6);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.BtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.BtnCancel.TabIndex = 481;
+            this.BtnCancel.Text = "CANCEL";
+            this.BtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtnCancel.UseAccentColor = false;
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Visible = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.BtnCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.MatBtnSave, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 298);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(151, 49);
+            this.tableLayoutPanel1.TabIndex = 482;
             // 
             // FrmAddNewOrderTrend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 357);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.TextBox1);
-            this.Controls.Add(this.MatBtnSave);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddNewOrderTrend";
@@ -135,6 +172,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAddNewOrderTrend_FormClosed);
             this.Load += new System.EventHandler(this.FrmAddNewOrderTrend_Load);
             this.materialCard1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +186,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         private System.Windows.Forms.TextBox TextBox1;
         private MaterialSkin.Controls.MaterialButton MatBtnSave;
         private MaterialSkin.Controls.MaterialTextBox TxtmatAverageqty;
+        private MaterialSkin.Controls.MaterialButton BtnCancel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
