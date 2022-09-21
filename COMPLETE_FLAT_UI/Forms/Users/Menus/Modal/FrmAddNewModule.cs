@@ -145,11 +145,13 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             if (this.Available_Menu_GrandChild_Entity.Mode == "Add")
             {
                 this.Available_Menu_GrandChild_Entity.Menu_Name = String.Empty;
-                SelectionSubMenu = SubMenuModuleBindId;
+                //SelectionSubMenu = SubMenuModuleBindId;
+                SelectionSubMenu = this.Available_Menu_GrandChild_Entity.Parent_Menu;
             }
             else
             {
-                SelectionSubMenu = this.Available_Menu_GrandChild_Entity.Parent_Menu;
+                //SelectionSubMenu = this.Available_Menu_GrandChild_Entity.Parent_Menu;
+                SelectionSubMenu = SubMenuModuleBindId;
             }
 
             if (this.Available_Menu_GrandChild_Entity.Parent_Menu == SelectionSubMenu
@@ -180,6 +182,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 {
                     this.GlobalStatePopup.DataAlreadyExist();
                     this.txtgchild.Text = string.Empty;
+                    this.txtfname.Text = string.Empty;
                     this.txtgchild.Focus();
                     return;
                 }
@@ -230,35 +233,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
             {
 
-                if (this.Available_Menu_GrandChild_Entity.Parent_Menu == SubMenuModuleBindId)
-                {
-
-                }
-                else
-                {
-                    this.dSet.Clear();
-                    this.dSet = this.g_objStoredProcCollection
-                        .sp_available_menu_grandChild(
-                        0,
-                        this.txtgchild.Text,
-                             this.txtfname.Text,
-                        SubMenuModuleBindId,
-
-                        "",
-                        "",
-                        "",
-                        "",
-                        "getbyname");
-
-                    if (this.dSet.Tables[0].Rows.Count > 0)
-                    {
-                        this.GlobalStatePopup.DataAlreadyExist();
-                        this.txtgchild.Text = string.Empty;
-                        this.txtgchild.Focus();
-                        return;
-                    }
-                 
-                }
+           
 
       
 
