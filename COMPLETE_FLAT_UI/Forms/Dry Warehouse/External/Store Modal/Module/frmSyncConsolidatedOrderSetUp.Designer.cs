@@ -69,7 +69,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(890, 731);
+            this.lbltotalrecords.Location = new System.Drawing.Point(878, 675);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 584;
@@ -86,12 +86,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard1.Depth = 0;
             this.materialCard1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(17, 80);
+            this.materialCard1.Location = new System.Drawing.Point(17, 85);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(973, 66);
+            this.materialCard1.Size = new System.Drawing.Size(963, 66);
             this.materialCard1.TabIndex = 586;
             // 
             // panel1
@@ -194,7 +194,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(947, 745);
+            this.label2.Location = new System.Drawing.Point(935, 689);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 587;
@@ -259,7 +259,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.DgvSyncConsoLidatedOrder.RowTemplate.DividerHeight = 5;
             this.DgvSyncConsoLidatedOrder.RowTemplate.Height = 40;
             this.DgvSyncConsoLidatedOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvSyncConsoLidatedOrder.Size = new System.Drawing.Size(963, 559);
+            this.DgvSyncConsoLidatedOrder.Size = new System.Drawing.Size(953, 450);
             this.DgvSyncConsoLidatedOrder.TabIndex = 5;
             this.DgvSyncConsoLidatedOrder.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.DgvSyncConsoLidatedOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -354,12 +354,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard2.Controls.Add(this.DgvSyncConsoLidatedOrder);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(17, 154);
+            this.materialCard2.Location = new System.Drawing.Point(17, 196);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(973, 571);
+            this.materialCard2.Size = new System.Drawing.Size(963, 462);
             this.materialCard2.TabIndex = 585;
             // 
             // frmSyncConsolidatedOrderSetUp

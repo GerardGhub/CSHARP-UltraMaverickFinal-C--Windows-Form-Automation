@@ -41,13 +41,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.MatBtnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.metroCmbRegion);
+            this.materialCard1.Controls.Add(this.textBox1);
+            this.materialCard1.Controls.Add(this.label1);
             this.materialCard1.Controls.Add(this.materialLabel3);
             this.materialCard1.Controls.Add(this.cmbStoreArea);
             this.materialCard1.Controls.Add(this.cmbStoreRoute);
@@ -167,7 +172,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 604);
+            this.label1.Location = new System.Drawing.Point(93, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(262, 13);
             this.label1.TabIndex = 483;
@@ -180,9 +185,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(34, 622);
+            this.textBox1.Location = new System.Drawing.Point(361, 17);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 20);
+            this.textBox1.Size = new System.Drawing.Size(97, 20);
             this.textBox1.TabIndex = 482;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Visible = false;
@@ -195,7 +200,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(461, 604);
+            this.materialButton1.Location = new System.Drawing.Point(4, 6);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -207,15 +212,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialButton1.UseVisualStyleBackColor = true;
             this.materialButton1.Click += new System.EventHandler(this.MaterialButton1_Click);
             // 
+            // MatBtnCancel
+            // 
+            this.MatBtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MatBtnCancel.Depth = 0;
+            this.MatBtnCancel.DrawShadows = true;
+            this.MatBtnCancel.HighEmphasis = true;
+            this.MatBtnCancel.Icon = null;
+            this.MatBtnCancel.Location = new System.Drawing.Point(70, 6);
+            this.MatBtnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.MatBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatBtnCancel.Name = "MatBtnCancel";
+            this.MatBtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.MatBtnCancel.TabIndex = 482;
+            this.MatBtnCancel.Text = "CANCEL";
+            this.MatBtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.MatBtnCancel.UseAccentColor = false;
+            this.MatBtnCancel.UseVisualStyleBackColor = true;
+            this.MatBtnCancel.Click += new System.EventHandler(this.MatBtnCancel_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.MatBtnCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.materialButton1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(379, 601);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(155, 49);
+            this.tableLayoutPanel1.TabIndex = 483;
+            // 
             // FrmEditStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 655);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.materialButton1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmEditStore";
@@ -226,8 +262,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.Load += new System.EventHandler(this.frmEditStore_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -245,5 +282,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.ComboBox cmbStoreArea;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.ComboBox metroCmbRegion;
+        private MaterialSkin.Controls.MaterialButton MatBtnCancel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

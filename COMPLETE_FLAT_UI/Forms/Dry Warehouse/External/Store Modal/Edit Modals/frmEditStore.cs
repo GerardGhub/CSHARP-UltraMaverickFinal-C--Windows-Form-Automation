@@ -186,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void SaveFunctionaliTY()
         {
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 dSet.Clear();
@@ -239,6 +239,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void mattxtStoreName_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

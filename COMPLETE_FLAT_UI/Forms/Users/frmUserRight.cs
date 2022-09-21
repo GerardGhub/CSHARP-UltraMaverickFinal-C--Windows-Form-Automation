@@ -1125,11 +1125,15 @@ namespace ULTRAMAVERICK.Forms.Users
             }
 
 
- 
+            this.ConnectionInit();
             btnUnSelectAlGrandChild_Click(sender, e);
             btnCancelListViewMenu_Click(sender, e);
             ListViewmenu_Click_1(sender, e);
-            this.loadMenu_byUsers_GChildTagged();
+            //this.loadMenu_byUsers_GChildTagged();
+            this.LoadModule();
+
+
+            //this.listViewuser_rights_SelectedIndexChanged(sender, e);
             this.GlobalStatePopup.SaveUpdateMenuNotifications();
         }
 
@@ -1729,16 +1733,9 @@ namespace ULTRAMAVERICK.Forms.Users
         private void Button6_Click(object sender, EventArgs e)
         {
 
-            //foreach (DataGridViewRow row in DgvModuelAvail.Rows)
-            //{
-            //    if (Convert.ToBoolean(row.Cells["chkSelectedMajor"].Value) == true)
-            //    {
-            //        MessageBox.Show(row.Cells["menu_id"].Value.ToString());
-            //    }
-
-            //}
+         
             this.dSet.Clear();
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Tag?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Tag?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.TagParentMenu();
             }
@@ -1784,10 +1781,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void BtnSubMenuTag_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.btnMenuUpdate_Click(sender, e);
-                //this.ParentForm.Refresh();
+     
 
             }
             else
@@ -1908,7 +1905,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             dSet.Clear();
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the Modules ?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 btnTaggingGchild_Click(sender, e);
 
