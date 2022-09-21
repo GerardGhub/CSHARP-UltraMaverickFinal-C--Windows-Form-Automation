@@ -257,7 +257,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         "", 
                         "", 
                         userinfo.user_id.ToString(), 
-                        "",
+                        userinfo.user_id.ToString(),
                         "delete");
                     this.GlobalStatePopup.InactiveSuccessfully();
                     this.FrmItemClass_Load(sender, e);
@@ -270,7 +270,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             }
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     mode = "activate";
@@ -282,7 +282,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         "",
                         "",
                         userinfo.user_id.ToString(),
-                        "",
+                        userinfo.user_id.ToString(),
                         "activate");
                     this.GlobalStatePopup.ActivatedSuccessfully();
                     this.FrmItemClass_Load(sender, e);

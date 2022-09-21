@@ -34,13 +34,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.TxtMatItemClass);
+            this.materialCard1.Controls.Add(this.textBox1);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(35, 90);
@@ -71,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(210, 307);
+            this.textBox1.Location = new System.Drawing.Point(206, 32);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 478;
@@ -86,7 +89,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(35, 306);
+            this.materialButton1.Location = new System.Drawing.Point(4, 6);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -105,7 +108,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.materialButton2.DrawShadows = true;
             this.materialButton2.HighEmphasis = true;
             this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(453, 305);
+            this.materialButton2.Location = new System.Drawing.Point(70, 6);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
@@ -117,15 +120,27 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.materialButton2.UseVisualStyleBackColor = true;
             this.materialButton2.Click += new System.EventHandler(this.materialButton2_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.materialButton2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.materialButton1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(381, 301);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(152, 49);
+            this.tableLayoutPanel1.TabIndex = 480;
+            // 
             // FrmAddNewItemClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 357);
-            this.Controls.Add(this.materialButton2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.materialButton1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddNewItemClass";
@@ -135,8 +150,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAddNewItemClass_FormClosed);
             this.Load += new System.EventHandler(this.FrmAddNewItemClass_Load);
             this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -147,5 +164,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

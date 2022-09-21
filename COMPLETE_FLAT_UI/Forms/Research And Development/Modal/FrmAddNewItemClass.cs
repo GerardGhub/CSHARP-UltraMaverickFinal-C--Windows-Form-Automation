@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
                 this.Text = "Update Item Class";
-                this.materialButton1.Text = "UPDATE";
+                this.materialButton1.Text = "SAVE";
                 this.Item_ClassEntity.Item_Updated_By = this.Item_ClassEntity.Item_Updated_By;
                 this.Item_ClassEntity.Item_Class_Id = this.Item_ClassEntity.Item_Class_Id;
                 this.TxtMatItemClass.Text = Item_ClassEntity.Item_Class_Desc;
@@ -144,7 +144,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         {
             if (this.Item_ClassEntity.Mode == "ADD")
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
 
                     this.dSet.Clear();
@@ -170,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the new data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     this.dSet.Clear();
