@@ -20,6 +20,7 @@ namespace ULTRAMAVERICK.Models
         //public static string confirmPassword;
         public user_infos muser_infos = new user_infos();
         public string SubCategory { get; set; }
+        public string PrimaryMenuId { get; set; }
         public DataSet DataSetRMMoverOrderReceipt  = new DataSet();
         public DataSet DataSetRMMoverOrderIssue = new DataSet();
         public DataSet getTable(string eTablename)
@@ -90,6 +91,7 @@ namespace ULTRAMAVERICK.Models
         }
         public void fillListBox_Id(ListBox eListBox, string eTablename, DataSet dSet, int id, int userRightsId, int menuId)
         {
+
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
             dSet = g_objStoredProcFill.sp_getMenu_by_user(eTablename, id, userRightsId, menuId);
@@ -97,8 +99,29 @@ namespace ULTRAMAVERICK.Models
             eListBox.DataSource = dSet.Tables[0];
             eListBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
             eListBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+            //int Contract_id = Convert.ToInt32(dSet.Tables[0].Rows[0]["LatestNumber"]);
+   
+
             g_objStoredProcFill = null;
         }
+
+        public void fillListBox_Modules(ListBox eListBox, string eTablename, DataSet dSet, int id, int userRightsId, int menuId)
+        {
+
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSet.Clear();
+            dSet = g_objStoredProcFill.sp_getMenu_by_user(eTablename, id, userRightsId, menuId);
+
+            eListBox.DataSource = dSet.Tables[0];
+            eListBox.DisplayMember = dSet.Tables[0].Columns[1].ToString();
+            eListBox.ValueMember = dSet.Tables[0].Columns[0].ToString();
+            //int Contract_id = Convert.ToInt32(dSet.Tables[0].Rows[0]["LatestNumber"]);
+
+            this.PrimaryMenuId = dSet.Tables[0].Rows[0].ToString();
+            g_objStoredProcFill = null;
+        }
+
+
 
 
         public void fillListBox_Id_String(ListBox eListBox, string eTablename, DataSet dSet, int id, int userRightsId, string menuName)

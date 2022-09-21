@@ -972,10 +972,13 @@ namespace ULTRAMAVERICK.Forms.Users
                         p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
                     }
                     dSet_temp.Clear();
-                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
+                    //dSet_temp = g_objStoredProcCollection.sp_user_rights_details(pkey, "inactive_parent_user_rights_logs");
+                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, userinfo.user_id, 0, "", "", "", "", materialTextBoxMenuAvailable.Text.Trim(), "inactive_parent_user_rights_logs");
+
 
                     dSet_temp.Clear();
-                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0,0,"","","","",materialTextBoxMenuAvailable.Text.Trim(), "delete_LogsParent");
+                    dSet_temp = g_objStoredProcCollection
+                        .sp_user_rights_details(p_id, userinfo.user_id,0,"","","","",materialTextBoxMenuAvailable.Text.Trim(), "delete_LogsParent");
 
                    
 
@@ -1810,11 +1813,13 @@ namespace ULTRAMAVERICK.Forms.Users
                     }
 
                     dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
+                    //dSet = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
+                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, userinfo.user_id, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "inactive_sub_menu_user_rights_logs");
+
 
 
                     dSet_temp.Clear();
-                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
+                    dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, userinfo.user_id, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
 
 
 
@@ -1837,6 +1842,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void button5_Click(object sender, EventArgs e)
         {
+
+         
+
+
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to untagged the data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
 
@@ -1848,10 +1857,12 @@ namespace ULTRAMAVERICK.Forms.Users
                     {
                         p_id = Convert.ToInt32(listViewuser_rights.SelectedValue.ToString());
                     }
-
+             
                     this.dSet_temp.Clear();
-                    this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
+                    //this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, "delete");
+                    this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, userinfo.user_id, 0, "", "", "", "", txtGChildName.Text.Trim(), "delete");
 
+                    //this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(pkey, "delete");
 
                     this.dSet_temp.Clear();
                     this.dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, 0, 0, "", "", "", "", txtGChildName.Text.Trim(), "delete_LogsGChild");
@@ -1907,7 +1918,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                btnTaggingGchild_Click(sender, e);
+                this.btnTaggingGchild_Click(sender, e);
 
             }
             else
