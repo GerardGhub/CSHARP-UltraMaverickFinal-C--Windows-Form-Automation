@@ -287,7 +287,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
                         mode = "delete";
@@ -320,7 +320,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         dSet_temp.Clear();

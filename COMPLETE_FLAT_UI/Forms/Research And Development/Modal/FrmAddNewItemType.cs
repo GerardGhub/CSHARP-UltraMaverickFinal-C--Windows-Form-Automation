@@ -61,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
                 this.Text = "Update Primary Unit";
-                this.materialButton1.Text = "UPDATE";
+                this.materialButton1.Text = "SAVE";
                 this.ItemTypeEntity.It_Updated_By = this.ItemTypeEntity.It_Updated_By;
                 this.ItemTypeEntity.Item_Type_Id = this.ItemTypeEntity.Item_Type_Id;
                 this.TxtMatItemType.Text = this.ItemTypeEntity.Item_Type_Desc;
@@ -124,7 +124,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         {
             if (this.ItemTypeEntity.Mode == "ADD")
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_Item_Type(0,
@@ -149,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the new data", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_Item_Type(
@@ -185,6 +185,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void FrmAddNewItemType_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.textBox1.Text = "Gerard Singian";
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -307,7 +307,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
                         mode = "delete";
@@ -338,7 +338,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         mode = "delete_activation";

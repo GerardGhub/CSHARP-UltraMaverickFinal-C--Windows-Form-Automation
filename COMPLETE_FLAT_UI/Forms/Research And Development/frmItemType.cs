@@ -259,12 +259,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         this.mode = "delete";
                         this.dSet.Clear();
                         this.dSet =
-                            this.g_objStoredProcCollection.sp_Item_Type(this.ItemTypeEntity.Item_Type_Id,
+                            this.g_objStoredProcCollection
+                            .sp_Item_Type(this.ItemTypeEntity.Item_Type_Id,
                             "",
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.frmItemType_Load(sender, e);
@@ -279,19 +280,20 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 }
                 else
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
 
                         this.mode = "activate";
                         this.dSet.Clear();
                         this.dSet =
-                            this.g_objStoredProcCollection.sp_Item_Type(this.ItemTypeEntity.Item_Type_Id,
+                            this.g_objStoredProcCollection.
+                            sp_Item_Type(this.ItemTypeEntity.Item_Type_Id,
                             "",
                             "",
                             "",
                             "",
-                            "",
+                            userinfo.user_id.ToString(),
                             "activate");
                         this.GlobalStatePopup.ActivatedSuccessfully();
                         this.frmItemType_Load(sender, e);

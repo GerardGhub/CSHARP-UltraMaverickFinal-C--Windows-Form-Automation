@@ -64,7 +64,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         else
         {
             this.Text = "Update Activation Remarks";
-            this.MatBtnSave.Text = "UPDATE";
+            this.MatBtnSave.Text = "SAVE";
             this.InternalOrderActivationRemarksEntity.Soar_Updated_By = this.InternalOrderActivationRemarksEntity.Soar_Updated_By;
             this.InternalOrderActivationRemarksEntity.Soar_id = this.InternalOrderActivationRemarksEntity.Soar_id;
             this.MatcmbType.Text = this.InternalOrderActivationRemarksEntity.Soar_Type;
@@ -215,15 +215,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         {
             if (this.MatcmbType.Text == String.Empty)
             {
-                this.MatBtnSave.Visible = false;
+                this.MatBtnSave.Enabled = false;
             }
             else if (this.TxtmatRemarks.Text == String.Empty)
             {
-                this.MatBtnSave.Visible = false;
+                this.MatBtnSave.Enabled = false;
             }
             else
             {
-                this.MatBtnSave.Visible = true;
+                this.MatBtnSave.Enabled = true;
             }
         }
 
