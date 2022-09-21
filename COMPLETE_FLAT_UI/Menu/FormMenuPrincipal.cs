@@ -807,8 +807,7 @@ namespace COMPLETE_FLAT_UI
           
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to Logout " + lblFirstName.Text + " ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-    
-
+   
                 this.Hide();
                 frmLoginForm sistema = new frmLoginForm();
                 sistema.ShowDialog();

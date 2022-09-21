@@ -89,25 +89,17 @@ namespace COMPLETE_FLAT_UI
 
            
 
-                mainMenu = new FormMenuPrincipal();
-                mainMenu.StartPosition = FormStartPosition.CenterScreen;
-                mainMenu.Show();
+                this.Hide();
+                FormMenuPrincipal sistema = new FormMenuPrincipal();
+                sistema.ShowDialog();
+                this.Close();
 
-
-
-
-                
-                // Start 3 blocks of validate
-                this.Hide(); 
-                mainMenu.Closed += (s, args) => this.Close();
-                mainMenu.Show();
                 //end of form validation
             }
             else
             {
                 player.SoundLocation = @"C:\MaverickReports\Fedora_Voice\windows_error_msg.wav";
                 player.Play();
-                //MessageBox.Show("Sorry! You are not allowed to use this system!", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 NotAllowToUsedTheSystem();
            
             }
