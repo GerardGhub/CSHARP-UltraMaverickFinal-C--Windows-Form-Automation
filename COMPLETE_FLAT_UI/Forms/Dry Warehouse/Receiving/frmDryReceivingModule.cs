@@ -544,7 +544,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void btnSelectLot_Click(object sender, EventArgs e)
         {
-            frmChooseLotNumber showModal = new frmChooseLotNumber(this, mattxtcategory.Text);
+            frmChooseLotNumber showModal = new frmChooseLotNumber(this, this.matbtnSubCategory.Text);
             showModal.ShowDialog();
 
 
@@ -708,7 +708,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //proceess of repack kupra
             if (currentreject == 0)
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 

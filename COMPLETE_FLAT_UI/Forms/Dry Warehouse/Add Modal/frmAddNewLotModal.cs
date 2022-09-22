@@ -49,7 +49,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public void loadMajorCategoryDropdown()
         {
 
-            this.myClass.fillComboBoxDepartment(cboMajorCategory, "Major_Category_dropdown", dSet);
+            this.myClass.fillComboBoxDepartment(cboMajorCategory, "Sub_Category_dropdown", dSet);
 
 
             this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();

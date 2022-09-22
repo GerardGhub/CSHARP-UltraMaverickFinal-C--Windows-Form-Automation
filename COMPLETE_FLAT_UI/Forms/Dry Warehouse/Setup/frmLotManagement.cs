@@ -338,7 +338,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
@@ -361,7 +361,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_lot_management(p_id,
