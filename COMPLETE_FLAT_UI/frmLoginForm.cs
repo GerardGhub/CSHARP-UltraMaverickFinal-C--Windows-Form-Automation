@@ -20,10 +20,11 @@ namespace COMPLETE_FLAT_UI
     {
         FormMenuPrincipal mainMenu;
         DataSet dSet = new DataSet();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
         readonly myclasses xClass = new myclasses();
         IStoredProcedures objStorProc = null;
-        myglobal pointer_module = new myglobal();
+        readonly myglobal pointer_module = new myglobal();
         public frmLoginForm()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace COMPLETE_FLAT_UI
 
             if (txtMaterialUsername.Text.Trim() == string.Empty)
             {
-                FilltextboxErrorNotifier();
+                this.GlobalStatePopup.FillRequiredFields();
                 txtMaterialUsername.Focus();
                 return;
 
@@ -53,7 +54,7 @@ namespace COMPLETE_FLAT_UI
 
             if (txtMaterialPassword.Text.Trim() == string.Empty)
             {
-                FilltextboxErrorNotifier();
+                this.GlobalStatePopup.FillRequiredFields();
                 txtMaterialPassword.Focus();
                 return;
 
@@ -118,63 +119,9 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        public void StartupFocus()
-        {
-            txtMaterialUsername.Focus();
-        }
-        public void LoginProcedural()
-        {
-            if (txtMaterialUsername.Text.Trim() == string.Empty)
-            {
-                FilltextboxErrorNotifier();
-                txtMaterialUsername.Focus();
-                return;
-
-            }
-            if (txtMaterialPassword.Text.Trim() == string.Empty)
-            {
-                FilltextboxErrorNotifier();
-                txtMaterialPassword.Focus();
-                return;
-
-            }
-        }
 
 
-        public void FilltextboxErrorNotifier()
-        {
-            PopupNotifier popup = new PopupNotifier();
-            //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(255, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
 
-            popup.ContentText = "Warning , Fill up the Empty Fields!";
-
-            popup.ContentColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
-
-            popup.ContentHoverColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            popup.ContentPadding = new Padding(0);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            //popup.Size = new Size(920, 270);
-            //popup.ImageSize = new Size(175, 220);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
         private void frmLoginForm_Load(object sender, EventArgs e)
         {

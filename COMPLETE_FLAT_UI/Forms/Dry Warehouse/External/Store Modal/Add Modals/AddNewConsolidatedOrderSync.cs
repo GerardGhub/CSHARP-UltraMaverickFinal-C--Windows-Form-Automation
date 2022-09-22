@@ -209,5 +209,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
         {
             ths.TextBox1.Text = textBox1.Text;
         }
+
+        private void MatBtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -53,14 +53,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtMatItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.cboSubCatExpirable = new MetroFramework.Controls.MetroComboBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(595, 378);
+            this.textBox1.Location = new System.Drawing.Point(147, 379);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 471;
@@ -153,7 +156,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(293, 92);
+            this.label4.Location = new System.Drawing.Point(293, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 14);
             this.label4.TabIndex = 595;
@@ -165,7 +168,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(570, 91);
+            this.label3.Location = new System.Drawing.Point(570, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 14);
             this.label3.TabIndex = 594;
@@ -189,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(25, 92);
+            this.label1.Location = new System.Drawing.Point(25, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 14);
             this.label1.TabIndex = 592;
@@ -387,7 +390,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.DrawShadows = true;
             this.matBtnSave.HighEmphasis = true;
             this.matBtnSave.Icon = null;
-            this.matBtnSave.Location = new System.Drawing.Point(34, 379);
+            this.matBtnSave.Location = new System.Drawing.Point(2, 3);
             this.matBtnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSave.Name = "matBtnSave";
@@ -412,13 +415,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboSubCatExpirable.UseSelectable = true;
             this.cboSubCatExpirable.Visible = false;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.BtnCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.matBtnSave, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(762, 384);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(147, 47);
+            this.tableLayoutPanel1.TabIndex = 604;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnCancel.Depth = 0;
+            this.BtnCancel.DrawShadows = true;
+            this.BtnCancel.HighEmphasis = true;
+            this.BtnCancel.Icon = null;
+            this.BtnCancel.Location = new System.Drawing.Point(64, 3);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.BtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.BtnCancel.TabIndex = 475;
+            this.BtnCancel.Text = "CANCEL";
+            this.BtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtnCancel.UseAccentColor = false;
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
             // frmAddNewItemModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 424);
+            this.ClientSize = new System.Drawing.Size(923, 440);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cboSubCatExpirable);
-            this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(1);
@@ -432,6 +468,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Load += new System.EventHandler(this.frmAddNewItemModal_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,5 +501,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private MaterialSkin.Controls.MaterialTextBox mattxtBufferStocks;
         private MaterialSkin.Controls.MaterialTextBox txtExpirationDaysPrompting;
         private MetroFramework.Controls.MetroComboBox cboSubCatExpirable;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MaterialSkin.Controls.MaterialButton BtnCancel;
     }
 }

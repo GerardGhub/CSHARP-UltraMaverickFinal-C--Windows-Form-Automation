@@ -17,13 +17,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 {
     public partial class frmSyncConsolidatedOrderSetUp : MaterialForm
     {
-
-        IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         int p_id = 0;
         DateTime dNow = DateTime.Now;
-        TblStoreOrderManageSyncing TblStoreOrderManageSyncingEntity = new TblStoreOrderManageSyncing();
+        readonly TblStoreOrderManageSyncing TblStoreOrderManageSyncingEntity = new TblStoreOrderManageSyncing();
         public frmSyncConsolidatedOrderSetUp()
         {
             InitializeComponent();

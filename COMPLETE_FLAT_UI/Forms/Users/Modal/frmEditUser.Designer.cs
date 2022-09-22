@@ -172,45 +172,45 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             // cbousertype
             // 
-            this.cbousertype.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbousertype.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbousertype.FormattingEnabled = true;
             this.cbousertype.Location = new System.Drawing.Point(551, 34);
             this.cbousertype.Margin = new System.Windows.Forms.Padding(1);
             this.cbousertype.Name = "cbousertype";
-            this.cbousertype.Size = new System.Drawing.Size(238, 31);
+            this.cbousertype.Size = new System.Drawing.Size(238, 28);
             this.cbousertype.TabIndex = 578;
             this.cbousertype.SelectionChangeCommitted += new System.EventHandler(this.cbousertype_SelectionChangeCommitted);
             // 
             // cbodepartment
             // 
-            this.cbodepartment.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbodepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbodepartment.FormattingEnabled = true;
             this.cbodepartment.Location = new System.Drawing.Point(79, 100);
             this.cbodepartment.Margin = new System.Windows.Forms.Padding(1);
             this.cbodepartment.Name = "cbodepartment";
-            this.cbodepartment.Size = new System.Drawing.Size(180, 31);
+            this.cbodepartment.Size = new System.Drawing.Size(180, 28);
             this.cbodepartment.TabIndex = 586;
             this.cbodepartment.SelectedValueChanged += new System.EventHandler(this.cbodepartment_SelectedValueChanged);
             // 
             // cboUnit
             // 
-            this.cboUnit.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUnit.FormattingEnabled = true;
             this.cboUnit.Location = new System.Drawing.Point(302, 102);
             this.cboUnit.Margin = new System.Windows.Forms.Padding(1);
             this.cboUnit.Name = "cboUnit";
-            this.cboUnit.Size = new System.Drawing.Size(197, 31);
+            this.cboUnit.Size = new System.Drawing.Size(197, 28);
             this.cboUnit.TabIndex = 587;
             this.cboUnit.SelectionChangeCommitted += new System.EventHandler(this.cboUnit_SelectionChangeCommitted);
             // 
             // cboPosition
             // 
-            this.cboPosition.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboPosition.FormattingEnabled = true;
             this.cboPosition.Location = new System.Drawing.Point(551, 99);
             this.cboPosition.Margin = new System.Windows.Forms.Padding(1);
             this.cboPosition.Name = "cboPosition";
-            this.cboPosition.Size = new System.Drawing.Size(238, 31);
+            this.cboPosition.Size = new System.Drawing.Size(238, 28);
             this.cboPosition.TabIndex = 588;
             this.cboPosition.SelectionChangeCommitted += new System.EventHandler(this.cboPosition_SelectionChangeCommitted);
             // 

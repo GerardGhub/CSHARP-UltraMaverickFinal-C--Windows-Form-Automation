@@ -372,7 +372,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         private void SaveFunctionality()
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (txtname.Text.Trim() == "")
                 {

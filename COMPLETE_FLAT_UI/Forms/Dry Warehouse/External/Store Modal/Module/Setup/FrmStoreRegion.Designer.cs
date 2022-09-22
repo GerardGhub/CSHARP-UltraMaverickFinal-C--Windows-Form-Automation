@@ -40,6 +40,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.txtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvRegion = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.region_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.region_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
@@ -51,12 +57,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
-            this.region_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.region_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegion)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -72,7 +72,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(893, 726);
+            this.lbltotalrecords.Location = new System.Drawing.Point(886, 685);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 580;
@@ -88,12 +88,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard1.Depth = 0;
             this.materialCard1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(20, 75);
+            this.materialCard1.Location = new System.Drawing.Point(24, 75);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(973, 66);
+            this.materialCard1.Size = new System.Drawing.Size(961, 66);
             this.materialCard1.TabIndex = 582;
             // 
             // textBox1
@@ -116,7 +116,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.txtSearch.Depth = 0;
             this.txtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtSearch.Hint = "Search";
-            this.txtSearch.Location = new System.Drawing.Point(756, 9);
+            this.txtSearch.Location = new System.Drawing.Point(744, 9);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(1);
             this.txtSearch.MaxLength = 50;
             this.txtSearch.MouseState = MaterialSkin.MouseState.OUT;
@@ -134,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(950, 740);
+            this.label2.Location = new System.Drawing.Point(943, 699);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 583;
@@ -197,7 +197,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvRegion.RowTemplate.DividerHeight = 5;
             this.dgvRegion.RowTemplate.Height = 40;
             this.dgvRegion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegion.Size = new System.Drawing.Size(963, 478);
+            this.dgvRegion.Size = new System.Drawing.Size(953, 450);
             this.dgvRegion.TabIndex = 5;
             this.dgvRegion.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRegion.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -223,6 +223,52 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvRegion.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRegion.CurrentCellChanged += new System.EventHandler(this.DgvRawMats_CurrentCellChanged_1);
             // 
+            // region_id
+            // 
+            this.region_id.DataPropertyName = "region_id";
+            this.region_id.FillWeight = 40.60914F;
+            this.region_id.HeaderText = "ID";
+            this.region_id.MinimumWidth = 12;
+            this.region_id.Name = "region_id";
+            this.region_id.ReadOnly = true;
+            // 
+            // region_description
+            // 
+            this.region_description.DataPropertyName = "region_description";
+            this.region_description.FillWeight = 59.93546F;
+            this.region_description.HeaderText = "DESCRIPTION";
+            this.region_description.MinimumWidth = 12;
+            this.region_description.Name = "region_description";
+            this.region_description.ReadOnly = true;
+            // 
+            // added_by
+            // 
+            this.added_by.DataPropertyName = "added_by";
+            this.added_by.HeaderText = "ADDED BY";
+            this.added_by.Name = "added_by";
+            this.added_by.ReadOnly = true;
+            // 
+            // date_added
+            // 
+            this.date_added.DataPropertyName = "date_added";
+            this.date_added.HeaderText = "DATE ADDED";
+            this.date_added.Name = "date_added";
+            this.date_added.ReadOnly = true;
+            // 
+            // modified_by
+            // 
+            this.modified_by.DataPropertyName = "modified_by";
+            this.modified_by.HeaderText = "MODIFIED BY";
+            this.modified_by.Name = "modified_by";
+            this.modified_by.ReadOnly = true;
+            // 
+            // modified_at
+            // 
+            this.modified_at.DataPropertyName = "modified_at";
+            this.modified_at.HeaderText = "MODIFIED DATE";
+            this.modified_at.Name = "modified_at";
+            this.modified_at.ReadOnly = true;
+            // 
             // materialCard2
             // 
             this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -232,12 +278,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard2.Controls.Add(this.dgvRegion);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(20, 230);
+            this.materialCard2.Location = new System.Drawing.Point(24, 216);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(973, 490);
+            this.materialCard2.Size = new System.Drawing.Size(963, 462);
             this.materialCard2.TabIndex = 581;
             // 
             // materialCard3
@@ -248,7 +294,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialCard3.Controls.Add(this.matRadioNotActive);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(772, 151);
+            this.materialCard3.Location = new System.Drawing.Point(764, 151);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
@@ -306,7 +352,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -327,7 +373,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.materialBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("materialBtnNew.Image")));
             this.materialBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.materialBtnNew.Name = "materialBtnNew";
-            this.materialBtnNew.Size = new System.Drawing.Size(75, 37);
+            this.materialBtnNew.Size = new System.Drawing.Size(77, 37);
             this.materialBtnNew.Text = "&New";
             this.materialBtnNew.Click += new System.EventHandler(this.MaterialBtnNew_Click);
             // 
@@ -345,7 +391,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("matBtnDelete.Image")));
             this.matBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnDelete.Name = "matBtnDelete";
-            this.matBtnDelete.Size = new System.Drawing.Size(94, 37);
+            this.matBtnDelete.Size = new System.Drawing.Size(97, 37);
             this.matBtnDelete.Text = "&InActive";
             this.matBtnDelete.Click += new System.EventHandler(this.MatBtnDelete_Click);
             // 
@@ -354,7 +400,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("matBtnSave.Image")));
             this.matBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(77, 37);
+            this.matBtnSave.Size = new System.Drawing.Size(79, 37);
             this.matBtnSave.Text = "&Save";
             this.matBtnSave.Visible = false;
             // 
@@ -363,55 +409,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.matBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("matBtnCancel.Image")));
             this.matBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnCancel.Name = "matBtnCancel";
-            this.matBtnCancel.Size = new System.Drawing.Size(88, 37);
+            this.matBtnCancel.Size = new System.Drawing.Size(90, 37);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
-            // 
-            // region_id
-            // 
-            this.region_id.DataPropertyName = "region_id";
-            this.region_id.FillWeight = 40.60914F;
-            this.region_id.HeaderText = "ID";
-            this.region_id.MinimumWidth = 12;
-            this.region_id.Name = "region_id";
-            this.region_id.ReadOnly = true;
-            // 
-            // region_description
-            // 
-            this.region_description.DataPropertyName = "region_description";
-            this.region_description.FillWeight = 59.93546F;
-            this.region_description.HeaderText = "DESCRIPTION";
-            this.region_description.MinimumWidth = 12;
-            this.region_description.Name = "region_description";
-            this.region_description.ReadOnly = true;
-            // 
-            // added_by
-            // 
-            this.added_by.DataPropertyName = "added_by";
-            this.added_by.HeaderText = "ADDED BY";
-            this.added_by.Name = "added_by";
-            this.added_by.ReadOnly = true;
-            // 
-            // date_added
-            // 
-            this.date_added.DataPropertyName = "date_added";
-            this.date_added.HeaderText = "DATE ADDED";
-            this.date_added.Name = "date_added";
-            this.date_added.ReadOnly = true;
-            // 
-            // modified_by
-            // 
-            this.modified_by.DataPropertyName = "modified_by";
-            this.modified_by.HeaderText = "MODIFIED BY";
-            this.modified_by.Name = "modified_by";
-            this.modified_by.ReadOnly = true;
-            // 
-            // modified_at
-            // 
-            this.modified_at.DataPropertyName = "modified_at";
-            this.modified_at.HeaderText = "MODIFIED DATE";
-            this.modified_at.Name = "modified_at";
-            this.modified_at.ReadOnly = true;
             // 
             // frmRegion
             // 

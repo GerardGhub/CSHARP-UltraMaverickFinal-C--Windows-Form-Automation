@@ -478,5 +478,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else e.Handled = e.KeyChar != (char)Keys.Back;
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
