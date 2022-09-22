@@ -112,7 +112,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtExpirationDaysPrompting.Hint = "Initial Expiration";
             this.txtExpirationDaysPrompting.Location = new System.Drawing.Point(22, 222);
             this.txtExpirationDaysPrompting.Margin = new System.Windows.Forms.Padding(1);
-            this.txtExpirationDaysPrompting.MaxLength = 50;
+            this.txtExpirationDaysPrompting.MaxLength = 4;
             this.txtExpirationDaysPrompting.MouseState = MaterialSkin.MouseState.OUT;
             this.txtExpirationDaysPrompting.Multiline = false;
             this.txtExpirationDaysPrompting.Name = "txtExpirationDaysPrompting";

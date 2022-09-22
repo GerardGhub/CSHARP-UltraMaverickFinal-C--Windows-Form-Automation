@@ -116,12 +116,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
    
             if (this.IsExpirable == "1")
             {
-                this.txtmatConversion.Visible = true;
+                //this.txtmatConversion.Visible = true;
                 this.txtExpirationDaysPrompting.Visible = true;
             }
             else
             {
-                this.txtmatConversion.Visible = false;
+                //this.txtmatConversion.Visible = false;
                 this.txtExpirationDaysPrompting.Visible = false;
             }
         }
@@ -470,7 +470,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void txtExpirationDaysPrompting_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
+            if (char.IsNumber(e.KeyChar))
             {
                 if (Regex.IsMatch(
                  txtExpirationDaysPrompting.Text,
