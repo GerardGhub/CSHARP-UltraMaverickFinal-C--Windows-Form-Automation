@@ -46,7 +46,7 @@ namespace COMPLETE_FLAT_UI
         Modules Module = new Modules();
         //Constructor
         public Byte[] imageByte = null;
-
+        myglobal GlobalVariable = new myglobal();
         DataSet dset_rights = new DataSet();
         DataSet dSet = new DataSet();
         int rights_id = 0;
@@ -455,6 +455,7 @@ namespace COMPLETE_FLAT_UI
                     else if (parent_form_name == "DASHBOARD")
                     {
                         btnDashBoard1.Visible = true;
+                        this.GlobalVariable.DashboardAccess = true;
                       /*  MostrarFormLogo()*/;
                     }
 

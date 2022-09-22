@@ -25,7 +25,7 @@ namespace COMPLETE_FLAT_UI
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         DashboardClasses Menu = new DashboardClasses();
         DateTime dNow = DateTime.Now;
-
+        myglobal GlobalVariable = new myglobal();
 
 
         DataSet dSet_temp = new DataSet();
@@ -44,7 +44,14 @@ namespace COMPLETE_FLAT_UI
             this.dataGridView1.Visible = false;
             this.GetLabTestTransactions();       
             this.load_search();
-
+            if (this.GlobalVariable.DashboardAccess == true)
+            {
+                this.materialCard2.Visible = true;
+            }
+            else
+            {
+                this.materialCard2.Visible = false;
+            }
         }
 
         DataSet dset_emp1 = new DataSet();
