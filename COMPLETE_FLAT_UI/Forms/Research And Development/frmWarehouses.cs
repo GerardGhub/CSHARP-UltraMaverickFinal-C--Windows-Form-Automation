@@ -173,7 +173,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void dgvMajorCategory_CurrentCellChanged(object sender, EventArgs e)
         {
-            ShowValueCell();
+            this.ShowValueCell();
         }
 
         private void ShowValueCell()
@@ -190,6 +190,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                         this.MajorCategoryEntity.Mc_Added_At = dgvMajorCategory.CurrentRow.Cells["mc_added_at"].Value.ToString();
                         this.MajorCategoryEntity.Mc_Updated_At = dgvMajorCategory.CurrentRow.Cells["mc_updated_at"].Value.ToString();
                         this.MajorCategoryEntity.Mc_Updated_By = dgvMajorCategory.CurrentRow.Cells["mc_updated_by"].Value.ToString();
+                        this.MajorCategoryEntity.WarehouseCode = this.dgvMajorCategory.CurrentRow.Cells["WarehouseCode"].Value.ToString();
                     }
                 }
             }
@@ -213,7 +214,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             userinfo.user_id,
             this.MajorCategoryEntity.Major_Category_Desc,
             this.MajorCategoryEntity.Mode,
-            this.MajorCategoryEntity.Major_Category_Id);
+            this.MajorCategoryEntity.Major_Category_Id,
+            this.MajorCategoryEntity.WarehouseCode
+            );
             addNew.ShowDialog();
 
         }
@@ -310,7 +313,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             userinfo.user_id,
             this.MajorCategoryEntity.Major_Category_Desc,
             this.MajorCategoryEntity.Mode,
-            this.MajorCategoryEntity.Major_Category_Id);
+            this.MajorCategoryEntity.Major_Category_Id,
+            this.MajorCategoryEntity.WarehouseCode
+            );
             addNew.ShowDialog();
         }
 

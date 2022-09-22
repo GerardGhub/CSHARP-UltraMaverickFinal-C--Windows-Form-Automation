@@ -26,7 +26,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             int Created_by,
             string MajorCategoryDesc,
             string Mode,
-            int PrimaryKey
+            int PrimaryKey,
+            string WarehouseCode
             )
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.MajorCategoryEntity.Mode = Mode;
             this.MajorCategoryEntity.Major_Category_Id = PrimaryKey;
             this.MajorCategoryEntity.Mc_Updated_By = Created_by.ToString();
+            this.MajorCategoryEntity.WarehouseCode = WarehouseCode;
         }
 
         private void FrmAddBNewWarehouses_Load(object sender, EventArgs e)
@@ -70,6 +72,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.MajorCategoryEntity.Major_Category_Id = this.MajorCategoryEntity.Major_Category_Id;
                 this.TxtMajorCategory.Text = MajorCategoryEntity.Major_Category_Desc;
                 this.MajorCategoryEntity.Major_Category_Desc = this.MajorCategoryEntity.Major_Category_Desc;
+                this.TxtWarehouseCode.Text = this.MajorCategoryEntity.WarehouseCode;
             }
             this.TxtMajorCategory.Focus();
         }
@@ -117,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.dSet = this.g_objStoredProcCollection
                     .sp_Major_Category(0,
                     this.TxtMajorCategory.Text, 
-                    "", 
+                    this.TxtWarehouseCode.Text, 
                     "", 
                     "", 
                     "", 

@@ -35,6 +35,13 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWarehouses));
             this.dgvMajorCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.major_category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.major_category_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mc_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.MatTxtSearchBox = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
@@ -52,13 +59,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.major_category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WarehouseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.major_category_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_added_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mc_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMajorCategory)).BeginInit();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -151,6 +151,66 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.dgvMajorCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvMajorCategory.CurrentCellChanged += new System.EventHandler(this.dgvMajorCategory_CurrentCellChanged);
             // 
+            // major_category_id
+            // 
+            this.major_category_id.DataPropertyName = "major_category_id";
+            this.major_category_id.FillWeight = 40.60914F;
+            this.major_category_id.HeaderText = "ID";
+            this.major_category_id.MinimumWidth = 12;
+            this.major_category_id.Name = "major_category_id";
+            this.major_category_id.ReadOnly = true;
+            // 
+            // WarehouseCode
+            // 
+            this.WarehouseCode.DataPropertyName = "WarehouseCode";
+            this.WarehouseCode.HeaderText = "CODE";
+            this.WarehouseCode.Name = "WarehouseCode";
+            this.WarehouseCode.ReadOnly = true;
+            // 
+            // major_category_desc
+            // 
+            this.major_category_desc.DataPropertyName = "major_category_desc";
+            this.major_category_desc.FillWeight = 99.49239F;
+            this.major_category_desc.HeaderText = "WAREHOUSE";
+            this.major_category_desc.MinimumWidth = 12;
+            this.major_category_desc.Name = "major_category_desc";
+            this.major_category_desc.ReadOnly = true;
+            // 
+            // mc_added_at
+            // 
+            this.mc_added_at.DataPropertyName = "mc_added_at";
+            this.mc_added_at.FillWeight = 99.49239F;
+            this.mc_added_at.HeaderText = "CREATED DATE";
+            this.mc_added_at.MinimumWidth = 12;
+            this.mc_added_at.Name = "mc_added_at";
+            this.mc_added_at.ReadOnly = true;
+            // 
+            // mc_added_by
+            // 
+            this.mc_added_by.DataPropertyName = "mc_added_by";
+            this.mc_added_by.FillWeight = 99.49239F;
+            this.mc_added_by.HeaderText = "CREATED BY";
+            this.mc_added_by.MinimumWidth = 12;
+            this.mc_added_by.Name = "mc_added_by";
+            this.mc_added_by.ReadOnly = true;
+            // 
+            // mc_updated_at
+            // 
+            this.mc_updated_at.DataPropertyName = "mc_updated_at";
+            this.mc_updated_at.FillWeight = 99.49239F;
+            this.mc_updated_at.HeaderText = "UPDATED DATE";
+            this.mc_updated_at.MinimumWidth = 12;
+            this.mc_updated_at.Name = "mc_updated_at";
+            this.mc_updated_at.ReadOnly = true;
+            // 
+            // mc_updated_by
+            // 
+            this.mc_updated_by.DataPropertyName = "mc_updated_by";
+            this.mc_updated_by.HeaderText = "UPDATED BY";
+            this.mc_updated_by.MinimumWidth = 12;
+            this.mc_updated_by.Name = "mc_updated_by";
+            this.mc_updated_by.ReadOnly = true;
+            // 
             // materialCard1
             // 
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -194,7 +254,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.materialCard2.Controls.Add(this.dgvMajorCategory);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(28, 244);
+            this.materialCard2.Location = new System.Drawing.Point(28, 238);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
@@ -304,7 +364,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(912, 717);
+            this.lbltotalrecords.Location = new System.Drawing.Point(912, 704);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 610;
@@ -317,7 +377,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(949, 733);
+            this.label2.Location = new System.Drawing.Point(949, 720);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 608;
@@ -386,66 +446,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matRadioNotActive.Text = "In - Active";
             this.matRadioNotActive.UseVisualStyleBackColor = true;
             this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
-            // 
-            // major_category_id
-            // 
-            this.major_category_id.DataPropertyName = "major_category_id";
-            this.major_category_id.FillWeight = 40.60914F;
-            this.major_category_id.HeaderText = "ID";
-            this.major_category_id.MinimumWidth = 12;
-            this.major_category_id.Name = "major_category_id";
-            this.major_category_id.ReadOnly = true;
-            // 
-            // WarehouseCode
-            // 
-            this.WarehouseCode.DataPropertyName = "WarehouseCode";
-            this.WarehouseCode.HeaderText = "CODE";
-            this.WarehouseCode.Name = "WarehouseCode";
-            this.WarehouseCode.ReadOnly = true;
-            // 
-            // major_category_desc
-            // 
-            this.major_category_desc.DataPropertyName = "major_category_desc";
-            this.major_category_desc.FillWeight = 99.49239F;
-            this.major_category_desc.HeaderText = "WAREHOUSE";
-            this.major_category_desc.MinimumWidth = 12;
-            this.major_category_desc.Name = "major_category_desc";
-            this.major_category_desc.ReadOnly = true;
-            // 
-            // mc_added_at
-            // 
-            this.mc_added_at.DataPropertyName = "mc_added_at";
-            this.mc_added_at.FillWeight = 99.49239F;
-            this.mc_added_at.HeaderText = "CREATED DATE";
-            this.mc_added_at.MinimumWidth = 12;
-            this.mc_added_at.Name = "mc_added_at";
-            this.mc_added_at.ReadOnly = true;
-            // 
-            // mc_added_by
-            // 
-            this.mc_added_by.DataPropertyName = "mc_added_by";
-            this.mc_added_by.FillWeight = 99.49239F;
-            this.mc_added_by.HeaderText = "CREATED BY";
-            this.mc_added_by.MinimumWidth = 12;
-            this.mc_added_by.Name = "mc_added_by";
-            this.mc_added_by.ReadOnly = true;
-            // 
-            // mc_updated_at
-            // 
-            this.mc_updated_at.DataPropertyName = "mc_updated_at";
-            this.mc_updated_at.FillWeight = 99.49239F;
-            this.mc_updated_at.HeaderText = "UPDATED DATE";
-            this.mc_updated_at.MinimumWidth = 12;
-            this.mc_updated_at.Name = "mc_updated_at";
-            this.mc_updated_at.ReadOnly = true;
-            // 
-            // mc_updated_by
-            // 
-            this.mc_updated_by.DataPropertyName = "mc_updated_by";
-            this.mc_updated_by.HeaderText = "UPDATED BY";
-            this.mc_updated_by.MinimumWidth = 12;
-            this.mc_updated_by.Name = "mc_updated_by";
-            this.mc_updated_by.ReadOnly = true;
             // 
             // frmWarehouses
             // 
