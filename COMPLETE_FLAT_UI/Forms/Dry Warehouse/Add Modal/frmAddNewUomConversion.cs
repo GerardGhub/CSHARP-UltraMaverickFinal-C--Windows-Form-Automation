@@ -59,6 +59,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.ConnectionInit();
             this.LoadDataIntheUltimateOrbWeaver();
             this.lbluserid.Text = userinfo.user_id.ToString();
+       
         }
 
         public void ConnectionInit()
@@ -114,7 +115,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 
@@ -176,6 +177,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 this.BtnSaveTool.Visible = true;
             }
+        }
+
+        private void btnEditTool_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

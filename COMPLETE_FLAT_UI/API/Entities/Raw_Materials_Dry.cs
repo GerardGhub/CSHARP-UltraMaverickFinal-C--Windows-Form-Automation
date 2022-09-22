@@ -24,5 +24,6 @@ namespace ULTRAMAVERICK.API.Entities
         public bool Is_Active { get; set; }
         public double Buffer_Stock { get; set; }
         public int Expiration_Prompting { get; set; }
+        public int Active_Pu_Conversion { get; set; }
     }
 }

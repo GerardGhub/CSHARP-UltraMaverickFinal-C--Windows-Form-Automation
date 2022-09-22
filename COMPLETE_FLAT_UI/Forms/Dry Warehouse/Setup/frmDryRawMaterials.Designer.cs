@@ -67,6 +67,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active_pu_conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
@@ -162,7 +163,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_at,
             this.created_by,
             this.updated_at,
-            this.updated_by});
+            this.updated_by,
+            this.active_pu_conversion});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -544,6 +546,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_by.Visible = false;
             this.updated_by.Width = 128;
             // 
+            // active_pu_conversion
+            // 
+            this.active_pu_conversion.DataPropertyName = "active_pu_conversion";
+            this.active_pu_conversion.HeaderText = "ACTIVE CONVERSION";
+            this.active_pu_conversion.Name = "active_pu_conversion";
+            this.active_pu_conversion.ReadOnly = true;
+            this.active_pu_conversion.Visible = false;
+            this.active_pu_conversion.Width = 188;
+            // 
             // frmDryMiscellaneouseIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,5 +620,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn active_pu_conversion;
     }
 }

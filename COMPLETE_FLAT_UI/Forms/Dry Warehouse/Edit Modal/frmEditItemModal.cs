@@ -39,7 +39,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             string item_type,
             int primary_key,
             double buffer_stock,
-            int expiration_days_prompting
+            int expiration_days_prompting,
+            int ActiveConversion
             )
         {
             InitializeComponent();
@@ -57,6 +58,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.RawMaterialsDryEntity.Item_Id = primary_key;
             this.RawMaterialsDryEntity.Buffer_Stock = buffer_stock;
             this.RawMaterialsDryEntity.Expiration_Prompting = expiration_days_prompting;
+            this.RawMaterialsDryEntity.Active_Pu_Conversion = ActiveConversion;
             //var materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
             //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -164,6 +166,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboItemType.Text = RawMaterialsDryEntity.Item_Type;
             this.mattxtBufferStocks.Text = RawMaterialsDryEntity.Buffer_Stock.ToString();
             this.txtExpirationDaysPrompting.Text = RawMaterialsDryEntity.Expiration_Prompting.ToString();
+            this.RawMaterialsDryEntity.Active_Pu_Conversion = this.RawMaterialsDryEntity.Active_Pu_Conversion;
+
+            if (this.RawMaterialsDryEntity.Active_Pu_Conversion != 0 )
+            {
+                this.txtmatConversion.Enabled = false;
+            }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -232,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
 
@@ -406,6 +414,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void txtmatConversion_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

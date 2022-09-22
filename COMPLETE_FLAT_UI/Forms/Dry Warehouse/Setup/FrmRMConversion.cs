@@ -42,7 +42,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public string sp_user_id { get; set; }
              
         public string sp_item_primary_id { get; set; }
-
+        public string IsActivated { get; set; }
 
         private void frmManageActivePrimaryUnit_Load(object sender, EventArgs e)
         {
@@ -55,6 +55,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.HideControls();
             this.textBox1.Text = String.Empty;
         }
+
+
         private void ConnectionInit()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -93,8 +95,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     else if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "item_item_code = '" + RawMaterialsDryEntity.Item_Code + "' " +
-                            "AND active_pu_conversion like '%" +txtmatSearchUnit.Text+"%' ";
+                        dv.RowFilter = "item_item_code = '" + RawMaterialsDryEntity.Item_Code + "' ";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -285,9 +286,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else
             {
+                SearchMethodJarVarCallingSPUnits();
                 doSearchInTextBoxPrimaryUnit();
             }
         }
+
+
 
         private void txtmatSearchUnit_TextChanged(object sender, EventArgs e)
         {
@@ -318,6 +322,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
           
                         sp_active_pu_primary_id = dgvActiveUnits.CurrentRow.Cells["active_pu_primary_id"].Value.ToString();
                         sp_item_primary_id = dgvActiveUnits.CurrentRow.Cells["item_primary_id"].Value.ToString();
+                        this.IsActivated = this.dgvActiveUnits.CurrentRow.Cells["is_active"].Value.ToString();
+                        if (this.IsActivated == "1")
+                        {
+                            this.BtnDeactivateTool.Visible = true;
+                        }
+                        else
+                        {
+                            this.BtnDeactivateTool.Visible = false;
+                        }
                     }
                 }
             }
@@ -392,26 +405,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void btnEditTool_Click(object sender, EventArgs e)
         {
 
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_PrimaryUnitManagement(0, sp_item_primary_id, "", "", "", "", "", "", "", "", "", "", "checkthedataActivate");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                //dSet_temp.Clear();
-                //dSet_temp = objStorProc.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "delete");
-                
-                //AlreadyHaveActivateConverions();
-
-                //return;
-            }
-
-            //Puke
-
+          
 
             if (dgvActiveUnits.Rows.Count > 0)
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the primary unit conversion Information", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     dSet_temp.Clear();
@@ -419,9 +418,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     dSet_temp.Clear();
                     dSet_temp = g_objStoredProcCollection.sp_PrimaryUnitManagement(p_id2, "", "", "", "", "", "", "", "", "", "", "", "activate_conversion");
-
-
-
 
                     this.GlobalStatePopup.ActivatedSuccessfully();
 

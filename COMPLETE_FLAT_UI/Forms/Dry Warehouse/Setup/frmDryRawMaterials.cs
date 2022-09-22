@@ -41,7 +41,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.ConnectionInit();
             this.sp_user_id = userinfo.user_id.ToString();
             this.showRawMaterialsInDryWH();
-            this.LoadRecords();
+            this.IfHaveLoadRecords();
             this.LoadingrefresherOrb();
             this.ShowDataRadioButtonActivated();
         }
@@ -57,7 +57,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         }
 
-        private void LoadRecords()
+        private void IfHaveLoadRecords()
         {
             if (this.lbltotalrecords.Text == "0")
             {
@@ -239,6 +239,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.RawMaterialsDryEntity.Item_Type = this.dgvRawMats.CurrentRow.Cells["item_type"].Value.ToString();
                         this.RawMaterialsDryEntity.Buffer_Stock = Convert.ToDouble(this.dgvRawMats.CurrentRow.Cells["buffer_stock"].Value);
                         this.RawMaterialsDryEntity.Expiration_Prompting = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["expiration_prompting"].Value);
+                        this.RawMaterialsDryEntity.Active_Pu_Conversion = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["active_pu_conversion"].Value);
                     }
                 }
             }
@@ -247,9 +248,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void MattxtSearch_TextChanged(object sender, EventArgs e)
         {
 
-           
-
-                this.SearchMethodJarVarCallingSP();
+            this.SearchMethodJarVarCallingSP();
        
             this.doSearchInTextBoxCmb();
         }
@@ -286,7 +285,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.RawMaterialsDryEntity.Item_Type,
                 this.RawMaterialsDryEntity.Item_Id,
                 this.RawMaterialsDryEntity.Buffer_Stock,
-                this.RawMaterialsDryEntity.Expiration_Prompting
+                this.RawMaterialsDryEntity.Expiration_Prompting,
+                 this.RawMaterialsDryEntity.Active_Pu_Conversion
                 );
             mywipwh.ShowDialog();
         }

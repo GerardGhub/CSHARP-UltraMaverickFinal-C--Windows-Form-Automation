@@ -63,7 +63,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(679, 179);
+            this.materialCard1.Size = new System.Drawing.Size(679, 192);
             this.materialCard1.TabIndex = 473;
             // 
             // txtMatConversion
@@ -140,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(19, 270);
+            this.panel1.Location = new System.Drawing.Point(19, 279);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(321, 40);
@@ -150,7 +150,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,7 +171,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.btnAddTool.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTool.Image")));
             this.btnAddTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddTool.Name = "btnAddTool";
-            this.btnAddTool.Size = new System.Drawing.Size(75, 37);
+            this.btnAddTool.Size = new System.Drawing.Size(77, 37);
             this.btnAddTool.Text = "&New";
             this.btnAddTool.Visible = false;
             // 
@@ -183,6 +183,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.btnEditTool.Size = new System.Drawing.Size(72, 37);
             this.btnEditTool.Text = "&Edit";
             this.btnEditTool.Visible = false;
+            this.btnEditTool.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
             // btnDeleteTool
             // 
@@ -198,7 +199,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.BtnSaveTool.Image = ((System.Drawing.Image)(resources.GetObject("BtnSaveTool.Image")));
             this.BtnSaveTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnSaveTool.Name = "BtnSaveTool";
-            this.BtnSaveTool.Size = new System.Drawing.Size(77, 44);
+            this.BtnSaveTool.Size = new System.Drawing.Size(77, 37);
             this.BtnSaveTool.Text = "&Save";
             this.BtnSaveTool.Visible = false;
             this.BtnSaveTool.Click += new System.EventHandler(this.btnUpdateTool_Click);
@@ -216,7 +217,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(498, 331);
+            this.textBox1.Location = new System.Drawing.Point(498, 348);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 568;
@@ -228,7 +229,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.lbluserid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbluserid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbluserid.Location = new System.Drawing.Point(278, 324);
+            this.lbluserid.Location = new System.Drawing.Point(278, 341);
             this.lbluserid.Name = "lbluserid";
             this.lbluserid.Size = new System.Drawing.Size(145, 20);
             this.lbluserid.TabIndex = 569;
@@ -239,7 +240,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 320);
+            this.ClientSize = new System.Drawing.Size(716, 339);
             this.Controls.Add(this.lbluserid);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
