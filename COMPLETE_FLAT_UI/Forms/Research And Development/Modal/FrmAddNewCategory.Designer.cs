@@ -172,7 +172,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.MatbtnCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.materialButton1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 297);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(376, 299);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -183,7 +183,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 357);
+            this.ClientSize = new System.Drawing.Size(562, 363);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;

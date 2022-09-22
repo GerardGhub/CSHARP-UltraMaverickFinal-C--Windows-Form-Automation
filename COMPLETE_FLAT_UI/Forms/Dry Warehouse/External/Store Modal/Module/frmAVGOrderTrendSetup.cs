@@ -24,9 +24,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         readonly Avg_Order_Trend AvgOrderTrendEntity = new Avg_Order_Trend();
-        string mode = "";
-        int temp_hid = 0;
-        DateTime dNow = DateTime.Now;
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
@@ -105,9 +102,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {
-            //Mode
-            this.mode = "add";
-            //Edit
+           
             this.matBtnEdit.Visible = false;
             //Cancel
             this.matBtnCancel.Visible = true;
@@ -136,9 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void matBtnCancel_Click(object sender, EventArgs e)
         {
             
-            //Mode of System
-            this.mode = "";
-
+  
 
 
             //Button Visibility
@@ -167,9 +160,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            //Mode
-            mode = "edit";
-
+       
             //Button Controls Visibility
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
@@ -350,10 +341,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
-                        mode = "delete";
+            
 
                         dSet_temp.Clear();
                         dSet_temp = g_objStoredProcCollection
@@ -382,7 +373,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the Average Order", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         //Start of Forced Activated
                         DSet.Clear();

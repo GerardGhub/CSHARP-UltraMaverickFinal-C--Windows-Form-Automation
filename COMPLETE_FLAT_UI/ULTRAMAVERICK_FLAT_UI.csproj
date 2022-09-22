@@ -762,11 +762,11 @@
     <Compile Include="Forms\Research And Development\frmPrimaryUnit.Designer.cs">
       <DependentUpon>frmPrimaryUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmSubCategory.cs">
+    <Compile Include="Forms\Research And Development\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmSubCategory.Designer.cs">
-      <DependentUpon>frmSubCategory.cs</DependentUpon>
+    <Compile Include="Forms\Research And Development\frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\Menus\frmSubMenusAvailableForms.cs">
       <SubType>Form</SubType>
@@ -1177,8 +1177,8 @@
     <EmbeddedResource Include="Forms\Research And Development\frmPrimaryUnit.resx">
       <DependentUpon>frmPrimaryUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\frmSubCategory.resx">
-      <DependentUpon>frmSubCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Research And Development\frmCategory.resx">
+      <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Menus\frmSubMenusAvailableForms.resx">
       <DependentUpon>frmSubMenusAvailableForms.cs</DependentUpon>

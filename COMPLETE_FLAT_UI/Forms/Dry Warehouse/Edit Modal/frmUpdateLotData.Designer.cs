@@ -38,24 +38,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblMajorCatId = new System.Windows.Forms.Label();
             this.mattotalsku = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnCancel = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // matBtnSave
             // 
-            this.matBtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.matBtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.matBtnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matBtnSave.Depth = 0;
             this.matBtnSave.DrawShadows = true;
             this.matBtnSave.HighEmphasis = true;
             this.matBtnSave.Icon = null;
-            this.matBtnSave.Location = new System.Drawing.Point(570, 353);
+            this.matBtnSave.Location = new System.Drawing.Point(2, 3);
             this.matBtnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSave.Name = "matBtnSave";
-            this.matBtnSave.Size = new System.Drawing.Size(77, 36);
+            this.matBtnSave.Size = new System.Drawing.Size(58, 36);
             this.matBtnSave.TabIndex = 479;
-            this.matBtnSave.Text = "Update";
+            this.matBtnSave.Text = "SAVE";
             this.matBtnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matBtnSave.UseAccentColor = false;
             this.matBtnSave.UseVisualStyleBackColor = true;
@@ -179,13 +183,48 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.BtnCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.matBtnSave, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(507, 349);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(144, 47);
+            this.tableLayoutPanel1.TabIndex = 483;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnCancel.Depth = 0;
+            this.BtnCancel.DrawShadows = true;
+            this.BtnCancel.HighEmphasis = true;
+            this.BtnCancel.Icon = null;
+            this.BtnCancel.Location = new System.Drawing.Point(64, 3);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.BtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(78, 36);
+            this.BtnCancel.TabIndex = 480;
+            this.BtnCancel.Text = "CANCEL";
+            this.BtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtnCancel.UseAccentColor = false;
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
             // frmUpdateLotData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 397);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.matBtnSave);
             this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
@@ -198,6 +237,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.Load += new System.EventHandler(this.frmUpdateLotData_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +254,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private MaterialSkin.Controls.MaterialTextBox mattotalsku;
         public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboMajorCategory;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MaterialSkin.Controls.MaterialButton BtnCancel;
     }
 }

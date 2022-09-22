@@ -351,6 +351,7 @@ namespace ULTRAMAVERICK.Models
         string mc_added_at,
         string mc_updated_at,
         string mc_updated_by,
+        string warehousecode,
         string mode);
 
 

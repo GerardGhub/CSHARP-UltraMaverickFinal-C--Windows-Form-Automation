@@ -18,7 +18,7 @@ using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
-    public partial class frmSubCategory : MaterialForm
+    public partial class frmCategory : MaterialForm
     {
 
         IStoredProcedures g_objStoredProcCollection = null;
@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
 
         DataSet dSet_temp = new DataSet();
-        public frmSubCategory()
+        public frmCategory()
         {
             InitializeComponent();
         }

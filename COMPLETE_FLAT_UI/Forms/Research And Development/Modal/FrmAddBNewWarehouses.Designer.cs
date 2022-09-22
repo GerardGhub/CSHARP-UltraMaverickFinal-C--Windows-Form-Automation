@@ -35,6 +35,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TxtWarehouseCode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +43,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.TxtWarehouseCode);
             this.materialCard1.Controls.Add(this.TxtMajorCategory);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -50,7 +52,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(495, 200);
+            this.materialCard1.Size = new System.Drawing.Size(495, 222);
             this.materialCard1.TabIndex = 479;
             // 
             // TxtMajorCategory
@@ -59,7 +61,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.TxtMajorCategory.Depth = 0;
             this.TxtMajorCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.TxtMajorCategory.Hint = "Warehouses";
-            this.TxtMajorCategory.Location = new System.Drawing.Point(42, 72);
+            this.TxtMajorCategory.Location = new System.Drawing.Point(44, 38);
             this.TxtMajorCategory.MaxLength = 50;
             this.TxtMajorCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.TxtMajorCategory.Multiline = false;
@@ -73,7 +75,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(142, 306);
+            this.textBox1.Location = new System.Drawing.Point(142, 344);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 481;
@@ -130,18 +132,33 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.materialButton2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.materialButton1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 298);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 336);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(151, 48);
             this.tableLayoutPanel1.TabIndex = 482;
             // 
+            // TxtWarehouseCode
+            // 
+            this.TxtWarehouseCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtWarehouseCode.Depth = 0;
+            this.TxtWarehouseCode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtWarehouseCode.Hint = "Warehouse Code";
+            this.TxtWarehouseCode.Location = new System.Drawing.Point(44, 117);
+            this.TxtWarehouseCode.MaxLength = 50;
+            this.TxtWarehouseCode.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtWarehouseCode.Multiline = false;
+            this.TxtWarehouseCode.Name = "TxtWarehouseCode";
+            this.TxtWarehouseCode.Size = new System.Drawing.Size(401, 50);
+            this.TxtWarehouseCode.TabIndex = 584;
+            this.TxtWarehouseCode.Text = "";
+            // 
             // FrmAddBNewWarehouses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 357);
+            this.ClientSize = new System.Drawing.Size(562, 399);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.textBox1);
@@ -169,5 +186,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MaterialSkin.Controls.MaterialTextBox TxtWarehouseCode;
     }
 }

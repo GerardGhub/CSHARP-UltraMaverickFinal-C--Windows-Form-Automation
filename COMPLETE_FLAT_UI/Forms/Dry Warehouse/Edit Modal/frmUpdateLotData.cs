@@ -115,5 +115,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -29,8 +29,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+ 
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         DataSet dSet_temp = new DataSet();
         public frmStoreOrderActivationRemarks()

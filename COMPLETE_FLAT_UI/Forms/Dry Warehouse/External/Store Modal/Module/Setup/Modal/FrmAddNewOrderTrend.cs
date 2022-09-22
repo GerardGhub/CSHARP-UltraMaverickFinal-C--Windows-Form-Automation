@@ -68,7 +68,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             else
             {
                 this.Text = "Update Avg Trend";
-                this.MatBtnSave.Text = "UPDATE";
+                this.MatBtnSave.Text = "SAVE";
                 this.AvgOrderTrendEntity.Updated_By = this.AvgOrderTrendEntity.Updated_By;
                 this.AvgOrderTrendEntity.Avg_Id = this.AvgOrderTrendEntity.Avg_Id;
                 this.Txtmatavgdescription.Text = AvgOrderTrendEntity.Avg_Desc;
@@ -152,7 +152,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             if (this.AvgOrderTrendEntity.Mode == "ADD")
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     dSet.Clear();
@@ -179,7 +179,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
 
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     dSet.Clear();
@@ -234,15 +234,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         {
             if (this.TxtmatAverageqty.Text == String.Empty)
             {
-                this.MatBtnSave.Visible = false;
+                this.MatBtnSave.Enabled = false;
             }
             else if (this.Txtmatavgdescription.Text == String.Empty)
             {
-                this.MatBtnSave.Visible = false;
+                this.MatBtnSave.Enabled = false;
             }
             else
             {
-                this.MatBtnSave.Visible = true;
+                this.MatBtnSave.Enabled = true;
             }
         }
 

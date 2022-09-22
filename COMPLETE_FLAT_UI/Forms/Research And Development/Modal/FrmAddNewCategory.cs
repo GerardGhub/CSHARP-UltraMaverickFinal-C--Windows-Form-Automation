@@ -15,14 +15,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 {
     public partial class FrmAddNewCategory : MaterialForm
     {
-        readonly frmSubCategory ths;
+        readonly frmCategory ths;
         DataSet dSet = new DataSet();
         readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         readonly Sub_Category SubCategoryEntity = new Sub_Category();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public FrmAddNewCategory(
-            frmSubCategory frm,
+            frmCategory frm,
             int Created_by,
             string SubCategoryDesc,
             string Mode,

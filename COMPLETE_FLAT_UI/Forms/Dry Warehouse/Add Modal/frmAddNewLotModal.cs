@@ -124,19 +124,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a data?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add a data?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
-
                 this.dSet.Clear();
                 this.dSet = g_objStoredProcCollection.sp_lot_management(0,
-                    matlotnumber.Text, 
-                    matdescription.Text, 
-                    lblMajorCatId.Text,
-                    this.LotManagementEntity.Added_By, 
-                    "", 
-                    this.LotManagementEntity.Added_By, 
-                    "", "add");
+                matlotnumber.Text, 
+                matdescription.Text, 
+                lblMajorCatId.Text,
+                this.LotManagementEntity.Added_By, 
+                "", 
+                this.LotManagementEntity.Added_By, 
+                "", "add");
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.Close();
             }
@@ -161,20 +159,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
         private void matlotnumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-          
+        {        
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 {
                     e.Handled = true;
-                }
-
-         
-            
+                }        
         }
 
         private void matdescription_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

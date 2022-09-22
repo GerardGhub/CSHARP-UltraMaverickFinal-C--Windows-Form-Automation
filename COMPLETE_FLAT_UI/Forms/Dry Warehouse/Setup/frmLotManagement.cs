@@ -208,21 +208,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
 
-
-
         }
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
             this.matBtnNew.Visible = false;
             this.matBtnEdit.Visible = false;
-           frmUpdateLotData addNew = new frmUpdateLotData(this, 
-               this.LotManagementEntity.Added_By, 
-               this.LotManagementEntity.Lot_Number, 
-               this.LotManagementEntity.Description, 
-               this.LotManagementEntity.Category, 
-               this.p_id, 
-               this.Sp_Total_SKU);
+            frmUpdateLotData addNew = new frmUpdateLotData(this, 
+            this.LotManagementEntity.Added_By, 
+            this.LotManagementEntity.Lot_Number, 
+            this.LotManagementEntity.Description, 
+            this.LotManagementEntity.Category, 
+            this.p_id, 
+            this.Sp_Total_SKU);
             addNew.ShowDialog();
         }
 

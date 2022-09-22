@@ -961,7 +961,7 @@ namespace COMPLETE_FLAT_UI
         private void toolStripModuleSubCategory_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmSubCategory fm = new frmSubCategory();
+            frmCategory fm = new frmCategory();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

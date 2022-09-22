@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Research_And_Development
 {
-    partial class frmSubCategory
+    partial class frmCategory
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSubCategory));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategory));
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.MatTxtSearchBox = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();

@@ -103,9 +103,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             // 
             // MatBtnSave
             // 
+            this.MatBtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MatBtnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MatBtnSave.Depth = 0;
             this.MatBtnSave.DrawShadows = true;
+            this.MatBtnSave.Enabled = false;
             this.MatBtnSave.HighEmphasis = true;
             this.MatBtnSave.Icon = null;
             this.MatBtnSave.Location = new System.Drawing.Point(4, 6);
@@ -118,11 +121,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.MatBtnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.MatBtnSave.UseAccentColor = false;
             this.MatBtnSave.UseVisualStyleBackColor = true;
-            this.MatBtnSave.Visible = false;
             this.MatBtnSave.Click += new System.EventHandler(this.materialButton1_Click);
             // 
             // BtnCancel
             // 
+            this.BtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnCancel.Depth = 0;
             this.BtnCancel.DrawShadows = true;
@@ -138,7 +142,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.BtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnCancel.UseAccentColor = false;
             this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Visible = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // tableLayoutPanel1
@@ -148,11 +151,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.BtnCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.MatBtnSave, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 298);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(379, 298);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(151, 49);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(150, 49);
             this.tableLayoutPanel1.TabIndex = 482;
             // 
             // FrmAddNewOrderTrend

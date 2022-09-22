@@ -15,6 +15,7 @@ namespace ULTRAMAVERICK.API.Entities
         public string Mc_Updated_At { get; set; }
         public string Mc_Updated_By { get; set; }
         public bool Is_Active { get; set; }
+        public string WarehouseCode { get; set; }
         public string Mode { get; set; }
     }
 }

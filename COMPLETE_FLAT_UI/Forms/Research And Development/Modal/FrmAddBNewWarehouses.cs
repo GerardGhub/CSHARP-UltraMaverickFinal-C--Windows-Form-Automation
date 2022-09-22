@@ -87,12 +87,17 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void MaterialButton1_Click(object sender, EventArgs e)
         {
 
-
-
             if (this.TxtMajorCategory.Text.Trim() == string.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 this.TxtMajorCategory.Focus();
+                return;
+            }
+
+            if (this.TxtWarehouseCode.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.TxtWarehouseCode.Focus();
                 return;
             }
 
@@ -109,8 +114,15 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             else
             {
                 this.dSet.Clear();
-                this.dSet = this.g_objStoredProcCollection.sp_Major_Category(0,
-                    this.TxtMajorCategory.Text, "", "", "", "", "getbyname");
+                this.dSet = this.g_objStoredProcCollection
+                    .sp_Major_Category(0,
+                    this.TxtMajorCategory.Text, 
+                    "", 
+                    "", 
+                    "", 
+                    "", 
+                    this.TxtWarehouseCode.Text,
+                    "getbyname");
 
                 if (this.dSet.Tables[0].Rows.Count > 0)
                 {
@@ -126,9 +138,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 }
             }
 
-
-
-
         }
 
         void DoSaveFunctionality()
@@ -137,7 +146,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             if (this.MajorCategoryEntity.Mode == "ADD")
             {
                 // CPU - Bound or IO-Bound operations
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.dSet.Clear();
                     this.dSet = this.g_objStoredProcCollection
@@ -147,6 +156,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                     this.MajorCategoryEntity.Mc_Added_At,
                     this.MajorCategoryEntity.Mc_Updated_At,
                     this.MajorCategoryEntity.Mc_Updated_By,
+                     this.TxtWarehouseCode.Text.Trim(),
                     "add");
                     this.GlobalStatePopup.SuccessFullySave();
                     this.Close();
@@ -170,6 +180,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                     this.MajorCategoryEntity.Mc_Added_At,
                     this.MajorCategoryEntity.Mc_Updated_At,
                     this.MajorCategoryEntity.Mc_Updated_By,
+                    this.TxtWarehouseCode.Text.Trim(),
                     "edit");
                     this.GlobalStatePopup.UpdatedSuccessfully();
                     this.Close();
