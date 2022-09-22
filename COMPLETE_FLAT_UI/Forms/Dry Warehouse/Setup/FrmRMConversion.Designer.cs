@@ -63,18 +63,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.lblItemDescription = new System.Windows.Forms.Label();
             this.dgvActiveUnits = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.active_pu_primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.active_pu_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.active_pu_conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_description_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_at_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modified_by_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.BtnNew = new System.Windows.Forms.ToolStripButton();
@@ -90,6 +78,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label4 = new System.Windows.Forms.Label();
             this.txtmatid = new MaterialSkin.Controls.MaterialTextBox();
             this.mattxtPrimaryUnit = new MaterialSkin.Controls.MaterialTextBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active_pu_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active_pu_conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_at_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modified_by_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active_pu_primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_description_units = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             this.materialCard2.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -471,17 +471,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvActiveUnits.ColumnHeadersHeight = 45;
             this.dgvActiveUnits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.active_pu_primary_id,
             this.active_pu_description,
             this.active_pu_conversion,
-            this.item_primary_id,
-            this.item_item_code,
-            this.item_description_units,
-            this.created_at_units,
+            this.is_active,
             this.created_by_units,
             this.modified_at_units,
             this.modified_by_units,
-            this.is_active});
+            this.active_pu_primary_id,
+            this.created_at_units,
+            this.item_item_code,
+            this.item_description_units,
+            this.item_primary_id});
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle23.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -535,108 +535,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvActiveUnits.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvActiveUnits.CurrentCellChanged += new System.EventHandler(this.dgvActiveUnits_CurrentCellChanged);
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.FillWeight = 40.60914F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 12;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // active_pu_primary_id
-            // 
-            this.active_pu_primary_id.DataPropertyName = "active_pu_primary_id";
-            this.active_pu_primary_id.HeaderText = "PrimaryUnitID";
-            this.active_pu_primary_id.MinimumWidth = 12;
-            this.active_pu_primary_id.Name = "active_pu_primary_id";
-            this.active_pu_primary_id.ReadOnly = true;
-            // 
-            // active_pu_description
-            // 
-            this.active_pu_description.DataPropertyName = "active_pu_description";
-            this.active_pu_description.FillWeight = 99.49239F;
-            this.active_pu_description.HeaderText = "PRIMARY UNIT";
-            this.active_pu_description.MinimumWidth = 12;
-            this.active_pu_description.Name = "active_pu_description";
-            this.active_pu_description.ReadOnly = true;
-            // 
-            // active_pu_conversion
-            // 
-            this.active_pu_conversion.DataPropertyName = "active_pu_conversion";
-            this.active_pu_conversion.FillWeight = 99.49239F;
-            this.active_pu_conversion.HeaderText = "CONVERSION";
-            this.active_pu_conversion.MinimumWidth = 12;
-            this.active_pu_conversion.Name = "active_pu_conversion";
-            this.active_pu_conversion.ReadOnly = true;
-            // 
-            // item_primary_id
-            // 
-            this.item_primary_id.DataPropertyName = "item_primary_id";
-            this.item_primary_id.FillWeight = 99.49239F;
-            this.item_primary_id.HeaderText = "PrimaryItemID";
-            this.item_primary_id.MinimumWidth = 12;
-            this.item_primary_id.Name = "item_primary_id";
-            this.item_primary_id.ReadOnly = true;
-            // 
-            // item_item_code
-            // 
-            this.item_item_code.DataPropertyName = "item_item_code";
-            this.item_item_code.FillWeight = 99.49239F;
-            this.item_item_code.HeaderText = "Item Code";
-            this.item_item_code.MinimumWidth = 12;
-            this.item_item_code.Name = "item_item_code";
-            this.item_item_code.ReadOnly = true;
-            // 
-            // item_description_units
-            // 
-            this.item_description_units.DataPropertyName = "item_description";
-            this.item_description_units.FillWeight = 99.49239F;
-            this.item_description_units.HeaderText = "Item Description";
-            this.item_description_units.MinimumWidth = 12;
-            this.item_description_units.Name = "item_description_units";
-            this.item_description_units.ReadOnly = true;
-            // 
-            // created_at_units
-            // 
-            this.created_at_units.DataPropertyName = "created_at";
-            this.created_at_units.HeaderText = "Created Date";
-            this.created_at_units.MinimumWidth = 12;
-            this.created_at_units.Name = "created_at_units";
-            this.created_at_units.ReadOnly = true;
-            // 
-            // created_by_units
-            // 
-            this.created_by_units.DataPropertyName = "created_by";
-            this.created_by_units.HeaderText = "Created By";
-            this.created_by_units.MinimumWidth = 12;
-            this.created_by_units.Name = "created_by_units";
-            this.created_by_units.ReadOnly = true;
-            // 
-            // modified_at_units
-            // 
-            this.modified_at_units.DataPropertyName = "modified_at";
-            this.modified_at_units.HeaderText = "Updated Date";
-            this.modified_at_units.MinimumWidth = 12;
-            this.modified_at_units.Name = "modified_at_units";
-            this.modified_at_units.ReadOnly = true;
-            // 
-            // modified_by_units
-            // 
-            this.modified_by_units.DataPropertyName = "modified_by";
-            this.modified_by_units.HeaderText = "Updated By";
-            this.modified_by_units.MinimumWidth = 12;
-            this.modified_by_units.Name = "modified_by_units";
-            this.modified_by_units.ReadOnly = true;
-            // 
-            // is_active
-            // 
-            this.is_active.DataPropertyName = "is_active";
-            this.is_active.HeaderText = "STATUS";
-            this.is_active.MinimumWidth = 12;
-            this.is_active.Name = "is_active";
-            this.is_active.ReadOnly = true;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
@@ -684,6 +582,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.BtnActivateTool.Name = "BtnActivateTool";
             this.BtnActivateTool.Size = new System.Drawing.Size(97, 44);
             this.BtnActivateTool.Text = "&Activate";
+            this.BtnActivateTool.Visible = false;
             this.BtnActivateTool.Click += new System.EventHandler(this.btnEditTool_Click);
             // 
             // BtnDeactivateTool
@@ -693,6 +592,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.BtnDeactivateTool.Name = "BtnDeactivateTool";
             this.BtnDeactivateTool.Size = new System.Drawing.Size(97, 44);
             this.BtnDeactivateTool.Text = "&InActive";
+            this.BtnDeactivateTool.Visible = false;
             this.BtnDeactivateTool.Click += new System.EventHandler(this.btnDeleteTool_Click);
             // 
             // btnUpdateTool
@@ -744,10 +644,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.tabPage1.Controls.Add(this.lbltotalrecords);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(992, 646);
+            this.tabPage1.Size = new System.Drawing.Size(992, 640);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Raw Materials";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -831,6 +731,108 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtPrimaryUnit.Text = "";
             this.mattxtPrimaryUnit.Visible = false;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.FillWeight = 40.60914F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 12;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // active_pu_description
+            // 
+            this.active_pu_description.DataPropertyName = "active_pu_description";
+            this.active_pu_description.FillWeight = 99.49239F;
+            this.active_pu_description.HeaderText = "PRIMARY UNIT";
+            this.active_pu_description.MinimumWidth = 12;
+            this.active_pu_description.Name = "active_pu_description";
+            this.active_pu_description.ReadOnly = true;
+            // 
+            // active_pu_conversion
+            // 
+            this.active_pu_conversion.DataPropertyName = "active_pu_conversion";
+            this.active_pu_conversion.FillWeight = 99.49239F;
+            this.active_pu_conversion.HeaderText = "CONVERSION";
+            this.active_pu_conversion.MinimumWidth = 12;
+            this.active_pu_conversion.Name = "active_pu_conversion";
+            this.active_pu_conversion.ReadOnly = true;
+            // 
+            // is_active
+            // 
+            this.is_active.DataPropertyName = "is_active";
+            this.is_active.HeaderText = "STATUS";
+            this.is_active.MinimumWidth = 12;
+            this.is_active.Name = "is_active";
+            this.is_active.ReadOnly = true;
+            // 
+            // created_by_units
+            // 
+            this.created_by_units.DataPropertyName = "created_by";
+            this.created_by_units.HeaderText = "Created By";
+            this.created_by_units.MinimumWidth = 12;
+            this.created_by_units.Name = "created_by_units";
+            this.created_by_units.ReadOnly = true;
+            // 
+            // modified_at_units
+            // 
+            this.modified_at_units.DataPropertyName = "modified_at";
+            this.modified_at_units.HeaderText = "Updated Date";
+            this.modified_at_units.MinimumWidth = 12;
+            this.modified_at_units.Name = "modified_at_units";
+            this.modified_at_units.ReadOnly = true;
+            // 
+            // modified_by_units
+            // 
+            this.modified_by_units.DataPropertyName = "modified_by";
+            this.modified_by_units.HeaderText = "Updated By";
+            this.modified_by_units.MinimumWidth = 12;
+            this.modified_by_units.Name = "modified_by_units";
+            this.modified_by_units.ReadOnly = true;
+            // 
+            // active_pu_primary_id
+            // 
+            this.active_pu_primary_id.DataPropertyName = "active_pu_primary_id";
+            this.active_pu_primary_id.HeaderText = "PrimaryUnitID";
+            this.active_pu_primary_id.MinimumWidth = 12;
+            this.active_pu_primary_id.Name = "active_pu_primary_id";
+            this.active_pu_primary_id.ReadOnly = true;
+            // 
+            // created_at_units
+            // 
+            this.created_at_units.DataPropertyName = "created_at";
+            this.created_at_units.HeaderText = "Created Date";
+            this.created_at_units.MinimumWidth = 12;
+            this.created_at_units.Name = "created_at_units";
+            this.created_at_units.ReadOnly = true;
+            // 
+            // item_item_code
+            // 
+            this.item_item_code.DataPropertyName = "item_item_code";
+            this.item_item_code.FillWeight = 99.49239F;
+            this.item_item_code.HeaderText = "Item Code";
+            this.item_item_code.MinimumWidth = 12;
+            this.item_item_code.Name = "item_item_code";
+            this.item_item_code.ReadOnly = true;
+            // 
+            // item_description_units
+            // 
+            this.item_description_units.DataPropertyName = "item_description";
+            this.item_description_units.FillWeight = 99.49239F;
+            this.item_description_units.HeaderText = "Item Description";
+            this.item_description_units.MinimumWidth = 12;
+            this.item_description_units.Name = "item_description_units";
+            this.item_description_units.ReadOnly = true;
+            // 
+            // item_primary_id
+            // 
+            this.item_primary_id.DataPropertyName = "item_primary_id";
+            this.item_primary_id.FillWeight = 99.49239F;
+            this.item_primary_id.HeaderText = "PrimaryItemID";
+            this.item_primary_id.MinimumWidth = 12;
+            this.item_primary_id.Name = "item_primary_id";
+            this.item_primary_id.ReadOnly = true;
+            // 
             // frmManageActivePrimaryUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -902,18 +904,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn active_pu_primary_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn active_pu_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn active_pu_conversion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_primary_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_description_units;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_at_units;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_by_units;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modified_at_units;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modified_by_units;
-        private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -922,5 +912,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.Label label4;
         private MaterialSkin.Controls.MaterialTextBox txtmatid;
         private MaterialSkin.Controls.MaterialTextBox mattxtPrimaryUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn active_pu_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn active_pu_conversion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_active;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_by_units;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modified_at_units;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modified_by_units;
+        private System.Windows.Forms.DataGridViewTextBoxColumn active_pu_primary_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_at_units;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_description_units;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_primary_id;
     }
 }

@@ -257,10 +257,11 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.toolStrip2);
-            this.panel1.Location = new System.Drawing.Point(23, 172);
+            this.panel1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(23, 168);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(321, 36);
+            this.panel1.Size = new System.Drawing.Size(321, 40);
             this.panel1.TabIndex = 647;
             // 
             // toolStrip2
@@ -279,7 +280,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip2.Size = new System.Drawing.Size(321, 36);
+            this.toolStrip2.Size = new System.Drawing.Size(321, 40);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -288,7 +289,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
             this.matBtnNew.Image = ((System.Drawing.Image)(resources.GetObject("matBtnNew.Image")));
             this.matBtnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.matBtnNew.Name = "matBtnNew";
-            this.matBtnNew.Size = new System.Drawing.Size(77, 33);
+            this.matBtnNew.Size = new System.Drawing.Size(77, 37);
             this.matBtnNew.Text = "&New";
             this.matBtnNew.Click += new System.EventHandler(this.New_Click);
             // 

@@ -17,14 +17,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmDryMiscellaneouseIssue : MaterialForm
     {
-
-        IStoredProcedures g_objStoredProcCollection = null;
+        private IStoredProcedures g_objStoredProcCollection = null;
         readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         DateTime dNow = DateTime.Now;
-        Raw_Materials_Dry RawMaterialsDryEntity = new Raw_Materials_Dry();
+        readonly Raw_Materials_Dry RawMaterialsDryEntity = new Raw_Materials_Dry();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-
         DataSet dSet_temp = new DataSet();
         public frmDryMiscellaneouseIssue()
         {
@@ -316,7 +314,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             if (this.matRadioActive.Checked == true)
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
 
@@ -347,7 +345,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 

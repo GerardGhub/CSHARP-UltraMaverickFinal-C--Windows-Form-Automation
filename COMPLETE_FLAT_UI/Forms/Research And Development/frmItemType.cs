@@ -252,7 +252,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (this.matRadioActive.Checked == true)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
 

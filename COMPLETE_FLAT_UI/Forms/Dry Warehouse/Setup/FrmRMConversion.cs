@@ -323,13 +323,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         sp_active_pu_primary_id = dgvActiveUnits.CurrentRow.Cells["active_pu_primary_id"].Value.ToString();
                         sp_item_primary_id = dgvActiveUnits.CurrentRow.Cells["item_primary_id"].Value.ToString();
                         this.IsActivated = this.dgvActiveUnits.CurrentRow.Cells["is_active"].Value.ToString();
+
+                  
+
                         if (this.IsActivated == "1")
                         {
                             this.BtnDeactivateTool.Visible = true;
+                            this.BtnActivateTool.Visible = false;
                         }
                         else
                         {
                             this.BtnDeactivateTool.Visible = false;
+                            this.BtnActivateTool.Visible = true;
                         }
                     }
                 }
@@ -461,6 +466,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void LbltotalConversion_TextChanged(object sender, EventArgs e)
         {
+            //if (this.LbltotalConversion.Text  =="0")
+            //{
+            //    BtnDeactivateTool.Enabled = false;
+            //    BtnActivateTool.Enabled = false;
+            //}
+            //else
+            //{
+            //    BtnActivateTool.Enabled = true;
+            //    BtnDeactivateTool.Enabled = true;
+            //}
+
+
             //if (this.LbltotalConversion.Text == "1")
             //{
             //    this.BtnActivateTool.Visible = false;
