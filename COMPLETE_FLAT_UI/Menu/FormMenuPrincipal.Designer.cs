@@ -346,6 +346,7 @@
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 146;
             this.pbImage.TabStop = false;
+            this.pbImage.Visible = false;
             // 
             // btnMaximizedFinal
             // 

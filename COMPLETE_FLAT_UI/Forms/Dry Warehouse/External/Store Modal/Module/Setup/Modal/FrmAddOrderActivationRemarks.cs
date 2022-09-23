@@ -99,6 +99,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
                 return;
             }
 
+            if (this.StoreOrderActivationRemarksEntity.Mode == "ADD")
+            {
+                this.StoreOrderActivationRemarksEntity.Soar_Desc = String.Empty;
+            }
+
 
             if (this.StoreOrderActivationRemarksEntity.Soar_type == this.MatcmbType.Text
                 && this.StoreOrderActivationRemarksEntity.Soar_Desc == this.TxtmatRemarks.Text)
@@ -109,7 +114,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             {
 
                 dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_store_order_activation_remarks(0,
+                dSet = g_objStoredProcCollection
+                    .sp_store_order_activation_remarks(0,
                     this.TxtmatRemarks.Text.Trim(),
                    this.MatcmbType.Text.Trim(), "", "", "", "", "getbyname");
 

@@ -36,18 +36,6 @@ namespace ULTRAMAVERICK.Forms.Users
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserManagement2));
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvUsers = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -64,6 +52,18 @@ namespace ULTRAMAVERICK.Forms.Users
             this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.userfile_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employee_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_rights_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiving_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
@@ -177,112 +177,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dgvUsers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUsers_CellFormatting);
             this.dgvUsers.CurrentCellChanged += new System.EventHandler(this.DgvUsers_CurrentCellChanged);
             this.dgvUsers.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUsers_RowPostPaint);
-            // 
-            // userfile_id
-            // 
-            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.userfile_id.DataPropertyName = "userfile_id";
-            this.userfile_id.FillWeight = 40.60914F;
-            this.userfile_id.HeaderText = "ID";
-            this.userfile_id.MinimumWidth = 12;
-            this.userfile_id.Name = "userfile_id";
-            this.userfile_id.ReadOnly = true;
-            this.userfile_id.Visible = false;
-            this.userfile_id.Width = 12;
-            // 
-            // employee_name
-            // 
-            this.employee_name.DataPropertyName = "employee_name";
-            this.employee_name.FillWeight = 99.49239F;
-            this.employee_name.HeaderText = "FIRST NAME";
-            this.employee_name.MinimumWidth = 12;
-            this.employee_name.Name = "employee_name";
-            this.employee_name.ReadOnly = true;
-            // 
-            // employee_lastname
-            // 
-            this.employee_lastname.DataPropertyName = "employee_lastname";
-            this.employee_lastname.FillWeight = 99.49239F;
-            this.employee_lastname.HeaderText = "LAST NAME";
-            this.employee_lastname.MinimumWidth = 12;
-            this.employee_lastname.Name = "employee_lastname";
-            this.employee_lastname.ReadOnly = true;
-            // 
-            // gender
-            // 
-            this.gender.DataPropertyName = "gender";
-            this.gender.HeaderText = "GENDER";
-            this.gender.MinimumWidth = 12;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            // 
-            // username
-            // 
-            this.username.DataPropertyName = "username";
-            this.username.FillWeight = 99.49239F;
-            this.username.HeaderText = "USERNAME";
-            this.username.MinimumWidth = 12;
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            // 
-            // department_name
-            // 
-            this.department_name.DataPropertyName = "department_name";
-            this.department_name.HeaderText = "DEPARTMENT";
-            this.department_name.MinimumWidth = 12;
-            this.department_name.Name = "department_name";
-            this.department_name.ReadOnly = true;
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "Unit";
-            this.Unit.HeaderText = "UNIT";
-            this.Unit.MinimumWidth = 12;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.HeaderText = "POSITION";
-            this.Position.MinimumWidth = 12;
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            // 
-            // user_rights_name
-            // 
-            this.user_rights_name.DataPropertyName = "user_rights_name";
-            this.user_rights_name.HeaderText = "USER RIGHTS";
-            this.user_rights_name.MinimumWidth = 12;
-            this.user_rights_name.Name = "user_rights_name";
-            this.user_rights_name.ReadOnly = true;
-            // 
-            // password
-            // 
-            this.password.DataPropertyName = "password";
-            this.password.HeaderText = "PASSWORD";
-            this.password.MinimumWidth = 12;
-            this.password.Name = "password";
-            this.password.ReadOnly = true;
-            this.password.Visible = false;
-            // 
-            // receiving_status
-            // 
-            this.receiving_status.DataPropertyName = "receiving_status";
-            this.receiving_status.HeaderText = "NOTIFICATION";
-            this.receiving_status.MinimumWidth = 12;
-            this.receiving_status.Name = "receiving_status";
-            this.receiving_status.ReadOnly = true;
-            this.receiving_status.Visible = false;
-            // 
-            // user_section
-            // 
-            this.user_section.DataPropertyName = "user_section";
-            this.user_section.HeaderText = "LAYOUT";
-            this.user_section.MinimumWidth = 12;
-            this.user_section.Name = "user_section";
-            this.user_section.ReadOnly = true;
-            this.user_section.Visible = false;
             // 
             // textBox1
             // 
@@ -500,6 +394,112 @@ namespace ULTRAMAVERICK.Forms.Users
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.Visible = false;
             this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            // 
+            // userfile_id
+            // 
+            this.userfile_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.userfile_id.DataPropertyName = "userfile_id";
+            this.userfile_id.FillWeight = 40.60914F;
+            this.userfile_id.HeaderText = "ID";
+            this.userfile_id.MinimumWidth = 12;
+            this.userfile_id.Name = "userfile_id";
+            this.userfile_id.ReadOnly = true;
+            this.userfile_id.Visible = false;
+            this.userfile_id.Width = 12;
+            // 
+            // employee_name
+            // 
+            this.employee_name.DataPropertyName = "employee_name";
+            this.employee_name.FillWeight = 99.49239F;
+            this.employee_name.HeaderText = "FIRST NAME";
+            this.employee_name.MinimumWidth = 12;
+            this.employee_name.Name = "employee_name";
+            this.employee_name.ReadOnly = true;
+            // 
+            // employee_lastname
+            // 
+            this.employee_lastname.DataPropertyName = "employee_lastname";
+            this.employee_lastname.FillWeight = 99.49239F;
+            this.employee_lastname.HeaderText = "LAST NAME";
+            this.employee_lastname.MinimumWidth = 12;
+            this.employee_lastname.Name = "employee_lastname";
+            this.employee_lastname.ReadOnly = true;
+            // 
+            // gender
+            // 
+            this.gender.DataPropertyName = "gender";
+            this.gender.HeaderText = "GENDER";
+            this.gender.MinimumWidth = 12;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.FillWeight = 99.49239F;
+            this.username.HeaderText = "USERNAME";
+            this.username.MinimumWidth = 12;
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            // 
+            // department_name
+            // 
+            this.department_name.DataPropertyName = "department_name";
+            this.department_name.HeaderText = "DEPARTMENT";
+            this.department_name.MinimumWidth = 12;
+            this.department_name.Name = "department_name";
+            this.department_name.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "UNIT";
+            this.Unit.MinimumWidth = 12;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "POSITION";
+            this.Position.MinimumWidth = 12;
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
+            // 
+            // user_rights_name
+            // 
+            this.user_rights_name.DataPropertyName = "user_rights_name";
+            this.user_rights_name.HeaderText = "ROLE";
+            this.user_rights_name.MinimumWidth = 12;
+            this.user_rights_name.Name = "user_rights_name";
+            this.user_rights_name.ReadOnly = true;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "PASSWORD";
+            this.password.MinimumWidth = 12;
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            this.password.Visible = false;
+            // 
+            // receiving_status
+            // 
+            this.receiving_status.DataPropertyName = "receiving_status";
+            this.receiving_status.HeaderText = "NOTIFICATION";
+            this.receiving_status.MinimumWidth = 12;
+            this.receiving_status.Name = "receiving_status";
+            this.receiving_status.ReadOnly = true;
+            this.receiving_status.Visible = false;
+            // 
+            // user_section
+            // 
+            this.user_section.DataPropertyName = "user_section";
+            this.user_section.HeaderText = "LAYOUT";
+            this.user_section.MinimumWidth = 12;
+            this.user_section.Name = "user_section";
+            this.user_section.ReadOnly = true;
+            this.user_section.Visible = false;
             // 
             // frmUserManagement2
             // 

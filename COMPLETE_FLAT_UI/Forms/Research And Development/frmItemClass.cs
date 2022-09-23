@@ -26,10 +26,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         readonly Item_Class Item_ClassEntity = new Item_Class();
-        string mode = "";
+ 
 
         DateTime dNow = DateTime.Now;
-        Boolean ready = false;
+
 
 
         DataSet dSet_temp = new DataSet();
@@ -183,7 +183,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
   
         private void btnAddTool_Click(object sender, EventArgs e)
         {
-            mode = "add";
+   
             matBtnEdit.Visible = false;
             matBtnCancel.Visible = true;
 
@@ -211,7 +211,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void btnCancelTool_Click(object sender, EventArgs e)
         {
             matBtnCancel.Visible = false;
-            mode = "";
+
 
             matBtnEdit.Visible = true;
             matBtnSave.Visible = false;
@@ -222,7 +222,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void btnEditTool_Click(object sender, EventArgs e)
         {
-            mode = "edit";
+  
 
 
             matBtnDelete.Visible = false;
@@ -248,7 +248,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
-                    mode = "delete";
 
                     this.dSet_temp.Clear();
                     this.dSet_temp = this.g_objStoredProcCollection
@@ -273,7 +272,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    mode = "activate";
+            
 
                     this.dSet_temp.Clear();
                     this.dSet_temp = this.g_objStoredProcCollection

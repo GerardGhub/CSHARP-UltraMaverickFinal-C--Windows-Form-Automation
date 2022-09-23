@@ -72,8 +72,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             this.MatcmbType.IntegralHeight = false;
             this.MatcmbType.ItemHeight = 43;
             this.MatcmbType.Items.AddRange(new object[] {
-            "Cancel",
-            "Return"});
+            "CANCEL",
+            "RETURN"});
             this.MatcmbType.Location = new System.Drawing.Point(53, 32);
             this.MatcmbType.MaxDropDownItems = 4;
             this.MatcmbType.MouseState = MaterialSkin.MouseState.OUT;

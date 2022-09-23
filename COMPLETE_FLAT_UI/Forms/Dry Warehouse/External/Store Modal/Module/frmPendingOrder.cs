@@ -14,15 +14,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
     public partial class frmPendingOrder : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+       
+   
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
-        string mode = "";
-        int p_id = 0;
-    
+
         DateTime dNow = DateTime.Now;
 
 
@@ -36,7 +34,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void frmPendingOrder_Load(object sender, EventArgs e)
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
 
             this.showDryWhPendingOrders();
         }
@@ -46,7 +44,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-                xClass.fillDataGridView(this.dgvSubCategory, "dry_wh_orders_pending", dSet);
+                myClass.fillDataGridView(this.dgvSubCategory, "dry_wh_orders_pending", dSet);
 
                 this.lbltotaldata.Text = this.dgvSubCategory.RowCount.ToString();
             }

@@ -80,7 +80,9 @@ namespace ULTRAMAVERICK.Forms.Users
                     else if (myglobal.global_module == "Active")
                     {
 
-                        dv.RowFilter = "position_name like '%" + this.mattxtSearch.Text + "%'";
+                        dv.RowFilter = "position_name like '%" + this.mattxtSearch.Text + "%'" +
+                            "or department_name like '&" + this.mattxtSearch.Text + "&' " +
+                            "or unit_description like '&" + this.mattxtSearch.Text + "&'";
 
                     }
                     else if (myglobal.global_module == "VISITORS")
@@ -109,7 +111,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.dset_emp.Clear();
             if (this.matRadioActive.Checked == true)
             {
-                this.dset_emp = this.g_objStoredProcCollection.sp_getMajorTables("positioncurrentcellchanged");
+                this.dset_emp = this.g_objStoredProcCollection.sp_getMajorTables("=positioncurrentcellchanged");
             }
 
             else
@@ -338,7 +340,6 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
-
             this.load_search();
         }
 

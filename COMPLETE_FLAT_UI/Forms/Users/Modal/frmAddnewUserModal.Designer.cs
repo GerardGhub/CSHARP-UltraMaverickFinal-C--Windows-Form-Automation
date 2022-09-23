@@ -305,9 +305,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label13.Location = new System.Drawing.Point(529, 17);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 15);
+            this.label13.Size = new System.Drawing.Size(35, 15);
             this.label13.TabIndex = 562;
-            this.label13.Text = "User Rights:";
+            this.label13.Text = "Role:";
             // 
             // label12
             // 

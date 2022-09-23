@@ -18,7 +18,7 @@ namespace COMPLETE_FLAT_UI
 {
     public partial class frmLoginForm : MaterialForm
     {
-        FormMenuPrincipal mainMenu;
+
         DataSet dSet = new DataSet();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();

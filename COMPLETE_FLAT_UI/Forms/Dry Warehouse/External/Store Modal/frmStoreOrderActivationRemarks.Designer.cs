@@ -40,13 +40,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matBtnNew = new System.Windows.Forms.ToolStripButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvAVGOrderTrend = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.soar_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soar_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soar_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soar_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soar_date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soar_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soar_updated_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matBtnSave = new System.Windows.Forms.ToolStripButton();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
@@ -58,6 +51,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.soar_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soar_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soar_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soar_added_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soar_date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soar_updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soar_updated_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAVGOrderTrend)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -143,8 +143,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvAVGOrderTrend.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvAVGOrderTrend.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.soar_id,
-            this.soar_desc,
             this.soar_type,
+            this.soar_desc,
             this.soar_added_by,
             this.soar_date_added,
             this.soar_updated_by,
@@ -204,67 +204,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvAVGOrderTrend.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvAVGOrderTrend.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAVGOrderTrend_CellFormatting);
             this.dgvAVGOrderTrend.CurrentCellChanged += new System.EventHandler(this.dgvAVGOrderTrend_CurrentCellChanged);
-            // 
-            // soar_id
-            // 
-            this.soar_id.DataPropertyName = "soar_id";
-            this.soar_id.FillWeight = 40.60914F;
-            this.soar_id.HeaderText = "ID";
-            this.soar_id.MinimumWidth = 12;
-            this.soar_id.Name = "soar_id";
-            this.soar_id.ReadOnly = true;
-            // 
-            // soar_desc
-            // 
-            this.soar_desc.DataPropertyName = "soar_desc";
-            this.soar_desc.FillWeight = 99.49239F;
-            this.soar_desc.HeaderText = "REMARKS";
-            this.soar_desc.MinimumWidth = 12;
-            this.soar_desc.Name = "soar_desc";
-            this.soar_desc.ReadOnly = true;
-            // 
-            // soar_type
-            // 
-            this.soar_type.DataPropertyName = "soar_type";
-            this.soar_type.FillWeight = 99.49239F;
-            this.soar_type.HeaderText = "TYPE";
-            this.soar_type.MinimumWidth = 12;
-            this.soar_type.Name = "soar_type";
-            this.soar_type.ReadOnly = true;
-            // 
-            // soar_added_by
-            // 
-            this.soar_added_by.DataPropertyName = "soar_added_by";
-            this.soar_added_by.FillWeight = 99.49239F;
-            this.soar_added_by.HeaderText = "ADDED BY";
-            this.soar_added_by.MinimumWidth = 12;
-            this.soar_added_by.Name = "soar_added_by";
-            this.soar_added_by.ReadOnly = true;
-            // 
-            // soar_date_added
-            // 
-            this.soar_date_added.DataPropertyName = "soar_date_added";
-            this.soar_date_added.FillWeight = 99.49239F;
-            this.soar_date_added.HeaderText = "DATE ADDED";
-            this.soar_date_added.MinimumWidth = 12;
-            this.soar_date_added.Name = "soar_date_added";
-            this.soar_date_added.ReadOnly = true;
-            // 
-            // soar_updated_by
-            // 
-            this.soar_updated_by.DataPropertyName = "soar_updated_by";
-            this.soar_updated_by.HeaderText = "UPDATED BY";
-            this.soar_updated_by.MinimumWidth = 6;
-            this.soar_updated_by.Name = "soar_updated_by";
-            this.soar_updated_by.ReadOnly = true;
-            // 
-            // soar_updated_date
-            // 
-            this.soar_updated_date.DataPropertyName = "soar_updated_date";
-            this.soar_updated_date.HeaderText = "UPDATED DATE";
-            this.soar_updated_date.MinimumWidth = 6;
-            this.soar_updated_date.Name = "soar_updated_date";
-            this.soar_updated_date.ReadOnly = true;
             // 
             // matBtnSave
             // 
@@ -431,6 +370,67 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotalrecords.TabIndex = 620;
             this.lbltotalrecords.Text = "0";
             // 
+            // soar_id
+            // 
+            this.soar_id.DataPropertyName = "soar_id";
+            this.soar_id.FillWeight = 40.60914F;
+            this.soar_id.HeaderText = "ID";
+            this.soar_id.MinimumWidth = 12;
+            this.soar_id.Name = "soar_id";
+            this.soar_id.ReadOnly = true;
+            // 
+            // soar_type
+            // 
+            this.soar_type.DataPropertyName = "soar_type";
+            this.soar_type.FillWeight = 99.49239F;
+            this.soar_type.HeaderText = "TYPE";
+            this.soar_type.MinimumWidth = 12;
+            this.soar_type.Name = "soar_type";
+            this.soar_type.ReadOnly = true;
+            // 
+            // soar_desc
+            // 
+            this.soar_desc.DataPropertyName = "soar_desc";
+            this.soar_desc.FillWeight = 99.49239F;
+            this.soar_desc.HeaderText = "REMARKS";
+            this.soar_desc.MinimumWidth = 12;
+            this.soar_desc.Name = "soar_desc";
+            this.soar_desc.ReadOnly = true;
+            // 
+            // soar_added_by
+            // 
+            this.soar_added_by.DataPropertyName = "soar_added_by";
+            this.soar_added_by.FillWeight = 99.49239F;
+            this.soar_added_by.HeaderText = "ADDED BY";
+            this.soar_added_by.MinimumWidth = 12;
+            this.soar_added_by.Name = "soar_added_by";
+            this.soar_added_by.ReadOnly = true;
+            // 
+            // soar_date_added
+            // 
+            this.soar_date_added.DataPropertyName = "soar_date_added";
+            this.soar_date_added.FillWeight = 99.49239F;
+            this.soar_date_added.HeaderText = "DATE ADDED";
+            this.soar_date_added.MinimumWidth = 12;
+            this.soar_date_added.Name = "soar_date_added";
+            this.soar_date_added.ReadOnly = true;
+            // 
+            // soar_updated_by
+            // 
+            this.soar_updated_by.DataPropertyName = "soar_updated_by";
+            this.soar_updated_by.HeaderText = "UPDATED BY";
+            this.soar_updated_by.MinimumWidth = 6;
+            this.soar_updated_by.Name = "soar_updated_by";
+            this.soar_updated_by.ReadOnly = true;
+            // 
+            // soar_updated_date
+            // 
+            this.soar_updated_date.DataPropertyName = "soar_updated_date";
+            this.soar_updated_date.HeaderText = "UPDATED DATE";
+            this.soar_updated_date.MinimumWidth = 6;
+            this.soar_updated_date.Name = "soar_updated_date";
+            this.soar_updated_date.ReadOnly = true;
+            // 
             // frmStoreOrderActivationRemarks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,15 +476,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialRadioButton matRadioActive;
         private MaterialSkin.Controls.MaterialRadioButton matRadioNotActive;
         private MaterialSkin.Controls.MaterialCard materialCard3;
+        public System.Windows.Forms.TextBox TextBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.DataGridViewTextBoxColumn soar_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soar_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn soar_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soar_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn soar_added_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn soar_date_added;
         private System.Windows.Forms.DataGridViewTextBoxColumn soar_updated_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn soar_updated_date;
-        public System.Windows.Forms.TextBox TextBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbltotalrecords;
     }
 }

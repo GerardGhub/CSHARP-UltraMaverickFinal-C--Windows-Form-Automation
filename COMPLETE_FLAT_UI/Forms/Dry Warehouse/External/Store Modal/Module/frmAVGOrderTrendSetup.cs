@@ -343,11 +343,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-
-            
-
-                        dSet_temp.Clear();
-                        dSet_temp = g_objStoredProcCollection
+                            dSet_temp.Clear();
+                            dSet_temp = g_objStoredProcCollection
                             .sp_avg_order_trend(this.AvgOrderTrendEntity.Avg_Id,
                             "",
                             0,
@@ -373,7 +370,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 if (this.dgvAVGOrderTrend.Rows.Count > 0)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         //Start of Forced Activated
                         DSet.Clear();
