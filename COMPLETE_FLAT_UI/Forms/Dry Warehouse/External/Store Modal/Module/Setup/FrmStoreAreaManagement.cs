@@ -316,28 +316,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (this.matRadioActive.Checked == true)
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive the data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
-                        mode = "delete";
+                    mode = "delete";
 
-                        mode = "";
+                    mode = "";
 
-                        this.dSet.Clear();
-                        this.dSet = this.g_objStoredProcCollection
-                            .sp_tblArea(
-                            this.TblAreaEntity.Aread_Id,
-                            this.TblAreaEntity.Area_Name,
-                            this.TblAreaEntity.Added_By,
-                            "",
-                            userinfo.user_id.ToString(),
-                            "",
-                            "delete");
+                    this.dSet.Clear();
+                    this.dSet = this.g_objStoredProcCollection
+                    .sp_tblArea(
+                    this.TblAreaEntity.Aread_Id,
+                    this.TblAreaEntity.Area_Name,
+                    this.TblAreaEntity.Added_By,
+                    "",
+                    userinfo.user_id.ToString(),
+                    "",
+                    "delete");
 
-                        this.GlobalStatePopup.InactiveSuccessfully();
-                        this.frmAreaManagement_Load(new object(), new System.EventArgs());
+                    this.GlobalStatePopup.InactiveSuccessfully();
+                    this.frmAreaManagement_Load(new object(), new System.EventArgs());
 
                     }
 
@@ -355,7 +355,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 //
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {

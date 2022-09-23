@@ -24,9 +24,7 @@ namespace ULTRAMAVERICK.Forms.Users
         IStoredProcedures g_objStoredProcCollection = null;
         readonly myglobal pointer_module = new myglobal();
         DateTime dNow = DateTime.Now;
-        string mode = "";
         DataSet dSet = new DataSet();
-        Boolean ready = false;
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass(); 
         DataSet dSet_temp = new DataSet();
         readonly Position PositionEntity = new Position();
@@ -177,29 +175,26 @@ namespace ULTRAMAVERICK.Forms.Users
             {
 
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
+       
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
+                    "",
+                    "",
+                    "",
+                    "",
+                    userinfo.user_id.ToString(),
+                    "",
+                    "",
+                    "delete");
+                    this.GlobalStatePopup.InactiveSuccessfully();
 
-
-                        mode = "";
-
-                        this.dSet_temp.Clear();
-                        this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
-                            "",
-                            "",
-                            "",
-                            "",
-                            userinfo.user_id.ToString(),
-                            "",
-                            "",
-                            "delete");
-                        this.GlobalStatePopup.InactiveSuccessfully();
-
-                        this.frmPosition_Load(sender, e);
-                        btnEditTool.Visible = true;
+                    this.frmPosition_Load(sender, e);
+                    btnEditTool.Visible = true;
 
 
                     }
@@ -216,29 +211,26 @@ namespace ULTRAMAVERICK.Forms.Users
             else
             {
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
 
+                    this.dSet_temp.Clear();
+                    this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
+                    "",
+                    "",
+                    "",
+                    "",
+                    userinfo.user_id.ToString(),
+                    "",
+                    "",
+                    "activate");
+                    this.GlobalStatePopup.InactiveSuccessfully();
 
-                        mode = "activate";
-
-                        this.dSet_temp.Clear();
-                        this.dSet_temp = g_objStoredProcCollection.sp_position(this.PositionEntity.Position_Id,
-                            "",
-                            "",
-                            "",
-                            "",
-                            userinfo.user_id.ToString(),
-                            "",
-                            "",
-                            "activate");
-                        this.GlobalStatePopup.InactiveSuccessfully();
-
-                        this.frmPosition_Load(sender, e);
-                        btnEditTool.Visible = true;
+                    this.frmPosition_Load(sender, e);
+                    btnEditTool.Visible = true;
 
 
                     }
@@ -257,7 +249,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void neww_Click(object sender, EventArgs e)
         {
-            this.mode = "ADD";
+          
             this.btnUpdateTool.Visible = true;
             this.btnAddTool.Visible = false;
 
@@ -281,12 +273,12 @@ namespace ULTRAMAVERICK.Forms.Users
 
         }
 
-        private void editt_Click(object sender, EventArgs e)
+        private void Editt_Click(object sender, EventArgs e)
         {
 
             if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
             {
-                this.mode = "edit";
+               
                 this.btnEditTool.Visible = false;
                 this.btnAddTool.Visible = false;
                 this.btnCancelTool.Visible = true;

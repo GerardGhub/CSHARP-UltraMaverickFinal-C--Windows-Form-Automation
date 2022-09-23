@@ -74,9 +74,9 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         {
 
 
-         if (this.Dept.Mode == "ADD")
+            if (this.Dept.Mode == "ADD")
             {
-                this.Dept.Department_Name = String.Empty;
+            this.Dept.Department_Name = String.Empty;
             }
 
 
@@ -117,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             {
 
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (this.TxtDepartment.Text.Trim() == "")
                     {
@@ -133,9 +133,6 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
                     else
                     {
-
-
-
 
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_department(0,
@@ -192,33 +189,29 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
 
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (this.TxtDepartment.Text.Trim() == "")
                     {
-
-
                         this.GlobalStatePopup.FillRequiredFields();
                         TxtDepartment.BackColor = Color.Yellow;
                         TxtDepartment.Focus();
                         return;
                     }
 
-
-
                     else
                     {
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_department(
-                            this.Dept.Department_Id,
-                            this.TxtDepartment.Text.Trim(),
-                            this.Dept.Created_By,
-                            "",
-                            "",
-                            this.Dept.Created_By,
-                            this.Dept.Created_By,
-                            "",
-                            "edit");
+                        this.Dept.Department_Id,
+                        this.TxtDepartment.Text.Trim(),
+                        this.Dept.Created_By,
+                        "",
+                        "",
+                        this.Dept.Created_By,
+                        this.Dept.Created_By,
+                        "",
+                        "edit");
                         this.GlobalStatePopup.SuccessFullySave();
 
                         this.textBox1.Text = "FormClosed";

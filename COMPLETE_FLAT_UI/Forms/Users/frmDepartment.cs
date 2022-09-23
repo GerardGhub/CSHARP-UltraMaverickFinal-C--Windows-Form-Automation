@@ -196,22 +196,20 @@ namespace ULTRAMAVERICK.Forms.Users
             if (this.matRadioActive.Checked == true)
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
-
-
                         dSet_temp.Clear();
                         dSet_temp = g_objStoredProcCollection.sp_department(this.DeptEntity.Department_Id, 
-                            "", 
-                            "", 
-                            "", 
-                            "", 
-                            userinfo.user_id.ToString(), 
-                            "",
-                            "", 
-                            "delete");
+                        "", 
+                        "", 
+                        "", 
+                        "", 
+                        userinfo.user_id.ToString(), 
+                        "",
+                        "", 
+                        "delete");
                         this.GlobalStatePopup.InactiveSuccessfully();
                         this.frmDepartment_Load(sender, e);
                     }
@@ -228,24 +226,22 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
-
-
-                        dSet_temp.Clear();
-                        dSet_temp = g_objStoredProcCollection.sp_department(this.DeptEntity.Department_Id, 
-                            "", 
-                            "", 
-                            "", 
-                            "",
-                                       userinfo.user_id.ToString(),
-                            "",
-                            "",
-                            "activate");
-                        this.GlobalStatePopup.ActivatedSuccessfully();
-                        this.frmDepartment_Load(sender, e);
+                    dSet_temp.Clear();
+                    dSet_temp = g_objStoredProcCollection.sp_department(this.DeptEntity.Department_Id, 
+                    "", 
+                    "", 
+                    "", 
+                    "",
+                    userinfo.user_id.ToString(),
+                    "",
+                    "",
+                    "activate");
+                    this.GlobalStatePopup.ActivatedSuccessfully();
+                    this.frmDepartment_Load(sender, e);
                     }
 
 
@@ -262,29 +258,19 @@ namespace ULTRAMAVERICK.Forms.Users
 
   
 
-       
-
-   
-
-
-
-
-
-
+    
         private void neww_Click(object sender, EventArgs e)
         {
-            mode = "ADD";
-            btnUpdateTool.Visible = true;
-            btnAddTool.Visible = false;
-            btnDeleteTool.Visible = false;
+                mode = "ADD";
+                btnUpdateTool.Visible = true;
+                btnAddTool.Visible = false;
+                btnDeleteTool.Visible = false;
     
+                btnCancelTool.Visible = true;
 
 
-            btnCancelTool.Visible = true;
-
-
-            btnUpdateTool.Visible = true;
-            btnEditTool.Visible = false;
+                btnUpdateTool.Visible = true;
+                btnEditTool.Visible = false;
 
 
                 FrmAddNewDepartment addNew = new FrmAddNewDepartment(this,
@@ -340,7 +326,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void removee_Click(object sender, EventArgs e)
         {
-            metroButtonDelete_Click(sender, e);
+            this.metroButtonDelete_Click(sender, e);
         }
 
         private void savee_Click(object sender, EventArgs e)

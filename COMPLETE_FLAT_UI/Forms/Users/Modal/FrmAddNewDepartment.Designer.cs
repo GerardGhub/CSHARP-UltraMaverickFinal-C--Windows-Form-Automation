@@ -51,7 +51,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(542, 193);
+            this.materialCard1.Size = new System.Drawing.Size(542, 226);
             this.materialCard1.TabIndex = 0;
             // 
             // textBox1
@@ -74,7 +74,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtDepartment.Depth = 0;
             this.TxtDepartment.Font = new System.Drawing.Font("Roboto", 12F);
             this.TxtDepartment.Hint = "Department";
-            this.TxtDepartment.Location = new System.Drawing.Point(40, 57);
+            this.TxtDepartment.Location = new System.Drawing.Point(39, 57);
             this.TxtDepartment.Margin = new System.Windows.Forms.Padding(1);
             this.TxtDepartment.MaxLength = 50;
             this.TxtDepartment.MouseState = MaterialSkin.MouseState.OUT;
@@ -130,7 +130,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.MatbtnCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.BtnExecute, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(435, 281);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(435, 316);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -141,7 +141,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 331);
+            this.ClientSize = new System.Drawing.Size(621, 369);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;

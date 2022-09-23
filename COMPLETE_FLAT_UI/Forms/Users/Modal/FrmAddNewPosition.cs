@@ -88,8 +88,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
         public void LoadCurrentUnit()
         {
-            //MessageBox.Show(this.PositionEntity.Department_Id);
-            //return;
+     
 
             myClass.fillCmbTransactionNo(CboUnit, "department_unit_dropdown_params", dSet, Convert.ToInt32(this.PositionEntity.Department_Id));
 
@@ -167,9 +166,8 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             if (this.PositionEntity.Mode == "ADD")
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
 
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_position(0,
@@ -230,7 +228,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                 }
 
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 

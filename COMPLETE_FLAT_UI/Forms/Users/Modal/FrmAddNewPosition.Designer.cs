@@ -76,7 +76,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.TxtPosition.Depth = 0;
             this.TxtPosition.Font = new System.Drawing.Font("Roboto", 12F);
             this.TxtPosition.Hint = "Position";
-            this.TxtPosition.Location = new System.Drawing.Point(58, 99);
+            this.TxtPosition.Location = new System.Drawing.Point(58, 102);
             this.TxtPosition.Margin = new System.Windows.Forms.Padding(1);
             this.TxtPosition.MaxLength = 50;
             this.TxtPosition.MouseState = MaterialSkin.MouseState.OUT;

@@ -468,11 +468,11 @@
     <Compile Include="Forms\Users\Modal\FrmAddNewDepartment.Designer.cs">
       <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\AddNewUnit.cs">
+    <Compile Include="Forms\Users\Modal\FrmAddNewUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\AddNewUnit.Designer.cs">
-      <DependentUpon>AddNewUnit.cs</DependentUpon>
+    <Compile Include="Forms\Users\Modal\FrmAddNewUnit.Designer.cs">
+      <DependentUpon>FrmAddNewUnit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\Modal\FrmAddNewPosition.cs">
       <SubType>Form</SubType>
@@ -1033,8 +1033,8 @@
     <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewDepartment.resx">
       <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\AddNewUnit.resx">
-      <DependentUpon>AddNewUnit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewUnit.resx">
+      <DependentUpon>FrmAddNewUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewPosition.resx">
       <DependentUpon>FrmAddNewPosition.cs</DependentUpon>

@@ -144,7 +144,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         {
             if (this.Item_ClassEntity.Mode == "ADD")
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     this.dSet.Clear();

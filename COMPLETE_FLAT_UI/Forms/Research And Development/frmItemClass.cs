@@ -245,20 +245,20 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         {
             if (this.matRadioActive.Checked == true)
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
                     mode = "delete";
 
                     this.dSet_temp.Clear();
                     this.dSet_temp = this.g_objStoredProcCollection
-                        .sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, 
-                        "", 
-                        "", 
-                        "", 
-                        userinfo.user_id.ToString(), 
-                        userinfo.user_id.ToString(),
-                        "delete");
+                    .sp_Item_Class(this.Item_ClassEntity.Item_Class_Id, 
+                    "", 
+                    "", 
+                    "", 
+                    userinfo.user_id.ToString(), 
+                    userinfo.user_id.ToString(),
+                    "delete");
                     this.GlobalStatePopup.InactiveSuccessfully();
                     this.FrmItemClass_Load(sender, e);
                 }
