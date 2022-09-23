@@ -57,6 +57,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.major_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemclassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.majorcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primaryunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conversionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
@@ -72,12 +81,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard1.Controls.Add(this.dgvRawMats);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(19, 99);
+            this.materialCard1.Location = new System.Drawing.Point(29, 88);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(986, 519);
+            this.materialCard1.Size = new System.Drawing.Size(963, 462);
             this.materialCard1.TabIndex = 0;
             // 
             // dgvRawMats
@@ -112,7 +121,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.item_class,
             this.major_category,
             this.sub_category,
-            this.conversion});
+            this.conversion,
+            this.itemidDataGridViewTextBoxColumn,
+            this.itemcodeDataGridViewTextBoxColumn,
+            this.itemdescriptionDataGridViewTextBoxColumn,
+            this.itemclassDataGridViewTextBoxColumn,
+            this.majorcategoryDataGridViewTextBoxColumn,
+            this.subcategoryDataGridViewTextBoxColumn,
+            this.primaryunitDataGridViewTextBoxColumn,
+            this.conversionDataGridViewTextBoxColumn,
+            this.itemtypeDataGridViewTextBoxColumn});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -142,7 +160,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(976, 507);
+            this.dgvRawMats.Size = new System.Drawing.Size(953, 450);
             this.dgvRawMats.TabIndex = 5;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -189,7 +207,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.matBtnBrowse.DrawShadows = true;
             this.matBtnBrowse.HighEmphasis = true;
             this.matBtnBrowse.Icon = null;
-            this.matBtnBrowse.Location = new System.Drawing.Point(805, 22);
+            this.matBtnBrowse.Location = new System.Drawing.Point(780, 22);
             this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnBrowse.Name = "matBtnBrowse";
@@ -214,7 +232,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.txtFileName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtFileName.Multiline = false;
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(286, 50);
+            this.txtFileName.Size = new System.Drawing.Size(389, 50);
             this.txtFileName.TabIndex = 2;
             this.txtFileName.Text = "";
             this.txtFileName.TextChanged += new System.EventHandler(this.txtFileName_TextChanged);
@@ -224,11 +242,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.cbosheet.Enabled = false;
             this.cbosheet.FormattingEnabled = true;
             this.cbosheet.ItemHeight = 23;
-            this.cbosheet.Location = new System.Drawing.Point(27, 81);
+            this.cbosheet.Location = new System.Drawing.Point(27, 84);
             this.cbosheet.Margin = new System.Windows.Forms.Padding(1);
             this.cbosheet.Name = "cbosheet";
             this.cbosheet.PromptText = "Sheet";
-            this.cbosheet.Size = new System.Drawing.Size(285, 29);
+            this.cbosheet.Size = new System.Drawing.Size(388, 29);
             this.cbosheet.TabIndex = 3;
             this.cbosheet.UseSelectable = true;
             this.cbosheet.SelectedIndexChanged += new System.EventHandler(this.cbosheet_SelectedIndexChanged);
@@ -248,23 +266,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard2.Controls.Add(this.cbosheet);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(17, 630);
+            this.materialCard2.Location = new System.Drawing.Point(29, 563);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(988, 123);
+            this.materialCard2.Size = new System.Drawing.Size(963, 132);
             this.materialCard2.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(25, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.Size = new System.Drawing.Size(46, 15);
             this.label4.TabIndex = 610;
             this.label4.Text = "Sheet :";
             // 
@@ -275,11 +293,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(925, 21);
+            this.lbltotalrecords.Location = new System.Drawing.Point(900, 21);
             this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(47, 35);
+            this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 608;
-            this.lbltotalrecords.Text = "76";
+            this.lbltotalrecords.Text = "0";
             // 
             // label2
             // 
@@ -288,7 +306,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(928, 57);
+            this.label2.Location = new System.Drawing.Point(903, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 609;
@@ -302,7 +320,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.matbtnUpload.DrawShadows = true;
             this.matbtnUpload.HighEmphasis = true;
             this.matbtnUpload.Icon = null;
-            this.matbtnUpload.Location = new System.Drawing.Point(806, 73);
+            this.matbtnUpload.Location = new System.Drawing.Point(781, 73);
             this.matbtnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnUpload.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnUpload.Name = "matbtnUpload";
@@ -409,6 +427,78 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.conversion.Name = "conversion";
             this.conversion.ReadOnly = true;
             // 
+            // itemidDataGridViewTextBoxColumn
+            // 
+            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn.HeaderText = "item_id";
+            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemcodeDataGridViewTextBoxColumn
+            // 
+            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
+            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemcodeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemdescriptionDataGridViewTextBoxColumn
+            // 
+            this.itemdescriptionDataGridViewTextBoxColumn.DataPropertyName = "item_description";
+            this.itemdescriptionDataGridViewTextBoxColumn.HeaderText = "item_description";
+            this.itemdescriptionDataGridViewTextBoxColumn.Name = "itemdescriptionDataGridViewTextBoxColumn";
+            this.itemdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemdescriptionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemclassDataGridViewTextBoxColumn
+            // 
+            this.itemclassDataGridViewTextBoxColumn.DataPropertyName = "item_class";
+            this.itemclassDataGridViewTextBoxColumn.HeaderText = "item_class";
+            this.itemclassDataGridViewTextBoxColumn.Name = "itemclassDataGridViewTextBoxColumn";
+            this.itemclassDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemclassDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // majorcategoryDataGridViewTextBoxColumn
+            // 
+            this.majorcategoryDataGridViewTextBoxColumn.DataPropertyName = "major_category";
+            this.majorcategoryDataGridViewTextBoxColumn.HeaderText = "major_category";
+            this.majorcategoryDataGridViewTextBoxColumn.Name = "majorcategoryDataGridViewTextBoxColumn";
+            this.majorcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.majorcategoryDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // subcategoryDataGridViewTextBoxColumn
+            // 
+            this.subcategoryDataGridViewTextBoxColumn.DataPropertyName = "sub_category";
+            this.subcategoryDataGridViewTextBoxColumn.HeaderText = "sub_category";
+            this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
+            this.subcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subcategoryDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // primaryunitDataGridViewTextBoxColumn
+            // 
+            this.primaryunitDataGridViewTextBoxColumn.DataPropertyName = "primary_unit";
+            this.primaryunitDataGridViewTextBoxColumn.HeaderText = "primary_unit";
+            this.primaryunitDataGridViewTextBoxColumn.Name = "primaryunitDataGridViewTextBoxColumn";
+            this.primaryunitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.primaryunitDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // conversionDataGridViewTextBoxColumn
+            // 
+            this.conversionDataGridViewTextBoxColumn.DataPropertyName = "conversion";
+            this.conversionDataGridViewTextBoxColumn.HeaderText = "conversion";
+            this.conversionDataGridViewTextBoxColumn.Name = "conversionDataGridViewTextBoxColumn";
+            this.conversionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.conversionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemtypeDataGridViewTextBoxColumn
+            // 
+            this.itemtypeDataGridViewTextBoxColumn.DataPropertyName = "item_type";
+            this.itemtypeDataGridViewTextBoxColumn.HeaderText = "item_type";
+            this.itemtypeDataGridViewTextBoxColumn.Name = "itemtypeDataGridViewTextBoxColumn";
+            this.itemtypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemtypeDataGridViewTextBoxColumn.Visible = false;
+            // 
             // frmImportRawMatsExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,5 +546,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private System.Windows.Forms.DataGridViewTextBoxColumn major_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemdescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemclassDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn majorcategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn primaryunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conversionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemtypeDataGridViewTextBoxColumn;
     }
 }
