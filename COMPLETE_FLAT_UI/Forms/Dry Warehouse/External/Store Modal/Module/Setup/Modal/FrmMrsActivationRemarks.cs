@@ -111,6 +111,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
                 return;
             }
 
+            if (this.InternalOrderActivationRemarksEntity.Mode == "ADD")
+            {
+                this.InternalOrderActivationRemarksEntity.Soar_Desc = String.Empty;
+            }
+
 
             if (this.InternalOrderActivationRemarksEntity.Soar_Type == this.MatcmbType.Text
                 && this.InternalOrderActivationRemarksEntity.Soar_Desc == this.TxtmatRemarks.Text)
@@ -121,10 +126,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             else
             {
 
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_internal_order_activation_remarks(0,
-                    this.TxtmatRemarks.Text.Trim(),
-                   this.MatcmbType.Text.Trim(), "", "", "", "", "getbyname");
+                this.dSet.Clear();
+                this.dSet = g_objStoredProcCollection
+                 .sp_internal_order_activation_remarks(0,
+                this.TxtmatRemarks.Text.Trim(),
+                this.MatcmbType.Text.Trim(),
+                "", 
+                "", 
+                "", 
+                "", 
+                "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -154,7 +165,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             if (this.InternalOrderActivationRemarksEntity.Mode == "ADD")
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     dSet.Clear();
@@ -181,7 +192,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             }
             else
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     dSet.Clear();
                     dSet = this.g_objStoredProcCollection

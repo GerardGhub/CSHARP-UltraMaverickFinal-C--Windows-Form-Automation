@@ -194,7 +194,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
             this.LoadSubCategoryDropdownIsExpirable();
-            this.cboPrimaryUnit_SelectionChangeCommitted(sender, e);
+            this.ValidationOfUnit();
         }
 
         private void cboItemType_SelectionChangeCommitted(object sender, EventArgs e)
@@ -221,29 +221,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (this.cboPrimaryUnit.Text == "KILOGRAM")
-            {
-                this.txtmatConversion.Enabled = false;
-                this.txtmatConversion.Text = "1";
-            }
-
-            else if (this.cboSubCat.Text == "PACKAGING")
-            {
-                this.txtmatConversion.Text = "0";
-                this.txtmatConversion.Enabled = false;
-            }
-            else if (this.cboSubCat.Text == "CLEANING")
-            {
-                this.txtmatConversion.Text = "0";
-                this.txtmatConversion.Enabled = false;
-            }
-
-            else
-            {
-                this.txtmatConversion.Text = String.Empty;
-                this.txtmatConversion.Enabled = true;
-                this.txtmatConversion.Focus();
-            }
+          
 
 
             this.lblPrimaryUnitID.Text = this.cboPrimaryUnit.SelectedValue.ToString();
@@ -493,5 +471,50 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             this.Close();
         }
+
+        private void cboSubCat_SelectedValueChanged(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void lblPrimaryUnitID_TextChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(cboPrimaryUnit.Text);
+            this.ValidationOfUnit();
+        }
+
+        private void ValidationOfUnit()
+        {
+            if (this.cboPrimaryUnit.Text == "KILOGRAM")
+            {
+                this.txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "1";
+            }
+            else if (this.cboPrimaryUnit.Text == "LITER")
+            {
+                this.txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "1";
+            }
+
+            else if (this.cboSubCat.Text == "PACKAGING")
+            {
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
+            }
+            else if (this.cboSubCat.Text == "CLEANING")
+            {
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
+            }
+
+            else
+            {
+                this.txtmatConversion.Text = String.Empty;
+                this.txtmatConversion.Enabled = true;
+                this.txtmatConversion.Focus();
+            }
+        }
+
+
     }
 }

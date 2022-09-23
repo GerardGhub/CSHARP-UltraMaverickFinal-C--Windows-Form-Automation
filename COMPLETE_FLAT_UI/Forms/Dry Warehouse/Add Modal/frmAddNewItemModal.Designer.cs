@@ -210,6 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblPrimaryUnitID.TabIndex = 591;
             this.lblPrimaryUnitID.Text = "Primary Unit:";
             this.lblPrimaryUnitID.Visible = false;
+            this.lblPrimaryUnitID.TextChanged += new System.EventHandler(this.lblPrimaryUnitID_TextChanged);
             // 
             // lblItemTypeID
             // 
@@ -320,6 +321,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboSubCat.TabIndex = 581;
             this.cboSubCat.UseSelectable = true;
             this.cboSubCat.SelectionChangeCommitted += new System.EventHandler(this.cboSubCat_SelectionChangeCommitted);
+            this.cboSubCat.SelectedValueChanged += new System.EventHandler(this.cboSubCat_SelectedValueChanged);
             // 
             // cboMajorCategory
             // 

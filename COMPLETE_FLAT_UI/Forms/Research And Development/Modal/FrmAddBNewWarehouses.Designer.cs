@@ -30,12 +30,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void InitializeComponent()
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.TxtWarehouseCode = new MaterialSkin.Controls.MaterialTextBox();
             this.TxtMajorCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TxtWarehouseCode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,13 +55,28 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.materialCard1.Size = new System.Drawing.Size(495, 222);
             this.materialCard1.TabIndex = 479;
             // 
+            // TxtWarehouseCode
+            // 
+            this.TxtWarehouseCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtWarehouseCode.Depth = 0;
+            this.TxtWarehouseCode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtWarehouseCode.Hint = "Warehouse Code";
+            this.TxtWarehouseCode.Location = new System.Drawing.Point(44, 39);
+            this.TxtWarehouseCode.MaxLength = 50;
+            this.TxtWarehouseCode.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtWarehouseCode.Multiline = false;
+            this.TxtWarehouseCode.Name = "TxtWarehouseCode";
+            this.TxtWarehouseCode.Size = new System.Drawing.Size(401, 50);
+            this.TxtWarehouseCode.TabIndex = 584;
+            this.TxtWarehouseCode.Text = "";
+            // 
             // TxtMajorCategory
             // 
             this.TxtMajorCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtMajorCategory.Depth = 0;
             this.TxtMajorCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.TxtMajorCategory.Hint = "Warehouses";
-            this.TxtMajorCategory.Location = new System.Drawing.Point(44, 38);
+            this.TxtMajorCategory.Location = new System.Drawing.Point(44, 123);
             this.TxtMajorCategory.MaxLength = 50;
             this.TxtMajorCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.TxtMajorCategory.Multiline = false;
@@ -85,8 +100,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // 
             // materialButton1
             // 
-            this.materialButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButton1.Depth = 0;
             this.materialButton1.DrawShadows = true;
@@ -106,8 +120,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // 
             // materialButton2
             // 
-            this.materialButton2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButton2.Depth = 0;
             this.materialButton2.DrawShadows = true;
@@ -132,27 +145,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.materialButton2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.materialButton1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 336);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(379, 336);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(151, 48);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(150, 48);
             this.tableLayoutPanel1.TabIndex = 482;
-            // 
-            // TxtWarehouseCode
-            // 
-            this.TxtWarehouseCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtWarehouseCode.Depth = 0;
-            this.TxtWarehouseCode.Font = new System.Drawing.Font("Roboto", 12F);
-            this.TxtWarehouseCode.Hint = "Warehouse Code";
-            this.TxtWarehouseCode.Location = new System.Drawing.Point(44, 117);
-            this.TxtWarehouseCode.MaxLength = 50;
-            this.TxtWarehouseCode.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtWarehouseCode.Multiline = false;
-            this.TxtWarehouseCode.Name = "TxtWarehouseCode";
-            this.TxtWarehouseCode.Size = new System.Drawing.Size(401, 50);
-            this.TxtWarehouseCode.TabIndex = 584;
-            this.TxtWarehouseCode.Text = "";
             // 
             // FrmAddBNewWarehouses
             // 

@@ -190,9 +190,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboSubCat_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
-            this.cboPrimaryUnit_SelectionChangeCommitted(sender, e);
-            this.LoadSubCategoryDropdownIsExpirable();
+            //this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+      
+
         }
 
         public void LoadSubCategoryDropdownIsExpirable()
@@ -224,7 +225,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
    
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
+           
+
+            lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
+            //lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
+            //lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            //lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+            //lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
+
+
+
+        }
+
+
+        private void ValidationOfUnit()
+        {
             if (this.cboPrimaryUnit.Text == "KILOGRAM")
+            {
+                this.txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "1";
+            }
+            else if (this.cboPrimaryUnit.Text == "LITER")
             {
                 this.txtmatConversion.Enabled = false;
                 this.txtmatConversion.Text = "1";
@@ -247,17 +268,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.txtmatConversion.Enabled = true;
                 this.txtmatConversion.Focus();
             }
-
-
-            lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
-            lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
-            lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
-            lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
-            lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
-
-
-
         }
+
+
         private void SelectionChangedCommiotmentManual()
         {
             lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
@@ -432,6 +445,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblPrimaryUnitID_TextChanged(object sender, EventArgs e)
+        {
+            //this.ValidationOfUnit();
+            MessageBox.Show(cboPrimaryUnit.Text);
+        }
+
+        private void lblIDSubCat_TextChanged(object sender, EventArgs e)
+        {
+            this.CategorySelection();
+        }
+  
+        public void CategorySelection()
+        {
+            if (cboSubCat.Text == "PACKAGING")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+            else if (cboSubCat.Text == "CLEANING")
+            {
+                txtmatConversion.Text = "0";
+                txtmatConversion.Enabled = false;
+            }
+            else
+            {
+                txtmatConversion.Text = String.Empty;
+                txtmatConversion.Enabled = true;
+                txtmatConversion.Focus();
+            }
+
+            this.LoadSubCategoryDropdownIsExpirable();
+            this.ValidationOfUnit();
+        }
+
+        private void cboPrimaryUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

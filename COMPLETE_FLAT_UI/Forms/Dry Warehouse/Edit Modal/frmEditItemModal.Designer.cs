@@ -70,7 +70,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblPrimaryUnitID.Size = new System.Drawing.Size(35, 13);
             this.lblPrimaryUnitID.TabIndex = 591;
             this.lblPrimaryUnitID.Text = "NULL";
-            this.lblPrimaryUnitID.Visible = false;
+            this.lblPrimaryUnitID.TextChanged += new System.EventHandler(this.lblPrimaryUnitID_TextChanged);
             // 
             // lblItemTypeID
             // 
@@ -97,6 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblIDSubCat.TabIndex = 589;
             this.lblIDSubCat.Text = "NULL";
             this.lblIDSubCat.Visible = false;
+            this.lblIDSubCat.TextChanged += new System.EventHandler(this.lblIDSubCat_TextChanged);
             // 
             // lblMajorCatId
             // 
@@ -139,7 +140,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Size = new System.Drawing.Size(245, 50);
             this.txtmatConversion.TabIndex = 586;
             this.txtmatConversion.Text = "";
-            this.txtmatConversion.TextChanged += new System.EventHandler(this.txtmatConversion_TextChanged);
             this.txtmatConversion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatConversion_KeyPress);
             // 
             // label4
@@ -354,8 +354,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboPrimaryUnit.Name = "cboPrimaryUnit";
             this.cboPrimaryUnit.Size = new System.Drawing.Size(229, 26);
             this.cboPrimaryUnit.TabIndex = 594;
+            this.cboPrimaryUnit.SelectedIndexChanged += new System.EventHandler(this.cboPrimaryUnit_SelectedIndexChanged);
             this.cboPrimaryUnit.SelectionChangeCommitted += new System.EventHandler(this.cboPrimaryUnit_SelectionChangeCommitted);
-            this.cboPrimaryUnit.SelectedValueChanged += new System.EventHandler(this.cboPrimaryUnit_SelectedValueChanged);
             // 
             // cboMajorCategory
             // 

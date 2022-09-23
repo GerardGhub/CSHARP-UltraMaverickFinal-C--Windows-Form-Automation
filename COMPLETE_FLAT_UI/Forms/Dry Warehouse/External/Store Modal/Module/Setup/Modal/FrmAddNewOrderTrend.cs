@@ -45,11 +45,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
         }
 
         private void FrmAddNewOrderTrend_Load(object sender, EventArgs e)
-        {
-            
+        {           
                 this.ConnectionInit();
-                this.LoadTaskMode();
-            
+                this.LoadTaskMode();            
         }
 
 
@@ -60,14 +58,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
 
             if (AvgOrderTrendEntity.Mode == "ADD")
             {
-                this.Text = "Add New Avg Trend";
+                this.Text = "Add New Average Order Trend";
                 this.MatBtnSave.Text = "ADD";
                 this.AvgOrderTrendEntity.Added_By = this.AvgOrderTrendEntity.Added_By;
      
             }
             else
             {
-                this.Text = "Update Avg Trend";
+                this.Text = "Update Average Order Trend";
                 this.MatBtnSave.Text = "SAVE";
                 this.AvgOrderTrendEntity.Updated_By = this.AvgOrderTrendEntity.Updated_By;
                 this.AvgOrderTrendEntity.Avg_Id = this.AvgOrderTrendEntity.Avg_Id;
@@ -127,7 +125,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
                     .sp_avg_order_trend(0,
                     this.Txtmatavgdescription.Text.Trim(),
                     Convert.ToInt32(this.TxtmatAverageqty.Text.Trim()),
-                    "", "", "", "", "getbyname");
+                    "", 
+                    "",
+                    "",
+                    "",
+                    "getbyname");
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
@@ -154,23 +156,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
 
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save the new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
                     dSet.Clear();
                     dSet = g_objStoredProcCollection
-                        .sp_avg_order_trend(0,
-                        this.Txtmatavgdescription.Text,
-                        Convert.ToInt32(this.TxtmatAverageqty.Text),
-                        this.AvgOrderTrendEntity.Added_By,
-                        this.AvgOrderTrendEntity.Date_Added,
-                        "",
-                        "",
-                        "add");
+                    .sp_avg_order_trend(0,
+                    this.Txtmatavgdescription.Text,
+                    Convert.ToInt32(this.TxtmatAverageqty.Text),
+                    this.AvgOrderTrendEntity.Added_By,
+                    this.AvgOrderTrendEntity.Date_Added,
+                    "",
+                    "",
+                    "add");
                     this.GlobalStatePopup.SuccessFullySave();
                     this.Close();
-
-
                 }
-
                 else
                 {
                     return;
@@ -181,22 +179,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Mo
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
                     dSet.Clear();
                     dSet = g_objStoredProcCollection
-                        .sp_avg_order_trend(this.AvgOrderTrendEntity.Avg_Id,
-                        this.Txtmatavgdescription.Text,
-                        Convert.ToInt32(this.TxtmatAverageqty.Text),
-                        this.AvgOrderTrendEntity.Added_By,
-                        this.AvgOrderTrendEntity.Date_Added,
-                        this.AvgOrderTrendEntity.Updated_By,
-                        "",
-                        "edit");
+                    .sp_avg_order_trend(this.AvgOrderTrendEntity.Avg_Id,
+                    this.Txtmatavgdescription.Text,
+                    Convert.ToInt32(this.TxtmatAverageqty.Text),
+                    this.AvgOrderTrendEntity.Added_By,
+                    this.AvgOrderTrendEntity.Date_Added,
+                    this.AvgOrderTrendEntity.Updated_By,
+                    "",
+                    "edit");
                     this.GlobalStatePopup.UpdatedSuccessfully();
                     this.Close();
 
                 }
-
                 else
                 {
                     return;

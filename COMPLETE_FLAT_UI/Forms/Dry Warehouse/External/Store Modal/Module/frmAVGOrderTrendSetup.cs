@@ -47,7 +47,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.SearchMethodJarVarCallingSP();
             this.textBox1.Text = String.Empty;
         }
-        //method for loading available_menus
+
         private void showAVGTrendData()     
         {
             try
@@ -113,9 +113,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matBtnSave.Visible = true;
 
         
-
-
-
             this.AvgOrderTrendEntity.Mode = "ADD";
             FrmAddNewOrderTrend addNew =
             new FrmAddNewOrderTrend(this,
@@ -382,11 +379,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         if (DSet.Tables[0].Rows.Count > 0)
                         {
                             this.GlobalStatePopup.DataAlreadyExist();
-                            //Buje Malakas
+            
                             DSet.Clear();
-                            DSet = g_objStoredProcCollection.sp_avg_order_trend(this.AvgOrderTrendEntity.Avg_Id, this.AvgOrderTrendEntity.Avg_Desc,
+                            DSet = g_objStoredProcCollection
+                                .sp_avg_order_trend(
+                                this.AvgOrderTrendEntity.Avg_Id, 
+                                this.AvgOrderTrendEntity.Avg_Desc,
                                 this.AvgOrderTrendEntity.Avg_Days,
-                                "", "", "", "", "force_deactivated_the_actual_used");
+                                "", 
+                                "",
+                                "",
+                                "",
+                                "force_deactivated_the_actual_used");
 
                             //return;
                         }
