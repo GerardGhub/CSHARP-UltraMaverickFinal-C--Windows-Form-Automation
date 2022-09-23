@@ -279,7 +279,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtmatConversion.Size = new System.Drawing.Size(251, 50);
             this.txtmatConversion.TabIndex = 586;
             this.txtmatConversion.Text = "";
-            this.txtmatConversion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmatConversion_KeyPress);
+            this.txtmatConversion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtmatConversion_KeyPress);
             // 
             // cboPrimaryUnit
             // 

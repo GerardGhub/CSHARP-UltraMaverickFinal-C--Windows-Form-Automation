@@ -14,7 +14,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Users.Modal
 {
-    public partial class AddNewUnit : MaterialForm
+    public partial class FrmAddNewUnit : MaterialForm
     {
         readonly frmDepartmentUnit ths;
         DataSet dSet = new DataSet();
@@ -24,7 +24,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         readonly DepartmentUnitRepository DepartmentUnitRepositorys = new DepartmentUnitRepository();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int touch = 0;
-        public AddNewUnit(
+        public FrmAddNewUnit(
             frmDepartmentUnit frm, 
             int UserId, 
             string Mode, 
@@ -177,7 +177,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
                     return;
                 }
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 
@@ -213,27 +213,22 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
 
              
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-
 
                     dSet.Clear();
                     dSet = g_objStoredProcCollection
-                        .sp_DepartmentUnit(this.DeptUnit.Unit_Id,
-                        this.TxtDepartmentUnit.Text.Trim(),
-                        this.DeptUnit.Department_Id.ToString(),
-                        this.DeptUnit.Created_By,
-                        this.DeptUnit.Created_By,
-                       this.DeptUnit.Created_By,
-                        this.DeptUnit.Created_By,
-                        "edit");
+                    .sp_DepartmentUnit(this.DeptUnit.Unit_Id,
+                    this.TxtDepartmentUnit.Text.Trim(),
+                    this.DeptUnit.Department_Id.ToString(),
+                    this.DeptUnit.Created_By,
+                    this.DeptUnit.Created_By,
+                    this.DeptUnit.Created_By,
+                    this.DeptUnit.Created_By,
+                    "edit");
 
                     this.GlobalStatePopup.SuccessFullySave();
                     this.Close();
-
-
-
                 }
                 else
                 {

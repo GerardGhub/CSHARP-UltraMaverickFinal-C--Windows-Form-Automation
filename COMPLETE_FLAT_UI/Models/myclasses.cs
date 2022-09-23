@@ -580,6 +580,19 @@ namespace ULTRAMAVERICK.Models
         }
 
 
+        public void AlloW2Decimal(MaterialTextBox textBox, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' && textBox.Text.Contains('.'))
+                e.Handled = true;
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
+            {
+                if (Regex.IsMatch(
+                 textBox.Text,
+                 "^\\d*\\.\\d{2}$")) e.Handled = true;
+            }
+            else e.Handled = e.KeyChar != (char)Keys.Back;
+        }
+
         public void fillComboBox1(ComboBox eComboBox, string eTablename, DataSet dSet)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();

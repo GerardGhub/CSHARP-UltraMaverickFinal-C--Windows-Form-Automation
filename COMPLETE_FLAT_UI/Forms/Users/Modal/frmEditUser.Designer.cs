@@ -230,7 +230,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnImage.Text = "Select";
             this.btnImage.UseVisualStyleBackColor = false;
             this.btnImage.Visible = false;
-            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
+            this.btnImage.Click += new System.EventHandler(this.BtnImage_Click);
             // 
             // btnRemove
             // 
@@ -249,7 +249,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Visible = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // odbEmployeeImage
             // 
@@ -411,6 +411,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtLastName.Size = new System.Drawing.Size(198, 50);
             this.txtLastName.TabIndex = 1;
             this.txtLastName.Text = "";
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLastName_KeyPress);
             // 
             // txtname
             // 
@@ -427,6 +428,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.txtname.Size = new System.Drawing.Size(179, 50);
             this.txtname.TabIndex = 0;
             this.txtname.Text = "";
+            this.txtname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtname_KeyPress);
             // 
             // label10
             // 
@@ -517,7 +519,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit User Information";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditUser_FormClosing_1);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEditUser_FormClosing_1);
             this.Load += new System.EventHandler(this.frmEditUser_Load);
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();

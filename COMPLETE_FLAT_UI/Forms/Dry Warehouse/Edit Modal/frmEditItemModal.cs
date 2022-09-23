@@ -190,7 +190,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboSubCat_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            this.cboPrimaryUnit_SelectionChangeCommitted(sender, e);
             this.LoadSubCategoryDropdownIsExpirable();
         }
 
@@ -204,12 +205,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (this.IsExpirable == "1")
             {
-                this.txtmatConversion.Visible = true;
+             
                 this.txtExpirationDaysPrompting.Visible = true;
             }
             else
             {
-                this.txtmatConversion.Visible = false;
+       
                 this.txtExpirationDaysPrompting.Visible = false;
             }
         }
@@ -223,12 +224,39 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
    
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
-          
+            if (this.cboPrimaryUnit.Text == "KILOGRAM")
+            {
+                this.txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "1";
+            }
+
+            else if (this.cboSubCat.Text == "PACKAGING")
+            {
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
+            }
+            else if (this.cboSubCat.Text == "CLEANING")
+            {
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
+            }
+
+            else
+            {
+                this.txtmatConversion.Text = String.Empty;
+                this.txtmatConversion.Enabled = true;
+                this.txtmatConversion.Focus();
+            }
+
+
             lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
             lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
             lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
             lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
             lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
+
+
+
         }
         private void SelectionChangedCommiotmentManual()
         {
@@ -351,16 +379,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void mattxtBufferStocks_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            decimal x;
-            if (ch == (char)Keys.Back)
-            {
-                e.Handled = false;
-            }
-            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(mattxtBufferStocks.Text + ch, out x))
-            {
-                e.Handled = true;
-            }
+            this.myClass.AlloW2Decimal(this.mattxtBufferStocks, e);
         }
 
         private void mattxtBufferStocks_TextChanged(object sender, EventArgs e)
@@ -370,17 +389,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboPrimaryUnit_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (this.cboPrimaryUnit.Text == "KILOGRAM")
-            {
-                this.txtmatConversion.Text = "1";
-                this.txtmatConversion.Enabled = false;
-            }
-            else
-            {
-                this.txtmatConversion.Text = String.Empty;
-                this.txtmatConversion.Enabled = true;
-                this.txtmatConversion.Focus();
-            }
+            //if (this.cboPrimaryUnit.Text == "KILOGRAM")
+            //{
+            //    this.txtmatConversion.Text = "1";
+            //    this.txtmatConversion.Enabled = false;
+            //}
+            //else
+            //{
+            //    this.txtmatConversion.Text = String.Empty;
+            //    this.txtmatConversion.Enabled = true;
+            //    this.txtmatConversion.Focus();
+            //}
 
         }
 
@@ -397,13 +416,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void txtmatConversion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-            (e.KeyChar != '.'))
-            {
-            e.Handled = true;
-            }
-
-    
+            this.myClass.AlloW2Decimal(this.txtmatConversion, e);
         }
 
         private void materialCard1_Paint(object sender, PaintEventArgs e)

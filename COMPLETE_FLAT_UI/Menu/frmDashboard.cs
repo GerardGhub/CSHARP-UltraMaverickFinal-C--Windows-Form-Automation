@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using COMPLETE_FLAT_UI.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.Menu.View_Models;
@@ -16,19 +17,19 @@ namespace COMPLETE_FLAT_UI
 {
     public partial class FormLogo : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
+      
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         string mode = "";
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        DashboardClasses Menu = new DashboardClasses();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly DashboardClasses Menu = new DashboardClasses();
         DateTime dNow = DateTime.Now;
-        myglobal GlobalVariable = new myglobal();
-
-
+        readonly myglobal GlobalVariable = new myglobal();
+        DataSet dset_rights = new DataSet();
+        int rights_id = 0;
         DataSet dSet_temp = new DataSet();
+ 
         public FormLogo()
         {
             InitializeComponent();
@@ -44,13 +45,36 @@ namespace COMPLETE_FLAT_UI
             this.dataGridView1.Visible = false;
             this.GetLabTestTransactions();       
             this.load_search();
-            if (this.GlobalVariable.DashboardAccess == true)
+            this.LoadMenuMajorValidation();
+        }
+
+        private void LoadMenuMajorValidation()
+        {
+            this.rights_id = userinfo.user_rights_id;
+
+            dset_rights.Clear();
+            dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
+
+            if (dset_rights.Tables.Count > 0)
             {
-                this.materialCard2.Visible = true;
-            }
-            else
-            {
-                this.materialCard2.Visible = false;
+                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
+                {
+                    string parent_form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+
+
+
+                 
+                   if (parent_form_name == "DASHBOARD")
+                    {
+                    this.MatCardDashboard.Visible = true;
+
+                        /*  MostrarFormLogo()*/
+                        
+                    }
+
+
+              
+                }
             }
         }
 
@@ -60,7 +84,7 @@ namespace COMPLETE_FLAT_UI
          
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("StoreOrderDashboard");
+            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("StoreOrderDashboard");
             this.mode = "Search1";
             this.doSearch();
             if(this.Menu.SPRowCountOfStoreDatagrid != "0")
@@ -119,7 +143,7 @@ namespace COMPLETE_FLAT_UI
         private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
 
         private void GetStoreOrder()
@@ -181,7 +205,7 @@ namespace COMPLETE_FLAT_UI
             try
             {
            
-                this.xClass.fillDataGridView(this.dataGridView1, "Po_Receiving_Warehouse", dSet);
+                this.myClass.fillDataGridView(this.dataGridView1, "Po_Receiving_Warehouse", dSet);
           
                 this.lbltotalReceiving.Text = this.dataGridView1.RowCount.ToString();
             }

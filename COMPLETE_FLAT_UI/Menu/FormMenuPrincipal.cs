@@ -40,17 +40,15 @@ namespace COMPLETE_FLAT_UI
 {
     public partial class FormMenuPrincipal : Form
     {
-
-
-        ReportDocument rpt = new ReportDocument();
-        Modules Module = new Modules();
+        readonly ReportDocument rpt = new ReportDocument();
+        readonly Modules Module = new Modules();
         //Constructor
         public Byte[] imageByte = null;
-        myglobal GlobalVariable = new myglobal();
+        readonly myglobal GlobalVariable = new myglobal();
         DataSet dset_rights = new DataSet();
         DataSet dSet = new DataSet();
         int rights_id = 0;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         readonly MenuClasses Menu = new MenuClasses();
         DataSet dsImage = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -455,7 +453,7 @@ namespace COMPLETE_FLAT_UI
                     else if (parent_form_name == "DASHBOARD")
                     {
                         btnDashBoard1.Visible = true;
-                        this.GlobalVariable.DashboardAccess = true;
+               
                       /*  MostrarFormLogo()*/;
                     }
 
@@ -573,7 +571,7 @@ namespace COMPLETE_FLAT_UI
 
             //MessageBox.Show(this.TotalLabTestReceivingViewing);
             //bool v = Adorner.AddBadgeTo(btnDashBoard1, "123");
-
+     
         }
 
         private void showLabTestForReceiving()    //method for loading available_menus

@@ -534,7 +534,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             }
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void BtnRemove_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Remove The Image of " + txtname.Text + "?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
@@ -546,7 +546,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
             }
         }
 
-        private void btnImage_Click(object sender, EventArgs e)
+        private void BtnImage_Click(object sender, EventArgs e)
         {
             this.selectEmployeeImage();
         }
@@ -554,7 +554,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
   
 
 
-        private void frmEditUser_FormClosing_1(object sender, FormClosingEventArgs e)
+        private void FrmEditUser_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             //ths.displayUsers();
             textBox1.Text = "SaveGerardSingian";
@@ -563,6 +563,16 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         private void MatBtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Txtname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void TxtLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

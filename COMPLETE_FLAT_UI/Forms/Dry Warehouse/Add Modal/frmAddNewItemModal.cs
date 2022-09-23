@@ -194,6 +194,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
             this.LoadSubCategoryDropdownIsExpirable();
+            this.cboPrimaryUnit_SelectionChangeCommitted(sender, e);
         }
 
         private void cboItemType_SelectionChangeCommitted(object sender, EventArgs e)
@@ -220,23 +221,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboPrimaryUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (this.cboPrimaryUnit.Text == "KILOGRAM")
+            {
+                this.txtmatConversion.Enabled = false;
+                this.txtmatConversion.Text = "1";
+            }
+
+            else if (this.cboSubCat.Text == "PACKAGING")
+            {
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
+            }
+            else if (this.cboSubCat.Text == "CLEANING")
+            {
+                this.txtmatConversion.Text = "0";
+                this.txtmatConversion.Enabled = false;
+            }
+
+            else
+            {
+                this.txtmatConversion.Text = String.Empty;
+                this.txtmatConversion.Enabled = true;
+                this.txtmatConversion.Focus();
+            }
+
 
             this.lblPrimaryUnitID.Text = this.cboPrimaryUnit.SelectedValue.ToString();
 
          
         }
  
-        private void txtmatConversion_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtmatConversion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-                if (char.IsNumber(e.KeyChar) || e.KeyChar == '.')
-                {
-                    if (Regex.IsMatch(
-                     txtmatConversion.Text,
-                     "^\\d*\\.\\d{1}$")) e.Handled = true;
-                }
-                else e.Handled = e.KeyChar != (char)Keys.Back;
-            
+
+            this.myClass.AlloW2Decimal(this.txtmatConversion, e);
+
         }
 
         private void matBtnSave_Click(object sender, EventArgs e)
@@ -367,23 +386,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.txtExpirationDaysPrompting.Text,
                     "add");
 
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
-                    this.txtMatItemCode.Text.Trim(),
-                    this.txtMatItemDesc.Text.Trim(),
-                    this.cboItemClass.Text.Trim(),
-                    this.cboMajorCategory.Text.Trim(),
-                    this.cboSubCat.Text.Trim(),
-                    this.lblPrimaryUnitID.Text.Trim(),
-                    this.txtmatConversion.Text.Trim(),
-                    this.cboItemType.Text.Trim(),
-                    this.RawMaterialsDryEntity.Created_At,
-                    this.RawMaterialsDryEntity.Created_By,
-                    "", "", Convert.ToInt32(this.mattxtBufferStocks.Text),
-                    "",
-                    "addRMLogs");
+                //dSet.Clear();
+                //dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
+                //    this.txtMatItemCode.Text.Trim(),
+                //    this.txtMatItemDesc.Text.Trim(),
+                //    this.cboItemClass.Text.Trim(),
+                //    this.cboMajorCategory.Text.Trim(),
+                //    this.cboSubCat.Text.Trim(),
+                //    this.lblPrimaryUnitID.Text.Trim(),
+                //    this.txtmatConversion.Text.Trim(),
+                //    this.cboItemType.Text.Trim(),
+                //    this.RawMaterialsDryEntity.Created_At,
+                //    this.RawMaterialsDryEntity.Created_By,
+                //    "", "", Convert.ToInt32(this.mattxtBufferStocks.Text),
+                //    "",
+                //    "addRMLogs");
 
-                this.textBox1.Text = "data Already Save!";
+                //this.textBox1.Text = "data Already Save!";
                 this.GlobalStatePopup.SuccessFullySave();
                 this.Close();
 
@@ -428,44 +447,35 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboPrimaryUnit_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (this.cboPrimaryUnit.Text == "KILOGRAM")
-            {
-                this.txtmatConversion.Enabled = false;
-                this.txtmatConversion.Text = "1";
-            }
+            //if (this.cboPrimaryUnit.Text == "KILOGRAM")
+            //{
+            //    this.txtmatConversion.Enabled = false;
+            //    this.txtmatConversion.Text = "1";
+            //}
 
-            else if (this.cboSubCat.Text == "PACKAGING")
-            {
-                this.txtmatConversion.Text = "0";
-                this.txtmatConversion.Enabled = false;
-            }
-            else if (this.cboSubCat.Text == "CLEANING")
-            {
-                this.txtmatConversion.Text = "0";
-                this.txtmatConversion.Enabled = false;
-            }
+            //else if (this.cboSubCat.Text == "PACKAGING")
+            //{
+            //    this.txtmatConversion.Text = "0";
+            //    this.txtmatConversion.Enabled = false;
+            //}
+            //else if (this.cboSubCat.Text == "CLEANING")
+            //{
+            //    this.txtmatConversion.Text = "0";
+            //    this.txtmatConversion.Enabled = false;
+            //}
 
-            else
-            {
-                this.txtmatConversion.Text = String.Empty;
-                this.txtmatConversion.Enabled = true;
-                this.txtmatConversion.Focus();
-            }
+            //else
+            //{
+            //    this.txtmatConversion.Text = String.Empty;
+            //    this.txtmatConversion.Enabled = true;
+            //    this.txtmatConversion.Focus();
+            //}
         }
 
         private void mattxtBufferStocks_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            decimal x;
-            if (ch == (char)Keys.Back)
-            {
-                e.Handled = false;
-            }
-            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(this.mattxtBufferStocks.Text + ch, out x))
-            {
-                e.Handled = true;
-            }
-
+        
+            this.myClass.AlloW2Decimal(this.mattxtBufferStocks, e);
         }
 
         private void txtExpirationDaysPrompting_KeyPress(object sender, KeyPressEventArgs e)

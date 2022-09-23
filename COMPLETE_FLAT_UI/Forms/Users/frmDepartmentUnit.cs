@@ -239,7 +239,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.mode = "ADD";
             this.btn_visible(false);
 
-            AddNewUnit addNew = new AddNewUnit(this,
+            FrmAddNewUnit addNew = new FrmAddNewUnit(this,
             userinfo.user_id,
             "ADD", 
             this.DeptUnit.Unit_Id, 
@@ -253,8 +253,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void ToolStripButton3_Click(object sender, EventArgs e)
         {
-                AddNewUnit addNew = 
-                new AddNewUnit(this,
+                FrmAddNewUnit addNew = 
+                new FrmAddNewUnit(this,
                 userinfo.user_id,
                 "Edit", 
                 this.DeptUnit.Unit_Id, 
@@ -286,7 +286,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 if (this.matRadioActive.Checked == true)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
                         mode = "delete";
@@ -312,7 +312,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 }
                 else
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         mode = "activate";

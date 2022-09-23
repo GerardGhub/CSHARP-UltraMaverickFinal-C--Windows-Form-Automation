@@ -109,13 +109,13 @@ namespace ULTRAMAVERICK.Forms.Users
             catch (SyntaxErrorException)
             {
                 MessageBox.Show("Invalid character found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtuser.Focus();
+            
                 return;
             }
             catch (EvaluateException)
             {
                 MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtuser.Focus();
+ 
                 return;
             }
         }
@@ -173,19 +173,19 @@ namespace ULTRAMAVERICK.Forms.Users
                         UserFileEntity.Receiving_Status  = this.dgvUsers.CurrentRow.Cells["receiving_status"].Value.ToString();
                         UserFileEntity.Department = this.dgvUsers.CurrentRow.Cells["department_name"].Value.ToString();
                         UserFileEntity.Gender = dgvUsers.CurrentRow.Cells["gender"].Value.ToString();
-                        if (this.lblGenderSelected.Text == "Male")
-                        {
-                            this.matRadioMale.Checked = true;
-                        }
-                        else if (this.lblGenderSelected.Text == "Female")
-                        {
-                            this.matRadioFemale.Checked = true;
-                        }
-                        else
-                        {
-                            this.matRadioFemale.Checked = false;
-                            this.matRadioMale.Checked = false;
-                        }
+                        //if (this.lblGenderSelected.Text == "Male")
+                        //{
+                        //    this.matRadioMale.Checked = true;
+                        //}
+                        //else if (this.lblGenderSelected.Text == "Female")
+                        //{
+                        //    this.matRadioFemale.Checked = true;
+                        //}
+                        //else
+                        //{
+                        //    this.matRadioFemale.Checked = false;
+                        //    this.matRadioMale.Checked = false;
+                        //}
 
                     }
 

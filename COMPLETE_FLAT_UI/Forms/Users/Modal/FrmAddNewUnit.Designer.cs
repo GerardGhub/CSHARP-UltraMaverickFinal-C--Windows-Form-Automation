@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Users.Modal
 {
-    partial class AddNewUnit
+    partial class FrmAddNewUnit
     {
         /// <summary>
         /// Required designer variable.

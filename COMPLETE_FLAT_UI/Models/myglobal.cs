@@ -18,7 +18,7 @@ namespace ULTRAMAVERICK.Models
         public static int temp_number = 0;
         public static string r_item_code = "";
         public static string r_supplier = "";
-        public bool DashboardAccess = false;
+
         public string received_id = "";
 
         //public static bool updated;
