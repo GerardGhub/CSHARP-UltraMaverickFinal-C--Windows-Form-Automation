@@ -70,6 +70,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblPrimaryUnitID.Size = new System.Drawing.Size(35, 13);
             this.lblPrimaryUnitID.TabIndex = 591;
             this.lblPrimaryUnitID.Text = "NULL";
+            this.lblPrimaryUnitID.Visible = false;
             this.lblPrimaryUnitID.TextChanged += new System.EventHandler(this.lblPrimaryUnitID_TextChanged);
             // 
             // lblItemTypeID
@@ -377,6 +378,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.cboSubCat.Name = "cboSubCat";
             this.cboSubCat.Size = new System.Drawing.Size(276, 26);
             this.cboSubCat.TabIndex = 592;
+            this.cboSubCat.SelectedIndexChanged += new System.EventHandler(this.cboSubCat_SelectedIndexChanged);
             this.cboSubCat.SelectionChangeCommitted += new System.EventHandler(this.cboSubCat_SelectionChangeCommitted);
             // 
             // textBox1
@@ -395,7 +397,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.cboSubCatExpirable.FormattingEnabled = true;
             this.cboSubCatExpirable.ItemHeight = 23;
-            this.cboSubCatExpirable.Location = new System.Drawing.Point(326, 364);
+            this.cboSubCatExpirable.Location = new System.Drawing.Point(456, 364);
             this.cboSubCatExpirable.Margin = new System.Windows.Forms.Padding(1);
             this.cboSubCatExpirable.Name = "cboSubCatExpirable";
             this.cboSubCatExpirable.PromptText = "Sub Category";

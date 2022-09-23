@@ -228,10 +228,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
            
 
             lblPrimaryUnitID.Text = cboPrimaryUnit.SelectedValue.ToString();
-            //lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
-            //lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
-            //lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
-            //lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
+            lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
+            lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+            lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
 
 
 
@@ -450,12 +450,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void lblPrimaryUnitID_TextChanged(object sender, EventArgs e)
         {
             //this.ValidationOfUnit();
-            MessageBox.Show(cboPrimaryUnit.Text);
+
         }
 
         private void lblIDSubCat_TextChanged(object sender, EventArgs e)
         {
-            this.CategorySelection();
+    
         }
   
         public void CategorySelection()
@@ -483,6 +483,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void cboPrimaryUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //MessageBox.Show(cboPrimaryUnit.Text);
+            this.ValidationOfUnit();
+        }
+
+        private void cboSubCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.lblIDSubCat.Text == "NULL")
+            {
+
+            }
+            else
+            {
+                this.CategorySelection();
+            }
 
         }
     }
