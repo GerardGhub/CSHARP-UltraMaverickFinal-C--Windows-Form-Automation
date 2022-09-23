@@ -126,10 +126,12 @@ namespace ULTRAMAVERICK.Forms.Users
             if (this.MajorMenuTagged == 0)
             {
                 this.BtnUnTaggedMajor.Enabled = false;
+                this.BtnUnTaggedMajor.BackColor = Color.LightGray;
             }
             else
             {
                 this.BtnUnTaggedMajor.Enabled = true;
+                this.BtnUnTaggedMajor.BackColor = Color.White;
             }
         }
 
@@ -213,10 +215,12 @@ namespace ULTRAMAVERICK.Forms.Users
                 if(this.MajorMenuForTagging == 0)
                 {
                     this.BtnTagMajor.Enabled = false;
+                    this.BtnTagMajor.BackColor = Color.LightGray;
                 }
                 else
                 {
                     this.BtnTagMajor.Enabled = true;
+                    this.BtnTagMajor.BackColor = Color.White;
                 }
 
             }
@@ -471,10 +475,12 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (this.SubMenuForTagging == 0 )
                     {
                         this.BtnSubForMenuTag.Enabled = false;
+                        this.BtnSubForMenuTag.BackColor = Color.LightGray;
                     }
                     else
                     {
                         this.BtnSubForMenuTag.Enabled = true;
+                        this.BtnSubForMenuTag.BackColor = Color.White;
                     }
 
 
@@ -556,10 +562,12 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (this.ModuleMenuForTagging == 0)
                     {
                         this.BtnModuleTag.Enabled = false;
+                        this.BtnModuleTag.BackColor = Color.LightGray;
                     }
                     else
                     {
                         this.BtnModuleTag.Enabled = true;
+                        this.BtnModuleTag.BackColor = Color.White;
                     }
     
                 }
@@ -753,10 +761,12 @@ namespace ULTRAMAVERICK.Forms.Users
             if (this.SubMenuTagged == 0)
             {
                 this.BtnSubMenuUntagged.Enabled = false;
+                this.BtnSubMenuUntagged.BackColor = Color.LightGray;
             }
             else
             {
                 this.BtnSubMenuUntagged.Enabled = true;
+                this.BtnSubMenuUntagged.BackColor = Color.White;
             }
 
         }
@@ -1357,10 +1367,12 @@ namespace ULTRAMAVERICK.Forms.Users
                 if (this.ModuleMenuTagged == 0)
                 {
                     this.BtnUntaggedModule.Enabled = false;
+                    this.BtnUntaggedModule.BackColor = Color.LightGray;
                 }
                 else
                 {
                     this.BtnUntaggedModule.Enabled = true;
+                    this.BtnUntaggedModule.BackColor = Color.White;
                 }
 
             }
@@ -1564,6 +1576,10 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 //Call tab 5
                 this.CallSubMenuOnTab5();
+                this.ValueofUntaggedParent();
+                this.load_search_ChildMenu();
+                this.ListViewmenu_Click_1(sender, e);
+                this.LoadMenuByUsers();
             }
 
      
@@ -1958,6 +1974,58 @@ namespace ULTRAMAVERICK.Forms.Users
 
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+        }
+
+        private void ChckMenu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChckMenu.Checked == true)
+            {
+                for (int i = 0; i < DgvModuelAvail.RowCount; i++) { DgvModuelAvail.Rows[i].Cells[0].Value = true; }
+             
+            }
+            else if (ChckMenu.Checked == false)
+            {
+                for (int i = 0; i < DgvModuelAvail.RowCount; i++) { DgvModuelAvail.Rows[i].Cells[0].Value = false; }
+        
+            }
+        }
+
+        private void ChckMenu_CheckStateChanged(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ChckSubMenu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChckSubMenu.Checked == true)
+            {
+                for (int i = 0; i < DataView.RowCount; i++) { DataView.Rows[i].Cells[0].Value = true; }
+
+            }
+            else if (ChckSubMenu.Checked == false)
+            {
+                for (int i = 0; i < DataView.RowCount; i++) { DataView.Rows[i].Cells[0].Value = false; }
+
+            }
+        }
+
+        private void ChckModule_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChckModule.Checked == true)
+            {
+                for (int i = 0; i < dgvGrandChild.RowCount; i++) { dgvGrandChild.Rows[i].Cells[0].Value = true; }
+
+            }
+            else if (ChckModule.Checked == false)
+            {
+                for (int i = 0; i < dgvGrandChild.RowCount; i++) { dgvGrandChild.Rows[i].Cells[0].Value = false; }
+
+            }
         }
     }
 }
