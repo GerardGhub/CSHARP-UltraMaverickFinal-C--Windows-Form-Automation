@@ -36,17 +36,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
-            this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
-            this.txtFileName = new MaterialSkin.Controls.MaterialTextBox();
-            this.cbosheet = new MetroFramework.Controls.MetroComboBox();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
-            this.raw_Materials_DryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
             this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +55,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.primaryunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
+            this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
+            this.txtFileName = new MaterialSkin.Controls.MaterialTextBox();
+            this.cbosheet = new MetroFramework.Controls.MetroComboBox();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
+            this.raw_Materials_DryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
@@ -186,156 +186,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             this.dgvRawMats.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvRawMats_RowPostPaint);
-            // 
-            // drymaterialsBindingSource
-            // 
-            this.drymaterialsBindingSource.AllowNew = true;
-            this.drymaterialsBindingSource.DataMember = "Raw_Materials_Dry";
-            this.drymaterialsBindingSource.DataSource = this.ultraMaverickDBDataSet;
-            this.drymaterialsBindingSource.CurrentChanged += new System.EventHandler(this.drymaterialsBindingSource_CurrentChanged);
-            // 
-            // ultraMaverickDBDataSet
-            // 
-            this.ultraMaverickDBDataSet.DataSetName = "UltraMaverickDBDataSet";
-            this.ultraMaverickDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // matBtnBrowse
-            // 
-            this.matBtnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.matBtnBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnBrowse.Depth = 0;
-            this.matBtnBrowse.DrawShadows = true;
-            this.matBtnBrowse.HighEmphasis = true;
-            this.matBtnBrowse.Icon = null;
-            this.matBtnBrowse.Location = new System.Drawing.Point(780, 22);
-            this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matBtnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnBrowse.Name = "matBtnBrowse";
-            this.matBtnBrowse.Size = new System.Drawing.Size(80, 36);
-            this.matBtnBrowse.TabIndex = 1;
-            this.matBtnBrowse.Text = "BROWSE";
-            this.matBtnBrowse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnBrowse.UseAccentColor = false;
-            this.matBtnBrowse.UseVisualStyleBackColor = true;
-            this.matBtnBrowse.Click += new System.EventHandler(this.matBtnBrowse_Click);
-            // 
-            // txtFileName
-            // 
-            this.txtFileName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFileName.Depth = 0;
-            this.txtFileName.Enabled = false;
-            this.txtFileName.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtFileName.Hint = "File Name";
-            this.txtFileName.Location = new System.Drawing.Point(26, 14);
-            this.txtFileName.Margin = new System.Windows.Forms.Padding(1);
-            this.txtFileName.MaxLength = 50;
-            this.txtFileName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtFileName.Multiline = false;
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(389, 50);
-            this.txtFileName.TabIndex = 2;
-            this.txtFileName.Text = "";
-            this.txtFileName.TextChanged += new System.EventHandler(this.txtFileName_TextChanged);
-            // 
-            // cbosheet
-            // 
-            this.cbosheet.Enabled = false;
-            this.cbosheet.FormattingEnabled = true;
-            this.cbosheet.ItemHeight = 23;
-            this.cbosheet.Location = new System.Drawing.Point(27, 84);
-            this.cbosheet.Margin = new System.Windows.Forms.Padding(1);
-            this.cbosheet.Name = "cbosheet";
-            this.cbosheet.PromptText = "Sheet";
-            this.cbosheet.Size = new System.Drawing.Size(388, 29);
-            this.cbosheet.TabIndex = 3;
-            this.cbosheet.UseSelectable = true;
-            this.cbosheet.SelectedIndexChanged += new System.EventHandler(this.cbosheet_SelectedIndexChanged);
-            this.cbosheet.SelectionChangeCommitted += new System.EventHandler(this.cbosheet_SelectionChangeCommitted);
-            // 
-            // materialCard2
-            // 
-            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.label4);
-            this.materialCard2.Controls.Add(this.lbltotalrecords);
-            this.materialCard2.Controls.Add(this.label2);
-            this.materialCard2.Controls.Add(this.matbtnUpload);
-            this.materialCard2.Controls.Add(this.txtFileName);
-            this.materialCard2.Controls.Add(this.matBtnBrowse);
-            this.materialCard2.Controls.Add(this.cbosheet);
-            this.materialCard2.Depth = 0;
-            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(29, 563);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(963, 132);
-            this.materialCard2.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(25, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 15);
-            this.label4.TabIndex = 610;
-            this.label4.Text = "Sheet :";
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(900, 21);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
-            this.lbltotalrecords.TabIndex = 608;
-            this.lbltotalrecords.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(903, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
-            this.label2.TabIndex = 609;
-            this.label2.Text = "Items";
-            // 
-            // matbtnUpload
-            // 
-            this.matbtnUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.matbtnUpload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnUpload.Depth = 0;
-            this.matbtnUpload.DrawShadows = true;
-            this.matbtnUpload.HighEmphasis = true;
-            this.matbtnUpload.Icon = null;
-            this.matbtnUpload.Location = new System.Drawing.Point(781, 73);
-            this.matbtnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnUpload.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnUpload.Name = "matbtnUpload";
-            this.matbtnUpload.Size = new System.Drawing.Size(78, 36);
-            this.matbtnUpload.TabIndex = 4;
-            this.matbtnUpload.Text = "UPLOAD";
-            this.matbtnUpload.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnUpload.UseAccentColor = false;
-            this.matbtnUpload.UseVisualStyleBackColor = true;
-            this.matbtnUpload.Visible = false;
-            this.matbtnUpload.Click += new System.EventHandler(this.matbtnUpload_Click);
-            // 
-            // raw_Materials_DryTableAdapter
-            // 
-            this.raw_Materials_DryTableAdapter.ClearBeforeFill = true;
             // 
             // NO
             // 
@@ -498,6 +348,156 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.itemtypeDataGridViewTextBoxColumn.Name = "itemtypeDataGridViewTextBoxColumn";
             this.itemtypeDataGridViewTextBoxColumn.ReadOnly = true;
             this.itemtypeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // drymaterialsBindingSource
+            // 
+            this.drymaterialsBindingSource.AllowNew = true;
+            this.drymaterialsBindingSource.DataMember = "Raw_Materials_Dry";
+            this.drymaterialsBindingSource.DataSource = this.ultraMaverickDBDataSet;
+            this.drymaterialsBindingSource.CurrentChanged += new System.EventHandler(this.drymaterialsBindingSource_CurrentChanged);
+            // 
+            // ultraMaverickDBDataSet
+            // 
+            this.ultraMaverickDBDataSet.DataSetName = "UltraMaverickDBDataSet";
+            this.ultraMaverickDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // matBtnBrowse
+            // 
+            this.matBtnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.matBtnBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnBrowse.Depth = 0;
+            this.matBtnBrowse.DrawShadows = true;
+            this.matBtnBrowse.HighEmphasis = true;
+            this.matBtnBrowse.Icon = null;
+            this.matBtnBrowse.Location = new System.Drawing.Point(780, 22);
+            this.matBtnBrowse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matBtnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnBrowse.Name = "matBtnBrowse";
+            this.matBtnBrowse.Size = new System.Drawing.Size(80, 36);
+            this.matBtnBrowse.TabIndex = 1;
+            this.matBtnBrowse.Text = "BROWSE";
+            this.matBtnBrowse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnBrowse.UseAccentColor = false;
+            this.matBtnBrowse.UseVisualStyleBackColor = true;
+            this.matBtnBrowse.Click += new System.EventHandler(this.matBtnBrowse_Click);
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFileName.Depth = 0;
+            this.txtFileName.Enabled = false;
+            this.txtFileName.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtFileName.Hint = "File Name";
+            this.txtFileName.Location = new System.Drawing.Point(26, 14);
+            this.txtFileName.Margin = new System.Windows.Forms.Padding(1);
+            this.txtFileName.MaxLength = 50;
+            this.txtFileName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtFileName.Multiline = false;
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(389, 50);
+            this.txtFileName.TabIndex = 2;
+            this.txtFileName.Text = "";
+            this.txtFileName.TextChanged += new System.EventHandler(this.txtFileName_TextChanged);
+            // 
+            // cbosheet
+            // 
+            this.cbosheet.Enabled = false;
+            this.cbosheet.FormattingEnabled = true;
+            this.cbosheet.ItemHeight = 23;
+            this.cbosheet.Location = new System.Drawing.Point(27, 84);
+            this.cbosheet.Margin = new System.Windows.Forms.Padding(1);
+            this.cbosheet.Name = "cbosheet";
+            this.cbosheet.PromptText = "Sheet";
+            this.cbosheet.Size = new System.Drawing.Size(388, 29);
+            this.cbosheet.TabIndex = 3;
+            this.cbosheet.UseSelectable = true;
+            this.cbosheet.SelectedIndexChanged += new System.EventHandler(this.cbosheet_SelectedIndexChanged);
+            this.cbosheet.SelectionChangeCommitted += new System.EventHandler(this.cbosheet_SelectionChangeCommitted);
+            // 
+            // materialCard2
+            // 
+            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.label4);
+            this.materialCard2.Controls.Add(this.lbltotalrecords);
+            this.materialCard2.Controls.Add(this.label2);
+            this.materialCard2.Controls.Add(this.matbtnUpload);
+            this.materialCard2.Controls.Add(this.txtFileName);
+            this.materialCard2.Controls.Add(this.matBtnBrowse);
+            this.materialCard2.Controls.Add(this.cbosheet);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(29, 563);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.materialCard2.Size = new System.Drawing.Size(963, 132);
+            this.materialCard2.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(25, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 15);
+            this.label4.TabIndex = 610;
+            this.label4.Text = "Sheet :";
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(900, 21);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
+            this.lbltotalrecords.TabIndex = 608;
+            this.lbltotalrecords.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(903, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.TabIndex = 609;
+            this.label2.Text = "Items";
+            // 
+            // matbtnUpload
+            // 
+            this.matbtnUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.matbtnUpload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnUpload.Depth = 0;
+            this.matbtnUpload.DrawShadows = true;
+            this.matbtnUpload.HighEmphasis = true;
+            this.matbtnUpload.Icon = null;
+            this.matbtnUpload.Location = new System.Drawing.Point(780, 66);
+            this.matbtnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnUpload.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnUpload.Name = "matbtnUpload";
+            this.matbtnUpload.Size = new System.Drawing.Size(78, 36);
+            this.matbtnUpload.TabIndex = 4;
+            this.matbtnUpload.Text = "UPLOAD";
+            this.matbtnUpload.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnUpload.UseAccentColor = false;
+            this.matbtnUpload.UseVisualStyleBackColor = true;
+            this.matbtnUpload.Visible = false;
+            this.matbtnUpload.Click += new System.EventHandler(this.matbtnUpload_Click);
+            // 
+            // raw_Materials_DryTableAdapter
+            // 
+            this.raw_Materials_DryTableAdapter.ClearBeforeFill = true;
             // 
             // frmImportRawMatsExcel
             // 

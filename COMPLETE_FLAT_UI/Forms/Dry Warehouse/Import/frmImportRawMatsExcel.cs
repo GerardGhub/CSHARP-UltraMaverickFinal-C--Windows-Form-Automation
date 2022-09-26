@@ -206,6 +206,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void SaveMethod1()
         {
+
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
                 item_code_main,
@@ -227,10 +228,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
+     
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
-         
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
             }
             else
             {
@@ -268,9 +270,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
 
+  
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_type"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
 
@@ -279,7 +283,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                item_code_main, item_type_main, item_class_main, major_category_main, sub_category_main, primary_unit_main, "", "", "", "", "", "",0,"", "getdetailsforBulkInsertItemClass");
+                item_code_main, 
+                item_type_main, item_class_main,
+                major_category_main, sub_category_main, 
+                primary_unit_main, "", "", "", "", "", "",0,"", "getdetailsforBulkInsertItemClass");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -289,8 +296,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
 
+     
                 mode = "error";
-
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_class"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
             }
 
@@ -322,9 +330,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
 
+      
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["major_category"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
             //Sub Category
@@ -358,6 +369,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["sub_category"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
             //Primary Unit
@@ -390,7 +402,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
             }
 
@@ -421,6 +433,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
                 else
                 {
+                    MessageBox.Show("A7");
                     mode = "error";
                     dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
                 }
@@ -527,11 +540,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
 
-
+                this.dgvRawMats_CurrentCellChanged(sender, e);
                 this.matbtnUpload.Visible = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to upload a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to upload a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     SaveMethod1();
                 }
