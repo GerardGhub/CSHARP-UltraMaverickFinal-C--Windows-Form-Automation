@@ -92,6 +92,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
             this.Available_Menu_GrandChild_Entity.Parent_Menu = this.cboChildMenu.SelectedValue.ToString();
         }
+
         private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
@@ -204,7 +205,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             if (this.Available_Menu_GrandChild_Entity.Mode == "Add")
             {
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to add the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 
@@ -235,11 +236,9 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
            
 
-      
-
 
                 //Start of Edit
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 

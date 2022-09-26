@@ -243,7 +243,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 if (this.matRadioActive.Checked == true)
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to inactive the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
                         this.mode = "delete";
@@ -276,7 +276,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     //Start of Activation
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         this.mode = "activate";

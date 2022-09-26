@@ -38,6 +38,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.TsNew = new System.Windows.Forms.ToolStripButton();
+            this.TsEdit = new System.Windows.Forms.ToolStripButton();
+            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.matBtnSave = new System.Windows.Forms.ToolStripButton();
+            this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,20 +68,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.active_pu_conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            this.matRadioActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.matRadioNotActive = new MaterialSkin.Controls.MaterialRadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.TsNew = new System.Windows.Forms.ToolStripButton();
-            this.TsEdit = new System.Windows.Forms.ToolStripButton();
-            this.matBtnDelete = new System.Windows.Forms.ToolStripButton();
-            this.matBtnSave = new System.Windows.Forms.ToolStripButton();
-            this.matBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
@@ -219,164 +219,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.DgvRawMats_CurrentCellChanged);
-            // 
-            // item_id
-            // 
-            this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.item_id.DataPropertyName = "item_id";
-            this.item_id.FillWeight = 40.60914F;
-            this.item_id.Frozen = true;
-            this.item_id.HeaderText = "ITEM ID";
-            this.item_id.MinimumWidth = 12;
-            this.item_id.Name = "item_id";
-            this.item_id.ReadOnly = true;
-            this.item_id.Width = 12;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 59.93546F;
-            this.item_code.Frozen = true;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 104;
-            // 
-            // Item_description
-            // 
-            this.Item_description.DataPropertyName = "Item_description";
-            this.Item_description.FillWeight = 97.00433F;
-            this.Item_description.Frozen = true;
-            this.Item_description.HeaderText = "ITEM DESCRIPTION";
-            this.Item_description.MinimumWidth = 12;
-            this.Item_description.Name = "Item_description";
-            this.Item_description.ReadOnly = true;
-            this.Item_description.Width = 158;
-            // 
-            // primary_unit
-            // 
-            this.primary_unit.DataPropertyName = "primary_unit";
-            this.primary_unit.FillWeight = 113.0644F;
-            this.primary_unit.HeaderText = "PRIMARY UNIT";
-            this.primary_unit.MinimumWidth = 12;
-            this.primary_unit.Name = "primary_unit";
-            this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 127;
-            // 
-            // item_class
-            // 
-            this.item_class.DataPropertyName = "item_class";
-            this.item_class.FillWeight = 77.07378F;
-            this.item_class.HeaderText = "ITEM CLASS";
-            this.item_class.MinimumWidth = 12;
-            this.item_class.Name = "item_class";
-            this.item_class.ReadOnly = true;
-            this.item_class.Width = 112;
-            // 
-            // major_category
-            // 
-            this.major_category.DataPropertyName = "major_category";
-            this.major_category.FillWeight = 115.8143F;
-            this.major_category.HeaderText = "MAJOR CATEGORY";
-            this.major_category.MinimumWidth = 12;
-            this.major_category.Name = "major_category";
-            this.major_category.ReadOnly = true;
-            this.major_category.Width = 155;
-            // 
-            // sub_category
-            // 
-            this.sub_category.DataPropertyName = "sub_category";
-            this.sub_category.FillWeight = 111.9698F;
-            this.sub_category.HeaderText = "SUB CATEGORY";
-            this.sub_category.MinimumWidth = 12;
-            this.sub_category.Name = "sub_category";
-            this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 133;
-            // 
-            // conversion
-            // 
-            this.conversion.DataPropertyName = "conversion";
-            this.conversion.FillWeight = 112.6176F;
-            this.conversion.HeaderText = "CONVERSION";
-            this.conversion.MinimumWidth = 12;
-            this.conversion.Name = "conversion";
-            this.conversion.ReadOnly = true;
-            this.conversion.Width = 129;
-            // 
-            // item_type
-            // 
-            this.item_type.DataPropertyName = "item_type";
-            this.item_type.FillWeight = 109.4746F;
-            this.item_type.HeaderText = "ITEM TYPE";
-            this.item_type.MinimumWidth = 12;
-            this.item_type.Name = "item_type";
-            this.item_type.ReadOnly = true;
-            this.item_type.Width = 103;
-            // 
-            // buffer_stock
-            // 
-            this.buffer_stock.DataPropertyName = "buffer_stock";
-            this.buffer_stock.HeaderText = "BUFFER STOCKS";
-            this.buffer_stock.MinimumWidth = 12;
-            this.buffer_stock.Name = "buffer_stock";
-            this.buffer_stock.ReadOnly = true;
-            this.buffer_stock.Width = 140;
-            // 
-            // expiration_prompting
-            // 
-            this.expiration_prompting.DataPropertyName = "expiration_prompting";
-            this.expiration_prompting.HeaderText = "EXPIRATION PROMPTING";
-            this.expiration_prompting.Name = "expiration_prompting";
-            this.expiration_prompting.ReadOnly = true;
-            this.expiration_prompting.Width = 195;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Width = 131;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Width = 113;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Visible = false;
-            this.updated_at.Width = 132;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Visible = false;
-            this.updated_by.Width = 115;
-            // 
-            // active_pu_conversion
-            // 
-            this.active_pu_conversion.DataPropertyName = "active_pu_conversion";
-            this.active_pu_conversion.HeaderText = "ACTIVE CONVERSION";
-            this.active_pu_conversion.Name = "active_pu_conversion";
-            this.active_pu_conversion.ReadOnly = true;
-            this.active_pu_conversion.Visible = false;
-            this.active_pu_conversion.Width = 169;
             // 
             // textBox1
             // 
@@ -554,6 +396,164 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnCancel.Size = new System.Drawing.Size(98, 44);
             this.matBtnCancel.Text = "&Cancel";
             this.matBtnCancel.Visible = false;
+            // 
+            // item_id
+            // 
+            this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.item_id.DataPropertyName = "item_id";
+            this.item_id.FillWeight = 40.60914F;
+            this.item_id.Frozen = true;
+            this.item_id.HeaderText = "ITEM ID";
+            this.item_id.MinimumWidth = 12;
+            this.item_id.Name = "item_id";
+            this.item_id.ReadOnly = true;
+            this.item_id.Width = 12;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 59.93546F;
+            this.item_code.Frozen = true;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 116;
+            // 
+            // Item_description
+            // 
+            this.Item_description.DataPropertyName = "Item_description";
+            this.Item_description.FillWeight = 97.00433F;
+            this.Item_description.Frozen = true;
+            this.Item_description.HeaderText = "ITEM DESCRIPTION";
+            this.Item_description.MinimumWidth = 12;
+            this.Item_description.Name = "Item_description";
+            this.Item_description.ReadOnly = true;
+            this.Item_description.Width = 175;
+            // 
+            // primary_unit
+            // 
+            this.primary_unit.DataPropertyName = "primary_unit";
+            this.primary_unit.FillWeight = 113.0644F;
+            this.primary_unit.HeaderText = "PRIMARY UNIT";
+            this.primary_unit.MinimumWidth = 12;
+            this.primary_unit.Name = "primary_unit";
+            this.primary_unit.ReadOnly = true;
+            this.primary_unit.Width = 141;
+            // 
+            // item_class
+            // 
+            this.item_class.DataPropertyName = "item_class";
+            this.item_class.FillWeight = 77.07378F;
+            this.item_class.HeaderText = "ITEM CLASS";
+            this.item_class.MinimumWidth = 12;
+            this.item_class.Name = "item_class";
+            this.item_class.ReadOnly = true;
+            this.item_class.Width = 124;
+            // 
+            // major_category
+            // 
+            this.major_category.DataPropertyName = "major_category";
+            this.major_category.FillWeight = 115.8143F;
+            this.major_category.HeaderText = "WAREHOUSES";
+            this.major_category.MinimumWidth = 12;
+            this.major_category.Name = "major_category";
+            this.major_category.ReadOnly = true;
+            this.major_category.Width = 138;
+            // 
+            // sub_category
+            // 
+            this.sub_category.DataPropertyName = "sub_category";
+            this.sub_category.FillWeight = 111.9698F;
+            this.sub_category.HeaderText = "CATEGORY";
+            this.sub_category.MinimumWidth = 12;
+            this.sub_category.Name = "sub_category";
+            this.sub_category.ReadOnly = true;
+            this.sub_category.Width = 114;
+            // 
+            // conversion
+            // 
+            this.conversion.DataPropertyName = "conversion";
+            this.conversion.FillWeight = 112.6176F;
+            this.conversion.HeaderText = "CONVERSION";
+            this.conversion.MinimumWidth = 12;
+            this.conversion.Name = "conversion";
+            this.conversion.ReadOnly = true;
+            this.conversion.Width = 131;
+            // 
+            // item_type
+            // 
+            this.item_type.DataPropertyName = "item_type";
+            this.item_type.FillWeight = 109.4746F;
+            this.item_type.HeaderText = "ITEM TYPE";
+            this.item_type.MinimumWidth = 12;
+            this.item_type.Name = "item_type";
+            this.item_type.ReadOnly = true;
+            this.item_type.Width = 114;
+            // 
+            // buffer_stock
+            // 
+            this.buffer_stock.DataPropertyName = "buffer_stock";
+            this.buffer_stock.HeaderText = "BUFFER STOCKS";
+            this.buffer_stock.MinimumWidth = 12;
+            this.buffer_stock.Name = "buffer_stock";
+            this.buffer_stock.ReadOnly = true;
+            this.buffer_stock.Width = 156;
+            // 
+            // expiration_prompting
+            // 
+            this.expiration_prompting.DataPropertyName = "expiration_prompting";
+            this.expiration_prompting.HeaderText = "EXPIRATION PROMPTING";
+            this.expiration_prompting.Name = "expiration_prompting";
+            this.expiration_prompting.ReadOnly = true;
+            this.expiration_prompting.Width = 217;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Width = 145;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Width = 126;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Visible = false;
+            this.updated_at.Width = 147;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Visible = false;
+            this.updated_by.Width = 128;
+            // 
+            // active_pu_conversion
+            // 
+            this.active_pu_conversion.DataPropertyName = "active_pu_conversion";
+            this.active_pu_conversion.HeaderText = "ACTIVE CONVERSION";
+            this.active_pu_conversion.Name = "active_pu_conversion";
+            this.active_pu_conversion.ReadOnly = true;
+            this.active_pu_conversion.Visible = false;
+            this.active_pu_conversion.Width = 188;
             // 
             // frmDryMiscellaneouseIssue
             // 

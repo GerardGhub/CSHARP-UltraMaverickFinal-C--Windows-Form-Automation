@@ -158,9 +158,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(293, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 14);
+            this.label4.Size = new System.Drawing.Size(59, 14);
             this.label4.TabIndex = 595;
-            this.label4.Text = "Sub Category:";
+            this.label4.Text = "Category:";
             // 
             // label3
             // 
@@ -194,9 +194,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(25, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 14);
+            this.label1.Size = new System.Drawing.Size(71, 14);
             this.label1.TabIndex = 592;
-            this.label1.Text = "Major Category:";
+            this.label1.Text = "Warehouse:";
             // 
             // lblPrimaryUnitID
             // 

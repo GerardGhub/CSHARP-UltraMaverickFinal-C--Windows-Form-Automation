@@ -265,7 +265,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 this.txtmatConversion.Text = String.Empty;
-                this.txtmatConversion.Enabled = true;
+                //this.txtmatConversion.Enabled = true;
                 this.txtmatConversion.Focus();
             }
         }
@@ -281,7 +281,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
 
@@ -290,7 +290,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.txtMatItemCode.Text.Trim(),
                     this.txtMatItemDesc.Text.Trim(),
                     this.cboItemClass.Text.Trim(),
-                    this.cboMajorCategory.Text.Trim(),
+                    this.lblMajorCatId.Text,
                     this.cboSubCat.Text.Trim(),
                     this.cboPrimaryUnit.Text.Trim(),
                     this.txtmatConversion.Text.Trim(),

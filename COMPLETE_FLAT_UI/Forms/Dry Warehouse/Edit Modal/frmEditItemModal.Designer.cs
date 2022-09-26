@@ -130,6 +130,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.txtmatConversion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtmatConversion.Depth = 0;
+            this.txtmatConversion.Enabled = false;
             this.txtmatConversion.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtmatConversion.Hint = "Conversion";
             this.txtmatConversion.Location = new System.Drawing.Point(610, 153);
@@ -308,9 +309,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(293, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 14);
+            this.label2.Size = new System.Drawing.Size(59, 14);
             this.label2.TabIndex = 598;
-            this.label2.Text = "Sub Category:";
+            this.label2.Text = "Category:";
             // 
             // label1
             // 
@@ -320,9 +321,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(24, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 14);
+            this.label1.Size = new System.Drawing.Size(71, 14);
             this.label1.TabIndex = 597;
-            this.label1.Text = "Major Category:";
+            this.label1.Text = "Warehouse:";
             // 
             // cboItemClass
             // 

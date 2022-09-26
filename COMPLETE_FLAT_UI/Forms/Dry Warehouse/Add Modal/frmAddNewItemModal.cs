@@ -353,7 +353,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.txtMatItemCode.Text.Trim(),
                     this.txtMatItemDesc.Text.Trim(),
                     this.cboItemClass.Text.Trim(),
-                    this.cboMajorCategory.Text.Trim(),
+                    this.lblMajorCatId.Text,
                     this.cboSubCat.Text.Trim(),
                     this.cboPrimaryUnit.Text.Trim(),
                     this.txtmatConversion.Text.Trim(),
@@ -364,23 +364,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.txtExpirationDaysPrompting.Text,
                     "add");
 
-                //dSet.Clear();
-                //dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
-                //    this.txtMatItemCode.Text.Trim(),
-                //    this.txtMatItemDesc.Text.Trim(),
-                //    this.cboItemClass.Text.Trim(),
-                //    this.cboMajorCategory.Text.Trim(),
-                //    this.cboSubCat.Text.Trim(),
-                //    this.lblPrimaryUnitID.Text.Trim(),
-                //    this.txtmatConversion.Text.Trim(),
-                //    this.cboItemType.Text.Trim(),
-                //    this.RawMaterialsDryEntity.Created_At,
-                //    this.RawMaterialsDryEntity.Created_By,
-                //    "", "", Convert.ToInt32(this.mattxtBufferStocks.Text),
-                //    "",
-                //    "addRMLogs");
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
+                    this.txtMatItemCode.Text.Trim(),
+                    this.txtMatItemDesc.Text.Trim(),
+                    this.cboItemClass.Text.Trim(),
+                    this.cboMajorCategory.Text.Trim(),
+                    this.cboSubCat.Text.Trim(),
+                    this.lblPrimaryUnitID.Text.Trim(),
+                    this.txtmatConversion.Text.Trim(),
+                    this.cboItemType.Text.Trim(),
+                    this.RawMaterialsDryEntity.Created_At,
+                    this.RawMaterialsDryEntity.Created_By,
+                    "", "", Convert.ToInt32(this.mattxtBufferStocks.Text),
+                    "",
+                    "addRMLogs");
 
-                //this.textBox1.Text = "data Already Save!";
+                this.textBox1.Text = "data Already Save!";
                 this.GlobalStatePopup.SuccessFullySave();
                 this.Close();
 

@@ -329,7 +329,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             if (this.Sp_Total_SKU != "0")
             {
-                this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
+                this.GlobalStatePopup.InformationNotify(this.ErrorDetails);
                 //return;
             }
 

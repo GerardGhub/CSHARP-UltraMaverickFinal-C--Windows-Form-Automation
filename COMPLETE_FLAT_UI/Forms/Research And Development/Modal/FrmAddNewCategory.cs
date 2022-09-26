@@ -61,14 +61,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 
             if (this.SubCategoryEntity.Mode == "ADD")
             {
-                this.Text = "Add New Warehouses";
+                this.Text = "Add New Category";
                 this.materialButton1.Text = "ADD";
                 this.SubCategoryEntity.Sc_Added_By = this.SubCategoryEntity.Sc_Added_By;
                 this.TxtSubCategory.Text = String.Empty;
             }
             else
             {
-                this.Text = "Update Warehouses";
+                this.Text = "Update Category";
                 this.materialButton1.Text = "SAVE";
                 this.SubCategoryEntity.Sc_Updated_By = this.SubCategoryEntity.Sc_Updated_By;
                 this.SubCategoryEntity.Sub_Category_Id = this.SubCategoryEntity.Sub_Category_Id;
@@ -92,9 +92,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ths.TextBox1.Text = textBox1.Text;
-
-  
+            ths.TextBox1.Text = textBox1.Text;  
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
