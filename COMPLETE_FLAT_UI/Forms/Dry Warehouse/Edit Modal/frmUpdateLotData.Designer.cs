@@ -69,11 +69,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.BackColor = System.Drawing.Color.Transparent;
-            this.lblCategory.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCategory.Location = new System.Drawing.Point(344, 135);
+            this.lblCategory.Location = new System.Drawing.Point(344, 127);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(59, 14);
+            this.lblCategory.Size = new System.Drawing.Size(60, 15);
             this.lblCategory.TabIndex = 593;
             this.lblCategory.Text = "Category:";
             // 
@@ -133,12 +133,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // cboMajorCategory
             // 
             this.cboMajorCategory.Enabled = false;
-            this.cboMajorCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cboMajorCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMajorCategory.FormattingEnabled = true;
-            this.cboMajorCategory.Location = new System.Drawing.Point(345, 150);
+            this.cboMajorCategory.Location = new System.Drawing.Point(345, 145);
             this.cboMajorCategory.Margin = new System.Windows.Forms.Padding(1);
             this.cboMajorCategory.Name = "cboMajorCategory";
-            this.cboMajorCategory.Size = new System.Drawing.Size(245, 28);
+            this.cboMajorCategory.Size = new System.Drawing.Size(250, 32);
             this.cboMajorCategory.TabIndex = 602;
             // 
             // lblMajorCatId
@@ -147,7 +147,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblMajorCatId.BackColor = System.Drawing.Color.Transparent;
             this.lblMajorCatId.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMajorCatId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblMajorCatId.Location = new System.Drawing.Point(439, 136);
+            this.lblMajorCatId.Location = new System.Drawing.Point(439, 126);
             this.lblMajorCatId.Name = "lblMajorCatId";
             this.lblMajorCatId.Size = new System.Drawing.Size(86, 13);
             this.lblMajorCatId.TabIndex = 599;

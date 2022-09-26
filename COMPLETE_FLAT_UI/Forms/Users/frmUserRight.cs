@@ -911,8 +911,8 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.GlobalStatePopup.SaveUpdateMenuNotifications();
                 this.load_search_ChildMenu(); //New
                 this.btnUnselectAll_Click(sender, e);
+                this.ListViewMenuClickEvent();
 
-              
             }
 
 
@@ -1340,12 +1340,17 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void ListViewmenu_Click_1(object sender, EventArgs e)
         {
+            this.ListViewMenuClickEvent();
+        }
+
+        private void ListViewMenuClickEvent()
+        {
             btnUpdateTheMenu.Visible = true;
             this.ShowValue();
             txtMaterialChildName.Text = ListViewmenu.Text;
             load_search_GrandChildMenu();
             ListViewmenu.Enabled = true;
-      
+
             this.LoadModule();
             txtGChildName.Text = listBoxGrandChildTag.Text;
         }
@@ -1803,7 +1808,6 @@ namespace ULTRAMAVERICK.Forms.Users
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to tag the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.btnMenuUpdate_Click(sender, e);
-     
 
             }
             else

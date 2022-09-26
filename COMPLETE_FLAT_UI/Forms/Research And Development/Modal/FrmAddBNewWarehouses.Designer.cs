@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         {
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.TxtWarehouseCode = new MaterialSkin.Controls.MaterialTextBox();
-            this.TxtMajorCategory = new MaterialSkin.Controls.MaterialTextBox();
+            this.TxtWarehouses = new MaterialSkin.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
@@ -44,7 +44,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this.TxtWarehouseCode);
-            this.materialCard1.Controls.Add(this.TxtMajorCategory);
+            this.materialCard1.Controls.Add(this.TxtWarehouses);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(34, 89);
@@ -73,22 +73,22 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.TxtWarehouseCode.TextChanged += new System.EventHandler(this.TxtWarehouseCode_TextChanged);
             this.TxtWarehouseCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtWarehouseCode_KeyPress);
             // 
-            // TxtMajorCategory
+            // TxtWarehouses
             // 
-            this.TxtMajorCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtMajorCategory.Depth = 0;
-            this.TxtMajorCategory.Enabled = false;
-            this.TxtMajorCategory.Font = new System.Drawing.Font("Roboto", 12F);
-            this.TxtMajorCategory.Hint = "Warehouses";
-            this.TxtMajorCategory.Location = new System.Drawing.Point(44, 123);
-            this.TxtMajorCategory.MaxLength = 50;
-            this.TxtMajorCategory.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtMajorCategory.Multiline = false;
-            this.TxtMajorCategory.Name = "TxtMajorCategory";
-            this.TxtMajorCategory.Size = new System.Drawing.Size(401, 50);
-            this.TxtMajorCategory.TabIndex = 0;
-            this.TxtMajorCategory.Text = "";
-            this.TxtMajorCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMajorCategory_KeyPress);
+            this.TxtWarehouses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtWarehouses.Depth = 0;
+            this.TxtWarehouses.Enabled = false;
+            this.TxtWarehouses.Font = new System.Drawing.Font("Roboto", 12F);
+            this.TxtWarehouses.Hint = "Warehouses";
+            this.TxtWarehouses.Location = new System.Drawing.Point(44, 123);
+            this.TxtWarehouses.MaxLength = 50;
+            this.TxtWarehouses.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtWarehouses.Multiline = false;
+            this.TxtWarehouses.Name = "TxtWarehouses";
+            this.TxtWarehouses.Size = new System.Drawing.Size(401, 50);
+            this.TxtWarehouses.TabIndex = 0;
+            this.TxtWarehouses.Text = "";
+            this.TxtWarehouses.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMajorCategory_KeyPress);
             // 
             // textBox1
             // 
@@ -183,7 +183,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         #endregion
 
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialTextBox TxtMajorCategory;
+        private MaterialSkin.Controls.MaterialTextBox TxtWarehouses;
         private System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton materialButton2;

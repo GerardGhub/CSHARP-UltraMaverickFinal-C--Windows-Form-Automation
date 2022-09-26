@@ -62,7 +62,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.Text = "Add New Warehouses";
                 this.materialButton1.Text = "ADD";
                 this.MajorCategoryEntity.Mc_Added_By = this.MajorCategoryEntity.Mc_Added_By;
-                this.TxtMajorCategory.Text = String.Empty;
+                this.TxtWarehouses.Text = String.Empty;
                 this.TxtWarehouseCode.Enabled = true;
                 this.TxtWarehouseCode.Focus();
             }
@@ -72,7 +72,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.materialButton1.Text = "SAVE";
                 this.MajorCategoryEntity.Mc_Updated_By = this.MajorCategoryEntity.Mc_Updated_By;
                 this.MajorCategoryEntity.Major_Category_Id = this.MajorCategoryEntity.Major_Category_Id;
-                this.TxtMajorCategory.Text = MajorCategoryEntity.Major_Category_Desc;
+                this.TxtWarehouses.Text = MajorCategoryEntity.Major_Category_Desc;
                 this.MajorCategoryEntity.Major_Category_Desc = this.MajorCategoryEntity.Major_Category_Desc;
                 this.TxtWarehouseCode.Text = this.MajorCategoryEntity.WarehouseCode;
             }
@@ -92,10 +92,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
         private void MaterialButton1_Click(object sender, EventArgs e)
         {
             string CurrentMode = "";
-            if (this.TxtMajorCategory.Text.Trim() == string.Empty)
+            if (this.TxtWarehouses.Text.Trim() == string.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-                this.TxtMajorCategory.Focus();
+                this.TxtWarehouses.Focus();
                 return;
             }
 
@@ -117,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 CurrentMode = "getbyname";
             }
 
-            if (this.MajorCategoryEntity.Major_Category_Desc == this.TxtMajorCategory.Text)
+            if (this.MajorCategoryEntity.Major_Category_Desc == this.TxtWarehouses.Text)
             {
           
                 this.DoSaveFunctionality();
@@ -127,7 +127,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.dSet.Clear();
                 this.dSet = this.g_objStoredProcCollection
                     .sp_Major_Category(0,
-                    this.TxtMajorCategory.Text, 
+                    this.TxtWarehouses.Text, 
                     this.TxtWarehouseCode.Text, 
                     "", 
                     "", 
@@ -140,7 +140,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                     this.GlobalStatePopup.DataAlreadyExist();
 
 
-                    this.TxtMajorCategory.Focus();
+                    this.TxtWarehouses.Focus();
                     return;
                 }
                 else
@@ -162,7 +162,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                     this.dSet.Clear();
                     this.dSet = this.g_objStoredProcCollection
                     .sp_Major_Category(0,
-                    this.TxtMajorCategory.Text.Trim(),
+                    this.TxtWarehouses.Text.Trim(),
                     this.MajorCategoryEntity.Mc_Added_By,
                     this.MajorCategoryEntity.Mc_Added_At,
                     this.MajorCategoryEntity.Mc_Updated_At,
@@ -186,7 +186,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                     this.dSet = this.g_objStoredProcCollection
                     .sp_Major_Category(
                     this.MajorCategoryEntity.Major_Category_Id,
-                    this.TxtMajorCategory.Text.Trim(),
+                    this.TxtWarehouses.Text.Trim(),
                     this.MajorCategoryEntity.Mc_Added_By,
                     this.MajorCategoryEntity.Mc_Added_At,
                     this.MajorCategoryEntity.Mc_Updated_At,
@@ -219,7 +219,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 
         private void TxtWarehouseCode_TextChanged(object sender, EventArgs e)
         {        
-            bool result = (this.TxtWarehouseCode.Text == String.Empty) ? this.TxtMajorCategory.Enabled = false : this.TxtMajorCategory.Enabled = true;
+            bool result = (this.TxtWarehouseCode.Text == String.Empty) ? this.TxtWarehouses.Enabled = false : this.TxtWarehouses.Enabled = true;
         }
 
         private void TxtWarehouseCode_KeyPress(object sender, KeyPressEventArgs e)
