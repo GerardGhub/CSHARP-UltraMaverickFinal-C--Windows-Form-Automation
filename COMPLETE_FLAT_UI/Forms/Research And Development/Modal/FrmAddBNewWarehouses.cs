@@ -63,6 +63,8 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.materialButton1.Text = "ADD";
                 this.MajorCategoryEntity.Mc_Added_By = this.MajorCategoryEntity.Mc_Added_By;
                 this.TxtMajorCategory.Text = String.Empty;
+                this.TxtWarehouseCode.Enabled = true;
+                this.TxtWarehouseCode.Focus();
             }
             else
             {
@@ -74,7 +76,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                 this.MajorCategoryEntity.Major_Category_Desc = this.MajorCategoryEntity.Major_Category_Desc;
                 this.TxtWarehouseCode.Text = this.MajorCategoryEntity.WarehouseCode;
             }
-            this.TxtMajorCategory.Focus();
+
         }
 
         private void FrmAddBNewWarehouses_FormClosed(object sender, FormClosedEventArgs e)
@@ -89,7 +91,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 
         private void MaterialButton1_Click(object sender, EventArgs e)
         {
-
+            string CurrentMode = "";
             if (this.TxtMajorCategory.Text.Trim() == string.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
@@ -108,10 +110,16 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             if (this.MajorCategoryEntity.Mode == "ADD")
             {
                 this.MajorCategoryEntity.Major_Category_Desc = String.Empty;
+                CurrentMode = "getbywhcode";
+            }
+            else
+            {
+                CurrentMode = "getbyname";
             }
 
             if (this.MajorCategoryEntity.Major_Category_Desc == this.TxtMajorCategory.Text)
             {
+          
                 this.DoSaveFunctionality();
             }
             else
@@ -125,7 +133,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
                     "", 
                     "", 
                     this.TxtWarehouseCode.Text,
-                    "getbyname");
+                    CurrentMode);
 
                 if (this.dSet.Tables[0].Rows.Count > 0)
                 {
@@ -201,12 +209,22 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
 
         private void TxtMajorCategory_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
+            myClass.TextBoxToUpperCase(e);
         }
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TxtWarehouseCode_TextChanged(object sender, EventArgs e)
+        {        
+            bool result = (this.TxtWarehouseCode.Text == String.Empty) ? this.TxtMajorCategory.Enabled = false : this.TxtMajorCategory.Enabled = true;
+        }
+
+        private void TxtWarehouseCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            myClass.TextBoxToUpperCase(e);
         }
     }
 }

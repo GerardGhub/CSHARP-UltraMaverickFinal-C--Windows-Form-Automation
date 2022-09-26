@@ -61,6 +61,12 @@ namespace ULTRAMAVERICK.Models
 
         }
 
+        public void TextBoxToUpperCase(KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+
         public void fillListBox(ListBox eListBox, string eTablename, DataSet dSet)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();

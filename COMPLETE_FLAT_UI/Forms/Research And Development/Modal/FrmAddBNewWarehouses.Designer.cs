@@ -59,6 +59,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             // 
             this.TxtWarehouseCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtWarehouseCode.Depth = 0;
+            this.TxtWarehouseCode.Enabled = false;
             this.TxtWarehouseCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.TxtWarehouseCode.Hint = "Warehouse Code";
             this.TxtWarehouseCode.Location = new System.Drawing.Point(44, 39);
@@ -69,11 +70,14 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development.Modal
             this.TxtWarehouseCode.Size = new System.Drawing.Size(401, 50);
             this.TxtWarehouseCode.TabIndex = 584;
             this.TxtWarehouseCode.Text = "";
+            this.TxtWarehouseCode.TextChanged += new System.EventHandler(this.TxtWarehouseCode_TextChanged);
+            this.TxtWarehouseCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtWarehouseCode_KeyPress);
             // 
             // TxtMajorCategory
             // 
             this.TxtMajorCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtMajorCategory.Depth = 0;
+            this.TxtMajorCategory.Enabled = false;
             this.TxtMajorCategory.Font = new System.Drawing.Font("Roboto", 12F);
             this.TxtMajorCategory.Hint = "Warehouses";
             this.TxtMajorCategory.Location = new System.Drawing.Point(44, 123);

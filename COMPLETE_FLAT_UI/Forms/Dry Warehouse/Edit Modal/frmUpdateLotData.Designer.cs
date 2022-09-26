@@ -30,7 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void InitializeComponent()
         {
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.matdescription = new MaterialSkin.Controls.MaterialTextBox();
             this.matlotnumber = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -65,17 +65,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.matBtnSave.UseVisualStyleBackColor = true;
             this.matBtnSave.Click += new System.EventHandler(this.matBtnSave_Click);
             // 
-            // label2
+            // lblCategory
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(344, 135);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 14);
-            this.label2.TabIndex = 593;
-            this.label2.Text = "Major Category:";
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.BackColor = System.Drawing.Color.Transparent;
+            this.lblCategory.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCategory.Location = new System.Drawing.Point(344, 135);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(59, 14);
+            this.lblCategory.TabIndex = 593;
+            this.lblCategory.Text = "Category:";
             // 
             // matdescription
             // 
@@ -117,7 +117,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.materialCard1.Controls.Add(this.cboMajorCategory);
             this.materialCard1.Controls.Add(this.lblMajorCatId);
             this.materialCard1.Controls.Add(this.mattotalsku);
-            this.materialCard1.Controls.Add(this.label2);
+            this.materialCard1.Controls.Add(this.lblCategory);
             this.materialCard1.Controls.Add(this.matdescription);
             this.materialCard1.Controls.Add(this.matlotnumber);
             this.materialCard1.Depth = 0;
@@ -246,7 +246,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         #endregion
         private MaterialSkin.Controls.MaterialButton matBtnSave;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCategory;
         private MaterialSkin.Controls.MaterialTextBox matdescription;
         private MaterialSkin.Controls.MaterialTextBox matlotnumber;
         private MaterialSkin.Controls.MaterialCard materialCard1;

@@ -67,7 +67,7 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelMenuSelection = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolClosePanelSelection = new System.Windows.Forms.ToolStripButton();
+            this.Tsback = new System.Windows.Forms.ToolStripButton();
             this.toolDropdownUserManager = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolUserManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.toolUserRights = new System.Windows.Forms.ToolStripMenuItem();
@@ -625,7 +625,6 @@
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolClosePanelSelection,
             this.toolDropdownUserManager,
             this.toolStripDropDownButtonLabTest,
             this.toolDropdownMenu,
@@ -635,26 +634,27 @@
             this.toolStripRawMaterials,
             this.toolImportDry,
             this.toolReceiving,
-            this.toolPreparation});
+            this.toolPreparation,
+            this.Tsback});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(88, 512);
+            this.toolStrip2.Size = new System.Drawing.Size(196, 512);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolClosePanelSelection
+            // Tsback
             // 
-            this.toolClosePanelSelection.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolClosePanelSelection.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolClosePanelSelection.Image = ((System.Drawing.Image)(resources.GetObject("toolClosePanelSelection.Image")));
-            this.toolClosePanelSelection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolClosePanelSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolClosePanelSelection.Name = "toolClosePanelSelection";
-            this.toolClosePanelSelection.Size = new System.Drawing.Size(87, 44);
-            this.toolClosePanelSelection.Text = "Back";
-            this.toolClosePanelSelection.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
+            this.Tsback.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tsback.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Tsback.Image = ((System.Drawing.Image)(resources.GetObject("Tsback.Image")));
+            this.Tsback.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Tsback.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Tsback.Name = "Tsback";
+            this.Tsback.Size = new System.Drawing.Size(88, 44);
+            this.Tsback.Text = "Back";
+            this.Tsback.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
             // 
             // toolDropdownUserManager
             // 
@@ -734,7 +734,7 @@
             this.toolStripDropDownButtonLabTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripDropDownButtonLabTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonLabTest.Name = "toolStripDropDownButtonLabTest";
-            this.toolStripDropDownButtonLabTest.Size = new System.Drawing.Size(154, 44);
+            this.toolStripDropDownButtonLabTest.Size = new System.Drawing.Size(195, 44);
             this.toolStripDropDownButtonLabTest.Text = "Lab Test";
             this.toolStripDropDownButtonLabTest.Visible = false;
             // 
@@ -782,7 +782,7 @@
             this.toolDropdownMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolDropdownMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDropdownMenu.Name = "toolDropdownMenu";
-            this.toolDropdownMenu.Size = new System.Drawing.Size(154, 44);
+            this.toolDropdownMenu.Size = new System.Drawing.Size(195, 44);
             this.toolDropdownMenu.Text = "Menu";
             this.toolDropdownMenu.Visible = false;
             // 
@@ -820,7 +820,7 @@
             this.toolStripInventoryDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripInventoryDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripInventoryDry.Name = "toolStripInventoryDry";
-            this.toolStripInventoryDry.Size = new System.Drawing.Size(154, 44);
+            this.toolStripInventoryDry.Size = new System.Drawing.Size(195, 44);
             this.toolStripInventoryDry.Text = "Inventory";
             this.toolStripInventoryDry.Visible = false;
             // 
@@ -843,7 +843,7 @@
             this.toolStripMoveOrderSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripMoveOrderSetup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMoveOrderSetup.Name = "toolStripMoveOrderSetup";
-            this.toolStripMoveOrderSetup.Size = new System.Drawing.Size(154, 44);
+            this.toolStripMoveOrderSetup.Size = new System.Drawing.Size(195, 44);
             this.toolStripMoveOrderSetup.Text = "Move Order";
             this.toolStripMoveOrderSetup.Visible = false;
             // 
@@ -878,7 +878,7 @@
             this.toolStoreSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStoreSetup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStoreSetup.Name = "toolStoreSetup";
-            this.toolStoreSetup.Size = new System.Drawing.Size(154, 44);
+            this.toolStoreSetup.Size = new System.Drawing.Size(195, 44);
             this.toolStoreSetup.Text = "Store";
             this.toolStoreSetup.Visible = false;
             // 
@@ -949,7 +949,7 @@
             this.toolStripRawMaterials.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripRawMaterials.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRawMaterials.Name = "toolStripRawMaterials";
-            this.toolStripRawMaterials.Size = new System.Drawing.Size(154, 44);
+            this.toolStripRawMaterials.Size = new System.Drawing.Size(195, 44);
             this.toolStripRawMaterials.Text = "Raw Material";
             this.toolStripRawMaterials.Visible = false;
             this.toolStripRawMaterials.Click += new System.EventHandler(this.toolStripRawMaterials_Click);
@@ -1057,7 +1057,7 @@
             this.toolImportDry.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolImportDry.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolImportDry.Name = "toolImportDry";
-            this.toolImportDry.Size = new System.Drawing.Size(143, 44);
+            this.toolImportDry.Size = new System.Drawing.Size(195, 44);
             this.toolImportDry.Text = "Import Dry";
             this.toolImportDry.Visible = false;
             this.toolImportDry.Click += new System.EventHandler(this.toolImportDry_Click);
@@ -1123,7 +1123,7 @@
             this.toolReceiving.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolReceiving.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolReceiving.Name = "toolReceiving";
-            this.toolReceiving.Size = new System.Drawing.Size(143, 44);
+            this.toolReceiving.Size = new System.Drawing.Size(195, 44);
             this.toolReceiving.Text = "Receiving";
             this.toolReceiving.Visible = false;
             // 
@@ -1172,7 +1172,7 @@
             this.toolPreparation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolPreparation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPreparation.Name = "toolPreparation";
-            this.toolPreparation.Size = new System.Drawing.Size(143, 44);
+            this.toolPreparation.Size = new System.Drawing.Size(195, 44);
             this.toolPreparation.Text = "Preparation";
             this.toolPreparation.Visible = false;
             // 
@@ -1762,7 +1762,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolDepartment;
         private System.Windows.Forms.ToolStripMenuItem toolDepartmentUnit;
         private System.Windows.Forms.ToolStripMenuItem toolPosition;
-        private System.Windows.Forms.ToolStripButton toolClosePanelSelection;
+        private System.Windows.Forms.ToolStripButton Tsback;
         private System.Windows.Forms.ToolStripDropDownButton toolStripRawMaterials;
         private System.Windows.Forms.ToolStripMenuItem toolStripModuleItemClass;
         private System.Windows.Forms.ToolStripMenuItem toolStripModuleMajorCategory;
