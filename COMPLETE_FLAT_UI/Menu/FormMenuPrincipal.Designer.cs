@@ -67,7 +67,6 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelMenuSelection = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.Tsback = new System.Windows.Forms.ToolStripButton();
             this.toolDropdownUserManager = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolUserManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.toolUserRights = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,6 +129,7 @@
             this.preparationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.allocationModule = new System.Windows.Forms.ToolStripMenuItem();
             this.moveOrderToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tsback = new System.Windows.Forms.ToolStripButton();
             this.MainMajorData = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDashBoard1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -644,18 +644,6 @@
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // Tsback
-            // 
-            this.Tsback.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tsback.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Tsback.Image = ((System.Drawing.Image)(resources.GetObject("Tsback.Image")));
-            this.Tsback.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Tsback.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Tsback.Name = "Tsback";
-            this.Tsback.Size = new System.Drawing.Size(88, 44);
-            this.Tsback.Text = "Back";
-            this.Tsback.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
-            // 
             // toolDropdownUserManager
             // 
             this.toolDropdownUserManager.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -887,6 +875,7 @@
             this.toolStripStoreArea.Name = "toolStripStoreArea";
             this.toolStripStoreArea.Size = new System.Drawing.Size(301, 24);
             this.toolStripStoreArea.Text = "Store Area";
+            this.toolStripStoreArea.Visible = false;
             this.toolStripStoreArea.Click += new System.EventHandler(this.toolStripStoreArea_Click);
             // 
             // regionToolStripMenuItem
@@ -1183,7 +1172,7 @@
             this.approvedOrderToolStripMenuItem,
             this.preparationToolStripMenuItem});
             this.toolDryStorePreparation.Name = "toolDryStorePreparation";
-            this.toolDryStorePreparation.Size = new System.Drawing.Size(163, 24);
+            this.toolDryStorePreparation.Size = new System.Drawing.Size(180, 24);
             this.toolDryStorePreparation.Text = "Store";
             this.toolDryStorePreparation.Visible = false;
             this.toolDryStorePreparation.Click += new System.EventHandler(this.toolDryForApproval_Click);
@@ -1219,7 +1208,7 @@
             this.approvedScheduleToolStripMenuItem,
             this.preparationToolStripMenuItem1});
             this.toolDryInternalPreparation.Name = "toolDryInternalPreparation";
-            this.toolDryInternalPreparation.Size = new System.Drawing.Size(163, 24);
+            this.toolDryInternalPreparation.Size = new System.Drawing.Size(180, 24);
             this.toolDryInternalPreparation.Text = "Internal";
             this.toolDryInternalPreparation.Visible = false;
             // 
@@ -1250,7 +1239,7 @@
             // allocationModule
             // 
             this.allocationModule.Name = "allocationModule";
-            this.allocationModule.Size = new System.Drawing.Size(163, 24);
+            this.allocationModule.Size = new System.Drawing.Size(180, 24);
             this.allocationModule.Text = "Allocation";
             this.allocationModule.Visible = false;
             this.allocationModule.Click += new System.EventHandler(this.allocationModule_Click);
@@ -1258,10 +1247,22 @@
             // moveOrderToolStripMenuItem2
             // 
             this.moveOrderToolStripMenuItem2.Name = "moveOrderToolStripMenuItem2";
-            this.moveOrderToolStripMenuItem2.Size = new System.Drawing.Size(163, 24);
+            this.moveOrderToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
             this.moveOrderToolStripMenuItem2.Text = "Move Order";
             this.moveOrderToolStripMenuItem2.Visible = false;
             this.moveOrderToolStripMenuItem2.Click += new System.EventHandler(this.moveOrderToolStripMenuItem2_Click);
+            // 
+            // Tsback
+            // 
+            this.Tsback.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tsback.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Tsback.Image = ((System.Drawing.Image)(resources.GetObject("Tsback.Image")));
+            this.Tsback.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Tsback.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Tsback.Name = "Tsback";
+            this.Tsback.Size = new System.Drawing.Size(88, 44);
+            this.Tsback.Text = "Back";
+            this.Tsback.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
             // 
             // MainMajorData
             // 
