@@ -907,7 +907,7 @@ namespace COMPLETE_FLAT_UI
         private void toolParentMenu_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmMajorAvailableForms fm = new frmMajorAvailableForms();
+            frmMajorMenuAvailableForms fm = new frmMajorMenuAvailableForms();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

@@ -18,7 +18,7 @@ using ULTRAMAVERICK.API.Entities;
 
 namespace ULTRAMAVERICK.Forms.Users
 {
-    public partial class frmMajorAvailableForms : MaterialForm
+    public partial class frmMajorMenuAvailableForms : MaterialForm
     {
  
         public Byte[] imageByte = null;
@@ -33,7 +33,7 @@ namespace ULTRAMAVERICK.Forms.Users
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         readonly ParentForms ParentFormEntity = new ParentForms();
 
-        public frmMajorAvailableForms()
+        public frmMajorMenuAvailableForms()
         {
             InitializeComponent();
         }
@@ -203,7 +203,7 @@ namespace ULTRAMAVERICK.Forms.Users
             else
             {
                 //
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {

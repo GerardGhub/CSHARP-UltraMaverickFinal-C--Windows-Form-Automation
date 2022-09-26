@@ -200,7 +200,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.mode = "add";
+           
             this.dgvChildForms.Enabled = false;
             btn_visible(false);
 
@@ -210,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Users
              new FrmAddNewSubMenu(
              this,
              userinfo.user_id,
-             "Add",
+             "ADD",
              this.AvailableMenuEntity.Menu_Id,
              this.AvailableMenuEntity.Menu_Name,
              this.AvailableMenuEntity.Count,
@@ -232,14 +232,14 @@ namespace ULTRAMAVERICK.Forms.Users
             if (this.dgvChildForms.RowCount > 0)
             {
                 this.temp_hid = dgvChildForms.CurrentRow.Index;
-                this.mode = "edit";
+         
                 this.btn_visible(false);
 
                 FrmAddNewSubMenu addNew =
                 new FrmAddNewSubMenu(
                 this,
                 userinfo.user_id,
-                "Edit",
+                "EDIT",
                 this.AvailableMenuEntity.Menu_Id,
                 this.AvailableMenuEntity.Menu_Name,
                 this.AvailableMenuEntity.Count,
@@ -259,7 +259,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 if (this.matRadioActive.Checked == true)
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         this.mode = "delete";
 
@@ -289,7 +289,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 else
                 {
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         this.mode = "activate";
 

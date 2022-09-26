@@ -27,6 +27,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         string SelectionMajorMenu = "";
         string MajorMenuCount = "";
 
+        int Touch = 0;
         int GetLatestKeyOfMenuIdentity = 0;
 
         public FrmAddNewSubMenu(
@@ -58,9 +59,10 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.ConnectionInit();
 
             this.displayUserRightsData();
-            if (this.Available_MenuEntity.Mode == "Add")
+            if (this.Available_MenuEntity.Mode == "ADD")
             {
                 this.Text = "Add New Sub Menu";
+                this.Available_MenuEntity.Mode = this.Available_MenuEntity.Mode;
                 this.getLoadDropdownParentMenu();
             }
             else
@@ -68,7 +70,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                 this.Text = "Update Sub Menu";
 
                 this.CboParentMenu.Text = Available_MenuEntity.Count;
-
+                this.Available_MenuEntity.Mode = this.Available_MenuEntity.Mode;
                 this.Txtmname.Text = this.Available_MenuEntity.Menu_Name;
                 this.Txtfname.Text = this.Available_MenuEntity.Menu_Form_Name;
                 this.Available_MenuEntity.MajorMenuID = this.Available_MenuEntity.MajorMenuID;
@@ -129,19 +131,37 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             }
 
 
-            string SelectionMajorMenu = "";
+            //string SelectionMajorMenu = "";
 
-            if (this.Available_MenuEntity.Mode == "Add")
+            if (this.Available_MenuEntity.Mode == "ADD")
             {
                 this.Available_MenuEntity.Menu_Form_Name = String.Empty;
-                SelectionMajorMenu = this.Available_MenuEntity.Count;
+                if (this.Touch == 0)
+                {
+                    this.getLoadDropdownParentMenu();
+                }
+                else
+                {
+                    SelectionMajorMenu = this.Available_MenuEntity.Count;
+                }
+           
             }
             else
             {
-                SelectionMajorMenu = this.MajorMenuCount;
+                SelectionMajorMenu = this.Available_MenuEntity.MajorMenuID.ToString();
+                //    this.MajorMenuCount;
+                if (this.Touch == 0)
+                {
+                    this.Available_MenuEntity.Count = this.Available_MenuEntity.MajorMenuID.ToString();
+                }
+                else
+                {
+                    this.Available_MenuEntity.Count = this.Available_MenuEntity.Count;
+                }
+         
             }
 
-            
+ 
 
             if (this.Available_MenuEntity.Menu_Name == this.Txtmname.Text
                 && this.Available_MenuEntity.Menu_Form_Name == this.Txtfname.Text
@@ -187,13 +207,13 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         private void SaveFunctionality()
         {
 
-            if (this.Available_MenuEntity.Mode == "Add")
+            if (this.Available_MenuEntity.Mode == "ADD")
             {
 
 
                 //metroSave_Click(sender, e);
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     dSet.Clear();
                     dSet = g_objStoredProcCollection.sp_available_menu(0,
@@ -228,7 +248,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
 
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
    
 
@@ -346,12 +366,12 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
         private void txtmname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
+            this.myClass.TextBoxToUpperCase(e);
         }
 
         private void txtfname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
+            this.myClass.TextBoxToUpperCase(e);
         }
 
         private void cboParentMenu_SelectionChangeCommitted(object sender, EventArgs e)
@@ -367,19 +387,15 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            this.Touch = 1;
             this.Available_MenuEntity.Count = this.CboParentMenu.SelectedValue.ToString();
-            MessageBox.Show(this.Available_MenuEntity.Count);
+            //MessageBox.Show(this.Available_MenuEntity.Count);
             this.Available_MenuEntity.MajorMenuID = Convert.ToInt32(this.CboParentMenu.SelectedValue);
         }
 
         private void cboParentMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
-        }
-
-        private void cboParentMenu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cboParentMenu_Click(object sender, EventArgs e)

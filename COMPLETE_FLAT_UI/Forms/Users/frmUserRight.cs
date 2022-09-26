@@ -138,13 +138,9 @@ namespace ULTRAMAVERICK.Forms.Users
 
         public void loadMenu_byUsers_GChildTagged()
         {
-
-
             myClass.fillListBox_Id(listBoxGrandChildTag, "filter_users_grandchild_at_userights", dSet, p_id, 0, 0);
 
             this.lbltotalGrandChildActive.Text = this.listBoxGrandChildTag.Items.Count.ToString();
-
-    
 
         }
 
@@ -161,20 +157,14 @@ namespace ULTRAMAVERICK.Forms.Users
             if (dset_emp.Tables.Count > 0)
             {
                 DataView dv = new DataView(dset_emp.Tables[0]);
-                if (myglobal.global_module == "EMPLOYEE")
-                {
-
-                }
-                else if (myglobal.global_module == "Active")
+       
+                if (myglobal.global_module == "Active")
                 {
 
                     dv.RowFilter = "user_rights_name = '" + txtMaterialRights.Text + "' ";
 
                 }
-                else if (myglobal.global_module == "VISITORS")
-                {
-
-                }
+     
                 dgvTagParentMenu.DataSource = dv;
 
             }
@@ -401,7 +391,6 @@ namespace ULTRAMAVERICK.Forms.Users
                 {
                     this.GlobalStatePopup.FillUserRights();
                     txtMaterialRights.Focus();
-                    //MessageBox.Show("Please enter " + lblName.Text + ". ", lblName.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -867,8 +856,10 @@ namespace ULTRAMAVERICK.Forms.Users
             this.btnUnselectAll_Click(new object(), new System.EventArgs());
             this.btnCancelListViewMenu_Click(new object(), new System.EventArgs());
             this.GetAllTaggedParentMenu(); 
-            this.load_search_ChildMenu(); 
-     
+            this.load_search_ChildMenu();
+            this.ChckMenu.Checked = false;
+
+
         }
 
 
@@ -912,6 +903,7 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.load_search_ChildMenu(); //New
                 this.btnUnselectAll_Click(sender, e);
                 this.ListViewMenuClickEvent();
+                this.ChckSubMenu.Checked = false;
 
             }
 
@@ -1121,9 +1113,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
 
         private void btnTaggingGchild_Click(object sender, EventArgs e)
-        {
-       
-
+        {       
             this.ShowValue();
 
             foreach (DataGridViewRow row in dgvGrandChild.Rows)
@@ -1146,7 +1136,7 @@ namespace ULTRAMAVERICK.Forms.Users
             this.LoadModule();
 
 
-            //this.listViewuser_rights_SelectedIndexChanged(sender, e);
+            this.ChckModule.Checked = false;
             this.GlobalStatePopup.SaveUpdateMenuNotifications();
         }
 
@@ -1566,16 +1556,16 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
             {
-   
- 
+
+
                 this.MenuClick();
                 materialBtnMenuAVlCancel_Click(sender, e);
 
-          
+
                 this.CallAvailbleMajorMenuOnTab3();
                 this.listBoxParentTag_Click(sender, e);
             }
-         
+
             else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage4"])//your specific tabname
             {
 
@@ -1586,11 +1576,19 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.ListViewmenu_Click_1(sender, e);
                 this.LoadMenuByUsers();
             }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage6"])//your specific tabname
+            {
+                if  (this.ListViewmenu.Items.Count > 0 )
+                {
+                    this.ConnectionInit();
+                    this.ListViewMenuClickEvent();
+                }
 
-     
+            }
 
 
-        }
+
+            }
 
 
 
@@ -1841,13 +1839,21 @@ namespace ULTRAMAVERICK.Forms.Users
                     dSet_temp.Clear();
                     dSet_temp = g_objStoredProcCollection.sp_user_rights_details(p_id, userinfo.user_id, 0, "", "", "", "", txtMaterialChildName.Text.Trim(), "delete_LogsChild");
 
-
+                    //this.ConnectionInit();
 
                     this.LoadMenuByUsers();
                     ListViewmenu_Click(sender, e);
                     load_search_ChildMenu();
+                    //LoadModule();
+                    if (this.ListViewmenu.Items.Count > 0)
+                    { }
+                    else { this.txtMaterialChildName.Text = String.Empty; }
 
-
+                    if (this.txtMaterialChildName.Text == String.Empty)
+                    {
+                        this.ConnectionInit();
+                        this.loadMenu_byUsers_GChildTagged();
+                    }
                     this.GlobalStatePopup.UpdatedSuccessfully();
 
                 }
@@ -2030,6 +2036,14 @@ namespace ULTRAMAVERICK.Forms.Users
                 for (int i = 0; i < dgvGrandChild.RowCount; i++) { dgvGrandChild.Rows[i].Cells[0].Value = false; }
 
             }
+        }
+
+
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            this.ConnectionInit();
+            loadMenu_byUsers_GChildTagged();
         }
     }
 }

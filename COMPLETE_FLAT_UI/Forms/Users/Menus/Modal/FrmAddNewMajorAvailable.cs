@@ -17,7 +17,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 {
     public partial class FrmAddNewMajorAvailable : MaterialForm
     {
-        frmMajorAvailableForms ths;
+        frmMajorMenuAvailableForms ths;
         DataSet dSet = new DataSet();
         readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
         readonly ParentFormsRepository ParentFormsRepo = new ParentFormsRepository();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int temp_id = 0;
-        public FrmAddNewMajorAvailable(frmMajorAvailableForms frm,
+        public FrmAddNewMajorAvailable(frmMajorMenuAvailableForms frm,
             int UserId,
             string Mode,
             int ParentId,
@@ -47,12 +47,12 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
 
             if (this.ParentFormEntity.Mode == "Add")
             {
-                this.Text = "Add New Parent Form";
+                this.Text = "Add New Menu";
                
             }
             else
             {
-                this.Text = "Update Parent Form";
+                this.Text = "Update Menu";
                 this.txtMaterialMenu.Text = this.ParentFormEntity.Parent_Form_Name;
         
             }
@@ -115,7 +115,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                     return;
                 }
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to save?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     this.dSet.Clear();
@@ -167,7 +167,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
                     }
                 }
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     dSet.Clear();

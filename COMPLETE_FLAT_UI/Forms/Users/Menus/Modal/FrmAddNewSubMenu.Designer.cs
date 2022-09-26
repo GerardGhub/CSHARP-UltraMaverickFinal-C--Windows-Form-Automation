@@ -76,7 +76,6 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.CboParentMenu.Name = "CboParentMenu";
             this.CboParentMenu.Size = new System.Drawing.Size(441, 27);
             this.CboParentMenu.TabIndex = 579;
-            this.CboParentMenu.SelectedIndexChanged += new System.EventHandler(this.cboParentMenu_SelectedIndexChanged);
             this.CboParentMenu.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             this.CboParentMenu.Click += new System.EventHandler(this.cboParentMenu_Click);
             this.CboParentMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboParentMenu_KeyPress);
@@ -127,9 +126,9 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(86, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(41, 19);
             this.materialLabel1.TabIndex = 575;
-            this.materialLabel1.Text = "Major Menu";
+            this.materialLabel1.Text = "Menu";
             // 
             // textBox1
             // 
@@ -264,7 +263,7 @@ namespace ULTRAMAVERICK.Forms.Users.Menus.Modal
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.MatBtnCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.BtnExecute, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(431, 390);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(428, 390);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
