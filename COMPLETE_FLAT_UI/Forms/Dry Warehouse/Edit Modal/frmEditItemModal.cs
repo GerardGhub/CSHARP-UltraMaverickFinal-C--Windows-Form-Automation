@@ -265,7 +265,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 this.txtmatConversion.Text = String.Empty;
-                //this.txtmatConversion.Enabled = true;
+                this.txtmatConversion.Enabled = true;
                 this.txtmatConversion.Focus();
             }
         }

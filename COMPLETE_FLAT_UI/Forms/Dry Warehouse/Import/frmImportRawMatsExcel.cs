@@ -63,6 +63,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             dgvRawMats.Columns[0].Width = 100;// The id column 
             CallOthers();
         }
+
         private void CallOthers()
         {
             lbltotalrecords.Text = dgvRawMats.Rows.Count.ToString();
@@ -139,8 +140,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         Import_dry_rawMat.Primary_unit = dt.Rows[i]["PRIMARY UNIT"].ToString();
                         Import_dry_rawMat.Item_type = dt.Rows[i]["ITEM TYPE"].ToString();
                         Import_dry_rawMat.Item_class = dt.Rows[i]["ITEM CLASS"].ToString();
-                        Import_dry_rawMat.Major_category = dt.Rows[i]["MAJOR CATEGORY"].ToString();
-                        Import_dry_rawMat.Sub_category = dt.Rows[i]["SUB CATEGORY"].ToString();             
+                        Import_dry_rawMat.Major_category = dt.Rows[i]["WAREHOUSE"].ToString();
+                        Import_dry_rawMat.Sub_category = dt.Rows[i]["CATEGORY"].ToString();             
                         Import_dry_rawMat.Conversion = dt.Rows[i]["CONVERSION"].ToString();
                      
                         Import_dry_rawMats.Add(Import_dry_rawMat);
@@ -417,7 +418,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["conversion"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
             }
 
@@ -433,8 +434,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
                 else
                 {
-                    MessageBox.Show("A7");
+                    //MessageBox.Show("A7");
                     mode = "error";
+                    dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.SelectionBackColor = Color.DarkOrange;
                     dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
                 }
             }
@@ -590,6 +592,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void txtFileName_TextChanged(object sender, EventArgs e)
         {
             this.cbosheet.Enabled = true;
+        }
+
+        private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            myClass.DataGridViewBindingClearSelection(this.dgvRawMats);
         }
     }
 }

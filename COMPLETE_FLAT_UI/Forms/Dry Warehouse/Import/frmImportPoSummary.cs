@@ -704,5 +704,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
 
         }
+
+        private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            myClass.DataGridViewBindingClearSelection(this.dgvRawMats);
+        }
     }
 }

@@ -82,6 +82,12 @@ namespace ULTRAMAVERICK.Models
             g_objStoredProcFill = null;
         }
 
+        public void DataGridViewBindingClearSelection(Guna2DataGridView dataGridView)
+        {
+            
+              dataGridView.ClearSelection();
+       }
+
         public void fillListBoxMajorMenu(ListBox eListBox, string eTablename, DataSet dSet)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
