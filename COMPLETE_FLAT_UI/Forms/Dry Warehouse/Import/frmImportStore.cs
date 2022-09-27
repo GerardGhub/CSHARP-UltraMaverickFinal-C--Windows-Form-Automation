@@ -20,11 +20,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 {
     public partial class frmImportStore : MaterialForm
     {
-        myclasses xClass = new myclasses();
+
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         IStoredProcedures objStorProc = null;
-
+        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         myclasses myClass = new myclasses();
         string mode = "";
         public frmImportStore()
@@ -56,18 +56,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void frmImportStore_Load(object sender, EventArgs e)
         {
-            objStorProc = xClass.g_objStoredProc.GetCollections();
-            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.tbl_stores' table. You can move, or remove it, as needed.
-          //Remove muna eto
-            //////this.tbl_storesTableAdapter.Fill(this.ultraMaverickDBDataSet.tbl_stores);
+            objStorProc =   myClass.g_objStoredProc.GetCollections();
 
-            // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Project_Po_Summary' table. You can move, or remove it, as needed.
-            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
-            //// TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Raw_Materials_Dry' table. You can move, or remove it, as needed.
-            //this.project_Po_SummaryTableAdapter.Fill(this.ultraMaverickDBDataSet.Project_Po_Summary);
             dgvRawMats.Columns[0].Width = 100;// The id column 
             this.CallOthers();
-            //this.VisibilityOffInDataGrid();
+
         }
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)
@@ -110,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.CallOthers();
 
 
-            this.matbtnUpload.Visible = true;
+            this.matbtnUpload.Enabled = true;
             this.mode = "";
             dgvRawMats_CurrentCellChanged(sender, e);
 
@@ -150,20 +143,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-                    if (myglobal.global_module == "EMPLOYEE")
-                    {
 
-                    }
-                    else if (myglobal.global_module == "Active")
+                  if (myglobal.global_module == "Active")
                     {
 
                         dv.RowFilter = "store_name = '" + sp_store_name + "' ";
 
                     }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-
-                    }
+             
                     dgvUnits.DataSource = dv;
 
                 }
@@ -253,64 +240,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             cbosheet.Enabled = true;
         }
 
-        private void ErrorNotify()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Uploading Interupt Check the data to proceed";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Red;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
 
 
-            popup.ShowOptionsButton = true;
 
-
-        }
-
-
-        private void SavedNotify()
-        {
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Raw Materials Successfully Upload";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
 
 
         private void SaveMethod1()
@@ -328,11 +260,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
+
 
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.SelectionBackColor = Color.DarkOrange;
 
 
 
@@ -356,14 +289,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
 
+                mode = "error";
 
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_area"].Style.SelectionBackColor = Color.DarkOrange;
 
             }
             else
             {
-                mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+ 
 
             }
 
@@ -379,16 +313,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
+                mode = "error";
 
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_route"].Style.SelectionBackColor = Color.DarkOrange;
 
             }
             else
             {
 
 
-                mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+         
             }
 
 
@@ -410,6 +345,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.SelectionBackColor = Color.DarkOrange;
 
 
 
@@ -431,7 +367,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                     if (mode == "error")
                     {
-                        this.ErrorNotify();
+                        this.GlobalStatePopup.ErrorNotify("Check the data to proceed");
                     }
                     else
                     {
@@ -465,7 +401,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
+       
 
                 mode = "error";
 
@@ -500,14 +436,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                     if (mode == "error")
                     {
-                        this.ErrorNotify();
+                        this.GlobalStatePopup.ErrorNotify("Check the data to proceed");
                     }
                     else
                     {
 
                         this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
-                        //this.saveMode();  //Update All Data here
-                        this.SavedNotify();
+    
+                        this.GlobalStatePopup.SuccessFullySave();
                     }
 
 
@@ -517,24 +453,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
 
             this.InsertDataPerRow();
-        }
-        public bool saveMode()
-
-        {
-
-            sp_user_id = userinfo.user_id.ToString(); // ID of User
-            dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                Convert.ToString(user_id),
-                item_type_main,
-                item_class_main,
-                major_category_main,
-                sub_category_main,
-                primary_unit_main,
-                "", "", "", "", "", sp_user_id, 0, "", "final_save_bulk_data_status_POSummary");
-
-            return false;
-
         }
 
         private void matbtnUpload_Click(object sender, EventArgs e)
@@ -550,17 +468,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
 
-                this.matbtnUpload.Visible = false;
+                this.matbtnUpload.Enabled = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to import the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
                 }
                 else
                 {
-                    this.matbtnUpload.Visible = true;
+                    this.matbtnUpload.Enabled = true;
                     return;
                 }
 
