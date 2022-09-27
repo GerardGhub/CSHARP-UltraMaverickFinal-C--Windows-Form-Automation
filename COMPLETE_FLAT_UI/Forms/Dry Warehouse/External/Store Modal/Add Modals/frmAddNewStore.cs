@@ -135,7 +135,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
+           
                 this.GlobalStatePopup.DataAlreadyExist();
                 this.mattxtStoreCode.Text = String.Empty;
                 this.mattxtStoreCode.Focus();
@@ -166,7 +166,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 this.dSet.Clear();

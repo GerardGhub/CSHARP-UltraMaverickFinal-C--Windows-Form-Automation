@@ -39,17 +39,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrder = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
@@ -65,6 +54,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.matlblTime = new MaterialSkin.Controls.MaterialLabel();
+            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateNeeded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrder)).BeginInit();
             this.materialCard2.SuspendLayout();
@@ -119,7 +120,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.item_code,
             this.description,
             this.uom,
-            this.qty});
+            this.qty,
+            this.dateNeeded});
             this.dgvStoreOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -174,99 +176,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrder.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvStoreOrder.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
             this.dgvStoreOrder.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrder_CurrentCellChanged);
-            // 
-            // date_ordered
-            // 
-            this.date_ordered.DataPropertyName = "dateOrdered";
-            this.date_ordered.Frozen = true;
-            this.date_ordered.HeaderText = "ORDER DATE";
-            this.date_ordered.MinimumWidth = 12;
-            this.date_ordered.Name = "date_ordered";
-            this.date_ordered.ReadOnly = true;
-            this.date_ordered.Width = 126;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.Frozen = true;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 47;
-            // 
-            // store_code
-            // 
-            this.store_code.DataPropertyName = "fox";
-            this.store_code.Frozen = true;
-            this.store_code.HeaderText = "STORE CODE";
-            this.store_code.Name = "store_code";
-            this.store_code.ReadOnly = true;
-            this.store_code.Width = 127;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.MinimumWidth = 12;
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            this.store_name.Width = 82;
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.HeaderText = "ROUTE";
-            this.route.Name = "route";
-            this.route.ReadOnly = true;
-            this.route.Width = 82;
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.HeaderText = "AREA";
-            this.area.Name = "area";
-            this.area.ReadOnly = true;
-            this.area.Width = 71;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "meattype";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 112;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "productcode";
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 114;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "products";
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.Width = 132;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.HeaderText = "UOM";
-            this.uom.Name = "uom";
-            this.uom.ReadOnly = true;
-            this.uom.Width = 67;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.HeaderText = "QUANTITY ORDER";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 163;
             // 
             // lbltotalrecords
             // 
@@ -498,6 +407,107 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matlblTime.TabIndex = 614;
             this.matlblTime.Text = "TIme :";
             // 
+            // date_ordered
+            // 
+            this.date_ordered.DataPropertyName = "dateOrdered";
+            this.date_ordered.Frozen = true;
+            this.date_ordered.HeaderText = "ORDER DATE";
+            this.date_ordered.MinimumWidth = 12;
+            this.date_ordered.Name = "date_ordered";
+            this.date_ordered.ReadOnly = true;
+            this.date_ordered.Width = 128;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 49;
+            // 
+            // store_code
+            // 
+            this.store_code.DataPropertyName = "fox";
+            this.store_code.Frozen = true;
+            this.store_code.HeaderText = "STORE CODE";
+            this.store_code.Name = "store_code";
+            this.store_code.ReadOnly = true;
+            this.store_code.Width = 129;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "name";
+            this.store_name.HeaderText = "STORE";
+            this.store_name.MinimumWidth = 12;
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
+            this.store_name.Width = 84;
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.HeaderText = "ROUTE";
+            this.route.Name = "route";
+            this.route.ReadOnly = true;
+            this.route.Width = 84;
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.HeaderText = "AREA";
+            this.area.Name = "area";
+            this.area.ReadOnly = true;
+            this.area.Width = 73;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "meattype";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 114;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "productcode";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 116;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "products";
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            this.description.Width = 134;
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.HeaderText = "UOM";
+            this.uom.Name = "uom";
+            this.uom.ReadOnly = true;
+            this.uom.Width = 69;
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.HeaderText = "QUANTITY ORDER";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Width = 165;
+            // 
+            // dateNeeded
+            // 
+            this.dateNeeded.DataPropertyName = "dateNeeded";
+            this.dateNeeded.HeaderText = "DATE NEEDED";
+            this.dateNeeded.Name = "dateNeeded";
+            this.dateNeeded.ReadOnly = true;
+            this.dateNeeded.Width = 137;
+            // 
             // frmStoreOrderRestAPIcall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,17 +540,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label2;
         private MaterialSkin.Controls.MaterialButton matbtnUpload;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn store_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn route;
-        private System.Windows.Forms.DataGridViewTextBoxColumn area;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrdersCutOff;
@@ -553,5 +552,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
         private MaterialSkin.Controls.MaterialLabel matlblTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn store_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn route;
+        private System.Windows.Forms.DataGridViewTextBoxColumn area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateNeeded;
     }
 }
