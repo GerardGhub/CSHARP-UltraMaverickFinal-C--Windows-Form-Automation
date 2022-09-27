@@ -313,17 +313,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
+  
+
+            }
+            else
+            {
                 mode = "error";
 
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_route"].Style.SelectionBackColor = Color.DarkOrange;
 
-            }
-            else
-            {
 
-
-         
             }
 
 
@@ -485,6 +485,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             }
 
+        }
+
+        private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            myClass.DataGridViewBindingClearSelection(this.dgvRawMats);
         }
     }
 }

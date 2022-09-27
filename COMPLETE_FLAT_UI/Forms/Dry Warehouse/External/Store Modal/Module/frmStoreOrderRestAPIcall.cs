@@ -139,7 +139,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 xClass.fillDataGridView(this.dgvStoreOrdersCutOff, "TblStoreOrderManageSyncingSpMinor", dSet);
 
-                this.lbltotalrecords.Text = this.dgvStoreOrdersCutOff.RowCount.ToString();
+                this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
             }
             catch (Exception ex)
             {

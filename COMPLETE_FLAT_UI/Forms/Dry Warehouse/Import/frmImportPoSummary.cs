@@ -103,29 +103,39 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*.xls" })
+            try
             {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+
+                using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*.xls" })
                 {
-                    txtFileName.Text = openFileDialog.FileName;
-                    using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                        txtFileName.Text = openFileDialog.FileName;
+                        using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
                         {
-                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
                             {
-                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
-                            });
-                            tableCollection = result.Tables;
-                            cbosheet.Items.Clear();
-                            foreach (DataTable table in tableCollection)
-                                cbosheet.Items.Add(table.TableName); // add sheet into combo box
+                                DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                                {
+                                    ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
+                                });
+                                tableCollection = result.Tables;
+                                cbosheet.Items.Clear();
+                                foreach (DataTable table in tableCollection)
+                                    cbosheet.Items.Add(table.TableName); // add sheet into combo box
+                            }
                         }
+
                     }
 
                 }
-
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)

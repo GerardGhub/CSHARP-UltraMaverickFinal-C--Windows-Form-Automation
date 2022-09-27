@@ -24,14 +24,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
     public partial class frmImportRawMatsExcel : MaterialForm
     {
-        myclasses xClass = new myclasses();
+
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
-        IStoredProcedures objStorProc = null;
-        IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
         string mode = "";
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmImportRawMatsExcel()
         {
@@ -52,16 +51,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public int user_id { get; set; }
         
         private void frmImportRawMatsExcel_Load(object sender, EventArgs e)
-
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
+            this.ConnectionInit();
             // TODO: This line of code loads data into the 'ultraMaverickDBDataSet.Raw_Materials_Dry' table. You can move, or remove it, as needed.
             this.raw_Materials_DryTableAdapter.Fill(this.ultraMaverickDBDataSet.Raw_Materials_Dry);
             //dgvRawMats.Rows[2].DefaultCellStyle.BackColor = Color.Yellow;
             dgvRawMats.Columns[0].Width = 100;// The id column 
             CallOthers();
+        }
+
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
         private void CallOthers()
@@ -127,7 +128,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
                 DataTable dt = tableCollection[cbosheet.SelectedItem.ToString()];
-                //dgvRawMats.DataSource = dt;
+
                 if (dt != null)
                 {
                     List<Import_drywh_rawmats> Import_dry_rawMats = new List<Import_drywh_rawmats>();
@@ -209,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main,
                 item_type_main,
                 item_class_main,
@@ -228,7 +229,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
+
      
                 mode = "error";
 
@@ -243,7 +244,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             //Item Type
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main,
                 item_type_main,
                 item_class_main,
@@ -283,7 +284,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             //Item Class
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main, 
                 item_type_main, item_class_main,
                 major_category_main, sub_category_main, 
@@ -306,7 +307,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             //Major Category
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main,
                 item_type_main,
                 item_class_main,
@@ -342,7 +343,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             //Sub Category
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main,
                 item_type_main,
                 item_class_main,
@@ -376,7 +377,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             //Primary Unit
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main,
                 item_type_main,
                 item_class_main,
@@ -504,7 +505,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
 
             dSet.Clear();
-            dSet = objStorProc.sp_Raw_Materials_Dry(0,
+            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 Convert.ToString(user_id),
                 item_type_main,
                 item_class_main,

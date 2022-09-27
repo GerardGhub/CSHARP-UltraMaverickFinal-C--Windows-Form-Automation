@@ -96,29 +96,39 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*.xls" })
+            try
             {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*.xls" })
                 {
-                    txtFileName.Text = openFileDialog.FileName;
-                    using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                        txtFileName.Text = openFileDialog.FileName;
+                        using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
                         {
-                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
                             {
-                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
-                            });
-                            tableCollection = result.Tables;
-                            cbosheet.Items.Clear();
-                            foreach (DataTable table in tableCollection)
-                                cbosheet.Items.Add(table.TableName); // add sheet into combo box
+                                DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                                {
+                                    ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
+                                });
+                                tableCollection = result.Tables;
+                                cbosheet.Items.Clear();
+                                foreach (DataTable table in tableCollection)
+                                    cbosheet.Items.Add(table.TableName); // add sheet into combo box
+                            }
                         }
+
                     }
 
                 }
-
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
         private void cbosheet_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,7 +182,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
-            this.matbtnUpload.Visible = true;
+            this.matbtnUpload.Enabled = true;
             this.mode = "";
             dgvRawMats_CurrentCellChanged(sender, e);
 
@@ -228,41 +238,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void SaveMethod1()
         {
-            //Check The store if existg on the system
-            dSet.Clear();
-            dSet = objStorProc.sp_dry_wh_orders(0,
-                0,
-                Sp_date_ordered,
-                Sp_fox,
-                Sp_store_name,
-                Sp_route,
-                Sp_area,
-                Sp_category,
-                Sp_item_code,
-                Sp_description,
-                Sp_uom,
-                Sp_qty,
-                "1",
-                "",
-                "",
-                this.SpDateNeeded,
-                "getbyname");
+            ////Check The store if existg on the system
+            //dSet.Clear();
+            //dSet = objStorProc.sp_dry_wh_orders(0,
+            //    0,
+            //    Sp_date_ordered,
+            //    Sp_fox,
+            //    Sp_store_name,
+            //    Sp_route,
+            //    Sp_area,
+            //    Sp_category,
+            //    Sp_item_code,
+            //    Sp_description,
+            //    Sp_uom,
+            //    Sp_qty,
+            //    "1",
+            //    "",
+            //    "",
+            //    this.SpDateNeeded,
+            //    "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                //RawMatsAlreadyExist();
-
-
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
+            //    //RawMatsAlreadyExist();
 
 
-            }
-            else
-            {
-                mode = "error";
+
+
+            //}
+            //else
+            //{
+            //    mode = "error";
           
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            //    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
-            }
+            //}
 
             //Check The store Code if existg on the system
             dSet.Clear();
@@ -295,7 +305,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("2");
+                //MessageBox.Show("2");
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
+
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -331,7 +343,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("3");
+    
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["area"].Style.SelectionBackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["route"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -368,7 +383,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 mode = "error";
                 this.ErrorDetails = "Item Code";
- 
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -404,7 +419,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("5");
+                //MessageBox.Show("5");
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["area"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -440,7 +456,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("6");
+                //MessageBox.Show("6");
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["route"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -476,7 +493,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("7");
+                //MessageBox.Show("7");
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["category"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -512,7 +530,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                MessageBox.Show("8");
+                //MessageBox.Show("8");
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -528,7 +547,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-                MessageBox.Show("9");
+                //MessageBox.Show("9");
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+
+
+
+            //Validate Date
+            DateTime dd;
+            if (DateTime.TryParse(SpDateNeeded, out dd))
+            {
+
+
+            }
+            else
+            {
+
+                mode = "error";
+                //MessageBox.Show("9");
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
             }
 
@@ -704,10 +742,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
  
 
-        private void matbtnUpload_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void matbtnUpload_Click_1(object sender, EventArgs e)
         {
@@ -722,17 +756,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
 
-                this.matbtnUpload.Visible = false;
+                this.matbtnUpload.Enabled = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to upload? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to upload the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
                 }
                 else
                 {
-                    this.matbtnUpload.Visible = true;
+                    this.matbtnUpload.Enabled = true;
                     return;
                 }
 
@@ -741,14 +775,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             //
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
-        }
+       
 
         private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            this.dgvRawMats.ClearSelection();
+            myClass.DataGridViewBindingClearSelection(this.dgvRawMats);
         }
     }
 }
