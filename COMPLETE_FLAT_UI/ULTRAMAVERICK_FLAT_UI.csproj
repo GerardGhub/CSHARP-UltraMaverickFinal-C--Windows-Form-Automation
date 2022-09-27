@@ -238,6 +238,12 @@
     <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.Designer.cs">
       <DependentUpon>FrmMrsActivationRemarks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dry Warehouse\Import\FrmImportMrsOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dry Warehouse\Import\FrmImportMrsOrders.Designer.cs">
+      <DependentUpon>FrmImportMrsOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -918,6 +924,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.resx">
       <DependentUpon>FrmMrsActivationRemarks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Import\FrmImportMrsOrders.resx">
+      <DependentUpon>FrmImportMrsOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.resx">
       <DependentUpon>frmCancelInternalApprovedOrder.cs</DependentUpon>

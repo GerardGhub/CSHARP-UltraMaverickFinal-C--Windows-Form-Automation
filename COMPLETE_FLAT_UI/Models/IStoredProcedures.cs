@@ -530,6 +530,24 @@ namespace ULTRAMAVERICK.Models
         string mode);
 
 
+            DataSet sp_material_request_logs(
+            int id,
+            int mrs_id,
+            string mrs_item_code,
+            string mrs_item_description,
+            string mrs_order_qty,
+            string mrs_uom,
+            string mrs_date_requested,
+            string is_active,
+            string static_count,
+            string department_id,
+            string is_prepared,
+            string is_for_validation,
+            string dateNeeded,
+            string DeptName,
+            string mode);
+
+
         DataSet sp_Raw_Materials_Dry(
         int item_id,
         string item_code,

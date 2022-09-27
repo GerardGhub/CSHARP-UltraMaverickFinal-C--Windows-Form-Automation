@@ -1531,6 +1531,14 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void mrsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.NormalSizeofSideBar();
+            FrmImportMrsOrders fm = new FrmImportMrsOrders();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

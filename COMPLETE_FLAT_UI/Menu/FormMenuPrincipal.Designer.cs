@@ -158,6 +158,7 @@
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
+            this.mrsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -838,7 +839,7 @@
             // toolStripMenuReceipt
             // 
             this.toolStripMenuReceipt.Name = "toolStripMenuReceipt";
-            this.toolStripMenuReceipt.Size = new System.Drawing.Size(134, 24);
+            this.toolStripMenuReceipt.Size = new System.Drawing.Size(180, 24);
             this.toolStripMenuReceipt.Text = "Receipt";
             this.toolStripMenuReceipt.Visible = false;
             this.toolStripMenuReceipt.Click += new System.EventHandler(this.toolStripMenuReceipt_Click);
@@ -846,7 +847,7 @@
             // toolStripMenuIssue
             // 
             this.toolStripMenuIssue.Name = "toolStripMenuIssue";
-            this.toolStripMenuIssue.Size = new System.Drawing.Size(134, 24);
+            this.toolStripMenuIssue.Size = new System.Drawing.Size(180, 24);
             this.toolStripMenuIssue.Text = "Issue";
             this.toolStripMenuIssue.Visible = false;
             this.toolStripMenuIssue.Click += new System.EventHandler(this.toolStripMenuIssue_Click);
@@ -1039,7 +1040,8 @@
             this.ImportStoreDry,
             this.consolidatedOrderToolStripMenuItem,
             this.orderRESTAPIToolStripMenuItem,
-            this.pendingOrderToolStripMenuItem});
+            this.pendingOrderToolStripMenuItem,
+            this.mrsToolStripMenuItem});
             this.toolImportDry.Font = new System.Drawing.Font("Roboto", 12F);
             this.toolImportDry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolImportDry.Image = ((System.Drawing.Image)(resources.GetObject("toolImportDry.Image")));
@@ -1054,7 +1056,7 @@
             // dryRawMaterialsToolStripMenuItem
             // 
             this.dryRawMaterialsToolStripMenuItem.Name = "dryRawMaterialsToolStripMenuItem";
-            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.dryRawMaterialsToolStripMenuItem.Text = "Dry Raw Materials";
             this.dryRawMaterialsToolStripMenuItem.Visible = false;
             this.dryRawMaterialsToolStripMenuItem.Click += new System.EventHandler(this.dryRawMaterialsToolStripMenuItem_Click);
@@ -1062,7 +1064,7 @@
             // poSummaryToolStripMenuItem
             // 
             this.poSummaryToolStripMenuItem.Name = "poSummaryToolStripMenuItem";
-            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.poSummaryToolStripMenuItem.Text = "Po Summary";
             this.poSummaryToolStripMenuItem.Visible = false;
             this.poSummaryToolStripMenuItem.Click += new System.EventHandler(this.poSummaryToolStripMenuItem_Click);
@@ -1070,7 +1072,7 @@
             // ImportStoreDry
             // 
             this.ImportStoreDry.Name = "ImportStoreDry";
-            this.ImportStoreDry.Size = new System.Drawing.Size(217, 24);
+            this.ImportStoreDry.Size = new System.Drawing.Size(211, 24);
             this.ImportStoreDry.Text = "Stores";
             this.ImportStoreDry.Visible = false;
             this.ImportStoreDry.Click += new System.EventHandler(this.storesToolStripMenuItem1_Click);
@@ -1078,15 +1080,15 @@
             // consolidatedOrderToolStripMenuItem
             // 
             this.consolidatedOrderToolStripMenuItem.Name = "consolidatedOrderToolStripMenuItem";
-            this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.consolidatedOrderToolStripMenuItem.Text = "Consolidated Order";
+            this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.consolidatedOrderToolStripMenuItem.Text = "Store Orders";
             this.consolidatedOrderToolStripMenuItem.Visible = false;
             this.consolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.consolidatedOrderToolStripMenuItem_Click);
             // 
             // orderRESTAPIToolStripMenuItem
             // 
             this.orderRESTAPIToolStripMenuItem.Name = "orderRESTAPIToolStripMenuItem";
-            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.orderRESTAPIToolStripMenuItem.Text = "Order Synching";
             this.orderRESTAPIToolStripMenuItem.Visible = false;
             this.orderRESTAPIToolStripMenuItem.Click += new System.EventHandler(this.orderRESTAPIToolStripMenuItem_Click);
@@ -1094,7 +1096,7 @@
             // pendingOrderToolStripMenuItem
             // 
             this.pendingOrderToolStripMenuItem.Name = "pendingOrderToolStripMenuItem";
-            this.pendingOrderToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.pendingOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.pendingOrderToolStripMenuItem.Text = "Pending Orders";
             this.pendingOrderToolStripMenuItem.Visible = false;
             this.pendingOrderToolStripMenuItem.Click += new System.EventHandler(this.pendingOrderToolStripMenuItem_Click);
@@ -1172,7 +1174,7 @@
             this.approvedOrderToolStripMenuItem,
             this.preparationToolStripMenuItem});
             this.toolDryStorePreparation.Name = "toolDryStorePreparation";
-            this.toolDryStorePreparation.Size = new System.Drawing.Size(180, 24);
+            this.toolDryStorePreparation.Size = new System.Drawing.Size(163, 24);
             this.toolDryStorePreparation.Text = "Store";
             this.toolDryStorePreparation.Visible = false;
             this.toolDryStorePreparation.Click += new System.EventHandler(this.toolDryForApproval_Click);
@@ -1208,7 +1210,7 @@
             this.approvedScheduleToolStripMenuItem,
             this.preparationToolStripMenuItem1});
             this.toolDryInternalPreparation.Name = "toolDryInternalPreparation";
-            this.toolDryInternalPreparation.Size = new System.Drawing.Size(180, 24);
+            this.toolDryInternalPreparation.Size = new System.Drawing.Size(163, 24);
             this.toolDryInternalPreparation.Text = "Internal";
             this.toolDryInternalPreparation.Visible = false;
             // 
@@ -1239,7 +1241,7 @@
             // allocationModule
             // 
             this.allocationModule.Name = "allocationModule";
-            this.allocationModule.Size = new System.Drawing.Size(180, 24);
+            this.allocationModule.Size = new System.Drawing.Size(163, 24);
             this.allocationModule.Text = "Allocation";
             this.allocationModule.Visible = false;
             this.allocationModule.Click += new System.EventHandler(this.allocationModule_Click);
@@ -1247,7 +1249,7 @@
             // moveOrderToolStripMenuItem2
             // 
             this.moveOrderToolStripMenuItem2.Name = "moveOrderToolStripMenuItem2";
-            this.moveOrderToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
+            this.moveOrderToolStripMenuItem2.Size = new System.Drawing.Size(163, 24);
             this.moveOrderToolStripMenuItem2.Text = "Move Order";
             this.moveOrderToolStripMenuItem2.Visible = false;
             this.moveOrderToolStripMenuItem2.Click += new System.EventHandler(this.moveOrderToolStripMenuItem2_Click);
@@ -1687,6 +1689,13 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
+            // mrsToolStripMenuItem
+            // 
+            this.mrsToolStripMenuItem.Name = "mrsToolStripMenuItem";
+            this.mrsToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.mrsToolStripMenuItem.Text = "MRS Orders";
+            this.mrsToolStripMenuItem.Click += new System.EventHandler(this.mrsToolStripMenuItem_Click);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1852,6 +1861,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuIssue;
         private System.Windows.Forms.ToolStripMenuItem TsCustomer;
         private System.Windows.Forms.ToolStripMenuItem moveOrderToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem mrsToolStripMenuItem;
     }
 }
 
