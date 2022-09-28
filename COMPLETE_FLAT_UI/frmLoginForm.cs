@@ -43,6 +43,7 @@ namespace COMPLETE_FLAT_UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+     
 
             if (txtMaterialUsername.Text.Trim() == string.Empty)
             {
@@ -68,7 +69,10 @@ namespace COMPLETE_FLAT_UI
 
             //User Stored Procedure Validate name & Password
             dSet.Clear();
-            dSet = objStorProc.sp_userfile(0, txtMaterialUsername.Text.Trim(), txtMaterialPassword.Text.Trim(), "", "validate");
+            dSet = objStorProc.sp_userfile(0, 
+                txtMaterialUsername.Text.Trim(),
+                txtMaterialPassword.Text.Trim(), 
+                "", "validate");
 
 
 
@@ -160,17 +164,23 @@ namespace COMPLETE_FLAT_UI
 
         private void MaterialLogin_Click(object sender, EventArgs e)
         {
-            btnLogin_Click( sender,  e);
+            this.btnLogin_Click( sender,  e);
         }
 
         private void txtMaterialUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
+        
+            xClass.TextBoxToUpperCase(e);
         }
 
         private void txtMaterialPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.KeyChar = Char.ToUpper(e.KeyChar);
+            xClass.TextBoxToUpperCase(e);
+        }
+
+        private void txtMaterialPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

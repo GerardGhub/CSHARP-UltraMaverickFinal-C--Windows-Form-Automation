@@ -47,10 +47,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RESERVED = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buffer_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +60,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.DAYS_OF_MOVEMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QA_RECEIVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CATEGORY_MRP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -116,10 +116,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sub_category,
             this.conversion,
             this.item_type,
-            this.created_at,
-            this.created_by,
-            this.updated_at,
-            this.updated_by,
             this.SOH,
             this.RESERVED,
             this.buffer_stock,
@@ -132,7 +128,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.LAST_USED,
             this.DAYS_OF_MOVEMENT,
             this.QA_RECEIVING,
-            this.CATEGORY_MRP});
+            this.CATEGORY_MRP,
+            this.created_at,
+            this.created_by,
+            this.updated_at,
+            this.updated_by});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -297,21 +297,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             // 
             this.major_category.DataPropertyName = "major_category";
             this.major_category.FillWeight = 115.8143F;
-            this.major_category.HeaderText = "MAJOR CATEGORY";
+            this.major_category.HeaderText = "WAREHOUSE";
             this.major_category.MinimumWidth = 12;
             this.major_category.Name = "major_category";
             this.major_category.ReadOnly = true;
-            this.major_category.Width = 172;
+            this.major_category.Width = 128;
             // 
             // sub_category
             // 
             this.sub_category.DataPropertyName = "sub_category";
             this.sub_category.FillWeight = 111.9698F;
-            this.sub_category.HeaderText = "SUB CATEGORY";
+            this.sub_category.HeaderText = "CATEGORY";
             this.sub_category.MinimumWidth = 12;
             this.sub_category.Name = "sub_category";
             this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 148;
+            this.sub_category.Width = 114;
             // 
             // conversion
             // 
@@ -332,46 +332,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.item_type.Name = "item_type";
             this.item_type.ReadOnly = true;
             this.item_type.Width = 114;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Visible = false;
-            this.created_at.Width = 145;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Visible = false;
-            this.created_by.Width = 126;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Visible = false;
-            this.updated_at.Width = 147;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Visible = false;
-            this.updated_by.Width = 128;
             // 
             // SOH
             // 
@@ -490,6 +450,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.CATEGORY_MRP.ReadOnly = true;
             this.CATEGORY_MRP.Width = 152;
             // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Visible = false;
+            this.created_at.Width = 145;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Visible = false;
+            this.created_by.Width = 126;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Visible = false;
+            this.updated_at.Width = 147;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Visible = false;
+            this.updated_by.Width = 128;
+            // 
             // frmDryWHInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,10 +525,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOH;
         private System.Windows.Forms.DataGridViewTextBoxColumn RESERVED;
         private System.Windows.Forms.DataGridViewTextBoxColumn buffer_stock;
@@ -542,5 +538,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private System.Windows.Forms.DataGridViewTextBoxColumn DAYS_OF_MOVEMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn QA_RECEIVING;
         private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORY_MRP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_at;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_by;
     }
 }

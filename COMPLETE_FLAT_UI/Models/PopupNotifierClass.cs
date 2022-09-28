@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Models
 {
-    class PopupNotifierClass
+    public class PopupNotifierClass
     {
         public string Total_item_for_allocation { get; set; }
         public string Popup_barcode_identity { get; set; }
@@ -1306,8 +1307,8 @@ namespace ULTRAMAVERICK.Models
 
             PopupNotifier popup = new PopupNotifier();
             //popup.Image = Resources.new_logo;
-            popup.TitleText = "Notifications!";
             popup.TitleColor = Color.White;
+            popup.TitleText = "Notifications!";
             popup.TitlePadding = new Padding(255, 7, 0, 0);
             popup.TitleFont = new Font("Tahoma", 10);
             popup.ContentText = "Fill up the required fields!";
@@ -1321,8 +1322,6 @@ namespace ULTRAMAVERICK.Models
             popup.Delay = 500;
             popup.AnimationInterval = 10;
             popup.AnimationDuration = 1000;
-
-
             popup.ShowOptionsButton = true;
 
 

@@ -141,11 +141,14 @@ namespace COMPLETE_FLAT_UI
             this.txtMaterialPassword.Size = new System.Drawing.Size(266, 50);
             this.txtMaterialPassword.TabIndex = 488;
             this.txtMaterialPassword.Text = "";
+            this.txtMaterialPassword.TextChanged += new System.EventHandler(this.txtMaterialPassword_TextChanged);
             this.txtMaterialPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaterialPassword_KeyDown);
             this.txtMaterialPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaterialPassword_KeyPress);
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(127, 46);
             this.pictureBox2.Name = "pictureBox2";

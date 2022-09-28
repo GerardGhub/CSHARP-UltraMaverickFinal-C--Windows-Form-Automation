@@ -32,7 +32,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         public string Mat_row_number { get; set; }
         public int User_id { get; set; }
-
+        public int Department_Id { get; set; }  
         public string ErrorDetails { get; set; }
 
 
@@ -469,6 +469,72 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             try
             {
+
+
+                dSet.Clear();
+                dSet = objStorProc.sp_department(0,
+                this.Sp_fox,
+                "",    "","","","","",     
+                "getbyname");
+
+
+                //if (dSet.Tables[0].Rows.Count > 0)
+                //{
+
+                    Department_Id = Convert.ToInt32(dSet.Tables[0].Rows[0]["department_id"]);
+                //}
+                //else
+                //{
+
+                //    Department_Id = Convert.ToInt32(dSet.Tables[0].Rows[0]["department_id"]);
+                //}
+
+
+                dSet.Clear();
+                dSet = objStorProc
+                    .sp_material_request_master(0,
+                    "Import Excel File",
+                    Department_Id.ToString(),
+                     Department_Id,
+                    false,
+                    userinfo.emp_name + ' ' + userinfo.emp_lastname,
+                    "",
+                    userinfo.user_id,
+                   false,
+                   "0",
+                   this.Sp_date_ordered,
+                    "getbydata_manual");
+
+
+                if (dSet.Tables[0].Rows.Count > 0)
+                {
+                    //RawMatsAlreadyExist();
+
+
+
+
+                }
+                else
+                {
+                    dSet.Clear();
+                    dSet = objStorProc
+                        .sp_material_request_master(0,
+                        "Import Excel File",
+                        "",
+                        Department_Id,
+                        false,
+                        userinfo.emp_name + ' ' + userinfo.emp_lastname,
+                        "",
+                        userinfo.user_id,
+                       false,
+                       "0",
+                       this.Sp_date_ordered,
+                        "add");
+                }
+
+
+
+
                 dSet.Clear();
                 dSet = objStorProc
                     .sp_material_request_logs(0,
@@ -486,6 +552,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                              this.Sp_date_ordered,
                     this.Sp_fox,
                     "add");
+
+
+
+
             }
             catch (Exception ex)
             {

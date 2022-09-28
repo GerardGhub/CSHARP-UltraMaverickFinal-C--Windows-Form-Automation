@@ -167,10 +167,10 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     if (dgvitemClass.CurrentRow.Cells["item_class_desc"].Value != null)
                     {
                         this.Item_ClassEntity.Item_Class_Id = Convert.ToInt32(dgvitemClass.CurrentRow.Cells["item_class_id"].Value);
-                     this.Item_ClassEntity.Item_Class_Desc = dgvitemClass.CurrentRow.Cells["item_class_desc"].Value.ToString();
+                        this.Item_ClassEntity.Item_Class_Desc = dgvitemClass.CurrentRow.Cells["item_class_desc"].Value.ToString();
                         this.Item_ClassEntity.Item_Added_By = dgvitemClass.CurrentRow.Cells["item_added_by"].Value.ToString();
-                       this.Item_ClassEntity.Item_Added_At = dgvitemClass.CurrentRow.Cells["item_added_at"].Value.ToString();
-                       this.Item_ClassEntity.Item_Updated_At = dgvitemClass.CurrentRow.Cells["item_updated_at"].Value.ToString();
+                        this.Item_ClassEntity.Item_Added_At = dgvitemClass.CurrentRow.Cells["item_added_at"].Value.ToString();
+                        this.Item_ClassEntity.Item_Updated_At = dgvitemClass.CurrentRow.Cells["item_updated_at"].Value.ToString();
                         this.Item_ClassEntity.Item_Updated_By = dgvitemClass.CurrentRow.Cells["item_updated_by"].Value.ToString();
                   
                     }

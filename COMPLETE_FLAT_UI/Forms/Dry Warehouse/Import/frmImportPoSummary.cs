@@ -26,9 +26,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
-        IStoredProcedures objStorProc = null;
-   
-        myclasses myClass = new myclasses();
+        private IStoredProcedures objStorProc = null;
+        readonly myclasses myClass = new myclasses();
         string mode = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmImportPoSummary()
@@ -575,43 +574,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
         private string m_ConnectionString = ULTRAMAVERICK.Properties.Settings.Default.hr_application_conn2;
-        private void SaveinDatabase()
-        {
-            try
-            {
-
-
-                String connectionString = m_ConnectionString;
-                DapperPlusManager.Entity<Approve_po_summary>().Table("Projects");
-                List<Approve_po_summary> Import_Po_Summarys = drymaterialsBindingSource.DataSource as List<Approve_po_summary>;
-                if (Import_Po_Summarys != null)
-                {
-                    using (IDbConnection db = new SqlConnection(connectionString))
-                    {
-                        db.BulkInsert(Import_Po_Summarys);
-                    }
-                }
-
-
-                this.GlobalStatePopup.ImportSuccessFully();
-
-                this.matbtnUpload.Visible = false;
-
-
-
-
-
-                this.saveMode();
-
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+//sample
 
 
         public bool saveMode()

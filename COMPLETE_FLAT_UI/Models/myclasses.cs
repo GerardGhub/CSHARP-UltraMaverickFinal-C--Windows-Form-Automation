@@ -64,6 +64,7 @@ namespace ULTRAMAVERICK.Models
         public void TextBoxToUpperCase(KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+
         }
 
 

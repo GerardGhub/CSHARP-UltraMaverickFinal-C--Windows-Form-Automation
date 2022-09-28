@@ -126,6 +126,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
 
+        private void DropDownMethod()
+        {
+            //Functionality Viewing of the Data Binding Source
+            if (this.matRadioForApproval.Checked == true)
+            {
+                this.loadCategoryDropdown();
+            }
+            else if (this.matRadioForAllocation.Checked == true)
+            {
+                this.loadMRSDropdownForAllocation();
+            }
+
+        }
+
+
         public void loadMRSDropdownForAllocation()
         {
             try
@@ -415,7 +430,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (this.matRadioForAllocation.Checked == false && this.matRadioForApproval.Checked == false)
             {
                 this.matRadioForApproval.Checked = true;
-                loadForScheduling();
+                //loadForScheduling();
             }
 
         }
@@ -436,18 +451,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
            
 
             this.ConnectionOpen();
-            this.loadMRSDropdownForAllocation();
+            //this.loadMRSDropdownForAllocation();
             this.matcmbCategory_SelectionChangeCommitted(sender, e);
+            this.DropDownMethod();
 
-        
         }
 
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
         {
 
             this.ConnectionOpen();
-            this.loadForScheduling();
+            //this.loadForScheduling();
             this.matcmbCategory_SelectionChangeCommitted(sender, e);
+            this.DropDownMethod();
 
         }
 
