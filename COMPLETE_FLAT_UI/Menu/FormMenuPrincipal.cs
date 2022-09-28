@@ -417,7 +417,7 @@ namespace COMPLETE_FLAT_UI
             this.rights_id = userinfo.user_rights_id;
 
             this.user_section_controlBox = userinfo.user_section;
-          
+
             //if (user_section_controlBox == "Office")
             //{
             //    this.ControlBox = true;
@@ -430,55 +430,56 @@ namespace COMPLETE_FLAT_UI
             //get_accessible_menu
 
             //Start of Major Menu
-            dset_rights.Clear();
-            dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
+            this.MajorMenuLoop();
+            //dset_rights.Clear();
+            //dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
 
-            if (dset_rights.Tables.Count > 0)
-            {
-                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
-                {
-                    string parent_form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+            //if (dset_rights.Tables.Count > 0)
+            //{
+            //    for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
+            //    {
+            //        string parent_form_name = dset_rights.Tables[0].Rows[x][1].ToString();
 
 
               
-                    if (parent_form_name == "USERS")
-                    {
-                        btnUsers1.Visible = true;
-                    }
+            //        if (parent_form_name == "USERS")
+            //        {
+            //            btnUsers1.Visible = true;
+            //        }
 
-                    else if (parent_form_name == "SETUP")
-                    {
-                       this.BtnSetUp.Visible = true;
-                    }
-                    else if (parent_form_name == "DASHBOARD")
-                    {
-                        btnDashBoard1.Visible = true;
+            //        else if (parent_form_name == "SETUP")
+            //        {
+            //           this.BtnSetUp.Visible = true;
+            //        }
+            //        else if (parent_form_name == "DASHBOARD")
+            //        {
+            //            btnDashBoard1.Visible = true;
                
-                      /*  MostrarFormLogo()*/;
-                    }
+            //          /*  MostrarFormLogo()*/;
+            //        }
 
 
-                    else if (parent_form_name == "DRY WAREHOUSE")
-                    {
-                        this.btnDryWarehouse1.Visible = true;
-                    }
+            //        else if (parent_form_name == "DRY WAREHOUSE")
+            //        {
+            //            this.btnDryWarehouse1.Visible = true;
+            //        }
 
-                    //Phase 2 Muna ito
-                    //else if (parent_form_name == "Production Planner")
-                    //{
-                    //    btnProductionPlanner1.Visible = true;
-                    //}
-                    //else if (parent_form_name == "Preparation Department")
-                    //{
-                    //    btnPreparationDepartment1.Visible = true;
-                    //}
-                    //else if (parent_form_name == "Research & Development")
-                    //{
-                    //    btnResearchAndDevelopment1.Visible = true;
-                    //}
+            //        //Phase 2 Muna ito
+            //        //else if (parent_form_name == "Production Planner")
+            //        //{
+            //        //    btnProductionPlanner1.Visible = true;
+            //        //}
+            //        //else if (parent_form_name == "Preparation Department")
+            //        //{
+            //        //    btnPreparationDepartment1.Visible = true;
+            //        //}
+            //        //else if (parent_form_name == "Research & Development")
+            //        //{
+            //        //    btnResearchAndDevelopment1.Visible = true;
+            //        //}
 
-                }
-            }
+            //    }
+            //}
 
             //END
 
@@ -490,13 +491,91 @@ namespace COMPLETE_FLAT_UI
 
             //END
             //MODULES
+            this.ModulesLoop();
+      
+            btnMaximizedFinal_Click(sender, e);
+
+            this.CancelledforStorePreparationatLogisticChecker();
+
+            this.DispatchingforStorePreparationatLogisticChecker();
+   
+            this.showLabTestForReceiving();
+            this.BadgeNotification();
+
+
+
+            //MessageBox.Show(this.TotalLabTestReceivingViewing);
+            //bool v = Adorner.AddBadgeTo(btnDashBoard1, "123");
+     
+        }
+
+        private void ToolStripDropDownMajorMenu(Boolean val)
+        {
+
+
+
+            if (val == false)
+            {
+                this.btnUsers1.Visible = false;
+                this.BtnSetUp.Visible = false;
+                this.btnDashBoard1.Visible = false;
+                this.btnDryWarehouse1.Visible = false;
+            }
+
+        }
+
+        private void MajorMenuLoop()
+        {
+            this.ToolStripDropDownMajorMenu(false);
+
+            dset_rights.Clear();
+            dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
+
+            if (dset_rights.Tables.Count > 0)
+            {
+                for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
+                {
+                    string parent_form_name = dset_rights.Tables[0].Rows[x][1].ToString();
+
+
+
+
+                    if (parent_form_name == "USERS")
+                    {
+                        btnUsers1.Visible = true;
+                    }
+
+
+                    else if (parent_form_name == "SETUP")
+                    {
+                        this.BtnSetUp.Visible = true;
+                    }
+                    else if (parent_form_name == "DASHBOARD")
+                    {
+                        btnDashBoard1.Visible = true;
+
+                    }
+
+                    else if (parent_form_name == "DRY WAREHOUSE")
+                    {
+                        this.btnDryWarehouse1.Visible = true;
+                    }
+
+
+
+                }
+            }
+        }
+
+        private void ModulesLoop()
+        {
             dset_rights.Clear();
             dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_grandChild", "", rights_id);
 
             if (dset_rights.Tables.Count > 0)
             {
                 this.Module.SubMenu(
-            
+
                     this.dset_rights,
                     this.toolUserManagement,
                     this.toolUserRights,
@@ -548,32 +627,14 @@ namespace COMPLETE_FLAT_UI
                     this.lotManagementToolStripMenuItem,
                     this.averageOrderTrendToolStripMenuItem,
                     this.orderCancelRemarksToolStripMenuItem,
-                    this.mRSCancelRemarksToolStripMenuItem
+                    this.mRSCancelRemarksToolStripMenuItem,
+                    this.mrsOrderImportToolStripMenuItem
                     );
 
 
-                //this.ShowInTaskbar = false;
-                btnMaximizedFinal_Click(sender, e);
-
-
-
             }
-
-     
-            this.CancelledforStorePreparationatLogisticChecker();
-
-            this.DispatchingforStorePreparationatLogisticChecker();
-   
-            this.showLabTestForReceiving();
-            this.BadgeNotification();
-
-
-
-            //MessageBox.Show(this.TotalLabTestReceivingViewing);
-            //bool v = Adorner.AddBadgeTo(btnDashBoard1, "123");
-     
+            //End
         }
-
         private void showLabTestForReceiving()    //method for loading available_menus
         {
             // Try this Fuck!!
@@ -842,13 +903,14 @@ namespace COMPLETE_FLAT_UI
         private void toolClosePanelSelection_Click_1(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            ////this.timerSubMenuOut.Start();
 
-            //timerSubMenuOut_Tick(sender, e);
+            this.ConnectionInit();
+            this.MajorMenuLoop();
+            this.SubMenu();
+            this.ModulesLoop();
 
-
-            panelMenuSelection.Visible = false;
-            MainMajorData.Visible = true;
+            this.panelMenuSelection.Visible = false;
+            this. MainMajorData.Visible = true;
         }
     
 

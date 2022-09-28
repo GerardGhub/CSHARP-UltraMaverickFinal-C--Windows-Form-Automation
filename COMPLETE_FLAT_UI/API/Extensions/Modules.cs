@@ -62,7 +62,8 @@ namespace ULTRAMAVERICK.API.Extensions
             ToolStripMenuItem ToollotManagementToolStripMenuItem,
             ToolStripMenuItem ToolaverageOrderTrendToolStripMenuItem,
             ToolStripMenuItem ToolorderCancelRemarksToolStripMenuItem,
-            ToolStripMenuItem ToolmRSCancelRemarksToolStripMenuItem
+            ToolStripMenuItem ToolmRSCancelRemarksToolStripMenuItem,
+            ToolStripMenuItem ToolmrsOrderImportToolStripMenuItem
             )
         {
             for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
@@ -196,9 +197,14 @@ namespace ULTRAMAVERICK.API.Extensions
                     ToolpendingOrderToolStripMenuItem.Visible = true;
 
                 }
+                else if (form_name == "mrsOrderImportToolStripMenuItem")
+                {
+                   ToolmrsOrderImportToolStripMenuItem.Visible = true;
+
+                }
                 //    //End Import Dry
 
-        
+
 
                 //Start Menu
                 else if (form_name == "toolParentMenu")
