@@ -19,10 +19,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
         frmSyncConsolidatedOrderSetUp ths;
 
         DataSet dSet = new DataSet();
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        TblStoreOrderManageSyncing TblStoreOrderManageSyncingEntity = new TblStoreOrderManageSyncing();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly TblStoreOrderManageSyncing TblStoreOrderManageSyncingEntity = new TblStoreOrderManageSyncing();
         public AddNewConsolidatedOrderSync(
             frmSyncConsolidatedOrderSetUp frm,
             string created_by, 
@@ -145,7 +145,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             if (TblStoreOrderManageSyncingEntity.Added_By == "add")
             {
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to add a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 

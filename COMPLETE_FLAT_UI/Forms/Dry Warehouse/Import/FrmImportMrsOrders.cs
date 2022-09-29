@@ -36,9 +36,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public string ErrorDetails { get; set; }
 
 
-        public string Sp_is_expirable { get; set; }
 
-        public int Sp_order_id { get; set; }
+        public int Mrs_Id { get; set; }
         public string Sp_date_ordered { get; set; }
         public string Sp_fox { get; set; }
         public string Sp_store_name { get; set; }
@@ -470,7 +469,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             try
             {
 
-
+                //Start Department ID Binding
                 dSet.Clear();
                 dSet = objStorProc.sp_department(0,
                 this.Sp_fox,
@@ -478,16 +477,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 "getbyname");
 
 
-                //if (dSet.Tables[0].Rows.Count > 0)
-                //{
-
                     Department_Id = Convert.ToInt32(dSet.Tables[0].Rows[0]["department_id"]);
-                //}
-                //else
-                //{
-
-                //    Department_Id = Convert.ToInt32(dSet.Tables[0].Rows[0]["department_id"]);
-                //}
+               //End Department ID Binding
 
 
                 dSet.Clear();
@@ -503,15 +494,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                    false,
                    "0",
                    this.Sp_date_ordered,
+                   this.Sp_fox,
                     "getbydata_manual");
 
 
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
                     //RawMatsAlreadyExist();
-
-
-
+                    //FuckingShit
+                    //this.Mrs_Id = Convert.ToInt32(dSet.Tables[0].Rows[0]["mrs_id"]);
 
                 }
                 else
@@ -529,16 +520,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                        false,
                        "0",
                        this.Sp_date_ordered,
+                                      this.Sp_fox,
                         "add");
                 }
 
-
+                this.MrsParentDataValidation();
 
 
                 dSet.Clear();
                 dSet = objStorProc
                     .sp_material_request_logs(0,
-                    0,
+                     this.Mrs_Id,
                     Sp_item_code,
                     Sp_description,
                     Sp_qty,
@@ -596,6 +588,33 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
 
             this.InsertDataPerRow();
+        }
+
+
+        private void MrsParentDataValidation()
+        {
+            this.ConnectionInt();
+            dSet.Clear();
+            dSet = objStorProc
+                .sp_material_request_master(0,
+                "Import Excel File",
+                Department_Id.ToString(),
+                 Department_Id,
+                false,
+                userinfo.emp_name + ' ' + userinfo.emp_lastname,
+                "",
+                userinfo.user_id,
+               false,
+               "0",
+               this.Sp_date_ordered,
+                              this.Sp_fox,
+                "getbydata_manual");
+
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.Mrs_Id = Convert.ToInt32(dSet.Tables[0].Rows[0]["mrs_id"]);
+            }
         }
 
         private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

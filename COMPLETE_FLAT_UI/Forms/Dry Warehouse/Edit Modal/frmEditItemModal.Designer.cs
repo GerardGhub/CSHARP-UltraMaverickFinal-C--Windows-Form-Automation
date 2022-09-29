@@ -267,7 +267,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.mattxtBufferStocks.Hint = "Buffer Stock";
             this.mattxtBufferStocks.Location = new System.Drawing.Point(293, 153);
             this.mattxtBufferStocks.Margin = new System.Windows.Forms.Padding(1);
-            this.mattxtBufferStocks.MaxLength = 50;
+            this.mattxtBufferStocks.MaxLength = 7;
             this.mattxtBufferStocks.MouseState = MaterialSkin.MouseState.OUT;
             this.mattxtBufferStocks.Multiline = false;
             this.mattxtBufferStocks.Name = "mattxtBufferStocks";

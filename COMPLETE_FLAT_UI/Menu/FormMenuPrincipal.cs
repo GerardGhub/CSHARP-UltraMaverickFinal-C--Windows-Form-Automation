@@ -1351,7 +1351,7 @@ namespace COMPLETE_FLAT_UI
         private void pendingOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
-            frmPendingOrder fm = new frmPendingOrder();
+            frmPendingStoreOrder fm = new frmPendingStoreOrder();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

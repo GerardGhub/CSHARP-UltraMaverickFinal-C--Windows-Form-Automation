@@ -12,7 +12,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
-    public partial class frmPendingOrder : MaterialForm
+    public partial class frmPendingStoreOrder : MaterialForm
     {
        
    
@@ -26,7 +26,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         DataSet dSet_temp = new DataSet();
-        public frmPendingOrder()
+        public frmPendingStoreOrder()
         {
             InitializeComponent();
         }
@@ -59,6 +59,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvSubCategory.Columns["is_for_validation"].Visible = false;
 
         }
+
+
     }
     
 }

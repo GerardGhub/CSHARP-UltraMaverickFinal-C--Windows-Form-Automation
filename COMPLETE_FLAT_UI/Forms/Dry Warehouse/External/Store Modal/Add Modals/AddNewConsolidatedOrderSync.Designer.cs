@@ -57,7 +57,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(495, 200);
+            this.materialCard1.Size = new System.Drawing.Size(495, 219);
             this.materialCard1.TabIndex = 478;
             // 
             // bunifuTimeFromTo
@@ -69,7 +69,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.bunifuTimeFromTo.Enabled = false;
             this.bunifuTimeFromTo.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTimeFromTo.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.bunifuTimeFromTo.Location = new System.Drawing.Point(256, 77);
+            this.bunifuTimeFromTo.Location = new System.Drawing.Point(256, 92);
             this.bunifuTimeFromTo.Name = "bunifuTimeFromTo";
             this.bunifuTimeFromTo.ShowUpDown = true;
             this.bunifuTimeFromTo.Size = new System.Drawing.Size(222, 46);
@@ -81,7 +81,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(256, 43);
+            this.label2.Location = new System.Drawing.Point(256, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 23);
             this.label2.TabIndex = 607;
@@ -94,7 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.bunifuTimeFrom.CustomFormat = "yyyy-MM-dd";
             this.bunifuTimeFrom.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuTimeFrom.Location = new System.Drawing.Point(17, 77);
+            this.bunifuTimeFrom.Location = new System.Drawing.Point(17, 92);
             this.bunifuTimeFrom.Name = "bunifuTimeFrom";
             this.bunifuTimeFrom.ShowUpDown = true;
             this.bunifuTimeFrom.Size = new System.Drawing.Size(222, 46);
@@ -106,7 +106,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(17, 43);
+            this.label1.Location = new System.Drawing.Point(17, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 23);
             this.label1.TabIndex = 605;
@@ -126,6 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             // 
             // matbtnSave
             // 
+            this.matbtnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.matbtnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matbtnSave.Depth = 0;
             this.matbtnSave.DrawShadows = true;
@@ -150,21 +151,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.MatBtnCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.matbtnSave, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(373, 299);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(360, 323);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(154, 46);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(167, 46);
             this.tableLayoutPanel1.TabIndex = 480;
             // 
             // MatBtnCancel
             // 
+            this.MatBtnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MatBtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MatBtnCancel.Depth = 0;
             this.MatBtnCancel.DrawShadows = true;
             this.MatBtnCancel.HighEmphasis = true;
             this.MatBtnCancel.Icon = null;
-            this.MatBtnCancel.Location = new System.Drawing.Point(70, 6);
+            this.MatBtnCancel.Location = new System.Drawing.Point(78, 6);
             this.MatBtnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnCancel.Name = "MatBtnCancel";
@@ -180,7 +182,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Add_Modals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 357);
+            this.ClientSize = new System.Drawing.Size(562, 381);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
