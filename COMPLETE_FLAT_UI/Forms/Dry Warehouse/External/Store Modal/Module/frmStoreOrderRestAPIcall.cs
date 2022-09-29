@@ -37,6 +37,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
 
         public int InvalidInformation { get; set; }
+        public int ReceivedInformation { get; set; }
         public string item_id_main { get; set; }
         public string item_code_main { get; set; }
         public string item_description_main { get; set; }
@@ -93,6 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.user_id = userinfo.user_id;
             this.MatRadio1.Checked = true;
             this.showDryWhPendingOrders();
+            this.showDryWhPendingReceived();
             //this.showCutOffStoreOrders();
             this.matlblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
             this.matlblTime.Visible = false;
@@ -100,6 +102,79 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
         }
+
+        private void showDryWhPendingReceived()      //method for loading available_menus
+        {
+            try
+            {
+
+                myClass.fillDataGridView(this.DgvReceivedOrder, "dry_wh_orders_received", dSet);
+
+                this.ReceivedInformation = this.DgvReceivedOrder.RowCount;
+                this.MatRadio2.Text = "Duplicated Lists" + ":" + (this.ReceivedInformation);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.DgvReceivedOrder.Columns["is_active"].Visible = false;
+            this.DgvReceivedOrder.Columns["added_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["primary_id"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_for_validation"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_approved"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_approved_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_approved_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_approved_prepa_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_cancelled"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_cancelled_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_returned"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_returned_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["date_added"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_cancelled_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_cancelled_reason"].Visible = false;
+            this.DgvReceivedOrder.Columns["updated_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["updated_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_prepared"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_prepared_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_prepared_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["start_time_stamp"].Visible = false;
+
+            this.DgvReceivedOrder.Columns["is_returned_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_returned_reason"].Visible = false;
+
+            this.DgvReceivedOrder.Columns["start_by_user_id"].Visible = false;
+            this.DgvReceivedOrder.Columns["end_time_stamp_per_items"].Visible = false;
+            this.DgvReceivedOrder.Columns["force_prepared_status"].Visible = false;
+            this.DgvReceivedOrder.Columns["total_state_repack"].Visible = false;
+            this.DgvReceivedOrder.Columns["prepared_allocated_qty"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_wh_approved"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_wh_approved_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_wh_approved_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_wh_checker_cancel"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_wh_checker_cancel_by"].Visible = false;
+
+            this.DgvReceivedOrder.Columns["is_wh_checker_cancel_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_wh_checker_cancel_reason"].Visible = false;
+            this.DgvReceivedOrder.Columns["dispossal_status"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_selected"].Visible = false;
+
+
+            this.DgvReceivedOrder.Columns["is_selected_move_order_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["is_selected_move_order_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["wh_checker_move_order_no"].Visible = false;
+            this.DgvReceivedOrder.Columns["total_state_repack_cancelled_qty"].Visible = false;
+            this.DgvReceivedOrder.Columns["logic_return_by"].Visible = false;
+
+            this.DgvReceivedOrder.Columns["logic_return_by"].Visible = false;
+            this.DgvReceivedOrder.Columns["logic_return_date"].Visible = false;
+            this.DgvReceivedOrder.Columns["logic_return_reason"].Visible = false;
+            this.DgvReceivedOrder.Columns["time_stamp_update"].Visible = false;
+            this.DgvReceivedOrder.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+        }
+
+
 
         private void ValidateTheFuckingCutOfftimeWithButtonControlls()
         {
@@ -701,15 +776,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage1"])//your specific tabname
             {
                 MatRadio1_CheckedChanged(sender, e);
+          
             }
             else if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage2"])//your specific tabname
             {
-
                 MatRadio2_CheckedChanged(sender, e);
+    
             }
             else if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage3"])//your specific tabname
             {
                 MatRadio3_CheckedChanged(sender, e);
+             
             }
         }
 
@@ -798,7 +875,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void MatRadio2_CheckedChanged(object sender, EventArgs e)
         {
-
+            this.showDryWhPendingReceived();
+            materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage2"];
         }
     }
 }
