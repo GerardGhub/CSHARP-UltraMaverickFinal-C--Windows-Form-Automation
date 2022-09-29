@@ -1,4 +1,5 @@
 ﻿using COMPLETE_FLAT_UI.Models;
+using Guna.UI2.WinForms;
 using MaterialSkin.Controls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -31,6 +33,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         TabControlBagde BadgeUtil = new TabControlBagde();
         readonly myclasses myClass = new myclasses();
         string mode = "";
+        int total = 0;
         public frmStoreOrderRestAPIcall()
         {
             InitializeComponent();
@@ -811,67 +814,91 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 this.InvalidInformation = this.dgvSubCategory.RowCount;
                 this.MatRadio3.Text = "Invalid Information" + ":" + (this.InvalidInformation);
-                //this.lbltotaldata.Text = this.dgvSubCategory.RowCount.ToString();
+
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-            this.dgvSubCategory.Columns["is_active"].Visible = false;
-            this.dgvSubCategory.Columns["added_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_active"].Visible = false;
+            //this.dgvSubCategory.Columns["added_by"].Visible = false;
             this.dgvSubCategory.Columns["primary_id"].Visible = false;
-            this.dgvSubCategory.Columns["is_for_validation"].Visible = false;
-            this.dgvSubCategory.Columns["is_approved"].Visible = false;
-            this.dgvSubCategory.Columns["is_approved_by"].Visible = false;
-            this.dgvSubCategory.Columns["is_approved_date"].Visible = false;
-            this.dgvSubCategory.Columns["is_approved_prepa_date"].Visible = false;
-            this.dgvSubCategory.Columns["is_cancelled"].Visible = false;
-            this.dgvSubCategory.Columns["is_cancelled_by"].Visible = false;
-            this.dgvSubCategory.Columns["is_returned"].Visible = false;
-            this.dgvSubCategory.Columns["is_returned_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_for_validation"].Visible = false;
+            //this.dgvSubCategory.Columns["is_approved"].Visible = false;
+            //this.dgvSubCategory.Columns["is_approved_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_approved_date"].Visible = false;
+            //this.dgvSubCategory.Columns["is_approved_prepa_date"].Visible = false;
+            //this.dgvSubCategory.Columns["is_cancelled"].Visible = false;
+            //this.dgvSubCategory.Columns["is_cancelled_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_returned"].Visible = false;
+            //this.dgvSubCategory.Columns["is_returned_by"].Visible = false;
 
-            this.dgvSubCategory.Columns["is_cancelled_date"].Visible = false;
-            this.dgvSubCategory.Columns["is_cancelled_reason"].Visible = false;
-            this.dgvSubCategory.Columns["updated_by"].Visible = false;
-            this.dgvSubCategory.Columns["updated_date"].Visible = false;
-            this.dgvSubCategory.Columns["is_prepared"].Visible = false;
-            this.dgvSubCategory.Columns["is_prepared_by"].Visible = false;
-            this.dgvSubCategory.Columns["is_prepared_date"].Visible = false;
-            this.dgvSubCategory.Columns["start_time_stamp"].Visible = false;
+            //this.dgvSubCategory.Columns["is_cancelled_date"].Visible = false;
+            //this.dgvSubCategory.Columns["is_cancelled_reason"].Visible = false;
+            //this.dgvSubCategory.Columns["updated_by"].Visible = false;
+            //this.dgvSubCategory.Columns["updated_date"].Visible = false;
+            //this.dgvSubCategory.Columns["is_prepared"].Visible = false;
+            //this.dgvSubCategory.Columns["is_prepared_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_prepared_date"].Visible = false;
+            //this.dgvSubCategory.Columns["start_time_stamp"].Visible = false;
 
-            this.dgvSubCategory.Columns["is_returned_date"].Visible = false;
-            this.dgvSubCategory.Columns["is_returned_reason"].Visible = false;
+            //this.dgvSubCategory.Columns["is_returned_date"].Visible = false;
+            //this.dgvSubCategory.Columns["is_returned_reason"].Visible = false;
 
-            this.dgvSubCategory.Columns["start_by_user_id"].Visible = false;
-            this.dgvSubCategory.Columns["end_time_stamp_per_items"].Visible = false;
-            this.dgvSubCategory.Columns["force_prepared_status"].Visible = false;
-            this.dgvSubCategory.Columns["total_state_repack"].Visible = false;
-            this.dgvSubCategory.Columns["prepared_allocated_qty"].Visible = false;
-            this.dgvSubCategory.Columns["is_wh_approved"].Visible = false;
-            this.dgvSubCategory.Columns["is_wh_approved_by"].Visible = false;
-            this.dgvSubCategory.Columns["is_wh_approved_date"].Visible = false;
-            this.dgvSubCategory.Columns["is_wh_checker_cancel"].Visible = false;
-            this.dgvSubCategory.Columns["is_wh_checker_cancel_by"].Visible = false;
+            //this.dgvSubCategory.Columns["start_by_user_id"].Visible = false;
+            //this.dgvSubCategory.Columns["end_time_stamp_per_items"].Visible = false;
+            //this.dgvSubCategory.Columns["force_prepared_status"].Visible = false;
+            //this.dgvSubCategory.Columns["total_state_repack"].Visible = false;
+            //this.dgvSubCategory.Columns["prepared_allocated_qty"].Visible = false;
+            //this.dgvSubCategory.Columns["is_wh_approved"].Visible = false;
+            //this.dgvSubCategory.Columns["is_wh_approved_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_wh_approved_date"].Visible = false;
+            //this.dgvSubCategory.Columns["is_wh_checker_cancel"].Visible = false;
+            //this.dgvSubCategory.Columns["is_wh_checker_cancel_by"].Visible = false;
 
-            this.dgvSubCategory.Columns["is_wh_checker_cancel_date"].Visible = false;
-            this.dgvSubCategory.Columns["is_wh_checker_cancel_reason"].Visible = false;
-            this.dgvSubCategory.Columns["dispossal_status"].Visible = false;
-            this.dgvSubCategory.Columns["is_selected"].Visible = false;
+            //this.dgvSubCategory.Columns["is_wh_checker_cancel_date"].Visible = false;
+            //this.dgvSubCategory.Columns["is_wh_checker_cancel_reason"].Visible = false;
+            //this.dgvSubCategory.Columns["dispossal_status"].Visible = false;
+            //this.dgvSubCategory.Columns["is_selected"].Visible = false;
 
 
-            this.dgvSubCategory.Columns["is_selected_move_order_by"].Visible = false;
-            this.dgvSubCategory.Columns["is_selected_move_order_date"].Visible = false;
-            this.dgvSubCategory.Columns["wh_checker_move_order_no"].Visible = false;
-            this.dgvSubCategory.Columns["total_state_repack_cancelled_qty"].Visible = false;
-            this.dgvSubCategory.Columns["logic_return_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_selected_move_order_by"].Visible = false;
+            //this.dgvSubCategory.Columns["is_selected_move_order_date"].Visible = false;
+            //this.dgvSubCategory.Columns["wh_checker_move_order_no"].Visible = false;
+            //this.dgvSubCategory.Columns["total_state_repack_cancelled_qty"].Visible = false;
+            //this.dgvSubCategory.Columns["logic_return_by"].Visible = false;
 
-            this.dgvSubCategory.Columns["logic_return_by"].Visible = false;
-            this.dgvSubCategory.Columns["logic_return_date"].Visible = false;
-            this.dgvSubCategory.Columns["logic_return_reason"].Visible = false;
-            this.dgvSubCategory.Columns["time_stamp_update"].Visible = false;
-            this.dgvSubCategory.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+            //this.dgvSubCategory.Columns["logic_return_by"].Visible = false;
+            //this.dgvSubCategory.Columns["logic_return_date"].Visible = false;
+            //this.dgvSubCategory.Columns["logic_return_reason"].Visible = false;
+            //this.dgvSubCategory.Columns["time_stamp_update"].Visible = false;
+            //this.dgvSubCategory.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+
+            total = 0;
+            total = dgvSubCategory.Rows.Cast<DataGridViewRow>()
+                .Where(t => Convert.ToInt32(t.Cells["TOTALVALIDDATA"].Value) == 4)
+                .Sum(t2 => Convert.ToInt32(t2.Cells["TOTALVALIDDATA"].Value) / 4);
+                   
+            this.lblCountPendingForSyncing.Text = total.ToString();
+
+            this.MakeLabelRounded();
         }
+
+        private void MakeLabelRounded()
+        {
+
+            GraphicsPath gp = new GraphicsPath();
+
+            gp.AddEllipse(0, 0, lblCountPendingForSyncing.Width, lblCountPendingForSyncing.Height);
+
+            lblCountPendingForSyncing.Region = new Region(gp);
+
+            lblCountPendingForSyncing.Invalidate();
+
+        }
+
+
 
         private void MatRadio2_CheckedChanged(object sender, EventArgs e)
         {
