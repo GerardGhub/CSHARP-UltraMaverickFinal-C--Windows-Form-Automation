@@ -29,22 +29,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
@@ -76,25 +76,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateNeeded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            this.MatRadio3 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.MatRadio1 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.MatRadio2 = new MaterialSkin.Controls.MaterialRadioButton();
             this.DgvReceivedOrder = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,17 +89,38 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvSubCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_id_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_ordered_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fox_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateNeeded_invalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
             this.lblCountPendingForSyncing = new System.Windows.Forms.Label();
+            this.MatRadio3 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.MatRadio1 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.MatRadio2 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrdersCutOff)).BeginInit();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrder)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvReceivedOrder)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
             this.materialCard3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvReceivedOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // lbltotalrecords
@@ -156,7 +158,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnUpload.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.matbtnUpload.HighEmphasis = true;
             this.matbtnUpload.Icon = null;
-            this.matbtnUpload.Location = new System.Drawing.Point(618, 10);
+            this.matbtnUpload.Location = new System.Drawing.Point(658, 6);
             this.matbtnUpload.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnUpload.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnUpload.Name = "matbtnUpload";
@@ -189,20 +191,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrdersCutOff.AllowUserToAddRows = false;
             this.dgvStoreOrdersCutOff.AllowUserToDeleteRows = false;
             this.dgvStoreOrdersCutOff.AllowUserToResizeRows = false;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
-            this.dgvStoreOrdersCutOff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrdersCutOff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvStoreOrdersCutOff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStoreOrdersCutOff.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvStoreOrdersCutOff.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStoreOrdersCutOff.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrdersCutOff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrdersCutOff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvStoreOrdersCutOff.ColumnHeadersHeight = 30;
             this.dgvStoreOrdersCutOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrdersCutOff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -215,14 +217,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.updated_by,
             this.updated_at});
             this.dgvStoreOrdersCutOff.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStoreOrdersCutOff.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStoreOrdersCutOff.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgvStoreOrdersCutOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStoreOrdersCutOff.EnableHeadersVisualStyles = false;
             this.dgvStoreOrdersCutOff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -230,14 +232,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrdersCutOff.MultiSelect = false;
             this.dgvStoreOrdersCutOff.Name = "dgvStoreOrdersCutOff";
             this.dgvStoreOrdersCutOff.ReadOnly = true;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrdersCutOff.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrdersCutOff.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvStoreOrdersCutOff.RowHeadersVisible = false;
             this.dgvStoreOrdersCutOff.RowHeadersWidth = 102;
             this.dgvStoreOrdersCutOff.RowTemplate.DividerHeight = 5;
@@ -361,7 +363,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Controls.Add(this.tabPage3);
             this.materialTabControl1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialTabControl1.Location = new System.Drawing.Point(26, 134);
+            this.materialTabControl1.Location = new System.Drawing.Point(29, 134);
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(963, 462);
@@ -385,8 +387,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrder.AllowUserToAddRows = false;
             this.dgvStoreOrder.AllowUserToDeleteRows = false;
             this.dgvStoreOrder.AllowUserToResizeRows = false;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
-            this.dgvStoreOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            this.dgvStoreOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvStoreOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -394,14 +396,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvStoreOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStoreOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvStoreOrder.ColumnHeadersHeight = 35;
             this.dgvStoreOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStoreOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -418,28 +420,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.qty,
             this.dateNeeded});
             this.dgvStoreOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStoreOrder.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStoreOrder.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvStoreOrder.EnableHeadersVisualStyles = false;
             this.dgvStoreOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvStoreOrder.Location = new System.Drawing.Point(3, 3);
             this.dgvStoreOrder.MultiSelect = false;
             this.dgvStoreOrder.Name = "dgvStoreOrder";
             this.dgvStoreOrder.ReadOnly = true;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStoreOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStoreOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvStoreOrder.RowHeadersVisible = false;
             this.dgvStoreOrder.RowHeadersWidth = 102;
             this.dgvStoreOrder.RowTemplate.DividerHeight = 5;
@@ -583,318 +585,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.tabPage2.Text = "DUPLICATED";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgvSubCategory);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(955, 431);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "INVALID";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgvSubCategory
-            // 
-            this.dgvSubCategory.AllowUserToAddRows = false;
-            this.dgvSubCategory.AllowUserToDeleteRows = false;
-            this.dgvSubCategory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.White;
-            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
-            this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvSubCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSubCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
-            this.dgvSubCategory.ColumnHeadersHeight = 35;
-            this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.order_id,
-            this.dataGridViewTextBoxColumn2,
-            this.fox,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.Column1});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle43;
-            this.dgvSubCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSubCategory.EnableHeadersVisualStyles = false;
-            this.dgvSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvSubCategory.Location = new System.Drawing.Point(0, 0);
-            this.dgvSubCategory.MultiSelect = false;
-            this.dgvSubCategory.Name = "dgvSubCategory";
-            this.dgvSubCategory.ReadOnly = true;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle44;
-            this.dgvSubCategory.RowHeadersVisible = false;
-            this.dgvSubCategory.RowHeadersWidth = 102;
-            this.dgvSubCategory.RowTemplate.DividerHeight = 5;
-            this.dgvSubCategory.RowTemplate.Height = 40;
-            this.dgvSubCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubCategory.Size = new System.Drawing.Size(955, 431);
-            this.dgvSubCategory.TabIndex = 594;
-            this.dgvSubCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
-            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvSubCategory.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvSubCategory.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvSubCategory.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dgvSubCategory.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvSubCategory.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubCategory.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvSubCategory.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvSubCategory.ThemeStyle.HeaderStyle.Height = 35;
-            this.dgvSubCategory.ThemeStyle.ReadOnly = true;
-            this.dgvSubCategory.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvSubCategory.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvSubCategory.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubCategory.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dgvSubCategory.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // order_id
-            // 
-            this.order_id.DataPropertyName = "order_id";
-            this.order_id.FillWeight = 40.60914F;
-            this.order_id.Frozen = true;
-            this.order_id.HeaderText = "STORE ID";
-            this.order_id.MinimumWidth = 12;
-            this.order_id.Name = "order_id";
-            this.order_id.ReadOnly = true;
-            this.order_id.Width = 97;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "date_ordered";
-            this.dataGridViewTextBoxColumn2.Frozen = true;
-            this.dataGridViewTextBoxColumn2.HeaderText = "DATE ORDERED";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 140;
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.FillWeight = 99.49239F;
-            this.fox.Frozen = true;
-            this.fox.HeaderText = "STORE CODE";
-            this.fox.MinimumWidth = 12;
-            this.fox.Name = "fox";
-            this.fox.ReadOnly = true;
-            this.fox.Width = 122;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "store_name";
-            this.dataGridViewTextBoxColumn3.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn3.Frozen = true;
-            this.dataGridViewTextBoxColumn3.HeaderText = "STORE NAME";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 12;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 126;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "area";
-            this.dataGridViewTextBoxColumn4.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "STORE AREA";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 12;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 121;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "route";
-            this.dataGridViewTextBoxColumn5.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "STORE ROUTE";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 12;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "date_added";
-            this.dataGridViewTextBoxColumn6.HeaderText = "DATE ADDED";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 12;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 123;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "item_code";
-            this.dataGridViewTextBoxColumn7.HeaderText = "ITEM CODE";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 111;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "description";
-            this.dataGridViewTextBoxColumn8.HeaderText = "DESCRIPTION";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 127;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "category";
-            this.dataGridViewTextBoxColumn9.HeaderText = "CATEGORY";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 108;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "uom";
-            this.dataGridViewTextBoxColumn10.HeaderText = "UOM";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 66;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "qty";
-            this.dataGridViewTextBoxColumn11.HeaderText = "QTY";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 61;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "dateNeeded";
-            this.Column1.HeaderText = "DATE NEEDED";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 132;
-            // 
-            // materialCard3
-            // 
-            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard3.Controls.Add(this.lblCountPendingForSyncing);
-            this.materialCard3.Controls.Add(this.MatRadio3);
-            this.materialCard3.Controls.Add(this.MatRadio1);
-            this.materialCard3.Controls.Add(this.MatRadio2);
-            this.materialCard3.Controls.Add(this.matbtnUpload);
-            this.materialCard3.Depth = 0;
-            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(296, 70);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard3.Name = "materialCard3";
-            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(693, 59);
-            this.materialCard3.TabIndex = 615;
-            // 
-            // MatRadio3
-            // 
-            this.MatRadio3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MatRadio3.AutoSize = true;
-            this.MatRadio3.Depth = 0;
-            this.MatRadio3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MatRadio3.Location = new System.Drawing.Point(427, 14);
-            this.MatRadio3.Margin = new System.Windows.Forms.Padding(0);
-            this.MatRadio3.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.MatRadio3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.MatRadio3.Name = "MatRadio3";
-            this.MatRadio3.Ripple = true;
-            this.MatRadio3.Size = new System.Drawing.Size(169, 37);
-            this.MatRadio3.TabIndex = 599;
-            this.MatRadio3.TabStop = true;
-            this.MatRadio3.Text = "Invalid Information";
-            this.MatRadio3.UseVisualStyleBackColor = true;
-            this.MatRadio3.CheckedChanged += new System.EventHandler(this.MatRadio3_CheckedChanged);
-            // 
-            // MatRadio1
-            // 
-            this.MatRadio1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MatRadio1.AutoSize = true;
-            this.MatRadio1.Depth = 0;
-            this.MatRadio1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MatRadio1.Location = new System.Drawing.Point(22, 14);
-            this.MatRadio1.Margin = new System.Windows.Forms.Padding(0);
-            this.MatRadio1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.MatRadio1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.MatRadio1.Name = "MatRadio1";
-            this.MatRadio1.Ripple = true;
-            this.MatRadio1.Size = new System.Drawing.Size(192, 37);
-            this.MatRadio1.TabIndex = 597;
-            this.MatRadio1.TabStop = true;
-            this.MatRadio1.Text = "Available for synching";
-            this.MatRadio1.UseVisualStyleBackColor = true;
-            this.MatRadio1.CheckedChanged += new System.EventHandler(this.MatRadio1_CheckedChanged);
-            // 
-            // MatRadio2
-            // 
-            this.MatRadio2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MatRadio2.AutoSize = true;
-            this.MatRadio2.Depth = 0;
-            this.MatRadio2.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MatRadio2.Location = new System.Drawing.Point(239, 14);
-            this.MatRadio2.Margin = new System.Windows.Forms.Padding(0);
-            this.MatRadio2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.MatRadio2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.MatRadio2.Name = "MatRadio2";
-            this.MatRadio2.Ripple = true;
-            this.MatRadio2.Size = new System.Drawing.Size(149, 37);
-            this.MatRadio2.TabIndex = 598;
-            this.MatRadio2.TabStop = true;
-            this.MatRadio2.Text = "Duplicated Lists";
-            this.MatRadio2.UseVisualStyleBackColor = true;
-            this.MatRadio2.CheckedChanged += new System.EventHandler(this.MatRadio2_CheckedChanged);
-            // 
             // DgvReceivedOrder
             // 
             this.DgvReceivedOrder.AllowUserToAddRows = false;
             this.DgvReceivedOrder.AllowUserToDeleteRows = false;
             this.DgvReceivedOrder.AllowUserToResizeRows = false;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.White;
-            this.DgvReceivedOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            this.DgvReceivedOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.DgvReceivedOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvReceivedOrder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.DgvReceivedOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvReceivedOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvReceivedOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvReceivedOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.DgvReceivedOrder.ColumnHeadersHeight = 35;
             this.DgvReceivedOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvReceivedOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -911,14 +620,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dataGridViewTextBoxColumn22,
             this.dataGridViewTextBoxColumn23});
             this.DgvReceivedOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvReceivedOrder.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvReceivedOrder.DefaultCellStyle = dataGridViewCellStyle27;
             this.DgvReceivedOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvReceivedOrder.EnableHeadersVisualStyles = false;
             this.DgvReceivedOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -926,14 +635,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.DgvReceivedOrder.MultiSelect = false;
             this.DgvReceivedOrder.Name = "DgvReceivedOrder";
             this.DgvReceivedOrder.ReadOnly = true;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvReceivedOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvReceivedOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.DgvReceivedOrder.RowHeadersVisible = false;
             this.DgvReceivedOrder.RowHeadersWidth = 102;
             this.DgvReceivedOrder.RowTemplate.DividerHeight = 5;
@@ -1062,23 +771,338 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
             this.dataGridViewTextBoxColumn23.Width = 132;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvSubCategory);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(955, 431);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "INVALID";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvSubCategory
+            // 
+            this.dgvSubCategory.AllowUserToAddRows = false;
+            this.dgvSubCategory.AllowUserToDeleteRows = false;
+            this.dgvSubCategory.AllowUserToResizeRows = false;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
+            this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvSubCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvSubCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSubCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            this.dgvSubCategory.ColumnHeadersHeight = 35;
+            this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.primary_id,
+            this.order_id_invalid,
+            this.date_ordered_invalid,
+            this.fox_invalid,
+            this.store_name_invalid,
+            this.area_invalid,
+            this.route_invalid,
+            this.date_added_invalid,
+            this.item_code_invalid,
+            this.description_invalid,
+            this.category_invalid,
+            this.uom_invalid,
+            this.qty_invalid,
+            this.dateNeeded_invalid});
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubCategory.DefaultCellStyle = dataGridViewCellStyle31;
+            this.dgvSubCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSubCategory.EnableHeadersVisualStyles = false;
+            this.dgvSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvSubCategory.Location = new System.Drawing.Point(0, 0);
+            this.dgvSubCategory.MultiSelect = false;
+            this.dgvSubCategory.Name = "dgvSubCategory";
+            this.dgvSubCategory.ReadOnly = true;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            this.dgvSubCategory.RowHeadersVisible = false;
+            this.dgvSubCategory.RowHeadersWidth = 102;
+            this.dgvSubCategory.RowTemplate.DividerHeight = 5;
+            this.dgvSubCategory.RowTemplate.Height = 40;
+            this.dgvSubCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSubCategory.Size = new System.Drawing.Size(955, 431);
+            this.dgvSubCategory.TabIndex = 594;
+            this.dgvSubCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvSubCategory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvSubCategory.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvSubCategory.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvSubCategory.ThemeStyle.HeaderStyle.Height = 35;
+            this.dgvSubCategory.ThemeStyle.ReadOnly = true;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubCategory.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dgvSubCategory.ThemeStyle.RowsStyle.Height = 40;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.dgvSubCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
+            this.dgvSubCategory.CurrentCellChanged += new System.EventHandler(this.dgvSubCategory_CurrentCellChanged);
+            // 
+            // primary_id
+            // 
+            this.primary_id.DataPropertyName = "primary_id";
+            this.primary_id.Frozen = true;
+            this.primary_id.HeaderText = "ID";
+            this.primary_id.Name = "primary_id";
+            this.primary_id.ReadOnly = true;
+            this.primary_id.Width = 47;
+            // 
+            // order_id_invalid
+            // 
+            this.order_id_invalid.DataPropertyName = "order_id";
+            this.order_id_invalid.FillWeight = 40.60914F;
+            this.order_id_invalid.Frozen = true;
+            this.order_id_invalid.HeaderText = "STORE ID";
+            this.order_id_invalid.MinimumWidth = 12;
+            this.order_id_invalid.Name = "order_id_invalid";
+            this.order_id_invalid.ReadOnly = true;
+            this.order_id_invalid.Width = 97;
+            // 
+            // date_ordered_invalid
+            // 
+            this.date_ordered_invalid.DataPropertyName = "date_ordered";
+            this.date_ordered_invalid.Frozen = true;
+            this.date_ordered_invalid.HeaderText = "DATE ORDERED";
+            this.date_ordered_invalid.Name = "date_ordered_invalid";
+            this.date_ordered_invalid.ReadOnly = true;
+            this.date_ordered_invalid.Width = 140;
+            // 
+            // fox_invalid
+            // 
+            this.fox_invalid.DataPropertyName = "fox";
+            this.fox_invalid.FillWeight = 99.49239F;
+            this.fox_invalid.Frozen = true;
+            this.fox_invalid.HeaderText = "STORE CODE";
+            this.fox_invalid.MinimumWidth = 12;
+            this.fox_invalid.Name = "fox_invalid";
+            this.fox_invalid.ReadOnly = true;
+            this.fox_invalid.Width = 122;
+            // 
+            // store_name_invalid
+            // 
+            this.store_name_invalid.DataPropertyName = "store_name";
+            this.store_name_invalid.FillWeight = 99.49239F;
+            this.store_name_invalid.Frozen = true;
+            this.store_name_invalid.HeaderText = "STORE NAME";
+            this.store_name_invalid.MinimumWidth = 12;
+            this.store_name_invalid.Name = "store_name_invalid";
+            this.store_name_invalid.ReadOnly = true;
+            this.store_name_invalid.Width = 126;
+            // 
+            // area_invalid
+            // 
+            this.area_invalid.DataPropertyName = "area";
+            this.area_invalid.FillWeight = 99.49239F;
+            this.area_invalid.HeaderText = "STORE AREA";
+            this.area_invalid.MinimumWidth = 12;
+            this.area_invalid.Name = "area_invalid";
+            this.area_invalid.ReadOnly = true;
+            this.area_invalid.Width = 121;
+            // 
+            // route_invalid
+            // 
+            this.route_invalid.DataPropertyName = "route";
+            this.route_invalid.FillWeight = 99.49239F;
+            this.route_invalid.HeaderText = "STORE ROUTE";
+            this.route_invalid.MinimumWidth = 12;
+            this.route_invalid.Name = "route_invalid";
+            this.route_invalid.ReadOnly = true;
+            this.route_invalid.Width = 130;
+            // 
+            // date_added_invalid
+            // 
+            this.date_added_invalid.DataPropertyName = "date_added";
+            this.date_added_invalid.HeaderText = "DATE ADDED";
+            this.date_added_invalid.MinimumWidth = 12;
+            this.date_added_invalid.Name = "date_added_invalid";
+            this.date_added_invalid.ReadOnly = true;
+            this.date_added_invalid.Width = 123;
+            // 
+            // item_code_invalid
+            // 
+            this.item_code_invalid.DataPropertyName = "item_code";
+            this.item_code_invalid.HeaderText = "ITEM CODE";
+            this.item_code_invalid.Name = "item_code_invalid";
+            this.item_code_invalid.ReadOnly = true;
+            this.item_code_invalid.Width = 111;
+            // 
+            // description_invalid
+            // 
+            this.description_invalid.DataPropertyName = "description";
+            this.description_invalid.HeaderText = "DESCRIPTION";
+            this.description_invalid.Name = "description_invalid";
+            this.description_invalid.ReadOnly = true;
+            this.description_invalid.Width = 127;
+            // 
+            // category_invalid
+            // 
+            this.category_invalid.DataPropertyName = "category";
+            this.category_invalid.HeaderText = "CATEGORY";
+            this.category_invalid.Name = "category_invalid";
+            this.category_invalid.ReadOnly = true;
+            this.category_invalid.Width = 108;
+            // 
+            // uom_invalid
+            // 
+            this.uom_invalid.DataPropertyName = "uom";
+            this.uom_invalid.HeaderText = "UOM";
+            this.uom_invalid.Name = "uom_invalid";
+            this.uom_invalid.ReadOnly = true;
+            this.uom_invalid.Width = 66;
+            // 
+            // qty_invalid
+            // 
+            this.qty_invalid.DataPropertyName = "qty";
+            this.qty_invalid.HeaderText = "QTY";
+            this.qty_invalid.Name = "qty_invalid";
+            this.qty_invalid.ReadOnly = true;
+            this.qty_invalid.Width = 61;
+            // 
+            // dateNeeded_invalid
+            // 
+            this.dateNeeded_invalid.DataPropertyName = "dateNeeded";
+            this.dateNeeded_invalid.HeaderText = "DATE NEEDED";
+            this.dateNeeded_invalid.Name = "dateNeeded_invalid";
+            this.dateNeeded_invalid.ReadOnly = true;
+            this.dateNeeded_invalid.Width = 132;
+            // 
+            // materialCard3
+            // 
+            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.lblCountPendingForSyncing);
+            this.materialCard3.Controls.Add(this.MatRadio3);
+            this.materialCard3.Controls.Add(this.MatRadio1);
+            this.materialCard3.Controls.Add(this.MatRadio2);
+            this.materialCard3.Controls.Add(this.matbtnUpload);
+            this.materialCard3.Depth = 0;
+            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard3.Location = new System.Drawing.Point(249, 70);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard3.Name = "materialCard3";
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard3.Size = new System.Drawing.Size(740, 59);
+            this.materialCard3.TabIndex = 615;
+            // 
             // lblCountPendingForSyncing
             // 
             this.lblCountPendingForSyncing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCountPendingForSyncing.AutoSize = true;
             this.lblCountPendingForSyncing.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lblCountPendingForSyncing.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountPendingForSyncing.Location = new System.Drawing.Point(592, 6);
+            this.lblCountPendingForSyncing.Location = new System.Drawing.Point(605, 6);
             this.lblCountPendingForSyncing.Name = "lblCountPendingForSyncing";
             this.lblCountPendingForSyncing.Size = new System.Drawing.Size(14, 15);
             this.lblCountPendingForSyncing.TabIndex = 616;
             this.lblCountPendingForSyncing.Text = "0";
+            // 
+            // MatRadio3
+            // 
+            this.MatRadio3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MatRadio3.AutoSize = true;
+            this.MatRadio3.Depth = 0;
+            this.MatRadio3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatRadio3.Location = new System.Drawing.Point(440, 14);
+            this.MatRadio3.Margin = new System.Windows.Forms.Padding(0);
+            this.MatRadio3.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.MatRadio3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatRadio3.Name = "MatRadio3";
+            this.MatRadio3.Ripple = true;
+            this.MatRadio3.Size = new System.Drawing.Size(169, 37);
+            this.MatRadio3.TabIndex = 599;
+            this.MatRadio3.TabStop = true;
+            this.MatRadio3.Text = "Invalid Information";
+            this.MatRadio3.UseVisualStyleBackColor = true;
+            this.MatRadio3.CheckedChanged += new System.EventHandler(this.MatRadio3_CheckedChanged);
+            // 
+            // MatRadio1
+            // 
+            this.MatRadio1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MatRadio1.AutoSize = true;
+            this.MatRadio1.Depth = 0;
+            this.MatRadio1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatRadio1.Location = new System.Drawing.Point(35, 14);
+            this.MatRadio1.Margin = new System.Windows.Forms.Padding(0);
+            this.MatRadio1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.MatRadio1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatRadio1.Name = "MatRadio1";
+            this.MatRadio1.Ripple = true;
+            this.MatRadio1.Size = new System.Drawing.Size(192, 37);
+            this.MatRadio1.TabIndex = 597;
+            this.MatRadio1.TabStop = true;
+            this.MatRadio1.Text = "Available for synching";
+            this.MatRadio1.UseVisualStyleBackColor = true;
+            this.MatRadio1.CheckedChanged += new System.EventHandler(this.MatRadio1_CheckedChanged);
+            // 
+            // MatRadio2
+            // 
+            this.MatRadio2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MatRadio2.AutoSize = true;
+            this.MatRadio2.Depth = 0;
+            this.MatRadio2.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatRadio2.Location = new System.Drawing.Point(252, 14);
+            this.MatRadio2.Margin = new System.Windows.Forms.Padding(0);
+            this.MatRadio2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.MatRadio2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MatRadio2.Name = "MatRadio2";
+            this.MatRadio2.Ripple = true;
+            this.MatRadio2.Size = new System.Drawing.Size(149, 37);
+            this.MatRadio2.TabIndex = 598;
+            this.MatRadio2.TabStop = true;
+            this.MatRadio2.Text = "Duplicated Lists";
+            this.MatRadio2.UseVisualStyleBackColor = true;
+            this.MatRadio2.CheckedChanged += new System.EventHandler(this.MatRadio2_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(87, 88);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 616;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmStoreOrderRestAPIcall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialTabControl1);
             this.Controls.Add(this.matlblTime);
@@ -1096,11 +1120,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrder)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvReceivedOrder)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvReceivedOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1144,19 +1168,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private MaterialSkin.Controls.MaterialRadioButton MatRadio2;
         private System.Windows.Forms.TabPage tabPage3;
         private Guna.UI2.WinForms.Guna2DataGridView dgvSubCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private Guna.UI2.WinForms.Guna2DataGridView DgvReceivedOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -1171,5 +1182,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.Label lblCountPendingForSyncing;
+        private System.Windows.Forms.DataGridViewTextBoxColumn primary_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_id_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fox_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn store_name_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn area_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn route_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_added_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_code_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uom_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_invalid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateNeeded_invalid;
+        private System.Windows.Forms.Button button1;
     }
 }

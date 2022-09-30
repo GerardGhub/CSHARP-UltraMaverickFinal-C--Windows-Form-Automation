@@ -29,8 +29,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        IStoredProcedures objStorProc = null;
-        TabControlBagde BadgeUtil = new TabControlBagde();
+        private IStoredProcedures objStorProc = null;
+        readonly TabControlBagde BadgeUtil = new TabControlBagde();
         readonly myclasses myClass = new myclasses();
         string mode = "";
         int total = 0;
@@ -39,6 +39,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             InitializeComponent();
         }
 
+
+        public int RowCountAPiOrder { get; set; }
+        public int TotalValidData { get; set; }
         public int InvalidInformation { get; set; }
         public int ReceivedInformation { get; set; }
         public string item_id_main { get; set; }
@@ -53,7 +56,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         public string mat_row_number { get; set; }
         public int user_id { get; set; }
         public string SpdateNeeded { get; set; }
-
+        public int PrimaryIdentity { get; set; }
 
         //Storer
         public string sp_order_id { get; set; }
@@ -90,20 +93,32 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void frmStoreOrderRestAPIcall_Load(object sender, EventArgs e)
         {
+  
+            this.ConnectionInit();
             this.GetStoreOrders();
             this.MainLoader();
            
-            this.objStorProc = myClass.g_objStoredProc.GetCollections();
+
             this.user_id = userinfo.user_id;
             this.MatRadio1.Checked = true;
-            this.showDryWhPendingOrders();
-            this.showDryWhPendingReceived();
-            //this.showCutOffStoreOrders();
+
+     
             this.matlblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
             this.matlblTime.Visible = false;
             this.ValidateTheFuckingCutOfftimeWithButtonControlls();
+            this.SubOrdersMenu();
+         
+            this.LoadFilterAlreadySync();
+        }
 
-
+        private void  SubOrdersMenu()
+        {
+            this.showDryWhPendingOrders();
+            this.showDryWhPendingReceived();
+        }
+        private void ConnectionInit()
+        {
+            this.objStorProc = myClass.g_objStoredProc.GetCollections();
         }
 
         private void showDryWhPendingReceived()      //method for loading available_menus
@@ -175,6 +190,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.DgvReceivedOrder.Columns["logic_return_reason"].Visible = false;
             this.DgvReceivedOrder.Columns["time_stamp_update"].Visible = false;
             this.DgvReceivedOrder.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+  
         }
 
 
@@ -243,7 +259,99 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void GetStoreOrders()
         {
             this.dgvStoreOrder.DataSource = GetRESTData("https://genus.rdfmis.ph/StoreAPI/api/orders.php?token=8AFASbzK5OH0E9OuZF5LlI9qZo8fqr1X");
-      
+
+            //bool sample =  (this.textBox1.Text == String.Empty) ? this.textBox1.Enabled = false : this.textBox1.Enabled = true;
+
+            //dSet_temp = (DataSet)this.dgvStoreOrder.DataSource;
+            //total = 0;
+            //total = dgvSubCategory.Rows.Cast<DataGridViewRow>()
+            //.Where(t => Convert.ToInt32(t.Cells["TOTALVALIDDATA"].Value) == 4)
+            //.Sum(t2 => Convert.ToInt32(t2.Cells["TOTALVALIDDATA"].Value) / 4);
+
+            //int rowIndex = -1;
+
+            //DataGridViewRow row = dgvStoreOrder.Rows
+            //    .Cast<DataGridViewRow>()
+            //    .Where(r => r.Cells["id"].Value.ToString().Equals(2980716))
+            //    .First();
+
+            //rowIndex = row.Index;
+            //this.dgvStoreOrder.DataSource = row;
+
+            //foreach (DataGridViewRow row in this.dgvStoreOrder.Rows)
+            //{
+            //    this.RemoveAlreadyUpload();
+            //}
+            //for (int i = 0; i < Convert.ToInt32(this.lbltotalrecords.Text); i++)
+            //{
+            //    this.RemoveAlreadyUpload();
+            //}
+
+       
+
+        }
+
+        private void LoadFilterAlreadySync()
+        {
+            //this.RowCountAPiOrder = Convert.ToInt32(this.lbltotalrecords.Text);
+
+            //for (int i = 0; i < RowCountAPiOrder; i++)
+            //{
+
+            //    textBox1.Text = i.ToString();
+            //    this.RemoveAlreadyUpload();
+            //}
+            this.RemoveRowLoop();
+        }
+
+        private void RemoveRowLoop()
+        {
+
+       
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                Convert.ToInt32(sp_order_id),
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "getbyorderid_api");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+            
+                dgvStoreOrder.Rows.RemoveAt(this.dgvStoreOrder.SelectedRows[0].Index);
+                MessageBox.Show("Ax" + sp_order_id);
+                return;
+            }
+            else
+            {
+                if (this.dgvStoreOrder.Rows.Count >= 1)
+                {
+                    int i = this.dgvStoreOrder.CurrentRow.Index + 1;
+                    if (i >= -1 && i < this.dgvStoreOrder.Rows.Count)
+                        this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[i].Cells[0];
+                    else
+                    {
+
+                        //this.mattxtScanTheBarcode.Focus();
+                        this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
+                        this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
+                        return;
+                    }
+                }
+            }
+            this.RemoveRowLoop();
         }
 
         private void dgvStoreOrder_CurrentCellChanged(object sender, EventArgs e)
@@ -272,7 +380,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
                         this.mat_row_number = Convert.ToInt32(this.dgvStoreOrder.CurrentCell.RowIndex).ToString();
                     }
-                    //mattxtSearch_TextChanged(sender, e);
+           
 
 
                 }
@@ -283,77 +391,100 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matbtnUpload_Click(object sender, EventArgs e)
         {
-  
-           
-            //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (this.MatRadio1.Checked == true)
             {
-                this.SaveMethod1();
-            }
-            else
-            {
-                return;
-            }
-            //End
-
-        }
-
-
-        private void InsertDataPerRow()
-        {
-
-            dSet.Clear();
-            dSet = objStorProc.sp_dry_wh_orders(0,
-                0,
-                sp_date_ordered,
-                sp_fox,
-                sp_store_name,
-                sp_route,
-                sp_area,
-                sp_category,
-                sp_item_code,
-                sp_description,
-                sp_uom,
-                sp_qty,
-                "1",
-                "",
-     
-                 Convert.ToInt32(user_id).ToString(),
-                this.SpdateNeeded,
-                "add");
-
-
-
-            if (this.dgvStoreOrder.Rows.Count >= 1)
-            {
-                int i = this.dgvStoreOrder.CurrentRow.Index + 1;
-                if (i >= -1 && i < this.dgvStoreOrder.Rows.Count)
-                    this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[i].Cells[0];
-                else
+                this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
+                //Start
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-
-                    if (mode == "error")
-                    {
-                        this.GlobalStatePopup.ErrorNotify("");
-                    }
-                    else
-                    {
-
-                        this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
-
-                        this.GlobalStatePopup.ImportSuccessFully();
-
-                    }
-
-
-                    this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
+                      
+                        this.SaveMethod1();
+           
+                }
+                else
+                {
                     return;
                 }
+                //End
+            }
+            else if (this.MatRadio3.Checked == true)
+            {
+                this.dgvSubCategory.CurrentCell = this.dgvSubCategory.Rows[0].Cells[this.dgvSubCategory.CurrentCell.ColumnIndex];
+                //Start
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+           
+                        this.SaveMethodPendingInformations();
+               
+                }
+                else
+                {
+                    return;
+                }
+                //End
+                //this.SaveMethodPendingInformations();
             }
 
-            this.InsertDataPerRow();
+
         }
+
+
+        //private void InsertDataPerRow()
+        //{
+
+        //    dSet.Clear();
+        //    dSet = objStorProc.sp_dry_wh_orders(0,
+        //        0,
+        //        sp_date_ordered,
+        //        sp_fox,
+        //        sp_store_name,
+        //        sp_route,
+        //        sp_area,
+        //        sp_category,
+        //        sp_item_code,
+        //        sp_description,
+        //        sp_uom,
+        //        sp_qty,
+        //        "1",
+        //        "",
+     
+        //         Convert.ToInt32(user_id).ToString(),
+        //        this.SpdateNeeded,
+        //        "add");
+
+
+
+        //    if (this.dgvStoreOrder.Rows.Count >= 1)
+        //    {
+        //        int i = this.dgvStoreOrder.CurrentRow.Index + 1;
+        //        if (i >= -1 && i < this.dgvStoreOrder.Rows.Count)
+        //            this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[i].Cells[0];
+        //        else
+        //        {
+
+
+        //            if (mode == "error")
+        //            {
+        //                this.GlobalStatePopup.ErrorNotify("");
+        //            }
+        //            else
+        //            {
+
+        //                this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
+
+        //                this.GlobalStatePopup.ImportSuccessFully();
+
+        //            }
+
+
+        //            this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
+        //            return;
+        //        }
+        //    }
+
+        //    this.InsertDataPerRow();
+        //}
 
         private void SaveMethod1()
         {
@@ -380,9 +511,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
-
 
             }
             else
@@ -647,8 +775,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
-
+      
                 mode = "error";
 
                 dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
@@ -662,7 +789,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
                     dSet.Clear();
                     dSet = objStorProc.sp_dry_wh_orders(0,
-                       Convert.ToInt32( sp_order_id),
+                       Convert.ToInt32(sp_order_id),
                         sp_date_ordered,
                         sp_fox,
                         sp_store_name,
@@ -681,25 +808,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
-                    dSet.Clear();
-                    dSet = objStorProc.sp_dry_wh_orders(0,
-                        Convert.ToInt32(sp_order_id),
-                        sp_date_ordered,
-                        sp_fox,
-                        sp_store_name,
-                        sp_route,
-                        sp_area,
-                        sp_category,
-                        sp_item_code,
-                        sp_description,
-                        sp_uom,
-                        sp_qty,
-                        "1",
-                        "",
-               
-                         Convert.ToInt32(user_id).ToString(),
-                         SpdateNeeded,
-                        "add");
+                    if (this.MatRadio1.Checked == true)
+                    {
+                        dSet.Clear();
+                        dSet = objStorProc.sp_dry_wh_orders(0,
+                            Convert.ToInt32(sp_order_id),
+                            sp_date_ordered,
+                            sp_fox,
+                            sp_store_name,
+                            sp_route,
+                            sp_area,
+                            sp_category,
+                            sp_item_code,
+                            sp_description,
+                            sp_uom,
+                            sp_qty,
+                            "1",
+                            "",
+
+                             Convert.ToInt32(user_id).ToString(),
+                             SpdateNeeded,
+                            "add");
+                    }
+
                 }
             }
 
@@ -717,6 +848,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (mode == "error")
                     {
                         this.GlobalStatePopup.ErrorNotify("");
+                        this.ConnectionInit();
+                        this.SubOrdersMenu();
                     }
                     else
                     {
@@ -735,6 +868,310 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.SaveMethod1();
         }
+
+
+        private void SaveMethodPendingInformations()
+        {
+            //Check The store if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+                mode = "error";
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
+            //Check The store Code Area and Route if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "getbystore_code_store_are_store_route");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+                mode = "error";
+
+               this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+
+            //Check The Item Code if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "getby_item_code");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+                mode = "error";
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
+            //Check The Area if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "get_area_name");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+
+            }
+            else
+            {
+                mode = "error";
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
+            //Check The Route if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "get_route_name");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //RawMatsAlreadyExist();
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+                this.mode = "error";
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
+            //Check The Sub Category if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "get_sub_category");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                //RawMatsAlreadyExist();
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+
+
+            }
+            else
+            {
+                this.mode = "error";
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
+            //Check The Primary Unit if existg on the system
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                0,
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                "",
+                "",
+                "get_Primary_Unit");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+                mode = "error";
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            }
+
+            //Validate Quantity if Number Gago!
+            decimal d2;
+            if (decimal.TryParse(sp_qty, out d2))
+            {
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+
+                mode = "error";
+
+                this.dgvSubCategory.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+
+
+         
+                if (this.TotalValidData == 4)
+                {
+                    dSet.Clear();
+                    dSet = objStorProc.sp_dry_wh_orders(this.PrimaryIdentity,
+                        Convert.ToInt32(sp_order_id),
+                        sp_date_ordered,
+                        sp_fox,
+                        sp_store_name,
+                        sp_route,
+                        sp_area,
+                        sp_category,
+                        sp_item_code,
+                        sp_description,
+                        sp_uom,
+                        sp_qty,
+                        "1",
+                        "",
+
+                         Convert.ToInt32(user_id).ToString(),
+                         SpdateNeeded,
+                        "update_activation_pending_info");
+                }
+          
+
+
+            if (this.dgvSubCategory.Rows.Count >= 1)
+            {
+                int i = this.dgvSubCategory.CurrentRow.Index + 1;
+                if (i >= -1 && i < this.dgvSubCategory.Rows.Count)
+                    this.dgvSubCategory.CurrentCell = this.dgvSubCategory.Rows[i].Cells[0];
+                else
+                {
+
+
+                    if (mode == "error")
+                    {
+                        this.GlobalStatePopup.UpdatedSuccessfully();
+                        this.ConnectionInit();
+                        this.SubOrdersMenu();
+                    }
+                    else
+                    {
+                        this.dgvSubCategory.CurrentCell = this.dgvSubCategory.Rows[0].Cells[this.dgvSubCategory.CurrentCell.ColumnIndex];
+                        frmStoreOrderRestAPIcall_Load(new object(), new System.EventArgs());
+                    }
+
+                    this.dgvSubCategory.CurrentCell = this.dgvSubCategory.Rows[0].Cells[this.dgvSubCategory.CurrentCell.ColumnIndex];
+                    return;
+                }
+            }
+
+            this.SaveMethodPendingInformations();
+        }
+
 
         private void dgvStoreOrdersCutOff_CurrentCellChanged(object sender, EventArgs e)
         {
@@ -778,16 +1215,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage1"])//your specific tabname
             {
+                this.matbtnUpload.Visible = true;
+                this.MatRadio1.Checked = true;
                 MatRadio1_CheckedChanged(sender, e);
           
             }
             else if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage2"])//your specific tabname
             {
+                this.matbtnUpload.Visible = false;
+                this.MatRadio2.Checked = true;
                 MatRadio2_CheckedChanged(sender, e);
     
             }
             else if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage3"])//your specific tabname
             {
+                this.matbtnUpload.Visible = true;
+                this.MatRadio3.Checked = true;
                 MatRadio3_CheckedChanged(sender, e);
              
             }
@@ -795,12 +1238,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void MatRadio1_CheckedChanged(object sender, EventArgs e)
         {
+            this.matbtnUpload.Visible = true;
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage1"];
             this.showCutOffStoreOrders();
         }
 
         private void MatRadio3_CheckedChanged(object sender, EventArgs e)
         {
+            this.matbtnUpload.Visible = true;
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
             this.showDryWhPendingOrders();
         }
@@ -821,64 +1266,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 MessageBox.Show(ex.Message);
             }
-            //this.dgvSubCategory.Columns["is_active"].Visible = false;
-            //this.dgvSubCategory.Columns["added_by"].Visible = false;
-            this.dgvSubCategory.Columns["primary_id"].Visible = false;
-            //this.dgvSubCategory.Columns["is_for_validation"].Visible = false;
-            //this.dgvSubCategory.Columns["is_approved"].Visible = false;
-            //this.dgvSubCategory.Columns["is_approved_by"].Visible = false;
-            //this.dgvSubCategory.Columns["is_approved_date"].Visible = false;
-            //this.dgvSubCategory.Columns["is_approved_prepa_date"].Visible = false;
-            //this.dgvSubCategory.Columns["is_cancelled"].Visible = false;
-            //this.dgvSubCategory.Columns["is_cancelled_by"].Visible = false;
-            //this.dgvSubCategory.Columns["is_returned"].Visible = false;
-            //this.dgvSubCategory.Columns["is_returned_by"].Visible = false;
 
-            //this.dgvSubCategory.Columns["is_cancelled_date"].Visible = false;
-            //this.dgvSubCategory.Columns["is_cancelled_reason"].Visible = false;
-            //this.dgvSubCategory.Columns["updated_by"].Visible = false;
-            //this.dgvSubCategory.Columns["updated_date"].Visible = false;
-            //this.dgvSubCategory.Columns["is_prepared"].Visible = false;
-            //this.dgvSubCategory.Columns["is_prepared_by"].Visible = false;
-            //this.dgvSubCategory.Columns["is_prepared_date"].Visible = false;
-            //this.dgvSubCategory.Columns["start_time_stamp"].Visible = false;
-
-            //this.dgvSubCategory.Columns["is_returned_date"].Visible = false;
-            //this.dgvSubCategory.Columns["is_returned_reason"].Visible = false;
-
-            //this.dgvSubCategory.Columns["start_by_user_id"].Visible = false;
-            //this.dgvSubCategory.Columns["end_time_stamp_per_items"].Visible = false;
-            //this.dgvSubCategory.Columns["force_prepared_status"].Visible = false;
-            //this.dgvSubCategory.Columns["total_state_repack"].Visible = false;
-            //this.dgvSubCategory.Columns["prepared_allocated_qty"].Visible = false;
-            //this.dgvSubCategory.Columns["is_wh_approved"].Visible = false;
-            //this.dgvSubCategory.Columns["is_wh_approved_by"].Visible = false;
-            //this.dgvSubCategory.Columns["is_wh_approved_date"].Visible = false;
-            //this.dgvSubCategory.Columns["is_wh_checker_cancel"].Visible = false;
-            //this.dgvSubCategory.Columns["is_wh_checker_cancel_by"].Visible = false;
-
-            //this.dgvSubCategory.Columns["is_wh_checker_cancel_date"].Visible = false;
-            //this.dgvSubCategory.Columns["is_wh_checker_cancel_reason"].Visible = false;
-            //this.dgvSubCategory.Columns["dispossal_status"].Visible = false;
-            //this.dgvSubCategory.Columns["is_selected"].Visible = false;
-
-
-            //this.dgvSubCategory.Columns["is_selected_move_order_by"].Visible = false;
-            //this.dgvSubCategory.Columns["is_selected_move_order_date"].Visible = false;
-            //this.dgvSubCategory.Columns["wh_checker_move_order_no"].Visible = false;
-            //this.dgvSubCategory.Columns["total_state_repack_cancelled_qty"].Visible = false;
-            //this.dgvSubCategory.Columns["logic_return_by"].Visible = false;
-
-            //this.dgvSubCategory.Columns["logic_return_by"].Visible = false;
-            //this.dgvSubCategory.Columns["logic_return_date"].Visible = false;
-            //this.dgvSubCategory.Columns["logic_return_reason"].Visible = false;
-            //this.dgvSubCategory.Columns["time_stamp_update"].Visible = false;
-            //this.dgvSubCategory.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+            this.dgvSubCategory.Columns["StoreCodeCount"].Visible = false;
+            this.dgvSubCategory.Columns["CategoryCount"].Visible = false;
+            this.dgvSubCategory.Columns["ItemCodeCount"].Visible = false;
+            this.dgvSubCategory.Columns["UOMCount"].Visible = false;
+            this.dgvSubCategory.Columns["TOTALVALIDDATA"].Visible = false;
 
             total = 0;
             total = dgvSubCategory.Rows.Cast<DataGridViewRow>()
-                .Where(t => Convert.ToInt32(t.Cells["TOTALVALIDDATA"].Value) == 4)
-                .Sum(t2 => Convert.ToInt32(t2.Cells["TOTALVALIDDATA"].Value) / 4);
+            .Where(t => Convert.ToInt32(t.Cells["TOTALVALIDDATA"].Value) == 4)
+            .Sum(t2 => Convert.ToInt32(t2.Cells["TOTALVALIDDATA"].Value) / 4);
                    
             this.lblCountPendingForSyncing.Text = total.ToString();
 
@@ -902,8 +1300,50 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void MatRadio2_CheckedChanged(object sender, EventArgs e)
         {
+            this.matbtnUpload.Visible = false;
             this.showDryWhPendingReceived();
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage2"];
+        }
+
+        private void dgvSubCategory_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.dgvSubCategory.CurrentRow != null)
+            {
+                if (this.dgvSubCategory.CurrentRow.Cells["store_name_invalid"].Value != null)
+                {
+                    this.sp_order_id = this.dgvSubCategory.CurrentRow.Cells["order_id_invalid"].Value.ToString();
+                    this.sp_date_ordered = this.dgvSubCategory.CurrentRow.Cells["date_ordered_invalid"].Value.ToString();
+                    this.sp_fox = this.dgvSubCategory.CurrentRow.Cells["fox_invalid"].Value.ToString();
+                    this.sp_store_name = this.dgvSubCategory.CurrentRow.Cells["store_name_invalid"].Value.ToString();
+                    this.sp_route = this.dgvSubCategory.CurrentRow.Cells["route_invalid"].Value.ToString();
+                    this.sp_area = this.dgvSubCategory.CurrentRow.Cells["area_invalid"].Value.ToString();
+                    this.sp_category = this.dgvSubCategory.CurrentRow.Cells["category_invalid"].Value.ToString();
+                    this.sp_item_code = this.dgvSubCategory.CurrentRow.Cells["item_code_invalid"].Value.ToString();
+                    this.sp_description = this.dgvSubCategory.CurrentRow.Cells["description_invalid"].Value.ToString();
+                    this.sp_uom = this.dgvSubCategory.CurrentRow.Cells["uom_invalid"].Value.ToString();
+                    this.sp_qty = this.dgvSubCategory.CurrentRow.Cells["qty_invalid"].Value.ToString();
+                    this.SpdateNeeded = this.dgvSubCategory.CurrentRow.Cells["dateNeeded_invalid"].Value.ToString();
+                    this.PrimaryIdentity = Convert.ToInt32(this.dgvSubCategory.CurrentRow.Cells["primary_id"].Value);
+                    this.TotalValidData = Convert.ToInt32(this.dgvSubCategory.CurrentRow.Cells["TOTALVALIDDATA"].Value);
+                        
+                    if (this.lbltotalrecords.Text == "0")
+                    {
+
+                    }
+                    else
+                    {
+                        this.mat_row_number = Convert.ToInt32(this.dgvSubCategory.CurrentCell.RowIndex).ToString();
+                    }
+
+                }
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.matbtnUpload.Enabled = true;
         }
     }
 }
