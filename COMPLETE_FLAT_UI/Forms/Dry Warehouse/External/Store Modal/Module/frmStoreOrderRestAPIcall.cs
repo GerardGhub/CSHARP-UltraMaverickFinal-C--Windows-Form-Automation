@@ -107,7 +107,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matlblTime.Visible = false;
             this.ValidateTheFuckingCutOfftimeWithButtonControlls();
             this.SubOrdersMenu();
-         
             this.LoadFilterAlreadySync();
         }
 
@@ -306,7 +305,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void RemoveRowLoop()
         {
-
+            if (this.lbltotalrecords.Text =="0") { return; } 
        
             dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(0,
@@ -329,10 +328,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-            
+                //MessageBox.Show("Ax" + sp_order_id);
                 dgvStoreOrder.Rows.RemoveAt(this.dgvStoreOrder.SelectedRows[0].Index);
-                MessageBox.Show("Ax" + sp_order_id);
-                return;
+
             }
             else
             {
