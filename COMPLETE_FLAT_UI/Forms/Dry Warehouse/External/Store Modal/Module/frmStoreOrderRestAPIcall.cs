@@ -305,53 +305,75 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void RemoveRowLoop()
         {
-            if (this.lbltotalrecords.Text =="0") { return; } 
-       
-            dSet.Clear();
-            dSet = objStorProc.sp_dry_wh_orders(0,
-                Convert.ToInt32(sp_order_id),
-                sp_date_ordered,
-                sp_fox,
-                sp_store_name,
-                sp_route,
-                sp_area,
-                sp_category,
-                sp_item_code,
-                sp_description,
-                sp_uom,
-                sp_qty,
-                "1",
-                "",
-                "",
-                "",
-                "getbyorderid_api");
-
-            if (dSet.Tables[0].Rows.Count > 0)
+            try
             {
-                //MessageBox.Show("Ax" + sp_order_id);
-                dgvStoreOrder.Rows.RemoveAt(this.dgvStoreOrder.SelectedRows[0].Index);
+                dSet.Clear();
+                dSet = objStorProc.sp_dry_wh_orders(0,
+                    Convert.ToInt32(sp_order_id),
+                    sp_date_ordered,
+                    sp_fox,
+                    sp_store_name,
+                    sp_route,
+                    sp_area,
+                    sp_category,
+                    sp_item_code,
+                    sp_description,
+                    sp_uom,
+                    sp_qty,
+                    "1",
+                    "",
+                    "",
+                    "",
+                    "getbyorderid_api");
 
-            }
-            else
-            {
-                if (this.dgvStoreOrder.Rows.Count >= 1)
+                if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    int i = this.dgvStoreOrder.CurrentRow.Index + 1;
-                    if (i >= -1 && i < this.dgvStoreOrder.Rows.Count)
-                        this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[i].Cells[0];
+
+                    if(dgvStoreOrder.Rows.Count > 0) { this.CallChange(); }
+         
                     else
                     {
-
-                        //this.mattxtScanTheBarcode.Focus();
-                        this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
-                        this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
                         return;
+                    }
+                        //MessageBox.Show("Ax" + sp_order_id);
+                    dgvStoreOrder.Rows.RemoveAt(this.dgvStoreOrder.SelectedRows[0].Index);
+
+                }
+                else
+                {
+                    if (this.dgvStoreOrder.Rows.Count >= 1)
+                    {
+                        int i = this.dgvStoreOrder.CurrentRow.Index + 1;
+                        if (i >= -1 && i < this.dgvStoreOrder.Rows.Count)
+                            this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[i].Cells[0];
+                        else
+                        {
+
+              
+                            this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
+                            this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
+                            return;
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+    
+       
+         
             this.RemoveRowLoop();
         }
-
+        void CallChange()
+        {
+            this.lbltotalrecords.Text = (this.dgvStoreOrder.RowCount - 1).ToString();
+            this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
+        }
         private void dgvStoreOrder_CurrentCellChanged(object sender, EventArgs e)
         {
             if (this.dgvStoreOrder.CurrentRow != null)
@@ -393,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
                 //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data a? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                       
@@ -487,37 +509,37 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void SaveMethod1()
         {
             //Check The store if existg on the system
-            dSet.Clear();
-            dSet = objStorProc.sp_dry_wh_orders(0,
-                0,
-                sp_date_ordered,
-                sp_fox,
-                sp_store_name,
-                sp_route,
-                sp_area,
-                sp_category,
-                sp_item_code,
-                sp_description,
-                sp_uom,
-                sp_qty,
-                "1",
-                "",
-                "",
-                "",
-                "getbyname");
+            //dSet.Clear();
+            //dSet = objStorProc.sp_dry_wh_orders(0,
+            //    0,
+            //    sp_date_ordered,
+            //    sp_fox,
+            //    sp_store_name,
+            //    sp_route,
+            //    sp_area,
+            //    sp_category,
+            //    sp_item_code,
+            //    sp_description,
+            //    sp_uom,
+            //    sp_qty,
+            //    "1",
+            //    "",
+            //    "",
+            //    "",
+            //    "getbyname");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                //RawMatsAlreadyExist();
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
 
-            }
-            else
-            {
-                mode = "error";
 
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            //}
+            //else
+            //{
+            //    mode = "error";
+            //    this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
+            //    this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
-            }
+            //}
 
             //Check The store Code Area and Route if existg on the system
             dSet.Clear();
@@ -550,7 +572,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 mode = "error";
-
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -586,7 +608,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 mode = "error";
-
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -623,6 +645,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 mode = "error";
 
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["area"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -658,7 +681,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 this.mode = "error";
-
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["route"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -694,7 +717,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 this.mode = "error";
-
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["category"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
@@ -730,6 +753,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 mode = "error";
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
 
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
@@ -746,7 +770,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
 
                 mode = "error";
-
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
             }
 
@@ -775,7 +799,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
       
                 mode = "error";
-
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["id"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
 
@@ -785,6 +809,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 if (mode == "error")
                 {
+                    MessageBox.Show("A");
                     dSet.Clear();
                     dSet = objStorProc.sp_dry_wh_orders(0,
                        Convert.ToInt32(sp_order_id),
@@ -806,9 +831,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 else
                 {
-                    if (this.MatRadio1.Checked == true)
-                    {
-                        dSet.Clear();
+                    MessageBox.Show("B");
+                    dSet.Clear();
                         dSet = objStorProc.sp_dry_wh_orders(0,
                             Convert.ToInt32(sp_order_id),
                             sp_date_ordered,
@@ -827,7 +851,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                              Convert.ToInt32(user_id).ToString(),
                              SpdateNeeded,
                             "add");
-                    }
+                    
 
                 }
             }
@@ -846,8 +870,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (mode == "error")
                     {
                         this.GlobalStatePopup.ErrorNotify("");
-                        this.ConnectionInit();
-                        this.SubOrdersMenu();
+                        //this.ConnectionInit();
+                        //this.SubOrdersMenu();
                     }
                     else
                     {
