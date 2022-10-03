@@ -17,6 +17,8 @@ namespace ULTRAMAVERICK.Class
         public string Sub_category { get; set; }
         public string Primary_unit { get; set; }
         public string Conversion { get; set; }
+        public string buffer_stock { get; set; }
+        public string expiration_prompting { get; set; }
     }
 
     public class Store_masterlist

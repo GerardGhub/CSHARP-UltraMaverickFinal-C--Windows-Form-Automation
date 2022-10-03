@@ -36,25 +36,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primary_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.major_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemclassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.majorcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conversionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ultraMaverickDBDataSet = new ULTRAMAVERICK.UltraMaverickDBDataSet();
             this.matBtnBrowse = new MaterialSkin.Controls.MaterialButton();
@@ -66,6 +47,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.label2 = new System.Windows.Forms.Label();
             this.matbtnUpload = new MaterialSkin.Controls.MaterialButton();
             this.raw_Materials_DryTableAdapter = new ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters.Raw_Materials_DryTableAdapter();
+            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primary_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.major_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buffer_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expiration_prompting = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
@@ -122,15 +115,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.major_category,
             this.sub_category,
             this.conversion,
-            this.itemidDataGridViewTextBoxColumn,
-            this.itemcodeDataGridViewTextBoxColumn,
-            this.itemdescriptionDataGridViewTextBoxColumn,
-            this.itemclassDataGridViewTextBoxColumn,
-            this.majorcategoryDataGridViewTextBoxColumn,
-            this.subcategoryDataGridViewTextBoxColumn,
-            this.primaryunitDataGridViewTextBoxColumn,
-            this.conversionDataGridViewTextBoxColumn,
-            this.itemtypeDataGridViewTextBoxColumn});
+            this.buffer_stock,
+            this.expiration_prompting});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -187,168 +173,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
             this.dgvRawMats.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvRawMats_DataBindingComplete);
             this.dgvRawMats.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvRawMats_RowPostPaint);
-            // 
-            // NO
-            // 
-            this.NO.DataPropertyName = "NO";
-            this.NO.HeaderText = "NO";
-            this.NO.MinimumWidth = 12;
-            this.NO.Name = "NO";
-            this.NO.ReadOnly = true;
-            // 
-            // item_id
-            // 
-            this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.item_id.DataPropertyName = "item_id";
-            this.item_id.FillWeight = 40.60914F;
-            this.item_id.HeaderText = "ITEM ID";
-            this.item_id.MinimumWidth = 12;
-            this.item_id.Name = "item_id";
-            this.item_id.ReadOnly = true;
-            this.item_id.Visible = false;
-            this.item_id.Width = 12;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            // 
-            // Item_description
-            // 
-            this.Item_description.DataPropertyName = "Item_description";
-            this.Item_description.FillWeight = 99.49239F;
-            this.Item_description.HeaderText = "DESCRIPTION";
-            this.Item_description.MinimumWidth = 12;
-            this.Item_description.Name = "Item_description";
-            this.Item_description.ReadOnly = true;
-            // 
-            // primary_unit
-            // 
-            this.primary_unit.DataPropertyName = "primary_unit";
-            this.primary_unit.FillWeight = 99.49239F;
-            this.primary_unit.HeaderText = "PRIMARY UNIT";
-            this.primary_unit.MinimumWidth = 12;
-            this.primary_unit.Name = "primary_unit";
-            this.primary_unit.ReadOnly = true;
-            // 
-            // item_type
-            // 
-            this.item_type.DataPropertyName = "item_type";
-            this.item_type.HeaderText = "ITEM TYPE";
-            this.item_type.MinimumWidth = 12;
-            this.item_type.Name = "item_type";
-            this.item_type.ReadOnly = true;
-            // 
-            // item_class
-            // 
-            this.item_class.DataPropertyName = "item_class";
-            this.item_class.FillWeight = 99.49239F;
-            this.item_class.HeaderText = "ITEM CLASS";
-            this.item_class.MinimumWidth = 12;
-            this.item_class.Name = "item_class";
-            this.item_class.ReadOnly = true;
-            // 
-            // major_category
-            // 
-            this.major_category.DataPropertyName = "major_category";
-            this.major_category.FillWeight = 99.49239F;
-            this.major_category.HeaderText = "WAREHOUSE";
-            this.major_category.MinimumWidth = 12;
-            this.major_category.Name = "major_category";
-            this.major_category.ReadOnly = true;
-            // 
-            // sub_category
-            // 
-            this.sub_category.DataPropertyName = "sub_category";
-            this.sub_category.FillWeight = 99.49239F;
-            this.sub_category.HeaderText = "CATEGORY";
-            this.sub_category.MinimumWidth = 12;
-            this.sub_category.Name = "sub_category";
-            this.sub_category.ReadOnly = true;
-            // 
-            // conversion
-            // 
-            this.conversion.DataPropertyName = "conversion";
-            this.conversion.FillWeight = 99.49239F;
-            this.conversion.HeaderText = "CONVERSION";
-            this.conversion.MinimumWidth = 12;
-            this.conversion.Name = "conversion";
-            this.conversion.ReadOnly = true;
-            // 
-            // itemidDataGridViewTextBoxColumn
-            // 
-            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
-            this.itemidDataGridViewTextBoxColumn.HeaderText = "item_id";
-            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
-            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // itemcodeDataGridViewTextBoxColumn
-            // 
-            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
-            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemcodeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // itemdescriptionDataGridViewTextBoxColumn
-            // 
-            this.itemdescriptionDataGridViewTextBoxColumn.DataPropertyName = "item_description";
-            this.itemdescriptionDataGridViewTextBoxColumn.HeaderText = "item_description";
-            this.itemdescriptionDataGridViewTextBoxColumn.Name = "itemdescriptionDataGridViewTextBoxColumn";
-            this.itemdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemdescriptionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // itemclassDataGridViewTextBoxColumn
-            // 
-            this.itemclassDataGridViewTextBoxColumn.DataPropertyName = "item_class";
-            this.itemclassDataGridViewTextBoxColumn.HeaderText = "item_class";
-            this.itemclassDataGridViewTextBoxColumn.Name = "itemclassDataGridViewTextBoxColumn";
-            this.itemclassDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemclassDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // majorcategoryDataGridViewTextBoxColumn
-            // 
-            this.majorcategoryDataGridViewTextBoxColumn.DataPropertyName = "major_category";
-            this.majorcategoryDataGridViewTextBoxColumn.HeaderText = "major_category";
-            this.majorcategoryDataGridViewTextBoxColumn.Name = "majorcategoryDataGridViewTextBoxColumn";
-            this.majorcategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.majorcategoryDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // subcategoryDataGridViewTextBoxColumn
-            // 
-            this.subcategoryDataGridViewTextBoxColumn.DataPropertyName = "sub_category";
-            this.subcategoryDataGridViewTextBoxColumn.HeaderText = "sub_category";
-            this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
-            this.subcategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subcategoryDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // primaryunitDataGridViewTextBoxColumn
-            // 
-            this.primaryunitDataGridViewTextBoxColumn.DataPropertyName = "primary_unit";
-            this.primaryunitDataGridViewTextBoxColumn.HeaderText = "primary_unit";
-            this.primaryunitDataGridViewTextBoxColumn.Name = "primaryunitDataGridViewTextBoxColumn";
-            this.primaryunitDataGridViewTextBoxColumn.ReadOnly = true;
-            this.primaryunitDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // conversionDataGridViewTextBoxColumn
-            // 
-            this.conversionDataGridViewTextBoxColumn.DataPropertyName = "conversion";
-            this.conversionDataGridViewTextBoxColumn.HeaderText = "conversion";
-            this.conversionDataGridViewTextBoxColumn.Name = "conversionDataGridViewTextBoxColumn";
-            this.conversionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.conversionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // itemtypeDataGridViewTextBoxColumn
-            // 
-            this.itemtypeDataGridViewTextBoxColumn.DataPropertyName = "item_type";
-            this.itemtypeDataGridViewTextBoxColumn.HeaderText = "item_type";
-            this.itemtypeDataGridViewTextBoxColumn.Name = "itemtypeDataGridViewTextBoxColumn";
-            this.itemtypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemtypeDataGridViewTextBoxColumn.Visible = false;
             // 
             // drymaterialsBindingSource
             // 
@@ -500,6 +324,110 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.raw_Materials_DryTableAdapter.ClearBeforeFill = true;
             // 
+            // NO
+            // 
+            this.NO.DataPropertyName = "NO";
+            this.NO.HeaderText = "NO";
+            this.NO.MinimumWidth = 12;
+            this.NO.Name = "NO";
+            this.NO.ReadOnly = true;
+            // 
+            // item_id
+            // 
+            this.item_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.item_id.DataPropertyName = "item_id";
+            this.item_id.FillWeight = 40.60914F;
+            this.item_id.HeaderText = "ITEM ID";
+            this.item_id.MinimumWidth = 12;
+            this.item_id.Name = "item_id";
+            this.item_id.ReadOnly = true;
+            this.item_id.Visible = false;
+            this.item_id.Width = 12;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // Item_description
+            // 
+            this.Item_description.DataPropertyName = "Item_description";
+            this.Item_description.FillWeight = 99.49239F;
+            this.Item_description.HeaderText = "DESCRIPTION";
+            this.Item_description.MinimumWidth = 12;
+            this.Item_description.Name = "Item_description";
+            this.Item_description.ReadOnly = true;
+            // 
+            // primary_unit
+            // 
+            this.primary_unit.DataPropertyName = "primary_unit";
+            this.primary_unit.FillWeight = 99.49239F;
+            this.primary_unit.HeaderText = "PRIMARY UNIT";
+            this.primary_unit.MinimumWidth = 12;
+            this.primary_unit.Name = "primary_unit";
+            this.primary_unit.ReadOnly = true;
+            // 
+            // item_type
+            // 
+            this.item_type.DataPropertyName = "item_type";
+            this.item_type.HeaderText = "ITEM TYPE";
+            this.item_type.MinimumWidth = 12;
+            this.item_type.Name = "item_type";
+            this.item_type.ReadOnly = true;
+            // 
+            // item_class
+            // 
+            this.item_class.DataPropertyName = "item_class";
+            this.item_class.FillWeight = 99.49239F;
+            this.item_class.HeaderText = "ITEM CLASS";
+            this.item_class.MinimumWidth = 12;
+            this.item_class.Name = "item_class";
+            this.item_class.ReadOnly = true;
+            // 
+            // major_category
+            // 
+            this.major_category.DataPropertyName = "major_category";
+            this.major_category.FillWeight = 99.49239F;
+            this.major_category.HeaderText = "WAREHOUSE";
+            this.major_category.MinimumWidth = 12;
+            this.major_category.Name = "major_category";
+            this.major_category.ReadOnly = true;
+            // 
+            // sub_category
+            // 
+            this.sub_category.DataPropertyName = "sub_category";
+            this.sub_category.FillWeight = 99.49239F;
+            this.sub_category.HeaderText = "CATEGORY";
+            this.sub_category.MinimumWidth = 12;
+            this.sub_category.Name = "sub_category";
+            this.sub_category.ReadOnly = true;
+            // 
+            // conversion
+            // 
+            this.conversion.DataPropertyName = "conversion";
+            this.conversion.FillWeight = 99.49239F;
+            this.conversion.HeaderText = "CONVERSION";
+            this.conversion.MinimumWidth = 12;
+            this.conversion.Name = "conversion";
+            this.conversion.ReadOnly = true;
+            // 
+            // buffer_stock
+            // 
+            this.buffer_stock.DataPropertyName = "buffer_stock";
+            this.buffer_stock.HeaderText = "BUFFER STOCK";
+            this.buffer_stock.Name = "buffer_stock";
+            this.buffer_stock.ReadOnly = true;
+            // 
+            // expiration_prompting
+            // 
+            this.expiration_prompting.DataPropertyName = "expiration_prompting";
+            this.expiration_prompting.HeaderText = "EXPIRY DAY";
+            this.expiration_prompting.Name = "expiration_prompting";
+            this.expiration_prompting.ReadOnly = true;
+            // 
             // frmImportRawMatsExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,14 +475,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private System.Windows.Forms.DataGridViewTextBoxColumn major_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemdescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemclassDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn majorcategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn primaryunitDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conversionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemtypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn buffer_stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expiration_prompting;
     }
 }

@@ -402,6 +402,10 @@ namespace ULTRAMAVERICK {
             
             private global::System.Data.DataColumn columnitem_type;
             
+            private global::System.Data.DataColumn columnbuffer_stock;
+            
+            private global::System.Data.DataColumn columnexpiration_prompting;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Raw_Materials_DryDataTable() {
@@ -509,6 +513,22 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn buffer_stockColumn {
+                get {
+                    return this.columnbuffer_stock;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn expiration_promptingColumn {
+                get {
+                    return this.columnexpiration_prompting;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -544,7 +564,7 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Raw_Materials_DryRow AddRaw_Materials_DryRow(string item_code, string item_description, string item_class, string major_category, string sub_category, string primary_unit, string conversion, string item_type) {
+            public Raw_Materials_DryRow AddRaw_Materials_DryRow(string item_code, string item_description, string item_class, string major_category, string sub_category, string primary_unit, string conversion, string item_type, double buffer_stock, int expiration_prompting) {
                 Raw_Materials_DryRow rowRaw_Materials_DryRow = ((Raw_Materials_DryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -555,7 +575,9 @@ namespace ULTRAMAVERICK {
                         sub_category,
                         primary_unit,
                         conversion,
-                        item_type};
+                        item_type,
+                        buffer_stock,
+                        expiration_prompting};
                 rowRaw_Materials_DryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRaw_Materials_DryRow);
                 return rowRaw_Materials_DryRow;
@@ -594,6 +616,8 @@ namespace ULTRAMAVERICK {
                 this.columnprimary_unit = base.Columns["primary_unit"];
                 this.columnconversion = base.Columns["conversion"];
                 this.columnitem_type = base.Columns["item_type"];
+                this.columnbuffer_stock = base.Columns["buffer_stock"];
+                this.columnexpiration_prompting = base.Columns["expiration_prompting"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -617,6 +641,10 @@ namespace ULTRAMAVERICK {
                 base.Columns.Add(this.columnconversion);
                 this.columnitem_type = new global::System.Data.DataColumn("item_type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_type);
+                this.columnbuffer_stock = new global::System.Data.DataColumn("buffer_stock", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbuffer_stock);
+                this.columnexpiration_prompting = new global::System.Data.DataColumn("expiration_prompting", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnexpiration_prompting);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnitem_id}, true));
                 this.columnitem_id.AutoIncrement = true;
@@ -2091,6 +2119,39 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double buffer_stock {
+                get {
+                    try {
+                        return ((double)(this[this.tableRaw_Materials_Dry.buffer_stockColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'buffer_stock\' in table \'Raw_Materials_Dry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRaw_Materials_Dry.buffer_stockColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int expiration_prompting {
+                get {
+                    try {
+                        return ((int)(this[this.tableRaw_Materials_Dry.expiration_promptingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'expiration_prompting\' in table \'Raw_Materials_Dry\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableRaw_Materials_Dry.expiration_promptingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isitem_codeNull() {
                 return this.IsNull(this.tableRaw_Materials_Dry.item_codeColumn);
             }
@@ -2183,6 +2244,30 @@ namespace ULTRAMAVERICK {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setitem_typeNull() {
                 this[this.tableRaw_Materials_Dry.item_typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbuffer_stockNull() {
+                return this.IsNull(this.tableRaw_Materials_Dry.buffer_stockColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbuffer_stockNull() {
+                this[this.tableRaw_Materials_Dry.buffer_stockColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isexpiration_promptingNull() {
+                return this.IsNull(this.tableRaw_Materials_Dry.expiration_promptingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setexpiration_promptingNull() {
+                this[this.tableRaw_Materials_Dry.expiration_promptingColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3352,6 +3437,8 @@ namespace ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("primary_unit", "primary_unit");
             tableMapping.ColumnMappings.Add("conversion", "conversion");
             tableMapping.ColumnMappings.Add("item_type", "item_type");
+            tableMapping.ColumnMappings.Add("buffer_stock", "buffer_stock");
+            tableMapping.ColumnMappings.Add("expiration_prompting", "expiration_prompting");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3372,28 +3459,29 @@ namespace ULTRAMAVERICK.UltraMaverickDBDataSetTableAdapters {
                 "ss_desc as item_class,\r\n\t\tmcF.major_category_desc as major_category,\r\n\t\tscF.sub_" +
                 "category_desc as sub_category,\r\n\t\tpuF.unit_desc as primary_unit,\r\n\t\tISNULL(conve" +
                 "rsions.active_pu_conversion,rw.conversion) as conversion,\r\n\t\titF.item_type_desc " +
-                "as item_type\r\n\r\n\t\tFROM Raw_Materials_Dry rw\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\tLEFT JOIN ( select it" +
-                ".item_type_id, item_type_desc\r\n\t\tfrom Item_Type it where it.is_active=\'1\'\r\n\t\tgro" +
-                "up by item_type_id, item_type_desc) itF\r\n\t\ton rw.item_type = itF.item_type_desc\r" +
-                "\n\r\n\t\r\n\t\tLEFT JOIN ( select pu.unit_id, pu.unit_desc\r\n\t\tfrom Primary_Unit pu wher" +
-                "e pu.is_active=\'1\'\r\n\t\tgroup by pu.unit_id, pu.unit_desc) puF\r\n\t\ton rw.primary_un" +
-                "it = puF.unit_desc\r\n\r\n\r\n\r\n\t\tLEFT JOIN ( select sc.sub_category_id, sc.sub_catego" +
-                "ry_desc\r\n\t\tfrom Sub_Category sc where sc.is_active=\'1\'\r\n\t\tgroup by sc.sub_catego" +
-                "ry_id, sc.sub_category_desc) scF\r\n\t\ton rw.sub_category = scF.sub_category_desc\r\n" +
-                "\r\n\r\n\r\n\r\n\r\n\t\tLEFT JOIN ( select mc.major_category_id, mc.major_category_desc\r\n\t\tf" +
-                "rom Major_Category mc where mc.is_active=\'1\'\r\n\t\tgroup by mc.major_category_id, m" +
-                "c.major_category_desc) mcF\r\n\t\ton rw.major_category = mcF.major_category_id\r\n\r\n\r\n" +
-                "\t\tLEFT JOIN ( select ic.item_class_id, ic.item_class_desc\r\n\t\tfrom Item_Class ic " +
-                "where ic.is_active=\'1\'\r\n\t\tgroup by ic.item_class_id, ic.item_class_desc) icF\r\n\t\t" +
-                "on rw.item_class = icF.item_class_desc\r\n\r\n\r\n\t\tLEFT JOIN ( select uf.employee_nam" +
-                "e as emp, uf.userfile_id\r\n\t\tfrom userfile uf where uf.is_active=\'1\'\r\n\t\tgroup by " +
-                "uf.employee_name,userfile_id) emp\r\n\t\ton rw.created_by = emp.userfile_id\r\n\r\n\t\tLEF" +
-                "T JOIN ( select uf.employee_name as emp2, uf.userfile_id\r\n\t\tfrom userfile uf whe" +
-                "re uf.is_active=\'1\'\r\n\t\tgroup by uf.employee_name,userfile_id) emp_updated_by\r\n\t\t" +
-                "on rw.updated_by =  emp_updated_by.userfile_id\r\n\r\n\r\n\t\tLEFT JOIN ( select pum.act" +
-                "ive_pu_conversion, pum.item_primary_id\r\n\t\tfrom PrimaryUnitManagement pum where p" +
-                "um.is_active=\'1\'\r\n\t\tgroup by pum.active_pu_conversion,item_primary_id) conversio" +
-                "ns\r\n\t\ton rw.item_id =  conversions.item_primary_id\r\n\r\n\t\tWHERE rw.is_active = 1";
+                "as item_type,\r\nrw.buffer_stock,\r\nrw.expiration_prompting\r\n\r\n\t\tFROM Raw_Materials" +
+                "_Dry rw\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\tLEFT JOIN ( select it.item_type_id, item_type_desc\r\n\t\tfro" +
+                "m Item_Type it where it.is_active=\'1\'\r\n\t\tgroup by item_type_id, item_type_desc) " +
+                "itF\r\n\t\ton rw.item_type = itF.item_type_desc\r\n\r\n\t\r\n\t\tLEFT JOIN ( select pu.unit_i" +
+                "d, pu.unit_desc\r\n\t\tfrom Primary_Unit pu where pu.is_active=\'1\'\r\n\t\tgroup by pu.un" +
+                "it_id, pu.unit_desc) puF\r\n\t\ton rw.primary_unit = puF.unit_desc\r\n\r\n\r\n\r\n\t\tLEFT JOI" +
+                "N ( select sc.sub_category_id, sc.sub_category_desc\r\n\t\tfrom Sub_Category sc wher" +
+                "e sc.is_active=\'1\'\r\n\t\tgroup by sc.sub_category_id, sc.sub_category_desc) scF\r\n\t\t" +
+                "on rw.sub_category = scF.sub_category_desc\r\n\r\n\r\n\r\n\r\n\r\n\t\tLEFT JOIN ( select mc.ma" +
+                "jor_category_id, mc.major_category_desc\r\n\t\tfrom Major_Category mc where mc.is_ac" +
+                "tive=\'1\'\r\n\t\tgroup by mc.major_category_id, mc.major_category_desc) mcF\r\n\t\ton rw." +
+                "major_category = mcF.major_category_id\r\n\r\n\r\n\t\tLEFT JOIN ( select ic.item_class_i" +
+                "d, ic.item_class_desc\r\n\t\tfrom Item_Class ic where ic.is_active=\'1\'\r\n\t\tgroup by i" +
+                "c.item_class_id, ic.item_class_desc) icF\r\n\t\ton rw.item_class = icF.item_class_de" +
+                "sc\r\n\r\n\r\n\t\tLEFT JOIN ( select uf.employee_name as emp, uf.userfile_id\r\n\t\tfrom use" +
+                "rfile uf where uf.is_active=\'1\'\r\n\t\tgroup by uf.employee_name,userfile_id) emp\r\n\t" +
+                "\ton rw.created_by = emp.userfile_id\r\n\r\n\t\tLEFT JOIN ( select uf.employee_name as " +
+                "emp2, uf.userfile_id\r\n\t\tfrom userfile uf where uf.is_active=\'1\'\r\n\t\tgroup by uf.e" +
+                "mployee_name,userfile_id) emp_updated_by\r\n\t\ton rw.updated_by =  emp_updated_by.u" +
+                "serfile_id\r\n\r\n\r\n\t\tLEFT JOIN ( select pum.active_pu_conversion, pum.item_primary_" +
+                "id\r\n\t\tfrom PrimaryUnitManagement pum where pum.is_active=\'1\'\r\n\t\tgroup by pum.act" +
+                "ive_pu_conversion,item_primary_id) conversions\r\n\t\ton rw.item_id =  conversions.i" +
+                "tem_primary_id\r\n\r\n\t\tWHERE rw.is_active = 1";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
