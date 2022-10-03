@@ -279,44 +279,44 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             }
 
-            //Check The store Code Area and Route if existg on the system
-            dSet.Clear();
-            dSet = objStorProc.sp_dry_wh_orders(0,
-                0,
-                Sp_date_ordered,
-                Sp_fox,
-                Sp_store_name,
-                Sp_route,
-                Sp_area,
-                Sp_category,
-                Sp_item_code,
-                Sp_description,
-                Sp_uom,
-                Sp_qty,
-                "1",
-                "",
-                "",
-                this.SpDateNeeded,
-                "getbystore_code_store_are_store_route");
+            ////Check The store Code Area and Route if existg on the system
+            //dSet.Clear();
+            //dSet = objStorProc.sp_dry_wh_orders(0,
+            //    0,
+            //    Sp_date_ordered,
+            //    Sp_fox,
+            //    Sp_store_name,
+            //    Sp_route,
+            //    Sp_area,
+            //    Sp_category,
+            //    Sp_item_code,
+            //    Sp_description,
+            //    Sp_uom,
+            //    Sp_qty,
+            //    "1",
+            //    "",
+            //    "",
+            //    this.SpDateNeeded,
+            //    "getbystore_code_store_are_store_route");
 
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                //RawMatsAlreadyExist();
-
-
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
+            //    //RawMatsAlreadyExist();
 
 
-            }
-            else
-            {
-                mode = "error";
+
+
+            //}
+            //else
+            //{
+            //    mode = "error";
     
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["area"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["route"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            //    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
+            //    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["area"].Style.SelectionBackColor = Color.DarkOrange;
+            //    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["route"].Style.SelectionBackColor = Color.DarkOrange;
+            //    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
-            }
+            //}
 
             //Check The Item Code if existg on the system
             dSet.Clear();
