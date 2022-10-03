@@ -95,7 +95,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
   
             this.ConnectionInit();
-            this.GetStoreOrders();
+            //this.GetStoreOrders();
             this.MainLoader();
            
 

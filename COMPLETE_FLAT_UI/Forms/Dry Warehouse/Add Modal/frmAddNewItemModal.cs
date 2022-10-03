@@ -300,11 +300,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 return;
             }
 
+            if (this.IsExpirable == "1")
+            {
+                if(this.txtExpirationDaysPrompting.Text == String.Empty)
+                {
+                    this.GlobalStatePopup.FillRequiredFields();
+                    this.txtExpirationDaysPrompting.Focus();
+                    return;
+                }
+            }
 
 
 
-
-            dSet.Clear();
+                dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 this.txtMatItemCode.Text, 
                 this.txtMatItemDesc.Text,
