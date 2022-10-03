@@ -232,7 +232,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void TxtmatConversion_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            this.myClass.AlloW2Decimal(this.txtmatConversion, e);
+            this.myClass.AlloW3Decimal(this.txtmatConversion, e);
 
         }
 

@@ -429,7 +429,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void txtmatConversion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.myClass.AlloW2Decimal(this.txtmatConversion, e);
+            this.myClass.AlloW3Decimal(this.txtmatConversion, e);
         }
 
         private void materialCard1_Paint(object sender, PaintEventArgs e)
