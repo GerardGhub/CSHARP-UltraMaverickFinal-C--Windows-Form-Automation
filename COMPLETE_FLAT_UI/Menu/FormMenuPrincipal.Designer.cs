@@ -1056,15 +1056,15 @@
             // dryRawMaterialsToolStripMenuItem
             // 
             this.dryRawMaterialsToolStripMenuItem.Name = "dryRawMaterialsToolStripMenuItem";
-            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
-            this.dryRawMaterialsToolStripMenuItem.Text = "Dry Raw Materials";
+            this.dryRawMaterialsToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.dryRawMaterialsToolStripMenuItem.Text = "Raw Materials";
             this.dryRawMaterialsToolStripMenuItem.Visible = false;
             this.dryRawMaterialsToolStripMenuItem.Click += new System.EventHandler(this.dryRawMaterialsToolStripMenuItem_Click);
             // 
             // poSummaryToolStripMenuItem
             // 
             this.poSummaryToolStripMenuItem.Name = "poSummaryToolStripMenuItem";
-            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.poSummaryToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.poSummaryToolStripMenuItem.Text = "Po Summary";
             this.poSummaryToolStripMenuItem.Visible = false;
             this.poSummaryToolStripMenuItem.Click += new System.EventHandler(this.poSummaryToolStripMenuItem_Click);
@@ -1072,7 +1072,7 @@
             // ImportStoreDry
             // 
             this.ImportStoreDry.Name = "ImportStoreDry";
-            this.ImportStoreDry.Size = new System.Drawing.Size(211, 24);
+            this.ImportStoreDry.Size = new System.Drawing.Size(190, 24);
             this.ImportStoreDry.Text = "Stores";
             this.ImportStoreDry.Visible = false;
             this.ImportStoreDry.Click += new System.EventHandler(this.storesToolStripMenuItem1_Click);
@@ -1080,7 +1080,7 @@
             // consolidatedOrderToolStripMenuItem
             // 
             this.consolidatedOrderToolStripMenuItem.Name = "consolidatedOrderToolStripMenuItem";
-            this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.consolidatedOrderToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.consolidatedOrderToolStripMenuItem.Text = "Store Orders";
             this.consolidatedOrderToolStripMenuItem.Visible = false;
             this.consolidatedOrderToolStripMenuItem.Click += new System.EventHandler(this.consolidatedOrderToolStripMenuItem_Click);
@@ -1088,7 +1088,7 @@
             // orderRESTAPIToolStripMenuItem
             // 
             this.orderRESTAPIToolStripMenuItem.Name = "orderRESTAPIToolStripMenuItem";
-            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.orderRESTAPIToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.orderRESTAPIToolStripMenuItem.Text = "Order Synching";
             this.orderRESTAPIToolStripMenuItem.Visible = false;
             this.orderRESTAPIToolStripMenuItem.Click += new System.EventHandler(this.orderRESTAPIToolStripMenuItem_Click);
@@ -1096,7 +1096,7 @@
             // pendingOrderToolStripMenuItem
             // 
             this.pendingOrderToolStripMenuItem.Name = "pendingOrderToolStripMenuItem";
-            this.pendingOrderToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.pendingOrderToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.pendingOrderToolStripMenuItem.Text = "Pending Orders";
             this.pendingOrderToolStripMenuItem.Visible = false;
             this.pendingOrderToolStripMenuItem.Click += new System.EventHandler(this.pendingOrderToolStripMenuItem_Click);
@@ -1104,7 +1104,7 @@
             // mrsOrderImportToolStripMenuItem
             // 
             this.mrsOrderImportToolStripMenuItem.Name = "mrsOrderImportToolStripMenuItem";
-            this.mrsOrderImportToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.mrsOrderImportToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.mrsOrderImportToolStripMenuItem.Text = "MRS Orders";
             this.mrsOrderImportToolStripMenuItem.Visible = false;
             this.mrsOrderImportToolStripMenuItem.Click += new System.EventHandler(this.mrsToolStripMenuItem_Click);
