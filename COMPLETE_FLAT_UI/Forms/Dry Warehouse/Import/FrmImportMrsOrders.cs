@@ -323,7 +323,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             }
 
-            //Validate Quantity if Number Gago!
+     
 
 
 
