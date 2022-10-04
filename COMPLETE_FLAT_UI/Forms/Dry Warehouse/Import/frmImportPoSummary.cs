@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using COMPLETE_FLAT_UI.Models;
 using ExcelDataReader;
-using MaterialSkin;
 using MaterialSkin.Controls;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
-using Z.Dapper.Plus;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 {
@@ -292,7 +283,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 mode = "error";
 
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
@@ -322,8 +313,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["po_number"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["po_number"].Style.SelectionBackColor = Color.DarkOrange;
             }
             else
@@ -344,7 +334,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
              
                 mode = "error";
 
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_order"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_order"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
@@ -359,8 +349,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_delivered"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_delivered"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
@@ -377,7 +366,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 mode = "error";
 
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_billed"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_billed"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
@@ -395,7 +384,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 mode = "error";
 
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["unit_price"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["unit_price"].Style.SelectionBackColor = Color.DarkOrange;
             }
 
@@ -430,7 +419,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 mode = "error";
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_uom"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty_uom"].Style.BackColor = Color.DarkOrange;
             }
 
      
@@ -486,7 +475,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 this.mode = "error";
 
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                //dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
 
@@ -508,7 +497,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 this.mode = "error";
 
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                //dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             }
             else
