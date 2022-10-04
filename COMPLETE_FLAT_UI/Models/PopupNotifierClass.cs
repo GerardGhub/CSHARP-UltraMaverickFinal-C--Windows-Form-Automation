@@ -188,7 +188,51 @@ namespace ULTRAMAVERICK.Models
 
         }
 
-       public void FillUserRights()
+        public void DocumentAlreadyOpen()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Document for import already open, close first and try again ...";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.DarkSlateBlue;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+        }
+
+        public void InvalidDocumentTemplate()
+        {
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.TitleText = "Notifications!";
+            popup.TitleColor = Color.White;
+            popup.TitlePadding = new Padding(255, 7, 0, 0);
+            popup.TitleFont = new Font("Tahoma", 10);
+            popup.ContentText = "Invalid Document some data is not matched on the requested file ...";
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new System.Drawing.Font("Tahoma", 11F);
+            popup.Size = new Size(350, 100);
+            popup.ImageSize = new Size(70, 80);
+            popup.BodyColor = Color.DarkSlateBlue;
+            popup.Popup();
+            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            popup.Delay = 500;
+            popup.AnimationInterval = 10;
+            popup.AnimationDuration = 1000;
+            popup.ShowOptionsButton = true;
+        }
+
+        public void FillUserRights()
         {
 
             PopupNotifier popup = new PopupNotifier();

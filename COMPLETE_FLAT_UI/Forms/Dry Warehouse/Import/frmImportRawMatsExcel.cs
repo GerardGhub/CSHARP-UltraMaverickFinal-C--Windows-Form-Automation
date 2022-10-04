@@ -118,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                this.GlobalStatePopup.DocumentAlreadyOpen();
             }
 
 
@@ -158,7 +158,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                this.GlobalStatePopup.InvalidDocumentTemplate();
             }
             CallOthers();
         }
