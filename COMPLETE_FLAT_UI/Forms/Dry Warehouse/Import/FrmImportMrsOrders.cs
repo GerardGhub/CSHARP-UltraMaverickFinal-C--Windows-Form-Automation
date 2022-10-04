@@ -220,8 +220,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
        
 
-            dSet.Clear();
-            dSet = objStorProc
+                dSet.Clear();
+                dSet = objStorProc
                 .sp_material_request_logs(0,
                 0,
                 Sp_fox,
@@ -242,19 +242,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
-
-
             }
             else
             {
                 mode = "error";
-                //MessageBox.Show("2");
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
-
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.BackColor = Color.DarkOrange;
             }
 
   
@@ -282,17 +275,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
-
-
             }
             else
             {
                 mode = "error";
                 this.ErrorDetails = "Item Code";
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.BackColor = Color.DarkOrange;
 
             }
 
@@ -325,17 +314,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
-
-
             }
             else
             {
                 mode = "error";
-                //MessageBox.Show("8");
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["uom"].Style.BackColor = Color.DarkOrange;
 
             }
 
@@ -355,9 +339,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-                //MessageBox.Show("9");
                 dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.BackColor = Color.DarkOrange;
             }
 
 
@@ -370,17 +353,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 if (decimal.TryParse(Sp_qty, out d2))
                 {
 
-                 
-                   
-
                 }
                 else
                 {
 
                     mode = "error";
-                    //MessageBox.Show("9");
+     
                     dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
-                    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty"].Style.BackColor = Color.DarkOrange;
                 }
             }
             catch (Exception ex)
@@ -596,19 +576,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.ConnectionInt();
             dSet.Clear();
             dSet = objStorProc
-                .sp_material_request_master(0,
-                "Import Excel File",
-                Department_Id.ToString(),
-                 Department_Id,
-                false,
-                userinfo.emp_name + ' ' + userinfo.emp_lastname,
-                "",
-                userinfo.user_id,
-               false,
-               "0",
-               this.Sp_date_ordered,
-                              this.Sp_fox,
-                "getbydata_manual");
+            .sp_material_request_master(0,
+            "Import Excel File",
+            Department_Id.ToString(),
+            Department_Id,
+            false,
+            userinfo.emp_name + ' ' + userinfo.emp_lastname,
+            "",
+            userinfo.user_id,
+            false,
+            "0",
+            this.Sp_date_ordered,
+            this.Sp_fox,
+            "getbydata_manual");
 
 
             if (dSet.Tables[0].Rows.Count > 0)
