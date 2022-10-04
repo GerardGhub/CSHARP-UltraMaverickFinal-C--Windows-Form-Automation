@@ -23,31 +23,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
-        IStoredProcedures objStorProc = null;
-        PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        myclasses myClass = new myclasses();
+        private IStoredProcedures objStorProc = null;
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
+        readonly myclasses myClass = new myclasses();
         string mode = "";
         public frmImportStore()
         {
             InitializeComponent();
         }
-        public string item_id_main { get; set; }
-        public string item_code_main { get; set; }
-        public string item_description_main { get; set; }
-        public string item_type_main { get; set; }
-        public string item_class_main { get; set; }
-        public string major_category_main { get; set; }
-        public string sub_category_main { get; set; }
-        public string primary_unit_main { get; set; }
-        public string conversion_main { get; set; }
+
         public string mat_row_number { get; set; }
         public int user_id { get; set; }
-  
-        public string sp_user_id { get; set; }
-    
- 
-        //Expirable
-        public string sp_is_expirable { get; set; }
         //Storer
         public string sp_store_name { get; set; }
         public string sp_store_code { get; set; }
@@ -56,12 +42,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void frmImportStore_Load(object sender, EventArgs e)
         {
-            objStorProc =   myClass.g_objStoredProc.GetCollections();
-
-            dgvRawMats.Columns[0].Width = 100;// The id column 
+            this.ConnectionInit();
+            this.dgvRawMats.Columns[0].Width = 100;// The id column 
             this.CallOthers();
-
         }
+
+        private void ConnectionInit()
+        {
+            this.objStorProc = myClass.g_objStoredProc.GetCollections();
+        }
+
         DataTableCollection tableCollection;
         private void matBtnBrowse_Click(object sender, EventArgs e)
         {
@@ -95,14 +85,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.lbltotalrecords.Text = dgvRawMats.Rows.Count.ToString();
             this.user_id = userinfo.user_id;
             this.materialCard3.Visible = false;
-
-
         }
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.CallOthers();
-
-
             this.matbtnUpload.Enabled = true;
             this.mode = "";
             dgvRawMats_CurrentCellChanged(sender, e);
@@ -129,8 +115,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             myglobal.global_module = "Active"; // Mode for Searching
             dset_emp_SearchEngines.Clear();  //Clear the Fucking data set
-
-
             dset_emp_SearchEngines = objStorProc.sp_getMajorTables("StoreBindingImport");
 
         }
@@ -138,17 +122,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
 
                   if (myglobal.global_module == "Active")
                     {
-
                         dv.RowFilter = "store_name = '" + sp_store_name + "' ";
-
                     }
              
                     dgvUnits.DataSource = dv;
@@ -260,38 +240,34 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-
-
                 mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.SelectionBackColor = Color.DarkOrange;
-
-
-
             }
             else
             {
            
             }
 
-
             //Area Name
-
             dSet.Clear();
             dSet = objStorProc.sp_tbl_stores(0,
-                sp_store_name,
-                sp_store_area,
-                sp_store_code,
-                sp_store_route,
-                Convert.ToString(user_id), "", Convert.ToString(user_id), "", "", "get_area_name");
+            sp_store_name,
+            sp_store_area,
+            sp_store_code,
+            sp_store_route,
+            Convert.ToString(user_id), 
+            "", 
+            Convert.ToString(user_id), 
+            "", 
+            "", 
+            "get_area_name");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
 
                 mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_area"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_area"].Style.SelectionBackColor = Color.DarkOrange;
 
             }
@@ -309,7 +285,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 sp_store_area,
                 sp_store_code,
                 sp_store_route,
-                Convert.ToString(user_id), "", Convert.ToString(user_id), "", "", "get_route_name");
+                Convert.ToString(user_id), 
+                "",
+                Convert.ToString(user_id), 
+                "", 
+                "", 
+                "get_route_name");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -319,8 +300,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_route"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_route"].Style.SelectionBackColor = Color.DarkOrange;
 
 
@@ -336,15 +316,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 sp_store_area,
                 sp_store_code,
                 sp_store_route,
-                Convert.ToString(user_id), "", Convert.ToString(user_id), "", "", "getbystorecode");
+                Convert.ToString(user_id), 
+                "", 
+                Convert.ToString(user_id), 
+                "", 
+                "",
+                "getbystorecode");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
               
 
                 mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.SelectionBackColor = Color.DarkOrange;
 
 
@@ -370,9 +354,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         this.GlobalStatePopup.ErrorNotify("Check the data to proceed");
                     }
                     else
-                    {
-
-                  
+                    {                
                         this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                         this.InsertDataPerRow();
                     }
@@ -397,18 +379,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 sp_store_area,
                 sp_store_code,
                 sp_store_route,
-                Convert.ToString(user_id), "", Convert.ToString(user_id), "", "", "getbyname");
+                Convert.ToString(user_id),
+                "", 
+                Convert.ToString(user_id), 
+                "", 
+                "",
+                "getbyname");
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-       
-
                 mode = "error";
-
-                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-
-
+                //dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange
             }
             else
             {
@@ -417,11 +398,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             dSet.Clear();
             dSet = objStorProc.sp_tbl_stores(0,
-                sp_store_name,
-                sp_store_area,
-                sp_store_code,
-                sp_store_route,
-                Convert.ToString(user_id), "", Convert.ToString(user_id), "", "", "add");
+            sp_store_name,
+            sp_store_area,
+            sp_store_code,
+            sp_store_route,
+            Convert.ToString(user_id), 
+            "", 
+            Convert.ToString(user_id), 
+            "", 
+            "", 
+            "add");
 
 
 

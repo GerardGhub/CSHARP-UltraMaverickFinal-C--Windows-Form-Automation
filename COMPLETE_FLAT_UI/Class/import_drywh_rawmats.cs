@@ -35,7 +35,7 @@ namespace ULTRAMAVERICK.Class
     public class Store_order_dry_wh_orders
     {
         public int Primary_id { get; set; }
-        public int Order_id { get; set; }
+        public string Order_id { get; set; }
         public string Date_ordered { get; set; }
         public string Fox { get; set; }
         public string Store_name { get; set; }

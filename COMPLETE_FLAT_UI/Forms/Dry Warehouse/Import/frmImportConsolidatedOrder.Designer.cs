@@ -64,27 +64,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.foxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.areaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.routeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateorderedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateNeeded = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateNeeded = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateorderedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.routeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.areaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drywhordersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSetBindingSource)).BeginInit();
@@ -152,6 +153,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.ColumnHeadersHeight = 40;
             this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.order_id,
             this.date_ordered,
             this.fox,
             this.store_name,
@@ -526,164 +528,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.materialCard2.Size = new System.Drawing.Size(963, 126);
             this.materialCard2.TabIndex = 575;
             // 
-            // foxDataGridViewTextBoxColumn
+            // order_id
             // 
-            this.foxDataGridViewTextBoxColumn.DataPropertyName = "fox";
-            this.foxDataGridViewTextBoxColumn.HeaderText = "fox";
-            this.foxDataGridViewTextBoxColumn.Name = "foxDataGridViewTextBoxColumn";
-            this.foxDataGridViewTextBoxColumn.ReadOnly = true;
-            this.foxDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // qtyDataGridViewTextBoxColumn
-            // 
-            this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
-            this.qtyDataGridViewTextBoxColumn.HeaderText = "qty";
-            this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
-            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.qtyDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // uomDataGridViewTextBoxColumn
-            // 
-            this.uomDataGridViewTextBoxColumn.DataPropertyName = "uom";
-            this.uomDataGridViewTextBoxColumn.HeaderText = "uom";
-            this.uomDataGridViewTextBoxColumn.Name = "uomDataGridViewTextBoxColumn";
-            this.uomDataGridViewTextBoxColumn.ReadOnly = true;
-            this.uomDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // itemcodeDataGridViewTextBoxColumn
-            // 
-            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
-            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemcodeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoryDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // areaDataGridViewTextBoxColumn
-            // 
-            this.areaDataGridViewTextBoxColumn.DataPropertyName = "area";
-            this.areaDataGridViewTextBoxColumn.HeaderText = "area";
-            this.areaDataGridViewTextBoxColumn.Name = "areaDataGridViewTextBoxColumn";
-            this.areaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.areaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // routeDataGridViewTextBoxColumn
-            // 
-            this.routeDataGridViewTextBoxColumn.DataPropertyName = "route";
-            this.routeDataGridViewTextBoxColumn.HeaderText = "route";
-            this.routeDataGridViewTextBoxColumn.Name = "routeDataGridViewTextBoxColumn";
-            this.routeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.routeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dateorderedDataGridViewTextBoxColumn
-            // 
-            this.dateorderedDataGridViewTextBoxColumn.DataPropertyName = "date_ordered";
-            this.dateorderedDataGridViewTextBoxColumn.HeaderText = "date_ordered";
-            this.dateorderedDataGridViewTextBoxColumn.Name = "dateorderedDataGridViewTextBoxColumn";
-            this.dateorderedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateorderedDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // storenameDataGridViewTextBoxColumn
-            // 
-            this.storenameDataGridViewTextBoxColumn.DataPropertyName = "store_name";
-            this.storenameDataGridViewTextBoxColumn.HeaderText = "store_name";
-            this.storenameDataGridViewTextBoxColumn.Name = "storenameDataGridViewTextBoxColumn";
-            this.storenameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.storenameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // DateNeeded
-            // 
-            this.DateNeeded.DataPropertyName = "DateNeeded";
-            this.DateNeeded.HeaderText = "DATE NEEDED";
-            this.DateNeeded.Name = "DateNeeded";
-            this.DateNeeded.ReadOnly = true;
-            // 
-            // qty
-            // 
-            this.qty.DataPropertyName = "qty";
-            this.qty.HeaderText = "QUANTITY ORDER";
-            this.qty.MinimumWidth = 6;
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            // 
-            // uom
-            // 
-            this.uom.DataPropertyName = "uom";
-            this.uom.HeaderText = "UOM";
-            this.uom.MinimumWidth = 6;
-            this.uom.Name = "uom";
-            this.uom.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.HeaderText = "DESCRIPTION";
-            this.description.MinimumWidth = 6;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 6;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.MinimumWidth = 6;
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // area
-            // 
-            this.area.DataPropertyName = "area";
-            this.area.HeaderText = "AREA";
-            this.area.MinimumWidth = 6;
-            this.area.Name = "area";
-            this.area.ReadOnly = true;
-            // 
-            // route
-            // 
-            this.route.DataPropertyName = "route";
-            this.route.HeaderText = "ROUTE";
-            this.route.MinimumWidth = 6;
-            this.route.Name = "route";
-            this.route.ReadOnly = true;
-            // 
-            // store_name
-            // 
-            this.store_name.DataPropertyName = "store_name";
-            this.store_name.HeaderText = "STORE";
-            this.store_name.MinimumWidth = 12;
-            this.store_name.Name = "store_name";
-            this.store_name.ReadOnly = true;
-            // 
-            // fox
-            // 
-            this.fox.DataPropertyName = "fox";
-            this.fox.HeaderText = "STORE CODE";
-            this.fox.MinimumWidth = 6;
-            this.fox.Name = "fox";
-            this.fox.ReadOnly = true;
+            this.order_id.DataPropertyName = "order_id";
+            this.order_id.HeaderText = "ORDER ID";
+            this.order_id.Name = "order_id";
+            this.order_id.ReadOnly = true;
             // 
             // date_ordered
             // 
@@ -695,6 +545,165 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.date_ordered.MinimumWidth = 12;
             this.date_ordered.Name = "date_ordered";
             this.date_ordered.ReadOnly = true;
+            // 
+            // fox
+            // 
+            this.fox.DataPropertyName = "fox";
+            this.fox.HeaderText = "STORE CODE";
+            this.fox.MinimumWidth = 6;
+            this.fox.Name = "fox";
+            this.fox.ReadOnly = true;
+            // 
+            // store_name
+            // 
+            this.store_name.DataPropertyName = "store_name";
+            this.store_name.HeaderText = "STORE";
+            this.store_name.MinimumWidth = 12;
+            this.store_name.Name = "store_name";
+            this.store_name.ReadOnly = true;
+            // 
+            // route
+            // 
+            this.route.DataPropertyName = "route";
+            this.route.HeaderText = "ROUTE";
+            this.route.MinimumWidth = 6;
+            this.route.Name = "route";
+            this.route.ReadOnly = true;
+            // 
+            // area
+            // 
+            this.area.DataPropertyName = "area";
+            this.area.HeaderText = "AREA";
+            this.area.MinimumWidth = 6;
+            this.area.Name = "area";
+            this.area.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.MinimumWidth = 6;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 6;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.HeaderText = "DESCRIPTION";
+            this.description.MinimumWidth = 6;
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
+            // uom
+            // 
+            this.uom.DataPropertyName = "uom";
+            this.uom.HeaderText = "UOM";
+            this.uom.MinimumWidth = 6;
+            this.uom.Name = "uom";
+            this.uom.ReadOnly = true;
+            // 
+            // qty
+            // 
+            this.qty.DataPropertyName = "qty";
+            this.qty.HeaderText = "QUANTITY ORDER";
+            this.qty.MinimumWidth = 6;
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            // 
+            // DateNeeded
+            // 
+            this.DateNeeded.DataPropertyName = "DateNeeded";
+            this.DateNeeded.HeaderText = "DATE NEEDED";
+            this.DateNeeded.Name = "DateNeeded";
+            this.DateNeeded.ReadOnly = true;
+            // 
+            // storenameDataGridViewTextBoxColumn
+            // 
+            this.storenameDataGridViewTextBoxColumn.DataPropertyName = "store_name";
+            this.storenameDataGridViewTextBoxColumn.HeaderText = "store_name";
+            this.storenameDataGridViewTextBoxColumn.Name = "storenameDataGridViewTextBoxColumn";
+            this.storenameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.storenameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateorderedDataGridViewTextBoxColumn
+            // 
+            this.dateorderedDataGridViewTextBoxColumn.DataPropertyName = "date_ordered";
+            this.dateorderedDataGridViewTextBoxColumn.HeaderText = "date_ordered";
+            this.dateorderedDataGridViewTextBoxColumn.Name = "dateorderedDataGridViewTextBoxColumn";
+            this.dateorderedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateorderedDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // routeDataGridViewTextBoxColumn
+            // 
+            this.routeDataGridViewTextBoxColumn.DataPropertyName = "route";
+            this.routeDataGridViewTextBoxColumn.HeaderText = "route";
+            this.routeDataGridViewTextBoxColumn.Name = "routeDataGridViewTextBoxColumn";
+            this.routeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.routeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // areaDataGridViewTextBoxColumn
+            // 
+            this.areaDataGridViewTextBoxColumn.DataPropertyName = "area";
+            this.areaDataGridViewTextBoxColumn.HeaderText = "area";
+            this.areaDataGridViewTextBoxColumn.Name = "areaDataGridViewTextBoxColumn";
+            this.areaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.areaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemcodeDataGridViewTextBoxColumn
+            // 
+            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
+            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemcodeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // uomDataGridViewTextBoxColumn
+            // 
+            this.uomDataGridViewTextBoxColumn.DataPropertyName = "uom";
+            this.uomDataGridViewTextBoxColumn.HeaderText = "uom";
+            this.uomDataGridViewTextBoxColumn.Name = "uomDataGridViewTextBoxColumn";
+            this.uomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.uomDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // qtyDataGridViewTextBoxColumn
+            // 
+            this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
+            this.qtyDataGridViewTextBoxColumn.HeaderText = "qty";
+            this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
+            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qtyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // foxDataGridViewTextBoxColumn
+            // 
+            this.foxDataGridViewTextBoxColumn.DataPropertyName = "fox";
+            this.foxDataGridViewTextBoxColumn.HeaderText = "fox";
+            this.foxDataGridViewTextBoxColumn.Name = "foxDataGridViewTextBoxColumn";
+            this.foxDataGridViewTextBoxColumn.ReadOnly = true;
+            this.foxDataGridViewTextBoxColumn.Visible = false;
             // 
             // frmImportConsolidatedOrder
             // 
@@ -751,6 +760,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private System.Windows.Forms.Label lbltotalrecords;
         private System.Windows.Forms.Label label4;
         private MaterialSkin.Controls.MaterialCard materialCard2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_ordered;
         private System.Windows.Forms.DataGridViewTextBoxColumn fox;
         private System.Windows.Forms.DataGridViewTextBoxColumn store_name;
