@@ -218,7 +218,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.lblItemTypeID.BackColor = System.Drawing.Color.Transparent;
             this.lblItemTypeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemTypeID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblItemTypeID.Location = new System.Drawing.Point(684, 93);
+            this.lblItemTypeID.Location = new System.Drawing.Point(684, 90);
             this.lblItemTypeID.Name = "lblItemTypeID";
             this.lblItemTypeID.Size = new System.Drawing.Size(57, 13);
             this.lblItemTypeID.TabIndex = 590;

@@ -86,7 +86,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboItemClass, "Item_Class_dropdown", dSet);
           
 
-            lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
+            //lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
         }
         public void loadMajorCategoryDropdown()
         {
@@ -103,7 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboSubCat, "Sub_Category_dropdown", dSet);
 
 
-            this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
+            //this.lblIDSubCat.Text = cboSubCat.SelectedValue.ToString();
         }
 
         public void LoadSubCategoryDropdownIsExpirable()
@@ -133,7 +133,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboItemType, "Item_Type_dropdown", dSet);
 
 
-            this.lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
+            //this.lblItemTypeID.Text = cboItemType.SelectedValue.ToString();
         }
 
         public void loadPrimaryUnitDropdown()
@@ -258,6 +258,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.cboItemClass.Focus();
                 return;
             }
+            if (this.lblItemClassID.Text == "Item Class:")
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboItemClass.Focus();
+                return;
+            }
+
 
             if (cboMajorCategory.Text == String.Empty)
             {
@@ -280,8 +287,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.cboSubCat.Focus();
                 return;
             }
+       
+            if (this.lblIDSubCat.Text == "Sub Category:")
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboSubCat.Focus();
+                return;
+            }
 
             if (this.cboItemType.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboItemType.Focus();
+                return;
+            }
+
+
+            if (this.lblItemTypeID.Text == "Item Type:")
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 this.cboItemType.Focus();
@@ -294,6 +316,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.cboPrimaryUnit.Focus();
                 return;
             }
+            if (this.cboPrimaryUnit.Text == String.Empty)
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboPrimaryUnit.Focus();
+                return;
+            }
+            
+            if (this.lblPrimaryUnitID.Text == "Primary Unit:")
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboPrimaryUnit.Focus();
+                return;
+            }
+
             if (this.txtmatConversion.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();

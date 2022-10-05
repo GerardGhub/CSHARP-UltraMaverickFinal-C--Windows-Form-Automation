@@ -507,6 +507,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     if (mode == "error")
                     {
                         this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
+                        this.dgvRawMats.ClearSelection();
                     }
                     else
                     {
