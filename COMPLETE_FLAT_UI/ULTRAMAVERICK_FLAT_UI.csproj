@@ -197,15 +197,15 @@
     <Compile Include="BaseWPFControls\frmViewAllNotifications.Designer.cs">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Adorner.cs" />
-    <Compile Include="Class\import_drywh_rawmats.cs" />
-    <Compile Include="Class\MenuColorTable.cs" />
-    <Compile Include="Class\MenuRenderer.cs" />
-    <Compile Include="Class\RJDropdownMenu.cs">
+    <Compile Include="Application\Adorner.cs" />
+    <Compile Include="Application\import_drywh_rawmats.cs" />
+    <Compile Include="Application\MenuColorTable.cs" />
+    <Compile Include="Application\MenuRenderer.cs" />
+    <Compile Include="Application\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Class\TabControlBagde.cs" />
-    <Compile Include="Class\Taskbar.cs" />
+    <Compile Include="Application\TabControlBagde.cs" />
+    <Compile Include="Application\Taskbar.cs" />
     <Compile Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -875,13 +875,13 @@
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\View Models\MenuClasses.cs" />
-    <Compile Include="Models\IStoredProcedures.cs" />
-    <Compile Include="Models\myclasses.cs" />
-    <Compile Include="Models\myglobal.cs" />
-    <Compile Include="Models\PopupNotifierClass.cs" />
-    <Compile Include="Models\StoredProcedures.cs" />
-    <Compile Include="Models\userinfo.cs" />
-    <Compile Include="Models\user_info.cs" />
+    <Compile Include="Domain\IStoredProcedures.cs" />
+    <Compile Include="Domain\myclasses.cs" />
+    <Compile Include="Domain\myglobal.cs" />
+    <Compile Include="Domain\PopupNotifierClass.cs" />
+    <Compile Include="Domain\StoredProcedures.cs" />
+    <Compile Include="Domain\userinfo.cs" />
+    <Compile Include="Domain\user_info.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\frmReport.cs">
@@ -1381,6 +1381,7 @@
     <Folder Include="Form ViewModels\" />
     <Folder Include="Forms\Login\" />
     <Folder Include="Forms\MasterList SetUP\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resumerdf.jpg" />

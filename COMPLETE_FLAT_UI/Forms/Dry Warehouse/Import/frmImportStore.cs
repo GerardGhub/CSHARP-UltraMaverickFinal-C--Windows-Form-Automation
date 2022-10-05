@@ -39,6 +39,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public string sp_store_code { get; set; }
         public string sp_store_area { get; set; }
         public string sp_store_route { get; set; }
+        public string SpRegion { get; set; }
 
         private void frmImportStore_Load(object sender, EventArgs e)
         {
@@ -175,6 +176,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.sp_store_code = dgvRawMats.CurrentRow.Cells["store_code"].Value.ToString();
                     this.sp_store_area = dgvRawMats.CurrentRow.Cells["store_area"].Value.ToString();
                     this.sp_store_route = dgvRawMats.CurrentRow.Cells["store_route"].Value.ToString();
+                    this.SpRegion = this.dgvRawMats.CurrentRow.Cells["region"].Value.ToString();
                     if (lbltotalrecords.Text == "0")
                     {
 
@@ -210,6 +212,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         Store.Store_code = dt.Rows[i]["Code"].ToString();
                         Store.Store_area = dt.Rows[i]["Area"].ToString();
                         Store.Store_route = dt.Rows[i]["Route"].ToString();
+                        Store.Region = dt.Rows[i]["Region"].ToString();
 
                         Import_Stores.Add(Store);
                     }
@@ -349,6 +352,37 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
 
 
+
+
+            //Store Region
+
+            dSet.Clear();
+            dSet = objStorProc.sp_tblRegion(0,
+                SpRegion,
+                sp_store_area,
+                sp_store_code,
+                sp_store_route,
+                Convert.ToString(user_id),
+                "",
+                "getbyname");
+
+            if (dSet.Tables[0].Rows.Count > 0)
+            {
+
+
+    
+
+
+
+            }
+            else
+            {
+                mode = "error";
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["region"].Style.BackColor = Color.DarkOrange;
+                dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["region"].Style.SelectionBackColor = Color.DarkOrange;
+            }
+
+
             if (dgvRawMats.Rows.Count >= 1)
             {
                 int i = dgvRawMats.CurrentRow.Index + 1;
@@ -370,6 +404,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                   
                     this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                    this.dgvRawMats.ClearSelection();
                     return;
                 }
             }

@@ -1288,6 +1288,8 @@ namespace ULTRAMAVERICK {
             
             private global::System.Data.DataColumn columnstore_route;
             
+            private global::System.Data.DataColumn columnregion;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public tbl_storesDataTable() {
@@ -1355,6 +1357,14 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn regionColumn {
+                get {
+                    return this.columnregion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1390,13 +1400,14 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_storesRow Addtbl_storesRow(string store_name, string store_area, string store_code, string store_route) {
+            public tbl_storesRow Addtbl_storesRow(string store_name, string store_area, string store_code, string store_route, string region) {
                 tbl_storesRow rowtbl_storesRow = ((tbl_storesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         store_name,
                         store_area,
                         store_code,
-                        store_route};
+                        store_route,
+                        region};
                 rowtbl_storesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_storesRow);
                 return rowtbl_storesRow;
@@ -1423,6 +1434,7 @@ namespace ULTRAMAVERICK {
                 this.columnstore_area = base.Columns["store_area"];
                 this.columnstore_code = base.Columns["store_code"];
                 this.columnstore_route = base.Columns["store_route"];
+                this.columnregion = base.Columns["region"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1436,10 +1448,13 @@ namespace ULTRAMAVERICK {
                 base.Columns.Add(this.columnstore_code);
                 this.columnstore_route = new global::System.Data.DataColumn("store_route", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstore_route);
+                this.columnregion = new global::System.Data.DataColumn("region", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregion);
                 this.columnstore_name.MaxLength = 250;
                 this.columnstore_area.MaxLength = 250;
                 this.columnstore_code.MaxLength = 250;
                 this.columnstore_route.MaxLength = 250;
+                this.columnregion.MaxLength = 250;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2797,6 +2812,22 @@ namespace ULTRAMAVERICK {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string region {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_stores.regionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'region\' in table \'tbl_stores\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_stores.regionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isstore_nameNull() {
                 return this.IsNull(this.tabletbl_stores.store_nameColumn);
             }
@@ -2841,6 +2872,18 @@ namespace ULTRAMAVERICK {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setstore_routeNull() {
                 this[this.tabletbl_stores.store_routeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsregionNull() {
+                return this.IsNull(this.tabletbl_stores.regionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetregionNull() {
+                this[this.tabletbl_stores.regionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3835,6 +3878,7 @@ SELECT
             tableMapping.ColumnMappings.Add("store_area", "store_area");
             tableMapping.ColumnMappings.Add("store_code", "store_code");
             tableMapping.ColumnMappings.Add("store_route", "store_route");
+            tableMapping.ColumnMappings.Add("region", "region");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3852,8 +3896,8 @@ SELECT
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \r\n      [store_name]\r\n      ,[store_area]\r\n      ,[store_code]\r\n      ,[st" +
-                "ore_route]\r\n\r\n  FROM [UltraMaverickDB].[dbo].[tbl_stores]\r\n\r\n  where is_active=\'" +
-                "1\'\r\n\r\n\r\n\r\n\r\n";
+                "ore_route]\r\n,[region]\r\n\r\n  FROM [UltraMaverickDB].[dbo].[tbl_stores]\r\n\r\n  where " +
+                "is_active=\'1\'\r\n\r\n\r\n\r\n\r\n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

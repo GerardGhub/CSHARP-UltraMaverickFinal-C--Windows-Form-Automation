@@ -28,7 +28,7 @@ namespace ULTRAMAVERICK.Class
         public string Store_area { get; set; }
         public string Store_code { get; set; }
         public string Store_route { get; set; }
-
+        public string Region { get; set; }
 
     }
 
