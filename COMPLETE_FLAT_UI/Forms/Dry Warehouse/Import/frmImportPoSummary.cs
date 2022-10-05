@@ -445,7 +445,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     }
 
                     //MessageBox.Show("Your reach the limit ");
+                 
                     this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                    this.dgvRawMats.ClearSelection();
                     return;
                 }
             }
