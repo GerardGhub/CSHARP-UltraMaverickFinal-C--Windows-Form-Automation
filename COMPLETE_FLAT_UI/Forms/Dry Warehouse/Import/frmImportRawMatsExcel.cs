@@ -19,6 +19,7 @@ using ULTRAMAVERICK.Properties;
 using System.Data.SqlClient;
 using COMPLETE_FLAT_UI.Models;
 using Guna.UI2.WinForms;
+using System.Globalization;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 {
@@ -145,8 +146,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         Import_dry_rawMat.Item_type = dt.Rows[i]["ITEM TYPE"].ToString();
                         Import_dry_rawMat.Item_class = dt.Rows[i]["ITEM CLASS"].ToString();
                         Import_dry_rawMat.Major_category = dt.Rows[i]["WAREHOUSE"].ToString();
-                        Import_dry_rawMat.Sub_category = dt.Rows[i]["CATEGORY"].ToString();             
-                        Import_dry_rawMat.Conversion = dt.Rows[i]["CONVERSION"].ToString();
+                        Import_dry_rawMat.Sub_category = dt.Rows[i]["CATEGORY"].ToString();
+                        string num = dt.Rows[i]["CONVERSION"].ToString();
+                        decimal nn = decimal.Parse(num, CultureInfo.InvariantCulture);
+                        string str = nn.ToString("F3", CultureInfo.InvariantCulture);
+                        Import_dry_rawMat.Conversion = str;
                         Import_dry_rawMat.buffer_stock = dt.Rows[i]["BUFFER STOCK"].ToString();
                         Import_dry_rawMat.expiration_prompting = dt.Rows[i]["EXPIRY DAY"].ToString();
                         Import_dry_rawMats.Add(Import_dry_rawMat);
@@ -555,7 +559,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.WarehouseIdentity.ToString(),            
                     row.Cells["sub_category"].Value.ToString(),
                     row.Cells["primary_unit"].Value.ToString(),
-                    "0",
+                    this.conversion_main,
                     row.Cells["item_type"].Value.ToString(),
                     "",
                     userinfo.user_id.ToString(),

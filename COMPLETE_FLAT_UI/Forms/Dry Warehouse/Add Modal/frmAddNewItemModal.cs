@@ -94,7 +94,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             myClass.fillComboBoxDepartment(cboMajorCategory, "Major_Category_dropdown", dSet);
 
 
-            this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
         public void loadSubCategoryDropdown()
@@ -266,6 +266,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 return;
             }
 
+            if (this.lblMajorCatId.Text == "Major Category:")
+            {
+                this.GlobalStatePopup.FillRequiredFields();
+                this.cboMajorCategory.Focus();
+     
+                return;
+            }
+
             if (this.cboSubCat.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
@@ -310,6 +318,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 }
             }
 
+         
+                //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
+      
 
 
                 dSet.Clear();

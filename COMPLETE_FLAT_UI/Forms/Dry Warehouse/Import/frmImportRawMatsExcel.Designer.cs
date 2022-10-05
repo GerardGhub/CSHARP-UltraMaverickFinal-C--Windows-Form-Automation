@@ -32,8 +32,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
             this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,6 +60,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.conversion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buffer_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiration_prompting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemclassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.majorcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primaryunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conversionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bufferstockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expirationpromptingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
@@ -116,17 +128,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.sub_category,
             this.conversion,
             this.buffer_stock,
-            this.expiration_prompting});
+            this.expiration_prompting,
+            this.itemidDataGridViewTextBoxColumn,
+            this.itemcodeDataGridViewTextBoxColumn,
+            this.itemdescriptionDataGridViewTextBoxColumn,
+            this.itemclassDataGridViewTextBoxColumn,
+            this.majorcategoryDataGridViewTextBoxColumn,
+            this.subcategoryDataGridViewTextBoxColumn,
+            this.primaryunitDataGridViewTextBoxColumn,
+            this.conversionDataGridViewTextBoxColumn,
+            this.itemtypeDataGridViewTextBoxColumn,
+            this.bufferstockDataGridViewTextBoxColumn,
+            this.expirationpromptingDataGridViewTextBoxColumn});
             this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvRawMats.DataSource = this.drymaterialsBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRawMats.EnableHeadersVisualStyles = false;
             this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
@@ -134,13 +157,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dgvRawMats.MultiSelect = false;
             this.dgvRawMats.Name = "dgvRawMats";
             this.dgvRawMats.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvRawMats.RowHeadersVisible = false;
             this.dgvRawMats.RowHeadersWidth = 102;
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
@@ -408,6 +431,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // conversion
             // 
             this.conversion.DataPropertyName = "conversion";
+            dataGridViewCellStyle3.NullValue = null;
+            this.conversion.DefaultCellStyle = dataGridViewCellStyle3;
             this.conversion.FillWeight = 99.49239F;
             this.conversion.HeaderText = "CONVERSION";
             this.conversion.MinimumWidth = 12;
@@ -427,6 +452,94 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.expiration_prompting.HeaderText = "EXPIRY DAY";
             this.expiration_prompting.Name = "expiration_prompting";
             this.expiration_prompting.ReadOnly = true;
+            // 
+            // itemidDataGridViewTextBoxColumn
+            // 
+            this.itemidDataGridViewTextBoxColumn.DataPropertyName = "item_id";
+            this.itemidDataGridViewTextBoxColumn.HeaderText = "item_id";
+            this.itemidDataGridViewTextBoxColumn.Name = "itemidDataGridViewTextBoxColumn";
+            this.itemidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemcodeDataGridViewTextBoxColumn
+            // 
+            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
+            this.itemcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemcodeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemdescriptionDataGridViewTextBoxColumn
+            // 
+            this.itemdescriptionDataGridViewTextBoxColumn.DataPropertyName = "item_description";
+            this.itemdescriptionDataGridViewTextBoxColumn.HeaderText = "item_description";
+            this.itemdescriptionDataGridViewTextBoxColumn.Name = "itemdescriptionDataGridViewTextBoxColumn";
+            this.itemdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemdescriptionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemclassDataGridViewTextBoxColumn
+            // 
+            this.itemclassDataGridViewTextBoxColumn.DataPropertyName = "item_class";
+            this.itemclassDataGridViewTextBoxColumn.HeaderText = "item_class";
+            this.itemclassDataGridViewTextBoxColumn.Name = "itemclassDataGridViewTextBoxColumn";
+            this.itemclassDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemclassDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // majorcategoryDataGridViewTextBoxColumn
+            // 
+            this.majorcategoryDataGridViewTextBoxColumn.DataPropertyName = "major_category";
+            this.majorcategoryDataGridViewTextBoxColumn.HeaderText = "major_category";
+            this.majorcategoryDataGridViewTextBoxColumn.Name = "majorcategoryDataGridViewTextBoxColumn";
+            this.majorcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.majorcategoryDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // subcategoryDataGridViewTextBoxColumn
+            // 
+            this.subcategoryDataGridViewTextBoxColumn.DataPropertyName = "sub_category";
+            this.subcategoryDataGridViewTextBoxColumn.HeaderText = "sub_category";
+            this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
+            this.subcategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subcategoryDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // primaryunitDataGridViewTextBoxColumn
+            // 
+            this.primaryunitDataGridViewTextBoxColumn.DataPropertyName = "primary_unit";
+            this.primaryunitDataGridViewTextBoxColumn.HeaderText = "primary_unit";
+            this.primaryunitDataGridViewTextBoxColumn.Name = "primaryunitDataGridViewTextBoxColumn";
+            this.primaryunitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.primaryunitDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // conversionDataGridViewTextBoxColumn
+            // 
+            this.conversionDataGridViewTextBoxColumn.DataPropertyName = "conversion";
+            this.conversionDataGridViewTextBoxColumn.HeaderText = "conversion";
+            this.conversionDataGridViewTextBoxColumn.Name = "conversionDataGridViewTextBoxColumn";
+            this.conversionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.conversionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemtypeDataGridViewTextBoxColumn
+            // 
+            this.itemtypeDataGridViewTextBoxColumn.DataPropertyName = "item_type";
+            this.itemtypeDataGridViewTextBoxColumn.HeaderText = "item_type";
+            this.itemtypeDataGridViewTextBoxColumn.Name = "itemtypeDataGridViewTextBoxColumn";
+            this.itemtypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemtypeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bufferstockDataGridViewTextBoxColumn
+            // 
+            this.bufferstockDataGridViewTextBoxColumn.DataPropertyName = "buffer_stock";
+            this.bufferstockDataGridViewTextBoxColumn.HeaderText = "buffer_stock";
+            this.bufferstockDataGridViewTextBoxColumn.Name = "bufferstockDataGridViewTextBoxColumn";
+            this.bufferstockDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bufferstockDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // expirationpromptingDataGridViewTextBoxColumn
+            // 
+            this.expirationpromptingDataGridViewTextBoxColumn.DataPropertyName = "expiration_prompting";
+            this.expirationpromptingDataGridViewTextBoxColumn.HeaderText = "expiration_prompting";
+            this.expirationpromptingDataGridViewTextBoxColumn.Name = "expirationpromptingDataGridViewTextBoxColumn";
+            this.expirationpromptingDataGridViewTextBoxColumn.ReadOnly = true;
+            this.expirationpromptingDataGridViewTextBoxColumn.Visible = false;
             // 
             // frmImportRawMatsExcel
             // 
@@ -477,5 +590,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private System.Windows.Forms.DataGridViewTextBoxColumn conversion;
         private System.Windows.Forms.DataGridViewTextBoxColumn buffer_stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn expiration_prompting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemdescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemclassDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn majorcategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn primaryunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conversionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemtypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bufferstockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expirationpromptingDataGridViewTextBoxColumn;
     }
 }
