@@ -490,7 +490,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 
                     mode = "error";
                     dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.SelectionBackColor = Color.DarkOrange;
-                    dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_uni"].Style.BackColor = Color.DarkOrange;
+                    dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.BackColor = Color.DarkOrange;
                 }
             }
 
@@ -507,16 +507,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     if (mode == "error")
                     {
                         this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
-                        this.dgvRawMats.ClearSelection();
+                        //this.dgvRawMats.ClearSelection();
+         
                     }
                     else
                     {
                         this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                         this.SaveinDatabase();
+                        this.dgvRawMats.ClearSelection();
                     }
 
       
                     this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                    this.dgvRawMats.ClearSelection();
                     return;
                 }
             }
@@ -574,8 +577,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 this.GlobalStatePopup.ImportSuccessFully();              
                 this.matbtnUpload.Visible = false;
-        
 
+        
             }
             catch (Exception ex)
             {
@@ -657,6 +660,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             myClass.DataGridViewBindingClearSelection(this.dgvRawMats);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.dgvRawMats.ClearSelection();
         }
     }
 }
