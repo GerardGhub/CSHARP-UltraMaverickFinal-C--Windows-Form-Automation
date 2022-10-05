@@ -883,7 +883,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                 //totalSum = qtyReceiving - rejected;
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure " +
-                    "you want to received the Qty '"+this.mattxtqtyReceived.Text+"' ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    "you want to received the Qty '"+this.mattxtqtyReceived.Text+"' ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 

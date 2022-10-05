@@ -54,7 +54,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             this.dry_wh_ordersTableAdapter.Fill(this.ultraMaverickDBDataSet.dry_wh_orders);
             this.ConnectionInt();
-            this.dgvRawMats.Columns[0].Width = 100;// The id column 
+            this.DgvImportMrsOrder.Columns[0].Width = 100;// The id column 
             this.CallOthers();
             this.DataGridVisibleFalse();
         }
@@ -66,21 +66,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void DataGridVisibleFalse()
         {
-            this.dgvRawMats.Columns["foxDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["storenameDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["dateorderedDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["routeDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["categoryDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["itemcodeDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["descriptionDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["qtyDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["areaDataGridViewTextBoxColumn"].Visible = false;
-            this.dgvRawMats.Columns["uomDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["foxDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["storenameDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["dateorderedDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["routeDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["categoryDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["itemcodeDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["descriptionDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["qtyDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["areaDataGridViewTextBoxColumn"].Visible = false;
+            this.DgvImportMrsOrder.Columns["uomDataGridViewTextBoxColumn"].Visible = false;
         }
 
         private void CallOthers()
         {
-            this.lbltotalrecords.Text = dgvRawMats.Rows.Count.ToString();
+            this.lbltotalrecords.Text = DgvImportMrsOrder.Rows.Count.ToString();
             this.User_id = userinfo.user_id;
             this.materialCard3.Visible = false;
 
@@ -187,25 +187,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void dgvRawMats_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (this.dgvRawMats.CurrentRow != null)
+            if (this.DgvImportMrsOrder.CurrentRow != null)
             {
-                if (this.dgvRawMats.CurrentRow.Cells["fox"].Value != null)
+                if (this.DgvImportMrsOrder.CurrentRow.Cells["fox"].Value != null)
                 {
 
-                    this.Sp_date_ordered = this.dgvRawMats.CurrentRow.Cells["date_ordered"].Value.ToString();
-                    this.Sp_fox = this.dgvRawMats.CurrentRow.Cells["fox"].Value.ToString();
-                    this.Sp_item_code = this.dgvRawMats.CurrentRow.Cells["item_code"].Value.ToString();
-                    this.Sp_description = this.dgvRawMats.CurrentRow.Cells["description"].Value.ToString();
-                    this.Sp_uom = this.dgvRawMats.CurrentRow.Cells["uom"].Value.ToString();
-                    this.Sp_qty = this.dgvRawMats.CurrentRow.Cells["qty"].Value.ToString();
-                    this.SpDateNeeded = this.dgvRawMats.CurrentRow.Cells["DateNeeded"].Value.ToString();
+                    this.Sp_date_ordered = this.DgvImportMrsOrder.CurrentRow.Cells["date_ordered"].Value.ToString();
+                    this.Sp_fox = this.DgvImportMrsOrder.CurrentRow.Cells["fox"].Value.ToString();
+                    this.Sp_item_code = this.DgvImportMrsOrder.CurrentRow.Cells["item_code"].Value.ToString();
+                    this.Sp_description = this.DgvImportMrsOrder.CurrentRow.Cells["description"].Value.ToString();
+                    this.Sp_uom = this.DgvImportMrsOrder.CurrentRow.Cells["uom"].Value.ToString();
+                    this.Sp_qty = this.DgvImportMrsOrder.CurrentRow.Cells["qty"].Value.ToString();
+                    this.SpDateNeeded = this.DgvImportMrsOrder.CurrentRow.Cells["DateNeeded"].Value.ToString();
                     if (this.lbltotalrecords.Text == "0")
                     {
 
                     }
                     else
                     {
-                        this.Mat_row_number = Convert.ToInt32(this.dgvRawMats.CurrentCell.RowIndex).ToString();
+                        this.Mat_row_number = Convert.ToInt32(this.DgvImportMrsOrder.CurrentCell.RowIndex).ToString();
                     }
           
 
@@ -246,8 +246,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.BackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.BackColor = Color.DarkOrange;
             }
 
   
@@ -280,8 +280,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
                 mode = "error";
                 this.ErrorDetails = "Item Code";
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.BackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["item_code"].Style.BackColor = Color.DarkOrange;
 
             }
 
@@ -318,8 +318,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["uom"].Style.BackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["uom"].Style.BackColor = Color.DarkOrange;
 
             }
 
@@ -339,11 +339,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 mode = "error";
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.BackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.BackColor = Color.DarkOrange;
             }
 
 
+            //Validate Date  <Date Now
+            DateTime date1 = Convert.ToDateTime(SpDateNeeded);
+            DateTime date2 = DateTime.UtcNow;
+            if (date1 > date2)
+            {
+
+
+            }
+            else
+            {
+
+                mode = "error";
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.BackColor = Color.DarkOrange;
+            }
 
 
 
@@ -359,8 +374,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                     mode = "error";
      
-                    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
-                    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty"].Style.BackColor = Color.DarkOrange;
+                    DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                    DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["qty"].Style.BackColor = Color.DarkOrange;
                 }
             }
             catch (Exception ex)
@@ -401,7 +416,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.ErrorDetails = "Duplicate Order";
                     this.GlobalStatePopup.ErrorNotify(ErrorDetails);
 
-                    dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                    DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
 
 
@@ -413,11 +428,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
 
-            if (dgvRawMats.Rows.Count >= 1)
+            if (DgvImportMrsOrder.Rows.Count >= 1)
             {
-                int i = dgvRawMats.CurrentRow.Index + 1;
-                if (i >= -1 && i < dgvRawMats.Rows.Count)
-                    dgvRawMats.CurrentCell = dgvRawMats.Rows[i].Cells[0];
+                int i = DgvImportMrsOrder.CurrentRow.Index + 1;
+                if (i >= -1 && i < DgvImportMrsOrder.Rows.Count)
+                    DgvImportMrsOrder.CurrentCell = DgvImportMrsOrder.Rows[i].Cells[0];
                 else
                 {
 
@@ -430,12 +445,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     {
 
 
-                        this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                        this.DgvImportMrsOrder.CurrentCell = this.DgvImportMrsOrder.Rows[0].Cells[this.DgvImportMrsOrder.CurrentCell.ColumnIndex];
                         this.InsertDataPerRow();
                     }
 
 
-                    this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                    this.DgvImportMrsOrder.CurrentCell = this.DgvImportMrsOrder.Rows[0].Cells[this.DgvImportMrsOrder.CurrentCell.ColumnIndex];
+                    this.DgvImportMrsOrder.ClearSelection();
                     return;
                 }
             }
@@ -539,11 +555,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
 
-            if (this.dgvRawMats.Rows.Count >= 1)
+            if (this.DgvImportMrsOrder.Rows.Count >= 1)
             {
-                int i = this.dgvRawMats.CurrentRow.Index + 1;
-                if (i >= -1 && i < this.dgvRawMats.Rows.Count)
-                    this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[i].Cells[0];
+                int i = this.DgvImportMrsOrder.CurrentRow.Index + 1;
+                if (i >= -1 && i < this.DgvImportMrsOrder.Rows.Count)
+                    this.DgvImportMrsOrder.CurrentCell = this.DgvImportMrsOrder.Rows[i].Cells[0];
                 else
                 {
 
@@ -555,14 +571,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     else
                     {
 
-                        this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                        this.DgvImportMrsOrder.CurrentCell = this.DgvImportMrsOrder.Rows[0].Cells[this.DgvImportMrsOrder.CurrentCell.ColumnIndex];
 
                         this.GlobalStatePopup.ImportSuccessFully();
                      FrmImportMrsOrders_Load(new object(), new System.EventArgs());
                     }
 
 
-                    this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                    this.DgvImportMrsOrder.CurrentCell = this.DgvImportMrsOrder.Rows[0].Cells[this.DgvImportMrsOrder.CurrentCell.ColumnIndex];
                     return;
                 }
             }
@@ -599,7 +615,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            myClass.DataGridViewBindingClearSelection(this.dgvRawMats);
+            myClass.DataGridViewBindingClearSelection(this.DgvImportMrsOrder);
         }
 
         private void matbtnUpload_Click(object sender, EventArgs e)
@@ -616,7 +632,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             {
 
                 this.matbtnUpload.Enabled = false;
-                this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
+                this.DgvImportMrsOrder.CurrentCell = this.DgvImportMrsOrder.Rows[0].Cells[this.DgvImportMrsOrder.CurrentCell.ColumnIndex];
 
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to upload the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

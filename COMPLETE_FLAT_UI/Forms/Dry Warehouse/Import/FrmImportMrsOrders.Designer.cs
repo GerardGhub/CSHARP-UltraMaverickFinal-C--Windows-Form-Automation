@@ -44,7 +44,7 @@
             this.drymaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mattxtSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.DgvImportMrsOrder = new Guna.UI2.WinForms.Guna2DataGridView();
             this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).BeginInit();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvImportMrsOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnits)).BeginInit();
             this.materialCard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drywhordersBindingSource)).BeginInit();
@@ -136,7 +136,7 @@
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.dgvRawMats);
+            this.materialCard1.Controls.Add(this.DgvImportMrsOrder);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(29, 74);
@@ -147,18 +147,18 @@
             this.materialCard1.Size = new System.Drawing.Size(963, 462);
             this.materialCard1.TabIndex = 578;
             // 
-            // dgvRawMats
+            // DgvImportMrsOrder
             // 
-            this.dgvRawMats.AllowUserToAddRows = false;
-            this.dgvRawMats.AllowUserToDeleteRows = false;
-            this.dgvRawMats.AllowUserToResizeRows = false;
+            this.DgvImportMrsOrder.AllowUserToAddRows = false;
+            this.DgvImportMrsOrder.AllowUserToDeleteRows = false;
+            this.DgvImportMrsOrder.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvRawMats.AutoGenerateColumns = false;
-            this.dgvRawMats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvRawMats.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvRawMats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvRawMats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.DgvImportMrsOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvImportMrsOrder.AutoGenerateColumns = false;
+            this.DgvImportMrsOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvImportMrsOrder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.DgvImportMrsOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvImportMrsOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,10 +166,10 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvRawMats.ColumnHeadersHeight = 40;
-            this.dgvRawMats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvRawMats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvImportMrsOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvImportMrsOrder.ColumnHeadersHeight = 40;
+            this.DgvImportMrsOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DgvImportMrsOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.date_ordered,
             this.fox,
             this.item_code,
@@ -187,8 +187,8 @@
             this.uomDataGridViewTextBoxColumn,
             this.qtyDataGridViewTextBoxColumn,
             this.foxDataGridViewTextBoxColumn});
-            this.dgvRawMats.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvRawMats.DataSource = this.drywhordersBindingSource1;
+            this.DgvImportMrsOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DgvImportMrsOrder.DataSource = this.drywhordersBindingSource1;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,14 +196,14 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRawMats.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvRawMats.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRawMats.EnableHeadersVisualStyles = false;
-            this.dgvRawMats.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvRawMats.Location = new System.Drawing.Point(5, 6);
-            this.dgvRawMats.MultiSelect = false;
-            this.dgvRawMats.Name = "dgvRawMats";
-            this.dgvRawMats.ReadOnly = true;
+            this.DgvImportMrsOrder.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DgvImportMrsOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvImportMrsOrder.EnableHeadersVisualStyles = false;
+            this.DgvImportMrsOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.DgvImportMrsOrder.Location = new System.Drawing.Point(5, 6);
+            this.DgvImportMrsOrder.MultiSelect = false;
+            this.DgvImportMrsOrder.Name = "DgvImportMrsOrder";
+            this.DgvImportMrsOrder.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -211,38 +211,38 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRawMats.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvRawMats.RowHeadersVisible = false;
-            this.dgvRawMats.RowHeadersWidth = 102;
-            this.dgvRawMats.RowTemplate.DividerHeight = 5;
-            this.dgvRawMats.RowTemplate.Height = 40;
-            this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(953, 450);
-            this.dgvRawMats.TabIndex = 5;
-            this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
-            this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvRawMats.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvRawMats.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            this.dgvRawMats.ThemeStyle.HeaderStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvRawMats.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvRawMats.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvRawMats.ThemeStyle.ReadOnly = true;
-            this.dgvRawMats.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvRawMats.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvRawMats.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvRawMats.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dgvRawMats.ThemeStyle.RowsStyle.Height = 40;
-            this.dgvRawMats.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            this.dgvRawMats.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
-            this.dgvRawMats.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
-            this.dgvRawMats.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvRawMats_DataBindingComplete);
+            this.DgvImportMrsOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DgvImportMrsOrder.RowHeadersVisible = false;
+            this.DgvImportMrsOrder.RowHeadersWidth = 102;
+            this.DgvImportMrsOrder.RowTemplate.DividerHeight = 5;
+            this.DgvImportMrsOrder.RowTemplate.Height = 40;
+            this.DgvImportMrsOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvImportMrsOrder.Size = new System.Drawing.Size(953, 450);
+            this.DgvImportMrsOrder.TabIndex = 5;
+            this.DgvImportMrsOrder.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
+            this.DgvImportMrsOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DgvImportMrsOrder.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DgvImportMrsOrder.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DgvImportMrsOrder.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DgvImportMrsOrder.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DgvImportMrsOrder.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.DgvImportMrsOrder.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.DgvImportMrsOrder.ThemeStyle.HeaderStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.DgvImportMrsOrder.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.DgvImportMrsOrder.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvImportMrsOrder.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
+            this.DgvImportMrsOrder.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DgvImportMrsOrder.ThemeStyle.HeaderStyle.Height = 40;
+            this.DgvImportMrsOrder.ThemeStyle.ReadOnly = true;
+            this.DgvImportMrsOrder.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DgvImportMrsOrder.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.DgvImportMrsOrder.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvImportMrsOrder.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DgvImportMrsOrder.ThemeStyle.RowsStyle.Height = 40;
+            this.DgvImportMrsOrder.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            this.DgvImportMrsOrder.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.Window;
+            this.DgvImportMrsOrder.CurrentCellChanged += new System.EventHandler(this.dgvRawMats_CurrentCellChanged);
+            this.DgvImportMrsOrder.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvRawMats_DataBindingComplete);
             // 
             // date_ordered
             // 
@@ -671,7 +671,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ultraMaverickDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drymaterialsBindingSource)).EndInit();
             this.materialCard1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvImportMrsOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnits)).EndInit();
             this.materialCard3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.drywhordersBindingSource)).EndInit();
@@ -688,7 +688,7 @@
         private System.Windows.Forms.BindingSource drymaterialsBindingSource;
         private MaterialSkin.Controls.MaterialTextBox mattxtSearch;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvRawMats;
+        private Guna.UI2.WinForms.Guna2DataGridView DgvImportMrsOrder;
         private Guna.UI2.WinForms.Guna2DataGridView dgvUnits;
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private UltraMaverickDBDataSetTableAdapters.tbl_storesTableAdapter tbl_storesTableAdapter;

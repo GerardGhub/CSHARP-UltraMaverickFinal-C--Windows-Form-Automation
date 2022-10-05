@@ -450,7 +450,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             "", 
             Convert.ToString(user_id), 
             "", 
-            "", 
+            this.SpRegion, 
             "add");
 
 
