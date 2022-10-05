@@ -17,18 +17,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmAddNewPartialRejectReceiving : MaterialForm
     {
-        frmDryReceivingModule ths;
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
-        IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly frmDryReceivingModule ths;
+        private IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
+        readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
 
 
 
-     
         DataSet dSet_temp = new DataSet();
         public frmAddNewPartialRejectReceiving(frmDryReceivingModule frm, string item_description, string quantity,
             int primary_key, int po_number, int projection_identity)
@@ -59,14 +57,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         public int sp_projection_identity { get; set; }
         private void frmAddNewPartialRejectReceiving_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             this.sp_added_by = userinfo.user_id.ToString();
             this.WindowsLoadingBinder();
             this.loadItemClassDropdown();
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
         
+        }
+
+
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
@@ -75,7 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("tblDryPartialReceivingRejection_major");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("tblDryPartialReceivingRejection_major");
 
         }
 
@@ -304,9 +307,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.mattxtqtyreject.Focus();
                 return;
             }
-            //MessageBox.Show("+",sp_index_id.ToString());
+
             this.dSet.Clear();
-            this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(0,
+            this.dSet = g_objStoredProcCollection.sp_tblDryPartialReceivingRejection(0,
               sp_index_id, 0, 0, metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", 0, "getbyname");
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -359,9 +362,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
                  
                     this.dSet.Clear();
-                    this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
+                    this.dSet = g_objStoredProcCollection.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
                         sp_index_id, sp_po_number, Convert.ToInt32(totalSummaryofReject), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", sp_projection_identity, "edit");
-                    this.AddedSuccessfully();
+                    this.GlobalStatePopup.SuccessFullySave();
                     this.SearchMethodJarVarCallingSP();
                     this.doSearchInTextBoxCmb();
                     frmAddNewPartialRejectReceiving_Load(sender, e);
@@ -402,20 +405,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 //return;
             }
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save new reject?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save new reject?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
-             
-
-
-
+            
                 this.dSet.Clear();
-                this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(0,
-                    sp_index_id, sp_po_number, Convert.ToInt32(mattxtqtyreject.Text), metroCmbRejectRemarks.Text, sp_added_by, "", sp_added_by, "", sp_projection_identity,  "add");
-                this.AddedSuccessfully();
+                this.dSet = g_objStoredProcCollection.sp_tblDryPartialReceivingRejection(0,
+                sp_index_id, sp_po_number, Convert.ToInt32(mattxtqtyreject.Text), 
+                metroCmbRejectRemarks.Text, 
+                sp_added_by, 
+                "", 
+                sp_added_by, 
+                "", 
+                sp_projection_identity,
+                "add");
+                this.GlobalStatePopup.SuccessFullySave();
                 frmAddNewPartialRejectReceiving_Load(sender, e);
-                this.Close();
-           
+                this.Close();           
             }
             else
             {
@@ -425,32 +430,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
 
 
-        public void AddedSuccessfully()
-        {
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Resources.new_logo;
-            popup.TitleText = "Ultra Maverick Notifications";
-            popup.TitleColor = Color.White;
-            popup.TitlePadding = new Padding(95, 7, 0, 0);
-            popup.TitleFont = new Font("Tahoma", 10);
-            popup.ContentText = "Added Successfully";
-            popup.ContentColor = Color.White;
-            popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-            popup.Size = new Size(350, 100);
-            popup.ImageSize = new Size(70, 80);
-            popup.BodyColor = Color.Green;
-            popup.Popup();
-            popup.BorderColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            popup.Delay = 500;
-            popup.AnimationInterval = 10;
-            popup.AnimationDuration = 1000;
-
-
-            popup.ShowOptionsButton = true;
-
-
-        }
         private void dgvLotData_CurrentCellChanged(object sender, EventArgs e)
         {
             this.showValueCell();
@@ -508,8 +488,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you remove the reject?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.dSet.Clear();
-                //MessageBox.Show(sp_primary_key.ToString());
-                this.dSet = objStorProc.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
+         
+                this.dSet = g_objStoredProcCollection.sp_tblDryPartialReceivingRejection(Convert.ToInt32(sp_primary_key),
                     0, 0, 0, "", sp_added_by, "", sp_added_by, "", sp_projection_identity , "delete");
                 this.DeletedSuccessfully();
                 frmAddNewPartialRejectReceiving_Load(sender, e);
