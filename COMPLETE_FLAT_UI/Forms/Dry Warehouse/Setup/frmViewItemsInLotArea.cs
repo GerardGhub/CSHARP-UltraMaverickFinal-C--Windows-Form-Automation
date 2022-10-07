@@ -14,19 +14,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Setup
 {
     public partial class frmViewItemsInLotArea : MaterialForm
     {
-        IStoredProcedures objStorProc = null;
-        myclasses xClass = new myclasses();
-        IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
-
-        int p_id = 0;
-
         DateTime dNow = DateTime.Now;
-        //Boolean ready = false;
-
-
         DataSet dSet_temp = new DataSet();
 
         frmLotManagement ths;
@@ -54,8 +45,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Setup
         private void ConnectionInit()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
+
+ 
         private void StaticWindowState()
         {
            this.matxtLotNo.Text = this.LotNumber;
@@ -86,7 +79,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Setup
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("LotCollectionofData");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("LotCollectionofData");
 
         }
 

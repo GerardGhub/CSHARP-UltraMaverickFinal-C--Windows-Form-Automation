@@ -82,7 +82,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 this.GlobalStatePopup.DocumentAlreadyOpen();
@@ -220,7 +220,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 this.GlobalStatePopup.InvalidDocumentTemplate();
             }

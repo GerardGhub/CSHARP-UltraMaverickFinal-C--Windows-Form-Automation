@@ -24,12 +24,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         readonly myclasses myClass = new myclasses();
         private DataSet dSet = new DataSet();
         readonly Store_Order_Activation_Remarks StoreOrderActivationRemarksEntity = new Store_Order_Activation_Remarks();
-
-        string mode = "";
-
-
         DateTime dNow = DateTime.Now;
- 
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         DataSet dSet_temp = new DataSet();
@@ -120,8 +115,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {
-            //Mode
-            this.mode = "add";
+ 
             //Edit
             this.matBtnEdit.Visible = false;
             //Cancel
@@ -207,7 +201,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void matBtnCancel_Click(object sender, EventArgs e)
         {
             //Mode of System
-            this.mode = "";
+   
 
 
 
@@ -223,9 +217,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matBtnEdit_Click(object sender, EventArgs e)
         {
-            //Mode
-            mode = "edit";
-       
+
 
             //Button Controls Visibility
             this.matBtnDelete.Visible = false;
@@ -310,7 +302,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
-                        mode = "delete";
+                   
                         dSet_temp.Clear();
                         dSet_temp = g_objStoredProcCollection
                         .sp_store_order_activation_remarks(this.StoreOrderActivationRemarksEntity.Soar_Id,
@@ -341,7 +333,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you  to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        mode = "delete_activation";
                         dSet_temp.Clear();
                         dSet_temp = g_objStoredProcCollection
                         .sp_store_order_activation_remarks(this.StoreOrderActivationRemarksEntity.Soar_Id,

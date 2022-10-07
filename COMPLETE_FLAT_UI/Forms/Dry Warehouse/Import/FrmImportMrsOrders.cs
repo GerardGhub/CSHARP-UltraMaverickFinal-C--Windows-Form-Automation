@@ -3,15 +3,10 @@ using ExcelDataReader;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Models;
 
@@ -117,9 +112,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
+                this.GlobalStatePopup.DocumentAlreadyOpen();
                 this.GlobalStatePopup.DocumentAlreadyOpen();
             }
 
@@ -160,7 +156,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 this.GlobalStatePopup.InvalidDocumentTemplate();
