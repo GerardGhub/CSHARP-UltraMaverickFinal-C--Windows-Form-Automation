@@ -213,9 +213,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void SaveMethod1()
         {
 
-
-       
-
                 dSet.Clear();
                 dSet = objStorProc
                 .sp_material_request_logs(0,
@@ -328,34 +325,42 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             DateTime dd;
             if (DateTime.TryParse(SpDateNeeded, out dd))
             {
+                ////Validate Date  <Date Now
+                if (Convert.ToDateTime(SpDateNeeded).ToString("MM/dd/yyyy") == Convert.ToDateTime(DateTime.Now).ToString("MM/dd/yyyy"))
+                {
 
+                }
+                else
+                {
+                    DateTime date1 = Convert.ToDateTime(SpDateNeeded);
+                    DateTime date2 = DateTime.UtcNow;
+                    if (date1 > date2)
+                    {
+
+
+                    }
+
+                    else
+                    {
+
+                        mode = "error";
+                        DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
+                        DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.BackColor = Color.DarkOrange;
+                    }
+
+                }
 
             }
+
             else
             {
-
                 mode = "error";
                 DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
                 DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.BackColor = Color.DarkOrange;
             }
 
 
-            //Validate Date  <Date Now
-            DateTime date1 = Convert.ToDateTime(SpDateNeeded);
-            DateTime date2 = DateTime.UtcNow;
-            if (date1 > date2)
-            {
-
-
-            }
-            else
-            {
-
-                mode = "error";
-                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.SelectionBackColor = Color.DarkOrange;
-                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["DateNeeded"].Style.BackColor = Color.DarkOrange;
-            }
-
+            //MessageBox.Show(Convert.ToDateTime(DateTime.Now).ToString("MM/dd/yyyy"));
 
 
             try
