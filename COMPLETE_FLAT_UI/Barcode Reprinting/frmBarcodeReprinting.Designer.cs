@@ -66,12 +66,12 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.materialCard2.Controls.Add(this.dgvReprinting);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(14, 201);
+            this.materialCard2.Location = new System.Drawing.Point(30, 201);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(992, 510);
+            this.materialCard2.Size = new System.Drawing.Size(963, 462);
             this.materialCard2.TabIndex = 6;
             // 
             // crV1
@@ -144,7 +144,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.dgvReprinting.RowTemplate.DividerHeight = 5;
             this.dgvReprinting.RowTemplate.Height = 40;
             this.dgvReprinting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReprinting.Size = new System.Drawing.Size(982, 498);
+            this.dgvReprinting.Size = new System.Drawing.Size(953, 450);
             this.dgvReprinting.TabIndex = 594;
             this.dgvReprinting.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvReprinting.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -241,7 +241,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.mattxtReceivingID.Depth = 0;
             this.mattxtReceivingID.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtReceivingID.Hint = "Receiving ID";
-            this.mattxtReceivingID.Location = new System.Drawing.Point(217, 7);
+            this.mattxtReceivingID.Location = new System.Drawing.Point(237, 7);
             this.mattxtReceivingID.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtReceivingID.MaxLength = 50;
             this.mattxtReceivingID.MouseState = MaterialSkin.MouseState.OUT;
@@ -259,7 +259,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(912, 724);
+            this.lbltotalrecords.Location = new System.Drawing.Point(906, 673);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 570;
@@ -272,7 +272,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(954, 740);
+            this.label3.Location = new System.Drawing.Point(948, 689);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 571;
@@ -285,7 +285,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.txtItemCode.Depth = 0;
             this.txtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
             this.txtItemCode.Hint = "Item Code";
-            this.txtItemCode.Location = new System.Drawing.Point(780, 31);
+            this.txtItemCode.Location = new System.Drawing.Point(725, 31);
             this.txtItemCode.Margin = new System.Windows.Forms.Padding(1);
             this.txtItemCode.MaxLength = 50;
             this.txtItemCode.MouseState = MaterialSkin.MouseState.OUT;
@@ -303,7 +303,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.bunifuDatepickerReceivingDate.CustomFormat = "yyyy-M-dd";
             this.bunifuDatepickerReceivingDate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuDatepickerReceivingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuDatepickerReceivingDate.Location = new System.Drawing.Point(8, 49);
+            this.bunifuDatepickerReceivingDate.Location = new System.Drawing.Point(28, 49);
             this.bunifuDatepickerReceivingDate.Name = "bunifuDatepickerReceivingDate";
             this.bunifuDatepickerReceivingDate.Size = new System.Drawing.Size(170, 33);
             this.bunifuDatepickerReceivingDate.TabIndex = 574;
@@ -314,7 +314,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(6, 28);
+            this.materialLabel1.Location = new System.Drawing.Point(26, 28);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -333,12 +333,12 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.materialCard1.Controls.Add(this.txtItemCode);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(13, 82);
+            this.materialCard1.Location = new System.Drawing.Point(30, 82);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard1.Size = new System.Drawing.Size(993, 97);
+            this.materialCard1.Size = new System.Drawing.Size(963, 97);
             this.materialCard1.TabIndex = 576;
             // 
             // matbtnPrint
@@ -348,7 +348,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             this.matbtnPrint.DrawShadows = true;
             this.matbtnPrint.HighEmphasis = true;
             this.matbtnPrint.Icon = null;
-            this.matbtnPrint.Location = new System.Drawing.Point(13, 720);
+            this.matbtnPrint.Location = new System.Drawing.Point(30, 673);
             this.matbtnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matbtnPrint.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnPrint.Name = "matbtnPrint";

@@ -1,14 +1,7 @@
-﻿using COMPLETE_FLAT_UI.Models;
-using CrystalDecisions.CrystalReports.Engine;
+﻿using CrystalDecisions.CrystalReports.Engine;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 using ULTRAMAVERICK.Report;
@@ -18,18 +11,14 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 {
     public partial class frmBarcodeReprinting : MaterialForm
     {
-
-        myclasses myClass = new myclasses();
-
-        IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
-        DataSet dset3 = new DataSet();
- 
+        DataSet dset3 = new DataSet(); 
         ReportDocument rpt = new ReportDocument();
         string Rpt_Path = "";
         DataSet dSet = new DataSet();
-        IStoredProcedures objStorProc = null;
         public frmBarcodeReprinting()
         {
             InitializeComponent();
@@ -85,7 +74,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
 
 
-            objStorProc = myClass.g_objStoredProc.GetCollections();
+           g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
 
             myglobal.global_module = "Active";
             this.load_search();
@@ -100,7 +89,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
             dset_emp1.Clear();
 
-            dset_emp1 = objStorProc.sp_getMajorTables("searchreceivingreprintDry");
+            dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchreceivingreprintDry");
 
             this.doSearch();
 
@@ -246,7 +235,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
         private void matbtnPrint_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Print the Barcode Receiving Entry ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Print the Barcode Receiving Entry ? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Print();
             }
