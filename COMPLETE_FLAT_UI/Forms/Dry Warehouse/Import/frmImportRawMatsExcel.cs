@@ -563,7 +563,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.WarehouseIdentity.ToString(),            
                     row.Cells["sub_category"].Value.ToString(),
                     row.Cells["primary_unit"].Value.ToString(),
-                    this.conversion_main,
+                    row.Cells["conversion"].Value.ToString(),
                     row.Cells["item_type"].Value.ToString(),
                     "",
                     userinfo.user_id.ToString(),
@@ -611,7 +611,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to upload a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    SaveMethod1();
+                    this.SaveMethod1();
                 }
                 else
                 {
