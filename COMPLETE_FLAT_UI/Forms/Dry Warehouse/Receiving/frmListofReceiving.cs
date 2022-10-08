@@ -14,17 +14,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmListofReceiving : MaterialForm
     {
-        myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
-        IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        private IStoredProcedures g_objStoredProcCollection = null;
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
-
-
         DateTime dNow = DateTime.Now;
-      
-
         DataSet dSet_temp = new DataSet();
         public frmListofReceiving()
         {
@@ -34,7 +27,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void OpenConnection()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
         }
         private void frmListofReceiving_Load(object sender, EventArgs e)
         {
@@ -59,7 +52,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
            
-                this.xClass.fillDataGridView(this.dgvSubCategory, "Po_Receiving_Warehouse", dSet);
+                this.myClass.fillDataGridView(this.dgvSubCategory, "Po_Receiving_Warehouse", dSet);
              
                 this.lblgrandtotaldata.Text = this.dgvSubCategory.RowCount.ToString();
                 this.dgvSubCategory.Columns["PrimaryID"].Visible = false;
@@ -78,7 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             try
             {
 
-                this.xClass.fillDataGridView(this.dgvSubCategory, "Po_Receiving_Warehouse_Nearly_Expiry", dSet);
+                this.myClass.fillDataGridView(this.dgvSubCategory, "Po_Receiving_Warehouse_Nearly_Expiry", dSet);
 
                 this.lblgrandtotaldata.Text = this.dgvSubCategory.RowCount.ToString();
                 this.dgvSubCategory.Columns["PrimaryID"].Visible = false;
