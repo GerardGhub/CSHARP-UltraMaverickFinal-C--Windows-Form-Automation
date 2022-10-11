@@ -15,9 +15,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
     public partial class frmChooseLotNumber : MaterialForm
     {
-        frmDryReceivingModule ths;
+        readonly frmDryReceivingModule ths;
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+        readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
 
   

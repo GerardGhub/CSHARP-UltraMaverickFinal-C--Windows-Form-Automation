@@ -93,7 +93,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.matRadioActive.Checked = true;
                 this.OpenConnection();
                 this.showReceivingData();
+                this.dgvSubCategory.Columns["is_expirable"].Visible = false;
             }
+
         }
 
         private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)
@@ -105,6 +107,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 this.OpenConnection();
                 this.showReceivingDataNearlyExpiry();
             }
+
         }
     }
 }
