@@ -34,12 +34,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         readonly myclasses myClass = new myclasses();
         string mode = "";
         int total = 0;
+        int haserror = 0;
+        int StoreOrderReset = 0;
         public frmStoreOrderRestAPIcall()
         {
             InitializeComponent();
         }
 
-
+        public string From { get; set; }
+        public string sp_fox2 { get; set; }
+        public string sp_route2 { get; set; }
+        public string sp_area2 { get; set; }
+        public string To { get; set; }
         public int RowCountAPiOrder { get; set; }
         public int TotalValidData { get; set; }
         public int InvalidInformation { get; set; }
@@ -93,21 +99,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void frmStoreOrderRestAPIcall_Load(object sender, EventArgs e)
         {
-  
+            this.dtpfrom.MinDate = dtpfrom.Value.AddDays(-4);
+            this.dtpfrom.MaxDate = DateTime.Now;
             this.ConnectionInit();
             //this.GetStoreOrders();
             this.MainLoader();
            
 
             this.user_id = userinfo.user_id;
-            this.MatRadio1.Checked = true;
+            this.matRadio0.Checked = true;
 
      
             this.matlblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
             this.matlblTime.Visible = false;
             this.ValidateTheFuckingCutOfftimeWithButtonControlls();
             this.SubOrdersMenu();
-            this.LoadFilterAlreadySync();
+            //this.LoadFilterAlreadySync();
         }
 
         private void  SubOrdersMenu()
@@ -125,8 +132,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-                myClass.fillDataGridView(this.DgvReceivedOrder, "dry_wh_orders_received", dSet);
-
+                //myClass.fillDataGridView(this.DgvReceivedOrder, "dry_wh_orders_received", dSet);
+                myClass.fillDataGridView(this.DgvReceivedOrder, "dry_wh_orders_duplicate_entry", dSet);
                 this.ReceivedInformation = this.DgvReceivedOrder.RowCount;
                 this.MatRadio2.Text = "Duplicated Lists" + ":" + (this.ReceivedInformation);
 
@@ -194,6 +201,80 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
 
+        private void showDryWhForSyncing()      //method for loading available_menus
+        {
+            try
+            {
+
+                //myClass.fillDataGridView(this.DgvReceivedOrder, "dry_wh_orders_received", dSet);
+                myClass.fillDataGridView(this.DgvForSync, "dry_wh_orders_duplicate_entry_for_syncing", dSet);
+                //this.ReceivedInformation = this.DgvReceivedOrder.RowCount;
+                //this.MatRadio2.Text = "Duplicated Lists" + ":" + (this.ReceivedInformation);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.DgvForSync.Columns["is_active"].Visible = false;
+            this.DgvForSync.Columns["added_by"].Visible = false;
+            this.DgvForSync.Columns["primary_id"].Visible = false;
+            this.DgvForSync.Columns["is_for_validation"].Visible = false;
+            this.DgvForSync.Columns["is_approved"].Visible = false;
+            this.DgvForSync.Columns["is_approved_by"].Visible = false;
+            this.DgvForSync.Columns["is_approved_date"].Visible = false;
+            this.DgvForSync.Columns["is_approved_prepa_date"].Visible = false;
+            this.DgvForSync.Columns["is_cancelled"].Visible = false;
+            this.DgvForSync.Columns["is_cancelled_by"].Visible = false;
+            this.DgvForSync.Columns["is_returned"].Visible = false;
+            this.DgvForSync.Columns["is_returned_by"].Visible = false;
+            this.DgvForSync.Columns["date_added"].Visible = false;
+            this.DgvForSync.Columns["is_cancelled_date"].Visible = false;
+            this.DgvForSync.Columns["is_cancelled_reason"].Visible = false;
+            this.DgvForSync.Columns["updated_by"].Visible = false;
+            this.DgvForSync.Columns["updated_date"].Visible = false;
+            this.DgvForSync.Columns["is_prepared"].Visible = false;
+            this.DgvForSync.Columns["is_prepared_by"].Visible = false;
+            this.DgvForSync.Columns["is_prepared_date"].Visible = false;
+            this.DgvForSync.Columns["start_time_stamp"].Visible = false;
+
+            this.DgvForSync.Columns["is_returned_date"].Visible = false;
+            this.DgvForSync.Columns["is_returned_reason"].Visible = false;
+
+            this.DgvForSync.Columns["start_by_user_id"].Visible = false;
+            this.DgvForSync.Columns["end_time_stamp_per_items"].Visible = false;
+            this.DgvForSync.Columns["force_prepared_status"].Visible = false;
+            this.DgvForSync.Columns["total_state_repack"].Visible = false;
+            this.DgvForSync.Columns["prepared_allocated_qty"].Visible = false;
+            this.DgvForSync.Columns["is_wh_approved"].Visible = false;
+            this.DgvForSync.Columns["is_wh_approved_by"].Visible = false;
+            this.DgvForSync.Columns["is_wh_approved_date"].Visible = false;
+            this.DgvForSync.Columns["is_wh_checker_cancel"].Visible = false;
+            this.DgvForSync.Columns["is_wh_checker_cancel_by"].Visible = false;
+
+            this.DgvForSync.Columns["is_wh_checker_cancel_date"].Visible = false;
+            this.DgvForSync.Columns["is_wh_checker_cancel_reason"].Visible = false;
+            this.DgvForSync.Columns["dispossal_status"].Visible = false;
+            this.DgvForSync.Columns["is_selected"].Visible = false;
+
+
+            this.DgvForSync.Columns["is_selected_move_order_by"].Visible = false;
+            this.DgvForSync.Columns["is_selected_move_order_date"].Visible = false;
+            this.DgvForSync.Columns["wh_checker_move_order_no"].Visible = false;
+            this.DgvForSync.Columns["total_state_repack_cancelled_qty"].Visible = false;
+            this.DgvForSync.Columns["logic_return_by"].Visible = false;
+
+            this.DgvForSync.Columns["logic_return_by"].Visible = false;
+            this.DgvForSync.Columns["logic_return_date"].Visible = false;
+            this.DgvForSync.Columns["logic_return_reason"].Visible = false;
+            this.DgvForSync.Columns["time_stamp_update"].Visible = false;
+            this.DgvForSync.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+
+        }
+
+
+
         private void ValidateTheFuckingCutOfftimeWithButtonControlls()
         {
 
@@ -239,6 +320,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
                 this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
+
+           
                 //this.lbltotalrecords.BackColor = Color.WhiteSmoke;
             }
             catch (Exception ex)
@@ -251,14 +334,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrdersCutOff.Columns["added_by"].Visible = false;
             this.dgvStoreOrdersCutOff.Columns["date_added"].Visible = false;
         }
+
+
+
         private void  MainLoader()
         {
             this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
         }
         private void GetStoreOrders()
         {
-            this.dgvStoreOrder.DataSource = GetRESTData("https://genus.rdfmis.ph/StoreAPI/api/orders.php?token=8AFASbzK5OH0E9OuZF5LlI9qZo8fqr1X");
+            try
+            {
+                this.dgvStoreOrder.DataSource = GetRESTData("https://genus.rdfmis.ph/StoreAPI/api/orders.php?token=8AFASbzK5OH0E9OuZF5LlI9qZo8fqr1X&from=" + dtpfrom.Text + "&to=" + dtpto.Text + "");
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+    
             //bool sample =  (this.textBox1.Text == String.Empty) ? this.textBox1.Enabled = false : this.textBox1.Enabled = true;
 
             //dSet_temp = (DataSet)this.dgvStoreOrder.DataSource;
@@ -303,6 +399,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.RemoveRowLoop();
         }
 
+
+        void InsertDuplicateEntry()
+        {
+            dSet.Clear();
+            dSet = objStorProc.sp_dry_wh_orders(0,
+                Convert.ToInt32(sp_order_id),
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+
+                 Convert.ToInt32(user_id).ToString(),
+                 SpdateNeeded,
+                "add-duplicate-entry");
+        }
         private void RemoveRowLoop()
         {
             try
@@ -335,7 +454,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     {
                         return;
                     }
-                        //MessageBox.Show("Ax" + sp_order_id);
+
+                    //MessageBox.Show("Ax" + sp_order_id);
+                    this.InsertDuplicateEntry();
                     dgvStoreOrder.Rows.RemoveAt(this.dgvStoreOrder.SelectedRows[0].Index);
 
                 }
@@ -352,6 +473,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
               
                             this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
                             this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
+                    
+                            this.matRadio0.Text = "API" + ":" + (lbltotalrecords.Text);
                             return;
                         }
                     }
@@ -392,6 +515,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.sp_uom = this.dgvStoreOrder.CurrentRow.Cells["uom"].Value.ToString();
                     this.sp_qty = this.dgvStoreOrder.CurrentRow.Cells["qty"].Value.ToString();
                     this.SpdateNeeded = this.dgvStoreOrder.CurrentRow.Cells["dateNeeded"].Value.ToString();
+                    this.sp_fox2 = this.dgvStoreOrder.CurrentRow.Cells["store_code"].Value.ToString();
+                    this.sp_route2 = this.dgvStoreOrder.CurrentRow.Cells["route"].Value.ToString();
+                    this.sp_area2 = this.dgvStoreOrder.CurrentRow.Cells["area"].Value.ToString();
                     if (this.lbltotalrecords.Text == "0")
                     {
 
@@ -411,7 +537,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matbtnUpload_Click(object sender, EventArgs e)
         {
-            if (this.MatRadio1.Checked == true)
+            if (this.lbltotalrecords.Text == "0") { return; }
+            if (this.matRadio0.Checked == true)
             {
                 this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
                 //Start
@@ -428,23 +555,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
                 //End
             }
-            else if (this.MatRadio3.Checked == true)
-            {
-                this.dgvSubCategory.CurrentCell = this.dgvSubCategory.Rows[0].Cells[this.dgvSubCategory.CurrentCell.ColumnIndex];
-                //Start
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
+            //else if (this.MatRadio3.Checked == true)
+            //{
+            //    this.dgvSubCategory.CurrentCell = this.dgvSubCategory.Rows[0].Cells[this.dgvSubCategory.CurrentCell.ColumnIndex];
+            //    //Start
+            //    if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
            
-                        this.SaveMethodPendingInformations();
+            //            this.SaveMethodPendingInformations();
                
-                }
-                else
-                {
-                    return;
-                }
-                //End
-                //this.SaveMethodPendingInformations();
-            }
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+            
+            //}
 
 
         }
@@ -508,48 +634,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void SaveMethod1()
         {
-            //Check The store if existg on the system
-            //dSet.Clear();
-            //dSet = objStorProc.sp_dry_wh_orders(0,
-            //    0,
-            //    sp_date_ordered,
-            //    sp_fox,
-            //    sp_store_name,
-            //    sp_route,
-            //    sp_area,
-            //    sp_category,
-            //    sp_item_code,
-            //    sp_description,
-            //    sp_uom,
-            //    sp_qty,
-            //    "1",
-            //    "",
-            //    "",
-            //    "",
-            //    "getbyname");
-
-            //if (dSet.Tables[0].Rows.Count > 0)
-            //{
-
-
-            //}
-            //else
-            //{
-            //    mode = "error";
-            //    this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
-            //    this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-            //}
+   
 
             //Check The store Code Area and Route if existg on the system
             dSet.Clear();
             dSet = objStorProc.sp_dry_wh_orders(0,
                 0,
                 sp_date_ordered,
-                sp_fox,
+                sp_fox2,
                 sp_store_name,
-                sp_route,
-                sp_area,
+                sp_route2,
+                sp_area2,
                 sp_category,
                 sp_item_code,
                 sp_description,
@@ -566,16 +661,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 //RawMatsAlreadyExist();
 
 
-
+    
 
             }
             else
             {
+                this.haserror = 1;
                 mode = "error";
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["store_code"].Style.BackColor = Color.DarkOrange;
+
 
             }
+
+
 
             //Check The Item Code if existg on the system
             dSet.Clear();
@@ -600,16 +699,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
-
-
             }
             else
             {
+                this.haserror = 2;
                 mode = "error";
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["item_code"].Style.BackColor = Color.DarkOrange;
 
             }
 
@@ -637,16 +733,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 //RawMatsAlreadyExist();
 
-
+     
 
 
             }
             else
             {
+                this.haserror = 3;
                 mode = "error";
-
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["area"].Style.SelectionBackColor = Color.DarkOrange;
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["area"].Style.BackColor = Color.DarkOrange;
 
             }
 
@@ -673,17 +769,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
+            
 
 
 
             }
             else
             {
+                this.haserror = 4;
                 this.mode = "error";
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["route"].Style.SelectionBackColor = Color.DarkOrange;
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["route"].Style.BackColor = Color.DarkOrange;
             }
 
             //Check The Sub Category if existg on the system
@@ -709,16 +805,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
-
+     
 
             }
             else
             {
+                this.haserror = 5;
                 this.mode = "error";
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["category"].Style.SelectionBackColor = Color.DarkOrange;
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["category"].Style.BackColor = Color.DarkOrange;
 
             }
 
@@ -745,17 +840,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
+           
 
 
 
             }
             else
             {
+                this.haserror = 6;
                 mode = "error";
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["uom"].Style.SelectionBackColor = Color.DarkOrange;
 
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["uom"].Style.BackColor = Color.DarkOrange;
+
 
             }
 
@@ -768,10 +865,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-
+                this.haserror = 7;
                 mode = "error";
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
-                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["qty"].Style.BackColor = Color.DarkOrange;
             }
 
 
@@ -797,42 +894,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-      
+
+                this.haserror = 8;
                 mode = "error";
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["id"].Style.SelectionBackColor = Color.DarkOrange;
-                dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
+                this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["id"].Style.BackColor = Color.DarkOrange;
 
 
+             
 
             }
             else
             {
-                if (mode == "error")
-                {
-                    MessageBox.Show("A");
-                    dSet.Clear();
-                    dSet = objStorProc.sp_dry_wh_orders(0,
-                       Convert.ToInt32(sp_order_id),
-                        sp_date_ordered,
-                        sp_fox,
-                        sp_store_name,
-                        sp_route,
-                        sp_area,
-                        sp_category,
-                        sp_item_code,
-                        sp_description,
-                        sp_uom,
-                        sp_qty,
-                        "1",
-                        "",
-                         Convert.ToInt32(user_id).ToString(),
-                                 SpdateNeeded,
-                        "add_validation");
-                }
-                else
-                {
-                    MessageBox.Show("B");
-                    dSet.Clear();
+                //if (mode == "error")
+          
+                    if (this.haserror == 0)
+                    {
+                    if (this.StoreOrderReset == 1)
+                    { }
+                    else
+                    {
+                        dSet.Clear();
                         dSet = objStorProc.sp_dry_wh_orders(0,
                             Convert.ToInt32(sp_order_id),
                             sp_date_ordered,
@@ -851,9 +933,55 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                              Convert.ToInt32(user_id).ToString(),
                              SpdateNeeded,
                             "add");
-                    
 
-                }
+                        dSet.Clear();
+                        dSet = objStorProc.sp_dry_wh_orders(0,
+                            Convert.ToInt32(sp_order_id),
+                            sp_date_ordered,
+                            sp_fox,
+                            sp_store_name,
+                            sp_route,
+                            sp_area,
+                            sp_category,
+                            sp_item_code,
+                            sp_description,
+                            sp_uom,
+                            sp_qty,
+                            "1",
+                            "",
+
+                             Convert.ToInt32(user_id).ToString(),
+                             SpdateNeeded,
+                            "add-good-entry");
+                    }
+
+                    }
+                    else
+                    {
+                        dSet.Clear();
+                        dSet = objStorProc.sp_dry_wh_orders(0,
+                           Convert.ToInt32(sp_order_id),
+                            sp_date_ordered,
+                            sp_fox,
+                            sp_store_name,
+                            sp_route,
+                            sp_area,
+                            sp_category,
+                            sp_item_code,
+                            sp_description,
+                            sp_uom,
+                            sp_qty,
+                            "1",
+                            "",
+                             Convert.ToInt32(user_id).ToString(),
+                                     SpdateNeeded,
+                            "add_validation");
+                        //MessageBox.Show("B");
+
+
+
+                    }
+                
             }
 
 
@@ -865,30 +993,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[i].Cells[0];
                 else
                 {
-
-
+                    this.StoreOrderReset = 1;
                     if (mode == "error")
                     {
                         this.GlobalStatePopup.ErrorNotify("");
+                        this.ConnectionInit();
+                        this. showDryWhPendingOrders();
+                        this.showDryWhPendingReceived();
+                        this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
                         //this.ConnectionInit();
                         //this.SubOrdersMenu();
+                        //Buje
                     }
                     else
                     {
 
 
                         this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
-         
+                        //this.SaveMethodPendingInformations();
+
                         frmStoreOrderRestAPIcall_Load(new object(), new System.EventArgs());
                     }
-
-
+                    this.LoadTotalRecords();
+                    //Duplicate Data
+                    this.ReceivedInformation = this.DgvReceivedOrder.RowCount;
+                    this.MatRadio2.Text = "Duplicated Lists" + ":" + (this.ReceivedInformation);
                     this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
                     return;
                 }
             }
-
+            //MessageBox.Show(this.haserror.ToString());
+            this.haserror = 0;
             this.SaveMethod1();
+        }
+
+        private void LoadTotalRecords()
+        {
+            var answer = Convert.ToInt32(this.lbltotalrecords.Text) - this.InvalidInformation;
+            this.lbltotalrecords.Text = answer.ToString();
+            this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
         }
 
 
@@ -1238,8 +1381,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage1"])//your specific tabname
             {
                 this.matbtnUpload.Visible = true;
-                this.MatRadio1.Checked = true;
-                MatRadio1_CheckedChanged(sender, e);
+                this.matRadio0.Checked = true;
+               this.matRadio0_CheckedChanged(sender, e);
           
             }
             else if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage2"])//your specific tabname
@@ -1256,13 +1399,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 MatRadio3_CheckedChanged(sender, e);
              
             }
+            else if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage4"])//your specific tabname
+            {
+                this.matbtnUpload.Visible = true;
+                this.MatRadio1.Checked = true;
+                this.MatRadio1_CheckedChanged(sender, e);
+
+            }
         }
 
         private void MatRadio1_CheckedChanged(object sender, EventArgs e)
         {
             this.matbtnUpload.Visible = true;
-            materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage1"];
-            this.showCutOffStoreOrders();
+            materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage4"];
+
+          
+            showDryWhForSyncing();
+
+            this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
+            //if (this.lbltotalrecords.Text == "0")
+            //{
+
+            //}else { showDryWhForSyncing(); }
         }
 
         private void MatRadio3_CheckedChanged(object sender, EventArgs e)
@@ -1270,6 +1428,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnUpload.Visible = true;
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
             this.showDryWhPendingOrders();
+            this.LoadTotalRecords();
         }
 
         private void showDryWhPendingOrders()      //method for loading available_menus
@@ -1281,6 +1440,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 this.InvalidInformation = this.dgvSubCategory.RowCount;
                 this.MatRadio3.Text = "Invalid Information" + ":" + (this.InvalidInformation);
+            
 
             }
             catch (Exception ex)
@@ -1366,6 +1526,80 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private void button1_Click(object sender, EventArgs e)
         {
             this.matbtnUpload.Enabled = true;
+        }
+
+        private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show("A");
+            this.dtpto.MinDate = Convert.ToDateTime(dtpfrom.Text);
+            this.dtpto.Text = dtpfrom.Text;
+  
+            this.GetStoreOrders();
+
+         
+            this.LoadFilterAlreadySync();
+            //this.lbltotalrecords.Text = "0";
+            //this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
+            //this.StoreOrderReset = 0;
+            this.MatRadio1.Text = "Available for syncing" + ":" + 0;
+            //this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
+        }
+
+        private void dtpto_ValueChanged(object sender, EventArgs e)
+        {
+            this.GetStoreOrders();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Create a new row first as it will include the columns you've created at design-time.
+
+            int rowId = DgvReceivedOrder.Rows.Add();
+
+            // Grab the new row!
+            DataGridViewRow row = DgvReceivedOrder.Rows[rowId];
+
+            // Add the data
+            row.Cells["Column1"].Value = "Value1";
+            row.Cells["Column2"].Value = "Value2";
+        }
+
+        private void frmStoreOrderRestAPIcall_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          
+                dSet.Clear();
+                dSet = objStorProc.sp_dry_wh_orders(0,
+                Convert.ToInt32(sp_order_id),
+                sp_date_ordered,
+                sp_fox,
+                sp_store_name,
+                sp_route,
+                sp_area,
+                sp_category,
+                sp_item_code,
+                sp_description,
+                sp_uom,
+                sp_qty,
+                "1",
+                "",
+                Convert.ToInt32(user_id).ToString(),
+                SpdateNeeded,
+                "dry_wh_orders_unset");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            showDryWhForSyncing();
+        }
+
+        private void matRadio0_CheckedChanged(object sender, EventArgs e)
+        {
+            this.matbtnUpload.Visible = true;
+            materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage1"];
+
+            this.showCutOffStoreOrders();
+
+     
         }
     }
 }

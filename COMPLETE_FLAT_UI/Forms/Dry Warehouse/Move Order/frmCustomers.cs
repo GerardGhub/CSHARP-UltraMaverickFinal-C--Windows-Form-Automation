@@ -97,6 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
 
                 this.TblCustomerRepo.GetCustomerDeactivated(dgvCustomers);
+
                 this.lbltotalrecords.Text = this.dgvCustomers.RowCount.ToString();
             }
             else
