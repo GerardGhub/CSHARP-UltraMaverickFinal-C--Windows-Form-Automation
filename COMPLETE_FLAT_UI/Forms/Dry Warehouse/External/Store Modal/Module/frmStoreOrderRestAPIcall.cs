@@ -207,10 +207,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
 
-                //myClass.fillDataGridView(this.DgvReceivedOrder, "dry_wh_orders_received", dSet);
-                myClass.fillDataGridView(this.DgvForSync, "dry_wh_orders_duplicate_entry_for_syncing", dSet);
-                //this.ReceivedInformation = this.DgvReceivedOrder.RowCount;
-                //this.MatRadio2.Text = "Duplicated Lists" + ":" + (this.ReceivedInformation);
+      
+                myClass.fillDataGridView(this.DgvForSync, "dry_wh_orders_entry_for_syncing", dSet);
+
 
             }
             catch (Exception ex)
@@ -356,32 +355,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
 
     
-            //bool sample =  (this.textBox1.Text == String.Empty) ? this.textBox1.Enabled = false : this.textBox1.Enabled = true;
-
-            //dSet_temp = (DataSet)this.dgvStoreOrder.DataSource;
-            //total = 0;
-            //total = dgvSubCategory.Rows.Cast<DataGridViewRow>()
-            //.Where(t => Convert.ToInt32(t.Cells["TOTALVALIDDATA"].Value) == 4)
-            //.Sum(t2 => Convert.ToInt32(t2.Cells["TOTALVALIDDATA"].Value) / 4);
-
-            //int rowIndex = -1;
-
-            //DataGridViewRow row = dgvStoreOrder.Rows
-            //    .Cast<DataGridViewRow>()
-            //    .Where(r => r.Cells["id"].Value.ToString().Equals(2980716))
-            //    .First();
-
-            //rowIndex = row.Index;
-            //this.dgvStoreOrder.DataSource = row;
-
-            //foreach (DataGridViewRow row in this.dgvStoreOrder.Rows)
-            //{
-            //    this.RemoveAlreadyUpload();
-            //}
-            //for (int i = 0; i < Convert.ToInt32(this.lbltotalrecords.Text); i++)
-            //{
-            //    this.RemoveAlreadyUpload();
-            //}
+   
 
        
 
@@ -538,16 +512,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matbtnUpload_Click(object sender, EventArgs e)
         {
-            this.SubMode = 0;
+            //MessageBox.Show(sp_order_id.ToString());
+            if (this.lbltotalrecords.Text == "0") { }
+            else {
+                this.SubMode = 0;
+          
+
+            }
+            //this.SubMode = 0;
             if (this.lbltotalrecords.Text == "0") { return; }
-            if (this.matRadio0.Checked == true)
+            if (this.matRadio0.Checked == true || this.MatRadio1.Checked == true)
             {
                 this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
                 //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to sync the data? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                      
+                    this.dgvStoreOrder_CurrentCellChanged(sender, e);
                         this.SaveMethod1();
            
                 }
@@ -859,7 +840,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["qty"].Style.BackColor = Color.DarkOrange;
             }
-
+            MessageBox.Show(sp_order_id.ToString());
 
             //Check The if store order already created at the system
             dSet.Clear();
@@ -889,70 +870,92 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.SubMode = 1;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["id"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["id"].Style.BackColor = Color.DarkOrange;
-
-
-             
-
             }
             else
             {
                 //if (mode == "error")
-          
-                    if (this.haserror == 0)
-                    {
-                    if (this.StoreOrderReset == 1)
-                    { }
-                    else
-                    {
-                        if (this.SubMode == 1)
-                        {
-                        }
-                        else
-                        {
-                            dSet.Clear();
-                            dSet = objStorProc.sp_dry_wh_orders(0,
-                            Convert.ToInt32(sp_order_id),
-                            sp_date_ordered,
-                            sp_fox,
-                            sp_store_name,
-                            sp_route,
-                            sp_area,
-                            sp_category,
-                            sp_item_code,
-                            sp_description,
-                            sp_uom,
-                            sp_qty,
-                            "1",
-                            "",
-                            Convert.ToInt32(user_id).ToString(),
-                            SpdateNeeded,
-                            "add");
-                        }
 
-                            dSet.Clear();
-                            dSet = objStorProc.sp_dry_wh_orders(0,
-                            Convert.ToInt32(sp_order_id),
-                            sp_date_ordered,
-                            sp_fox,
-                            sp_store_name,
-                            sp_route,
-                            sp_area,
-                            sp_category,
-                            sp_item_code,
-                            sp_description,
-                            sp_uom,
-                            sp_qty,
-                            "1",
-                            "",
-                            Convert.ToInt32(user_id).ToString(),
-                            SpdateNeeded,
-                            "add-good-entry");
+                if (this.MatRadio1.Checked == true)
+                {
+                    MessageBox.Show(sp_order_id.ToString() + "Save");
+                    dSet.Clear();
+                    dSet = objStorProc.sp_dry_wh_orders(0,
+                    Convert.ToInt32(sp_order_id),
+                    sp_date_ordered,
+                    sp_fox,
+                    sp_store_name,
+                    sp_route,
+                    sp_area,
+                    sp_category,
+                    sp_item_code,
+                    sp_description,
+                    sp_uom,
+                    sp_qty,
+                    "1",
+                    "",
+                    Convert.ToInt32(user_id).ToString(),
+                    SpdateNeeded,
+                    "add");
+                }
+
+
+                if (this.haserror == 0)
+                    {
+      
+                    //if (this.MatRadio1.Checked == true)
+                    //{
+                    //    MessageBox.Show(sp_order_id.ToString() + "Save");
+                    //    dSet.Clear();
+                    //        dSet = objStorProc.sp_dry_wh_orders(0,
+                    //        Convert.ToInt32(sp_order_id),
+                    //        sp_date_ordered,
+                    //        sp_fox,
+                    //        sp_store_name,
+                    //        sp_route,
+                    //        sp_area,
+                    //        sp_category,
+                    //        sp_item_code,
+                    //        sp_description,
+                    //        sp_uom,
+                    //        sp_qty,
+                    //        "1",
+                    //        "",
+                    //        Convert.ToInt32(user_id).ToString(),
+                    //        SpdateNeeded,
+                    //        "add");
+                    //    }
+
+                    if (this.matRadio0.Checked == true)
+                    {
+                        dSet.Clear();
+                        dSet = objStorProc.sp_dry_wh_orders(0,
+                        Convert.ToInt32(sp_order_id),
+                        sp_date_ordered,
+                        sp_fox,
+                        sp_store_name,
+                        sp_route,
+                        sp_area,
+                        sp_category,
+                        sp_item_code,
+                        sp_description,
+                        sp_uom,
+                        sp_qty,
+                        "1",
+                        "",
+                        Convert.ToInt32(user_id).ToString(),
+                        SpdateNeeded,
+                        "add-good-entry");
+                    }
                     }
 
-                    }
+                    //}
                     else
                     {
-                    if (this.SubMode == 1)
+                    if (this.SubMode == 0)
+                    {
+       
+                    }
+                    else if (this.matRadio0.Checked == true)
                     {
                         dSet.Clear();
                         dSet = objStorProc.sp_dry_wh_orders(0,
@@ -1011,7 +1014,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                         frmStoreOrderRestAPIcall_Load(new object(), new System.EventArgs());
                     }
-                    this.LoadTotalRecords();
+                    //this.LoadTotalRecords();
+                    this.ConnectionInit();
+                   this.showDryWhForSyncing();
+                    this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
                     //Duplicate Data
                     this.ReceivedInformation = this.DgvReceivedOrder.RowCount;
                     this.MatRadio2.Text = "Duplicated Lists" + ":" + (this.ReceivedInformation);
@@ -1363,12 +1369,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage1"])//your specific tabname
             {
                 // your stuff
-                MessageBox.Show("A");
+                //MessageBox.Show("A");
             }
             else if (materialTabControl1.SelectedTab == materialTabControl1.TabPages["tabPage2"])//your specific tabname
             {
 
-                MessageBox.Show("B");
+                //MessageBox.Show("B");
             }
 
         }
