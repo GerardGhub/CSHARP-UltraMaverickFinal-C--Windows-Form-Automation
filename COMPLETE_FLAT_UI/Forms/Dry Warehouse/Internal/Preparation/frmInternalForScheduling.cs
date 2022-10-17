@@ -210,7 +210,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
             catch (EvaluateException)
             {
-                MessageBox.Show("Invalid character found 20.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Invalid character found 202.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return;
             }
