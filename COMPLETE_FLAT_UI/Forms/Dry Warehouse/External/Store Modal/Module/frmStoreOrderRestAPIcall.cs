@@ -99,7 +99,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void frmStoreOrderRestAPIcall_Load(object sender, EventArgs e)
         {
-            this.dtpfrom.MinDate = dtpfrom.Value.AddDays(-4);
+            this.dtpfrom.MinDate = dtpfrom.Value.AddDays(-5);
             this.dtpfrom.MaxDate = DateTime.Now;
             this.ConnectionInit();
             //this.GetStoreOrders();
@@ -1541,7 +1541,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.lbltotalrecords.Text = "0";
             //this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
             //this.StoreOrderReset = 0;
-            this.MatRadio1.Text = "Available for syncing" + ":" + 0;
+            //this.MatRadio1.Text = "Available for syncing" + ":" + 0;
+
+            this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
             this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
         }
 
