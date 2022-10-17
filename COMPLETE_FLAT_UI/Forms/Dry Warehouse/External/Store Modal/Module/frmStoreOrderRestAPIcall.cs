@@ -1428,7 +1428,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnUpload.Visible = true;
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
             this.showDryWhPendingOrders();
-            this.LoadTotalRecords();
+            //this.LoadTotalRecords();
         }
 
         private void showDryWhPendingOrders()      //method for loading available_menus
@@ -1542,7 +1542,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
             //this.StoreOrderReset = 0;
             this.MatRadio1.Text = "Available for syncing" + ":" + 0;
-            //this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
+            this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
         }
 
         private void dtpto_ValueChanged(object sender, EventArgs e)

@@ -50,6 +50,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.dry_wh_ordersTableAdapter.Fill(this.ultraMaverickDBDataSet.dry_wh_orders);
             this.ConnectionInt();
             this.DgvImportMrsOrder.Columns[0].Width = 100;// The id column 
+
             this.CallOthers();
             this.DataGridVisibleFalse();
         }
@@ -239,8 +240,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             else
             {
                 mode = "error";
-                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.SelectionBackColor = Color.DarkOrange;
-                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["fox"].Style.BackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["department"].Style.SelectionBackColor = Color.DarkOrange;
+                DgvImportMrsOrder.Rows[Convert.ToInt32(Mat_row_number)].Cells["department"].Style.BackColor = Color.DarkOrange;
             }
 
   
@@ -490,7 +491,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     userinfo.user_id,
                    false,
                    "0",
-                   this.Sp_date_ordered,
+                   this.SpDateNeeded,
                    this.Sp_fox,
                     "getbydata_manual");
 
@@ -516,7 +517,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         userinfo.user_id,
                        false,
                        "0",
-                       this.Sp_date_ordered,
+                       this.SpDateNeeded,
                                       this.Sp_fox,
                         "add");
                 }
@@ -603,7 +604,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             userinfo.user_id,
             false,
             "0",
-            this.Sp_date_ordered,
+            this.SpDateNeeded,
             this.Sp_fox,
             "getbydata_manual");
 
