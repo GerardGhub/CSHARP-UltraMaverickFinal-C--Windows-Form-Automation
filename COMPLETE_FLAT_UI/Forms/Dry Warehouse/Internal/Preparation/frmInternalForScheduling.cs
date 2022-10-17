@@ -79,10 +79,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void frmInternalForScheduling_Load(object sender, EventArgs e)
         {
-            this.CheckTheForApprovalRadioButton();
-
-
             this.ConnectionOpen();
+            this.CheckTheForApprovalRadioButton();
+            //MessageBox.Show("Burat");
+
+    
             //this.DataRefresher();
 
 
@@ -529,7 +530,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.Sp_department_id = this.dgvStoreOrderApproval.CurrentRow.Cells["department_id"].Value.ToString();
                         this.Sp_mrs_req_desc = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_req_desc"].Value.ToString();
                         this.Sp_mrs_requested_by = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_by"].Value.ToString();
-                        this.Sp_mrs_requested_date = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_requested_date"].Value.ToString();
+                        this.Sp_mrs_requested_date = this.dgvStoreOrderApproval.CurrentRow.Cells["mrs_date_needed"].Value.ToString();
                         this.Sp_total_items = this.dgvStoreOrderApproval.CurrentRow.Cells["TOTAL_ITEMS"].Value.ToString();
                     }
                 }
@@ -594,6 +595,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //}
 
 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }
