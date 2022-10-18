@@ -996,14 +996,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.StoreOrderReset = 1;
                     if (mode == "error")
                     {
-                        this.GlobalStatePopup.ErrorNotify("");
+                        if (this.MatRadio1.Checked == true)
+                        {
+                            this.GlobalStatePopup.SuccessFullySave();
+                        }
+                        else
+                        {
+                            this.GlobalStatePopup.ErrorNotify("");
+                        }
                         this.ConnectionInit();
                         this. showDryWhPendingOrders();
                         this.showDryWhPendingReceived();
                         this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
-                        //this.ConnectionInit();
-                        //this.SubOrdersMenu();
-                        //Buje
+  
                     }
                     else
                     {
@@ -1014,7 +1019,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                         frmStoreOrderRestAPIcall_Load(new object(), new System.EventArgs());
                     }
-                    //this.LoadTotalRecords();
+         
                     this.ConnectionInit();
                    this.showDryWhForSyncing();
                     this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
