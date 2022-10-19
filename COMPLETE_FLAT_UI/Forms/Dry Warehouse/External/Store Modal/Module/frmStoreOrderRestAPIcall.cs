@@ -452,7 +452,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
               
                             this.lbltotalrecords.Text = this.dgvStoreOrder.RowCount.ToString();
-                            this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
+                            //this.MatRadio1.Text = "Available for syncing" + ":" + (lbltotalrecords.Text);
                     
                             this.matRadio0.Text = "API" + ":" + (lbltotalrecords.Text);
                             return;
@@ -1099,6 +1099,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     if (this.MatRadio1.Checked == true)
                     {
                         this.RemoveItemForValidation();
+                        this.showDryWhPendingOrders();
                     }
 
 
@@ -1650,7 +1651,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.StoreOrderReset = 0;
             //this.MatRadio1.Text = "Available for syncing" + ":" + 0;
 
-            this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
+            //this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
+            this.matRadio0.Text = "API" + ":" + (this.dgvStoreOrder.RowCount.ToString());
             this.dtpto.Enabled = true;
             this.dgvStoreOrder.CurrentCell = this.dgvStoreOrder.Rows[0].Cells[this.dgvStoreOrder.CurrentCell.ColumnIndex];
         }
