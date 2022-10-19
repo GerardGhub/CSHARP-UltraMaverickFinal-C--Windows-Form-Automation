@@ -840,7 +840,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
                 this.dgvStoreOrder.Rows[Convert.ToInt32(mat_row_number)].Cells["qty"].Style.BackColor = Color.DarkOrange;
             }
-            MessageBox.Show(sp_order_id.ToString());
+            //MessageBox.Show(sp_order_id.ToString());
 
             //Check The if store order already created at the system
             dSet.Clear();
