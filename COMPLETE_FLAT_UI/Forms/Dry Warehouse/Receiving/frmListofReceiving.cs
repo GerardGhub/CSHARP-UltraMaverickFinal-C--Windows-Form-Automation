@@ -50,8 +50,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void showReceivingData()      //method for loading available_menus
         {
             try
-            {
-           
+            {           
                 this.myClass.fillDataGridView(this.dgvSubCategory, "Po_Receiving_Warehouse", dSet);             
                 this.lblgrandtotaldata.Text = this.dgvSubCategory.RowCount.ToString();
                 this.dgvSubCategory.Columns["PrimaryID"].Visible = false;

@@ -25,7 +25,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         myclasses myClass = new myclasses();
         int numExpirableItems = 0;
         string Rpt_Path = "";
-     
         ReportDocument rpt = new ReportDocument();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmDryReceivingModule()
@@ -269,11 +268,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     "getRMforReceivingDryWH");
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
+                    MessageBox.Show("Good");
                     this.SearchMethodJarVarCallingSP();
                     this.doSearchInTextBoxCmb();
 
                     if(totalRecords == "0")
                     {
+                  
                         this.scanBarcodeNearlyExpiry();
                         //MessageBox.Show("Buje");
                         //return;
@@ -872,16 +873,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             else 
             {
-                //double qtyReceiving;
-                //double rejected;
-                //double totalSum;
-
-
-                //qtyReceiving = double.Parse(mattxtqtyReceived.Text);
-                //rejected = double.Parse(mattxtqtyreject.Text);
-
-
-                //totalSum = qtyReceiving - rejected;
+        
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure " +
                     "you want to received the Qty '"+this.mattxtqtyReceived.Text+"' ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
