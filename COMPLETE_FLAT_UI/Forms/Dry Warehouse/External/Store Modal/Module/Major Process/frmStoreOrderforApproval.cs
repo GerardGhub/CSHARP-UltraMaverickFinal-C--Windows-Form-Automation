@@ -105,7 +105,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.ConnectionOpen();
 
-
+            //MessageBox.Show("Matic");
+            //return;
             this.DataRefresher();
 
 
@@ -1849,9 +1850,6 @@ public void LoadCategoryDropdownForAllocation()
   
             }
             this.ConnectionOpen();
-
-
-
 
             //Functionality Viewing of the Data Binding Source
             if (this.matRadioForApproval.Checked == true)
