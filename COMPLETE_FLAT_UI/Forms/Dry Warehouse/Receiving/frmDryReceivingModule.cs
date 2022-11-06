@@ -34,6 +34,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         public string totalRecords { get; set; }
         public int p_id { get; set; }
+        public int MajorCategoryNo { get; set; }
         public string sp_item_code { get; set; }
         public string sp_item_description { get; set; }
         public string sp_added_by { get; set; }
@@ -276,9 +277,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     {
                   
                         this.scanBarcodeNearlyExpiry();
-                        //MessageBox.Show("Buje");
-                        //return;
-                        //this.GlobalStatePopup.RMNotExistReceiving();
+
                         this.mattxtbarcode.Text = String.Empty;
                         this.mattxtbarcode.Focus();
                     }
@@ -450,7 +449,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtmfgdate.Text = this.dgvMajorCategory.CurrentRow.Cells["mfg_date"].Value.ToString();
                         this.mattxtexpirydate.Text = this.dgvMajorCategory.CurrentRow.Cells["expiration_date"].Value.ToString();
                         this.matdaysExpiry.Text = this.dgvMajorCategory.CurrentRow.Cells["DaysToExpired"].Value.ToString();
-                        this.mattxtcategory.Text = this.dgvMajorCategory.CurrentRow.Cells["major_category"].Value.ToString();
+                        this.MajorCategoryNo = Convert.ToInt32(this.dgvMajorCategory.CurrentRow.Cells["major_category"].Value);
+                        this.mattxtcategory.Text = this.dgvMajorCategory.CurrentRow.Cells["major_category_desc"].Value.ToString();
                         this.mattxtqtyuom.Text = this.dgvMajorCategory.CurrentRow.Cells["qty_uom"].Value.ToString();
                         this.mattxtponumber.Text = this.dgvMajorCategory.CurrentRow.Cells["po_number"].Value.ToString();
                         this.SP_ExpirationSetPoint = Convert.ToInt32(this.dgvMajorCategory.CurrentRow.Cells["EXPIRATIONSETPOINT"].Value);
@@ -790,7 +790,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtlotno.Text, 
                         this.mattxtLotDescription.Text, 
                         this.mattxtmfgdate.Text, mattxtexpirydate.Text, 
-                        this.mattxtcategory.Text, mattxtqtyuom.Text, 
+                        this.MajorCategoryNo.ToString(),
+                        mattxtqtyuom.Text, 
                         this.mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), 
                         Convert.ToInt32(sp_added_by_userid), 
                         this.numExpirableItems.ToString(),

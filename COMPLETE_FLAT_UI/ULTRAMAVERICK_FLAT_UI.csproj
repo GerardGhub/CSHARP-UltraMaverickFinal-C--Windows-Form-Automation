@@ -896,12 +896,6 @@
     <Compile Include="Report\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuParent\FormMenuPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainMenuParent\FormMenuPrincipal.Designer.cs">
-      <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="UltraMaverickDBDataSet.cs">
       <DependentUpon>UltraMaverickDBDataSet.xsd</DependentUpon>
     </Compile>
@@ -1259,9 +1253,6 @@
     </Compile>
     <EmbeddedResource Include="Report\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuParent\FormMenuPrincipal.resx">
-      <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
