@@ -189,12 +189,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     DataView dv = new DataView(this.dset_emp1.Tables[0]);
                    
-                    if (myglobal.global_module == "Active")
-                    {
-
+                
                         dv.RowFilter = "  mrs_requested_date = '" + this.matcmbRequestedDate.Text + "'  ";
 
-                    }
+                    
 
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
@@ -237,6 +235,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.dset_emp1.Clear();
 
+             
                 this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSMasterDataSyncForAllocation");
 
                 this.doSearch();
@@ -453,8 +452,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.ConnectionOpen();
             //this.loadMRSDropdownForAllocation();
-            this.matcmbCategory_SelectionChangeCommitted(sender, e);
+
             this.DropDownMethod();
+            this.matcmbCategory_SelectionChangeCommitted(sender, e);
 
         }
 
@@ -463,8 +463,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.ConnectionOpen();
             //this.loadForScheduling();
-            this.matcmbCategory_SelectionChangeCommitted(sender, e);
             this.DropDownMethod();
+            this.matcmbCategory_SelectionChangeCommitted(sender, e);
+
 
         }
 
