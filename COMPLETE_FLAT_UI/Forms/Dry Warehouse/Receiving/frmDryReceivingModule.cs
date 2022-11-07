@@ -876,7 +876,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
         
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure " +
-                    "you want to received the Qty '"+this.mattxtqtyReceived.Text+"' ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    "you want to received the Qty?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 
