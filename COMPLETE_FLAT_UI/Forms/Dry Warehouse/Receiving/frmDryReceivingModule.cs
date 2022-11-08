@@ -143,18 +143,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
                  
-                    if (myglobal.global_module == "Active")
-                    {
-
-
-                        //Gerard Singian Developer Man
-
-
-
 
                         dv.RowFilter = "item_code = '" + mattxtbarcode.Text + "'";
-
-                    }
+             
                  
                     this.dgvMajorCategory.DataSource = dv;
                     totalRecords = dgvMajorCategory.RowCount.ToString();
@@ -269,15 +260,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     "getRMforReceivingDryWH");
                 if (dSet.Tables[0].Rows.Count > 0)
                 {
-                    MessageBox.Show("Good");
-                    this.SearchMethodJarVarCallingSP();
+
+                    //dset_emp_SearchEngines
+                    //MessageBox.Show(dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString());
+
+                    if (dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString() == "1")
+                    {
+
+                        this.dset_emp_SearchEngines.Clear();
+                        this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_WH_Rejection");
+                    }
+                    else
+                    {
+                        this.SearchMethodJarVarCallingSP();
+                    }
                     this.doSearchInTextBoxCmb();
 
                     if(totalRecords == "0")
                     {
                   
                         this.scanBarcodeNearlyExpiry();
-
+              
                         this.mattxtbarcode.Text = String.Empty;
                         this.mattxtbarcode.Focus();
                     }

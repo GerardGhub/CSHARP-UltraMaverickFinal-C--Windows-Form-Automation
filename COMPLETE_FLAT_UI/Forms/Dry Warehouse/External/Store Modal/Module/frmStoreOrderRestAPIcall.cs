@@ -37,6 +37,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         int total = 0;
         int haserror = 0;
         int StoreOrderReset = 0;
+        int IsSynching = 0;
         int SubMode = 0;
         public frmStoreOrderRestAPIcall()
         {
@@ -106,7 +107,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ConnectionInit();
             //this.GetStoreOrders();
             this.MainLoader();
-           
 
             this.user_id = userinfo.user_id;
             this.matRadio0.Checked = true;
@@ -116,11 +116,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matlblTime.Visible = false;
             this.ValidateTheFuckingCutOfftimeWithButtonControlls();
             this.SubOrdersMenu();
-            //this.LoadFilterAlreadySync();
 
             circularProgressBar1.Value = 0;
-            //circularProgressBar1.Minimum = 0;
-            //circularProgressBar1.Maximum = 100;
+
         }
 
         private void  SubOrdersMenu()
@@ -215,6 +213,60 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
       
                 myClass.fillDataGridView(this.DgvForSync, "dry_wh_orders_entry_for_syncing", dSet);
 
+                this.DgvForSync.Columns["is_active"].Visible = false;
+                this.DgvForSync.Columns["added_by"].Visible = false;
+                //this.DgvForSync.Columns["primary_id"].Visible = false;
+                this.DgvForSync.Columns["is_for_validation"].Visible = false;
+                this.DgvForSync.Columns["is_approved"].Visible = false;
+                this.DgvForSync.Columns["is_approved_by"].Visible = false;
+                this.DgvForSync.Columns["is_approved_date"].Visible = false;
+                this.DgvForSync.Columns["is_approved_prepa_date"].Visible = false;
+                this.DgvForSync.Columns["is_cancelled"].Visible = false;
+                this.DgvForSync.Columns["is_cancelled_by"].Visible = false;
+                this.DgvForSync.Columns["is_returned"].Visible = false;
+                this.DgvForSync.Columns["is_returned_by"].Visible = false;
+                this.DgvForSync.Columns["date_added"].Visible = false;
+                this.DgvForSync.Columns["is_cancelled_date"].Visible = false;
+                this.DgvForSync.Columns["is_cancelled_reason"].Visible = false;
+                this.DgvForSync.Columns["updated_by"].Visible = false;
+                this.DgvForSync.Columns["updated_date"].Visible = false;
+                this.DgvForSync.Columns["is_prepared"].Visible = false;
+                this.DgvForSync.Columns["is_prepared_by"].Visible = false;
+                this.DgvForSync.Columns["is_prepared_date"].Visible = false;
+                this.DgvForSync.Columns["start_time_stamp"].Visible = false;
+
+                this.DgvForSync.Columns["is_returned_date"].Visible = false;
+                this.DgvForSync.Columns["is_returned_reason"].Visible = false;
+
+                this.DgvForSync.Columns["start_by_user_id"].Visible = false;
+                this.DgvForSync.Columns["end_time_stamp_per_items"].Visible = false;
+                this.DgvForSync.Columns["force_prepared_status"].Visible = false;
+                this.DgvForSync.Columns["total_state_repack"].Visible = false;
+                this.DgvForSync.Columns["prepared_allocated_qty"].Visible = false;
+                this.DgvForSync.Columns["is_wh_approved"].Visible = false;
+                this.DgvForSync.Columns["is_wh_approved_by"].Visible = false;
+                this.DgvForSync.Columns["is_wh_approved_date"].Visible = false;
+                this.DgvForSync.Columns["is_wh_checker_cancel"].Visible = false;
+                this.DgvForSync.Columns["is_wh_checker_cancel_by"].Visible = false;
+
+                this.DgvForSync.Columns["is_wh_checker_cancel_date"].Visible = false;
+                this.DgvForSync.Columns["is_wh_checker_cancel_reason"].Visible = false;
+                this.DgvForSync.Columns["dispossal_status"].Visible = false;
+                this.DgvForSync.Columns["is_selected"].Visible = false;
+
+
+                this.DgvForSync.Columns["is_selected_move_order_by"].Visible = false;
+                this.DgvForSync.Columns["is_selected_move_order_date"].Visible = false;
+                this.DgvForSync.Columns["wh_checker_move_order_no"].Visible = false;
+                this.DgvForSync.Columns["total_state_repack_cancelled_qty"].Visible = false;
+                this.DgvForSync.Columns["logic_return_by"].Visible = false;
+
+                this.DgvForSync.Columns["logic_return_by"].Visible = false;
+                this.DgvForSync.Columns["logic_return_date"].Visible = false;
+                this.DgvForSync.Columns["logic_return_reason"].Visible = false;
+                this.DgvForSync.Columns["time_stamp_update"].Visible = false;
+                this.DgvForSync.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+
 
             }
             catch (Exception ex)
@@ -222,59 +274,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 MessageBox.Show(ex.Message);
             }
-            this.DgvForSync.Columns["is_active"].Visible = false;
-            this.DgvForSync.Columns["added_by"].Visible = false;
-            this.DgvForSync.Columns["primary_id"].Visible = false;
-            this.DgvForSync.Columns["is_for_validation"].Visible = false;
-            this.DgvForSync.Columns["is_approved"].Visible = false;
-            this.DgvForSync.Columns["is_approved_by"].Visible = false;
-            this.DgvForSync.Columns["is_approved_date"].Visible = false;
-            this.DgvForSync.Columns["is_approved_prepa_date"].Visible = false;
-            this.DgvForSync.Columns["is_cancelled"].Visible = false;
-            this.DgvForSync.Columns["is_cancelled_by"].Visible = false;
-            this.DgvForSync.Columns["is_returned"].Visible = false;
-            this.DgvForSync.Columns["is_returned_by"].Visible = false;
-            this.DgvForSync.Columns["date_added"].Visible = false;
-            this.DgvForSync.Columns["is_cancelled_date"].Visible = false;
-            this.DgvForSync.Columns["is_cancelled_reason"].Visible = false;
-            this.DgvForSync.Columns["updated_by"].Visible = false;
-            this.DgvForSync.Columns["updated_date"].Visible = false;
-            this.DgvForSync.Columns["is_prepared"].Visible = false;
-            this.DgvForSync.Columns["is_prepared_by"].Visible = false;
-            this.DgvForSync.Columns["is_prepared_date"].Visible = false;
-            this.DgvForSync.Columns["start_time_stamp"].Visible = false;
-
-            this.DgvForSync.Columns["is_returned_date"].Visible = false;
-            this.DgvForSync.Columns["is_returned_reason"].Visible = false;
-
-            this.DgvForSync.Columns["start_by_user_id"].Visible = false;
-            this.DgvForSync.Columns["end_time_stamp_per_items"].Visible = false;
-            this.DgvForSync.Columns["force_prepared_status"].Visible = false;
-            this.DgvForSync.Columns["total_state_repack"].Visible = false;
-            this.DgvForSync.Columns["prepared_allocated_qty"].Visible = false;
-            this.DgvForSync.Columns["is_wh_approved"].Visible = false;
-            this.DgvForSync.Columns["is_wh_approved_by"].Visible = false;
-            this.DgvForSync.Columns["is_wh_approved_date"].Visible = false;
-            this.DgvForSync.Columns["is_wh_checker_cancel"].Visible = false;
-            this.DgvForSync.Columns["is_wh_checker_cancel_by"].Visible = false;
-
-            this.DgvForSync.Columns["is_wh_checker_cancel_date"].Visible = false;
-            this.DgvForSync.Columns["is_wh_checker_cancel_reason"].Visible = false;
-            this.DgvForSync.Columns["dispossal_status"].Visible = false;
-            this.DgvForSync.Columns["is_selected"].Visible = false;
-
-
-            this.DgvForSync.Columns["is_selected_move_order_by"].Visible = false;
-            this.DgvForSync.Columns["is_selected_move_order_date"].Visible = false;
-            this.DgvForSync.Columns["wh_checker_move_order_no"].Visible = false;
-            this.DgvForSync.Columns["total_state_repack_cancelled_qty"].Visible = false;
-            this.DgvForSync.Columns["logic_return_by"].Visible = false;
-
-            this.DgvForSync.Columns["logic_return_by"].Visible = false;
-            this.DgvForSync.Columns["logic_return_date"].Visible = false;
-            this.DgvForSync.Columns["logic_return_reason"].Visible = false;
-            this.DgvForSync.Columns["time_stamp_update"].Visible = false;
-            this.DgvForSync.Columns["Fk_dry_wh_orders_parent_id"].Visible = false;
+         
 
         }
 
@@ -534,7 +534,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 {
 
                     this.dgvStoreOrder_CurrentCellChanged(sender, e);
+                    if (this.matRadio0.Checked == true)
+                    {
+                        this.IsSynching = 1;
                         this.SaveMethod1();
+                    }
+                    else if(this.MatRadio1.Checked == true)
+                    {
+                        this.SaveMethod2Sync();
+                    }
+                    else
+                    {
+
+      
+                    }
+                
            
                 }
                 else
@@ -1030,7 +1044,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
                 //Start Condition percentage is: (value/total value)×100%.
                 //Thread.Sleep(5);
-
+                //Buje
                 if (this.matRadio0.Checked == true)
                 {
                     double Index;
@@ -1042,6 +1056,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     Index = double.Parse(i.ToString());
 
                     b = double.Parse(dgvStoreOrder.RowCount.ToString());
+                    answer = Index / b;
+                    devide_answer = answer * 100;
+
+                    this.circularProgressBar1.Text = devide_answer.ToString("N0");
+                    circularProgressBar1.Value = Convert.ToInt32(devide_answer);
+                    circularProgressBar1.Update();
+                }
+                if (this.MatRadio1.Checked == true)
+                {
+                    this.circularProgressBar1.Visible = true;
+                    double Index;
+
+                    double b;
+                    double answer;
+                    double devide_answer;
+
+                    Index = double.Parse(i.ToString());
+
+                    b = double.Parse(DgvForSync.RowCount.ToString());
                     answer = Index / b;
                     devide_answer = answer * 100;
 
@@ -1095,6 +1128,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.lbltotalrecords.Text = "0";
                     this.matRadio0.Text = "API" + ":" + (lbltotalrecords.Text);
                     this.circularProgressBar1.Visible = false;
+                    this.matbtnUpload.Visible = false;
 
                     if (this.MatRadio1.Checked == true)
                     {
@@ -1109,6 +1143,139 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //MessageBox.Show(this.haserror.ToString());
             this.haserror = 0;
             this.SaveMethod1();
+        }
+
+        private void SaveMethod2Sync()
+        {
+            this.circularProgressBar1.Visible = true;
+
+
+
+            //Check The if store order already created at the system
+            //dSet.Clear();
+            //dSet = objStorProc.sp_dry_wh_orders(0,
+            //    Convert.ToInt32(sp_order_id),
+            //    sp_date_ordered,
+            //    sp_fox,
+            //    sp_store_name,
+            //    sp_route,
+            //    sp_area,
+            //    sp_category,
+            //    sp_item_code,
+            //    sp_description,
+            //    sp_uom,
+            //    sp_qty,
+            //    "1",
+            //    "",
+            //    "",
+            //    "",
+            //    "getbyorderid_api");
+
+            //if (dSet.Tables[0].Rows.Count > 0)
+            //{
+
+      
+          
+            //    this.SubMode = 1;
+            //    this.DgvForSync.Rows[Convert.ToInt32(mat_row_number)].Cells["id1"].Style.SelectionBackColor = Color.DarkOrange;
+            //    this.DgvForSync.Rows[Convert.ToInt32(mat_row_number)].Cells["id1"].Style.BackColor = Color.DarkOrange;
+            //}
+            //else
+            //{
+                //if (mode == "error")
+
+                if (this.MatRadio1.Checked == true)
+                {
+                    //MessageBox.Show(sp_order_id.ToString() + "Save");
+                    dSet.Clear();
+                    dSet = objStorProc.sp_dry_wh_orders(0,
+                    Convert.ToInt32(sp_order_id),
+                    sp_date_ordered,
+                    sp_fox,
+                    sp_store_name,
+                    sp_route,
+                    sp_area,
+                    sp_category,
+                    sp_item_code,
+                    sp_description,
+                    sp_uom,
+                    sp_qty,
+                    "1",
+                    "",
+                    Convert.ToInt32(user_id).ToString(),
+                    SpdateNeeded,
+                    "add");
+                }
+
+            //}
+
+
+
+            if (this.DgvForSync.Rows.Count >= 1)
+            {
+
+
+                int i = this.DgvForSync.CurrentRow.Index + 1;
+
+
+                if (this.MatRadio1.Checked == true)
+                {
+                    this.circularProgressBar1.Visible = true;
+                    double Index;
+
+                    double b;
+                    double answer;
+                    double devide_answer;
+
+                    Index = double.Parse(i.ToString());
+
+                    b = double.Parse(DgvForSync.RowCount.ToString());
+                    answer = Index / b;
+                    devide_answer = answer * 100;
+
+                    this.circularProgressBar1.Text = devide_answer.ToString("N0");
+                    circularProgressBar1.Value = Convert.ToInt32(devide_answer);
+                    circularProgressBar1.Update();
+                }
+                //End
+                if (i >= -1 && i < this.DgvForSync.Rows.Count)
+                    this.DgvForSync.CurrentCell = this.DgvForSync.Rows[i].Cells[0];
+
+                else
+                {
+                    this.StoreOrderReset = 1;
+                 
+                        if (this.MatRadio1.Checked == true)
+                        {
+                            this.GlobalStatePopup.SuccessFullySave();
+                        }
+                   
+                  
+                        this.ConnectionInit();
+                    this.showDryWhPendingOrders();
+                    this.showDryWhPendingReceived();
+
+ 
+         
+                    this.showDryWhForSyncing();
+                    this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
+
+
+                    this.circularProgressBar1.Visible = false;
+
+                    if (this.MatRadio1.Checked == true)
+                    {
+                        this.RemoveItemForValidation();
+                        this.showDryWhPendingOrders();
+                    }
+
+                    this.frmStoreOrderRestAPIcall_Load(this, new EventArgs());
+                    return;
+                }
+            }
+
+
+            this.SaveMethod2Sync();
         }
 
         private void RemoveItemForValidation()
@@ -1518,7 +1685,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void MatRadio1_CheckedChanged(object sender, EventArgs e)
         {
-            this.matbtnUpload.Visible = true;
+            if (IsSynching == 1)
+            {
+                this.matbtnUpload.Visible = true;
+            }
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage4"];
 
           
@@ -1706,12 +1876,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matRadio0_CheckedChanged(object sender, EventArgs e)
         {
-            this.matbtnUpload.Visible = true;
+            this.UploadButtonVisibility();
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage1"];
 
             this.showCutOffStoreOrders();
 
      
+        }
+
+        private void UploadButtonVisibility()
+        {
+            if (IsSynching == 1)
+            {
+                this.matbtnUpload.Visible = false;
+            }
+            else
+            {
+                this.matbtnUpload.Visible = true;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -1725,6 +1907,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 circularProgressBar1.Update();
             }
 
+        }
+
+        private void DgvForSync_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this.MatRadio1.Checked == true)
+            {
+                if (this.DgvForSync.CurrentRow != null)
+                {
+                    if (this.DgvForSync.CurrentRow.Cells["store_name1"].Value != null)
+                    {
+                        this.sp_order_id = this.DgvForSync.CurrentRow.Cells["id1"].Value.ToString();
+                        this.sp_date_ordered = this.DgvForSync.CurrentRow.Cells["date_ordered1"].Value.ToString();
+                        this.sp_fox = this.DgvForSync.CurrentRow.Cells["store_code1"].Value.ToString();
+                        this.sp_store_name = this.DgvForSync.CurrentRow.Cells["store_name1"].Value.ToString();
+                        this.sp_route = this.DgvForSync.CurrentRow.Cells["route1"].Value.ToString();
+                        this.sp_area = this.DgvForSync.CurrentRow.Cells["area1"].Value.ToString();
+                        this.sp_category = this.DgvForSync.CurrentRow.Cells["category1"].Value.ToString();
+                        this.sp_item_code = this.DgvForSync.CurrentRow.Cells["item_code1"].Value.ToString();
+                        this.sp_description = this.DgvForSync.CurrentRow.Cells["description1"].Value.ToString();
+                        this.sp_uom = this.DgvForSync.CurrentRow.Cells["uom1"].Value.ToString();
+                        this.sp_qty = this.DgvForSync.CurrentRow.Cells["qty1"].Value.ToString();
+                        this.SpdateNeeded = this.DgvForSync.CurrentRow.Cells["dateNeeded1"].Value.ToString();
+                        this.sp_fox2 = this.DgvForSync.CurrentRow.Cells["store_code1"].Value.ToString();
+                        this.sp_route2 = this.DgvForSync.CurrentRow.Cells["route1"].Value.ToString();
+                        this.sp_area2 = this.DgvForSync.CurrentRow.Cells["area1"].Value.ToString();
+                        if (this.lbltotalrecords.Text == "0")
+                        {
+
+                        }
+                        else
+                        {
+                            this.mat_row_number = Convert.ToInt32(this.DgvForSync.CurrentCell.RowIndex).ToString();
+                        }
+
+
+
+                    }
+                }
+            }
+         
         }
     }
 }
