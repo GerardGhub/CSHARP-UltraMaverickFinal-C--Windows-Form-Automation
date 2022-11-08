@@ -105,14 +105,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.ConnectionOpen();
 
-            //MessageBox.Show("Matic");
-            //return;
-            this.DataRefresher();
+    
 
 
             this.ShowRawMaterialforApproval();
 
-       
+
    
            this.ValidatedItemforApproval();
       
@@ -1332,7 +1330,7 @@ public void LoadCategoryDropdownForAllocation()
                 {
                     //Start Blocked
 
-                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         this.ApproveFunctionality();
@@ -1435,7 +1433,7 @@ public void LoadCategoryDropdownForAllocation()
                     else
                     {
 
-                        if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
 
                             this.ApproveFunctionality();
@@ -1450,7 +1448,7 @@ public void LoadCategoryDropdownForAllocation()
                 }
                 else
                 {
-                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MetroFramework.MetroMessageBox.Show(this, "Approve the consolidated order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         this.ApproveFunctionality();

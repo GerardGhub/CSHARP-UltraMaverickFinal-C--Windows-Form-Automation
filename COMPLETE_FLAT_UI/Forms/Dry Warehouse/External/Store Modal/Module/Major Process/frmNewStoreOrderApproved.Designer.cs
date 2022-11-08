@@ -39,27 +39,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FK_dry_wh_orders_parent_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ALLOCATION_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_approved_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_approved_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_approved_prepa_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateDiff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPreparedItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblsummaryprepareditems = new MaterialSkin.Controls.MaterialCard();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
@@ -88,6 +67,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.lblSummaryPrepared = new System.Windows.Forms.Label();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FK_dry_wh_orders_parent_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primary_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_ordered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.store_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ALLOCATION_QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_approved_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_approved_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_approved_prepa_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateDiff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_added = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPreparedItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCancelItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.lblsummaryprepareditems.SuspendLayout();
@@ -102,7 +104,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.labelSelectedSum.BackColor = System.Drawing.Color.Transparent;
             this.labelSelectedSum.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSelectedSum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.labelSelectedSum.Location = new System.Drawing.Point(782, 172);
+            this.labelSelectedSum.Location = new System.Drawing.Point(782, 146);
             this.labelSelectedSum.Name = "labelSelectedSum";
             this.labelSelectedSum.Size = new System.Drawing.Size(31, 35);
             this.labelSelectedSum.TabIndex = 652;
@@ -118,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotaldata.BackColor = System.Drawing.Color.Transparent;
             this.lbltotaldata.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotaldata.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotaldata.Location = new System.Drawing.Point(918, 712);
+            this.lbltotaldata.Location = new System.Drawing.Point(918, 685);
             this.lbltotaldata.Name = "lbltotaldata";
             this.lbltotaldata.Size = new System.Drawing.Size(31, 35);
             this.lbltotaldata.TabIndex = 650;
@@ -132,7 +134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(963, 726);
+            this.label4.Location = new System.Drawing.Point(963, 699);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 15);
             this.label4.TabIndex = 651;
@@ -147,7 +149,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.materialCard2.Controls.Add(this.dgvStoreOrderApproval);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(21, 218);
+            this.materialCard2.Location = new System.Drawing.Point(21, 192);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
@@ -209,7 +211,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.is_approved_prepa_date,
             this.DateDiff,
             this.date_added,
-            this.TotalPreparedItems});
+            this.TotalPreparedItems,
+            this.TotalItems,
+            this.TotalCancelItems});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -268,6 +272,390 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.dgvStoreOrderApproval.CurrentCellChanged += new System.EventHandler(this.dgvStoreOrderApproval_CurrentCellChanged);
             this.dgvStoreOrderApproval.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStoreOrderApproval_DataBindingComplete);
             // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(867, 695);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 654;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblsummaryprepareditems
+            // 
+            this.lblsummaryprepareditems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblsummaryprepareditems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lblsummaryprepareditems.Controls.Add(this.materialCard3);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel5);
+            this.lblsummaryprepareditems.Controls.Add(this.cmbArea);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel3);
+            this.lblsummaryprepareditems.Controls.Add(this.metroCmbStoreCode);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel2);
+            this.lblsummaryprepareditems.Controls.Add(this.matcmbCategory);
+            this.lblsummaryprepareditems.Controls.Add(this.bunifuPrepaDate);
+            this.lblsummaryprepareditems.Controls.Add(this.materialLabel1);
+            this.lblsummaryprepareditems.Depth = 0;
+            this.lblsummaryprepareditems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblsummaryprepareditems.Location = new System.Drawing.Point(21, 71);
+            this.lblsummaryprepareditems.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.lblsummaryprepareditems.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblsummaryprepareditems.Name = "lblsummaryprepareditems";
+            this.lblsummaryprepareditems.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.lblsummaryprepareditems.Size = new System.Drawing.Size(980, 75);
+            this.lblsummaryprepareditems.TabIndex = 648;
+            // 
+            // materialCard3
+            // 
+            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard3.Controls.Add(this.matRadioActive);
+            this.materialCard3.Controls.Add(this.matRadioNotActive);
+            this.materialCard3.Depth = 0;
+            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard3.Location = new System.Drawing.Point(747, 8);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard3.Name = "materialCard3";
+            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard3.Size = new System.Drawing.Size(221, 59);
+            this.materialCard3.TabIndex = 655;
+            // 
+            // matRadioActive
+            // 
+            this.matRadioActive.AutoSize = true;
+            this.matRadioActive.Depth = 0;
+            this.matRadioActive.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matRadioActive.Location = new System.Drawing.Point(18, 14);
+            this.matRadioActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioActive.Name = "matRadioActive";
+            this.matRadioActive.Ripple = true;
+            this.matRadioActive.Size = new System.Drawing.Size(78, 37);
+            this.matRadioActive.TabIndex = 597;
+            this.matRadioActive.TabStop = true;
+            this.matRadioActive.Text = "Active";
+            this.matRadioActive.UseVisualStyleBackColor = true;
+            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
+            // 
+            // matRadioNotActive
+            // 
+            this.matRadioNotActive.AutoSize = true;
+            this.matRadioNotActive.Depth = 0;
+            this.matRadioNotActive.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matRadioNotActive.Location = new System.Drawing.Point(112, 14);
+            this.matRadioNotActive.Margin = new System.Windows.Forms.Padding(0);
+            this.matRadioNotActive.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matRadioNotActive.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matRadioNotActive.Name = "matRadioNotActive";
+            this.matRadioNotActive.Ripple = true;
+            this.matRadioNotActive.Size = new System.Drawing.Size(91, 37);
+            this.matRadioNotActive.TabIndex = 598;
+            this.matRadioNotActive.TabStop = true;
+            this.matRadioNotActive.Text = "InActive";
+            this.matRadioNotActive.UseVisualStyleBackColor = true;
+            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Location = new System.Drawing.Point(8, 6);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(124, 19);
+            this.materialLabel5.TabIndex = 584;
+            this.materialLabel5.Text = "Preparation Date:";
+            // 
+            // cmbArea
+            // 
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.ItemHeight = 23;
+            this.cmbArea.Location = new System.Drawing.Point(429, 35);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(182, 29);
+            this.cmbArea.TabIndex = 583;
+            this.cmbArea.UseSelectable = true;
+            this.cmbArea.SelectionChangeCommitted += new System.EventHandler(this.cmbDateOrder_SelectionChangeCommitted);
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(650, 10);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(38, 19);
+            this.materialLabel3.TabIndex = 580;
+            this.materialLabel3.Text = "Store";
+            // 
+            // metroCmbStoreCode
+            // 
+            this.metroCmbStoreCode.FormattingEnabled = true;
+            this.metroCmbStoreCode.ItemHeight = 23;
+            this.metroCmbStoreCode.Location = new System.Drawing.Point(649, 35);
+            this.metroCmbStoreCode.Name = "metroCmbStoreCode";
+            this.metroCmbStoreCode.Size = new System.Drawing.Size(224, 29);
+            this.metroCmbStoreCode.TabIndex = 579;
+            this.metroCmbStoreCode.UseSelectable = true;
+            this.metroCmbStoreCode.SelectionChangeCommitted += new System.EventHandler(this.metroCmbStoreCode_SelectionChangeCommitted);
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(221, 10);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(68, 19);
+            this.materialLabel2.TabIndex = 578;
+            this.materialLabel2.Text = "Category:";
+            // 
+            // matcmbCategory
+            // 
+            this.matcmbCategory.FormattingEnabled = true;
+            this.matcmbCategory.ItemHeight = 23;
+            this.matcmbCategory.Location = new System.Drawing.Point(220, 35);
+            this.matcmbCategory.Name = "matcmbCategory";
+            this.matcmbCategory.Size = new System.Drawing.Size(182, 29);
+            this.matcmbCategory.TabIndex = 577;
+            this.matcmbCategory.UseSelectable = true;
+            this.matcmbCategory.SelectionChangeCommitted += new System.EventHandler(this.matcmbPackaging_SelectionChangeCommitted);
+            // 
+            // bunifuPrepaDate
+            // 
+            this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
+            this.bunifuPrepaDate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bunifuPrepaDate.Location = new System.Drawing.Point(8, 33);
+            this.bunifuPrepaDate.Name = "bunifuPrepaDate";
+            this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 33);
+            this.bunifuPrepaDate.TabIndex = 574;
+            this.bunifuPrepaDate.ValueChanged += new System.EventHandler(this.bunifuPrepaDate_ValueChanged);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(429, 8);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
+            this.materialLabel1.TabIndex = 575;
+            this.materialLabel1.Text = "Area:";
+            // 
+            // materialCheckboxSelectAll
+            // 
+            this.materialCheckboxSelectAll.AutoSize = true;
+            this.materialCheckboxSelectAll.Depth = 0;
+            this.materialCheckboxSelectAll.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialCheckboxSelectAll.Location = new System.Drawing.Point(26, 153);
+            this.materialCheckboxSelectAll.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckboxSelectAll.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckboxSelectAll.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckboxSelectAll.Name = "materialCheckboxSelectAll";
+            this.materialCheckboxSelectAll.Ripple = true;
+            this.materialCheckboxSelectAll.Size = new System.Drawing.Size(100, 37);
+            this.materialCheckboxSelectAll.TabIndex = 585;
+            this.materialCheckboxSelectAll.Text = "Select All";
+            this.materialCheckboxSelectAll.UseVisualStyleBackColor = true;
+            this.materialCheckboxSelectAll.Visible = false;
+            this.materialCheckboxSelectAll.CheckedChanged += new System.EventHandler(this.materialCheckboxSelectAll_CheckedChanged);
+            // 
+            // lbltotalrecords
+            // 
+            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbltotalrecords.AutoSize = true;
+            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalrecords.Location = new System.Drawing.Point(798, 814);
+            this.lbltotalrecords.Name = "lbltotalrecords";
+            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
+            this.lbltotalrecords.TabIndex = 646;
+            this.lbltotalrecords.Text = "76";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label3.Location = new System.Drawing.Point(840, 830);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 18);
+            this.label3.TabIndex = 647;
+            this.label3.Text = "Items";
+            // 
+            // matbtnCancel
+            // 
+            this.matbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnCancel.Depth = 0;
+            this.matbtnCancel.DrawShadows = true;
+            this.matbtnCancel.HighEmphasis = true;
+            this.matbtnCancel.Icon = null;
+            this.matbtnCancel.Location = new System.Drawing.Point(90, 686);
+            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnCancel.Name = "matbtnCancel";
+            this.matbtnCancel.Size = new System.Drawing.Size(77, 36);
+            this.matbtnCancel.TabIndex = 649;
+            this.matbtnCancel.Text = "CANCEL";
+            this.matbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnCancel.UseAccentColor = false;
+            this.matbtnCancel.UseVisualStyleBackColor = true;
+            this.matbtnCancel.Click += new System.EventHandler(this.matbtnCancel_Click);
+            // 
+            // matbtnEdit
+            // 
+            this.matbtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnEdit.Depth = 0;
+            this.matbtnEdit.DrawShadows = true;
+            this.matbtnEdit.HighEmphasis = true;
+            this.matbtnEdit.Icon = null;
+            this.matbtnEdit.Location = new System.Drawing.Point(21, 686);
+            this.matbtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.matbtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnEdit.Name = "matbtnEdit";
+            this.matbtnEdit.Size = new System.Drawing.Size(53, 36);
+            this.matbtnEdit.TabIndex = 653;
+            this.matbtnEdit.Text = "EDIT";
+            this.matbtnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matbtnEdit.UseAccentColor = false;
+            this.matbtnEdit.UseVisualStyleBackColor = true;
+            this.matbtnEdit.Visible = false;
+            this.matbtnEdit.Click += new System.EventHandler(this.matbtnEdit_Click);
+            // 
+            // lbltotalOrderQty
+            // 
+            this.lbltotalOrderQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbltotalOrderQty.AutoSize = true;
+            this.lbltotalOrderQty.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalOrderQty.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalOrderQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lbltotalOrderQty.Location = new System.Drawing.Point(837, 685);
+            this.lbltotalOrderQty.Name = "lbltotalOrderQty";
+            this.lbltotalOrderQty.Size = new System.Drawing.Size(31, 35);
+            this.lbltotalOrderQty.TabIndex = 655;
+            this.lbltotalOrderQty.Text = "0";
+            this.lbltotalOrderQty.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(706, 699);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 15);
+            this.label2.TabIndex = 656;
+            this.label2.Text = "Total Order Quantity:";
+            this.label2.Visible = false;
+            // 
+            // groupBoxColorGuide
+            // 
+            this.groupBoxColorGuide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxColorGuide.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBoxColorGuide.Controls.Add(this.panel3);
+            this.groupBoxColorGuide.Controls.Add(this.materialLabel7);
+            this.groupBoxColorGuide.Controls.Add(this.panel2);
+            this.groupBoxColorGuide.Controls.Add(this.materialLabel4);
+            this.groupBoxColorGuide.Controls.Add(this.panel1);
+            this.groupBoxColorGuide.Controls.Add(this.materialLabel6);
+            this.groupBoxColorGuide.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxColorGuide.Location = new System.Drawing.Point(259, 675);
+            this.groupBoxColorGuide.Name = "groupBoxColorGuide";
+            this.groupBoxColorGuide.Size = new System.Drawing.Size(441, 62);
+            this.groupBoxColorGuide.TabIndex = 657;
+            this.groupBoxColorGuide.TabStop = false;
+            this.groupBoxColorGuide.Text = "Preparation Ledger :";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Yellow;
+            this.panel3.Location = new System.Drawing.Point(195, 21);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(39, 29);
+            this.panel3.TabIndex = 2;
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
+            this.materialLabel7.Location = new System.Drawing.Point(153, 27);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(24, 14);
+            this.materialLabel7.TabIndex = 3;
+            this.materialLabel7.Text = "2 - 5";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LavenderBlush;
+            this.panel2.Location = new System.Drawing.Point(383, 21);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(39, 29);
+            this.panel2.TabIndex = 1;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
+            this.materialLabel4.Location = new System.Drawing.Point(33, 27);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(18, 14);
+            this.materialLabel4.TabIndex = 1;
+            this.materialLabel4.Text = "0-1";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.Location = new System.Drawing.Point(69, 20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(39, 29);
+            this.panel1.TabIndex = 0;
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
+            this.materialLabel6.Location = new System.Drawing.Point(291, 28);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(51, 14);
+            this.materialLabel6.TabIndex = 2;
+            this.materialLabel6.Text = "6 - Above";
+            // 
+            // lblSummaryPrepared
+            // 
+            this.lblSummaryPrepared.AutoSize = true;
+            this.lblSummaryPrepared.Location = new System.Drawing.Point(213, 157);
+            this.lblSummaryPrepared.Name = "lblSummaryPrepared";
+            this.lblSummaryPrepared.Size = new System.Drawing.Size(35, 13);
+            this.lblSummaryPrepared.TabIndex = 659;
+            this.lblSummaryPrepared.Text = "label1";
+            // 
             // selected
             // 
             this.selected.DataPropertyName = "selected";
@@ -283,6 +671,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.FK_dry_wh_orders_parent_id.DataPropertyName = "FK_dry_wh_orders_parent_id";
             this.FK_dry_wh_orders_parent_id.HeaderText = "FK_ID";
             this.FK_dry_wh_orders_parent_id.Name = "FK_dry_wh_orders_parent_id";
+            this.FK_dry_wh_orders_parent_id.Visible = false;
             // 
             // primary_id
             // 
@@ -418,389 +807,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.TotalPreparedItems.HeaderText = "TOTALPREPAREDITEMS";
             this.TotalPreparedItems.Name = "TotalPreparedItems";
             // 
-            // textBox1
+            // TotalItems
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(867, 722);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 654;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TotalItems.DataPropertyName = "TotalItems";
+            this.TotalItems.HeaderText = "TotalItems";
+            this.TotalItems.Name = "TotalItems";
+            this.TotalItems.Visible = false;
             // 
-            // lblsummaryprepareditems
+            // TotalCancelItems
             // 
-            this.lblsummaryprepareditems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblsummaryprepareditems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lblsummaryprepareditems.Controls.Add(this.materialCard3);
-            this.lblsummaryprepareditems.Controls.Add(this.materialLabel5);
-            this.lblsummaryprepareditems.Controls.Add(this.cmbArea);
-            this.lblsummaryprepareditems.Controls.Add(this.materialLabel3);
-            this.lblsummaryprepareditems.Controls.Add(this.metroCmbStoreCode);
-            this.lblsummaryprepareditems.Controls.Add(this.materialLabel2);
-            this.lblsummaryprepareditems.Controls.Add(this.matcmbCategory);
-            this.lblsummaryprepareditems.Controls.Add(this.bunifuPrepaDate);
-            this.lblsummaryprepareditems.Controls.Add(this.materialLabel1);
-            this.lblsummaryprepareditems.Depth = 0;
-            this.lblsummaryprepareditems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblsummaryprepareditems.Location = new System.Drawing.Point(21, 83);
-            this.lblsummaryprepareditems.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.lblsummaryprepareditems.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblsummaryprepareditems.Name = "lblsummaryprepareditems";
-            this.lblsummaryprepareditems.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.lblsummaryprepareditems.Size = new System.Drawing.Size(980, 90);
-            this.lblsummaryprepareditems.TabIndex = 648;
-            // 
-            // materialCard3
-            // 
-            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard3.Controls.Add(this.matRadioActive);
-            this.materialCard3.Controls.Add(this.matRadioNotActive);
-            this.materialCard3.Depth = 0;
-            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(747, 14);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard3.Name = "materialCard3";
-            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(221, 59);
-            this.materialCard3.TabIndex = 655;
-            // 
-            // matRadioActive
-            // 
-            this.matRadioActive.AutoSize = true;
-            this.matRadioActive.Depth = 0;
-            this.matRadioActive.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matRadioActive.Location = new System.Drawing.Point(18, 14);
-            this.matRadioActive.Margin = new System.Windows.Forms.Padding(0);
-            this.matRadioActive.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.matRadioActive.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matRadioActive.Name = "matRadioActive";
-            this.matRadioActive.Ripple = true;
-            this.matRadioActive.Size = new System.Drawing.Size(78, 37);
-            this.matRadioActive.TabIndex = 597;
-            this.matRadioActive.TabStop = true;
-            this.matRadioActive.Text = "Active";
-            this.matRadioActive.UseVisualStyleBackColor = true;
-            this.matRadioActive.CheckedChanged += new System.EventHandler(this.matRadioActive_CheckedChanged);
-            // 
-            // matRadioNotActive
-            // 
-            this.matRadioNotActive.AutoSize = true;
-            this.matRadioNotActive.Depth = 0;
-            this.matRadioNotActive.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matRadioNotActive.Location = new System.Drawing.Point(112, 14);
-            this.matRadioNotActive.Margin = new System.Windows.Forms.Padding(0);
-            this.matRadioNotActive.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.matRadioNotActive.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matRadioNotActive.Name = "matRadioNotActive";
-            this.matRadioNotActive.Ripple = true;
-            this.matRadioNotActive.Size = new System.Drawing.Size(91, 37);
-            this.matRadioNotActive.TabIndex = 598;
-            this.matRadioNotActive.TabStop = true;
-            this.matRadioNotActive.Text = "InActive";
-            this.matRadioNotActive.UseVisualStyleBackColor = true;
-            this.matRadioNotActive.CheckedChanged += new System.EventHandler(this.matRadioNotActive_CheckedChanged);
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(8, 12);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(124, 19);
-            this.materialLabel5.TabIndex = 584;
-            this.materialLabel5.Text = "Preparation Date:";
-            // 
-            // cmbArea
-            // 
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.ItemHeight = 23;
-            this.cmbArea.Location = new System.Drawing.Point(429, 41);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(182, 29);
-            this.cmbArea.TabIndex = 583;
-            this.cmbArea.UseSelectable = true;
-            this.cmbArea.SelectionChangeCommitted += new System.EventHandler(this.cmbDateOrder_SelectionChangeCommitted);
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(650, 16);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(38, 19);
-            this.materialLabel3.TabIndex = 580;
-            this.materialLabel3.Text = "Store";
-            // 
-            // metroCmbStoreCode
-            // 
-            this.metroCmbStoreCode.FormattingEnabled = true;
-            this.metroCmbStoreCode.ItemHeight = 23;
-            this.metroCmbStoreCode.Location = new System.Drawing.Point(649, 41);
-            this.metroCmbStoreCode.Name = "metroCmbStoreCode";
-            this.metroCmbStoreCode.Size = new System.Drawing.Size(224, 29);
-            this.metroCmbStoreCode.TabIndex = 579;
-            this.metroCmbStoreCode.UseSelectable = true;
-            this.metroCmbStoreCode.SelectionChangeCommitted += new System.EventHandler(this.metroCmbStoreCode_SelectionChangeCommitted);
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(221, 16);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(68, 19);
-            this.materialLabel2.TabIndex = 578;
-            this.materialLabel2.Text = "Category:";
-            // 
-            // matcmbCategory
-            // 
-            this.matcmbCategory.FormattingEnabled = true;
-            this.matcmbCategory.ItemHeight = 23;
-            this.matcmbCategory.Location = new System.Drawing.Point(220, 41);
-            this.matcmbCategory.Name = "matcmbCategory";
-            this.matcmbCategory.Size = new System.Drawing.Size(182, 29);
-            this.matcmbCategory.TabIndex = 577;
-            this.matcmbCategory.UseSelectable = true;
-            this.matcmbCategory.SelectionChangeCommitted += new System.EventHandler(this.matcmbPackaging_SelectionChangeCommitted);
-            // 
-            // bunifuPrepaDate
-            // 
-            this.bunifuPrepaDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.bunifuPrepaDate.CustomFormat = "yyyy-MM-dd";
-            this.bunifuPrepaDate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPrepaDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bunifuPrepaDate.Location = new System.Drawing.Point(8, 39);
-            this.bunifuPrepaDate.Name = "bunifuPrepaDate";
-            this.bunifuPrepaDate.Size = new System.Drawing.Size(170, 33);
-            this.bunifuPrepaDate.TabIndex = 574;
-            this.bunifuPrepaDate.ValueChanged += new System.EventHandler(this.bunifuPrepaDate_ValueChanged);
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(429, 14);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
-            this.materialLabel1.TabIndex = 575;
-            this.materialLabel1.Text = "Area:";
-            // 
-            // materialCheckboxSelectAll
-            // 
-            this.materialCheckboxSelectAll.AutoSize = true;
-            this.materialCheckboxSelectAll.Depth = 0;
-            this.materialCheckboxSelectAll.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialCheckboxSelectAll.Location = new System.Drawing.Point(26, 179);
-            this.materialCheckboxSelectAll.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckboxSelectAll.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckboxSelectAll.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckboxSelectAll.Name = "materialCheckboxSelectAll";
-            this.materialCheckboxSelectAll.Ripple = true;
-            this.materialCheckboxSelectAll.Size = new System.Drawing.Size(100, 37);
-            this.materialCheckboxSelectAll.TabIndex = 585;
-            this.materialCheckboxSelectAll.Text = "Select All";
-            this.materialCheckboxSelectAll.UseVisualStyleBackColor = true;
-            this.materialCheckboxSelectAll.Visible = false;
-            this.materialCheckboxSelectAll.CheckedChanged += new System.EventHandler(this.materialCheckboxSelectAll_CheckedChanged);
-            // 
-            // lbltotalrecords
-            // 
-            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbltotalrecords.AutoSize = true;
-            this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalrecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(798, 814);
-            this.lbltotalrecords.Name = "lbltotalrecords";
-            this.lbltotalrecords.Size = new System.Drawing.Size(51, 36);
-            this.lbltotalrecords.TabIndex = 646;
-            this.lbltotalrecords.Text = "76";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(840, 830);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 18);
-            this.label3.TabIndex = 647;
-            this.label3.Text = "Items";
-            // 
-            // matbtnCancel
-            // 
-            this.matbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnCancel.Depth = 0;
-            this.matbtnCancel.DrawShadows = true;
-            this.matbtnCancel.HighEmphasis = true;
-            this.matbtnCancel.Icon = null;
-            this.matbtnCancel.Location = new System.Drawing.Point(90, 722);
-            this.matbtnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnCancel.Name = "matbtnCancel";
-            this.matbtnCancel.Size = new System.Drawing.Size(77, 36);
-            this.matbtnCancel.TabIndex = 649;
-            this.matbtnCancel.Text = "CANCEL";
-            this.matbtnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnCancel.UseAccentColor = false;
-            this.matbtnCancel.UseVisualStyleBackColor = true;
-            this.matbtnCancel.Click += new System.EventHandler(this.matbtnCancel_Click);
-            // 
-            // matbtnEdit
-            // 
-            this.matbtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matbtnEdit.Depth = 0;
-            this.matbtnEdit.DrawShadows = true;
-            this.matbtnEdit.HighEmphasis = true;
-            this.matbtnEdit.Icon = null;
-            this.matbtnEdit.Location = new System.Drawing.Point(21, 722);
-            this.matbtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.matbtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matbtnEdit.Name = "matbtnEdit";
-            this.matbtnEdit.Size = new System.Drawing.Size(53, 36);
-            this.matbtnEdit.TabIndex = 653;
-            this.matbtnEdit.Text = "EDIT";
-            this.matbtnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matbtnEdit.UseAccentColor = false;
-            this.matbtnEdit.UseVisualStyleBackColor = true;
-            this.matbtnEdit.Visible = false;
-            this.matbtnEdit.Click += new System.EventHandler(this.matbtnEdit_Click);
-            // 
-            // lbltotalOrderQty
-            // 
-            this.lbltotalOrderQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltotalOrderQty.AutoSize = true;
-            this.lbltotalOrderQty.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalOrderQty.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalOrderQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalOrderQty.Location = new System.Drawing.Point(837, 712);
-            this.lbltotalOrderQty.Name = "lbltotalOrderQty";
-            this.lbltotalOrderQty.Size = new System.Drawing.Size(31, 35);
-            this.lbltotalOrderQty.TabIndex = 655;
-            this.lbltotalOrderQty.Text = "0";
-            this.lbltotalOrderQty.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(706, 726);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 15);
-            this.label2.TabIndex = 656;
-            this.label2.Text = "Total Order Quantity:";
-            this.label2.Visible = false;
-            // 
-            // groupBoxColorGuide
-            // 
-            this.groupBoxColorGuide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxColorGuide.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBoxColorGuide.Controls.Add(this.panel3);
-            this.groupBoxColorGuide.Controls.Add(this.materialLabel7);
-            this.groupBoxColorGuide.Controls.Add(this.panel2);
-            this.groupBoxColorGuide.Controls.Add(this.materialLabel4);
-            this.groupBoxColorGuide.Controls.Add(this.panel1);
-            this.groupBoxColorGuide.Controls.Add(this.materialLabel6);
-            this.groupBoxColorGuide.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxColorGuide.Location = new System.Drawing.Point(259, 701);
-            this.groupBoxColorGuide.Name = "groupBoxColorGuide";
-            this.groupBoxColorGuide.Size = new System.Drawing.Size(441, 62);
-            this.groupBoxColorGuide.TabIndex = 657;
-            this.groupBoxColorGuide.TabStop = false;
-            this.groupBoxColorGuide.Text = "Preparation Ledger :";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Yellow;
-            this.panel3.Location = new System.Drawing.Point(195, 21);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(39, 29);
-            this.panel3.TabIndex = 2;
-            // 
-            // materialLabel7
-            // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
-            this.materialLabel7.Location = new System.Drawing.Point(153, 27);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(24, 14);
-            this.materialLabel7.TabIndex = 3;
-            this.materialLabel7.Text = "2 - 5";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.LavenderBlush;
-            this.panel2.Location = new System.Drawing.Point(383, 21);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(39, 29);
-            this.panel2.TabIndex = 1;
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
-            this.materialLabel4.Location = new System.Drawing.Point(33, 27);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(18, 14);
-            this.materialLabel4.TabIndex = 1;
-            this.materialLabel4.Text = "0-1";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Green;
-            this.panel1.Location = new System.Drawing.Point(69, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(39, 29);
-            this.panel1.TabIndex = 0;
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
-            this.materialLabel6.Location = new System.Drawing.Point(291, 28);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(51, 14);
-            this.materialLabel6.TabIndex = 2;
-            this.materialLabel6.Text = "6 - Above";
-            // 
-            // lblSummaryPrepared
-            // 
-            this.lblSummaryPrepared.AutoSize = true;
-            this.lblSummaryPrepared.Location = new System.Drawing.Point(213, 183);
-            this.lblSummaryPrepared.Name = "lblSummaryPrepared";
-            this.lblSummaryPrepared.Size = new System.Drawing.Size(35, 13);
-            this.lblSummaryPrepared.TabIndex = 659;
-            this.lblSummaryPrepared.Text = "label1";
+            this.TotalCancelItems.DataPropertyName = "TotalCancelItems";
+            this.TotalCancelItems.HeaderText = "TotalCancel";
+            this.TotalCancelItems.Name = "TotalCancelItems";
+            this.TotalCancelItems.Visible = false;
             // 
             // frmNewStoreOrderApproved
             // 
@@ -874,6 +893,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private System.Windows.Forms.Label lblSummaryPrepared;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn FK_dry_wh_orders_parent_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn primary_id;
@@ -895,6 +915,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         private System.Windows.Forms.DataGridViewTextBoxColumn DateDiff;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_added;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPreparedItems;
-        private System.Windows.Forms.Label lblSummaryPrepared;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalItems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCancelItems;
     }
 }
