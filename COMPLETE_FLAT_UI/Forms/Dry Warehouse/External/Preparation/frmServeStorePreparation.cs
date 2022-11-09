@@ -390,7 +390,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
     
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to serve? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
               
                 //Mag miminus sya ng total Items Sa Dry Warehouse Orders Table

@@ -89,7 +89,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         
             this.FormmLoadSearchState();
 
-      
+
 
 
 
@@ -103,6 +103,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             if (this.lbltotaldata.Text == "0")
             {
+                MessageBox.Show("A");
                 this.matbtnSave.Visible = false;
                 this.matcmbCategory.Enabled = false;
                 this.mattxtScanTheBarcode.Enabled = false;
@@ -162,7 +163,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             
             try
             {
-
+                //Gerrad
 
                 if (dset_emp_SearchEnginesPreparationPerStaff.Tables.Count > 0)
                 {
@@ -175,12 +176,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         //Start
                         if (this.cmbArea.Text == String.Empty)
                         {
-                 
+                            MessageBox.Show(this.Sp_AssigneD_Task_By.ToString());
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
              
                         }
                         else
                         {
+                        
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'  and area = '" + this.cmbArea.Text + "'    ";
                      
                         }
@@ -361,7 +363,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 myglobal.global_module = "Active"; // Mode for Searching
             }
-      
+
+
             this.doSearchInTextBoxCmb();
             //return;
             if (this.lbltotaldata.Text != "0")
@@ -491,6 +494,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.Guna2DgvMaterialPreparation.DataSource = dv;
           
                     this.lbltotaldata.Text = this.Guna2DgvMaterialPreparation.RowCount.ToString();
+  
 
                 }
             }
