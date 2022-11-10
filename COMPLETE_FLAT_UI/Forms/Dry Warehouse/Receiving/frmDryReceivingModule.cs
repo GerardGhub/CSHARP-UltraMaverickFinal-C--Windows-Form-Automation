@@ -1214,7 +1214,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void matbtnCancel_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.frmDryReceivingModule_Load(sender, e);
             }
@@ -1223,7 +1223,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 return;
             }
 
-
             }
+
     }
 }
