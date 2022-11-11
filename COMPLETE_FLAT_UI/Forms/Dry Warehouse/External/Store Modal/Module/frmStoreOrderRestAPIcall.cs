@@ -118,7 +118,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.SubOrdersMenu();
 
             circularProgressBar1.Value = 0;
-
+            this.matViewErrorLogs.Visible = false;
         }
 
         private void  SubOrdersMenu()
@@ -1136,7 +1136,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.showDryWhPendingOrders();
                     }
 
-
+                    this.dgvStoreOrder.Visible = false;
+                    if (mode == "error")
+                    {
+                        this.matViewErrorLogs.Visible = true;
+                    }
                     return;
                 }
             }
@@ -1695,18 +1699,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             showDryWhForSyncing();
 
             this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
-            //if (this.lbltotalrecords.Text == "0")
-            //{
-
-            //}else { showDryWhForSyncing(); }
+            this.HideSyncData();
         }
 
         private void MatRadio3_CheckedChanged(object sender, EventArgs e)
         {
-            this.matbtnUpload.Visible = true;
-            materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
+            this.matbtnUpload.Visible = false;
+           this. materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
             this.showDryWhPendingOrders();
-            //this.LoadTotalRecords();
+            this.HideSyncData();
+        }
+
+        private void HideSyncData()
+        {
+            if (this.mode == "error")
+            {
+                this.matViewErrorLogs.Visible = false;
+                this.dgvStoreOrder.Visible = false;
+            }
         }
 
         private void showDryWhPendingOrders()      //method for loading available_menus
@@ -1763,6 +1773,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.matbtnUpload.Visible = false;
             this.showDryWhPendingReceived();
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage2"];
+            this.HideSyncData();
         }
 
         private void dgvSubCategory_CurrentCellChanged(object sender, EventArgs e)
@@ -1878,10 +1889,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.UploadButtonVisibility();
             materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage1"];
-
             this.showCutOffStoreOrders();
+            if (this.mode == "error")
+            {
+                this.matViewErrorLogs.Visible = true;
+            }
 
-     
         }
 
         private void UploadButtonVisibility()
@@ -1947,6 +1960,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 }
             }
          
+        }
+
+        private void matViewErrorLogs_Click(object sender, EventArgs e)
+        {
+            if (mode == "error")
+            {
+                this.dgvStoreOrder.Visible = true;
+                materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage1"];
+            }
         }
     }
 }
