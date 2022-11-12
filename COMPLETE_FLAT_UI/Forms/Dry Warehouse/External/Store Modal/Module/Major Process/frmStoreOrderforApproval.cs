@@ -104,20 +104,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
 
             this.ConnectionOpen();
-
-    
-
-
-            this.ShowRawMaterialforApproval();
-
-
-   
+            this.ShowRawMaterialforApproval();   
            this.ValidatedItemforApproval();
-      
-
-
-
-
+     
             if(this.modesplashScreenError == "1")
             {
               
@@ -369,6 +358,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             if (this.GlobalStatePopup.Total_item_for_allocation == "0")
             {
+  
+
                 this.ReturnFunctionality();
             }
             else
