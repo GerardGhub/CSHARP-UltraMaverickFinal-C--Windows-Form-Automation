@@ -164,6 +164,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
                 this.showDataGridDataValueChanged();
+
+
+                if (this.txtSoh.Text == "0")
+                {
+                    this.matBtnSave.Enabled = false;
+                }
+                else
+                {
+                    this.matBtnSave.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
@@ -1233,7 +1243,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void txtReserve_TextChanged(object sender, EventArgs e)
         {
-            if (this.txtReserve.Text == this.lblqtyAllocatedFinal.Text)
+
+                if (this.txtReserve.Text == this.lblqtyAllocatedFinal.Text)
             {
                 this.matBtnSave.Enabled = false;
             }
