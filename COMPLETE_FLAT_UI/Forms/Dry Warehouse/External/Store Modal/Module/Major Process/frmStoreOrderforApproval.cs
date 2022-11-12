@@ -600,16 +600,10 @@ public void LoadCategoryDropdownForAllocation()
                     DataView dv = new DataView(this.dset_emp1.Tables[0]);
 
                 
-                    if (myglobal.global_module == "GERARD SINGIAN")
-                    {
-
-                    }
-                    else if (myglobal.global_module == "Active")
-                    {
+                
 
                         dv.RowFilter = "  category = '" + this.matcmbCategory.Text + "'  ";
 
-                    }
               
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
@@ -636,19 +630,20 @@ public void LoadCategoryDropdownForAllocation()
         {
             this.selection_mode = "1";
 
-            if (this.materialCheckboxSelectAll.Checked == true)
-            {
-                this.materialCheckboxSelectAll.Checked = false;
-                this.materialCheckboxSelectAll_CheckedChanged(sender, e);
 
-            }
+            //if (this.materialCheckboxSelectAll.Checked == true)
+            //{
+            //    this.materialCheckboxSelectAll.Checked = false;
+            //    this.materialCheckboxSelectAll_CheckedChanged(sender, e);
+
+            //}
 
 
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
 
             this.Load_search();
 
-            if(this.lbltotaldata.Text == "0")
+            if (this.lbltotaldata.Text == "0")
             {
 
             }
@@ -757,6 +752,7 @@ public void LoadCategoryDropdownForAllocation()
 
         private void lbltotaldata_TextChanged(object sender, EventArgs e)
         {
+        
             if (this.lbltotaldata.Text == "0")
             {
                 this.materialCheckboxSelectAll.Visible = false;
@@ -775,9 +771,12 @@ public void LoadCategoryDropdownForAllocation()
                     this.lblAllocationRemarks.Visible = true;
                     this.bunifuPrepaDate.Enabled = false;
                     this.cmbArea.Enabled = false;
-                    this.matcmbCategory.Enabled = false;
+                    if (this.dgvStoreOrderApproval.RowCount > 0)
+                    {
+                        this.matcmbCategory.Enabled = true;
+                    }
 
-                }
+                    }
                 else if (this.MatRadioBtnInactive.Checked == true)
                 {
                     this.materialCheckboxSelectAll.Visible = false;
@@ -1718,10 +1717,10 @@ public void LoadCategoryDropdownForAllocation()
 
                     if (Convert.ToDouble(row.Cells["qty"].Value) < Convert.ToDouble(row.Cells["AVERAGE_ORDER"].Value))
                     {
-
-                        row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
-                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
-                        row.Cells["qty"].Style.BackColor = Color.Crimson;
+                        //QTY remove
+                        row.Cells["AVERAGE_ORDER"].Style.SelectionBackColor = Color.Crimson;
+                        row.Cells["AVERAGE_ORDER"].Style.SelectionForeColor = Color.Black;
+                        row.Cells["AVERAGE_ORDER"].Style.BackColor = Color.Crimson;
                     }
 
 
@@ -1734,21 +1733,26 @@ public void LoadCategoryDropdownForAllocation()
                     if (Convert.ToDouble(row.Cells["StockOnHand"].Value) == 0)
                     {
 
-                        row.Cells["qty"].Style.SelectionBackColor = Color.Crimson;
-                        row.Cells["qty"].Style.SelectionForeColor = Color.Black;
-                        row.Cells["qty"].Style.BackColor = Color.Crimson;
+                        row.Cells["StockOnHand"].Style.SelectionBackColor = Color.Crimson;
+                        row.Cells["StockOnHand"].Style.SelectionForeColor = Color.Black;
+                        row.Cells["StockOnHand"].Style.BackColor = Color.Crimson;
                     }
 
 
                     if (Convert.ToDouble(row.Cells["ALLOCATION_QTY"].Value) != 0)
                     {
 
-                        if (this.matRadioForAllocation.Checked == true)
+                        if (this.matRadioForAllocation.Checked == true )
                         {
 
+                            //Allocation Identifications
+                            row.Cells["qty"].Style.SelectionBackColor = Color.DarkOrange;
+                            row.Cells["qty"].Style.SelectionForeColor = Color.Black;
+                            row.Cells["qty"].Style.BackColor = Color.DarkOrange;
+                        
 
 
-                            if (Convert.ToDouble(row.Cells["ORDERS"].Value) == Convert.ToDouble(row.Cells["TOTAL_COLUMN_ALLOCATED_QTY"].Value))
+                        if (Convert.ToDouble(row.Cells["ORDERS"].Value) == Convert.ToDouble(row.Cells["TOTAL_COLUMN_ALLOCATED_QTY"].Value))
                             {
 
                                 row.Cells["qty"].Style.BackColor = Color.White;
@@ -1767,7 +1771,7 @@ public void LoadCategoryDropdownForAllocation()
 
                     if(row.Cells["dateNeeded"].Value == null)
                     {
-                        MessageBox.Show("Null haha");
+            
                     }
 
                     if (Convert.ToDateTime(row.Cells["dateNeeded"].Value) > DateTime.Now.Date
@@ -1812,11 +1816,11 @@ public void LoadCategoryDropdownForAllocation()
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
             
-           if(this.matRadioForApproval.Checked == true)
-            {
-                this.matRadioForAllocation.Checked = true;
+           //if(this.matRadioForApproval.Checked == true)
+           // {
+           //     this.matRadioForAllocation.Checked = true;
 
-            }
+           // }
             this.ConnectionOpen();
 
 
@@ -1826,11 +1830,16 @@ public void LoadCategoryDropdownForAllocation()
             //Functionality Viewing of the Data Binding Source
             if (this.matRadioForApproval.Checked == true)
             {
+      
                 this.loadCategoryDropdown();        
             }
             else if (this.matRadioForAllocation.Checked == true)
             {
                 this.LoadCategoryDropdownForAllocation();
+                if (this.dgvStoreOrderApproval.RowCount > 0)
+                {
+                    this.matcmbCategory.Enabled = true;
+                }
             }
             this.matcmbPackaging_SelectionChangeCommitted(sender, e);
     
@@ -1841,12 +1850,12 @@ public void LoadCategoryDropdownForAllocation()
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (this.matRadioForAllocation.Checked == true)
-            {
-                this.matRadioForAllocation.Checked = false;
+            //if (this.matRadioForAllocation.Checked == true)
+            //{
+            //    this.matRadioForAllocation.Checked = false;
        
   
-            }
+            //}
             this.ConnectionOpen();
 
             //Functionality Viewing of the Data Binding Source
