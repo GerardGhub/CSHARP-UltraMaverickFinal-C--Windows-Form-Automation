@@ -29,9 +29,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
-        
-
-
 
         public frmItemType()
         {

@@ -321,10 +321,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             // Delete
             // 
             this.Delete.DataPropertyName = "Delete";
-            this.Delete.HeaderText = "DELETE";
+            this.Delete.HeaderText = "CANCEL";
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
-            this.Delete.Text = "DELETE";
+            this.Delete.Text = "CANCEL";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
             // prepa_id

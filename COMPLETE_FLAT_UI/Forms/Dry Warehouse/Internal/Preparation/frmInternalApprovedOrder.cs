@@ -130,15 +130,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
 
-        double num = 0;
-        double num_static_value = 0;
-
- 
-
-
-
-   
-
 
         DataSet dset_emp1 = new DataSet();
         private void load_search()

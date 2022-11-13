@@ -17,10 +17,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
     {
         frmDryPreparationInternal ths;
 
-        myclasses myClass = new myclasses();
+
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -72,8 +71,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void frmViewInternalItemPrepared_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             this.StaticWindowState();
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
@@ -81,6 +79,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
          
         }
 
+
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections();
+        }
 
         private void MaterialDatagridColumnVisibilittyFalse()
         {
@@ -93,7 +96,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.guna2DgvMaterialPreparation.Columns["Parent_Description"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["description"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
+            //this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["order_source_key"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
@@ -150,7 +153,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.dset_emp_SearchEngines.Clear();
             this.dset_emp_SearchEngines = 
-            objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Partial_Cancel_Internal");
+            this.g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Partial_Cancel_Internal");
 
         }
 
@@ -203,12 +206,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             if (guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "Delete")
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
 
                     dset3.Clear();
-                    dset3 = objStorProc.sp_Internal_Preparation_Logs(0,
+                    dset3 = this.g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Primary_Key,
                     this.sp_approved_preparation_date,
                     this.Sp_Order_Source_Key.ToString(), 

@@ -113,7 +113,7 @@ namespace COMPLETE_FLAT_UI
         public void NotAllowToUsedTheSystem()
         {
         
-            MetroFramework.MetroMessageBox.Show(this, "Sorry! You are not allowed to use this system invalid credentials! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MetroFramework.MetroMessageBox.Show(this, "Sorry! You are not allowed to use this system invalid credentials! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //Application.Exit();
             txtMaterialUsername.Text = String.Empty;
             txtMaterialPassword.Text = String.Empty;
