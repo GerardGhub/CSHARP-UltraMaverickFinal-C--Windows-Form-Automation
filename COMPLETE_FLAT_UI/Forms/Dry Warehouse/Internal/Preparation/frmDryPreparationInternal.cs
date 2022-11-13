@@ -495,7 +495,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["mrs_id"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
+            //this.guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
