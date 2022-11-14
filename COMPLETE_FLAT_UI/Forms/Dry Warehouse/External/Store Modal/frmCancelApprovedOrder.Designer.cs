@@ -64,12 +64,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             // cboReason
             // 
             this.cboReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboReason.Font = new System.Drawing.Font("Roboto", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReason.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboReason.FormattingEnabled = true;
             this.cboReason.Location = new System.Drawing.Point(15, 61);
             this.cboReason.Margin = new System.Windows.Forms.Padding(1);
             this.cboReason.Name = "cboReason";
-            this.cboReason.Size = new System.Drawing.Size(519, 50);
+            this.cboReason.Size = new System.Drawing.Size(519, 46);
             this.cboReason.TabIndex = 599;
             // 
             // matBtnSave
