@@ -17,7 +17,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 {
     public partial class frmDryPreparationStore : MaterialForm
     {
-
         //Main Classs
         readonly myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
@@ -27,8 +26,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        //Variable Declaration
-        //int p_id = 0;
 
 
         public frmDryPreparationStore()
@@ -70,10 +67,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
 
+
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); 
 
+            this.ConnectionInit();
             this.dset.Clear();
             this.LoadWindowsExecution();
 
@@ -103,7 +101,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             if (this.lbltotaldata.Text == "0")
             {
-                MessageBox.Show("A");
+          
                 this.matbtnSave.Visible = false;
                 this.matcmbCategory.Enabled = false;
                 this.mattxtScanTheBarcode.Enabled = false;
@@ -176,7 +174,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         //Start
                         if (this.cmbArea.Text == String.Empty)
                         {
-                            MessageBox.Show(this.Sp_AssigneD_Task_By.ToString());
+                            //MessageBox.Show(this.Sp_AssigneD_Task_By.ToString());
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
              
                         }
@@ -255,10 +253,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             try
             {
-
-
                 xClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Already_Approved", this.dSet);
-
             }
             catch (Exception ex)
             {
@@ -339,10 +334,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
      private void ConnectionInit()
         {
-
-            ////Connection CallBack
             g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
@@ -704,7 +696,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 {
 
                     this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
-                    //MessageBox.Show("B");
+     
                     //Buje Malakas
                     this.mattxtScanTheBarcode.Text = String.Empty;
                     this.mattxtScanTheBarcode.Focus();

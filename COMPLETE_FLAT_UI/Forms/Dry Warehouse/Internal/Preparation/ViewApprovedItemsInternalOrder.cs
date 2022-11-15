@@ -16,11 +16,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
     public partial class ViewApprovedItemsInternalOrder : MaterialForm
     {
         frmInternalApprovedOrder ths;
-
-        myclasses myClass = new myclasses();
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -138,7 +135,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("SearchInternalPreparationLogs");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("SearchInternalPreparationLogs");
 
         }
 
@@ -177,8 +174,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void ConnectionState()
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+
         }
 
         private void InitiliazeDatePickerMinDate()

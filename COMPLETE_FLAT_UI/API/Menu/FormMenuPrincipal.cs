@@ -35,12 +35,14 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order;
 using ULTRAMAVERICK.Menu.View_Models;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation;
 using ULTRAMAVERICK.API.Extensions;
+using ULTRAMAVERICK.API.Data;
 
 namespace COMPLETE_FLAT_UI
 {
     public partial class FormMenuPrincipal : Form
     {
         readonly ReportDocument rpt = new ReportDocument();
+        ParentFormsRepository parentFormsRepository = new ParentFormsRepository();
         readonly Modules Module = new Modules();
         //Constructor
         public Byte[] imageByte = null;
@@ -302,6 +304,8 @@ namespace COMPLETE_FLAT_UI
             //Header
             Adorner.AddBadgeTo(btnNotificationsBell, 
             this.Menu.TotalCountNotificationDistinctType.ToString());
+
+
             //end Header
             //Major Menu Notifications
             if (userinfo.receiving_status == "On")
@@ -383,15 +387,63 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-        private void FormMenuPrincipal_Load(object sender, EventArgs e)
-        {           
 
+        public void ToolStripBadges()
+        {
+            this.ConnectionInit();
+            //Store Preparation
+            this.parentFormsRepository.GetStorePreparations(this.dataGridView1);
+            this.preparationToolStripMenuItem.Text = "Preparation (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.preparationToolStripMenuItem.Text = "Preparation";
+            }
+            //Store Approval
+            this.parentFormsRepository.GetStoreOrderForApproval(this.dataGridView1);
+            this.forApprovalToolStripMenuItem.Text = "Ready For Scheduling (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.forApprovalToolStripMenuItem.Text = "Ready For Scheduling";
+            }
+            //Store Approved
+            this.parentFormsRepository.GetStoreOrderApproved(this.dataGridView1);
+            this.approvedOrderToolStripMenuItem.Text = "Approved Schedule (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.approvedOrderToolStripMenuItem.Text = "Approved Schedule";
+            }
+
+            //Internal Order For Scheduling
+            this.parentFormsRepository.GetInternalOrderForScheduling(this.dataGridView1);
+            this.readyForSchedulingToolStripMenuItem.Text = "Ready For Scheduling (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.readyForSchedulingToolStripMenuItem.Text = "Ready For Scheduling";
+            }
+
+
+            //Internal Order Approved
+            this.parentFormsRepository.GetInternalOrderApproved(this.dataGridView1);
+            this.approvedScheduleToolStripMenuItem.Text = "Approved Schedule (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.approvedScheduleToolStripMenuItem.Text = "Approved Schedule";
+            }
+
+        }
+
+        private void FormMenuPrincipal_Load(object sender, EventArgs e)
+        {
 
 
             this.ConnectionInit();
 
+            this.ToolStripBadges();
+
+
+
             //this.Size = new Size(1300, 700); //Size of Windows
-           
+
             this.RoundPictureAss();
 
             this.ShowReceivingData();
@@ -1217,11 +1269,15 @@ namespace COMPLETE_FLAT_UI
 
         private void btnDashBoard1_Click_1(object sender, EventArgs e)
         {
+
+   
+            //forApprovalToolStripMenuItem.Text = "Butp";
             this.NormalSizeofSideBar();
             this.panelMenuSelection.Visible = false;
             FormLogo fm = new FormLogo();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
+            this.FormMenuPrincipal_Load(sender, e);
         }
 
         private void btnUsers1_Click(object sender, EventArgs e)
@@ -1562,10 +1618,7 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripMenuReceipt_Click(object sender, EventArgs e)
         {
-            // this.NormalSizeofSideBar();
-            //frmDryMiscellanouseReceipt Receipt = new frmDryMiscellanouseReceipt();
-            // Receipt.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            // AbrirFormEnPanel(Receipt);
+
             frmDryWhMiscellaneousReceipts FrmReceipt = new frmDryWhMiscellaneousReceipts();
             FrmReceipt.ShowDialog();
 

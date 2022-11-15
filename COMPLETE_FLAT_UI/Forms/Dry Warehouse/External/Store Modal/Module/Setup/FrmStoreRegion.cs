@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         DateTime dNow = DateTime.Now;
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        string mode = "";
+
         public frmRegion()
         {
             InitializeComponent();
@@ -303,9 +303,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
-                        mode = "delete";
-
-                        mode = "";
+   
 
                         this.dSet.Clear();
                         this.dSet = g_objStoredProcCollection.sp_tblRegion(
@@ -342,9 +340,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 {
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
-
-                        this.mode = "activate";
-
                         this.dSet.Clear();
                         this.dSet = g_objStoredProcCollection.sp_tblRegion(
                         this.TblRegionEntity.Region_Id,
@@ -358,14 +353,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                         this.GlobalStatePopup.ActivatedSuccessfully();
                         this.frmRegion_Load(new object(), new System.EventArgs());
-
                     }
-
 
                 }
                 else
                 {
-
                     this.toolStripbtnEdit.Visible = true;
                     return;
                 }

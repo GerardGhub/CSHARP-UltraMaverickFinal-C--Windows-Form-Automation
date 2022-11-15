@@ -451,13 +451,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.matRadioNotActive.Checked = false;
             }
-            //this.lblReasonofCancellation.Visible = false;
-
-
                 this.bunifuPrepaDate_ValueChanged(sender, e);
-            
-      
-
-        }
+            }
     }
     }

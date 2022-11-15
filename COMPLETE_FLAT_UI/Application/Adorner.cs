@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,20 +32,6 @@ namespace ULTRAMAVERICK.Class
         }
 
 
-        //static public bool AddBadgeTos(ToolStripDropDownButton ctl, string Text)
-        //{
-        //    //if (controlsdropdown.Contains(ctl)) return false;
-
-        //    //Badge badge = new Badge();
-        //    //badge.AutoSize = true;
-        //    //badge.Text = Text;
-        //    //badge.BackColor = Color.Transparent;
-        //    //controlsdropdown.Add(ctl);
-        //    //ctl.Container.Add(badge);
-        //    //SetPosition(badge, ctl);
-
-        //    //return true;
-        //}
 
         private static void SetPosition(Badge badge, ToolStripDropDownButton ctl)
         {

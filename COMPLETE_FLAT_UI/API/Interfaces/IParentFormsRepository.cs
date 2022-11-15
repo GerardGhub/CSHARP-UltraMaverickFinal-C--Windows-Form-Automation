@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace ULTRAMAVERICK.API.Interfaces
 {
-    interface IParentFormsRepository
+    internal interface IParentFormsRepository
     {
-        void GetParentForms();
+        void GetStorePreparations(System.Windows.Forms.DataGridView DataGridViews);
+
+        void GetStoreOrderForApproval(System.Windows.Forms.DataGridView DataGridViews);
+
+        void GetStoreOrderApproved(System.Windows.Forms.DataGridView DataGridViews);
+        void GetInternalOrderForScheduling(System.Windows.Forms.DataGridView DataGridViews);
+        void GetInternalOrderApproved(System.Windows.Forms.DataGridView DataGridViews);
     }
 }

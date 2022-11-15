@@ -20,6 +20,7 @@ namespace ULTRAMAVERICK.Models
         //public static string confirmPassword;
         public user_infos muser_infos = new user_infos();
         public string SubCategory { get; set; }
+        public int TotalRecordsSp { get; set; }
         public string PrimaryMenuId { get; set; }
         public DataSet DataSetRMMoverOrderReceipt  = new DataSet();
         public DataSet DataSetRMMoverOrderIssue = new DataSet();
@@ -260,6 +261,18 @@ namespace ULTRAMAVERICK.Models
 
             g_objStoredProcFill = null;
         }
+
+
+        public void fillDataBadgeMenu(string eTablename, DataSet dSets, int TotalRecordsData)
+        {
+            g_objStoredProcFill = g_objStoredProc.GetCollections();
+            dSets.Clear();
+            dSets = g_objStoredProcFill.sp_getMinorTables(eTablename, null, null, null, null, null);
+            TotalRecordsSp = 88;
+            g_objStoredProcFill = null;
+        }
+
+
 
         public void fillComboBoxStoreOrderApprovalSync(ComboBox eComboBox, string eTablename, DataSet dSet , string string_data_find, string string_data_find2, string string_data_find3, string string_data_find4)
         {
@@ -651,16 +664,17 @@ namespace ULTRAMAVERICK.Models
             eDataGrid.DataSource = dSet.Tables[0];
         }
 
-
-
-
-        public void fillComboboxID(DataGridView eDataGrid, string eTablename, DataSet dSet)
+        public void fillDataGridViewMajorSp(DataGridView eDataGrid, string eTablename, DataSet dSet)
         {
             g_objStoredProcFill = g_objStoredProc.GetCollections();
             dSet.Clear();
             dSet = g_objStoredProcFill.sp_getMajorTables(eTablename);
             eDataGrid.DataSource = dSet.Tables[0];
         }
+
+
+
+
 
 
         public void datagridSort(DataTable dt, int ci, string so)

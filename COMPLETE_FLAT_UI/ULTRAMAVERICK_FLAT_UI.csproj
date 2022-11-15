@@ -153,6 +153,7 @@
     <Compile Include="API\Data\DepartmentUnitRepository.cs" />
     <Compile Include="API\Data\DryWHReceiptRepository.cs" />
     <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
+    <Compile Include="API\Data\FormMenuPrincipalRepository.cs" />
     <Compile Include="API\Data\Major_CategoryRepository.cs" />
     <Compile Include="API\Data\ParentFormsRepository.cs" />
     <Compile Include="API\Data\TblCustomersRepository.cs" />
@@ -188,19 +189,20 @@
     <Compile Include="API\Interfaces\IDepartmentUnitRepository.cs" />
     <Compile Include="API\Interfaces\IDryWHReceiptRepository.cs" />
     <Compile Include="API\Interfaces\IDry_Wh_Order_Parent_Repository.cs" />
+    <Compile Include="API\Interfaces\IFormMenuPrincipal.cs" />
     <Compile Include="API\Interfaces\IMajor_Category.cs" />
     <Compile Include="API\Interfaces\IParentFormsRepository.cs" />
     <Compile Include="API\Interfaces\ITblCustomersRepository.cs" />
-    <Compile Include="Barcode Reprinting\frmBarcodeReprinting.cs">
+    <Compile Include="Application\Barcode Reprinting\frmBarcodeReprinting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Barcode Reprinting\frmBarcodeReprinting.Designer.cs">
+    <Compile Include="Application\Barcode Reprinting\frmBarcodeReprinting.Designer.cs">
       <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseWPFControls\frmViewAllNotifications.cs">
+    <Compile Include="Application\BaseWPFControls\frmViewAllNotifications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseWPFControls\frmViewAllNotifications.Designer.cs">
+    <Compile Include="Application\BaseWPFControls\frmViewAllNotifications.Designer.cs">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </Compile>
     <Compile Include="Application\Adorner.cs" />
@@ -496,16 +498,16 @@
     <Compile Include="Forms\Users\Modal\FrmAddNewPosition.Designer.cs">
       <DependentUpon>FrmAddNewPosition.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\frmDashboard.cs">
+    <Compile Include="API\Menu\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\frmDashboard.designer.cs">
+    <Compile Include="API\Menu\frmDashboard.designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\FormMenuPrincipal.cs">
+    <Compile Include="API\Menu\FormMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\FormMenuPrincipal.Designer.cs">
+    <Compile Include="API\Menu\FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.cs">
@@ -880,7 +882,7 @@
     <Compile Include="FrmLoginForm.Designer.cs">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\View Models\MenuClasses.cs" />
+    <Compile Include="API\Menu\View Models\MenuClasses.cs" />
     <Compile Include="Domain\IStoredProcedures.cs" />
     <Compile Include="Domain\myclasses.cs" />
     <Compile Include="Domain\myglobal.cs" />
@@ -890,10 +892,10 @@
     <Compile Include="Domain\user_info.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\frmReport.cs">
+    <Compile Include="Application\Report\frmReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report\frmReport.Designer.cs">
+    <Compile Include="Application\Report\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UltraMaverickDBDataSet.cs">
@@ -905,10 +907,10 @@
       <DependentUpon>UltraMaverickDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Wizard\Helpers\Step.cs" />
-    <EmbeddedResource Include="Barcode Reprinting\frmBarcodeReprinting.resx">
+    <EmbeddedResource Include="Application\Barcode Reprinting\frmBarcodeReprinting.resx">
       <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaseWPFControls\frmViewAllNotifications.resx">
+    <EmbeddedResource Include="Application\BaseWPFControls\frmViewAllNotifications.resx">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.resx">
@@ -1052,10 +1054,10 @@
     <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewPosition.resx">
       <DependentUpon>FrmAddNewPosition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\frmDashboard.resx">
+    <EmbeddedResource Include="API\Menu\frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\FormMenuPrincipal.resx">
+    <EmbeddedResource Include="API\Menu\FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.resx">
@@ -1251,7 +1253,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report\frmReport.resx">
+    <EmbeddedResource Include="Application\Report\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -1375,10 +1377,8 @@
     <Folder Include="API\Errors\" />
     <Folder Include="API\Helpers\" />
     <Folder Include="API\Middleware\" />
-    <Folder Include="Form ViewModels\" />
     <Folder Include="Forms\Login\" />
     <Folder Include="Forms\MasterList SetUP\" />
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resumerdf.jpg" />
