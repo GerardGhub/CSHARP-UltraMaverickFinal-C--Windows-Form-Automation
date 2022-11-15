@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         readonly myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         readonly Primary_Unit PrimaryUnitEntity = new Primary_Unit();
-        string mode = "";
+
         DateTime dNow = DateTime.Now;
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
@@ -166,9 +166,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to deactivate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
 
-
-                        mode = "delete";
-
                         dSet_temp.Clear();
                         dSet_temp = g_objStoredProcCollection
                             .sp_Primary_Unit(this.PrimaryUnitEntity.Unit_Id,
@@ -193,9 +190,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                 {
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to activate the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-
-
-                        mode = "activate";
 
                         dSet_temp.Clear();
                         dSet_temp = g_objStoredProcCollection
@@ -228,13 +222,9 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void Canceel_Click(object sender, EventArgs e)
         {
             matBtnCancel.Visible = false;
-            mode = "";
-
             matBtnEdit.Visible = true;
-   
             matBtnNew.Visible = true;
             matBtnDelete.Visible = true;
-       
         }
 
         private void Savee_Click(object sender, EventArgs e)

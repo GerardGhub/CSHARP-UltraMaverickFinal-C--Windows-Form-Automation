@@ -15,10 +15,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 {
     public partial class frmDryPreparationInternal : MaterialForm
     {
-        myclasses myClass = new myclasses();
+ 
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
+
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -67,10 +67,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public int Sp_department_id { get; set; }
 
 
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
+
         private void frmDryPreparationInternal_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
+
             this.dset.Clear();
             this.LoadWindowsExecution();
             //this.loadCategoryDropdown();
@@ -118,7 +123,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
            
             this.dset_emp_SearchEnginesPreparationPerStaff.Clear();
             this.dset_emp_SearchEnginesPreparationPerStaff 
-          = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_Internal");
+          = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_Internal");
 
         }
 
@@ -152,7 +157,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
 
 
-                myClass.fillComboBoxStoreOrderApproval(this.cmbPreparationDate, "Internal_Order_ForPreparation", this.dSet);
+                xClass.fillComboBoxStoreOrderApproval(this.cmbPreparationDate, "Internal_Order_ForPreparation", this.dSet);
 
             }
             catch (Exception ex)
@@ -227,20 +232,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void cmbPreparationDate_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
-
+            this.ConnectionInit();
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
-
             this.FormmLoadSearchState();
-            // attached the Area
-
             this.RefactoringResetEnhancement();
-            //this.loadAreaDropdown();
-
-
-
         }
 
 
@@ -263,7 +258,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                         //Sample Lang puki
                         dset2.Clear();
-                        dset2 = objStorProc.sp_Internal_Preparation_Logs(0,
+                        dset2 = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                         this.Sp_department_id.ToString(),
                         this.sp_approved_preparation_date,
                         this.Sp_Category,
@@ -285,7 +280,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         {
                            
                             this.dSet.Clear();
-                            this.dSet = objStorProc.sp_Internal_Preparation_Logs(
+                            this.dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                             0,
                             this.Sp_department_id.ToString(),
                             this.sp_approved_preparation_date,
@@ -431,7 +426,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.dset_emp_SearchEngines.Clear();
             this.dset_emp_SearchEngines = 
-           objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Internal");
+           g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Internal");
 
         }
 
@@ -507,14 +502,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
          
             this.CurrentCellChangeofDgvStoreOrderApproval();
-
-
-
-
-
-            ////Connection CallBack
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
             this.SearchMethodJarVarCallingSP();
             if (this.lbltotalStoreforPreparation.Text == "0")
             {
@@ -555,10 +543,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             string lstrAdate = dt.ToString("yyyy-MM-dd");
             this.sp_approved_preparation_date = lstrAdate;
 
-            //MessageBox.Show(this.sp_approved_preparation_date);
-            //CheckIifAlreayHaveAnewRecord Buje
+
             dset3.Clear();
-            dset3 = objStorProc.sp_Internal_Preparation_Logs(0,
+            dset3 = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
            this.Sp_department_id.ToString(),
             this.sp_approved_preparation_date,
             "ItemCode", "ItemDesc", "OrderQty",
@@ -586,7 +573,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             //CheckIifAlreayHaveAnewRecord
             dset2.Clear();
-            dset2 = objStorProc.sp_Internal_Preparation_Logs(0,
+            dset2 = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
             "",
             this.sp_approved_preparation_date,
             "ItemCode", 
@@ -666,16 +653,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
 
             //Connection Binding to Stored Procedure
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
-
-
-
-
+            this.ConnectionInit();
             //Start of Validating the Received If if exist on the system
             dSet.Clear();
-            dSet = objStorProc.sp_Internal_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
+            dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
                "", "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist");
 
        
@@ -685,7 +666,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 //Start of Validating the Received If if exist on the system  buje
                 dset2.Clear();
-                dset2 = objStorProc.sp_Internal_Preparation_Logs(
+                dset2 = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                     Convert.ToInt32(this.mattxtScanTheBarcode.Text), 
                     this.sp_approved_preparation_date,
                     this.Sp_department, "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist_information_internal");
@@ -711,15 +692,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                         return;
                     }
-
-
-                    //Interation Loop of Materials Order
                     this.FindTheExactItemCode();
-
-
-                    //return; //bolang
-
-
                 }
                 else
                 {
@@ -754,7 +727,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
 
             this.dset_emp_SearchEnginesReceivingInformationDset.Clear();
-            this.dset_emp_SearchEnginesReceivingInformationDset = objStorProc.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
+            this.dset_emp_SearchEnginesReceivingInformationDset = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
 
         }
 
@@ -764,7 +737,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
 
             this.dset_emp_SearchEnginesReceivingIDFEFO.Clear();
-            this.dset_emp_SearchEnginesReceivingIDFEFO = objStorProc.sp_getMajorTables("searchorderForReceivingIDFEFO_Internal_Major");
+            this.dset_emp_SearchEnginesReceivingIDFEFO = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDFEFO_Internal_Major");
 
         }
 
@@ -1022,7 +995,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 dset3.Clear();
-                dset3 = objStorProc.sp_Internal_Preparation_Logs(
+                dset3 = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                0,
                this.cmbPreparationDate.Text,
                 this.sp_approved_preparation_date,
