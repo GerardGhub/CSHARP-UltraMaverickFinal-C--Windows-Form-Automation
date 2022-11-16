@@ -102,5 +102,21 @@ namespace ULTRAMAVERICK.API.Data
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void GetInternalPreparation(DataGridView DataGridViews)
+        {
+            try
+            {
+
+                this.xClass.fillDataGridViewMajorSp(DataGridViews, "searchorderForApprovalinDryWH_isApprovedforPreparation_Internal", this.dSet);
+
+                this.TotalRecords = DataGridViews.RowCount;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

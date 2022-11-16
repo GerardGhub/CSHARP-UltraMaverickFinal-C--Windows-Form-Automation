@@ -430,6 +430,14 @@ namespace COMPLETE_FLAT_UI
                 this.approvedScheduleToolStripMenuItem.Text = "Approved Schedule";
             }
 
+            //Internal Order Preparation
+            this.parentFormsRepository.GetInternalPreparation(this.dataGridView1);
+            this.preparationToolStripMenuItem1.Text = "Preparation (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.preparationToolStripMenuItem1.Text = "Preparation";
+            }
+
         }
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)

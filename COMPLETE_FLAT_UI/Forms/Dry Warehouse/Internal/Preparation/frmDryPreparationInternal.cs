@@ -86,26 +86,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
             this.FormmLoadSearchState();
 
-
-
-            //if (this.lbltotalStoreforPreparation.Text == "0")
-            //{
-
-            //}
-            //else
-            //{
-            //    this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
-            //    this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
-            //    this.dgvStoreOrderApproval.Columns["department_id"].Visible = false;
-
-            //    this.dgvStoreOrderApproval.Columns["TotalItemsOrder"].Visible = false;
-            //    this.dgvStoreOrderApproval.Columns["start_by_user_id"].Visible = false;
-            //    this.dgvStoreOrderApproval.Columns["employee_name"].Visible = false;
-        
-            //}
-
-
-            //MessageBox.Show("" + this.Sp_AssigneD_Task_By);
             if (this.lbltotaldata.Text == "0")
             {
                 this.matbtnSave.Visible = false;
@@ -182,13 +162,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                     try
                     {
-
-
-                       
+                      
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0') and approved_preparation_date = '" + this.cmbPreparationDate.Text + "'     ";
                     
-
-
                         this.dgvStoreOrderApproval.DataSource = dv;
                         this.lbltotalStoreforPreparation.Text = dgvStoreOrderApproval.RowCount.ToString();
 

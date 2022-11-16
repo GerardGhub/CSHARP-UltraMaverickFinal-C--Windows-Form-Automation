@@ -120,7 +120,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void Neww_Click(object sender, EventArgs e)
         {
-            this.mode = "add";
+
             this.matBtnEdit.Visible = false;
             this.matBtnCancel.Visible = true;
             this.matBtnNew.Visible = false; 
@@ -140,7 +140,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void Editt_Click(object sender, EventArgs e)
         {
-            this.mode = "edit";
             this.matBtnDelete.Visible = false;
             this.matBtnCancel.Visible = true;
             this.matBtnNew.Visible = false;

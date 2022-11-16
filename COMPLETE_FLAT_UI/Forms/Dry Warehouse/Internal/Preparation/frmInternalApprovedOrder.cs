@@ -84,16 +84,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.dgvStoreOrderApproval.Enabled = true;
 
             }
-            this.InitiliazeDatePickerMinDate();
+
         }
 
 
-        private void InitiliazeDatePickerMinDate()
-        {
-            this.bunifuPrepaDate.MinDate = DateTime.Now;
-            //this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
-        }
-
+   
         private void DataGridHideColumn()
         {
             if (this.dgvStoreOrderApproval.Rows.Count > 0)
