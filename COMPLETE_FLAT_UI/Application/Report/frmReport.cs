@@ -2,13 +2,7 @@
 using CrystalDecisions.CrystalReports.Engine;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -19,9 +13,8 @@ namespace ULTRAMAVERICK.Report
         string Rpt_Path = "";
         ReportDocument rpt = new ReportDocument();
         myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
+
         public frmReport()
         {
             InitializeComponent();
@@ -29,10 +22,16 @@ namespace ULTRAMAVERICK.Report
 
 
 
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
+
         private void frmReport_Load(object sender, EventArgs e)
         {
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.ConnectionInit();
+
+
             crV1.Width = this.Width;
             crV1.Height = 10;
 
@@ -63,7 +62,7 @@ namespace ULTRAMAVERICK.Report
             if (myglobal.REPORT_NAME == "StoreMoveOrderPickSlip")
             {
                 rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
-                rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+                //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
                 rpt.Refresh();
                 string ddate = myglobal.DATE_REPORT;
                 string ddate2 = myglobal.DATE_REPORT2;
@@ -80,69 +79,9 @@ namespace ULTRAMAVERICK.Report
             }
 
 
-            else if (myglobal.REPORT_NAME == "DailyFGTotalProduction")
-            {
-                rpt.Load(Rpt_Path + "\\DailyReportFGProduction.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
-
-      
-            else if (myglobal.REPORT_NAME == "ReprocessReport")
-            {
-                rpt.Load(Rpt_Path + "\\ReprocessRpt.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-                string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
-
-            else if (myglobal.REPORT_NAME == "TheoScadaPrint")
-            {
-                rpt.Load(Rpt_Path + "\\TheoScadaPrint.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-                string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
 
 
 
-            else if (myglobal.REPORT_NAME == "RepackingEntryPrint")
-            {
-                rpt.Load(Rpt_Path + "\\RepackingEntryPrint.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-                string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
             else if (myglobal.REPORT_NAME == "MicroInventoryMovementPrint")
             {
                 rpt.Load(Rpt_Path + "\\MicroInventoryMovementPrint.rpt");
@@ -174,128 +113,17 @@ namespace ULTRAMAVERICK.Report
                 crV1.Refresh();
             }
 
-            else if (myglobal.REPORT_NAME == "ReprocessReportProdID")
-            {
-                rpt.Load(Rpt_Path + "\\ReprocessRptProdID.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-                string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                rpt.SetParameterValue("@prodid", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
 
-            else if (myglobal.REPORT_NAME == "FGMoveOrderPickSlipwithcustomersurveyRePrint")
-            {
-                rpt.Load(Rpt_Path + "\\FGMoveOrderPickSlipwithcustomersurveyRePrint.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-                //string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
 
-            else if (myglobal.REPORT_NAME == "FGMoveOrder")
-            {
-                rpt.Load(Rpt_Path + "\\FGMoveOrderPickSlipwithcustomersurvey.rpt");
 
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-
-                //string ddate2 = myglobal.DATE_REPORT2;
-                //string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
+   
 
 
 
 
 
-            }
 
 
-            else if (myglobal.REPORT_NAME == "FGMiscellaneousIssue")
-            {
-                rpt.Load(Rpt_Path + "\\FGMiscellaneousIssuePickSlip.rpt");
-
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-
-                //string ddate2 = myglobal.DATE_REPORT2;
-                //string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-
-            }
-
-            else if (myglobal.REPORT_NAME == "FGMiscellaneousReceipt")
-            {
-                rpt.Load(Rpt_Path + "\\FGMiscellaneousReceiptPickSlip.rpt");
-
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-
-                //string ddate2 = myglobal.DATE_REPORT2;
-                //string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-
-            }
-
-
-
-            else if (myglobal.REPORT_NAME == "FGMoveOrderReprint")
-            {
-                rpt.Load(Rpt_Path + "\\FGMoveOrderPickSlipwithcustomersurveyReprint.rpt");
-
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-                string ddate = myglobal.DATE_REPORT;
-                string ddate2 = myglobal.DATE_REPORT2;
-
-                //string ddate2 = myglobal.DATE_REPORT2;
-                //string ddate3 = myglobal.DATE_REPORT3;
-                rpt.SetParameterValue("@ddate", ddate);
-                rpt.SetParameterValue("@ddate2", ddate2);
-                //rpt.SetParameterValue("@feed_code", ddate3);
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-
-
-
-
-
-            }
 
 
             else if (myglobal.REPORT_NAME == "QANewPrint")
@@ -620,28 +448,6 @@ namespace ULTRAMAVERICK.Report
 
 
 
-
-            else if (myglobal.REPORT_NAME == "IDRepackReport")
-            {
-                rpt.Load(Rpt_Path + "\\IDRepackReport.rpt");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
-                ////////rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.Refresh();
-
-                crV1.SelectionFormula = "{Command.rp_item_description} like '*" + myglobal.Searchcategory + "*' or  {Command.rp_classification} like '*" + myglobal.Searchcategory + "*'or  {Command.rp_item_code} like '*" + myglobal.Searchcategory + "*' or  {Command.rp_mfg_date} like '*" + myglobal.Searchcategory + "*'  AND  {Command.rp_expiry_date} like '*" + myglobal.Filter + "*'";
-
-
-
-
-
-
-                rpt.SetParameterValue("Approved", myglobal.rp_item_description);
-                rpt.SetParameterValue("Validity", myglobal.validity);
-                rpt.SetParameterValue("Position", myglobal.position);
-
-                crV1.ReportSource = rpt;
-                crV1.Refresh();
-            }
 
             else if (myglobal.REPORT_NAME == "DryReceivingBarcode")
             {

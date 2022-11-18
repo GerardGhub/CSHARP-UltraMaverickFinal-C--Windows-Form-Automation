@@ -1197,7 +1197,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
 
             rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
-            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+            //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
             rpt.Refresh();
 
