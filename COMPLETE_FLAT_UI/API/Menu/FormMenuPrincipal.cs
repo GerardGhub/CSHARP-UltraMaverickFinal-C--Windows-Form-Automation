@@ -438,6 +438,14 @@ namespace COMPLETE_FLAT_UI
                 this.preparationToolStripMenuItem1.Text = "Preparation";
             }
 
+            //Dispatching Order
+            this.parentFormsRepository.GetDispatchingData(this.dataGridView1);
+            this.moveOrderToolStripMenuItem2.Text = "Move Order (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.moveOrderToolStripMenuItem2.Text = "Move Order";
+            }
+
         }
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)

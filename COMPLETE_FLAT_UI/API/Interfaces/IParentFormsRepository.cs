@@ -16,5 +16,6 @@ namespace ULTRAMAVERICK.API.Interfaces
         void GetInternalOrderForScheduling(System.Windows.Forms.DataGridView DataGridViews);
         void GetInternalOrderApproved(System.Windows.Forms.DataGridView DataGridViews);
         void GetInternalPreparation(System.Windows.Forms.DataGridView DataGridViews);
+        void GetDispatchingData(System.Windows.Forms.DataGridView DataGridViews);
     }
 }

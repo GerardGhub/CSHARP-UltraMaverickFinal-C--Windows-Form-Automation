@@ -118,5 +118,23 @@ namespace ULTRAMAVERICK.API.Data
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void GetDispatchingData(DataGridView DataGridViews)
+        {
+            try
+            {
+
+                this.xClass.fillDataGridViewMajorSp(DataGridViews, "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major", this.dSet);
+
+                this.TotalRecords = DataGridViews.RowCount;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
     }
 }

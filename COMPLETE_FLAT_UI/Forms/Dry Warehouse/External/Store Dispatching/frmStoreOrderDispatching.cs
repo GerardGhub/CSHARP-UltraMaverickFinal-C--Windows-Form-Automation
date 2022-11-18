@@ -49,28 +49,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         public string Sp_UserName { get; set; }
         public int Sp_ParentId { get; set; }
-        private void frmStoreOrderDispatching_Load(object sender, EventArgs e)
+
+
+        private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
 
-          
-
-
-            this.loadPreparationDateDropdown();
-
-       
+        private void frmStoreOrderDispatching_Load(object sender, EventArgs e)
+        {
+            this.ConnectionInit();         
+            this.loadPreparationDateDropdown();       
             this.useStateWindowLoad();
-      
-            this.ShowDataActivated();
-   
+            this.ShowDataActivated(); 
             this.matCmbPreparationDate_SelectionChangeCommitted(sender, e);
 
            if(this.matCmbPreparationDate.Text == String.Empty)
             {
                
 
-                //this.dgvGunaMoveItems.DataSource = null;
-                //this.dgvGunaMoveItems.Rows.Clear();   -== bobo 08/3/2021
+    
                 this.lbltotaldata.Text = "0";
 
                 this.matCmbPreparationDate.Enabled = false;
@@ -448,7 +446,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                         if (this.metroCmbStoreName.Text == String.Empty)
                         {
-                            dv.RowFilter = " is_wh_approved_date = '" + this.matCmbPreparationDate.Text + "' and   category = '" + this.matcmbCategory.Text + "'   ";
+
+                            //Date Conversion
+                            DateTime dt = new DateTime();
+                            string lstrDate = this.matCmbPreparationDate.Text;
+                            dt = Convert.ToDateTime(lstrDate);
+                            string Prepadate = dt.ToString("yyyy-MM-dd");
+
+                          
+                            dv.RowFilter = " is_wh_approved_date = '" + Prepadate  + "' and   category = '" + this.matcmbCategory.Text + "'   ";
 
                         }
                         else
@@ -486,12 +492,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
 
 
-        private void ManualSetupHeaderName()
-        {
-          
-                dgvGunaMoveItems.Columns["Id"].HeaderText = "ID";
-          
-        }
 
         private void matCmbPreparationDate_SelectionChangeCommitted(object sender, EventArgs e)
         {
