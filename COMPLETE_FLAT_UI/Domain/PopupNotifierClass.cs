@@ -137,6 +137,8 @@ namespace ULTRAMAVERICK.Models
 
         }
 
+
+
         public void UserRightexists(string WizzardMesage1)
         {
 
@@ -161,6 +163,7 @@ namespace ULTRAMAVERICK.Models
             popup.ShowOptionsButton = true;
 
         }
+
 
 
 

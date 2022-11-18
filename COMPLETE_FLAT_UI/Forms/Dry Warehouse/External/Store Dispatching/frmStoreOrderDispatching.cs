@@ -713,14 +713,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 return;
             }
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Print the move Order Slip? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Print the move Order Slip? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-   
                 this.ApproveFunctionality();
             }
             else
             {
-
                 return;
             }
         }
@@ -977,7 +975,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             PrintDialog printDialog = new PrintDialog();
             rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
 
-            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+            //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
         
             this.sp_final_id = "01/12/2022";
             rpt.Refresh();
