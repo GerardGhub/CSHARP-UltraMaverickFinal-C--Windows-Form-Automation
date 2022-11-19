@@ -631,6 +631,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             {
                 bool isChecked = (bool)dgvGunaMoveItems.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
                 CheckCount(isChecked);
+                if (this.materialLabelRecentLogs.Text == "View Current Log(s)")
+                {
+                    this.materialButtonPrintPreview.Visible = false;
+                }
             }
             catch (Exception ex)
             {
