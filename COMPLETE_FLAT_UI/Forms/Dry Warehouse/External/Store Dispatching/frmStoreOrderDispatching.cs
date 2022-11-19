@@ -56,6 +56,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
+
+
         private void frmStoreOrderDispatching_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();         
@@ -459,7 +461,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                         }
                         else
                         {
-                            dv.RowFilter = " is_wh_approved_date = '" + this.matCmbPreparationDate.Text + "' and   category = '" + this.matcmbCategory.Text + "' and store_name ='" + this.metroCmbStoreName.Text + "'  ";
+                            DateTime dt = new DateTime();
+                            string lstrDate = this.matCmbPreparationDate.Text;
+                            dt = Convert.ToDateTime(lstrDate);
+                            string Prepadate = dt.ToString("yyyy-MM-dd");
+
+                            dv.RowFilter = " is_wh_approved_date = '" + Prepadate + "' and   category = '" + this.matcmbCategory.Text + "' and store_name ='" + this.metroCmbStoreName.Text + "'  ";
 
                         }
 

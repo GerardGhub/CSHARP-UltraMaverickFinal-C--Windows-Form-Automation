@@ -105,7 +105,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(178, 28);
+            this.materialCard3.Size = new System.Drawing.Size(178, 41);
             this.materialCard3.TabIndex = 655;
             this.materialCard3.Click += new System.EventHandler(this.materialCard3_Click);
             this.materialCard3.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard3_Paint);
@@ -116,13 +116,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialLabelRecentLogs.AutoSize = true;
             this.materialLabelRecentLogs.Depth = 0;
-            this.materialLabelRecentLogs.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelRecentLogs.Location = new System.Drawing.Point(24, 5);
+            this.materialLabelRecentLogs.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialLabelRecentLogs.Location = new System.Drawing.Point(24, 11);
             this.materialLabelRecentLogs.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelRecentLogs.Name = "materialLabelRecentLogs";
             this.materialLabelRecentLogs.Size = new System.Drawing.Size(137, 19);
             this.materialLabelRecentLogs.TabIndex = 657;
             this.materialLabelRecentLogs.Text = "View Recent Log(s)";
+            this.materialLabelRecentLogs.UseAccent = true;
             this.materialLabelRecentLogs.Click += new System.EventHandler(this.materialLabelRecentLogs_Click);
             // 
             // materialLabel5
@@ -513,21 +514,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.selected.Name = "selected";
             this.selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.selected.TrueValue = "TRUE";
-            this.selected.Width = 22;
+            this.selected.Width = 20;
             // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";
             this.Id.Name = "Id";
-            this.Id.Width = 49;
+            this.Id.Width = 47;
             // 
             // wh_checker_move_order_no
             // 
             this.wh_checker_move_order_no.DataPropertyName = "wh_checker_move_order_no";
             this.wh_checker_move_order_no.HeaderText = "ORDER NO.";
             this.wh_checker_move_order_no.Name = "wh_checker_move_order_no";
-            this.wh_checker_move_order_no.Width = 114;
+            this.wh_checker_move_order_no.Width = 103;
             // 
             // is_approved_prepa_date
             // 
@@ -536,7 +537,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.is_approved_prepa_date.HeaderText = "PREPARATION DATE";
             this.is_approved_prepa_date.MinimumWidth = 12;
             this.is_approved_prepa_date.Name = "is_approved_prepa_date";
-            this.is_approved_prepa_date.Width = 180;
+            this.is_approved_prepa_date.Width = 162;
             // 
             // fox
             // 
@@ -544,7 +545,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.fox.HeaderText = "FOX";
             this.fox.MinimumWidth = 6;
             this.fox.Name = "fox";
-            this.fox.Width = 64;
+            this.fox.Width = 62;
             // 
             // store_name
             // 
@@ -552,7 +553,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.store_name.HeaderText = "STORE";
             this.store_name.MinimumWidth = 6;
             this.store_name.Name = "store_name";
-            this.store_name.Width = 84;
+            this.store_name.Width = 82;
             // 
             // route
             // 
@@ -561,7 +562,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.route.HeaderText = "ROUTE";
             this.route.MinimumWidth = 12;
             this.route.Name = "route";
-            this.route.Width = 84;
+            this.route.Width = 82;
             // 
             // category
             // 
@@ -570,7 +571,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.category.HeaderText = "CATEGORY";
             this.category.MinimumWidth = 12;
             this.category.Name = "category";
-            this.category.Width = 114;
+            this.category.Width = 112;
             // 
             // area
             // 
@@ -579,7 +580,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.area.HeaderText = "AREA";
             this.area.MinimumWidth = 12;
             this.area.Name = "area";
-            this.area.Width = 73;
+            this.area.Width = 71;
             // 
             // total_state_repack
             // 
@@ -587,21 +588,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.total_state_repack.HeaderText = "TOTAL ITEMS";
             this.total_state_repack.MinimumWidth = 6;
             this.total_state_repack.Name = "total_state_repack";
-            this.total_state_repack.Width = 134;
+            this.total_state_repack.Width = 121;
             // 
             // is_wh_approved_date
             // 
             this.is_wh_approved_date.DataPropertyName = "is_wh_approved_date";
             this.is_wh_approved_date.HeaderText = "LOGISTIC APPROVAL DATE";
             this.is_wh_approved_date.Name = "is_wh_approved_date";
-            this.is_wh_approved_date.Width = 228;
+            this.is_wh_approved_date.Width = 170;
             // 
             // print_count
             // 
             this.print_count.DataPropertyName = "print_count";
             this.print_count.HeaderText = "PRINT COUNT";
             this.print_count.Name = "print_count";
-            this.print_count.Width = 135;
+            this.print_count.Width = 122;
             // 
             // materialCard1
             // 
