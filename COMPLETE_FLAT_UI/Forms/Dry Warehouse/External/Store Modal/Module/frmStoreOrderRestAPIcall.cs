@@ -532,11 +532,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.dgvStoreOrder_CurrentCellChanged(sender, e);
                     if (this.matRadio0.Checked == true)
                     {
+                        this.RemoveItemForValidation();
                         this.IsSynching = 1;
                         this.SaveMethod1();
                     }
                     else if(this.MatRadio1.Checked == true)
                     {
+
+                        this.DgvForSync_CurrentCellChanged(sender, e);
                         this.SaveMethod2Sync();
                     }
                     else
@@ -1569,6 +1572,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
             this.MatRadio1.Text = "Available for syncing" + ":" + (DgvForSync.RowCount.ToString());
             this.HideSyncData();
+
+            if(this.DgvForSync.RowCount >0)
+            {
+
+            }
+            else
+            {
+                this.matbtnUpload.Visible = false;
+            }
         }
 
         private void MatRadio3_CheckedChanged(object sender, EventArgs e)
