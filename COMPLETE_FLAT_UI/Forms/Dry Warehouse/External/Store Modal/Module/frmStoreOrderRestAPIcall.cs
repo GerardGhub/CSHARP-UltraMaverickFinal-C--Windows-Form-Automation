@@ -532,15 +532,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     this.dgvStoreOrder_CurrentCellChanged(sender, e);
                     if (this.matRadio0.Checked == true)
                     {
-                        if (this.DgvReceivedOrder.RowCount > 0)
+                        if (this.DgvReceivedOrder.RowCount == 0)
                         {
 
-                        }
-                        else
+                        }else
                         {
                             this.RemoveItemForValidation();
                         }
- 
+       
                         this.IsSynching = 1;
                         this.SaveMethod1();
                     }
