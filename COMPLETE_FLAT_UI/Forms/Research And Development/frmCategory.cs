@@ -25,7 +25,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         readonly myclasses myClass = new myclasses();
         readonly DataSet dSet = new DataSet();
         readonly Sub_Category SubCategoryEntity = new Sub_Category();
-        string mode = "";
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
 
@@ -123,15 +122,12 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.mode = "add";
+
             this.matBtnEdit.Visible = false;
             this.matBtnCancel.Visible = true;
             this.matBtnNew.Visible = false;
             this.matBtnDelete.Visible = false;
     
-
-
-
             this.SubCategoryEntity.Mode = "ADD";
             FrmAddNewCategory addNew =
             new FrmAddNewCategory(this,
@@ -147,7 +143,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             this.matBtnCancel.Visible = false;
-            this.mode = "";
             this.matBtnEdit.Visible = true;
 
             this.matBtnNew.Visible = true;
@@ -165,7 +160,7 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     {
 
 
-                        this.mode = "delete";
+   
 
                         this.dSet_temp.Clear();
                         this.dSet_temp = this.g_objStoredProcCollection
@@ -194,8 +189,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
                     if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-
-                        this.mode = "activate";
 
                         this.dSet_temp.Clear();
                         this.dSet_temp = this.g_objStoredProcCollection
@@ -230,7 +223,6 @@ namespace ULTRAMAVERICK.Forms.Research_And_Development
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            mode = "edit";
             matBtnDelete.Visible = false;
             matBtnCancel.Visible = true;
             matBtnNew.Visible = false;

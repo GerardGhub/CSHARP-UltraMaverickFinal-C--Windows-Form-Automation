@@ -430,7 +430,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
 
             
-            if(this.txtReserve.Text == "0")
+            if(this.txtSoh.Text == "0")
             {
                 this.GlobalStatePopup.NotEnoughStock();
                 return;
@@ -438,7 +438,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
             if (MetroFramework.MetroMessageBox.Show(this, "Do you want to allocate?", "Confirmation", MessageBoxButtons.YesNo, 
-                MessageBoxIcon.Information) == DialogResult.Yes)
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.ConnectionInit();
      
@@ -499,12 +499,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     }
                         this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
                     ////For Decrementation
-                    this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+                    this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+       
 
                     return;
                 }
             }
-        
+        //OIC
             this.MethodPost();
         }
 
@@ -584,7 +585,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 orderActual = double.Parse(this.FormClass.sp_qty_finder);
                 totalOrderQuantity = double.Parse(this.txtQtyOrder.Text);
-                StockOnHandQty = double.Parse(this.txtReserve.Text);
+                //StockOnHandQty = double.Parse(this.txtReserve.Text);
+                StockOnHandQty = double.Parse(this.txtSoh.Text);
                 totalPercentage = orderActual / totalOrderQuantity * StockOnHandQty;
                 this.lblAllocatedQty.Text = totalPercentage.ToString();
 
@@ -839,7 +841,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         
             
             
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the new order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the new order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
       
@@ -982,13 +984,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
             double StockOnHand;
             double AllocatedQty;
-
-            StockOnHand = double.Parse(this.txtReserve.Text);
+            //StockOnHand = double.Parse(this.txtReserve.Text);
+            StockOnHand = double.Parse(this.txtSoh.Text);
             AllocatedQty = double.Parse(this.lblqtyAllocatedFinal.Text);
 
 
-            if (AllocatedQty > StockOnHand)
-            {
+                if (AllocatedQty > StockOnHand)
+                {
              
                 this.matbtnNewAllocate.Enabled = false;
                 if (this.lblAllocatedQty.Text.Contains("-"))
@@ -1139,7 +1141,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     this.showDataGridDataValueChangedFinder();
 
                     ////For Decrementation
-                    this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+                    this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
    
 
             }
@@ -1221,7 +1223,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 try
                 {
-                    this.lblvariance.Text = (float.Parse(this.txtReserve.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
+                    this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
 
                 }
                 catch (Exception ex)
@@ -1244,7 +1246,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void txtReserve_TextChanged(object sender, EventArgs e)
         {
 
-                if (this.txtReserve.Text == this.lblqtyAllocatedFinal.Text)
+                if (this.txtSoh.Text == this.lblqtyAllocatedFinal.Text)
             {
                 this.matBtnSave.Enabled = false;
             }

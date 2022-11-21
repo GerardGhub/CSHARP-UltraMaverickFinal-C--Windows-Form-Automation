@@ -448,14 +448,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
-           
-
             this.ConnectionOpen();
-            //this.loadMRSDropdownForAllocation();
-
             this.DropDownMethod();
             this.matcmbCategory_SelectionChangeCommitted(sender, e);
-
         }
 
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
