@@ -19,9 +19,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         frmDryPreparationInternal ths;
         //Main Classs
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -131,7 +129,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void SearchMethodJarVarCallingSPReceivingIDInventory()
         {
             this.dset_emp_SearchEnginesReceivingIDInventory.Clear();
-            this.dset_emp_SearchEnginesReceivingIDInventory = objStorProc.sp_getMajorTables("searchorderForReceivingIDInventories");
+            this.dset_emp_SearchEnginesReceivingIDInventory = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDInventories");
 
         }
 
@@ -223,7 +221,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dset_emp_SearchEngines.Clear();
 
 
-            this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Serving_Internal");
+            this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems_Serving_Internal");
 
         }
 
@@ -439,7 +437,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     {
                         //buje 1
                         dSet.Clear();
-                        dSet = objStorProc.sp_Internal_Preparation_Logs(
+                        dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                         Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                         this.Sp_Mris_ID,
                         this.Sp_Preparation_Date,
@@ -460,7 +458,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 // Commit a new Fucking animal makapal a mukha
                 dSet.Clear();
-                dSet = objStorProc.sp_Internal_Preparation_Logs(
+                dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                 0,
                 this.Sp_Barcode_Id,
                 this.Sp_Preparation_Date,
@@ -490,7 +488,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 //Update Prepared Allocated Quantity base on Preparation
                 dSet.Clear();
-                dSet = objStorProc.sp_Internal_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
+                dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
                  SummaryDetailTransactionFormula.ToString(),
                 this.Sp_Preparation_Date,
                 this.mattxtItemCode.Text,
@@ -513,7 +511,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_Internal_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
+                        dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                         this.Sp_Mris_ID,
                         this.Sp_Preparation_Date,
                         this.Sp_Department_id.ToString(),
@@ -643,7 +641,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 else
                 {
                     dSet.Clear();
-                    dSet = objStorProc.sp_Internal_Preparation_Logs(
+                    dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                     Convert.ToInt32(Sp_Mris_ID),
                     this.Sp_RepackIncement.ToString(),
                     lstrAdate,
@@ -682,7 +680,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     //Update Status Already Repack
                     dSet.Clear();
-                    dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+                    dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
                     this.mattxtItemCode.Text,
@@ -698,7 +696,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     "update_internal_orders");
 
                     dSet.Clear();
-                    dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+                    dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
                     this.mattxtItemCode.Text,
@@ -715,18 +713,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
-                        //this.GlobalStatePopup.DataAlreadyExist();
 
-
-
-                        //this.txtMatItemCode.Focus();
-                        //return;
                     }
                     else
                     {
 
                         dSet.Clear();
-                        dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+                        dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
                         this.Sp_Preparation_Date,
                         this.mattxtItemCode.Text,
@@ -750,7 +743,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                
                         //Bulk Repack Based on Order
                         dSet.Clear();
-                        dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+                        dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
                         this.Sp_Preparation_Date,
                         this.mattxtItemCode.Text,
@@ -776,7 +769,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     //Update Start Time Stamp
                     dSet.Clear();
-                    dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+                    dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
                     this.mattxtItemCode.Text,
@@ -804,7 +797,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     if (this.Sp_TotalRawMaterialPreparationActive == "1")
                     {
                         dSet.Clear();
-                        dSet = objStorProc.sp_Internal_Preparation_Logs(
+                        dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                         Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                         this.Sp_Mris_ID,
                         this.Sp_Preparation_Date,
@@ -840,7 +833,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount()
         {
             this.SearchStoreItemPreparedWithCount.Clear();
-            this.SearchStoreItemPreparedWithCount = objStorProc.sp_getMajorTables("SearchInternalItemPreparedWithCount");
+            this.SearchStoreItemPreparedWithCount = g_objStoredProcCollection.sp_getMajorTables("SearchInternalItemPreparedWithCount");
 
         }
 
@@ -848,7 +841,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             //Bulk Update Start Whole Store Repository   Remove Error on 04/28/2022
             dSet.Clear();
-            dSet = objStorProc.sp_Internal_Preparation_Logs(0,
+            dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
             this.Sp_Barcode_Id,
             this.Sp_Preparation_Date,
             this.mattxtItemCode.Text,

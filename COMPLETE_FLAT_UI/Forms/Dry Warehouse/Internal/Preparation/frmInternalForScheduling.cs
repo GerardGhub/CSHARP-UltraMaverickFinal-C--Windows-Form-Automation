@@ -18,9 +18,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
     public partial class frmInternalForScheduling : MaterialForm
     {
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -227,7 +225,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.dset_emp1.Clear();
 
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSMasterDataSync");
+                this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchMRSMasterDataSync");
 
                 this.doSearch();
             }
@@ -236,7 +234,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.dset_emp1.Clear();
 
              
-                this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSMasterDataSyncForAllocation");
+                this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchMRSMasterDataSyncForAllocation");
 
                 this.doSearch();
             }
@@ -249,7 +247,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
 
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
 
             this.DataRefresher();
             myglobal.global_module = "Active";
@@ -279,7 +277,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //this.ConnectionInit();
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchorderForApprovalinDryWH");
+            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
 
             this.dgvStoreOrderApproval.DataSource = dv;
@@ -367,7 +365,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             try
             {
 
-                xClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
+                myClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
 
                 this.GlobalStatePopup.Total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
             }
@@ -404,7 +402,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void ConnectionOpen()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
