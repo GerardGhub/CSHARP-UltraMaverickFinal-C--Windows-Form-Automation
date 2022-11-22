@@ -450,8 +450,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         private void SearchMethodJarVarCallingSP()
         {
             this.dset_emp_SearchEngines.Clear();
-
-
             this.dset_emp_SearchEngines = g_objStoredProcCollection
             .sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_PerItems");
 

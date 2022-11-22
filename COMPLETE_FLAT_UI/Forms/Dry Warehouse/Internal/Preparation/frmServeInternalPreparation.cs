@@ -95,10 +95,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public int Sp_Department_id { get; set; }
         public string Sp_TotalRawMaterialPreparationActive { get; set; }
 
-        private void frmServeInternalPreparation_Load(object sender, EventArgs e)
+
+        private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+        private void frmServeInternalPreparation_Load(object sender, EventArgs e)
+        {
+            this.ConnectionInit();
+
 
             myglobal.global_module = "Active"; // Mode for Searching
 
@@ -255,7 +260,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     if (this.gunaDgvReceivedIDInventory.CurrentRow.Cells["item_code"].Value != null)
                     {
-                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
                         this.matTxtQtyRemaining.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["qty_received"].Value.ToString();
                         this.matTxtExpDate.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.mattxttotalqtyreleased.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["TOTAL_QTY_PREPARED"].Value.ToString();
