@@ -72,6 +72,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
+
+
         private void frmDryPreparationInternal_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
@@ -673,6 +675,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 else
                 {
 
+
                     this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
       
                     this.mattxtScanTheBarcode.Text = String.Empty;
@@ -688,6 +691,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             else
             {
+
+                MessageBox.Show("A");
                 this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
              
                 this.mattxtScanTheBarcode.Text = String.Empty;
@@ -1001,15 +1006,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             if (this.lbltotaldata.Text == "0")
             {
-                
+    
                 this.cmbPreparationDate_SelectionChangeCommitted(sender, e);
-
+                this.matbtnSave.Visible = false;
+                this.guna2DgvMaterialPreparation.Visible = false;
                 if (this.lbltotalStoreforPreparation.Text == "0")
                 {
                     this.frmDryPreparationInternal_Load(sender, e);
                 }
 
-                this.matbtnSave.Visible = false;
+            
 
             }
         }

@@ -98,6 +98,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
+
         private void frmServeInternalPreparation_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
@@ -250,6 +251,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             ths.textBox1.Text = textBox1.Text;
         }
 
+
+
         private void gunaDgvReceivedIDInventory_CurrentCellChanged(object sender, EventArgs e)
         {
             if (this.gunaDgvReceivedIDInventory.Rows.Count > 0)
@@ -293,7 +296,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value != null)
                     {
 
-                        this.mattxtItemCode.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
+                        this.MattxtItemCode.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
                         this.dgvStoreOrderApproval_Primary_ID = this.dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value.ToString();
                         this.dgvStoreOrderApproval_Is_wh_checker_cancel = this.dgvStoreOrderApproval.CurrentRow.Cells["is_wh_checker_cancel"].Value.ToString();
 
@@ -459,10 +462,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 // Commit a new Fucking animal makapal a mukha
                 dSet.Clear();
                 dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
-                0,
+                   Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
                 this.Sp_Barcode_Id,
                 this.Sp_Preparation_Date,
-                this.mattxtItemCode.Text,
+                this.MattxtItemCode.Text,
                 this.matTxtDescription.Text,
                 this.matTxtOrderQty.Text,
                 this.mattxtQtyServe.Text,
@@ -491,7 +494,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(Convert.ToInt32(this.Sp_Material_Id),
                  SummaryDetailTransactionFormula.ToString(),
                 this.Sp_Preparation_Date,
-                this.mattxtItemCode.Text,
+                this.MattxtItemCode.Text,
                 this.matTxtDescription.Text,
                 this.matTxtOrderQty.Text,
                 this.mattxtQtyServe.Text,
@@ -645,7 +648,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     Convert.ToInt32(Sp_Mris_ID),
                     this.Sp_RepackIncement.ToString(),
                     lstrAdate,
-                    this.mattxtItemCode.Text,
+                    this.MattxtItemCode.Text,
                     this.matTxtDescription.Text,
                     this.matTxtOrderQty.Text,
                     this.mattxtQtyServe.Text,
@@ -683,7 +686,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
-                    this.mattxtItemCode.Text,
+                    this.MattxtItemCode.Text,
                     this.matTxtDescription.Text,
                     this.matTxtOrderQty.Text,
                     this.mattxtQtyServe.Text,
@@ -699,7 +702,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
-                    this.mattxtItemCode.Text,
+                    this.MattxtItemCode.Text,
                     this.matTxtDescription.Text,
                     this.matTxtOrderQty.Text,
                     this.mattxtQtyServe.Text,
@@ -722,7 +725,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
                         this.Sp_Preparation_Date,
-                        this.mattxtItemCode.Text,
+                        this.MattxtItemCode.Text,
                         this.matTxtDescription.Text,
                         this.matTxtOrderQty.Text,
                         this.mattxtQtyServe.Text,
@@ -746,7 +749,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
                         this.Sp_Preparation_Date,
-                        this.mattxtItemCode.Text,
+                        this.MattxtItemCode.Text,
                         this.matTxtDescription.Text,
                         this.matTxtOrderQty.Text,
                         this.mattxtQtyServe.Text,
@@ -772,7 +775,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
                     this.Sp_Preparation_Date,
-                    this.mattxtItemCode.Text,
+                    this.MattxtItemCode.Text,
                     this.matTxtDescription.Text,
                     this.matTxtOrderQty.Text,
                     this.mattxtQtyServe.Text,
@@ -844,7 +847,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
             this.Sp_Barcode_Id,
             this.Sp_Preparation_Date,
-            this.mattxtItemCode.Text,
+            this.MattxtItemCode.Text,
             this.matTxtDescription.Text,
             this.matTxtOrderQty.Text,
             this.mattxtQtyServe.Text,

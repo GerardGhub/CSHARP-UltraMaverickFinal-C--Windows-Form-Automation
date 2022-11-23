@@ -58,7 +58,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matTxtDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.matBtnSave = new MaterialSkin.Controls.MaterialButton();
-            this.mattxtItemCode = new MaterialSkin.Controls.MaterialTextBox();
+            this.MattxtItemCode = new MaterialSkin.Controls.MaterialTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -496,21 +496,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matBtnSave.UseVisualStyleBackColor = true;
             this.matBtnSave.Click += new System.EventHandler(this.matBtnSave_Click);
             // 
-            // mattxtItemCode
+            // MattxtItemCode
             // 
-            this.mattxtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtItemCode.Depth = 0;
-            this.mattxtItemCode.Enabled = false;
-            this.mattxtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtItemCode.Hint = "Item Code";
-            this.mattxtItemCode.Location = new System.Drawing.Point(31, 17);
-            this.mattxtItemCode.MaxLength = 50;
-            this.mattxtItemCode.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtItemCode.Multiline = false;
-            this.mattxtItemCode.Name = "mattxtItemCode";
-            this.mattxtItemCode.Size = new System.Drawing.Size(325, 50);
-            this.mattxtItemCode.TabIndex = 0;
-            this.mattxtItemCode.Text = "";
+            this.MattxtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MattxtItemCode.Depth = 0;
+            this.MattxtItemCode.Enabled = false;
+            this.MattxtItemCode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.MattxtItemCode.Hint = "Item Code";
+            this.MattxtItemCode.Location = new System.Drawing.Point(31, 17);
+            this.MattxtItemCode.MaxLength = 50;
+            this.MattxtItemCode.MouseState = MaterialSkin.MouseState.OUT;
+            this.MattxtItemCode.Multiline = false;
+            this.MattxtItemCode.Name = "MattxtItemCode";
+            this.MattxtItemCode.Size = new System.Drawing.Size(325, 50);
+            this.MattxtItemCode.TabIndex = 0;
+            this.MattxtItemCode.Text = "";
             // 
             // label4
             // 
@@ -548,7 +548,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.materialCard1.Controls.Add(this.matTxtReceivingbarcodeID);
             this.materialCard1.Controls.Add(this.mattxtQtyServe);
             this.materialCard1.Controls.Add(this.matTxtDescription);
-            this.materialCard1.Controls.Add(this.mattxtItemCode);
+            this.materialCard1.Controls.Add(this.MattxtItemCode);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(29, 86);
@@ -609,7 +609,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private MaterialSkin.Controls.MaterialTextBox matTxtDescription;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
         private MaterialSkin.Controls.MaterialButton matBtnSave;
-        private MaterialSkin.Controls.MaterialTextBox mattxtItemCode;
+        private MaterialSkin.Controls.MaterialTextBox MattxtItemCode;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox textBox1;
         private MaterialSkin.Controls.MaterialCard materialCard1;
