@@ -97,6 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
             //this.loadForPreparation();
+            this.CheckIfNoDataIsFound();
         }
 
         DataSet dset_emp_SearchEnginesPreparationPerStaff = new DataSet();
@@ -1002,20 +1003,39 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
         }
 
+        private void CheckIfNoDataIsFound()
+        {
+            if (this.lbltotaldata.Text == "0")
+            {
+
+                this.cmbPreparationDate_SelectionChangeCommitted(new object(), new System.EventArgs());
+                this.matbtnSave.Visible = false;
+                this.guna2DgvMaterialPreparation.Visible = false;
+                this.cmbPreparationDate.Enabled = false;
+                this.MatCardPreVNext.Enabled = false;
+                //if (this.lbltotalStoreforPreparation.Text == "0")
+                //{
+                //    this.frmDryPreparationInternal_Load(new object(), new System.EventArgs());
+                //}
+
+
+            }
+        }
         private void lbltotaldata_TextChanged(object sender, EventArgs e)
         {
             if (this.lbltotaldata.Text == "0")
             {
-    
-                this.cmbPreparationDate_SelectionChangeCommitted(sender, e);
+
+                this.cmbPreparationDate_SelectionChangeCommitted(new object(), new System.EventArgs());
                 this.matbtnSave.Visible = false;
                 this.guna2DgvMaterialPreparation.Visible = false;
+                this.cmbPreparationDate.Enabled = false;
+                this.MatCardPreVNext.Enabled = false;
                 if (this.lbltotalStoreforPreparation.Text == "0")
                 {
-                    this.frmDryPreparationInternal_Load(sender, e);
+                    this.frmDryPreparationInternal_Load(new object(), new System.EventArgs());
                 }
 
-            
 
             }
         }
