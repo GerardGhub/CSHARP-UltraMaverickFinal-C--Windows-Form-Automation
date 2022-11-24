@@ -278,11 +278,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     if(totalRecords == "0")
                     {
-                  
-                        this.scanBarcodeNearlyExpiry();
+                   //11/24/2022 remove muna may bug 
+                        //this.scanBarcodeNearlyExpiry();
               
-                        this.mattxtbarcode.Text = String.Empty;
-                        this.mattxtbarcode.Focus();
+                        //this.mattxtbarcode.Text = String.Empty;
+                        //this.mattxtbarcode.Focus();
                     }
                     else
                     {
@@ -302,13 +302,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
                     }
                 }
+         
                 else
                 {
-            
-                    this.GlobalStatePopup.RMNotExistReceiving();
+
+                    MessageBox.Show("Haha");
+                    this.scanBarcodeNearlyExpiry();
+
                     this.mattxtbarcode.Text = String.Empty;
                     this.mattxtbarcode.Focus();
-                    return;
+
+                    //this.GlobalStatePopup.RMNotExistReceiving();
+                    //this.mattxtbarcode.Text = String.Empty;
+                    //this.mattxtbarcode.Focus();
+                    //return;
                 }
 
 
@@ -349,26 +356,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
-                    mattxtbarcode.Text,
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    0,
-                    "",
-                    "getRMforReceivingDryWH");
-                if (dSet.Tables[0].Rows.Count > 0)
-                {
+                
                     this.SearchMethodJarVarCallingSPNearlyExpiry();
                     this.doSearchInTextBoxCmbNearlyExpiry();
 
@@ -397,15 +385,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         //mattxtqtyreject.Text = String.Empty;
                         this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
                     }
-                }
-                else
-                {
+                //}
+                //else
+                //{
 
-                    this.GlobalStatePopup.RMNotExistReceiving();
-                    this.mattxtbarcode.Text = String.Empty;
-                    this.mattxtbarcode.Focus();
-                    return;
-                }
+                //    this.GlobalStatePopup.RMNotExistReceiving();
+                //    this.mattxtbarcode.Text = String.Empty;
+                //    this.mattxtbarcode.Focus();
+                //    return;
+                //}
 
 
             }

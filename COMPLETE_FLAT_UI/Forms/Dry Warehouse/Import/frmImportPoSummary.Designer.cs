@@ -575,7 +575,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.mattxtSearch.Depth = 0;
             this.mattxtSearch.Font = new System.Drawing.Font("Roboto", 12F);
             this.mattxtSearch.Hint = "Search";
-            this.mattxtSearch.Location = new System.Drawing.Point(346, 14);
+            this.mattxtSearch.Location = new System.Drawing.Point(232, 14);
             this.mattxtSearch.Margin = new System.Windows.Forms.Padding(1);
             this.mattxtSearch.MaxLength = 50;
             this.mattxtSearch.MouseState = MaterialSkin.MouseState.OUT;
@@ -590,7 +590,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 696);
             this.Controls.Add(this.mattxtSearch);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialCard2);

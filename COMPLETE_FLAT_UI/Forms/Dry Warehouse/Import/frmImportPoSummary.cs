@@ -274,10 +274,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-
-
-         
-
             }
             else
             {
@@ -467,22 +463,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
- 
-
 
             }
             else
             {
                 this.mode = "error";
-
                 //dgvRawMats.Rows[Convert.ToInt32(Mat_row_number)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
             }
 
 
 
             //PO Number
-
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
                 Sp_po_number, 
@@ -623,6 +614,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
         }
+
 
         private void mattxtSearch_TextChanged(object sender, EventArgs e)
         {
