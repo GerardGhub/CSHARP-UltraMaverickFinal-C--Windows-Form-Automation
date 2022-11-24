@@ -437,7 +437,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Guna2DgvMaterialPreparation.Columns["store_name"].Visible = false;
             this.Guna2DgvMaterialPreparation.Columns["route"].Visible = false;
             this.Guna2DgvMaterialPreparation.Columns["primary_id"].Visible = false;
-            this.Guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
+            //this.Guna2DgvMaterialPreparation.Columns["converted_qty_original"].Visible = false;
             this.Guna2DgvMaterialPreparation.Columns["AllocatedQTY"].Visible = false;
             this.Guna2DgvMaterialPreparation.Columns["conversion"].Visible = false;
             this.Guna2DgvMaterialPreparation.Columns["is_wh_checker_cancel"].Visible = false;
