@@ -38,7 +38,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.mattxtbarcode = new MaterialSkin.Controls.MaterialTextBox();
+            this.Mattxtbarcode = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.matbtnSubCategory = new MaterialSkin.Controls.MaterialTextBox();
@@ -88,29 +88,29 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivedID)).BeginInit();
             this.SuspendLayout();
             // 
-            // mattxtbarcode
+            // Mattxtbarcode
             // 
-            this.mattxtbarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.mattxtbarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mattxtbarcode.Depth = 0;
-            this.mattxtbarcode.Font = new System.Drawing.Font("Roboto", 12F);
-            this.mattxtbarcode.Hint = "Scan the Barcode";
-            this.mattxtbarcode.Location = new System.Drawing.Point(22, 9);
-            this.mattxtbarcode.Margin = new System.Windows.Forms.Padding(1);
-            this.mattxtbarcode.MaxLength = 50;
-            this.mattxtbarcode.MouseState = MaterialSkin.MouseState.OUT;
-            this.mattxtbarcode.Multiline = false;
-            this.mattxtbarcode.Name = "mattxtbarcode";
-            this.mattxtbarcode.Size = new System.Drawing.Size(682, 36);
-            this.mattxtbarcode.TabIndex = 0;
-            this.mattxtbarcode.Text = "";
-            this.mattxtbarcode.UseTallSize = false;
-            this.mattxtbarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mattxtbarcode_KeyDown);
+            this.Mattxtbarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Mattxtbarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Mattxtbarcode.Depth = 0;
+            this.Mattxtbarcode.Font = new System.Drawing.Font("Roboto", 12F);
+            this.Mattxtbarcode.Hint = "Scan the Barcode";
+            this.Mattxtbarcode.Location = new System.Drawing.Point(22, 9);
+            this.Mattxtbarcode.Margin = new System.Windows.Forms.Padding(1);
+            this.Mattxtbarcode.MaxLength = 50;
+            this.Mattxtbarcode.MouseState = MaterialSkin.MouseState.OUT;
+            this.Mattxtbarcode.Multiline = false;
+            this.Mattxtbarcode.Name = "Mattxtbarcode";
+            this.Mattxtbarcode.Size = new System.Drawing.Size(682, 36);
+            this.Mattxtbarcode.TabIndex = 0;
+            this.Mattxtbarcode.Text = "";
+            this.Mattxtbarcode.UseTallSize = false;
+            this.Mattxtbarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mattxtbarcode_KeyDown);
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.mattxtbarcode);
+            this.materialCard1.Controls.Add(this.Mattxtbarcode);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(32, 78);
@@ -900,7 +900,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTextBox mattxtbarcode;
+        private MaterialSkin.Controls.MaterialTextBox Mattxtbarcode;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;

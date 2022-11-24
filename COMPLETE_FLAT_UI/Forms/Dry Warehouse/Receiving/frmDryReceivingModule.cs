@@ -2,17 +2,9 @@
 using CrystalDecisions.CrystalReports.Engine;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
@@ -56,24 +48,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         private void frmDryReceivingModule_Load(object sender, EventArgs e)
         {
             this.firstLoad();
+            this.ConnectionInit();
             this.sp_added_by = userinfo.emp_name.ToString();
             this.sp_added_by_userid = userinfo.user_id.ToString();
-            this.mattxtbarcode.Focus();
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.mattxtbarcode.Focus();
+            this.Mattxtbarcode.Focus();
+            this.Mattxtbarcode.Select();
 
         }
 
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+        }
 
 
         private void showLatestID()      
         {
             try
-            {
-               
+            {               
                 myClass.fillDataGridView(dgvReceivedID, "tblDryWHReceiving_last_id", dSet);
-         
-  
             }
             catch (Exception ex)
             {
@@ -88,8 +81,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void firstLoad()
         {
-           
-
             DateTime dNow = DateTime.Now;
             this.crV1.Visible = false;
             this.dgvReceivedID.Visible = false;
@@ -144,7 +135,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
                  
 
-                        dv.RowFilter = "item_code = '" + mattxtbarcode.Text + "'";
+                        dv.RowFilter = "item_code = '" + Mattxtbarcode.Text + "'";
              
                  
                     this.dgvMajorCategory.DataSource = dv;
@@ -188,7 +179,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
 
 
-                        dv.RowFilter = "item_code = '" + mattxtbarcode.Text + "'";
+                        dv.RowFilter = "item_code = '" + Mattxtbarcode.Text + "'";
 
                     }
 
@@ -222,7 +213,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             //Check the Item Code if exist on the fucking system
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
-                mattxtbarcode.Text,
+                Mattxtbarcode.Text,
                 "",
                 "",
                 "",
@@ -243,7 +234,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 //RawMatsAlreadyExist();
                 dSet.Clear();
                 dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
-                    mattxtbarcode.Text,
+                    Mattxtbarcode.Text,
                     "",
                     "",
                     "",
@@ -286,7 +277,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     }
                     else
                     {
-                        this.mattxtbarcode.Text = String.Empty;
+                        this.Mattxtbarcode.Text = String.Empty;
                         this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
                        this.GlobalStatePopup.ItemFoundforReceiving();
                         this.materialCard2.Visible = true;
@@ -309,8 +300,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     MessageBox.Show("Haha");
                     this.scanBarcodeNearlyExpiry();
 
-                    this.mattxtbarcode.Text = String.Empty;
-                    this.mattxtbarcode.Focus();
+                    this.Mattxtbarcode.Text = String.Empty;
+                    this.Mattxtbarcode.Focus();
 
                     //this.GlobalStatePopup.RMNotExistReceiving();
                     //this.mattxtbarcode.Text = String.Empty;
@@ -323,8 +314,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 this.GlobalStatePopup.RawMaterialNotExist();
-                this.mattxtbarcode.Text = String.Empty;
-                this.mattxtbarcode.Focus();
+                this.Mattxtbarcode.Text = String.Empty;
+                this.Mattxtbarcode.Focus();
                 return;
 
             }
@@ -338,7 +329,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
-                mattxtbarcode.Text,
+                Mattxtbarcode.Text,
                 "",
                 "",
                 "",
@@ -365,12 +356,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         //MessageBox.Show("Buje");
                         //return;
                         this.GlobalStatePopup.RMNotExistReceiving();
-                        this.mattxtbarcode.Text = String.Empty;
-                        this.mattxtbarcode.Focus();
+                        this.Mattxtbarcode.Text = String.Empty;
+                        this.Mattxtbarcode.Focus();
                     }
                     else
                     {
-                        this.mattxtbarcode.Text = String.Empty;
+                        this.Mattxtbarcode.Text = String.Empty;
                         this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
                         this.GlobalStatePopup.ItemFoundforReceiving();
                         this.materialCard2.Visible = true;
@@ -400,8 +391,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             else
             {
                 this.GlobalStatePopup.RawMaterialNotExist();
-                this.mattxtbarcode.Text = String.Empty;
-                this.mattxtbarcode.Focus();
+                this.Mattxtbarcode.Text = String.Empty;
+                this.Mattxtbarcode.Focus();
                 return;
 
             }
