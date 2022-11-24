@@ -297,7 +297,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 else
                 {
 
-                    MessageBox.Show("Haha");
                     this.scanBarcodeNearlyExpiry();
 
                     this.Mattxtbarcode.Text = String.Empty;
@@ -353,8 +352,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     if (totalRecords == "0")
                     {
-                        //MessageBox.Show("Buje");
-                        //return;
+    
                         this.GlobalStatePopup.RMNotExistReceiving();
                         this.Mattxtbarcode.Text = String.Empty;
                         this.Mattxtbarcode.Focus();
@@ -373,18 +371,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtqtyReceived.Text = String.Empty;
                         this.mattxtlotno.Text = String.Empty;
                         this.mattxtLotDescription.Text = String.Empty;
-                        //mattxtqtyreject.Text = String.Empty;
                         this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
                     }
-                //}
-                //else
-                //{
-
-                //    this.GlobalStatePopup.RMNotExistReceiving();
-                //    this.mattxtbarcode.Text = String.Empty;
-                //    this.mattxtbarcode.Focus();
-                //    return;
-                //}
+          
 
 
             }
