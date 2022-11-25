@@ -115,6 +115,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         DataSet dset_emp_SearchEnginesNearlyExpiry = new DataSet();
         private void SearchMethodJarVarCallingSPNearlyExpiry()
         {
+  
             myglobal.global_module = "Active"; // Mode for Searching
             dset_emp_SearchEnginesNearlyExpiry.Clear();
 
@@ -257,7 +258,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     if (dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString() == "1")
                     {
-
+    
                         this.dset_emp_SearchEngines.Clear();
                         this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_WH_Rejection");
                     }
