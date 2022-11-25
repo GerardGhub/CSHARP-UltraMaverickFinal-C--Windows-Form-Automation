@@ -267,13 +267,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     }
                     this.doSearchInTextBoxCmb();
 
-                    if(totalRecords == "0")
+
+                    if(this.dgvMajorCategory.RowCount == 0)
                     {
-                   //11/24/2022 remove muna may bug 
-                        //this.scanBarcodeNearlyExpiry();
-              
-                        //this.mattxtbarcode.Text = String.Empty;
-                        //this.mattxtbarcode.Focus();
+
+                        this.GlobalStatePopup.RMNotExistReceiving();
+                        this.Mattxtbarcode.Text = String.Empty;
+                        this.Mattxtbarcode.Focus();
+                        return;
                     }
                     else
                     {
@@ -296,6 +297,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
          
                 else
                 {
+  
 
                     this.scanBarcodeNearlyExpiry();
 
@@ -350,6 +352,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.SearchMethodJarVarCallingSPNearlyExpiry();
                     this.doSearchInTextBoxCmbNearlyExpiry();
 
+    
                     if (totalRecords == "0")
                     {
     
