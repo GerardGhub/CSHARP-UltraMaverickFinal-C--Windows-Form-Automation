@@ -1,18 +1,9 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
-
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 {
@@ -76,10 +67,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public string Is_Active { get; set; }
         public int Sp_Primary_id { get; set; }
 
-        private void frmViewStoreItemPrepared_Load(object sender, EventArgs e)
+
+        private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+        }
+        private void frmViewStoreItemPrepared_Load(object sender, EventArgs e)
+        {
+            this.ConnectionInit();
             this.StaticWindowState();
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
@@ -219,7 +214,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             
             if(this.guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "Delete")
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
                     this.dset3.Clear();
