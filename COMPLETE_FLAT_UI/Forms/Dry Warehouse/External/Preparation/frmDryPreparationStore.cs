@@ -1,17 +1,10 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 {
@@ -70,26 +63,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void frmDryPreparation_Load(object sender, EventArgs e)
         {
-
             this.ConnectionInit();
             this.dset.Clear();
             this.LoadWindowsExecution();
 
-
             this.loadCategoryDropdown();
-            //return;
+
             this.LoadStateVisibility();
-
-
-   
 
             this.SearchMethodJarVarCallingSPPreparationPerStaffMigration();
         
             this.FormmLoadSearchState();
-
-
-
-
 
             this.ValidateifTheTotalDataiSZero();
 
