@@ -102,10 +102,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         public int Sp_FK_dry_wh_orders_parent_id { get; set; }
         public string Sp_Served_Qty { get; set; }
 
+
+        private void ConnectionInit()
+        {
+            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections();
+        }
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
 
-            g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); 
+            this.ConnectionInit();
 
             myglobal.global_module = "Active"; 
 
@@ -203,6 +208,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Sp_TotalRawMaterialPreparationActive = Sp_TotalRawMaterialPreparationActive;
             this.Sp_FK_dry_wh_orders_parent_id = this.Sp_FK_dry_wh_orders_parent_id;
             this.Sp_Served_Qty = this.Sp_Served_Qty;
+
+            MessageBox.Show(this.Sp_FK_dry_wh_orders_parent_id.ToString());
         }
 
  

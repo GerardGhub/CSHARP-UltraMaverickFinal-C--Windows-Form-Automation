@@ -87,7 +87,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
           
                 this.matbtnSave.Visible = false;
-                this.matcmbCategory.Enabled = false;
+                this.MatcmbCategory.Enabled = false;
                 this.mattxtScanTheBarcode.Enabled = false;
                 this.Guna2DgvMaterialPreparation.DataSource = null;
             }
@@ -123,7 +123,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void FormmLoadSearchState()
         {
-            if (this.matcmbCategory.Text == String.Empty)
+            if (this.MatcmbCategory.Text == String.Empty)
             {
 
             }
@@ -159,13 +159,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         if (this.cmbArea.Text == String.Empty)
                         {
                             //MessageBox.Show(this.Sp_AssigneD_Task_By.ToString());
-                            dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'   ";
+                            dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.MatcmbCategory.Text + "'   ";
              
                         }
                         else
                         {
                         
-                            dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.matcmbCategory.Text + "'  and area = '" + this.cmbArea.Text + "'    ";
+                            dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0')  and category = '" + this.MatcmbCategory.Text + "'  and area = '" + this.cmbArea.Text + "'    ";
                      
                         }
 
@@ -237,7 +237,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         {
             try
             {
-                xClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Already_Approved", this.dSet);
+                xClass.fillComboBoxStoreOrderApproval(this.MatcmbCategory, "tblStoreOrderDryWH_dropdown_Already_Approved", this.dSet);
             }
             catch (Exception ex)
             {
@@ -367,7 +367,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             //CheckIifAlreayHaveAnewRecord
             this.dset2.Clear();
             this.dset2 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
-           this.matcmbCategory.Text,
+           this.MatcmbCategory.Text,
             this.Sp_approved_preparation_date,
             "ItemCode",
             "ItemDesc",
@@ -544,7 +544,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
 
 
-                xClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Already_Approved_AreaData", this.dSet, this.matcmbCategory.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, "");
+                xClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Already_Approved_AreaData", this.dSet, this.MatcmbCategory.Text, this.MatcmbCategory.Text, this.MatcmbCategory.Text, "");
 
             }
             catch (Exception ex)
@@ -734,7 +734,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 this.Sp_fox,
                 this.Sp_route,
                 this.Sp_area,
-                this.matcmbCategory.Text,
+                this.MatcmbCategory.Text,
                 this.lbltotaldata.Text,
                 this.Sp_id,
                 this.Sp_Remaining_Qty
@@ -990,7 +990,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
           
             this.dset3.Clear();
             this.dset3 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
-            this.matcmbCategory.Text,
+            this.MatcmbCategory.Text,
             this.Sp_approved_preparation_date,
             "ItemCode", 
             "ItemDesc", 
@@ -1137,7 +1137,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             {
                 dset3.Clear();
                 dset3 = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
-               this.matcmbCategory.Text,
+               this.MatcmbCategory.Text,
                 this.Sp_approved_preparation_date,
                 "ItemCode",
                 "ItemDesc",
