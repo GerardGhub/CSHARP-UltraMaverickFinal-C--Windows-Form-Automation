@@ -339,7 +339,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.labelSelectedSum.BackColor = System.Drawing.Color.Transparent;
             this.labelSelectedSum.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSelectedSum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.labelSelectedSum.Location = new System.Drawing.Point(849, 176);
+            this.labelSelectedSum.Location = new System.Drawing.Point(849, 165);
             this.labelSelectedSum.Name = "labelSelectedSum";
             this.labelSelectedSum.Size = new System.Drawing.Size(31, 35);
             this.labelSelectedSum.TabIndex = 666;

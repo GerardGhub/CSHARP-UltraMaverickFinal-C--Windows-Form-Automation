@@ -739,26 +739,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         private void ApproveFunctionality()
         {
- 
             for (int i = 0; i <= this.dgvGunaMoveItems.RowCount - 1; i++)
             {
                 try
                 {
                     if (this.dgvGunaMoveItems.CurrentRow != null)
                     {
-
                         if (Convert.ToBoolean(this.dgvGunaMoveItems.Rows[i].Cells["selected"].Value) == true)
                         {
-
                             //Date Conversion
                             DateTime dt = new DateTime();
                             string lstrDate = this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString();
                             dt = Convert.ToDateTime(lstrDate);
                             string lstrAdate = dt.ToString("yyyy-MM-dd");
-
-           
-
-
                  
                             this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
                             this.dset = g_objStoredProcCollection
@@ -1004,8 +997,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             string Preparationdate = dt.ToString("yyyy-MM-dd");
 
 
-            MessageBox.Show(this.Sp_ParentId.ToString());
-            this.Sp_ParentId = 1139;
+            //this.Sp_ParentId = 1139;
             rpt.SetParameterValue("@approved_prepa_date", Preparationdate);
             rpt.SetParameterValue("@category", this.MatcmbCategory.Text);
             rpt.SetParameterValue("@fox", this.Sp_Fox);
@@ -1202,7 +1194,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.Sp_Selected_Item = "";
             if (this.num == this.printpreview_num_count)
             {
+                this.PrintPreview();
                 this.printpreview_num_count = 0;
+              
                 return;
             }
             else
