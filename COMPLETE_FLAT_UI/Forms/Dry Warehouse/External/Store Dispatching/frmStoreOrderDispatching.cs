@@ -991,7 +991,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
             //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
         
-            //this.sp_final_id = "01/12/2022";
+
 
             rpt.Refresh();
             myglobal.DATE_REPORT2 = sp_final_id;
@@ -1003,8 +1003,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             string Preparationdate = dt.ToString("yyyy-MM-dd");
 
 
-            MessageBox.Show(Preparationdate);
-            MessageBox.Show(this.MatcmbCategory.Text);
+
             rpt.SetParameterValue("@approved_prepa_date", Preparationdate);
             rpt.SetParameterValue("@category", this.MatcmbCategory.Text);
             rpt.SetParameterValue("@fox", this.Sp_Fox);
@@ -1190,28 +1189,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             }
 
 
-            //if (this.lbltotaldata.Text == "1" || this.lbltotaldata.Text == "0")
-            //{
-
-            //}
-            //else
-            //{
 
             if (this.dgvGunaMoveItems.Rows.Count >= 1)
                 {
                     int i = this.dgvGunaMoveItems.CurrentRow.Index + 1;
                     if (i >= -1 && i < this.dgvGunaMoveItems.Rows.Count)
                         this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[0];
-
-
             }
             else
                 {
-
-
-                //////return;gagi 913 2022
-
-
                     return;
                 }
 
@@ -1231,27 +1217,57 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         private void PrintPreview()
         {
-            myglobal.REPORT_NAME = "StoreMoveOrderPickSlip";
 
-            Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
+            if (this.materialLabelRecentLogs.Text == "View Recent Log(s)")
+            {
 
-            rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
-            //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+                myglobal.REPORT_NAME = "StoreMoveOrderPickSlipPreview";
 
-            rpt.Refresh();
+                Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
 
+                rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlipPreview.rpt");
+                //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
-            myglobal.DATE_REPORT = this.matCmbPreparationDate.Text;
-            myglobal.DATE_REPORT2 = this.MatcmbCategory.Text;
-            myglobal.DATE_REPORT3 = this.Sp_Fox;
-            myglobal.DATE_REPORT4 = this.Sp_UserName;
+                rpt.Refresh();
 
 
-            crV1.ReportSource = rpt;
-            crV1.Refresh();
+                myglobal.DATE_REPORT = this.matCmbPreparationDate.Text;
+                myglobal.DATE_REPORT2 = this.MatcmbCategory.Text;
+                myglobal.DATE_REPORT3 = this.Sp_Fox;
+                myglobal.DATE_REPORT4 = this.Sp_UserName;
 
-            frmReport frmReport = new frmReport();
-            frmReport.ShowDialog();
+
+                crV1.ReportSource = rpt;
+                crV1.Refresh();
+
+                frmReport frmReport = new frmReport();
+                frmReport.ShowDialog();
+
+            }
+            else
+            {
+                myglobal.REPORT_NAME = "StoreMoveOrderPickSlip";
+
+                Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
+
+                rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
+                //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+
+                rpt.Refresh();
+
+
+                myglobal.DATE_REPORT = this.matCmbPreparationDate.Text;
+                myglobal.DATE_REPORT2 = this.MatcmbCategory.Text;
+                myglobal.DATE_REPORT3 = this.Sp_Fox;
+                myglobal.DATE_REPORT4 = this.Sp_UserName;
+
+
+                crV1.ReportSource = rpt;
+                crV1.Refresh();
+
+                frmReport frmReport = new frmReport();
+                frmReport.ShowDialog();
+            }
         }
 
         private void materialCard3_Paint(object sender, PaintEventArgs e)

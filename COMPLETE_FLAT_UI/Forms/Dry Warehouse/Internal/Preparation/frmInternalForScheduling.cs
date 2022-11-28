@@ -160,23 +160,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
 
-        public void loadForScheduling()
-        {
-            try
-            {
-
-
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbRequestedDate, "Internal_Order_FilterByDate", this.dSet);
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
-        }
 
 
         private void doSearch()
@@ -385,8 +368,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-                //Walang For Allocation 
-
                 myClass.fillComboBoxStoreOrderApproval(this.matcmbRequestedDate, "Internal_Order_FilterByDate", this.dSet);
 
             }

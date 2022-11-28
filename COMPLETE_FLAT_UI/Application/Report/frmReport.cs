@@ -78,6 +78,27 @@ namespace ULTRAMAVERICK.Report
                 crV1.Refresh();
             }
 
+            if(myglobal.REPORT_NAME == "StoreMoveOrderPickSlipPreview")
+            {
+                rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlipPreview.rpt");
+                             //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+                    rpt.Refresh();
+                string ddate = myglobal.DATE_REPORT;
+                string ddate2 = myglobal.DATE_REPORT2;
+                string ddate3 = myglobal.DATE_REPORT3;
+                string ddate4 = myglobal.DATE_REPORT4;
+
+
+                rpt.SetParameterValue("@approved_prepa_date", ddate);
+                rpt.SetParameterValue("@category", ddate2);
+                rpt.SetParameterValue("@fox", ddate3);
+                rpt.SetParameterValue("@username", ddate4);
+                crV1.ReportSource = rpt;
+                crV1.Refresh();
+
+            }
+
+
 
 
 
