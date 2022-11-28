@@ -68,12 +68,14 @@ namespace ULTRAMAVERICK.Report
                 string ddate2 = myglobal.DATE_REPORT2;
                 string ddate3 = myglobal.DATE_REPORT3;
                 string ddate4 = myglobal.DATE_REPORT4;
-      
+                string ddate5 = myglobal.DATE_REPORT5;
+
 
                 rpt.SetParameterValue("@approved_prepa_date", ddate);
                 rpt.SetParameterValue("@category", ddate2);
                 rpt.SetParameterValue("@fox", ddate3);
                 rpt.SetParameterValue("@username", ddate4);
+                rpt.SetParameterValue("@parentIdentity", ddate5);
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
             }
@@ -87,12 +89,14 @@ namespace ULTRAMAVERICK.Report
                 string ddate2 = myglobal.DATE_REPORT2;
                 string ddate3 = myglobal.DATE_REPORT3;
                 string ddate4 = myglobal.DATE_REPORT4;
+                string ddate5 = myglobal.DATE_REPORT5;
 
 
                 rpt.SetParameterValue("@approved_prepa_date", ddate);
                 rpt.SetParameterValue("@category", ddate2);
                 rpt.SetParameterValue("@fox", ddate3);
                 rpt.SetParameterValue("@username", ddate4);
+                rpt.SetParameterValue("@parentIdentity", ddate5);
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
 

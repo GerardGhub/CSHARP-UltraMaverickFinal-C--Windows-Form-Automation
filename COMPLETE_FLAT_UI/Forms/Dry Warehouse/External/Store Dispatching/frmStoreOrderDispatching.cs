@@ -42,6 +42,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             InitializeComponent();
         }
 
+
         public int Sp_user_id { get; set; }
         public string sp_final_id { get; set; }
         public string Sp_Fox { get; set; }
@@ -996,27 +997,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             rpt.Refresh();
             myglobal.DATE_REPORT2 = sp_final_id;
 
-            //Date Conversion
+            //Date Conversion BUje
             DateTime dt = new DateTime();
             string lstrDate = this.matCmbPreparationDate.Text;
             dt = Convert.ToDateTime(lstrDate);
             string Preparationdate = dt.ToString("yyyy-MM-dd");
 
 
-
+            MessageBox.Show(this.Sp_ParentId.ToString());
+            this.Sp_ParentId = 1139;
             rpt.SetParameterValue("@approved_prepa_date", Preparationdate);
             rpt.SetParameterValue("@category", this.MatcmbCategory.Text);
             rpt.SetParameterValue("@fox", this.Sp_Fox);
             rpt.SetParameterValue("@username", this.Sp_UserName);
-
+            rpt.SetParameterValue("@parentIdentity", this.Sp_ParentId);
             crV1.ReportSource = rpt;
             crV1.Refresh();
-
-
-
             rpt.PrintOptions.PrinterName = printDialog.PrinterSettings.PrinterName;
-
-
             rpt.PrintToPrinter(printDialog.PrinterSettings.Copies, printDialog.PrinterSettings.Collate, printDialog.PrinterSettings.ToPage, printDialog.PrinterSettings.ToPage);
 
         }
@@ -1235,6 +1232,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 myglobal.DATE_REPORT2 = this.MatcmbCategory.Text;
                 myglobal.DATE_REPORT3 = this.Sp_Fox;
                 myglobal.DATE_REPORT4 = this.Sp_UserName;
+                myglobal.DATE_REPORT5 = this.Sp_ParentId.ToString();
 
 
                 crV1.ReportSource = rpt;
@@ -1254,17 +1252,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
                 rpt.Refresh();
-
-
                 myglobal.DATE_REPORT = this.matCmbPreparationDate.Text;
                 myglobal.DATE_REPORT2 = this.MatcmbCategory.Text;
                 myglobal.DATE_REPORT3 = this.Sp_Fox;
                 myglobal.DATE_REPORT4 = this.Sp_UserName;
-
-
+                myglobal.DATE_REPORT5 = this.Sp_ParentId.ToString();
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
-
                 frmReport frmReport = new frmReport();
                 frmReport.ShowDialog();
             }
