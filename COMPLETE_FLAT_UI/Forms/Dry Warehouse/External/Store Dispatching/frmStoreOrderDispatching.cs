@@ -61,12 +61,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         private void frmStoreOrderDispatching_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();         
-            this.loadPreparationDateDropdown();       
+            this.loadPreparationDateDropdown();
             this.useStateWindowLoad();
-            this.ShowDataActivated(); 
+            this.ShowDataActivated();
             this.matCmbPreparationDate_SelectionChangeCommitted(sender, e);
 
-           if(this.matCmbPreparationDate.Text == String.Empty)
+            if (this.matCmbPreparationDate.Text == String.Empty)
             {
                
 
@@ -244,25 +244,28 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         public void loadCategoryDropdown()
         {
-            try
+            if (this.matCmbPreparationDate.Text != String.Empty)
             {
 
+                try
+                {
 
-                myClass.fillComboBoxStoreOrderApprovalSync(this.MatcmbCategory, 
-                    "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown_Category", 
-                    this.dSet, 
-                    this.matCmbPreparationDate.Text, 
-                    "cmdDateOrder", 
-                    this.MatcmbCategory.Text, 
-                    this.MetroCmbStoreName.Text);
 
+                    myClass.fillComboBoxStoreOrderApprovalSync(this.MatcmbCategory,
+                        "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown_Category",
+                        this.dSet,
+                        this.matCmbPreparationDate.Text,
+                        "cmdDateOrder",
+                        this.MatcmbCategory.Text,
+                        this.MetroCmbStoreName.Text);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
@@ -512,6 +515,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
             if (this.counterstrike == 0)
             {
+
                 this.loadCategoryDropdown();
                 if (this.MatcmbCategory.Text != String.Empty)
                 {
@@ -959,7 +963,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 else
                 {
                     this.GlobalStatePopup.DispatchedSuccessfully();
-                    matcmbCategory_SelectionChangeCommitted(new object(), new System.EventArgs());
+                    if (this.matCmbPreparationDate.Text != String.Empty)
+                    {
+                        matcmbCategory_SelectionChangeCommitted(new object(), new System.EventArgs());
+                    }
                     this.materialCheckboxSelectAll.Checked = false;
                     this.labelSelectedSum.Visible = false;
 
@@ -979,18 +986,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         {
             Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
 
-
-
             PrintDialog printDialog = new PrintDialog();
             rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
 
             //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
         
-            this.sp_final_id = "01/12/2022";
+            //this.sp_final_id = "01/12/2022";
+
             rpt.Refresh();
             myglobal.DATE_REPORT2 = sp_final_id;
-       
-            rpt.SetParameterValue("@approved_prepa_date", this.matCmbPreparationDate.Text);
+
+            //Date Conversion
+            DateTime dt = new DateTime();
+            string lstrDate = this.matCmbPreparationDate.Text;
+            dt = Convert.ToDateTime(lstrDate);
+            string Preparationdate = dt.ToString("yyyy-MM-dd");
+
+
+            MessageBox.Show(Preparationdate);
+            MessageBox.Show(this.MatcmbCategory.Text);
+            rpt.SetParameterValue("@approved_prepa_date", Preparationdate);
             rpt.SetParameterValue("@category", this.MatcmbCategory.Text);
             rpt.SetParameterValue("@fox", this.Sp_Fox);
             rpt.SetParameterValue("@username", this.Sp_UserName);

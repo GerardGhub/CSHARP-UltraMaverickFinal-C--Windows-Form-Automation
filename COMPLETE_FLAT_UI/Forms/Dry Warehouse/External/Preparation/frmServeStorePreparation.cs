@@ -209,7 +209,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             this.Sp_FK_dry_wh_orders_parent_id = this.Sp_FK_dry_wh_orders_parent_id;
             this.Sp_Served_Qty = this.Sp_Served_Qty;
 
-            MessageBox.Show(this.Sp_FK_dry_wh_orders_parent_id.ToString());
+            //MessageBox.Show(this.Sp_FK_dry_wh_orders_parent_id.ToString());
         }
 
  
