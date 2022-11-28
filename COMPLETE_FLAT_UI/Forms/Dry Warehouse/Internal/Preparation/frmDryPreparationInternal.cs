@@ -575,6 +575,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
             else
             {
+                if (this.lbltotaldata.Text.Length > 0)
+                {
+                    MessageBox.Show("Sample");
+                }//
                 this.matbtnSave.Visible = true;
 
 
