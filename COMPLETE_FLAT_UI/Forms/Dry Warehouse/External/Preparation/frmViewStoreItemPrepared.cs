@@ -199,6 +199,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
                         this.Sp_Primary_Key = this.guna2DgvMaterialPreparation.CurrentRow.Cells["prepa_id"].Value.ToString();
                         this.Sp_Primary_id = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value);
+            
                     }
                 }
             }
@@ -211,7 +212,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
             if(this.guna2DgvMaterialPreparation.Columns[e.ColumnIndex].Name == "Delete")
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)

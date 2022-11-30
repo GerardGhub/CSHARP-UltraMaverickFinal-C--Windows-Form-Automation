@@ -14,9 +14,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         IStoredProcedures g_objStoredProcCollection = null;
         //Data Set Initialization
         public DataSet dset = new DataSet();
-        DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
-        DataSet dSet = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmViewInternalItemPrepared(frmDryPreparationInternal frm,
@@ -60,6 +58,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string Sp_Primary_Key { get; set; }
         public int Sp_Order_Source_Key { get; set; }
         public string Is_Active { get; set; }
+
 
         private void frmViewInternalItemPrepared_Load(object sender, EventArgs e)
         {
@@ -189,6 +188,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                         this.Sp_Primary_Key = this.guna2DgvMaterialPreparation.CurrentRow.Cells["prepa_id"].Value.ToString();
                         this.Sp_Order_Source_Key = Convert.ToInt32(this.guna2DgvMaterialPreparation.CurrentRow.Cells["order_source_key"].Value);
+              
                     }
                 }
             }
@@ -200,8 +200,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-
                     dset3.Clear();
                     dset3 = this.g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                     this.Sp_Primary_Key,
@@ -216,13 +214,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     "",
                     "",
                     "cancel_preparation_individual");
-
-
                     this.GlobalStatePopup.UpdatedSuccessfully();
-
                     this.Close();
-
-
                 }
                 else
                 {
