@@ -1,13 +1,7 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -16,8 +10,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
     public partial class frmViewInternalItemPrepared : MaterialForm
     {
         frmDryPreparationInternal ths;
-
-
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
         //Data Set Initialization

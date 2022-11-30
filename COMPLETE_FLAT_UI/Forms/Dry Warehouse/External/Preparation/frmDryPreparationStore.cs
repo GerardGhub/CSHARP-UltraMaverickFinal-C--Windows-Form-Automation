@@ -322,14 +322,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
-        {
-           
+        {       
            this.CurrentCellChangeofDgvStoreOrderApproval();
-
-
             this.ConnectionInit();
-
-
             this.SearchMethodJarVarCallingSP();
             if (this.lbltotalStoreforPreparation.Text == "0")
             {

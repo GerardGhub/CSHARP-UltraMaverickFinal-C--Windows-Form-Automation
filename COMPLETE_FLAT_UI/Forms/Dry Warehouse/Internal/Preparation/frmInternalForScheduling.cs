@@ -145,8 +145,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             try
             {
 
-
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbRequestedDate, "Internal_Order_For_Allocation", this.dSet);
+                myClass.fillComboBoxStoreOrderApproval(this.MatcmbRequestedDate, "Internal_Order_For_Allocation", this.dSet);
 
             }
             catch (Exception ex)
@@ -171,7 +170,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     DataView dv = new DataView(this.dset_emp1.Tables[0]);
                    
                 
-                        dv.RowFilter = "  mrs_requested_date = '" + this.matcmbRequestedDate.Text + "'  ";
+                        dv.RowFilter = "  mrs_requested_date = '" + this.MatcmbRequestedDate.Text + "'  ";
 
                     
 
@@ -368,7 +367,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-                myClass.fillComboBoxStoreOrderApproval(this.matcmbRequestedDate, "Internal_Order_FilterByDate", this.dSet);
+                myClass.fillComboBoxStoreOrderApproval(this.MatcmbRequestedDate, "Internal_Order_FilterByDate", this.dSet);
 
             }
             catch (Exception ex)

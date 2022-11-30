@@ -577,7 +577,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 if (this.lbltotaldata.Text.Length > 0)
                 {
-                    MessageBox.Show("Sample");
+                    //MessageBox.Show("Sample");
                 }//
                 this.matbtnSave.Visible = true;
 

@@ -49,10 +49,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void frmAllocationModule_Load(object sender, EventArgs e)
         {
-            this.ConnectionInit();
-           
+            this.ConnectionInit();           
             this.showRawMaterialsInDryWH();
-   
             this.CallInitializeComponent();
             this.DisposeControlsWhenDataIsNull();
         }
@@ -66,8 +64,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void ConnectionInit()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-
         }
+
 
         private void showRawMaterialsInDryWH()    //method for loading available_menus
         {
@@ -427,23 +425,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
 
         private void matBtnSave_Click(object sender, EventArgs e)
-        {
-
-            
+        {          
             if(this.txtSoh.Text == "0")
             {
                 this.GlobalStatePopup.NotEnoughStock();
                 return;
             }
 
-
             if (MetroFramework.MetroMessageBox.Show(this, "Do you want to allocate?", "Confirmation", MessageBoxButtons.YesNo, 
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.ConnectionInit();
-     
                 this.SenderTextChangedValue();
-    
                 this.MethodPost();
             }
             else
@@ -473,7 +466,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 else
                 {
 
-
+;
                     if (mode == "error")
                     {
                         this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
@@ -1253,8 +1246,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             else
             {
                 this.CheckIFGreatherThanDateNeeded();
-                //this.matBtnSave.Enabled = true;
-                //MessageBox.Show("11");
+
             }
 
             if (this.FormClass.sp_total_row_allocated == Convert.ToInt32(this.lbltotalStoreOrder.Text))
@@ -1265,8 +1257,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
             {
                 this.CheckIFGreatherThanDateNeeded();
-                //this.matBtnSave.Enabled = true;
-                //MessageBox.Show("12");
+
             }
       
         }
