@@ -743,21 +743,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     {
                         if (Convert.ToBoolean(this.dgvGunaMoveItems.Rows[i].Cells["selected"].Value) == true)
                         {
-                            //Date Conversion
-                            DateTime dt = new DateTime();
-                            string lstrDate = this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString();
-                            dt = Convert.ToDateTime(lstrDate);
-                            string lstrAdate = dt.ToString("yyyy-MM-dd");
 
-                 
-                            this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
-                            this.dset = g_objStoredProcCollection
-                            .sp_IDGenerator_String(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString(), 
-                            "PUTStoreOrderMoveDispatching", 
-                            this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString(), 
-                            dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(),
-                            this.Sp_user_id, 
-                            this.Sp_ParentId);
+                            if (this.materialLabelRecentLogs.Text == "View Recent Log(s)")
+                            {
+                                //Date Conversion
+                                DateTime dt = new DateTime();
+                                string lstrDate = this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString();
+                                dt = Convert.ToDateTime(lstrDate);
+                                string lstrAdate = dt.ToString("yyyy-MM-dd");
+
+
+                                this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
+                                this.dset = g_objStoredProcCollection
+                                .sp_IDGenerator_String(dgvGunaMoveItems.Rows[i].Cells["fox"].Value.ToString(),
+                                "PUTStoreOrderMoveDispatching",
+                                this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString(),
+                                dgvGunaMoveItems.Rows[i].Cells["category"].Value.ToString(),
+                                this.Sp_user_id,
+                                this.Sp_ParentId);
+                            }
+
 
                             if (this.dgvGunaMoveItems.Rows[i].Cells["print_count"].Value.ToString() == null)
                             {
@@ -1159,6 +1164,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         }
         private void AutoPrintPreviewLooping()
         {
+            this.GridResetIntoFirstLine();
             this.dgvGunaMoveItems_CurrentCellChanged(new object(), new System.EventArgs());
 
 
@@ -1167,8 +1173,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             //{
             //    this.PrintPreview();
             //}
+ 
+            if (this.num == this.printpreview_num_count)
+            {
 
 
+                //this.printpreview_num_count = 0;
+
+                return;
+            }
+            else
+            {
+                if (this.Sp_Selected_Item == "selected")
+                {
+                    this.PrintPreview();
+                }
+                this.printpreview_num_count++;
+            }
 
             if (this.dgvGunaMoveItems.Rows.Count >= 1)
                 {
@@ -1181,21 +1202,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     return;
                 }
 
-            this.printpreview_num_count++;
             this.Sp_Selected_Item = "";
-            if (this.num == this.printpreview_num_count)
-            {
-       
-                    this.PrintPreview();
-                    this.printpreview_num_count = 0;
-                
-                return;
-            }
-            else
-            {
-                this.AutoPrintPreviewLooping();
-            }
 
+
+            this.AutoPrintPreviewLooping();
         }
 
         private void PrintPreview()
@@ -1204,7 +1214,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             if (this.materialLabelRecentLogs.Text == "View Recent Log(s)")
             {
 
-                this.Close();
                 myglobal.REPORT_NAME = "StoreMoveOrderPickSlipPreview";
 
                 Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
