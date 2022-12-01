@@ -34,7 +34,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             InitializeComponent();
         }
 
-
+        public string ConvertedDateToString { get; set; }
         public int Sp_user_id { get; set; }
         public string sp_final_id { get; set; }
         public string Sp_Fox { get; set; }
@@ -722,10 +722,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 return;
             }
 
-            //if (this.materialLabelRecentLogs.Text != "View Recent Log(s)")
-            //{
-            //    this.matCmbPreparationDate_SelectionChangeCommitted(sender, e);
-            //}
 
             if (MetroFramework.MetroMessageBox.Show(this, "Print the move Order Slip? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -752,6 +748,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                             string lstrDate = this.dgvGunaMoveItems.Rows[i].Cells["is_wh_approved_date"].Value.ToString();
                             dt = Convert.ToDateTime(lstrDate);
                             string lstrAdate = dt.ToString("yyyy-MM-dd");
+
                  
                             this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[this.dgvGunaMoveItems.CurrentCell.ColumnIndex];
                             this.dset = g_objStoredProcCollection
@@ -992,14 +989,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             myglobal.DATE_REPORT2 = sp_final_id;
 
             //Date Conversion BUje
-            DateTime dt = new DateTime();
-            string lstrDate = this.matCmbPreparationDate.Text;
-            dt = Convert.ToDateTime(lstrDate);
-            string Preparationdate = dt.ToString("yyyy-MM-dd");
-            //Pwet
-
-            //this.Sp_ParentId = 1139;
-            rpt.SetParameterValue("@approved_prepa_date", Preparationdate);
+            this.DateConversion(this.Sp_PreparationDate);
+            rpt.SetParameterValue("@approved_prepa_date", this.ConvertedDateToString);
             //rpt.SetParameterValue("@category", this.MatcmbCategory.Text);
             rpt.SetParameterValue("@category", this.Sp_Category);
             rpt.SetParameterValue("@fox", this.Sp_Fox);
@@ -1172,10 +1163,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
 
 
-            if (this.Sp_Selected_Item == "selected")
-            {
-                this.PrintPreview();
-            }
+            //if (this.Sp_Selected_Item == "selected")
+            //{
+            //    this.PrintPreview();
+            //}
 
 
 
@@ -1194,9 +1185,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.Sp_Selected_Item = "";
             if (this.num == this.printpreview_num_count)
             {
-                this.PrintPreview();
-                this.printpreview_num_count = 0;
-              
+       
+                    this.PrintPreview();
+                    this.printpreview_num_count = 0;
+                
                 return;
             }
             else
@@ -1223,12 +1215,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 rpt.Refresh();
 
                 //Date Conversion
-                DateTime dt = new DateTime();
-                string lstrDate = this.Sp_PreparationDate;
-                dt = Convert.ToDateTime(lstrDate);
-                string lstrAdate = dt.ToString("MM-dd-yyyy");
+                this.DateConversion(this.Sp_PreparationDate);
 
-                myglobal.DATE_REPORT = lstrAdate;
+                myglobal.DATE_REPORT = this.ConvertedDateToString;
                 myglobal.DATE_REPORT2 = this.Sp_Category;
                 myglobal.DATE_REPORT3 = this.Sp_Fox;
                 myglobal.DATE_REPORT4 = this.Sp_UserName;
@@ -1252,14 +1241,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
                 //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
                 //Date Conversion
-                DateTime dt = new DateTime();
-                string lstrDate = this.Sp_PreparationDate;
-                dt = Convert.ToDateTime(lstrDate);
-                string lstrAdate = dt.ToString("MM/dd/yyyy");
-      
+                this.DateConversion(this.Sp_PreparationDate);
 
                 rpt.Refresh();
-                myglobal.DATE_REPORT = lstrAdate;
+
+                myglobal.DATE_REPORT = this.ConvertedDateToString;
                 myglobal.DATE_REPORT2 = this.Sp_Category;
                 myglobal.DATE_REPORT3 = this.Sp_Fox;
                 myglobal.DATE_REPORT4 = this.Sp_UserName;
@@ -1269,6 +1255,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 frmReport frmReport = new frmReport();
                 frmReport.ShowDialog();
             }
+        }
+
+        void DateConversion (string Date)
+        {
+            //Date Conversion
+            DateTime dt = new DateTime();
+            string lstrDate = Date;
+            dt = Convert.ToDateTime(lstrDate);
+            this.ConvertedDateToString = dt.ToString("MM-dd-yyyy");
         }
 
         private void materialCard3_Paint(object sender, PaintEventArgs e)
