@@ -1169,11 +1169,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
 
 
-            //if (this.Sp_Selected_Item == "selected")
-            //{
-            //    this.PrintPreview();
-            //}
- 
             if (this.num == this.printpreview_num_count)
             {
 
