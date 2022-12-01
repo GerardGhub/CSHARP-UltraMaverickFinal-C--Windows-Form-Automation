@@ -26,7 +26,7 @@ namespace ULTRAMAVERICK.Forms.Users
         IStoredProcedures g_objStoredProcCollection = null;
         myglobal pointer_module = new myglobal();
         DateTime dNow = DateTime.Now;
-        string mode = "";
+
         DataSet dSet = new DataSet();
 
         DataSet dSet_temp = new DataSet();
@@ -169,9 +169,6 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
-                        mode = "delete";
-
-
                         this.dSet_temp.Clear();
                         this.dSet_temp = this.g_objStoredProcCollection
                         .sp_ParentForms(
@@ -208,9 +205,7 @@ namespace ULTRAMAVERICK.Forms.Users
                     if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                     {
 
-                        mode = "activate";
 
-                        mode = "";
 
                         this.dSet_temp.Clear();
                         this.dSet_temp = this.g_objStoredProcCollection
@@ -246,7 +241,6 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnAddTool_Click_1(object sender, EventArgs e)
         {
-            this.mode = "add";
             this.matBtnDelete.Visible = false;
             this.materialBtnNew.Visible = false;
             this.matBtnCancel.Visible = true;
@@ -296,7 +290,7 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
                 {
-                    this.mode = "edit";
+          
                     this.matBtnEDit.Visible = false;
                     this.materialBtnNew.Visible = false;
                     this.matBtnCancel.Visible = true;

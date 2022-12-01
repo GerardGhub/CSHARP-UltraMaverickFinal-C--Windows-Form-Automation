@@ -2,17 +2,9 @@
 using CrystalDecisions.CrystalReports.Engine;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 using ULTRAMAVERICK.Report;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
@@ -47,10 +39,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         public string sp_final_id { get; set; }
         public string Sp_Fox { get; set; }
         public string Sp_Selected_Item { get; set; }
-
+        public string Sp_Category { get; set; }
         public string Sp_UserName { get; set; }
         public int Sp_ParentId { get; set; }
-
+        public string Sp_PreparationDate { get; set; }
 
         private void ConnectionInit()
         {
@@ -65,8 +57,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.loadPreparationDateDropdown();
             this.useStateWindowLoad();
             this.ShowDataActivated();
-            this.matCmbPreparationDate_SelectionChangeCommitted(sender, e);
-
+            if (this.matCmbPreparationDate.Text != String.Empty)
+            {
+                this.matCmbPreparationDate_SelectionChangeCommitted(sender, e);
+            }
             if (this.matCmbPreparationDate.Text == String.Empty)
             {
                
@@ -86,19 +80,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             {
               
             }
+
+            if (this.materialLabelRecentLogs.Text == "View Current Log(s)")
+            {
+                this.matCmbPreparationDate.Enabled = false;
+            }
      
         }
 
-        private void ResetComboBox()
-        {
-            this.matCmbPreparationDate.SelectedIndex = -1;
-            this.MatcmbCategory.SelectedIndex = -1;
-            this.MetroCmbStoreName.SelectedIndex = -1;
-           
-        }
-
-
-        // Position Absolute right: 20px;
 
         private void ShowDataActivated()
         {
@@ -122,11 +111,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.materialCheckboxSelectAll.Visible = true;
                 this.loadCategoryDropdown();
            
+        
 
                 if (this.MatcmbCategory.Text != String.Empty)
                 {
                     this.loadPrepaDate_AND_Category();
                 }
+
 
                 if (this.MetroCmbStoreName.Text != String.Empty)
                 {
@@ -173,8 +164,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             try
             {
 
-
-
                 this.dset.Clear();
 
                 this.dset = g_objStoredProcCollection.sp_getMajorTables("Store_Order_Dispatched_by_Logistic_Checker_Per_Items_RestFull_Major_Recent_Logs");
@@ -197,6 +186,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         public void loadPreparationDateDropdown()
         {
+
             try
             {
                 
@@ -527,9 +517,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
             if(this.counterstrike == 2)
             {
+
                 this.loadCategoryDropdownRecentLogs();
                 if (this.MatcmbCategory.Text != String.Empty)
                 {
+
                     this.loadPrepaDate_AND_CategoryRecentLogs();
                 }
 
@@ -698,6 +690,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             if(this.lbltotaldata.Text != "0")
             {
                 this.dgvGunaMoveItems.Enabled = true;
+                this.dgvGunaMoveItems.Visible = true;
                 this.matCmbPreparationDate.Enabled = true;
                 this.MatcmbCategory.Enabled = true;
                 if(this.MatcmbCategory.Text != String.Empty)
@@ -708,6 +701,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             }
             else
             {
+                this.dgvGunaMoveItems.Visible= false;
+                this.MatcmbCategory.SelectedIndex = -1;
                 this.materialLabelNoPrintPages.Visible = false;
                 this.metroCMbFilterPrintPages.Visible = false;
                 this.dgvGunaMoveItems.Enabled = false;
@@ -726,6 +721,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.GlobalStatePopup.NoOfPagesforPrintingMoveOrder();
                 return;
             }
+
+            //if (this.materialLabelRecentLogs.Text != "View Recent Log(s)")
+            //{
+            //    this.matCmbPreparationDate_SelectionChangeCommitted(sender, e);
+            //}
 
             if (MetroFramework.MetroMessageBox.Show(this, "Print the move Order Slip? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -764,6 +764,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                             if (this.dgvGunaMoveItems.Rows[i].Cells["print_count"].Value.ToString() == null)
                             {
+
                                 dset2.Clear();
                                 dset2 = g_objStoredProcCollection.sp_IDGenerator_String(this.dgvGunaMoveItems.Rows[i].Cells["Id"].Value.ToString(), "UpdateStoreMoveOrderReprintCount1", "", "", 1, this.Sp_ParentId);
                             }
@@ -995,11 +996,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             string lstrDate = this.matCmbPreparationDate.Text;
             dt = Convert.ToDateTime(lstrDate);
             string Preparationdate = dt.ToString("yyyy-MM-dd");
-
+            //Pwet
 
             //this.Sp_ParentId = 1139;
             rpt.SetParameterValue("@approved_prepa_date", Preparationdate);
-            rpt.SetParameterValue("@category", this.MatcmbCategory.Text);
+            //rpt.SetParameterValue("@category", this.MatcmbCategory.Text);
+            rpt.SetParameterValue("@category", this.Sp_Category);
             rpt.SetParameterValue("@fox", this.Sp_Fox);
             rpt.SetParameterValue("@username", this.Sp_UserName);
             rpt.SetParameterValue("@parentIdentity", this.Sp_ParentId);
@@ -1023,7 +1025,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                             this.Sp_Fox = this.dgvGunaMoveItems.CurrentRow.Cells["fox"].Value.ToString();
                             this.Sp_ParentId = Convert.ToInt32(this.dgvGunaMoveItems.CurrentRow.Cells["Id"].Value);
-
+                            this.Sp_Category = this.dgvGunaMoveItems.CurrentRow.Cells["category"].Value.ToString();
+                            this.Sp_PreparationDate = this.dgvGunaMoveItems.CurrentRow.Cells["is_approved_prepa_date"].Value.ToString();
 
                             if (Convert.ToBoolean(this.dgvGunaMoveItems.CurrentRow.Cells["selected"].Value) == true)
                             {
@@ -1056,12 +1059,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 if (this.dset.Tables.Count > 0)
                 {
                     DataView dv2 = new DataView(this.dset.Tables[0]);
-
-
-
                     if (this.MetroCmbStoreName.SelectedIndex != -1)
-                    {
-               
+                    {               
                         dv2.RowFilter = " is_wh_approved_date >= #" + bunifuPrepaDateFrom.Text + "# AND is_wh_approved_date <= #" + bunifuDateTo.Text + "# AND category = '" + this.MatcmbCategory.Text + "'";
 
                     }
@@ -1101,16 +1100,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     //Preparation Date Load
                     this.loadPreparationDateDropdownRecentLogs();
                     //Load Fucking Category
-                    this.loadCategoryDropdown_Recent_Logs();
+                    //this.loadCategoryDropdown_Recent_Logs();
 
                     this.materialLabelFrom.Visible = true;
                     this.materialLabelTo.Visible = true;
                     this.bunifuPrepaDateFrom.Visible = true;
                     this.bunifuDateTo.Visible = true;
-                
+                matCmbPreparationDate.Enabled = false;
 
 
-         
+
                     //Do Searching Method
                     this.RecentLogsSearch();
 
@@ -1119,8 +1118,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 if (counterstrike == 2)
                 {
-                //MessageBox.Show("Alert sample");
-            
+
+
 
                 //Initial Page Print
                 this.metroCMbFilterPrintPages.Text = "1";
@@ -1136,8 +1135,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.materialLabelTo.Visible = false;
                 this.bunifuDateTo.Visible = false;
                 this.bunifuPrepaDateFrom.Visible = false;
-                this.matCmbPreparationDate.Enabled = true;
    
+           
                 counterstrike = 0;
           
                 
@@ -1158,6 +1157,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         private void materialButtonPrintPreview_Click(object sender, EventArgs e)
         {
+  
             this.GridResetIntoFirstLine();
             this.AutoPrintPreviewLooping();
 
@@ -1212,6 +1212,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             if (this.materialLabelRecentLogs.Text == "View Recent Log(s)")
             {
 
+                this.Close();
                 myglobal.REPORT_NAME = "StoreMoveOrderPickSlipPreview";
 
                 Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
@@ -1221,9 +1222,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 rpt.Refresh();
 
+                //Date Conversion
+                DateTime dt = new DateTime();
+                string lstrDate = this.Sp_PreparationDate;
+                dt = Convert.ToDateTime(lstrDate);
+                string lstrAdate = dt.ToString("MM-dd-yyyy");
 
-                myglobal.DATE_REPORT = this.matCmbPreparationDate.Text;
-                myglobal.DATE_REPORT2 = this.MatcmbCategory.Text;
+                myglobal.DATE_REPORT = lstrAdate;
+                myglobal.DATE_REPORT2 = this.Sp_Category;
                 myglobal.DATE_REPORT3 = this.Sp_Fox;
                 myglobal.DATE_REPORT4 = this.Sp_UserName;
                 myglobal.DATE_REPORT5 = this.Sp_ParentId.ToString();
@@ -1238,16 +1244,23 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             }
             else
             {
+
                 myglobal.REPORT_NAME = "StoreMoveOrderPickSlip";
 
                 Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
 
                 rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlip.rpt");
                 //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+                //Date Conversion
+                DateTime dt = new DateTime();
+                string lstrDate = this.Sp_PreparationDate;
+                dt = Convert.ToDateTime(lstrDate);
+                string lstrAdate = dt.ToString("MM/dd/yyyy");
+      
 
                 rpt.Refresh();
-                myglobal.DATE_REPORT = this.matCmbPreparationDate.Text;
-                myglobal.DATE_REPORT2 = this.MatcmbCategory.Text;
+                myglobal.DATE_REPORT = lstrAdate;
+                myglobal.DATE_REPORT2 = this.Sp_Category;
                 myglobal.DATE_REPORT3 = this.Sp_Fox;
                 myglobal.DATE_REPORT4 = this.Sp_UserName;
                 myglobal.DATE_REPORT5 = this.Sp_ParentId.ToString();

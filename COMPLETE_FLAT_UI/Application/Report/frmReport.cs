@@ -20,8 +20,6 @@ namespace ULTRAMAVERICK.Report
             InitializeComponent();
         }
 
-
-
         private void ConnectionInit()
         {
             this.g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
