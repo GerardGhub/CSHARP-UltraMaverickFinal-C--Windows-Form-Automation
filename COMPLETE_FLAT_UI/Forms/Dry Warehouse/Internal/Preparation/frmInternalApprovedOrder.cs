@@ -1,13 +1,7 @@
-﻿using COMPLETE_FLAT_UI.Models;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -17,9 +11,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
     {
         //Main Classs
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
@@ -129,14 +121,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
-
             this.dset_emp1.Clear();
-
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSInternalPreparationDateSync");
-
+            this.dset_emp1 = this.g_objStoredProcCollection.sp_getMajorTables("searchMRSInternalPreparationDateSync");
             this.doSearch();
-
-
         }
 
 
@@ -193,7 +180,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.ConnectionInit();
             this.dset_emp1.Clear();
 
-            this.dset_emp1 = objStorProc.sp_getMajorTables("searchMRSInternalPreparationDateSyncInactive");
+            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchMRSInternalPreparationDateSyncInactive");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
 
             this.dgvStoreOrderApproval.DataSource = dv;
@@ -214,7 +201,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
@@ -385,37 +371,45 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (this.textBox1.Text == String.Empty)
+            this.dgvStoreOrderApproval.Enabled = true;
+            this.textBox1.Text = String.Empty;
+            this.ConnectionInit();
+            if (this.matRadioNotActive.Checked == true)
             {
-
+                matRadioNotActive_CheckedChanged(sender, e);
             }
-            else
-            {
+            this.bunifuPrepaDate_ValueChanged(sender, e);
 
 
+            //if (this.textBox1.Text == String.Empty)
+            //{
+
+            //}
+            //else
+            //{
+            //    if (this.textBox1.Text == "TouchedScreen")
+            //    {
+            //        this.dgvStoreOrderApproval.Enabled = true;
+            //        this.textBox1.Text = String.Empty;
+            //        this.ConnectionInit();
+            //        this.bunifuPrepaDate_ValueChanged(sender, e);
+            //    }
+            //    else if (this.textBox1.Text == "ReturnRecord")
+            //    {
+            //        matRadioNotActive_CheckedChanged(sender, e);
+            //        this.textBox1.Text = String.Empty;
+            //        this.dgvStoreOrderApproval.Enabled = true;
+            //    }
+            //    else
+            //    {
+            //        this.ConnectionInit();
+
+            //        this.bunifuPrepaDate.Text = this.textBox1.Text;
 
 
-                if (this.textBox1.Text == "TouchedScreen")
-                {
-                    this.dgvStoreOrderApproval.Enabled = true;
-                    this.textBox1.Text = String.Empty;
-                    this.ConnectionInit();
-                    this.bunifuPrepaDate_ValueChanged(sender, e);
-                }
-                else if (this.textBox1.Text == "ReturnRecord")
-                {
-                    matRadioNotActive_CheckedChanged(sender, e);
-                    this.textBox1.Text = String.Empty;
-                    this.dgvStoreOrderApproval.Enabled = true;
-                }
-                else
-                {
-                    this.ConnectionInit();
-             
-                    this.bunifuPrepaDate.Text = this.textBox1.Text;
+            //    }
+            //}
 
-                }
-            }
         }
 
         private void matRadioNotActive_CheckedChanged(object sender, EventArgs e)

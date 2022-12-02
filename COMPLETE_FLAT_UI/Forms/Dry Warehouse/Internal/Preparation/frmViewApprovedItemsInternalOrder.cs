@@ -180,8 +180,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void InitiliazeDatePickerMinDate()
         {
-            this.bunifuPrepaDate.MinDate = DateTime.Now;
-            this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(7);
+            if (this.bunifuPrepaDate.Text != String.Empty)
+            {
+                this.bunifuPrepaDate.MinDate = DateTime.Now;
+                this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(7);
+            }
         }
 
         private void StaticWindowState()
@@ -197,7 +200,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
-      
+
 
         }
 
@@ -268,7 +271,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                             dset = g_objStoredProcCollection.sp_IDGenerator(
                                 int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorCancelInternalApprovedMRS", 
-                                this.textBox2.Text,
+                                this.textBox1.Text,
                                 userinfo.user_id.ToString(), 1, 0);
 
                         }
@@ -437,21 +440,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
 
             else if (this.matBtnAction.Text == "RETURN")
-            {
-               
-
-                //if (MetroFramework.MetroMessageBox.Show(this, "Return the consolidated order? ",
-                //    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                //{
+            {     
                     this.ReturnFunctionality();
-
-
-                //}
-                //else
-                //{
-
-                //    return;
-                //}
             }
 
             else
@@ -460,6 +450,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
 
             this.textBox2.Text = String.Empty;
+            //this.ViewApprovedItemsInternalOrder_Load(sender, e);
+        
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)

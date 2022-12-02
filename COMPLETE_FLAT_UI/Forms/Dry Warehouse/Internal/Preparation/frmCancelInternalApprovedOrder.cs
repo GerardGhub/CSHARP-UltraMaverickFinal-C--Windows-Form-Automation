@@ -78,6 +78,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             //ths.textBox2.Text = textBox1.Text;
             ths.textBox2.Text = this.SpButtonActions;
+            ths.textBox1.Text = this.cboReason.Text;
         }
 
         private void matBtnSave_Click(object sender, EventArgs e)
@@ -108,7 +109,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
 
                     this.validate = 1;
-                    //this.textBox1.Text = this.cboReason.Text;
+                    this.textBox1.Text = this.cboReason.Text;
                     this.Close();
                 }
                 else
