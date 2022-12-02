@@ -1,7 +1,7 @@
 ﻿
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 {
-    partial class ViewApprovedItemsInternalOrder
+    partial class frmViewApprovedItemsInternalOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -123,7 +123,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 663;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtDescription
@@ -378,7 +377,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.textBox2.Size = new System.Drawing.Size(145, 20);
             this.textBox2.TabIndex = 675;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox2.Visible = false;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // lblcanceltitle
@@ -404,14 +402,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.lblcancelby.Text = ".";
             this.lblcancelby.Visible = false;
             // 
-            // ViewApprovedItemsInternalOrder
+            // frmViewApprovedItemsInternalOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 630);
             this.Controls.Add(this.materialCard1);
             this.MaximizeBox = false;
-            this.Name = "ViewApprovedItemsInternalOrder";
+            this.Name = "frmViewApprovedItemsInternalOrder";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Approved Items Internal Order";

@@ -13,7 +13,7 @@ using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 {
-    public partial class ViewApprovedItemsInternalOrder : MaterialForm
+    public partial class frmViewApprovedItemsInternalOrder : MaterialForm
     {
         frmInternalApprovedOrder ths;
         myclasses xClass = new myclasses();
@@ -25,7 +25,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         DataSet dSet = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         private bool dateChanged = false;
-        public ViewApprovedItemsInternalOrder(frmInternalApprovedOrder frm,
+        public frmViewApprovedItemsInternalOrder(frmInternalApprovedOrder frm,
             int sp_mrs_id,
             string sp_department_id,
             string sp_mrs_req_desc,
@@ -288,7 +288,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             }
 
-            this.GlobalStatePopup.ApprovedSuccessfully();
+            this.GlobalStatePopup.CancelledSuccessfully();
             this.Close();
         }
 
@@ -331,7 +331,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             }
 
-            this.GlobalStatePopup.ApprovedSuccessfully();
+            this.GlobalStatePopup.UpdatedSuccessfully();
             this.Close();
         }
 
@@ -423,17 +423,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
             else if (this.matBtnAction.Text == "CANCEL")
             {
-                //if (this.textBox2.Text == String.Empty)
-                //{
 
-                //}
-                //else
-                //{ 
-                //    //MessageBox.Show("GHello");
-                //    this.GlobalStatePopup.FillRequiredFields();
-                //    this.metroCmbReason.Focus();
-                //    return;
-                //}
                 if (this.textBox2.Text != String.Empty)
                 {
                 }
@@ -441,18 +431,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     this.CancelFunctionality();
 
-                    //if (MetroFramework.MetroMessageBox.Show(this, "Cancel the consolidated order? ",
-                    //    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    //{
-                    //    this.CancelFunctionality();
 
-
-                    //}
-                    //else
-                    //{
-
-                    //    return;
-                    //}
 
                 }
             }
@@ -461,18 +440,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Return the consolidated order? ",
-                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
+                //if (MetroFramework.MetroMessageBox.Show(this, "Return the consolidated order? ",
+                //    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                //{
                     this.ReturnFunctionality();
 
 
-                }
-                else
-                {
+                //}
+                //else
+                //{
 
-                    return;
-                }
+                //    return;
+                //}
             }
 
             else
@@ -510,7 +489,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            matBtnAction_Click(sender, e);
+            if (this.textBox2.Text == String.Empty)
+            {
+
+            }
+            else
+            {
+                this.matBtnAction_Click(sender, e);
+            }
+
 
         }
     }

@@ -358,8 +358,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
  
                 this.dgvStoreOrderApproval.Enabled = false;
            
-                ViewApprovedItemsInternalOrder addNew =
-            new ViewApprovedItemsInternalOrder(this,
+                frmViewApprovedItemsInternalOrder addNew =
+            new frmViewApprovedItemsInternalOrder(this,
              this.p_id,
              this.Sp_department_id,
              this.Sp_mrs_req_desc,

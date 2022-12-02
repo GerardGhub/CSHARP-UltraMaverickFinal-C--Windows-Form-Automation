@@ -14,15 +14,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 {
     public partial class frmCancelInternalApprovedOrder : MaterialForm
     {
-        ViewApprovedItemsInternalOrder ths;
+        frmViewApprovedItemsInternalOrder ths;
         DataSet dSet = new DataSet();
         myclasses myClass = new myclasses();
-        myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        IStoredProcedures objStorProc = null;
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         int validate = 0;
-        public frmCancelInternalApprovedOrder(ViewApprovedItemsInternalOrder frm , string buttonActions)
+        public frmCancelInternalApprovedOrder(frmViewApprovedItemsInternalOrder frm , string buttonActions)
         {
             InitializeComponent();
             ths = frm;
@@ -70,7 +68,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
         }
 
 
@@ -79,7 +76,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ths.textBox2.Text = textBox1.Text;
+            //ths.textBox2.Text = textBox1.Text;
+            ths.textBox2.Text = this.SpButtonActions;
         }
 
         private void matBtnSave_Click(object sender, EventArgs e)
@@ -90,21 +88,41 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.cboReason.Focus();
                 return;
             }
+           if(this.SpButtonActions == "CANCEL")
+            {
+                if (MetroFramework.MetroMessageBox.Show(this, "Cancel the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Cancel the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                this.validate = 1;
-                this.textBox1.Text = this.cboReason.Text;
-                this.Close();
+                    this.validate = 1;
+                    this.textBox1.Text = this.cboReason.Text;
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
+           else
             {
-                return;
+                if (MetroFramework.MetroMessageBox.Show(this, "Return the consolidated order? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    this.validate = 1;
+                    //this.textBox1.Text = this.cboReason.Text;
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
             }
+
+
         }
 
         private void frmCancelInternalApprovedOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             if(this.validate == 1)
             {
                 this.textBox1.Text = this.cboReason.Text;
@@ -119,9 +137,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.loadRemarksDropdownForReturn();
             }
-            else
+            else if (this.SpButtonActions == "CANCEL")
             {
                 this.loadRemarksDropdownForCancel();
+            }
+            else
+            {
+
             }
 
      

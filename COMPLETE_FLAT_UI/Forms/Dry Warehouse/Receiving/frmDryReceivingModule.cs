@@ -258,12 +258,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     if (dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString() == "1")
                     {
+   
     
                         this.dset_emp_SearchEngines.Clear();
                         this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_WH_Rejection");
                     }
                     else
                     {
+
                         this.SearchMethodJarVarCallingSP();
                     }
                     this.doSearchInTextBoxCmb();

@@ -298,11 +298,11 @@
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.Designer.cs">
       <DependentUpon>frmViewInternalItemPrepared.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewApprovedItemsInternalOrder.cs">
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewApprovedItemsInternalOrder.Designer.cs">
-      <DependentUpon>ViewApprovedItemsInternalOrder.cs</DependentUpon>
+    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.Designer.cs">
+      <DependentUpon>frmViewApprovedItemsInternalOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.cs">
       <SubType>Form</SubType>
@@ -955,8 +955,8 @@
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.resx">
       <DependentUpon>frmViewInternalItemPrepared.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\ViewApprovedItemsInternalOrder.resx">
-      <DependentUpon>ViewApprovedItemsInternalOrder.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.resx">
+      <DependentUpon>frmViewApprovedItemsInternalOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.resx">
       <DependentUpon>ViewItemsInternalOrder.cs</DependentUpon>
