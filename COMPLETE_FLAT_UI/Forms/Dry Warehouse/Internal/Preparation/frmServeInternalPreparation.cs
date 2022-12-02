@@ -116,7 +116,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.doSearchInTextBoxCmbRecID();
             //DataGrid Visible False
             this.DataGridVisibilyFalse();
-            //MessageBox.Show(this.Sp_Mris_ID);
+
         }
 
         private void DataGridVisibilyFalse()

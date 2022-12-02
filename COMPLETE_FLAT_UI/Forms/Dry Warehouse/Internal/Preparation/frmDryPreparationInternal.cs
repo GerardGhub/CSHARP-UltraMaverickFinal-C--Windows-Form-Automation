@@ -640,13 +640,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //Start of Validating the Received If if exist on the system
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(Convert.ToInt32(this.mattxtScanTheBarcode.Text), "",
-               "", "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist");
-
-       
+               "", "", "", "", "", "", "", 0, "", "", "", "check_if_the_barcode_is_exist");   
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-
                 //Start of Validating the Received If if exist on the system  buje
                 dset2.Clear();
                 dset2 = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
@@ -657,6 +654,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
            
                 if (dset2.Tables[0].Rows.Count > 0)
                 {
+
                     //Find The Data On Receiving Information
                     this.SearchMethodJarVarCallingSPReceivingInformation();
                     //Method of Searching
@@ -697,7 +695,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             else
             {
 
-                MessageBox.Show("A");
+     
                 this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
              
                 this.mattxtScanTheBarcode.Text = String.Empty;
@@ -715,6 +713,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.dset_emp_SearchEnginesReceivingInformationDset.Clear();
             this.dset_emp_SearchEnginesReceivingInformationDset = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
 
+
         }
 
 
@@ -724,6 +723,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.dset_emp_SearchEnginesReceivingIDFEFO.Clear();
             this.dset_emp_SearchEnginesReceivingIDFEFO = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDFEFO_Internal_Major");
+
 
         }
 
@@ -784,7 +784,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 }
 
 
-                //MessageBox.Show(lbltotaldata.Text);
+
                 //return;
 
                 frmServeInternalPreparation addNew = new frmServeInternalPreparation(this,
@@ -853,7 +853,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
                     this.gunaDgvReceivingFEFO.DataSource = dv;
-                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+
+
+
                 }
             }
             catch (SyntaxErrorException)
@@ -1041,6 +1043,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 }
 
 
+            }
+        }
+
+        private void lbltotalStoreforPreparation_TextChanged(object sender, EventArgs e)
+        {
+            if(this.lbltotalStoreforPreparation.Text == "0")
+            {
+                this.matbtnSave.Visible = false;
             }
         }
     }
