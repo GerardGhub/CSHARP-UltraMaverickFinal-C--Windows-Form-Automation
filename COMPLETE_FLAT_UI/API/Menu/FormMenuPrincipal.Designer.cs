@@ -641,7 +641,7 @@
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip2.Size = new System.Drawing.Size(88, 512);
+            this.toolStrip2.Size = new System.Drawing.Size(196, 512);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -826,20 +826,20 @@
             this.toolStripMoveOrderSetup.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuReceipt,
             this.toolStripMenuIssue});
-            this.toolStripMoveOrderSetup.Font = new System.Drawing.Font("Roboto", 12F);
+            this.toolStripMoveOrderSetup.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMoveOrderSetup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripMoveOrderSetup.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMoveOrderSetup.Image")));
             this.toolStripMoveOrderSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripMoveOrderSetup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMoveOrderSetup.Name = "toolStripMoveOrderSetup";
             this.toolStripMoveOrderSetup.Size = new System.Drawing.Size(195, 44);
-            this.toolStripMoveOrderSetup.Text = "Move Order";
+            this.toolStripMoveOrderSetup.Text = "Misc Transaction";
             this.toolStripMoveOrderSetup.Visible = false;
             // 
             // toolStripMenuReceipt
             // 
             this.toolStripMenuReceipt.Name = "toolStripMenuReceipt";
-            this.toolStripMenuReceipt.Size = new System.Drawing.Size(134, 24);
+            this.toolStripMenuReceipt.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuReceipt.Text = "Receipt";
             this.toolStripMenuReceipt.Visible = false;
             this.toolStripMenuReceipt.Click += new System.EventHandler(this.toolStripMenuReceipt_Click);
@@ -847,7 +847,7 @@
             // toolStripMenuIssue
             // 
             this.toolStripMenuIssue.Name = "toolStripMenuIssue";
-            this.toolStripMenuIssue.Size = new System.Drawing.Size(134, 24);
+            this.toolStripMenuIssue.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuIssue.Text = "Issue";
             this.toolStripMenuIssue.Visible = false;
             this.toolStripMenuIssue.Click += new System.EventHandler(this.toolStripMenuIssue_Click);
@@ -1182,7 +1182,7 @@
             this.approvedOrderToolStripMenuItem,
             this.preparationToolStripMenuItem});
             this.toolDryStorePreparation.Name = "toolDryStorePreparation";
-            this.toolDryStorePreparation.Size = new System.Drawing.Size(180, 24);
+            this.toolDryStorePreparation.Size = new System.Drawing.Size(163, 24);
             this.toolDryStorePreparation.Text = "Store";
             this.toolDryStorePreparation.Visible = false;
             this.toolDryStorePreparation.Click += new System.EventHandler(this.toolDryForApproval_Click);
@@ -1218,7 +1218,7 @@
             this.approvedScheduleToolStripMenuItem,
             this.preparationToolStripMenuItem1});
             this.toolDryInternalPreparation.Name = "toolDryInternalPreparation";
-            this.toolDryInternalPreparation.Size = new System.Drawing.Size(180, 24);
+            this.toolDryInternalPreparation.Size = new System.Drawing.Size(163, 24);
             this.toolDryInternalPreparation.Text = "Internal";
             this.toolDryInternalPreparation.Visible = false;
             // 
@@ -1249,7 +1249,7 @@
             // allocationModule
             // 
             this.allocationModule.Name = "allocationModule";
-            this.allocationModule.Size = new System.Drawing.Size(180, 24);
+            this.allocationModule.Size = new System.Drawing.Size(163, 24);
             this.allocationModule.Text = "Allocation";
             this.allocationModule.Visible = false;
             this.allocationModule.Click += new System.EventHandler(this.allocationModule_Click);
@@ -1257,7 +1257,7 @@
             // moveOrderToolStripMenuItem2
             // 
             this.moveOrderToolStripMenuItem2.Name = "moveOrderToolStripMenuItem2";
-            this.moveOrderToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
+            this.moveOrderToolStripMenuItem2.Size = new System.Drawing.Size(163, 24);
             this.moveOrderToolStripMenuItem2.Text = "Move Order";
             this.moveOrderToolStripMenuItem2.Visible = false;
             this.moveOrderToolStripMenuItem2.Click += new System.EventHandler(this.moveOrderToolStripMenuItem2_Click);
@@ -1301,7 +1301,7 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(169, 480);
+            this.toolStrip1.Size = new System.Drawing.Size(25, 480);
             this.toolStrip1.TabIndex = 598;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
