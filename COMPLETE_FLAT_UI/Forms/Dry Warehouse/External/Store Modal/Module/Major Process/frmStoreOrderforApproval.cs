@@ -108,8 +108,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
            this.ValidatedItemforApproval();
      
             if(this.modesplashScreenError == "1")
-            {
-              
+            {            
                 return;
             }
             this.VisibilityFalseDataGrid();

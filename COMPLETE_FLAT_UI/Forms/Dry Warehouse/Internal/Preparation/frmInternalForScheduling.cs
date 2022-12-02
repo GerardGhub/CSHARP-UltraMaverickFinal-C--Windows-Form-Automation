@@ -79,9 +79,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.ConnectionOpen();
             this.CheckTheForApprovalRadioButton();
+
+            this.ShowRawMaterialforApproval();
+            this.ValidatedItemforApproval();
+
             //MessageBox.Show("Burat");
 
-    
+
             //this.DataRefresher();
 
 
@@ -123,6 +127,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.selection_mode = "1";
         }
+
+
+        private void ShowRawMaterialforApproval()    //method for loading available_menus
+        {
+            try
+            {
+
+                myClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
+
+                this.GlobalStatePopup.Total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+
 
 
         private void DropDownMethod()
