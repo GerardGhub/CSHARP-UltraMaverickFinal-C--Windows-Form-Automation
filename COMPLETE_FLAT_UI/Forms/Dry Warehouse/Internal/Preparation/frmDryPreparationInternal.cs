@@ -1,13 +1,8 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -677,25 +672,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 }
                 else
                 {
-
-
                     this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
-      
                     this.mattxtScanTheBarcode.Text = String.Empty;
                     this.mattxtScanTheBarcode.Focus();
 
                     return;
-                }
-
-
-                
+                }        
             }
 
 
             else
             {
-
-     
                 this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
              
                 this.mattxtScanTheBarcode.Text = String.Empty;
@@ -709,42 +696,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         DataSet dset_emp_SearchEnginesReceivingInformationDset = new DataSet();
         private void SearchMethodJarVarCallingSPReceivingInformation()
         {
-
             this.dset_emp_SearchEnginesReceivingInformationDset.Clear();
             this.dset_emp_SearchEnginesReceivingInformationDset = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
-
-
         }
-
 
         DataSet dset_emp_SearchEnginesReceivingIDFEFO = new DataSet();
         private void SearchMethodJarVarCallingSPReceivingIDFEFODB()
         {
-
             this.dset_emp_SearchEnginesReceivingIDFEFO.Clear();
             this.dset_emp_SearchEnginesReceivingIDFEFO = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivingIDFEFO_Internal_Major");
-
-
         }
 
         private void doSearchInTextBoxCmbReceivingIDFefo()
         {
-
-            //MessageBox.Show(this.Sp_Receiving_ID_RecommendedFefo);
             try
             {
                 if (dset_emp_SearchEnginesReceivingIDFEFO.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEnginesReceivingIDFEFO.Tables[0]);
-
-                    //Gerard Singian Developer Man
-
                     dv.RowFilter = "item_code = '" + this.Sp_Item_Code + "'   ";
-
-
-
                     this.gunaDgvReceivingFEFO.DataSource = dv;
-                    //lbltotalrecords.Text = dgvRawMats.RowCount.ToString();
+
                 }
             }
             catch (SyntaxErrorException)
@@ -887,7 +859,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     if (this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value != null)
                     {
-                        //p_id = Convert.ToInt32(dgvStoreOrderApproval.CurrentRow.Cells["primary_id"].Value);
+
                         this.Sp_Receiving_ID_RecommendedFefo = this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value.ToString();
                         this.Sp_Expiration_Date = this.gunaDgvReceivingFEFO.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.Sp_Receiving_Item_Code = this.gunaDgvReceivingFEFO.CurrentRow.Cells["codes"].Value.ToString();
@@ -922,7 +894,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.Sp_Data_Refactoring_Status = this.guna2DgvMaterialPreparation.CurrentRow.Cells["data_refactoring_status"].Value.ToString();
                         this.Sp_Mris_ID = this.guna2DgvMaterialPreparation.CurrentRow.Cells["mrs_id"].Value.ToString();
                         this.Sp_Category = this.guna2DgvMaterialPreparation.CurrentRow.Cells["category"].Value.ToString();
-                        //MessageBox.Show(this.Sp_Mris_ID);
+    
                     }
                 }
             }
