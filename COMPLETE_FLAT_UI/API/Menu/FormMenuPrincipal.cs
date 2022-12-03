@@ -435,6 +435,26 @@ namespace COMPLETE_FLAT_UI
                 this.moveOrderToolStripMenuItem2.Text = "Move Order";
             }
 
+            //Recieving Dry
+            int totalReceiving = 0;
+            this.parentFormsRepository.GetReceivingDataDry(this.dataGridView1);
+            this.listOfReceivingToolStripMenuItem.Text = "List of Receiving (" + this.parentFormsRepository.TotalRecords + ") ";
+            totalReceiving = this.parentFormsRepository.TotalRecords;
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
+            }
+
+            //Recieving Dry Reject
+            this.parentFormsRepository.GetReceivingDataDryReject(this.dataGridView1);
+            this.parentFormsRepository.TotalRecords = totalReceiving + this.parentFormsRepository.TotalRecords;
+           this.listOfReceivingToolStripMenuItem.Text = "List of Receiving (" + this.parentFormsRepository.TotalRecords + ") ";
+
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
+            }
+
         }
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)

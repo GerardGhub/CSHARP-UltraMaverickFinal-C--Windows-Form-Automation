@@ -136,5 +136,41 @@ namespace ULTRAMAVERICK.API.Data
 
 
         }
+
+        public void GetReceivingDataDry(DataGridView DataGridViews)
+        {
+            try
+            {
+
+                this.xClass.fillDataGridView(DataGridViews, "Po_Receiving_Warehouse", this.dSet);
+
+                this.TotalRecords = DataGridViews.RowCount;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        public void GetReceivingDataDryReject(DataGridView DataGridViews)
+        {
+
+            try
+            {
+
+                this.xClass.fillDataGridView(DataGridViews, "Po_Receiving_Warehouse_Nearly_Expiry", this.dSet);
+
+                this.TotalRecords = DataGridViews.RowCount;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
