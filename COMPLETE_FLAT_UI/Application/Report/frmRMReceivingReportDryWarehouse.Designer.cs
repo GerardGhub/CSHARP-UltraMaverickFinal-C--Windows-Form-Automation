@@ -117,6 +117,7 @@
             this.MatBtnGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.MatBtnGenerate.UseAccentColor = false;
             this.MatBtnGenerate.UseVisualStyleBackColor = true;
+            this.MatBtnGenerate.Click += new System.EventHandler(this.MatBtnGenerate_Click);
             // 
             // frmRMReceivingReportDryWarehouse
             // 

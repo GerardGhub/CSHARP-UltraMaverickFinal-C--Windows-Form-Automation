@@ -431,9 +431,9 @@ namespace ULTRAMAVERICK.Report
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
             }
-            else if (myglobal.REPORT_NAME == "MacroMaterialHistoryTracking")
+            else if (myglobal.REPORT_NAME == "DryMaterialHistoryTracking")
             {
-                rpt.Load(Rpt_Path + "\\MacroMaterialHistoryTracking.rpt");
+                rpt.Load(Rpt_Path + "\\DryMaterialHistoryTracking.rpt");
                 //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
                 rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
                 rpt.Refresh();

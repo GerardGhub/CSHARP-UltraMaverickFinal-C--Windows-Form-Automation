@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using Guna.UI2.WinForms.Suite;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTRAMAVERICK.Models;
+using ULTRAMAVERICK.Report;
 
 namespace ULTRAMAVERICK.Application.Report
 {
@@ -20,6 +23,18 @@ namespace ULTRAMAVERICK.Application.Report
 
         private void frmRMReceivingReportDryWarehouse_Load(object sender, EventArgs e)
         {
+        }
+
+        private void MatBtnGenerate_Click(object sender, EventArgs e)
+        {
+            myglobal.DATE_REPORT = this.dtpFrom.Text;
+            myglobal.DATE_REPORT2 = this.dtpTo.Text;
+            myglobal.REPORT_NAME = "DryMaterialHistoryTracking";
+
+            frmReport fr = new frmReport();
+            fr.WindowState = FormWindowState.Maximized;
+            fr.Show();
+
 
         }
     }
