@@ -1658,6 +1658,11 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
+        private void rMMiscellaneousTransactionReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

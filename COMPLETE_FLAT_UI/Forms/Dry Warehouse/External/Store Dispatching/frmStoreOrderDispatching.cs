@@ -1164,17 +1164,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         }
         private void AutoPrintPreviewLooping()
         {
-            //this.GridResetIntoFirstLine();
+
             this.dgvGunaMoveItems_CurrentCellChanged(new object(), new System.EventArgs());
-
-
-
             if (this.num == this.printpreview_num_count)
             {
-
-
-                //this.printpreview_num_count = 0;
-
+              //this.printpreview_num_count = 0;
                 return;
             }
             else
