@@ -28,6 +28,7 @@ using ULTRAMAVERICK.Menu.View_Models;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation;
 using ULTRAMAVERICK.API.Extensions;
 using ULTRAMAVERICK.API.Data;
+using ULTRAMAVERICK.Application.Report;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1661,6 +1662,13 @@ namespace COMPLETE_FLAT_UI
         private void rMMiscellaneousTransactionReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripMenuItemReceivingRpt_Click(object sender, EventArgs e)
+        {
+            frmRMReceivingReportDryWarehouse frmrpt = new frmRMReceivingReportDryWarehouse();
+
+            frmrpt.ShowDialog();
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)

@@ -31,7 +31,7 @@ namespace ULTRAMAVERICK.Forms.Users.Modal
         frmUserManagement2 ths;
         readonly UserFile UserFileEntity = new UserFile();
 
-        private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
+        //private readonly String defaultImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Employee.png";
         private FileStream fileStream;
         private BinaryReader binaryReader;
         public Byte[] imageByte = null;
