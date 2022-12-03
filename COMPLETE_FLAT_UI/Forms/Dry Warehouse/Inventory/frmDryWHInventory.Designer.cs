@@ -35,10 +35,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.lbltotalrecords = new System.Windows.Forms.Label();
-            this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.item_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +60,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_at = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updated_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.lbltotalrecords = new System.Windows.Forms.Label();
+            this.txtItemCode = new MaterialSkin.Controls.MaterialTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             this.materialCard1.SuspendLayout();
@@ -189,6 +189,246 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.dgvRawMats.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRawMats_CellFormatting);
             this.dgvRawMats.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvRawMats_DataBindingComplete);
             // 
+            // item_id
+            // 
+            this.item_id.DataPropertyName = "item_id";
+            this.item_id.FillWeight = 40.60914F;
+            this.item_id.Frozen = true;
+            this.item_id.HeaderText = "ITEM ID";
+            this.item_id.MinimumWidth = 12;
+            this.item_id.Name = "item_id";
+            this.item_id.ReadOnly = true;
+            this.item_id.Width = 81;
+            // 
+            // item_code
+            // 
+            this.item_code.DataPropertyName = "item_code";
+            this.item_code.FillWeight = 59.93546F;
+            this.item_code.Frozen = true;
+            this.item_code.HeaderText = "ITEM CODE";
+            this.item_code.MinimumWidth = 12;
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.Width = 104;
+            // 
+            // Item_description
+            // 
+            this.Item_description.DataPropertyName = "Item_description";
+            this.Item_description.FillWeight = 97.00433F;
+            this.Item_description.Frozen = true;
+            this.Item_description.HeaderText = "ITEM DESCRIPTION";
+            this.Item_description.MinimumWidth = 12;
+            this.Item_description.Name = "Item_description";
+            this.Item_description.ReadOnly = true;
+            this.Item_description.Width = 158;
+            // 
+            // item_class
+            // 
+            this.item_class.DataPropertyName = "item_class";
+            this.item_class.FillWeight = 77.07378F;
+            this.item_class.HeaderText = "ITEM CLASS";
+            this.item_class.MinimumWidth = 12;
+            this.item_class.Name = "item_class";
+            this.item_class.ReadOnly = true;
+            this.item_class.Width = 112;
+            // 
+            // major_category
+            // 
+            this.major_category.DataPropertyName = "major_category";
+            this.major_category.FillWeight = 115.8143F;
+            this.major_category.HeaderText = "WAREHOUSE";
+            this.major_category.MinimumWidth = 12;
+            this.major_category.Name = "major_category";
+            this.major_category.ReadOnly = true;
+            this.major_category.Width = 126;
+            // 
+            // sub_category
+            // 
+            this.sub_category.DataPropertyName = "sub_category";
+            this.sub_category.FillWeight = 111.9698F;
+            this.sub_category.HeaderText = "CATEGORY";
+            this.sub_category.MinimumWidth = 12;
+            this.sub_category.Name = "sub_category";
+            this.sub_category.ReadOnly = true;
+            this.sub_category.Width = 112;
+            // 
+            // conversion
+            // 
+            this.conversion.DataPropertyName = "conversion";
+            this.conversion.FillWeight = 112.6176F;
+            this.conversion.HeaderText = "CONVERSION";
+            this.conversion.MinimumWidth = 12;
+            this.conversion.Name = "conversion";
+            this.conversion.ReadOnly = true;
+            this.conversion.Width = 129;
+            // 
+            // item_type
+            // 
+            this.item_type.DataPropertyName = "item_type";
+            this.item_type.FillWeight = 109.4746F;
+            this.item_type.HeaderText = "ITEM TYPE";
+            this.item_type.MinimumWidth = 12;
+            this.item_type.Name = "item_type";
+            this.item_type.ReadOnly = true;
+            this.item_type.Width = 103;
+            // 
+            // SOH
+            // 
+            this.SOH.DataPropertyName = "SOH";
+            this.SOH.HeaderText = "STOCK ON HAND";
+            this.SOH.MinimumWidth = 12;
+            this.SOH.Name = "SOH";
+            this.SOH.ReadOnly = true;
+            this.SOH.Width = 104;
+            // 
+            // RESERVED
+            // 
+            this.RESERVED.DataPropertyName = "RESERVED";
+            this.RESERVED.HeaderText = "RESERVED IN PRODUCTION";
+            this.RESERVED.MinimumWidth = 12;
+            this.RESERVED.Name = "RESERVED";
+            this.RESERVED.ReadOnly = true;
+            this.RESERVED.Width = 210;
+            // 
+            // buffer_stock
+            // 
+            this.buffer_stock.DataPropertyName = "buffer_stock";
+            this.buffer_stock.HeaderText = "BUFFER STOCKS";
+            this.buffer_stock.MinimumWidth = 12;
+            this.buffer_stock.Name = "buffer_stock";
+            this.buffer_stock.ReadOnly = true;
+            this.buffer_stock.Width = 140;
+            // 
+            // TOTAL_RECEIVED
+            // 
+            this.TOTAL_RECEIVED.DataPropertyName = "TOTAL_RECEIVED";
+            this.TOTAL_RECEIVED.HeaderText = "RECEIVED";
+            this.TOTAL_RECEIVED.MinimumWidth = 12;
+            this.TOTAL_RECEIVED.Name = "TOTAL_RECEIVED";
+            this.TOTAL_RECEIVED.ReadOnly = true;
+            this.TOTAL_RECEIVED.Width = 104;
+            // 
+            // RECEIPT
+            // 
+            this.RECEIPT.DataPropertyName = "RECEIPT";
+            this.RECEIPT.HeaderText = "RECEIPT";
+            this.RECEIPT.MinimumWidth = 12;
+            this.RECEIPT.Name = "RECEIPT";
+            this.RECEIPT.ReadOnly = true;
+            this.RECEIPT.Width = 94;
+            // 
+            // ISSUE
+            // 
+            this.ISSUE.DataPropertyName = "ISSUE";
+            this.ISSUE.HeaderText = "ISSUE";
+            this.ISSUE.MinimumWidth = 12;
+            this.ISSUE.Name = "ISSUE";
+            this.ISSUE.ReadOnly = true;
+            this.ISSUE.Width = 75;
+            // 
+            // MOVE_ORDER
+            // 
+            this.MOVE_ORDER.DataPropertyName = "MOVE_ORDER";
+            this.MOVE_ORDER.HeaderText = "MOVE ORDER";
+            this.MOVE_ORDER.MinimumWidth = 12;
+            this.MOVE_ORDER.Name = "MOVE_ORDER";
+            this.MOVE_ORDER.ReadOnly = true;
+            this.MOVE_ORDER.Width = 120;
+            // 
+            // MOVEMENT_STATUS
+            // 
+            this.MOVEMENT_STATUS.DataPropertyName = "MOVEMENT_STATUS";
+            this.MOVEMENT_STATUS.HeaderText = "MOVEMENT STATUS";
+            this.MOVEMENT_STATUS.MinimumWidth = 12;
+            this.MOVEMENT_STATUS.Name = "MOVEMENT_STATUS";
+            this.MOVEMENT_STATUS.ReadOnly = true;
+            this.MOVEMENT_STATUS.Width = 166;
+            // 
+            // primary_unit
+            // 
+            this.primary_unit.DataPropertyName = "primary_unit";
+            this.primary_unit.HeaderText = "UOM";
+            this.primary_unit.MinimumWidth = 12;
+            this.primary_unit.Name = "primary_unit";
+            this.primary_unit.ReadOnly = true;
+            this.primary_unit.Width = 67;
+            // 
+            // LAST_USED
+            // 
+            this.LAST_USED.DataPropertyName = "LAST_USED";
+            this.LAST_USED.HeaderText = "LAST USED";
+            this.LAST_USED.MinimumWidth = 12;
+            this.LAST_USED.Name = "LAST_USED";
+            this.LAST_USED.ReadOnly = true;
+            this.LAST_USED.Width = 105;
+            // 
+            // DAYS_OF_MOVEMENT
+            // 
+            this.DAYS_OF_MOVEMENT.DataPropertyName = "DAYS_OF_MOVEMENT";
+            this.DAYS_OF_MOVEMENT.HeaderText = "DAYS OF MOVEMENT";
+            this.DAYS_OF_MOVEMENT.MinimumWidth = 12;
+            this.DAYS_OF_MOVEMENT.Name = "DAYS_OF_MOVEMENT";
+            this.DAYS_OF_MOVEMENT.ReadOnly = true;
+            this.DAYS_OF_MOVEMENT.Width = 171;
+            // 
+            // QA_RECEIVING
+            // 
+            this.QA_RECEIVING.DataPropertyName = "QA_RECEIVING";
+            this.QA_RECEIVING.HeaderText = "QA RECEIVING";
+            this.QA_RECEIVING.MinimumWidth = 12;
+            this.QA_RECEIVING.Name = "QA_RECEIVING";
+            this.QA_RECEIVING.ReadOnly = true;
+            this.QA_RECEIVING.Width = 123;
+            // 
+            // CATEGORY_MRP
+            // 
+            this.CATEGORY_MRP.DataPropertyName = "CATEGORY_MRP";
+            this.CATEGORY_MRP.HeaderText = "CATEGORY MRP";
+            this.CATEGORY_MRP.MinimumWidth = 12;
+            this.CATEGORY_MRP.Name = "CATEGORY_MRP";
+            this.CATEGORY_MRP.ReadOnly = true;
+            this.CATEGORY_MRP.Width = 137;
+            // 
+            // created_at
+            // 
+            this.created_at.DataPropertyName = "created_at";
+            this.created_at.HeaderText = "CREATED DATE";
+            this.created_at.MinimumWidth = 12;
+            this.created_at.Name = "created_at";
+            this.created_at.ReadOnly = true;
+            this.created_at.Visible = false;
+            this.created_at.Width = 131;
+            // 
+            // created_by
+            // 
+            this.created_by.DataPropertyName = "created_by";
+            this.created_by.HeaderText = "CREATED BY";
+            this.created_by.MinimumWidth = 12;
+            this.created_by.Name = "created_by";
+            this.created_by.ReadOnly = true;
+            this.created_by.Visible = false;
+            this.created_by.Width = 113;
+            // 
+            // updated_at
+            // 
+            this.updated_at.DataPropertyName = "updated_at";
+            this.updated_at.HeaderText = "UPDATED DATE";
+            this.updated_at.MinimumWidth = 12;
+            this.updated_at.Name = "updated_at";
+            this.updated_at.ReadOnly = true;
+            this.updated_at.Visible = false;
+            this.updated_at.Width = 132;
+            // 
+            // updated_by
+            // 
+            this.updated_by.DataPropertyName = "updated_by";
+            this.updated_by.HeaderText = "UPDATED BY";
+            this.updated_by.MinimumWidth = 12;
+            this.updated_by.Name = "updated_by";
+            this.updated_by.ReadOnly = true;
+            this.updated_by.Visible = false;
+            this.updated_by.Width = 115;
+            // 
             // materialCard1
             // 
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -235,6 +475,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.txtItemCode.Size = new System.Drawing.Size(205, 50);
             this.txtItemCode.TabIndex = 573;
             this.txtItemCode.Text = "";
+            this.txtItemCode.Visible = false;
             this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             this.txtItemCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemCode_KeyPress);
             // 
@@ -249,246 +490,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 579;
             this.label2.Text = "Items";
-            // 
-            // item_id
-            // 
-            this.item_id.DataPropertyName = "item_id";
-            this.item_id.FillWeight = 40.60914F;
-            this.item_id.Frozen = true;
-            this.item_id.HeaderText = "ITEM ID";
-            this.item_id.MinimumWidth = 12;
-            this.item_id.Name = "item_id";
-            this.item_id.ReadOnly = true;
-            this.item_id.Width = 90;
-            // 
-            // item_code
-            // 
-            this.item_code.DataPropertyName = "item_code";
-            this.item_code.FillWeight = 59.93546F;
-            this.item_code.Frozen = true;
-            this.item_code.HeaderText = "ITEM CODE";
-            this.item_code.MinimumWidth = 12;
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Width = 116;
-            // 
-            // Item_description
-            // 
-            this.Item_description.DataPropertyName = "Item_description";
-            this.Item_description.FillWeight = 97.00433F;
-            this.Item_description.Frozen = true;
-            this.Item_description.HeaderText = "ITEM DESCRIPTION";
-            this.Item_description.MinimumWidth = 12;
-            this.Item_description.Name = "Item_description";
-            this.Item_description.ReadOnly = true;
-            this.Item_description.Width = 175;
-            // 
-            // item_class
-            // 
-            this.item_class.DataPropertyName = "item_class";
-            this.item_class.FillWeight = 77.07378F;
-            this.item_class.HeaderText = "ITEM CLASS";
-            this.item_class.MinimumWidth = 12;
-            this.item_class.Name = "item_class";
-            this.item_class.ReadOnly = true;
-            this.item_class.Width = 124;
-            // 
-            // major_category
-            // 
-            this.major_category.DataPropertyName = "major_category";
-            this.major_category.FillWeight = 115.8143F;
-            this.major_category.HeaderText = "WAREHOUSE";
-            this.major_category.MinimumWidth = 12;
-            this.major_category.Name = "major_category";
-            this.major_category.ReadOnly = true;
-            this.major_category.Width = 128;
-            // 
-            // sub_category
-            // 
-            this.sub_category.DataPropertyName = "sub_category";
-            this.sub_category.FillWeight = 111.9698F;
-            this.sub_category.HeaderText = "CATEGORY";
-            this.sub_category.MinimumWidth = 12;
-            this.sub_category.Name = "sub_category";
-            this.sub_category.ReadOnly = true;
-            this.sub_category.Width = 114;
-            // 
-            // conversion
-            // 
-            this.conversion.DataPropertyName = "conversion";
-            this.conversion.FillWeight = 112.6176F;
-            this.conversion.HeaderText = "CONVERSION";
-            this.conversion.MinimumWidth = 12;
-            this.conversion.Name = "conversion";
-            this.conversion.ReadOnly = true;
-            this.conversion.Width = 131;
-            // 
-            // item_type
-            // 
-            this.item_type.DataPropertyName = "item_type";
-            this.item_type.FillWeight = 109.4746F;
-            this.item_type.HeaderText = "ITEM TYPE";
-            this.item_type.MinimumWidth = 12;
-            this.item_type.Name = "item_type";
-            this.item_type.ReadOnly = true;
-            this.item_type.Width = 114;
-            // 
-            // SOH
-            // 
-            this.SOH.DataPropertyName = "SOH";
-            this.SOH.HeaderText = "STOCK ON HAND";
-            this.SOH.MinimumWidth = 12;
-            this.SOH.Name = "SOH";
-            this.SOH.ReadOnly = true;
-            this.SOH.Width = 158;
-            // 
-            // RESERVED
-            // 
-            this.RESERVED.DataPropertyName = "RESERVED";
-            this.RESERVED.HeaderText = "RESERVED IN PRODUCTION";
-            this.RESERVED.MinimumWidth = 12;
-            this.RESERVED.Name = "RESERVED";
-            this.RESERVED.ReadOnly = true;
-            this.RESERVED.Width = 233;
-            // 
-            // buffer_stock
-            // 
-            this.buffer_stock.DataPropertyName = "buffer_stock";
-            this.buffer_stock.HeaderText = "BUFFER STOCKS";
-            this.buffer_stock.MinimumWidth = 12;
-            this.buffer_stock.Name = "buffer_stock";
-            this.buffer_stock.ReadOnly = true;
-            this.buffer_stock.Width = 156;
-            // 
-            // TOTAL_RECEIVED
-            // 
-            this.TOTAL_RECEIVED.DataPropertyName = "TOTAL_RECEIVED";
-            this.TOTAL_RECEIVED.HeaderText = "RECEIVED";
-            this.TOTAL_RECEIVED.MinimumWidth = 12;
-            this.TOTAL_RECEIVED.Name = "TOTAL_RECEIVED";
-            this.TOTAL_RECEIVED.ReadOnly = true;
-            this.TOTAL_RECEIVED.Width = 106;
-            // 
-            // RECEIPT
-            // 
-            this.RECEIPT.DataPropertyName = "RECEIPT";
-            this.RECEIPT.HeaderText = "RECEIPT";
-            this.RECEIPT.MinimumWidth = 12;
-            this.RECEIPT.Name = "RECEIPT";
-            this.RECEIPT.ReadOnly = true;
-            this.RECEIPT.Width = 96;
-            // 
-            // ISSUE
-            // 
-            this.ISSUE.DataPropertyName = "ISSUE";
-            this.ISSUE.HeaderText = "ISSUE";
-            this.ISSUE.MinimumWidth = 12;
-            this.ISSUE.Name = "ISSUE";
-            this.ISSUE.ReadOnly = true;
-            this.ISSUE.Width = 77;
-            // 
-            // MOVE_ORDER
-            // 
-            this.MOVE_ORDER.DataPropertyName = "MOVE_ORDER";
-            this.MOVE_ORDER.HeaderText = "MOVE ORDER";
-            this.MOVE_ORDER.MinimumWidth = 12;
-            this.MOVE_ORDER.Name = "MOVE_ORDER";
-            this.MOVE_ORDER.ReadOnly = true;
-            this.MOVE_ORDER.Width = 133;
-            // 
-            // MOVEMENT_STATUS
-            // 
-            this.MOVEMENT_STATUS.DataPropertyName = "MOVEMENT_STATUS";
-            this.MOVEMENT_STATUS.HeaderText = "MOVEMENT STATUS";
-            this.MOVEMENT_STATUS.MinimumWidth = 12;
-            this.MOVEMENT_STATUS.Name = "MOVEMENT_STATUS";
-            this.MOVEMENT_STATUS.ReadOnly = true;
-            this.MOVEMENT_STATUS.Width = 184;
-            // 
-            // primary_unit
-            // 
-            this.primary_unit.DataPropertyName = "primary_unit";
-            this.primary_unit.HeaderText = "UOM";
-            this.primary_unit.MinimumWidth = 12;
-            this.primary_unit.Name = "primary_unit";
-            this.primary_unit.ReadOnly = true;
-            this.primary_unit.Width = 69;
-            // 
-            // LAST_USED
-            // 
-            this.LAST_USED.DataPropertyName = "LAST_USED";
-            this.LAST_USED.HeaderText = "LAST USED";
-            this.LAST_USED.MinimumWidth = 12;
-            this.LAST_USED.Name = "LAST_USED";
-            this.LAST_USED.ReadOnly = true;
-            this.LAST_USED.Width = 117;
-            // 
-            // DAYS_OF_MOVEMENT
-            // 
-            this.DAYS_OF_MOVEMENT.DataPropertyName = "DAYS_OF_MOVEMENT";
-            this.DAYS_OF_MOVEMENT.HeaderText = "DAYS OF MOVEMENT";
-            this.DAYS_OF_MOVEMENT.MinimumWidth = 12;
-            this.DAYS_OF_MOVEMENT.Name = "DAYS_OF_MOVEMENT";
-            this.DAYS_OF_MOVEMENT.ReadOnly = true;
-            this.DAYS_OF_MOVEMENT.Width = 190;
-            // 
-            // QA_RECEIVING
-            // 
-            this.QA_RECEIVING.DataPropertyName = "QA_RECEIVING";
-            this.QA_RECEIVING.HeaderText = "QA RECEIVING";
-            this.QA_RECEIVING.MinimumWidth = 12;
-            this.QA_RECEIVING.Name = "QA_RECEIVING";
-            this.QA_RECEIVING.ReadOnly = true;
-            this.QA_RECEIVING.Width = 137;
-            // 
-            // CATEGORY_MRP
-            // 
-            this.CATEGORY_MRP.DataPropertyName = "CATEGORY_MRP";
-            this.CATEGORY_MRP.HeaderText = "CATEGORY MRP";
-            this.CATEGORY_MRP.MinimumWidth = 12;
-            this.CATEGORY_MRP.Name = "CATEGORY_MRP";
-            this.CATEGORY_MRP.ReadOnly = true;
-            this.CATEGORY_MRP.Width = 152;
-            // 
-            // created_at
-            // 
-            this.created_at.DataPropertyName = "created_at";
-            this.created_at.HeaderText = "CREATED DATE";
-            this.created_at.MinimumWidth = 12;
-            this.created_at.Name = "created_at";
-            this.created_at.ReadOnly = true;
-            this.created_at.Visible = false;
-            this.created_at.Width = 145;
-            // 
-            // created_by
-            // 
-            this.created_by.DataPropertyName = "created_by";
-            this.created_by.HeaderText = "CREATED BY";
-            this.created_by.MinimumWidth = 12;
-            this.created_by.Name = "created_by";
-            this.created_by.ReadOnly = true;
-            this.created_by.Visible = false;
-            this.created_by.Width = 126;
-            // 
-            // updated_at
-            // 
-            this.updated_at.DataPropertyName = "updated_at";
-            this.updated_at.HeaderText = "UPDATED DATE";
-            this.updated_at.MinimumWidth = 12;
-            this.updated_at.Name = "updated_at";
-            this.updated_at.ReadOnly = true;
-            this.updated_at.Visible = false;
-            this.updated_at.Width = 147;
-            // 
-            // updated_by
-            // 
-            this.updated_by.DataPropertyName = "updated_by";
-            this.updated_by.HeaderText = "UPDATED BY";
-            this.updated_by.MinimumWidth = 12;
-            this.updated_by.Name = "updated_by";
-            this.updated_by.ReadOnly = true;
-            this.updated_by.Visible = false;
-            this.updated_by.Width = 128;
             // 
             // frmDryWHInventory
             // 

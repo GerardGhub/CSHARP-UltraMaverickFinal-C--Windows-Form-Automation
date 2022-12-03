@@ -71,7 +71,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
             try
             {
-
                 myClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
 
                this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
