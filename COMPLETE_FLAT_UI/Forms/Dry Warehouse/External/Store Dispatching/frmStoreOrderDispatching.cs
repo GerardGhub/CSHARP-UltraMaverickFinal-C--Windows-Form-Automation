@@ -1164,7 +1164,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         }
         private void AutoPrintPreviewLooping()
         {
-            this.GridResetIntoFirstLine();
+            //this.GridResetIntoFirstLine();
             this.dgvGunaMoveItems_CurrentCellChanged(new object(), new System.EventArgs());
 
 

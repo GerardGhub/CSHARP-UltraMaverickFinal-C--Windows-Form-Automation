@@ -107,7 +107,7 @@ namespace COMPLETE_FLAT_UI
             this.panelContenedorPrincipal.Region = region;
             this.Invalidate();
         }
-        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
+
         protected override void OnPaint(PaintEventArgs e)
         {
 
@@ -119,7 +119,7 @@ namespace COMPLETE_FLAT_UI
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, this.Menu.sizeGripRectangle);
         }
        
-        //METODO PARA ARRASTRAR EL FORMULARIO---------------------------------------------------------------------
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -131,7 +131,8 @@ namespace COMPLETE_FLAT_UI
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        //METODOS PARA CERRAR,MAXIMIZAR, MINIMIZAR FORMULARIO------------------------------------------------------
+
+
         int lx, ly;
         int sw, sh;
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -251,14 +252,9 @@ namespace COMPLETE_FLAT_UI
             fh.Show();
         }
 
-        //METODO PARA MOSTRAR FORMULARIO DE LOGO Al INICIAR ----------------------------------------------------------
         private void MostrarFormLogo()
         {
             AbrirFormEnPanel(new FormLogo());
-            //FormLogo logo = new FormLogo();
-            //logo.ShowDialog();
-
-
         }
 
         private  void HeaderBadge() //Header Badge
@@ -1610,9 +1606,7 @@ namespace COMPLETE_FLAT_UI
 
         private void preparationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //this.NormalSizeofSideBar();
             btnMenu_Click(sender, e);
-
             frmDryPreparationInternal InternalPreparation = new frmDryPreparationInternal();
             InternalPreparation.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(InternalPreparation);
@@ -1672,17 +1666,9 @@ namespace COMPLETE_FLAT_UI
         private void preparationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.btnMenu_Click(sender, e);
-
             frmDryPreparationStore Preparation = new frmDryPreparationStore();
             Preparation.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(Preparation);
         }
-
-   
-
-
-      
-
-
     }
 }

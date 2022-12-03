@@ -835,7 +835,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.materialButtonPrintPreview.DrawShadows = true;
             this.materialButtonPrintPreview.HighEmphasis = true;
             this.materialButtonPrintPreview.Icon = null;
-            this.materialButtonPrintPreview.Location = new System.Drawing.Point(100, 685);
+            this.materialButtonPrintPreview.Location = new System.Drawing.Point(91, 685);
             this.materialButtonPrintPreview.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.materialButtonPrintPreview.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintPreview.Name = "materialButtonPrintPreview";
