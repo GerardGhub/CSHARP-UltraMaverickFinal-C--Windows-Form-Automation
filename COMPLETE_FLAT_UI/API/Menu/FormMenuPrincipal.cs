@@ -1610,7 +1610,9 @@ namespace COMPLETE_FLAT_UI
 
         private void preparationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.NormalSizeofSideBar();
+            //this.NormalSizeofSideBar();
+            btnMenu_Click(sender, e);
+
             frmDryPreparationInternal InternalPreparation = new frmDryPreparationInternal();
             InternalPreparation.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(InternalPreparation);
