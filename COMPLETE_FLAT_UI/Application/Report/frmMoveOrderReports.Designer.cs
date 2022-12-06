@@ -1,6 +1,6 @@
 ﻿namespace ULTRAMAVERICK.Application.Report
 {
-    partial class frmRMReceivingReportDryWarehouse
+    partial class frmMoveOrderReports
     {
         /// <summary>
         /// Required designer variable.
@@ -46,14 +46,13 @@
             this.materialCard1.Controls.Add(this.dtpFrom);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(44, 94);
+            this.materialCard1.Location = new System.Drawing.Point(42, 91);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(461, 205);
-            this.materialCard1.TabIndex = 1;
-            this.materialCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard1_Paint);
+            this.materialCard1.TabIndex = 3;
             // 
             // label1
             // 
@@ -65,7 +64,6 @@
             this.label1.Size = new System.Drawing.Size(39, 19);
             this.label1.TabIndex = 548;
             this.label1.Text = "TO :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label5
             // 
@@ -77,7 +75,6 @@
             this.label5.Size = new System.Drawing.Size(62, 19);
             this.label5.TabIndex = 550;
             this.label5.Text = "FROM :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // dtpTo
             // 
@@ -90,7 +87,6 @@
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(203, 40);
             this.dtpTo.TabIndex = 549;
-            this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
             // 
             // dtpFrom
             // 
@@ -103,7 +99,6 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(203, 40);
             this.dtpFrom.TabIndex = 547;
-            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // MatBtnGenerate
             // 
@@ -112,31 +107,31 @@
             this.MatBtnGenerate.DrawShadows = true;
             this.MatBtnGenerate.HighEmphasis = true;
             this.MatBtnGenerate.Icon = null;
-            this.MatBtnGenerate.Location = new System.Drawing.Point(410, 307);
+            this.MatBtnGenerate.Location = new System.Drawing.Point(408, 304);
             this.MatBtnGenerate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnGenerate.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnGenerate.Name = "MatBtnGenerate";
             this.MatBtnGenerate.Size = new System.Drawing.Size(95, 36);
-            this.MatBtnGenerate.TabIndex = 2;
+            this.MatBtnGenerate.TabIndex = 4;
             this.MatBtnGenerate.Text = "Generate";
             this.MatBtnGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.MatBtnGenerate.UseAccentColor = false;
             this.MatBtnGenerate.UseVisualStyleBackColor = true;
             this.MatBtnGenerate.Click += new System.EventHandler(this.MatBtnGenerate_Click);
             // 
-            // frmRMReceivingReportDryWarehouse
+            // frmMoveOrderReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 353);
-            this.Controls.Add(this.MatBtnGenerate);
             this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.MatBtnGenerate);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmRMReceivingReportDryWarehouse";
+            this.Name = "frmMoveOrderReports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RM Receiving Report";
-            this.Load += new System.EventHandler(this.frmRMReceivingReportDryWarehouse_Load);
+            this.Text = "Move Order Reports";
+            this.Load += new System.EventHandler(this.frmMoveOrderReports_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.ResumeLayout(false);

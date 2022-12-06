@@ -186,19 +186,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         public void loadPreparationDateDropdown()
         {
-
             try
             {
-                
-
                 myClass.fillComboBoxStoreOrderApprovalSync(this.matCmbPreparationDate,
                     "Store_Order_Dispatched_by_Logistic_Checker_Per_Items_Categories_DropDown", 
                     this.dSet, "BunifuPrepaDate", "cmdDateOrder", this.MatcmbCategory.Text, this.MetroCmbStoreName.Text);
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 
@@ -1114,29 +1109,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                 if (counterstrike == 2)
                 {
-
-
-
                 //Initial Page Print
                 this.metroCMbFilterPrintPages.Text = "1";
                 this.SelectAllDataFunctionality();
 
                 this.lblTextTitle.Text = "Store Order Dispatching";
-
-
-
-
                 this.materialLabelRecentLogs.Text = "View Recent Log(s)";
                 this.materialLabelFrom.Visible = false;
                 this.materialLabelTo.Visible = false;
                 this.bunifuDateTo.Visible = false;
-                this.bunifuPrepaDateFrom.Visible = false;
-   
-           
+                this.bunifuPrepaDateFrom.Visible = false;      
                 counterstrike = 0;
-          
-                
-
                     this.frmStoreOrderDispatching_Load(sender, e);
                     return;
 

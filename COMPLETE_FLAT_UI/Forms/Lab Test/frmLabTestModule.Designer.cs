@@ -29,7 +29,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLabTestModule));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,7 +46,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.mattxtLotNumber = new MaterialSkin.Controls.MaterialTextBox();
             this.matTxtCategory = new MaterialSkin.Controls.MaterialTextBox();
             this.matTxtItemCode = new MaterialSkin.Controls.MaterialTextBox();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.matItemDateLastUsed = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.dgvRawMats = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -90,14 +88,15 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.WizardBalloon3 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.WizardBalloon2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.WizardBalloon1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // materialCard1
@@ -320,18 +319,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matTxtItemCode.TabIndex = 148;
             this.matTxtItemCode.Text = "";
             // 
-            // pbImage
-            // 
-            this.pbImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Image = ((System.Drawing.Image)(resources.GetObject("pbImage.Image")));
-            this.pbImage.Location = new System.Drawing.Point(13, 26);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(165, 103);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 147;
-            this.pbImage.TabStop = false;
-            // 
             // matItemDateLastUsed
             // 
             this.matItemDateLastUsed.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -363,7 +350,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(1279, 420);
+            this.materialCard2.Size = new System.Drawing.Size(1279, 379);
             this.materialCard2.TabIndex = 584;
             // 
             // dgvRawMats
@@ -435,7 +422,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.RowTemplate.DividerHeight = 5;
             this.dgvRawMats.RowTemplate.Height = 40;
             this.dgvRawMats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRawMats.Size = new System.Drawing.Size(1269, 408);
+            this.dgvRawMats.Size = new System.Drawing.Size(1269, 367);
             this.dgvRawMats.TabIndex = 5;
             this.dgvRawMats.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             this.dgvRawMats.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -630,12 +617,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             // 
             // lbltotalrecords
             // 
-            this.lbltotalrecords.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbltotalrecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbltotalrecords.AutoSize = true;
             this.lbltotalrecords.BackColor = System.Drawing.Color.Transparent;
             this.lbltotalrecords.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalrecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lbltotalrecords.Location = new System.Drawing.Point(1224, 705);
+            this.lbltotalrecords.Location = new System.Drawing.Point(1216, 668);
             this.lbltotalrecords.Name = "lbltotalrecords";
             this.lbltotalrecords.Size = new System.Drawing.Size(31, 35);
             this.lbltotalrecords.TabIndex = 586;
@@ -648,7 +635,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(1270, 718);
+            this.label2.Location = new System.Drawing.Point(1264, 680);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 587;
@@ -691,7 +678,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matViewLabRecords.DrawShadows = true;
             this.matViewLabRecords.HighEmphasis = true;
             this.matViewLabRecords.Icon = null;
-            this.matViewLabRecords.Location = new System.Drawing.Point(210, 705);
+            this.matViewLabRecords.Location = new System.Drawing.Point(210, 670);
             this.matViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
             this.matViewLabRecords.Name = "matViewLabRecords";
@@ -710,7 +697,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.matBtnViewLabRecords.DrawShadows = true;
             this.matBtnViewLabRecords.HighEmphasis = true;
             this.matBtnViewLabRecords.Icon = null;
-            this.matBtnViewLabRecords.Location = new System.Drawing.Point(30, 705);
+            this.matBtnViewLabRecords.Location = new System.Drawing.Point(30, 670);
             this.matBtnViewLabRecords.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.matBtnViewLabRecords.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnViewLabRecords.Name = "matBtnViewLabRecords";
@@ -802,7 +789,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.btnCancelLabRequest.DrawShadows = true;
             this.btnCancelLabRequest.HighEmphasis = true;
             this.btnCancelLabRequest.Icon = null;
-            this.btnCancelLabRequest.Location = new System.Drawing.Point(349, 705);
+            this.btnCancelLabRequest.Location = new System.Drawing.Point(349, 670);
             this.btnCancelLabRequest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancelLabRequest.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelLabRequest.Name = "btnCancelLabRequest";
@@ -862,7 +849,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.MatBtnReceived.DrawShadows = true;
             this.MatBtnReceived.HighEmphasis = true;
             this.MatBtnReceived.Icon = null;
-            this.MatBtnReceived.Location = new System.Drawing.Point(1127, 707);
+            this.MatBtnReceived.Location = new System.Drawing.Point(1113, 669);
             this.MatBtnReceived.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MatBtnReceived.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnReceived.Name = "MatBtnReceived";
@@ -935,11 +922,23 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.WizardBalloon1.TabIndex = 594;
             this.WizardBalloon1.TabStop = false;
             // 
+            // pbImage
+            // 
+            this.pbImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbImage.Location = new System.Drawing.Point(13, 26);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(165, 103);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 147;
+            this.pbImage.TabStop = false;
+            // 
             // frmLabTestModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 773);
+            this.ClientSize = new System.Drawing.Size(1344, 712);
             this.Controls.Add(this.MatBtnReceived);
             this.Controls.Add(this.lblPattern4);
             this.Controls.Add(this.lblPattern3);
@@ -969,21 +968,19 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.Load += new System.EventHandler(this.frmLabTestModule_Load);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRawMats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WizardBalloon1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pbImage;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvRawMats;
@@ -1039,5 +1036,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private System.Windows.Forms.DataGridViewTextBoxColumn laboratory_procedure;
         private System.Windows.Forms.DataGridViewTextBoxColumn qa_supervisor_is_approve_status;
         private MaterialSkin.Controls.MaterialTextBox TxtSampleQtyProvided;
+        private System.Windows.Forms.PictureBox pbImage;
     }
 }

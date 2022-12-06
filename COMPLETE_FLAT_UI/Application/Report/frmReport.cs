@@ -434,8 +434,18 @@ namespace ULTRAMAVERICK.Report
             else if (myglobal.REPORT_NAME == "DryMaterialHistoryTracking")
             {
                 rpt.Load(Rpt_Path + "\\DryMaterialHistoryTracking.rpt");
-                //rpt.SetDatabaseLogon("sa", "Nescafe3in1");
-                rpt.SetDatabaseLogon("sa", "FMf3dor@2o20");
+                rpt.Refresh();
+                string ddate = myglobal.DATE_REPORT;
+                string ddate2 = myglobal.DATE_REPORT2;
+
+                rpt.SetParameterValue("@ddate", ddate);
+                rpt.SetParameterValue("@ddate2", ddate2);
+                crV1.ReportSource = rpt;
+                crV1.Refresh();
+            }
+            else if (myglobal.REPORT_NAME == "StoreMoveOrderPickSlipDateRange")
+            {
+                rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlipDateRange.rpt");
                 rpt.Refresh();
                 string ddate = myglobal.DATE_REPORT;
                 string ddate2 = myglobal.DATE_REPORT2;
@@ -457,7 +467,6 @@ namespace ULTRAMAVERICK.Report
 
 
 
-         
 
 
 

@@ -33,11 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
@@ -46,28 +46,27 @@
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.dgvParseData = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.btnMaximizedFinal = new System.Windows.Forms.Button();
             this.txtMatSideBarColor = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnMinimizeFinal = new System.Windows.Forms.Button();
+            this.btnNotificationsBell = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.btnCloseFinal = new System.Windows.Forms.Button();
+            this.btnMaximize = new System.Windows.Forms.Button();
+            this.btnNormalFinal = new System.Windows.Forms.Button();
+            this.btnNormal1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnNormal = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelMenuSelection = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.MainMajorData = new System.Windows.Forms.Panel();
-            this.toolStrip1MajorMenu = new System.Windows.Forms.ToolStrip();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDateFinal = new System.Windows.Forms.Label();
-            this.lblTimeFinal = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lbFecha = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.panelContenedorForm = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.toolDropdownUserManager = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolUserManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.toolUserRights = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,6 +141,8 @@
             this.toolStripMenuItemReceivingRpt = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAuditTrail = new System.Windows.Forms.ToolStripMenuItem();
             this.Tsback = new System.Windows.Forms.ToolStripButton();
+            this.MainMajorData = new System.Windows.Forms.Panel();
+            this.toolStrip1MajorMenu = new System.Windows.Forms.ToolStrip();
             this.btnDashBoard1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnUsers1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnDryWarehouse1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -149,45 +150,44 @@
             this.btnPreparationDepartment1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnResearchAndDevelopment1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.BtnSetUp = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.btnMaximizedFinal = new System.Windows.Forms.Button();
-            this.btnMinimizeFinal = new System.Windows.Forms.Button();
-            this.btnNotificationsBell = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.btnCloseFinal = new System.Windows.Forms.Button();
-            this.btnMaximize = new System.Windows.Forms.Button();
-            this.btnNormalFinal = new System.Windows.Forms.Button();
-            this.btnNormal1 = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.btnNormal = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnMaximizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblDateFinal = new System.Windows.Forms.Label();
+            this.lblTimeFinal = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.panelContenedorForm = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelMenuSelection.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.MainMajorData.SuspendLayout();
             this.toolStrip1MajorMenu.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelContenedorForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelContenedorPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panelContenedorForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelContenedorPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmExpandirMenu
@@ -346,6 +346,33 @@
             this.id.ReadOnly = true;
             this.id.Width = 12;
             // 
+            // pbImage
+            // 
+            this.pbImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Location = new System.Drawing.Point(735, 5);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(65, 36);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 146;
+            this.pbImage.TabStop = false;
+            this.pbImage.Visible = false;
+            // 
+            // btnMaximizedFinal
+            // 
+            this.btnMaximizedFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizedFinal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizedFinal.FlatAppearance.BorderSize = 0;
+            this.btnMaximizedFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizedFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizedFinal.Image")));
+            this.btnMaximizedFinal.Location = new System.Drawing.Point(885, 1);
+            this.btnMaximizedFinal.Name = "btnMaximizedFinal";
+            this.btnMaximizedFinal.Size = new System.Drawing.Size(43, 43);
+            this.btnMaximizedFinal.TabIndex = 5;
+            this.btnMaximizedFinal.UseVisualStyleBackColor = true;
+            this.btnMaximizedFinal.Click += new System.EventHandler(this.btnMaximizedFinal_Click);
+            // 
             // txtMatSideBarColor
             // 
             this.txtMatSideBarColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -363,6 +390,147 @@
             this.txtMatSideBarColor.Visible = false;
             this.txtMatSideBarColor.TextChanged += new System.EventHandler(this.txtMatSideBarColor_TextChanged);
             // 
+            // btnMinimizeFinal
+            // 
+            this.btnMinimizeFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizeFinal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizeFinal.FlatAppearance.BorderSize = 0;
+            this.btnMinimizeFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizeFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizeFinal.Image")));
+            this.btnMinimizeFinal.Location = new System.Drawing.Point(930, -2);
+            this.btnMinimizeFinal.Name = "btnMinimizeFinal";
+            this.btnMinimizeFinal.Size = new System.Drawing.Size(43, 43);
+            this.btnMinimizeFinal.TabIndex = 3;
+            this.btnMinimizeFinal.UseVisualStyleBackColor = true;
+            this.btnMinimizeFinal.Click += new System.EventHandler(this.btnMinimizeFinal_Click);
+            // 
+            // btnNotificationsBell
+            // 
+            this.btnNotificationsBell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotificationsBell.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotificationsBell.FlatAppearance.BorderSize = 0;
+            this.btnNotificationsBell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificationsBell.Image = ((System.Drawing.Image)(resources.GetObject("btnNotificationsBell.Image")));
+            this.btnNotificationsBell.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotificationsBell.Location = new System.Drawing.Point(806, 3);
+            this.btnNotificationsBell.Name = "btnNotificationsBell";
+            this.btnNotificationsBell.Size = new System.Drawing.Size(73, 39);
+            this.btnNotificationsBell.TabIndex = 1;
+            this.btnNotificationsBell.Text = "       .";
+            this.btnNotificationsBell.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNotificationsBell.UseVisualStyleBackColor = true;
+            this.btnNotificationsBell.Click += new System.EventHandler(this.btnNotificationsBell_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.Location = new System.Drawing.Point(3, 2);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(43, 37);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMenu.TabIndex = 12;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnCloseFinal
+            // 
+            this.btnCloseFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCloseFinal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseFinal.FlatAppearance.BorderSize = 0;
+            this.btnCloseFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseFinal.Image")));
+            this.btnCloseFinal.Location = new System.Drawing.Point(980, 2);
+            this.btnCloseFinal.Name = "btnCloseFinal";
+            this.btnCloseFinal.Size = new System.Drawing.Size(39, 39);
+            this.btnCloseFinal.TabIndex = 1;
+            this.btnCloseFinal.UseVisualStyleBackColor = true;
+            this.btnCloseFinal.Click += new System.EventHandler(this.btnCloseFinal_Click);
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximize.FlatAppearance.BorderSize = 0;
+            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximize.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
+            this.btnMaximize.Location = new System.Drawing.Point(-11292, 0);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.Size = new System.Drawing.Size(43, 43);
+            this.btnMaximize.TabIndex = 4;
+            this.btnMaximize.UseVisualStyleBackColor = true;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
+            // btnNormalFinal
+            // 
+            this.btnNormalFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNormalFinal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNormalFinal.FlatAppearance.BorderSize = 0;
+            this.btnNormalFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNormalFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnNormalFinal.Image")));
+            this.btnNormalFinal.Location = new System.Drawing.Point(885, 0);
+            this.btnNormalFinal.Name = "btnNormalFinal";
+            this.btnNormalFinal.Size = new System.Drawing.Size(43, 43);
+            this.btnNormalFinal.TabIndex = 4;
+            this.btnNormalFinal.UseVisualStyleBackColor = true;
+            this.btnNormalFinal.Visible = false;
+            this.btnNormalFinal.Click += new System.EventHandler(this.btnNormalFinal_Click);
+            // 
+            // btnNormal1
+            // 
+            this.btnNormal1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNormal1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNormal1.FlatAppearance.BorderSize = 0;
+            this.btnNormal1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNormal1.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
+            this.btnNormal1.Location = new System.Drawing.Point(-11292, 1);
+            this.btnNormal1.Name = "btnNormal1";
+            this.btnNormal1.Size = new System.Drawing.Size(43, 43);
+            this.btnNormal1.TabIndex = 5;
+            this.btnNormal1.UseVisualStyleBackColor = true;
+            this.btnNormal1.Visible = false;
+            this.btnNormal1.Click += new System.EventHandler(this.btnNormal1_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
+            this.btnClose.Location = new System.Drawing.Point(-11292, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(39, 39);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
+            this.btnMinimize.Location = new System.Drawing.Point(-11292, 0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(43, 43);
+            this.btnMinimize.TabIndex = 3;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::ULTRAMAVERICK.Properties.Resources.ULTRA_MAVERICK;
+            this.pictureBox8.Location = new System.Drawing.Point(399, 0);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(66, 42);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 5;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Visible = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -374,6 +542,63 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "ULTRA MAVERICK";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btnNormal
+            // 
+            this.btnNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNormal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNormal.FlatAppearance.BorderSize = 0;
+            this.btnNormal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNormal.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
+            this.btnNormal.Location = new System.Drawing.Point(-11945, 0);
+            this.btnNormal.Name = "btnNormal";
+            this.btnNormal.Size = new System.Drawing.Size(43, 43);
+            this.btnNormal.TabIndex = 3;
+            this.btnNormal.UseVisualStyleBackColor = true;
+            this.btnNormal.Visible = false;
+            this.btnNormal.Click += new System.EventHandler(this.btnNormal_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
+            this.btnMinimizar.Location = new System.Drawing.Point(-11945, 0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(43, 43);
+            this.btnMinimizar.TabIndex = 2;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Image = global::ULTRAMAVERICK.Properties.Resources.maximize3;
+            this.btnMaximizar.Location = new System.Drawing.Point(-11945, 0);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(43, 43);
+            this.btnMaximizar.TabIndex = 1;
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
+            this.btnCerrar.Location = new System.Drawing.Point(-11945, 2);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(39, 39);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // panelMenu
             // 
@@ -430,293 +655,6 @@
             this.toolStrip2.Size = new System.Drawing.Size(196, 587);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
-            // 
-            // MainMajorData
-            // 
-            this.MainMajorData.Controls.Add(this.toolStrip1MajorMenu);
-            this.MainMajorData.Location = new System.Drawing.Point(7, 84);
-            this.MainMajorData.Margin = new System.Windows.Forms.Padding(1);
-            this.MainMajorData.Name = "MainMajorData";
-            this.MainMajorData.Size = new System.Drawing.Size(187, 480);
-            this.MainMajorData.TabIndex = 598;
-            // 
-            // toolStrip1MajorMenu
-            // 
-            this.toolStrip1MajorMenu.BackColor = System.Drawing.Color.GhostWhite;
-            this.toolStrip1MajorMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1MajorMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1MajorMenu.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStrip1MajorMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnDashBoard1,
-            this.btnUsers1,
-            this.btnDryWarehouse1,
-            this.btnProductionPlanner1,
-            this.btnPreparationDepartment1,
-            this.btnResearchAndDevelopment1,
-            this.BtnSetUp});
-            this.toolStrip1MajorMenu.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1MajorMenu.Name = "toolStrip1MajorMenu";
-            this.toolStrip1MajorMenu.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1MajorMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1MajorMenu.Size = new System.Drawing.Size(25, 480);
-            this.toolStrip1MajorMenu.TabIndex = 598;
-            this.toolStrip1MajorMenu.Text = "toolStrip1";
-            this.toolStrip1MajorMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblPosition, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 10);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 40);
-            this.tableLayoutPanel1.TabIndex = 147;
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFirstName.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblFirstName.Location = new System.Drawing.Point(3, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(175, 20);
-            this.lblFirstName.TabIndex = 5;
-            this.lblFirstName.Text = "Gerard";
-            this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPosition
-            // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPosition.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblPosition.Location = new System.Drawing.Point(3, 20);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(175, 20);
-            this.lblPosition.TabIndex = 7;
-            this.lblPosition.Text = "Position";
-            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblPosition.Click += new System.EventHandler(this.lblPosition_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.GhostWhite;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.lblDateFinal);
-            this.panel1.Controls.Add(this.lblTimeFinal);
-            this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.lblTime);
-            this.panel1.Controls.Add(this.lbFecha);
-            this.panel1.Controls.Add(this.lblHora);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(185, 727);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(839, 41);
-            this.panel1.TabIndex = 5;
-            // 
-            // lblDateFinal
-            // 
-            this.lblDateFinal.AutoSize = true;
-            this.lblDateFinal.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblDateFinal.Location = new System.Drawing.Point(155, 14);
-            this.lblDateFinal.Name = "lblDateFinal";
-            this.lblDateFinal.Size = new System.Drawing.Size(220, 19);
-            this.lblDateFinal.TabIndex = 5;
-            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2021";
-            // 
-            // lblTimeFinal
-            // 
-            this.lblTimeFinal.AutoSize = true;
-            this.lblTimeFinal.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
-            this.lblTimeFinal.Location = new System.Drawing.Point(6, 4);
-            this.lblTimeFinal.Name = "lblTimeFinal";
-            this.lblTimeFinal.Size = new System.Drawing.Size(125, 35);
-            this.lblTimeFinal.TabIndex = 2;
-            this.lblTimeFinal.Text = "21:49:45";
-            // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(-11475, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(224, 20);
-            this.lblDate.TabIndex = 5;
-            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblTime
-            // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
-            this.lblTime.Location = new System.Drawing.Point(-11475, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(205, 54);
-            this.lblTime.TabIndex = 2;
-            this.lblTime.Text = "21:49:45";
-            // 
-            // lbFecha
-            // 
-            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFecha.AutoSize = true;
-            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(-11899, 0);
-            this.lbFecha.Name = "lbFecha";
-            this.lbFecha.Size = new System.Drawing.Size(224, 20);
-            this.lbFecha.TabIndex = 4;
-            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
-            // 
-            // lblHora
-            // 
-            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
-            this.lblHora.Location = new System.Drawing.Point(-11899, 0);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(205, 54);
-            this.lblHora.TabIndex = 1;
-            this.lblHora.Text = "21:49:45";
-            // 
-            // panelContenedorForm
-            // 
-            this.panelContenedorForm.BackColor = System.Drawing.SystemColors.Window;
-            this.panelContenedorForm.Controls.Add(this.dataGridView1);
-            this.panelContenedorForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorForm.Location = new System.Drawing.Point(185, 44);
-            this.panelContenedorForm.Name = "panelContenedorForm";
-            this.panelContenedorForm.Size = new System.Drawing.Size(839, 683);
-            this.panelContenedorForm.TabIndex = 6;
-            this.panelContenedorForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorForm_Paint);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.ColumnHeadersHeight = 35;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.dataGridView1.Location = new System.Drawing.Point(355, 330);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 102;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.RowTemplate.DividerHeight = 5;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(356, 22);
-            this.dataGridView1.TabIndex = 598;
-            this.dataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Emerald;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.dataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.dataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.ThemeStyle.HeaderStyle.Height = 35;
-            this.dataGridView1.ThemeStyle.ReadOnly = true;
-            this.dataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            this.dataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.ThemeStyle.RowsStyle.Height = 40;
-            this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.Visible = false;
-            // 
-            // panelContenedorPrincipal
-            // 
-            this.panelContenedorPrincipal.BackColor = System.Drawing.SystemColors.Control;
-            this.panelContenedorPrincipal.Controls.Add(this.panelContenedorForm);
-            this.panelContenedorPrincipal.Controls.Add(this.panel1);
-            this.panelContenedorPrincipal.Controls.Add(this.panelMenu);
-            this.panelContenedorPrincipal.Controls.Add(this.PanelHeader);
-            this.panelContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedorPrincipal.Name = "panelContenedorPrincipal";
-            this.panelContenedorPrincipal.Size = new System.Drawing.Size(1024, 768);
-            this.panelContenedorPrincipal.TabIndex = 0;
-            // 
-            // timeSubMenuIn
-            // 
-            this.timeSubMenuIn.Interval = 15;
-            this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(401, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 28);
-            this.button1.TabIndex = 496;
-            this.button1.Text = "Approver Tagging";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // toolDropdownUserManager
             // 
@@ -1378,6 +1316,7 @@
             this.moveOrderReportToolStripMenuItem.Name = "moveOrderReportToolStripMenuItem";
             this.moveOrderReportToolStripMenuItem.Size = new System.Drawing.Size(350, 24);
             this.moveOrderReportToolStripMenuItem.Text = "Move Order Report";
+            this.moveOrderReportToolStripMenuItem.Click += new System.EventHandler(this.moveOrderReportToolStripMenuItem_Click);
             // 
             // inventoryReportToolStripMenuItem
             // 
@@ -1423,6 +1362,38 @@
             this.Tsback.Size = new System.Drawing.Size(195, 44);
             this.Tsback.Text = "Back";
             this.Tsback.Click += new System.EventHandler(this.toolClosePanelSelection_Click_1);
+            // 
+            // MainMajorData
+            // 
+            this.MainMajorData.Controls.Add(this.toolStrip1MajorMenu);
+            this.MainMajorData.Location = new System.Drawing.Point(7, 84);
+            this.MainMajorData.Margin = new System.Windows.Forms.Padding(1);
+            this.MainMajorData.Name = "MainMajorData";
+            this.MainMajorData.Size = new System.Drawing.Size(187, 480);
+            this.MainMajorData.TabIndex = 598;
+            // 
+            // toolStrip1MajorMenu
+            // 
+            this.toolStrip1MajorMenu.BackColor = System.Drawing.Color.GhostWhite;
+            this.toolStrip1MajorMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip1MajorMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1MajorMenu.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip1MajorMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDashBoard1,
+            this.btnUsers1,
+            this.btnDryWarehouse1,
+            this.btnProductionPlanner1,
+            this.btnPreparationDepartment1,
+            this.btnResearchAndDevelopment1,
+            this.BtnSetUp});
+            this.toolStrip1MajorMenu.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1MajorMenu.Name = "toolStrip1MajorMenu";
+            this.toolStrip1MajorMenu.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip1MajorMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1MajorMenu.Size = new System.Drawing.Size(25, 480);
+            this.toolStrip1MajorMenu.TabIndex = 598;
+            this.toolStrip1MajorMenu.Text = "toolStrip1";
+            this.toolStrip1MajorMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // btnDashBoard1
             // 
@@ -1515,6 +1486,52 @@
             this.BtnSetUp.Visible = false;
             this.BtnSetUp.Click += new System.EventHandler(this.btnSetUp_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblPosition, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 10);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 40);
+            this.tableLayoutPanel1.TabIndex = 147;
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFirstName.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lblFirstName.Location = new System.Drawing.Point(3, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(175, 20);
+            this.lblFirstName.TabIndex = 5;
+            this.lblFirstName.Text = "Gerard";
+            this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPosition.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lblPosition.Location = new System.Drawing.Point(3, 20);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(175, 20);
+            this.lblPosition.TabIndex = 7;
+            this.lblPosition.Text = "Position";
+            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPosition.Click += new System.EventHandler(this.lblPosition_Click);
+            // 
             // pictureBox9
             // 
             this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1560,230 +1577,214 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
-            // pbImage
+            // panel1
             // 
-            this.pbImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Location = new System.Drawing.Point(735, 5);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(65, 36);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 146;
-            this.pbImage.TabStop = false;
-            this.pbImage.Visible = false;
+            this.panel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.lblDateFinal);
+            this.panel1.Controls.Add(this.lblTimeFinal);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.lblTime);
+            this.panel1.Controls.Add(this.lbFecha);
+            this.panel1.Controls.Add(this.lblHora);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(185, 727);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(839, 41);
+            this.panel1.TabIndex = 5;
             // 
-            // btnMaximizedFinal
+            // button1
             // 
-            this.btnMaximizedFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizedFinal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizedFinal.FlatAppearance.BorderSize = 0;
-            this.btnMaximizedFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizedFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizedFinal.Image")));
-            this.btnMaximizedFinal.Location = new System.Drawing.Point(885, 1);
-            this.btnMaximizedFinal.Name = "btnMaximizedFinal";
-            this.btnMaximizedFinal.Size = new System.Drawing.Size(43, 43);
-            this.btnMaximizedFinal.TabIndex = 5;
-            this.btnMaximizedFinal.UseVisualStyleBackColor = true;
-            this.btnMaximizedFinal.Click += new System.EventHandler(this.btnMaximizedFinal_Click);
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(401, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 28);
+            this.button1.TabIndex = 496;
+            this.button1.Text = "Approver Tagging";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnMinimizeFinal
+            // lblDateFinal
             // 
-            this.btnMinimizeFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizeFinal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizeFinal.FlatAppearance.BorderSize = 0;
-            this.btnMinimizeFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizeFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizeFinal.Image")));
-            this.btnMinimizeFinal.Location = new System.Drawing.Point(930, -2);
-            this.btnMinimizeFinal.Name = "btnMinimizeFinal";
-            this.btnMinimizeFinal.Size = new System.Drawing.Size(43, 43);
-            this.btnMinimizeFinal.TabIndex = 3;
-            this.btnMinimizeFinal.UseVisualStyleBackColor = true;
-            this.btnMinimizeFinal.Click += new System.EventHandler(this.btnMinimizeFinal_Click);
+            this.lblDateFinal.AutoSize = true;
+            this.lblDateFinal.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lblDateFinal.Location = new System.Drawing.Point(155, 14);
+            this.lblDateFinal.Name = "lblDateFinal";
+            this.lblDateFinal.Size = new System.Drawing.Size(220, 19);
+            this.lblDateFinal.TabIndex = 5;
+            this.lblDateFinal.Text = "Lunes, 26 de septiembre 2021";
             // 
-            // btnNotificationsBell
+            // lblTimeFinal
             // 
-            this.btnNotificationsBell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNotificationsBell.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNotificationsBell.FlatAppearance.BorderSize = 0;
-            this.btnNotificationsBell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificationsBell.Image = ((System.Drawing.Image)(resources.GetObject("btnNotificationsBell.Image")));
-            this.btnNotificationsBell.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotificationsBell.Location = new System.Drawing.Point(806, 3);
-            this.btnNotificationsBell.Name = "btnNotificationsBell";
-            this.btnNotificationsBell.Size = new System.Drawing.Size(73, 39);
-            this.btnNotificationsBell.TabIndex = 1;
-            this.btnNotificationsBell.Text = "       .";
-            this.btnNotificationsBell.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNotificationsBell.UseVisualStyleBackColor = true;
-            this.btnNotificationsBell.Click += new System.EventHandler(this.btnNotificationsBell_Click);
+            this.lblTimeFinal.AutoSize = true;
+            this.lblTimeFinal.Font = new System.Drawing.Font("Roboto", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(79)))), ((int)(((byte)(85)))));
+            this.lblTimeFinal.Location = new System.Drawing.Point(6, 4);
+            this.lblTimeFinal.Name = "lblTimeFinal";
+            this.lblTimeFinal.Size = new System.Drawing.Size(125, 35);
+            this.lblTimeFinal.TabIndex = 2;
+            this.lblTimeFinal.Text = "21:49:45";
             // 
-            // btnMenu
+            // lblDate
             // 
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.Location = new System.Drawing.Point(3, 2);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(43, 37);
-            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMenu.TabIndex = 12;
-            this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(-11475, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(224, 20);
+            this.lblDate.TabIndex = 5;
+            this.lblDate.Text = "Lunes, 26 de septiembre 2018";
             // 
-            // btnCloseFinal
+            // lblTime
             // 
-            this.btnCloseFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCloseFinal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloseFinal.FlatAppearance.BorderSize = 0;
-            this.btnCloseFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseFinal.Image")));
-            this.btnCloseFinal.Location = new System.Drawing.Point(980, 2);
-            this.btnCloseFinal.Name = "btnCloseFinal";
-            this.btnCloseFinal.Size = new System.Drawing.Size(39, 39);
-            this.btnCloseFinal.TabIndex = 1;
-            this.btnCloseFinal.UseVisualStyleBackColor = true;
-            this.btnCloseFinal.Click += new System.EventHandler(this.btnCloseFinal_Click);
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.LightGray;
+            this.lblTime.Location = new System.Drawing.Point(-11475, 0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(205, 54);
+            this.lblTime.TabIndex = 2;
+            this.lblTime.Text = "21:49:45";
             // 
-            // btnMaximize
+            // lbFecha
             // 
-            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnMaximize.Location = new System.Drawing.Point(-11292, 0);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(43, 43);
-            this.btnMaximize.TabIndex = 4;
-            this.btnMaximize.UseVisualStyleBackColor = true;
-            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFecha.AutoSize = true;
+            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbFecha.ForeColor = System.Drawing.Color.White;
+            this.lbFecha.Location = new System.Drawing.Point(-11899, 0);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(224, 20);
+            this.lbFecha.TabIndex = 4;
+            this.lbFecha.Text = "Lunes, 26 de septiembre 2018";
             // 
-            // btnNormalFinal
+            // lblHora
             // 
-            this.btnNormalFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNormalFinal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNormalFinal.FlatAppearance.BorderSize = 0;
-            this.btnNormalFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNormalFinal.Image = ((System.Drawing.Image)(resources.GetObject("btnNormalFinal.Image")));
-            this.btnNormalFinal.Location = new System.Drawing.Point(885, 0);
-            this.btnNormalFinal.Name = "btnNormalFinal";
-            this.btnNormalFinal.Size = new System.Drawing.Size(43, 43);
-            this.btnNormalFinal.TabIndex = 4;
-            this.btnNormalFinal.UseVisualStyleBackColor = true;
-            this.btnNormalFinal.Visible = false;
-            this.btnNormalFinal.Click += new System.EventHandler(this.btnNormalFinal_Click);
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.LightGray;
+            this.lblHora.Location = new System.Drawing.Point(-11899, 0);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(205, 54);
+            this.lblHora.TabIndex = 1;
+            this.lblHora.Text = "21:49:45";
             // 
-            // btnNormal1
+            // panelContenedorForm
             // 
-            this.btnNormal1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNormal1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNormal1.FlatAppearance.BorderSize = 0;
-            this.btnNormal1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNormal1.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnNormal1.Location = new System.Drawing.Point(-11292, 1);
-            this.btnNormal1.Name = "btnNormal1";
-            this.btnNormal1.Size = new System.Drawing.Size(43, 43);
-            this.btnNormal1.TabIndex = 5;
-            this.btnNormal1.UseVisualStyleBackColor = true;
-            this.btnNormal1.Visible = false;
-            this.btnNormal1.Click += new System.EventHandler(this.btnNormal1_Click);
+            this.panelContenedorForm.BackColor = System.Drawing.SystemColors.Window;
+            this.panelContenedorForm.Controls.Add(this.dataGridView1);
+            this.panelContenedorForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedorForm.Location = new System.Drawing.Point(185, 44);
+            this.panelContenedorForm.Name = "panelContenedorForm";
+            this.panelContenedorForm.Size = new System.Drawing.Size(839, 683);
+            this.panelContenedorForm.TabIndex = 6;
+            this.panelContenedorForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorForm_Paint);
             // 
-            // btnClose
+            // dataGridView1
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.btnClose.Location = new System.Drawing.Point(-11292, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(39, 39);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.ColumnHeadersHeight = 35;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
+            this.dataGridView1.Location = new System.Drawing.Point(355, 330);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 102;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.RowTemplate.DividerHeight = 5;
+            this.dataGridView1.RowTemplate.Height = 40;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(356, 22);
+            this.dataGridView1.TabIndex = 598;
+            this.dataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Emerald;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
+            this.dataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.dataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.ThemeStyle.HeaderStyle.Height = 35;
+            this.dataGridView1.ThemeStyle.ReadOnly = true;
+            this.dataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            this.dataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.ThemeStyle.RowsStyle.Height = 40;
+            this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.Visible = false;
             // 
-            // btnMinimize
+            // panelContenedorPrincipal
             // 
-            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
-            this.btnMinimize.Location = new System.Drawing.Point(-11292, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(43, 43);
-            this.btnMinimize.TabIndex = 3;
-            this.btnMinimize.UseVisualStyleBackColor = true;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            this.panelContenedorPrincipal.BackColor = System.Drawing.SystemColors.Control;
+            this.panelContenedorPrincipal.Controls.Add(this.panelContenedorForm);
+            this.panelContenedorPrincipal.Controls.Add(this.panel1);
+            this.panelContenedorPrincipal.Controls.Add(this.panelMenu);
+            this.panelContenedorPrincipal.Controls.Add(this.PanelHeader);
+            this.panelContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedorPrincipal.Name = "panelContenedorPrincipal";
+            this.panelContenedorPrincipal.Size = new System.Drawing.Size(1024, 768);
+            this.panelContenedorPrincipal.TabIndex = 0;
             // 
-            // pictureBox8
+            // timeSubMenuIn
             // 
-            this.pictureBox8.Image = global::ULTRAMAVERICK.Properties.Resources.ULTRA_MAVERICK;
-            this.pictureBox8.Location = new System.Drawing.Point(399, 0);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(66, 42);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 5;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Visible = false;
-            // 
-            // btnNormal
-            // 
-            this.btnNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNormal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNormal.FlatAppearance.BorderSize = 0;
-            this.btnNormal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNormal.Image = global::ULTRAMAVERICK.Properties.Resources.Normal;
-            this.btnNormal.Location = new System.Drawing.Point(-11945, 0);
-            this.btnNormal.Name = "btnNormal";
-            this.btnNormal.Size = new System.Drawing.Size(43, 43);
-            this.btnNormal.TabIndex = 3;
-            this.btnNormal.UseVisualStyleBackColor = true;
-            this.btnNormal.Visible = false;
-            this.btnNormal.Click += new System.EventHandler(this.btnNormal_Click);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Image = global::ULTRAMAVERICK.Properties.Resources.Minimize;
-            this.btnMinimizar.Location = new System.Drawing.Point(-11945, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(43, 43);
-            this.btnMinimizar.TabIndex = 2;
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizar.Image = global::ULTRAMAVERICK.Properties.Resources.maximize3;
-            this.btnMaximizar.Location = new System.Drawing.Point(-11945, 0);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(43, 43);
-            this.btnMaximizar.TabIndex = 1;
-            this.btnMaximizar.UseVisualStyleBackColor = true;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Image = global::ULTRAMAVERICK.Properties.Resources.Close;
-            this.btnCerrar.Location = new System.Drawing.Point(-11945, 2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 39);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.timeSubMenuIn.Interval = 15;
+            this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
             // FormMenuPrincipal
             // 
@@ -1802,6 +1803,9 @@
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenuSelection.ResumeLayout(false);
             this.panelMenuSelection.PerformLayout();
@@ -1813,18 +1817,15 @@
             this.toolStrip1MajorMenu.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelContenedorForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelContenedorPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }

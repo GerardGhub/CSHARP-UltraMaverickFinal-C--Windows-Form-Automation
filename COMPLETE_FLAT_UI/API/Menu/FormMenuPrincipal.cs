@@ -1691,6 +1691,12 @@ namespace COMPLETE_FLAT_UI
             frmrpt.ShowDialog();
         }
 
+        private void moveOrderReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMoveOrderReports frmMovereport = new frmMoveOrderReports();
+            frmMovereport.ShowDialog();
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 

@@ -209,6 +209,12 @@
     <Compile Include="Application\import_drywh_rawmats.cs" />
     <Compile Include="Application\MenuColorTable.cs" />
     <Compile Include="Application\MenuRenderer.cs" />
+    <Compile Include="Application\Report\frmMoveOrderReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application\Report\frmMoveOrderReports.Designer.cs">
+      <DependentUpon>frmMoveOrderReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Application\Report\frmRMReceivingReportDryWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -918,6 +924,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Application\BaseWPFControls\frmViewAllNotifications.resx">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application\Report\frmMoveOrderReports.resx">
+      <DependentUpon>frmMoveOrderReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Application\Report\frmRMReceivingReportDryWarehouse.resx">
       <DependentUpon>frmRMReceivingReportDryWarehouse.cs</DependentUpon>

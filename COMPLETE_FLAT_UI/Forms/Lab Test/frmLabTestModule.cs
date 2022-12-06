@@ -621,7 +621,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
 
             //Start
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to request a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to request a new data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.dSet.Clear();
                 this.dSet = g_objStoredProcCollection.sp_dry_wh_lab_test_req_logs(0,
