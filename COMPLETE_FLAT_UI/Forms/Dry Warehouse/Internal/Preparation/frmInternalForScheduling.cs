@@ -161,7 +161,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.loadMRSDropdownForAllocation();
             }
-
         }
 
 
@@ -169,16 +168,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-
                 myClass.fillComboBoxStoreOrderApproval(this.MatcmbRequestedDate, "Internal_Order_For_Allocation", this.dSet);
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
@@ -193,11 +188,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (this.dset_emp1.Tables.Count > 0)
                 {
                     DataView dv = new DataView(this.dset_emp1.Tables[0]);
-                   
-                
+                                   
                         dv.RowFilter = "  mrs_requested_date = '" + this.MatcmbRequestedDate.Text + "'  ";
-
-                    
 
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
@@ -227,7 +219,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
-
             if (this.matRadioForApproval.Checked == true)
             {
                 this.dset_emp1.Clear();
@@ -400,7 +391,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 MessageBox.Show(ex.Message);
             }
-
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
@@ -440,7 +430,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
-          
             this.ConnectionOpen();
             this.load_search();
         }
@@ -458,13 +447,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
         {
-
-            this.ConnectionOpen();
-            //this.loadForScheduling();
+            this.ConnectionOpen();;
             this.DropDownMethod();
             this.matcmbCategory_SelectionChangeCommitted(sender, e);
-
-
         }
 
         private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)

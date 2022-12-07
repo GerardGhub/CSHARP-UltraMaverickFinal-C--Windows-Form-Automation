@@ -261,19 +261,24 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
             {
-                if (Convert.ToDouble(row.Cells["mrs_order_qty"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value)  && Convert.ToBoolean(row.Cells["Allocation_Precense"].Value) == false)
+                if (Convert.ToDouble(row.Cells["mrs_order_qty"].Value) == Convert.ToDouble(row.Cells["StockOnHand"].Value))
                 {
-                 
-                        row.Cells["mrs_order_qty"].Style.SelectionBackColor = Color.DarkOrange;
-                        row.Cells["mrs_order_qty"].Style.SelectionForeColor = Color.Black;
-                        row.Cells["mrs_order_qty"].Style.BackColor = Color.DarkOrange;
-                    
+
                 }
                 else
                 {
-                    row.Cells["mrs_order_qty"].Style.BackColor = Color.White;
-                }
+                    if (Convert.ToDouble(row.Cells["mrs_order_qty"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value) && Convert.ToBoolean(row.Cells["Allocation_Precense"].Value) == false)
+                    {
+                        row.Cells["mrs_order_qty"].Style.SelectionBackColor = Color.DarkOrange;
+                        row.Cells["mrs_order_qty"].Style.SelectionForeColor = Color.Black;
+                        row.Cells["mrs_order_qty"].Style.BackColor = Color.DarkOrange;
 
+                    }
+                    else
+                    {
+                        row.Cells["mrs_order_qty"].Style.BackColor = Color.White;
+                    }
+                }
 
 
             }
