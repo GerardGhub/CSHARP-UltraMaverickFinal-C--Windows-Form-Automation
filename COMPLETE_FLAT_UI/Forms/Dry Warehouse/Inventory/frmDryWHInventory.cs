@@ -21,27 +21,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void frmDryWHInventory_Load(object sender, EventArgs e)
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-      
+            this.ConnectionInit();
             this.showRawMaterialsInDryWH();
+        }
+
+        private void ConnectionInit()
+        {
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
         private void showRawMaterialsInDryWH()    //method for loading available_menus
         {
             try
             {
-
                 this.myClass.fillDataGridView(this.dgvRawMats, "Raw_Materials_Dry_Inventory", dSet);
-
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             this.dgvRawMats.Columns["item_id"].Visible = false;
-
         }
 
         private void txtItemCode_KeyPress(object sender, KeyPressEventArgs e)

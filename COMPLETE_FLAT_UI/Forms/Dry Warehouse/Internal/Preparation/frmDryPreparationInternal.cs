@@ -124,7 +124,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void LoadStateVisibility()
         {
-
             this.gunaDgvReceivingFEFO.Visible = false;
             this.gunaDgvScanFinder.Visible = false;
         }
@@ -133,17 +132,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-
-
                 xClass.fillComboBoxStoreOrderApproval(this.cmbPreparationDate, "Internal_Order_ForPreparation", this.dSet);
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
@@ -529,9 +523,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             if (dset3.Tables[0].Rows.Count > 0)
             {
-
                 this.matViewItemPrepared.Visible = true;
-
             }
             else
             {
@@ -852,14 +844,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void CurrentCellChangeofRecommendedFefoID()
         {
-
             if (this.gunaDgvReceivingFEFO.Rows.Count > 0)
             {
                 if (this.gunaDgvReceivingFEFO.CurrentRow != null)
                 {
                     if (this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value != null)
                     {
-
                         this.Sp_Receiving_ID_RecommendedFefo = this.gunaDgvReceivingFEFO.CurrentRow.Cells["id"].Value.ToString();
                         this.Sp_Expiration_Date = this.gunaDgvReceivingFEFO.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.Sp_Receiving_Item_Code = this.gunaDgvReceivingFEFO.CurrentRow.Cells["codes"].Value.ToString();
@@ -883,7 +873,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     if (this.guna2DgvMaterialPreparation.CurrentRow.Cells["mrs_item_code"].Value != null)
                     {
-
                         this.sp_material_id = this.guna2DgvMaterialPreparation.CurrentRow.Cells["primary_id"].Value.ToString();
                         this.Sp_Material_Item_Description = this.guna2DgvMaterialPreparation.CurrentRow.Cells["description"].Value.ToString();
                         this.Sp_Unit_Of_Measure = this.guna2DgvMaterialPreparation.CurrentRow.Cells["uom"].Value.ToString();
