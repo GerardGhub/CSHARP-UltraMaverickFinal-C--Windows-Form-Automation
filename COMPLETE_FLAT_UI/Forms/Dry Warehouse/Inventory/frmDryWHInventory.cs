@@ -24,7 +24,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.ConnectionInit();
             this.showRawMaterialsInDryWH();
         }
-
         private void ConnectionInit()
         {
             this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections

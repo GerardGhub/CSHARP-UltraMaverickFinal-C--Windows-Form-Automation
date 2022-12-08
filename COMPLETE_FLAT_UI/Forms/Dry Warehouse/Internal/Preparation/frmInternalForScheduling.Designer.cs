@@ -42,7 +42,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.labelSelectedSum = new System.Windows.Forms.Label();
             this.lbltotaldata = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.matCardDgv = new MaterialSkin.Controls.MaterialCard();
             this.dgvStoreOrderApproval = new Guna.UI2.WinForms.Guna2DataGridView();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mrs_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +63,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.lbltotalrecords = new System.Windows.Forms.Label();
             this.matbtnCancel = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindDataForAlocation)).BeginInit();
-            this.materialCard2.SuspendLayout();
+            this.matCardDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).BeginInit();
             this.materialCard3.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -197,21 +197,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.label4.TabIndex = 653;
             this.label4.Text = "Items";
             // 
-            // materialCard2
+            // matCardDgv
             // 
-            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.matCardDgv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.dgvStoreOrderApproval);
-            this.materialCard2.Depth = 0;
-            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(22, 200);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.materialCard2.Size = new System.Drawing.Size(1158, 480);
-            this.materialCard2.TabIndex = 645;
+            this.matCardDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.matCardDgv.Controls.Add(this.dgvStoreOrderApproval);
+            this.matCardDgv.Depth = 0;
+            this.matCardDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.matCardDgv.Location = new System.Drawing.Point(22, 200);
+            this.matCardDgv.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.matCardDgv.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matCardDgv.Name = "matCardDgv";
+            this.matCardDgv.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.matCardDgv.Size = new System.Drawing.Size(1158, 480);
+            this.matCardDgv.TabIndex = 645;
             // 
             // dgvStoreOrderApproval
             // 
@@ -520,7 +520,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.Controls.Add(this.labelSelectedSum);
             this.Controls.Add(this.lbltotaldata);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.materialCard2);
+            this.Controls.Add(this.matCardDgv);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbltotalrecords);
@@ -528,7 +528,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.Text = "READY FOR SCHEDULING";
             this.Load += new System.EventHandler(this.frmInternalForScheduling_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindDataForAlocation)).EndInit();
-            this.materialCard2.ResumeLayout(false);
+            this.matCardDgv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStoreOrderApproval)).EndInit();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
@@ -545,7 +545,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private System.Windows.Forms.Label labelSelectedSum;
         private System.Windows.Forms.Label lbltotaldata;
         private System.Windows.Forms.Label label4;
-        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private MaterialSkin.Controls.MaterialCard matCardDgv;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStoreOrderApproval;
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialRadioButton matRadioForApproval;

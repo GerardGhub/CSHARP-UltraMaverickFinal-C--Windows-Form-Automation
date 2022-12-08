@@ -141,7 +141,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             if (this.MatcmbRequestedDate.Text == String.Empty)
             {
+                this.lbltotaldata.Text = "0";
+                this.matCardDgv.Visible = false;
                 return;
+            }
+            else
+            {
+                this.matCardDgv.Visible = true;
             }
             if (this.matRadioForApproval.Checked == true)
             {
