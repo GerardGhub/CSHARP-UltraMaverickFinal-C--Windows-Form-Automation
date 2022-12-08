@@ -77,12 +77,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         }
 
-
-
-
         private void DropDownMethod()
         {
-            //Functionality Viewing of the Data Binding Source
             if (this.matRadioForApproval.Checked == true)
             {
                 this.loadCategoryDropdown();
@@ -289,11 +285,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             try
             {
                 myClass.fillComboBoxStoreOrderApproval(this.MatcmbRequestedDate, "Internal_Order_FilterByDate", this.dSet);
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
