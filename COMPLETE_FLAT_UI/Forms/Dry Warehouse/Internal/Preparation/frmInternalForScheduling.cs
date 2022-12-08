@@ -139,6 +139,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
+            if (this.MatcmbRequestedDate.Text == String.Empty)
+            {
+                return;
+            }
             if (this.matRadioForApproval.Checked == true)
             {
                 this.dset_emp1.Clear();
@@ -276,9 +280,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
 
         }
-
-
-
 
         public void loadCategoryDropdown()
         {
