@@ -1,13 +1,7 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Major_Process.Class_Form;
@@ -22,9 +16,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
-
         DataSet dSet = new DataSet();
-
         DataSet dSetCategoryPartialValidation = new DataSet();
 
 
@@ -52,23 +44,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
 
-        private void VisibilityFalseDataGrid()
-        {
-            if (this.lbltotaldata.Text != "0")
-            {
-                this.dgvStoreOrderApproval.Columns["order_id"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["primary_id"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["AVERAGE_ORDER_DAY_SET_UP"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["StockOnHand"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["ORDERS"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["QTY_RECEIVED_ORDER"].Visible = false;
-                this.dgvStoreOrderApproval.Columns["TOTAL_COLUMN_ALLOCATED_QTY"].Visible = false;
-            }
-
-
-        }
-
-
+   
         private void DataRefresher()
         {
             this.dset = g_objStoredProcCollection.sp_IDGenerator(0, "resetreceivingreprint", "", "", 6, 0);
@@ -79,52 +55,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.ConnectionOpen();
             this.CheckTheForApprovalRadioButton();
-
             this.ShowRawMaterialforApproval();
             this.ValidatedItemforApproval();
-
-            //MessageBox.Show("Burat");
-
-
-            //this.DataRefresher();
-
-
-            //this.showRawMaterialforApproval();
-
-
-
-            //this.ValidatedItemforApproval();
-
-
-
-
-
-            //if (this.modesplashScreenError == "1")
-            //{
-
-            //    return;
-            //}
-            //this.VisibilityFalseDataGrid();
-            //if (this.lbltotaldata.Text == "0")
-            //{
-
-            //}
-            //else
-            //{
-
-            //    this.load_search();
-            //    selection_mode = "0";
-            //}
-            //if (lbltotaldata.Text == "0")
-            //{
-            //    //MessageBox.Show("sdsds");
-            //}
-            //else
-            //{
-            //    this.GlobalVariable.for_approval_store_module_formLoad = "1";
-            //}
-
-
             this.selection_mode = "1";
         }
 
@@ -133,9 +65,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-
                 myClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
-
                 this.GlobalStatePopup.Total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
             }
             catch (Exception ex)
@@ -162,8 +92,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.loadMRSDropdownForAllocation();
             }
         }
-
-
         public void loadMRSDropdownForAllocation()
         {
             try
@@ -176,10 +104,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
-
-
-
-
 
         private void doSearch()
         {
@@ -260,29 +184,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.loadMRSDropdownForAllocation();
             }
-
-
-
-
-
-
-            //this.InitiliazeDatePickerMinDate();
             this.FormClass.mode = "";
-
-
-
-
-            //this.ConnectionInit();
             this.dset_emp1.Clear();
-
             this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
-
             this.dgvStoreOrderApproval.DataSource = dv;
             this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-          
-
-          
             this.DataGridColumnDisabledEditing();
 
         }
@@ -293,8 +200,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             if (this.dgvStoreOrderApproval.Rows.Count > 0)
             {
-
-
                 this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["department_id"].ReadOnly = true;
                 this.dgvStoreOrderApproval.Columns["mrs_req_desc"].ReadOnly = true;
@@ -577,9 +482,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //    frmReturnApprovedOrder ReturnedOrderRemarks = new frmReturnApprovedOrder(this);
             //    ReturnedOrderRemarks.ShowDialog();
             //}
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
