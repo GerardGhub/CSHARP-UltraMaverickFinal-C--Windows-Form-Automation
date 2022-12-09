@@ -1643,16 +1643,18 @@ namespace COMPLETE_FLAT_UI
 
         private void toolStripMenuReceipt_Click(object sender, EventArgs e)
         {
-
-            frmDryWhMiscellaneousReceipts FrmReceipt = new frmDryWhMiscellaneousReceipts();
-            FrmReceipt.ShowDialog();
-
+            this.NormalSizeofSideBar();
+            frmDryWhMiscellaneousReceipts Receipt = new frmDryWhMiscellaneousReceipts();
+            Receipt.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(Receipt);
         }
 
         private void toolStripMenuIssue_Click(object sender, EventArgs e)
         {
-            FrmDryWhMiscellaneouseIssue FrmIssue = new FrmDryWhMiscellaneouseIssue();
-            FrmIssue.ShowDialog();
+            this.NormalSizeofSideBar();
+            FrmDryWhMiscellaneouseIssue Issue = new FrmDryWhMiscellaneouseIssue();
+            Issue.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(Issue);
         }
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
