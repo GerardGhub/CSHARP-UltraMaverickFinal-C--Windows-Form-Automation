@@ -38,19 +38,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.LblTotalRecords = new System.Windows.Forms.Label();
             this.MatBtnSave = new MaterialSkin.Controls.MaterialButton();
             this.guna2DgvMaterialPreparation = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ManufacturingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceivingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LotDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LotNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANCEL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.GpInfo = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -66,6 +53,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtAccountTitle = new MaterialSkin.Controls.MaterialTextBox();
             this.MatTxtParentDescription = new MaterialSkin.Controls.MaterialTextBox();
             this.MatBtnNew = new MaterialSkin.Controls.MaterialButton();
+            this.CANCEL = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManufacturingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LotNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LotDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceivingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DgvMaterialPreparation)).BeginInit();
             this.GpInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -140,19 +140,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.guna2DgvMaterialPreparation.ColumnHeadersHeight = 45;
             this.guna2DgvMaterialPreparation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.guna2DgvMaterialPreparation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ManufacturingDate,
-            this.ActualQty,
-            this.ReceivingId,
-            this.ExpirationDate,
-            this.ExpiryDays,
+            this.CANCEL,
             this.ItemCode,
             this.ItemDescription,
+            this.ManufacturingDate,
+            this.ActualQty,
+            this.ExpirationDate,
+            this.ExpiryDays,
+            this.LotNumber,
             this.category,
             this.LotDescription,
             this.Supplier,
             this.Quantity,
-            this.LotNumber,
-            this.CANCEL});
+            this.ReceivingId});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,112 +209,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.guna2DgvMaterialPreparation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.ScrollBar;
             this.guna2DgvMaterialPreparation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DgvMaterialPreparation_CellContentClick);
             this.guna2DgvMaterialPreparation.CurrentCellChanged += new System.EventHandler(this.guna2DgvMaterialPreparation_CurrentCellChanged);
-            // 
-            // ManufacturingDate
-            // 
-            this.ManufacturingDate.DataPropertyName = "ManufacturingDate";
-            this.ManufacturingDate.HeaderText = "MFG DATE";
-            this.ManufacturingDate.MinimumWidth = 6;
-            this.ManufacturingDate.Name = "ManufacturingDate";
-            this.ManufacturingDate.ReadOnly = true;
-            // 
-            // ActualQty
-            // 
-            this.ActualQty.DataPropertyName = "ActualQty";
-            this.ActualQty.HeaderText = "ACTUAL QTY";
-            this.ActualQty.Name = "ActualQty";
-            this.ActualQty.ReadOnly = true;
-            // 
-            // ReceivingId
-            // 
-            this.ReceivingId.DataPropertyName = "ReceivingId";
-            this.ReceivingId.HeaderText = "RECEIVING ID";
-            this.ReceivingId.Name = "ReceivingId";
-            this.ReceivingId.ReadOnly = true;
-            // 
-            // ExpirationDate
-            // 
-            this.ExpirationDate.DataPropertyName = "ExpirationDate";
-            this.ExpirationDate.FillWeight = 66.91177F;
-            this.ExpirationDate.HeaderText = "EXPIRY DATE";
-            this.ExpirationDate.MinimumWidth = 12;
-            this.ExpirationDate.Name = "ExpirationDate";
-            this.ExpirationDate.ReadOnly = true;
-            // 
-            // ExpiryDays
-            // 
-            this.ExpiryDays.DataPropertyName = "ExpiryDays";
-            this.ExpiryDays.HeaderText = "EXPIRY DAYS";
-            this.ExpiryDays.Name = "ExpiryDays";
-            this.ExpiryDays.ReadOnly = true;
-            // 
-            // ItemCode
-            // 
-            this.ItemCode.DataPropertyName = "ItemCode";
-            this.ItemCode.FillWeight = 66.91177F;
-            this.ItemCode.HeaderText = "CODE";
-            this.ItemCode.MinimumWidth = 12;
-            this.ItemCode.Name = "ItemCode";
-            this.ItemCode.ReadOnly = true;
-            // 
-            // ItemDescription
-            // 
-            this.ItemDescription.DataPropertyName = "ItemDescription";
-            this.ItemDescription.FillWeight = 66.57212F;
-            this.ItemDescription.HeaderText = "DESCRIPTION";
-            this.ItemDescription.MinimumWidth = 12;
-            this.ItemDescription.Name = "ItemDescription";
-            this.ItemDescription.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "Category";
-            this.category.HeaderText = "CATEGORY";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // LotDescription
-            // 
-            this.LotDescription.DataPropertyName = "LotDescription";
-            this.LotDescription.HeaderText = "LOT DESCRIPTION";
-            this.LotDescription.Name = "LotDescription";
-            this.LotDescription.ReadOnly = true;
-            // 
-            // Supplier
-            // 
-            this.Supplier.DataPropertyName = "Supplier";
-            this.Supplier.FillWeight = 66.57212F;
-            this.Supplier.HeaderText = "SUPPLIER";
-            this.Supplier.MinimumWidth = 12;
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.FillWeight = 66.57212F;
-            this.Quantity.HeaderText = "QTY";
-            this.Quantity.MinimumWidth = 12;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // LotNumber
-            // 
-            this.LotNumber.DataPropertyName = "LotNumber";
-            this.LotNumber.HeaderText = "LOTNO";
-            this.LotNumber.Name = "LotNumber";
-            this.LotNumber.ReadOnly = true;
-            // 
-            // CANCEL
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CANCEL.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CANCEL.HeaderText = "ACTION";
-            this.CANCEL.Name = "CANCEL";
-            this.CANCEL.ReadOnly = true;
-            this.CANCEL.Text = "CANCEL";
-            this.CANCEL.UseColumnTextForButtonValue = true;
             // 
             // GpInfo
             // 
@@ -534,6 +428,112 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnNew.UseVisualStyleBackColor = true;
             this.MatBtnNew.Click += new System.EventHandler(this.MatBtnNew_Click);
             // 
+            // CANCEL
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CANCEL.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CANCEL.HeaderText = "ACTION";
+            this.CANCEL.Name = "CANCEL";
+            this.CANCEL.ReadOnly = true;
+            this.CANCEL.Text = "CANCEL";
+            this.CANCEL.UseColumnTextForButtonValue = true;
+            // 
+            // ItemCode
+            // 
+            this.ItemCode.DataPropertyName = "ItemCode";
+            this.ItemCode.FillWeight = 66.91177F;
+            this.ItemCode.HeaderText = "CODE";
+            this.ItemCode.MinimumWidth = 12;
+            this.ItemCode.Name = "ItemCode";
+            this.ItemCode.ReadOnly = true;
+            // 
+            // ItemDescription
+            // 
+            this.ItemDescription.DataPropertyName = "ItemDescription";
+            this.ItemDescription.FillWeight = 66.57212F;
+            this.ItemDescription.HeaderText = "DESCRIPTION";
+            this.ItemDescription.MinimumWidth = 12;
+            this.ItemDescription.Name = "ItemDescription";
+            this.ItemDescription.ReadOnly = true;
+            // 
+            // ManufacturingDate
+            // 
+            this.ManufacturingDate.DataPropertyName = "ManufacturingDate";
+            this.ManufacturingDate.HeaderText = "MFG DATE";
+            this.ManufacturingDate.MinimumWidth = 6;
+            this.ManufacturingDate.Name = "ManufacturingDate";
+            this.ManufacturingDate.ReadOnly = true;
+            // 
+            // ActualQty
+            // 
+            this.ActualQty.DataPropertyName = "ActualQty";
+            this.ActualQty.HeaderText = "ACTUAL QTY";
+            this.ActualQty.Name = "ActualQty";
+            this.ActualQty.ReadOnly = true;
+            // 
+            // ExpirationDate
+            // 
+            this.ExpirationDate.DataPropertyName = "ExpirationDate";
+            this.ExpirationDate.FillWeight = 66.91177F;
+            this.ExpirationDate.HeaderText = "EXPIRY DATE";
+            this.ExpirationDate.MinimumWidth = 12;
+            this.ExpirationDate.Name = "ExpirationDate";
+            this.ExpirationDate.ReadOnly = true;
+            // 
+            // ExpiryDays
+            // 
+            this.ExpiryDays.DataPropertyName = "ExpiryDays";
+            this.ExpiryDays.HeaderText = "EXPIRY DAYS";
+            this.ExpiryDays.Name = "ExpiryDays";
+            this.ExpiryDays.ReadOnly = true;
+            // 
+            // LotNumber
+            // 
+            this.LotNumber.DataPropertyName = "LotNumber";
+            this.LotNumber.HeaderText = "LOTNO";
+            this.LotNumber.Name = "LotNumber";
+            this.LotNumber.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "Category";
+            this.category.HeaderText = "CATEGORY";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // LotDescription
+            // 
+            this.LotDescription.DataPropertyName = "LotDescription";
+            this.LotDescription.HeaderText = "LOT DESCRIPTION";
+            this.LotDescription.Name = "LotDescription";
+            this.LotDescription.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.DataPropertyName = "Supplier";
+            this.Supplier.FillWeight = 66.57212F;
+            this.Supplier.HeaderText = "SUPPLIER";
+            this.Supplier.MinimumWidth = 12;
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.FillWeight = 66.57212F;
+            this.Quantity.HeaderText = "QTY";
+            this.Quantity.MinimumWidth = 12;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // ReceivingId
+            // 
+            this.ReceivingId.DataPropertyName = "ReceivingId";
+            this.ReceivingId.HeaderText = "RECEIVING ID";
+            this.ReceivingId.Name = "ReceivingId";
+            this.ReceivingId.ReadOnly = true;
+            // 
             // FrmDryWhMiscellaneouseIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -583,18 +583,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private MaterialSkin.Controls.MaterialTextBox MatTxtAddress;
         private System.Windows.Forms.Label label5;
         public MetroFramework.Controls.MetroComboBox MatCmbRemarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ManufacturingDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ActualQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceivingId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDays;
+        private System.Windows.Forms.DataGridViewButtonColumn CANCEL;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManufacturingDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ActualQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LotNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn LotDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LotNumber;
-        private System.Windows.Forms.DataGridViewButtonColumn CANCEL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceivingId;
     }
 }

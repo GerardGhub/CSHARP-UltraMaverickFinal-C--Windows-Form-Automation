@@ -126,10 +126,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             myglobal.global_module = "Active";
             dset_emp_SearchEngines.Clear();
-
-
             dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DryWHIssue_Major");
-
         }
 
 
@@ -269,7 +266,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
             if (this.LblTotalRecords.Text == "0")
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     dSet.Clear();
