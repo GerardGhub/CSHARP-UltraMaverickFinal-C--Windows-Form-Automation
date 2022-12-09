@@ -43,6 +43,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void FrmAddNewMiscellaneousIssue_Load(object sender, EventArgs e)
         {
+            this.Text = "Add New Miscellaneouse Issue";
             this.ConnetionString();
             this.LoadItemCodeDropdown();
             MatCmbItemCode_SelectionChangeCommitted(sender, e);
@@ -122,7 +123,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             DateTime d2 = Convert.ToDateTime(this.MatCmbExpiryDate.Text);
             TimeSpan t = d2 - d1;
             double NrOfDays = t.TotalDays;
-            this.MatTxtExpiryDays.Text = NrOfDays.ToString();
+            this.MatTxtExpiryDays.Text = NrOfDays.ToString("N0");
         }
 
         private void MatBtnSave_Click(object sender, EventArgs e)

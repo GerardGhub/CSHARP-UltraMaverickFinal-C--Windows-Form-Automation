@@ -41,6 +41,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void FrmDryWhMiscellaneouseIssue_Load(object sender, EventArgs e)
         {
+            this.Text = "Miscellaneous Issue";
             this.ConnetionString();
             this.Useridentity = userinfo.user_id;
             this.SearchMethodJarVarCallingSP();
@@ -213,7 +214,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                && this.MatCmbRemarks.Text != String.Empty
                && this.MatTxtParentDescription.Text != String.Empty)
             {
-                this.MatBtnSave.Visible = true;
+                if (this.LblTotalRecords.Text != "0")
+                {
+                    this.MatBtnSave.Visible = true;
+                }
             }
         }
 
@@ -230,6 +234,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void MatBtnSave_Click(object sender, EventArgs e)
         {
+            if (this.LblTotalRecords.Text == "0")
+            {
+                return;
+            }
             if (this.MatTxtParentDescription.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
@@ -428,6 +436,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void MatBtnNew_Click(object sender, EventArgs e)
         {
+
+            if(this.MatTxtParentDescription.Text == String.Empty )
+            {
+                this.MatTxtParentDescription.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                return;
+            }
+
+            if (this.MatCmbRemarks.Text == String.Empty)
+            {
+                this.MatCmbRemarks.Focus();
+                this.GlobalStatePopup.FillRequiredFields();
+                return;
+            }
+
             this.MatBtnNew.Enabled = false;
             FrmAddNewMiscellaneousIssue AddIssue = new FrmAddNewMiscellaneousIssue(this);
             AddIssue.ShowDialog();
