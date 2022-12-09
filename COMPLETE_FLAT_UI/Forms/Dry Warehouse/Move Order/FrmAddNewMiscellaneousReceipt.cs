@@ -54,9 +54,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
+
         public void LoadItemCodeDropdown()
         {
-
          myClass.fillComboBoxRMDryItemCode(MatCmbItemCode, "Item_Code_dropdown", dSet);
 
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
@@ -66,17 +66,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             int IndexOf = 0;
             this.MatTxtItemDescription.Text = MatCmbItemCode.SelectedValue.ToString();
-
-       
             IndexOf = MatCmbItemCode.SelectedIndex;
             xClass.DataSetRMMoverOrderReceipt = g_objStoredProcCollection.sp_getMinorTables("Item_Code_dropdown", null, null, null, null, null);
             this.MatTxtCategory.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["major_category"].ToString();
-    
-
-
-
             //this.MatTxtCategory.Text = xClass.SubCategory.ToString();
-
         }
 
         private void MatDtpMFtgDate_ValueChanged(object sender, EventArgs e)
