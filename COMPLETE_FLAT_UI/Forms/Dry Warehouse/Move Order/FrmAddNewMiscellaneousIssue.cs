@@ -158,9 +158,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             double Reserved;
             double Order;
             Reserved = double.Parse(this.MatTxtAvailableStock.Text);
-            Order = double.Parse(this.MatTxtQuantity.Text);
+            Order = double.Parse(this.MatTxtQtyOut.Text);
 
-            if (Reserved > Order)
+            if (Order > Reserved)
             {
                 this.GlobalStatePopup.GreaterThanActualRemainingQty();
                 this.MatTxtQuantity.Text = String.Empty;
