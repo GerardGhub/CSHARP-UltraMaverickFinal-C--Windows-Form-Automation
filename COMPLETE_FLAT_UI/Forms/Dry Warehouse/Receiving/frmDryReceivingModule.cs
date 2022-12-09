@@ -13,6 +13,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
+        DataSet dSet_CheckGooDRM = new DataSet();
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         int numExpirableItems = 0;
@@ -100,16 +101,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
         }
 
-    
-
-
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
             myglobal.global_module = "Active"; // Mode for Searching
             this.dset_emp_SearchEngines.Clear();
             this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding");
-
         }
 
         DataSet dset_emp_SearchEnginesNearlyExpiry = new DataSet();
@@ -233,8 +230,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (dSet.Tables[0].Rows.Count > 0)
             {
                 //RawMatsAlreadyExist();
-                dSet.Clear();
-                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
+                //dSet.Clear();
+                dSet_CheckGooDRM = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                     Mattxtbarcode.Text,
                     "",
                     "",
@@ -250,28 +247,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     0,
                     "",
                     "getRMforReceivingDryWH");
-                if (dSet.Tables[0].Rows.Count > 0)
+                if (dSet_CheckGooDRM.Tables[0].Rows.Count > 0)
                 {
-
+        
                     //dset_emp_SearchEngines
                     //MessageBox.Show(dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString());
 
-                    if (dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString() == "1")
+                    if (dSet_CheckGooDRM.Tables[0].Rows[0]["is_wh_reject_approval"].ToString() == "1")
                     {
-   
-    
                         this.dset_emp_SearchEngines.Clear();
                         this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_WH_Rejection");
                     }
                     else
                     {
-
+          
                         this.SearchMethodJarVarCallingSP();
                     }
                     this.doSearchInTextBoxCmb();
 
-
-                    if(this.dgvMajorCategory.RowCount == 0)
+           
+                    if (this.dgvMajorCategory.RowCount == 0)
                     {
 
                         this.GlobalStatePopup.RMNotExistReceiving();
@@ -300,7 +295,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
          
                 else
                 {
-  
+                    //MessageBox.Show("VBOBOB");
+                    //return;
 
                     this.scanBarcodeNearlyExpiry();
 
