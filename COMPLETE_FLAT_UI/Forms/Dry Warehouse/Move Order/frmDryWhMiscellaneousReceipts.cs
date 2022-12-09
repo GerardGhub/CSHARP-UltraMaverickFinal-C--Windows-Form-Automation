@@ -238,9 +238,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             }
             if (this.LblTotalRecords.Text == "0")
             {
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
                     dSet.Clear();
                     dSet = g_objStoredProcCollection
                     .sp_DryWHReceiptParents(0,
@@ -259,7 +258,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                         {
                             this.MatBtnSave.Enabled = false;
                         }
-           
                     }
                 }
                 else
