@@ -1,12 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -15,23 +9,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
     public partial class FrmChooseLotNumberMoveOrder : MaterialForm
     {
         FrmAddNewMiscellaneousReceipt ths;
-
- 
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
-
         DateTime dNow = DateTime.Now;
-
-
         string mode = "";
         DataSet dSet_temp = new DataSet();
         public FrmChooseLotNumberMoveOrder(FrmAddNewMiscellaneousReceipt frm, string major_category)
         {
             InitializeComponent();
             ths = frm;
-
             this.Sp_major_category = major_category;
         }
 
@@ -44,7 +31,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             this.WindowsLoadingBinder();
             this.ConnectionInit();
-
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
         }
@@ -59,34 +45,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.mattxtCategory.Text = Sp_major_category;
         }
 
-        private void mattxtCategory_TextChanged(object sender, EventArgs e)
-        {
-
-            this.doSearchInTextBoxCmb();
-
-
-
-        }
-
 
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
             myglobal.global_module = "Active"; // Mode for Searching
             dset_emp_SearchEngines.Clear();
-
-
             dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("lot_management_major");
-
         }
-
 
         private void doSearchInTextBoxCmb()
         {
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
@@ -96,13 +67,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     }
                     else if (myglobal.global_module == "Active")
                     {
-
-
                         //Gerard Singian Developer Man
-
-
-
-
                         dv.RowFilter = "category = '" + mattxtCategory.Text + "' and lot_number like '%" + mattxtLotnumber.Text + "%'  ";
 
                     }
@@ -130,7 +95,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.dgvLotData.Columns["category"].Visible = false;
             this.dgvLotData.Columns["added_by"].Visible = false;
             this.dgvLotData.Columns["date_added"].Visible = false;
-
             this.dgvLotData.Columns[1].Width = 128;
 
         }
@@ -148,12 +112,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 {
                     if (dgvLotData.CurrentRow.Cells["lot_number"].Value != null)
                     {
-
                         Sp_lot_number = dgvLotData.CurrentRow.Cells["lot_number"].Value.ToString();
                         Sp_lot_description = dgvLotData.CurrentRow.Cells["description"].Value.ToString();
-
-
-                        //Binding Data
                         ths.MatTxtLotNo.Text = Sp_lot_number;
                         ths.MatTxtLotDesc.Text = Sp_lot_description;
                     }
@@ -181,7 +141,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void matbtnSelect_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to select the lot area?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to select the lot area?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 mode = "true";
                 this.Close();

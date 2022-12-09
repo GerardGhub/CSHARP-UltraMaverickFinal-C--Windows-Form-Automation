@@ -190,7 +190,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             FrmChooseLotNumberMoveOrder showModal = new FrmChooseLotNumberMoveOrder(this, this.MatTxtCategory.Text);
             showModal.ShowDialog();
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
