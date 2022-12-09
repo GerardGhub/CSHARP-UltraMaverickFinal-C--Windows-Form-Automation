@@ -143,6 +143,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
+            if (this.MatTxtParentDescription.Text == String.Empty)
+            {
+                this.MatTxtParentDescription.Focus();
+                return;
+            }
             this.MatBtnNew.Enabled = false;
             FrmAddNewMiscellaneousReceipt AddReceipt = new FrmAddNewMiscellaneousReceipt(this);
             AddReceipt.ShowDialog();
@@ -477,7 +482,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             if (this.MatTxtSupploer.Text != String.Empty && this.matCmbRemarks.Text != String.Empty)
             {
-                this.MatBtnSave.Visible = true;
+                if (this.LblTotalRecords.Text != "0")
+                {
+                    this.MatBtnSave.Visible = true;
+                }
             }
         }
 

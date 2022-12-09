@@ -85,11 +85,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         }
         public void CalculateBetweenTwoDateGetTheDays()
         {
-            DateTime d1 = Convert.ToDateTime(this.MatDtpMFtgDate.Text);
+            //DateTime d1 = Convert.ToDateTime(this.MatDtpMFtgDate.Text);
+            DateTime d1 = Convert.ToDateTime(DateTime.Now);
             DateTime d2 = Convert.ToDateTime(this.MatDtpExpDate.Text);
             TimeSpan t = d2 - d1;
             double NrOfDays = t.TotalDays;
-            this.MatTxtExpiryDays.Text = NrOfDays.ToString();
+            this.MatTxtExpiryDays.Text = NrOfDays.ToString("N0");
         }
 
         private void MatDtpExpDate_ValueChanged(object sender, EventArgs e)

@@ -60,16 +60,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.groupBox1.Controls.Add(this.MatTxtLotNo);
             this.groupBox1.Controls.Add(this.MatTxtLotDesc);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.MatDtpExpDate);
-            this.groupBox1.Controls.Add(this.MatDtpMFtgDate);
             this.groupBox1.Controls.Add(this.MatTxtCategory);
             this.groupBox1.Controls.Add(this.MatTxtItemDescription);
             this.groupBox1.Controls.Add(this.MatTxtExpiryDays);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(17, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1007, 254);
+            this.groupBox1.Size = new System.Drawing.Size(1007, 263);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Raw Material Information";
@@ -81,7 +79,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.btnSelectLot.FlatAppearance.BorderSize = 0;
             this.btnSelectLot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectLot.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectLot.Image")));
-            this.btnSelectLot.Location = new System.Drawing.Point(642, 163);
+            this.btnSelectLot.Location = new System.Drawing.Point(303, 180);
             this.btnSelectLot.Margin = new System.Windows.Forms.Padding(1);
             this.btnSelectLot.Name = "btnSelectLot";
             this.btnSelectLot.Size = new System.Drawing.Size(41, 37);
@@ -116,7 +114,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtQuantity.Depth = 0;
             this.MatTxtQuantity.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtQuantity.Hint = "Quantity";
-            this.MatTxtQuantity.Location = new System.Drawing.Point(28, 154);
+            this.MatTxtQuantity.Location = new System.Drawing.Point(705, 103);
             this.MatTxtQuantity.MaxLength = 50;
             this.MatTxtQuantity.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtQuantity.Multiline = false;
@@ -133,7 +131,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtLotNo.Enabled = false;
             this.MatTxtLotNo.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtLotNo.Hint = "Lot No.";
-            this.MatTxtLotNo.Location = new System.Drawing.Point(368, 154);
+            this.MatTxtLotNo.Location = new System.Drawing.Point(27, 172);
             this.MatTxtLotNo.MaxLength = 50;
             this.MatTxtLotNo.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtLotNo.Multiline = false;
@@ -149,7 +147,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtLotDesc.Enabled = false;
             this.MatTxtLotDesc.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtLotDesc.Hint = "Lot Description";
-            this.MatTxtLotDesc.Location = new System.Drawing.Point(707, 154);
+            this.MatTxtLotDesc.Location = new System.Drawing.Point(366, 172);
             this.MatTxtLotDesc.MaxLength = 50;
             this.MatTxtLotDesc.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtLotDesc.Multiline = false;
@@ -162,7 +160,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(365, 96);
+            this.label2.Location = new System.Drawing.Point(25, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 19);
             this.label2.TabIndex = 578;
@@ -172,11 +170,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 95);
+            this.label1.Location = new System.Drawing.Point(292, 336);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 19);
             this.label1.TabIndex = 577;
             this.label1.Text = "Mftg. Date";
+            this.label1.Visible = false;
             // 
             // MatDtpExpDate
             // 
@@ -185,7 +184,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatDtpExpDate.CustomFormat = "yyyy-MM-dd";
             this.MatDtpExpDate.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MatDtpExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.MatDtpExpDate.Location = new System.Drawing.Point(367, 116);
+            this.MatDtpExpDate.Location = new System.Drawing.Point(27, 123);
             this.MatDtpExpDate.Name = "MatDtpExpDate";
             this.MatDtpExpDate.Size = new System.Drawing.Size(270, 30);
             this.MatDtpExpDate.TabIndex = 576;
@@ -198,12 +197,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatDtpMFtgDate.CustomFormat = "yyyy-MM-dd";
             this.MatDtpMFtgDate.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MatDtpMFtgDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.MatDtpMFtgDate.Location = new System.Drawing.Point(28, 116);
+            this.MatDtpMFtgDate.Location = new System.Drawing.Point(291, 357);
             this.MatDtpMFtgDate.MaxDate = new System.DateTime(2022, 8, 14, 0, 0, 0, 0);
             this.MatDtpMFtgDate.Name = "MatDtpMFtgDate";
             this.MatDtpMFtgDate.Size = new System.Drawing.Size(270, 30);
             this.MatDtpMFtgDate.TabIndex = 575;
             this.MatDtpMFtgDate.Value = new System.DateTime(2022, 8, 14, 0, 0, 0, 0);
+            this.MatDtpMFtgDate.Visible = false;
             this.MatDtpMFtgDate.ValueChanged += new System.EventHandler(this.MatDtpMFtgDate_ValueChanged);
             // 
             // MatTxtCategory
@@ -245,7 +245,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatTxtExpiryDays.Enabled = false;
             this.MatTxtExpiryDays.Font = new System.Drawing.Font("Roboto", 12F);
             this.MatTxtExpiryDays.Hint = "Expiry Days";
-            this.MatTxtExpiryDays.Location = new System.Drawing.Point(706, 98);
+            this.MatTxtExpiryDays.Location = new System.Drawing.Point(366, 105);
             this.MatTxtExpiryDays.MaxLength = 50;
             this.MatTxtExpiryDays.MouseState = MaterialSkin.MouseState.OUT;
             this.MatTxtExpiryDays.Multiline = false;
@@ -261,7 +261,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnSave.DrawShadows = true;
             this.MatBtnSave.HighEmphasis = true;
             this.MatBtnSave.Icon = null;
-            this.MatBtnSave.Location = new System.Drawing.Point(17, 339);
+            this.MatBtnSave.Location = new System.Drawing.Point(26, 357);
             this.MatBtnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MatBtnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.MatBtnSave.Name = "MatBtnSave";
@@ -300,11 +300,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 391);
+            this.ClientSize = new System.Drawing.Size(1042, 410);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.MatBtnSave);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.MatDtpMFtgDate);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddNewMiscellaneousReceipt";
