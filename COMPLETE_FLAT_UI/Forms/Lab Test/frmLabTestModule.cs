@@ -1,34 +1,22 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Wizard.Helpers;
 
 namespace ULTRAMAVERICK.Forms.Lab_Test
 {
     public partial class frmLabTestModule : MaterialForm
     {
-
-  
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
         public Byte[] imageByte = null;
         int p_id = 0;
-
         DateTime dNow = DateTime.Now;
-
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         public frmLabTestModule()
@@ -87,13 +75,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.ConnectionInitialization();
             this.showRawMaterialsNearlyExpiry();
             this.WindowLoadState();
-
-
-     
-
         }
-
-
         private void AutoGeneratingLabAccessCode()
         {
             return;
@@ -164,18 +146,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 }
 
             }
-
-
-            //txtLabAccessCode.Text = String.Empty;
-
         }
 
-        private void AlphaVeticalSequence()
-        {
 
-        }
-
-        
         private void loadImage()
         {
             //sp_user_id = primary_key;
@@ -260,20 +233,15 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         {
             try
             {
-
                 myClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiryLabTestViewing", dSet);
-
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
             this.DataGridVisibilityFalse();
         }
-
 
 
         private void DataGridVisibilityFalse()
@@ -670,13 +638,10 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 return;
             }
-
-                //End
             }
 
         private void matBtnNew_Click(object sender, EventArgs e)
         {
-
             DryWhLabTestRecentLogs fm = new DryWhLabTestRecentLogs();
             fm.ShowDialog();
         }
@@ -702,7 +667,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 return;
             }
-
             }
 
         private void ChooseImage_MouseHover(object sender, EventArgs e)
@@ -737,11 +701,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Cancel the lab test request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-
                 if (this.SpLabCancelledRemarks == "CANCELLED")
                 {
-                    
-
                 this.dSet.Clear();
                 this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(p_id,
                 p_id, "BUje", "0", "0", "", "0", "0", "", "0",
