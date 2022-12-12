@@ -81,10 +81,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             return;
             DateTime myDateTime = DateTime.Now;
             string year = myDateTime.Year.ToString();
-
             string sMonth = DateTime.Now.ToString("MM");
-
-
             int monthNumber = Convert.ToInt32(sMonth); //1-12  
             if (sMonth == "01")
             {
@@ -701,6 +698,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             //Start
             if (MetroFramework.MetroMessageBox.Show(this, "Cancel the lab test request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+
+                //If cancel sa QA eto ang Function
                 if (this.SpLabCancelledRemarks == "CANCELLED")
                 {
                 this.dSet.Clear();
@@ -748,7 +747,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 "", "", "","",0, this.SpFileName, this.SpFilePath,
                 "dry_wh_lab_request_cancel_by_drywh");
 
-                this.GlobalStatePopup.CommittedSuccessFully();
+                    this.GlobalStatePopup.CancelledSuccessfully();
                 this.frmLabTestModule_Load(sender, e);
                 }
             }
@@ -761,10 +760,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
         {
-      
             this.doSearchInTextBoxCmb();
-
-
             if (this.txtSearch.Text == String.Empty)
             {
                 this.showRawMaterialsNearlyExpiry();
@@ -957,17 +953,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     row.Cells["lab_result_remarks"].Value = "N/A";
                     //row.Cells["lab_result_remarks"].Visible.Equals(false);
                 }
-           
-
             }
-
-
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
-        {
-            this.AutoGeneratingLabAccessCode();
-        }
 
         private void materialButton1_Click_1(object sender, EventArgs e)
         {
