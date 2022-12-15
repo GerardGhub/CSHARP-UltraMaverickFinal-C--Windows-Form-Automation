@@ -58,57 +58,41 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         {
             try
             {
-
                 xClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiry", dSet);
-
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-            //this.dgvRawMats.Columns["area_id"].Visible = false;
-            //this.dgvRawMats.Columns["is_active"].Visible = false;
-            //this.dgvRawMats.Columns["modified_at"].Visible = false;
-
         }
 
         private void showRawMaterialsNearlyExpiryOnLaboratory()    //method for loading available_menus
         {
             try
             {
-
                 xClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiry_OnLaboratory", dSet);
-
                 this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-  
-
         }
 
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            //Call Store Procedure
-     
             if (this.matRadioActive.Checked == true)
             {
                 this.ConnectionInitialization();
                 this.SearchMethodJarVarCallingSP();
                 this.doSearchInTextBoxCmb();
-
                 if (this.txtSearch.Text == String.Empty)
                 {
                     this.showRawMaterialsNearlyExpiry();
                 }
             }
-
 
             if (this.matRadioNearlyExpiry.Checked == true)
             {
@@ -121,8 +105,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                     this.showRawMaterialsNearlyExpiryOnLaboratory();
                 }
             }
-
-
         }
 
 
@@ -133,20 +115,14 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if (this.matRadioActive.Checked == true)
             {
                 this.dset_emp_SearchEngines.Clear();
-
                 this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor");
             }
-
-
             if (this.matRadioNearlyExpiry.Checked == true)
             {
                 this.dset_emp_SearchEngines.Clear();
-
                 this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor_OnLaboratory");
             }
-
         }
-
 
         private void doSearchInTextBoxCmb()
         {
@@ -155,11 +131,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 if (this.dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
-                  
-
-                        dv.RowFilter = "item_code like '%" + this.txtSearch.Text + "%' or item_description like '%" + this.txtSearch.Text + "%'   ";
-
-                 
+                        dv.RowFilter = "item_code like '%" + this.txtSearch.Text + "%' or item_description like '%" + this.txtSearch.Text + "%'   ";                 
                     this.dgvRawMats.DataSource = dv;
                     this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
                 }
@@ -167,19 +139,13 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             catch (SyntaxErrorException)
             {
                 MessageBox.Show("Invalid character found Syntax Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
             catch (EvaluateException)
             {
                 MessageBox.Show("Invalid character found Evaluation Exception!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
-
-
-
-
         }
 
         private void matRadioActive_CheckedChanged(object sender, EventArgs e)

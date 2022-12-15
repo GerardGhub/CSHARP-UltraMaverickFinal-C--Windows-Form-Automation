@@ -57,23 +57,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 e.FormattingApplied = true;
             }
 
-
-
             foreach (DataGridViewRow row in dgvRawMats.Rows)
             {
                 if (Convert.ToDouble(row.Cells["buffer_stock"].Value) > Convert.ToDouble(row.Cells["RESERVED"].Value))
                 {
-
                     row.Cells["buffer_stock"].Style.BackColor = Color.LightSalmon;
                 }
                 else if (Convert.ToDouble(row.Cells["buffer_stock"].Value) < Convert.ToDouble(row.Cells["RESERVED"].Value))
                 {
 
                 }
-
             }
-
-
         }
 
         private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

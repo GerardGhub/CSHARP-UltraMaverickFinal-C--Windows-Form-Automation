@@ -541,7 +541,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.WizardBalloon4.Image = Properties.Resources.pending;
             }
 
-            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0" 
+            //here
+            if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0"
                 && this.SpQASupervisorApprovalStatus == true
                 && this.Sp_Tsqa_Approval_Status == true
                 && this.txtLabAccessCode.Text != String.Empty)
@@ -553,7 +554,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.MatBtnReceived.Visible = false;
             }
 
-      
+
 
         }
 
@@ -709,15 +710,11 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 "0", "0", "0", 0, 0, "0",
                 "", "", "","", 0, this.SpFirstName, this.SpFilePath,
                 "dry_wh_lab_request_cancel_by_qa_resetall");
-
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmLabTestModule_Load(sender, e);
-
                 }
                 else
                 {
-
-
                 this.dSet.Clear();
                 this.dSet = g_objStoredProcCollection.sp_dry_wh_lab_test_req_logs(0,
                 this.p_id.ToString(),
@@ -780,11 +777,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         }
 
         private void MatBtnReceived_Click(object sender, EventArgs e)
-        {
-           
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received the Lab Result?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+        {        
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to received the Lab Result?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
                 this.dSet.Clear();
                 this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(
                     p_id,
