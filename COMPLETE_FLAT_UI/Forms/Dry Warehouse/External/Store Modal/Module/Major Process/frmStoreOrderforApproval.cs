@@ -20,27 +20,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
     public partial class frmStoreOrderforApproval : MaterialForm
     {
-        //Main Classs
         readonly myclasses myClass = new myclasses();
-
         IStoredProcedures g_objStoredProcCollection = null;
-
         //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         int LatestForeignKeyInMasterStoreTable = 0;
         DataSet dSet = new DataSet();
         DataSet dSetCheckStoreCount = new DataSet();
-
         DataSet dSetCategoryPartialValidation = new DataSet();
-
-
         int forApprovalDateNeededValidation = 0;
   
-
-        //Variable Declaration
         int p_id = 0;
-        //readonly string value = "0";
         string datastorage;
         string Rpt_Path = "";
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
@@ -58,8 +49,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             InitializeComponent();
         }
-  
-
 
         protected override CreateParams CreateParams
         {
@@ -79,14 +68,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
-
-
                 this.Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
-
-
                 this.dgvStoreOrderApproval.Columns[0].Width = 50;// The id column
                 this.dgvStoreOrderApproval.Columns[3].Width = 150;// The id column
-
             }
             else
             {
@@ -425,14 +409,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         private void ReturnFunctionality()
         {
-
-
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
-
             this.DataRefresher();
             myglobal.global_module = "Active";
-
-
             //Functionality Viewing of the Data Binding Source
             if(this.matRadioForApproval.Checked == true)
             {
@@ -442,21 +421,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.LoadCategoryDropdownForAllocation();
             }
-           
-
           
-
-
-
             this.InitiliazeDatePickerMinDate();
             this.FormClass.mode = "";
-
-
-
-
-            //this.ConnectionInit();
             this.dset_emp1.Clear();
-
             this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
 
@@ -481,18 +449,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             try
             {
-
                 myClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
-
                 this.GlobalStatePopup.Total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
 
@@ -501,16 +464,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.bunifuPrepaDate.MinDate = DateTime.Now;
             this.bunifuPrepaDate.MaxDate = DateTime.Now.AddDays(30);
         }
-
-
-
       
         public void loadCategoryDropdown()
         {
             try
             {
-
-
                 this.myClass
                 .fillComboBoxStoreOrderApproval(this.matcmbCategory, 
                 "tblStoreOrderDryWH_dropdown_Approval",
@@ -526,27 +484,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
-
-
 public void LoadCategoryDropdownForAllocation()
 {
     try
     {
-
-
         myClass.fillComboBoxStoreOrderApproval(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_For_Allocation", this.dSet);
-
     }
     catch (Exception ex)
     {
-
         MessageBox.Show(ex.Message);
     }
-
     //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
 }
-
-
 
         DataSet dset_emp1 = new DataSet();
         private void Load_search()
@@ -834,12 +783,10 @@ public void LoadCategoryDropdownForAllocation()
                     else
                     {
                         this.matbtnApprove.Enabled = false;
-                    }
-              
+                    }         
                 }
                 else
-                {
-                    
+                {                
                     if (this.NotDateValidCountSelected == 0)
                     {
                         this.matbtnApprove.Enabled = true;
@@ -849,17 +796,11 @@ public void LoadCategoryDropdownForAllocation()
                         this.matbtnApprove.Enabled = false;
                     }
                 }
-
-
-
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
-
-    
         }
 
 
@@ -1599,9 +1540,7 @@ public void LoadCategoryDropdownForAllocation()
             this.matbtnEdit.Visible = false;
             this.matbtnApprove.Visible = false;
             this.matbtnCancel.Visible = false;
-         
-
-
+        
             frmEditConsolidatedOrder mywipwh = new frmEditConsolidatedOrder(this, 
                 p_id,
                 this.FormClass.sp_order_id,
@@ -1659,22 +1598,14 @@ public void LoadCategoryDropdownForAllocation()
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-           
+        {       
             this.materialCheckboxSelectAll.Text = "Select All";
             //Reset the NUmber 
             this.textBox1.Text = String.Empty;
             this.num = 0;
-            //Label Bugok
-        
             this.labelSelectedSum.Visible = false;
             this.frmStoreOrderforApproval_Load(sender, e);
             //this.ReturnFunctionality();
-        }
-
-        private void cmbDateOrder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -1686,8 +1617,6 @@ public void LoadCategoryDropdownForAllocation()
             }
              else
             {
-
-
                 foreach (DataGridViewRow row in dgvStoreOrderApproval.Rows)
                 {
                     if (Convert.ToDouble(row.Cells["ORDERS"].Value) >= Convert.ToDouble(row.Cells["StockOnHand"].Value))
@@ -1805,22 +1734,12 @@ public void LoadCategoryDropdownForAllocation()
 
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
-            
-           //if(this.matRadioForApproval.Checked == true)
-           // {
-           //     this.matRadioForAllocation.Checked = true;
-
-           // }
             this.ConnectionOpen();
-
-
             this.DataRefresher();
             this.ShowRawMaterialforApproval();
-
             //Functionality Viewing of the Data Binding Source
             if (this.matRadioForApproval.Checked == true)
             {
-      
                 this.loadCategoryDropdown();        
             }
             else if (this.matRadioForAllocation.Checked == true)
@@ -1839,15 +1758,7 @@ public void LoadCategoryDropdownForAllocation()
 
         private void matRadioForApproval_CheckedChanged(object sender, EventArgs e)
         {
-
-            //if (this.matRadioForAllocation.Checked == true)
-            //{
-            //    this.matRadioForAllocation.Checked = false;
-       
-  
-            //}
             this.ConnectionOpen();
-
             //Functionality Viewing of the Data Binding Source
             if (this.matRadioForApproval.Checked == true)
             {
@@ -1946,55 +1857,31 @@ public void LoadCategoryDropdownForAllocation()
             {
                 this.CancelFunctionality();
             }
-
         }
 
         private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
         {
- 
                 this.ConnectionOpen();
                 this.SearchInactiveMaterial();
-
         }
 
         private void SearchInactiveMaterial()
         {
-
                 try
                 {
-
                 this.myClass.fillDataGridView(this.dgvStoreOrderApproval, "SearchorderForApprovalinDryWHCancel", dSet);
-
                 this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
                 this.VisibilityFalseDataGrid();
-
                  }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message);
                 }
-
             if (this.lbltotaldata.Text == "0")
             {
                 this.dgvStoreOrderApproval.Columns["is_active"].Visible = false;
                 this.dgvStoreOrderApproval.Columns["is_cancelled"].Visible = false;
             }
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.ConnectionOpen();
-
-
-            this.SearchInactiveMaterial();
-            this.VisibilityFalseDataGrid();
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void matRadioForAllocation_Click(object sender, EventArgs e)
