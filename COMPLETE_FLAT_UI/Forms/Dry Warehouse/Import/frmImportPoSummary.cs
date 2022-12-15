@@ -14,7 +14,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 {
     public partial class frmImportPoSummary : MaterialForm
     {
-
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         private IStoredProcedures objStorProc = null;
@@ -25,7 +24,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             InitializeComponent();
         }
-
         public string ErrorDetails { get; set; }
         public string Item_id_main { get; set; }
         public string Item_code_main { get; set; }
@@ -38,21 +36,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         public string Conversion_main { get; set; }
         public string Mat_row_number { get; set; }
         public int User_id { get; set; }
-        //Date
         public string Sp_pr_number { get; set; }
         public string Sp_pr_date { get; set; }
         public string Sp_po_number { get; set; }
         public string Sp_po_date { get; set; }
         public string Sp_qty_order { get; set; }
-
         public string Sp_qty_delivered { get; set; }
         public string Sp_qty_billed { get; set; }
-
         public string Sp_unit_price { get; set; }
         public string Sp_user_id { get; set; }
         public string Sp_supplier { get; set; }
-
-        // Additional Model for Expiration Lookup on QC Checklist
         public string Sp_item_class { get; set; }
         public string Sp_major_category { get; set; }
         public string Sp_sub_category { get; set; }
@@ -67,10 +60,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         private void frmImportPoSummary_Load(object sender, EventArgs e)
         {
             this.ConnectionInit();
-
-            dgvRawMats.Columns[0].Width = 100;// The id column 
-            this.CallOthers();
+            this.dgvRawMats.Columns[0].Width = 100;
             this.VisibilityOffInDataGrid();
+            if (this.txtFileName.Text == String.Empty)
+            {
+                this.lbltotalrecords.Text = "0";
+            }
         }
         private void VisibilityOffInDataGrid()
 
@@ -541,45 +536,31 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                         this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                         this.saveMode();  //Update All Data here
                         this.GlobalStatePopup.ImportSuccessFully();
-                    }
-
-        
+                    }      
                     this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
                     return;
                 }
             }
-
             this.InsertDataPerRow();
         }
 
 
         private string m_ConnectionString = ULTRAMAVERICK.Properties.Settings.Default.hr_application_conn2;
-//sample
-
-
         public bool saveMode()
-
         {
-
             Sp_user_id= userinfo.user_id.ToString(); // ID of User
             dSet.Clear();
             dSet = objStorProc.sp_Raw_Materials_Dry(0,
-                Convert.ToString(User_id), 
-                Item_type_main, 
-                Item_class_main, 
-                Major_category_main, 
-                Sub_category_main, 
-                Primary_unit_main, "", "", "", "", "", Sp_user_id,0,"", "final_save_bulk_data_status_POSummary");
-
+            Convert.ToString(User_id), 
+            Item_type_main, 
+            Item_class_main, 
+            Major_category_main, 
+            Sub_category_main, 
+            Primary_unit_main, "", "", "", "", "", Sp_user_id,0,"", "final_save_bulk_data_status_POSummary");
             return false;
-
         }
 
       
-
-
-
-
 
         private void matbtnUpload_Click(object sender, EventArgs e)
         {
@@ -593,11 +574,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
             else
             {
-
                 this.matbtnUpload.Visible = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
 
-                //Start
                 if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to upload the data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     this.SaveMethod1();
@@ -607,12 +586,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.matbtnUpload.Visible = true;
                     return;
                 }
-
-
             }
-
-
-
         }
 
 
@@ -622,23 +596,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             this.doSearchInTextBox();
         }
 
-
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
-            myglobal.global_module = "Active"; // Mode for Searching
-            dset_emp_SearchEngines.Clear();  //Clear the Fucking data set
-
-
+            myglobal.global_module = "Active"; 
+            dset_emp_SearchEngines.Clear();  
             dset_emp_SearchEngines = objStorProc.sp_getMajorTables("RawMatsBindingPoImport");
-
         }
         private void doSearchInTextBox()
         {
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
@@ -648,38 +616,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     }
                     else if (myglobal.global_module == "Active")
                     {
-
                         dv.RowFilter = "item_code = '" + Item_code_main + "' ";
-
-                    }
-                
-                    dgvUnits.DataSource = dv;
-             
+                    }              
+                    dgvUnits.DataSource = dv;           
                 }
             }
             catch (SyntaxErrorException)
             {
                 MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
             catch (EvaluateException)
             {
                 MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
-
-
         }
-
-
-
-
 
         private void dgvUnits_CurrentCellChanged(object sender, EventArgs e)
         {
-
             if (this.dgvUnits.CurrentRow != null)
             {
                 if (this.dgvUnits.CurrentRow.Cells["item_code"].Value != null)
@@ -689,10 +644,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     this.Sp_major_category = this.dgvUnits.CurrentRow.Cells["major_category"].Value.ToString();
                     this.Sp_sub_category = this.dgvUnits.CurrentRow.Cells["sub_category"].Value.ToString();
                     this.Sp_is_expirable = this.dgvUnits.CurrentRow.Cells["is_expirable"].Value.ToString();
-
                 }
             }
-
         }
 
         private void dgvRawMats_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

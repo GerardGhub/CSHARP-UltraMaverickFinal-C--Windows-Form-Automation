@@ -63,11 +63,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void ConnectionInit()
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
+            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); 
         }
 
-
-        private void showRawMaterialsInDryWH()    //method for loading available_menus
+        private void showRawMaterialsInDryWH()   
         {
             try
             {
