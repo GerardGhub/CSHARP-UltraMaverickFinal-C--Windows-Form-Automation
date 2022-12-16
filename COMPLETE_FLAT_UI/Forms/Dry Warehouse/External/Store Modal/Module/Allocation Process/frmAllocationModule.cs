@@ -75,7 +75,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         }
 
-
         private void DataGridVisibleFalseForDistinctItems()
         {
             this.dgvStoreOrderApproval.Columns["selected"].Visible = false;

@@ -556,9 +556,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
         {
-  
-
-
+ 
             this.ConnectionInit();
             this.loadCategoryDropdown();
             this.Mode = "Search2";
