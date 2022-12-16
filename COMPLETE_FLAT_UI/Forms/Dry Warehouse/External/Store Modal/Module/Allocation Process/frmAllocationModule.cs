@@ -1,28 +1,17 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
-using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Preparation;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocation_Process;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Allocation_Process.Class;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 {
     public partial class frmAllocationModule : MaterialForm
     {
- 
-
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
@@ -30,11 +19,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         frmAllocationModuleClasses FormClass = new frmAllocationModuleClasses();
         int p_id = 0;
-
         private bool eventHookedUp;
         public int LineAllocationCancelCount = 0;
         DateTime dNow = DateTime.Now;
-        //Boolean ready = false;
 
         int user_identity = 0;
         DataSet dSet_temp = new DataSet();
@@ -43,8 +30,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             InitializeComponent();
         }
 
-
-       
+   
        public string ErrorDetails { get; set;}
 
         private void frmAllocationModule_Load(object sender, EventArgs e)
@@ -71,74 +57,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
                 myClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
-
                this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             this.DataGridVisibleFalseForDistinctItems();
 
         }
 
-
         DataSet dset_emp_SearchForAllocation = new DataSet();
         private void SearchMethodforAllocation()
         {
-
             this.dset_emp_SearchForAllocation.Clear();
             this.dset_emp_SearchForAllocation = g_objStoredProcCollection.sp_getMajorTables("Raw_Materials_Dry_Allocation_Major");
-
-        }
-
-        private void FormmLoadSearchAllocationMaster()
-        {
-
-            try
-            {
-
-
-                if (this.dset_emp_SearchForAllocation.Tables.Count > 0)
-                {
-                    DataView dv = new DataView(this.dset_emp_SearchForAllocation.Tables[0]);
-
-                    try
-                    {
-
-
-                    
-                            dv.RowFilter = "(item_code = '" + this.txtItemCode.Text + "' ";
-                 
-                        this.dgvStoreOrderApproval.DataSource = dv;
-                        this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-                        //End
-                    }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show(ex.Message);
-                    }
-
-
-                }
-            }
-            catch (SyntaxErrorException)
-            {
-                MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return;
-            }
-            catch (EvaluateException)
-            {
-                MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return;
-            }
-
-
-
 
         }
 
@@ -160,8 +93,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             try
             {
                 this.showDataGridDataValueChanged();
-
-
                 if (this.txtSoh.Text == "0")
                 {
                     this.matBtnSave.Enabled = false;
@@ -175,11 +106,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
 
                 MessageBox.Show(ex.Message);
-            }
-
-
-            
-       
+            } 
         }
 
 
@@ -191,7 +118,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             dset_emp_SearchEngines.Clear();
             dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_Allocation");    
         }
-
 
         private void hideFindColumninDataGridViewer()
         {
@@ -215,8 +141,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
             try
             {
-
-
                 if (this.dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(this.dset_emp_SearchEngines.Tables[0]);
@@ -260,10 +184,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
                 return;
             }
-
-
-
-
         }
 
         private void showDataGridDataValueChanged()
@@ -273,8 +193,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 if (this.dgvStoreOrderApproval.CurrentRow != null)
                 {
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value != null)
-                    {
-                    
+                    {           
                         this.txtItemCode.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["item_code"].Value.ToString();
                         this.txtitemDescription.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["description"].Value.ToString();
                         this.txtCategory.Text = this.dgvStoreOrderApproval.CurrentRow.Cells["sub_category"].Value.ToString();
@@ -302,36 +221,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.hideFindColumninDataGridViewer();
                 this.SumofTotalOrderDataGridView();
                 this.SumofTotalAllocatedDataGridView();
-
-                //foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
-                //{
-
-                //    if (Convert.ToDateTime(row.Cells["date_ordered"].Value) > DateTime.Now.Date)
-                //    {
-                //        this.matBtnSave.Enabled = true;
-                //    }
-                //    else
-                //    {
-                //        this.matBtnSave.Enabled = false;
-                //    }
-                //}
             }
-
-            //if(this.lbltotalStoreOrder.Text =="0")
-            //{
-
-            //}
-            //else
-            //{
-            //    //this.SelectAllCheckBoxOnDataGrid(); //remove muna
-            //}
-         
-          
-       
-   
-
-
-
             }
 
 
@@ -362,7 +252,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.matCardFindAllocation.Visible = true;
                 this.groupBox1AdditionlOrderUI.Visible = true;
                 this.dgvStoreOrderApproval.Enabled = true;
-
                 this.AllocationDataGridReadOnly();
             }
 
@@ -378,7 +267,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.dgvFindStoreOrders.Columns["qty"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["date_ordered"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["primary_id"].ReadOnly = true;
-
             this.dgvFindStoreOrders.Columns["fox"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["route"].ReadOnly = true;
             this.dgvFindStoreOrders.Columns["area"].ReadOnly = true;
@@ -393,11 +281,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
 
         }
-        private void SelectAllCheckBoxOnDataGrid()
-        {
-
-            for (int i = 0; i < this.dgvFindStoreOrders.RowCount; i++) { this.dgvFindStoreOrders.Rows[i].Cells["selected2"].Value = true; }
-        }
 
         private void SumofTotalOrderDataGridView()
         {
@@ -411,7 +294,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void SumofTotalAllocatedDataGridView()
         {
-
             int sum = 0;
             for (int i = 0; i < this.dgvFindStoreOrders.Rows.Count; ++i)
             {
@@ -438,7 +320,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 this.MethodPost();
             }
             else
-
             {
                 return;
             }
@@ -447,15 +328,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void MethodPost()
         {
-
             this.ComputationofAllocationQuantity();
-
-
-            //this.lblAllocatedQty.Text = CurrentComputationMemory.ToString();
-            this.InsertDataPerRow();
-
-          
-
+            this.InsertDataPerRow(); 
             if (this.dgvFindStoreOrders.Rows.Count >= 1)
             {
                 int i = this.dgvFindStoreOrders.CurrentRow.Index + 1;
@@ -463,21 +337,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[i].Cells[1];
                 else
                 {
-
-;
                     if (mode == "error")
                     {
                         this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
                     }
                     else
                     {
-
-
                         this.dgvFindStoreOrders.CurrentCell = this.dgvFindStoreOrders.Rows[0].Cells[this.dgvFindStoreOrders.CurrentCell.ColumnIndex];
-
-                    }
-
-                
+                    }            
                     this.SenderTextChangedValue();
                     this.matbtnNewAllocate.Visible = true;
                     this.GlobalStatePopup.AllocatedSuccessfully();
@@ -499,8 +366,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         //OIC
             this.MethodPost();
         }
-
-
 
         private void SenderTextChangedValue()
         {
@@ -1011,42 +876,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             {
                 this.matbtnNewAllocate.Enabled = true;
             }
-
-       
-
- 
         }
 
-     
-
-
-
-
-   
-
+ 
       
         private void dgvFindStoreOrders_KeyDown(object sender, KeyEventArgs e)
         {
-           
-
-
-        }
-
-        private void dgvFindStoreOrders_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            //foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
-            //{
-            //    if (row.Cells["ALLOCATION_QTY_FIND"].Value.ToString() == string.Empty)
-            //    {
-            //        return;
-            //    }
-            //}
-            //this.SumofTotalAllocatedDataGridView();
-            ////For Decrementation
-            //this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
-
-    
-
+          
         }
 
         private void ColumnDataGridStoreOrders1_KeyPress(object sender, KeyPressEventArgs e)
@@ -1067,11 +903,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         }
 
-
-            private void dgvFindStoreOrders_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
 
         private void dgvFindStoreOrders_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
@@ -1122,68 +953,22 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         }
 
         private void Cell_KeyDown(object sender, KeyEventArgs e)
-        {
-           
+        {        
             try
             {
-
                 this.SumofTotalAllocatedDataGridView();
-
-                    this.showDataGridDataValueChangedFinder();
-
+                 this.showDataGridDataValueChangedFinder();
                     ////For Decrementation
                     this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
-   
-
+  
             }
-                //Saving Partial Data
-                
+             
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 
         }
-
-        private void sample_Click(object sender, EventArgs e)
-        {
-            //Saving Partial Data
-            dgvFindStoreOrders_CurrentCellChanged(sender, e);
-            if (this.matbtnNewAllocate.Visible == true)
-            {
-
-
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to allocate the order quantity?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    //MessageBox.Show("Data Executed!");
-                    //this.ConnectionInit();
-                    dSet.Clear();
-                    dSet = g_objStoredProcCollection.sp_Allocation_Logs(0,
-                        "",
-                        "",
-                        this.FormClass.Allocated_Quantity.ToString(),
-                        this.FormClass.user_id.ToString(),
-                        "",
-                        this.p_id.ToString(),
-                        0,
-                        0,
-                        "edit");
-                    this.GlobalStatePopup.UpdatedSuccessfully();
-                    this.ConnectionInit();
-                    this.doSearchInTextBox();
-
-                }
-                else
-                {
-                    return;
-                }
-
-
-            }
-        }
-
-       
 
 
 
@@ -1205,13 +990,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             else
             {
-     
-
                 this.SumofTotalAllocatedDataGridView();
-     
-
                 this.showDataGridDataValueChangedFinder();
-
                 try
                 {
                     this.lblvariance.Text = (float.Parse(this.txtSoh.Text.ToString()) - float.Parse(this.lblqtyAllocatedFinal.Text)).ToString();
@@ -1221,10 +1001,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 {
 
                     MessageBox.Show(ex.Message);
-                }
-
-
-               
+                }            
             }
       
         }
@@ -1255,13 +1032,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
             {
                 this.CheckIFGreatherThanDateNeeded();
-
             }
       
         }
 
 
-        //Add Global Interger
         private void CheckIFGreatherThanDateNeeded()
         {
             int DateNeededFromNowTrappings = 0;
@@ -1274,7 +1049,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                     {
                         this.matBtnSave.Enabled = true;
                     }
-
                 }
                 else
                 {
@@ -1284,17 +1058,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
         }
 
-
-
-        public void CancelRawMaterials()
-        {
-          
-            dSet = g_objStoredProcCollection.sp_IDGenerator(
-            int.Parse(this.p_id.ToString()),
-            "CancelStoreOrderApprovalIndividual",
-            this.textBox2Cancel.Text.Trim(),
-            this.user_identity.ToString(), 1, 0);
-        }
         private void dgvFindStoreOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvFindStoreOrders.Columns[e.ColumnIndex].Name == "CANCEL")
@@ -1302,27 +1065,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 frmCancelAllocationOrder FormCancelOrderRemarks = 
                 new frmCancelAllocationOrder(this, "CANCEL");
                 FormCancelOrderRemarks.ShowDialog();
-
-                //if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to cancel? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                //{
-
-
-
-
-
-
-                //}
-                //else
-                //{
-                //    return;
-                //}
             }
         }
 
         private void CancelFunctionality()
         {
-    
-
             dSet = g_objStoredProcCollection.sp_IDGenerator(
             int.Parse(this.p_id.ToString()),
             "CancelStoreOrderApprovalIndividual",
@@ -1339,17 +1086,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             else
             {
-              
-               
                     this.CancelFunctionality();
                     this.txtItemCode_TextChanged(sender, e);
-
-                    //this.ConnectionInit();
-                    //SearchMethodforAllocation();
-                    //FormmLoadSearchAllocationMaster();
-
-                    this.GlobalStatePopup.CancelledSuccessfully();
-               
+                    this.GlobalStatePopup.CancelledSuccessfully();      
             }
         }
 
@@ -1358,8 +1097,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             if (this.lbltotalStoreOrder.Text == "0")
             {
                 this.frmAllocationModule_Load(sender, e);
-            }
-           
+            }         
         }
 
         private void lbltotalStoreOrder_Click(object sender, EventArgs e)
@@ -1372,22 +1110,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dgvFindStoreOrders.Rows)
-            {
 
-                if (Convert.ToDateTime(row.Cells["date_ordered"].Value) > DateTime.Now.Date)
-                {
-                    this.matBtnSave.Enabled = true;
-                }
-                else
-                {
-                    this.matBtnSave.Enabled = false;
-                }
-            }
-        }
-
-        ///
     }
 }
