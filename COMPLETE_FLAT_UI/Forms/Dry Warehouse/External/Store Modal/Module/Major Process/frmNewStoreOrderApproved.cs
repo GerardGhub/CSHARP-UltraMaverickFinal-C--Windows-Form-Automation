@@ -1,39 +1,26 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 {
     public partial class frmNewStoreOrderApproved : MaterialForm
     {
-        //Main Classs
         myclasses myClass = new myclasses();
-
         IStoredProcedures g_objStoredProcCollection = null;
         int MyCurrentRowIndex = 0;
-        //Data Set Initialization
         public DataSet dset = new DataSet();
          DataSet dset2 = new DataSet();
          DataSet dset3 = new DataSet();
          DataSet dSet = new DataSet();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
-        //Variable Declaration
         int p_id = 0;
-
         string Rpt_Path = "";
         double stackQuantity = 0;
-
         int TotalPreparedItemsSummary = 0;
         public frmNewStoreOrderApproved()
         {
@@ -41,9 +28,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         }
         public int Sp_user_id { get; set; }
         public string Mode { get; set; }
-
-
-        //Class Binding to oTher window
         public string Sp_bind_selected { get; set; }
         public int Sp_order_id { get; set; }
         public string Sp_date_ordered { get; set; }
@@ -68,8 +52,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.ClearTextboxesStateMObX();
             myglobal.global_module = "Active";
 
-
-    
             if (this.Mode == "start")
             {
                 this.ConnectionInit();
@@ -92,10 +74,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 this.bunifuPrepaDate_ValueChanged(sender, e);
                 this.dgvStoreOrderApproval.Columns["selected"].ReadOnly = false;
                 this.dgvStoreOrderApproval.Enabled = true;
-
-            }
-
-      
+            } 
         }
         private void ClearTextboxesStateMObX()
         {
@@ -151,10 +130,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             this.ConnectionInit();
             this.dset_emp1.Clear();
-
             this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isCancelled");
             DataView dv = new DataView(this.dset_emp1.Tables[0]);
-
             this.dgvStoreOrderApproval.DataSource = dv;
             this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
         }
@@ -195,37 +172,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             try
             {
-
-
-                //myClass.fillComboBoxStoreOrderApprovalSync(this.cmbDateOrder, "tblStoreOrderDryWH_dropdown_Approval_Order_Date_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbDateOrder.Text, this.matcmbCategory.Text,this.metroCmbStoreCode.Text);
                 myClass.fillComboBoxStoreOrderApprovalSync(this.cmbArea, "tblStoreOrderDryWH_dropdown_Area", this.dSet, this.bunifuPrepaDate.Text, this.matcmbCategory.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
             //this.lblMajorCatId.Text = cboMajorCategory.SelectedValue.ToString();
         }
 
         double num = 0;
         double num_static_value = 0;
      
-        private void dgvReprinting_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-            CheckCount(isChecked);
-
-        }
 
         private void CheckCount(bool isChecked)
         {
-
-          
-
-
             if (isChecked)
             {
                 double totalRecords = Convert.ToInt32(this.lbltotaldata.Text.ToString());
@@ -239,26 +200,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     num_static_value = num;
                 }
 
-           
-
-                    //
-
                 }
             else
             {
                 num--;
-
-
-            
-
             }
             //Store in Static Value Integer Type of Variable
        
             this.labelSelectedSum.Text = "Selected Items: " + num;
             this.labelSelectedSum.Visible = true;
             this.SaveButtonManipulator();
-            this.EditManipulator();
-       
+            this.EditManipulator();   
         }
         private void DeSelectedDataTotalOrderQuantity()
         {
@@ -272,15 +224,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             this.lbltotalOrderQty.Text = sum.ToString();
         }
 
-
-
         private void SelectedDataTotalOrderQuantity()
-        {
-      
+        {     
             double sum = 0;
             double currentcellqty = Convert.ToDouble(this.Sp_qty);
-          
-
+   
             if(num_static_value <= num)
             {
                 //MessageBox.Show("Top"  + num);
@@ -289,12 +237,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
             else
             {
-                //MessageBox.Show("Bottom" + num_static_value);
                 stackQuantity -= currentcellqty;
                 sum = stackQuantity;
             }
-   
-
             this.lbltotalOrderQty.Text = sum.ToString();
         }
 
@@ -312,21 +257,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else
             {
                 //this.matbtnEdit.Visible = false;
-
             }
         }
 
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
-
             this.dset_emp1.Clear();
-
             this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApproved");
-
             this.doSearch();
-
-
         }
         private void doSearch()
         {
@@ -361,22 +300,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         {
                             //dv.RowFilter = "is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'     ";
                         }
-
-
-
-
-                        //dv.RowFilter = "  category = '" + this.matcmbPackaging.Text + "' and  store_name = '" + this.metroCmbStoreCode.Text + "'  and is_approved_prepa_date = '" + this.bunifuPrepaDate.Text + "'     ";
-
-
-                    }
-                    else if (myglobal.global_module == "VISITORS")
-                    {
-                        //dv.RowFilter = "visitors_lastname like '%" + txtsearch.Text + "%' or visitors_firstname like '%" + txtsearch.Text + "%'";
                     }
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-
-                    //gerard
                 }
             }
             catch (SyntaxErrorException)
@@ -406,14 +332,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
-
-
                 this.Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
-
-
                 this.dgvStoreOrderApproval.Columns[0].Width = 50;// The id column
                 this.dgvStoreOrderApproval.Columns[3].Width = 150;// The id column
-
             }
             else
             {
@@ -428,10 +349,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             try
             {
-
-
                 myClass.fillComboBoxStoreOrderApprovalSync(this.matcmbCategory, "tblStoreOrderDryWH_dropdown_Approval_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbArea.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
-
             }
             catch (Exception ex)
             {
@@ -446,18 +364,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             try
             {
-
-
                 myClass.fillComboBoxStoreOrderApprovalSyncStore(this.metroCmbStoreCode, "tblStore_dropdown_isApproved", this.dSet, this.bunifuPrepaDate.Text, this.cmbArea.Text, this.matcmbCategory.Text, this.metroCmbStoreCode.Text);
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
         private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -466,17 +378,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 if (1 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 0 == Convert.ToDouble(row.Cells["DateDiff"].Value))
                 {
-
                     row.Cells["DateDiff"].Style.BackColor = Color.Green;
                     row.Cells["selected"].Style.BackColor = Color.Green;
-
-
                 }
                 else if (2 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 3 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 4 == Convert.ToDouble(row.Cells["DateDiff"].Value) || 5 == Convert.ToDouble(row.Cells["DateDiff"].Value))
                 {
                     row.Cells["DateDiff"].Style.BackColor = Color.Yellow;
-                    row.Cells["selected"].Style.BackColor = Color.Yellow;
-                
+                    row.Cells["selected"].Style.BackColor = Color.Yellow;                
                 }
      
             else
@@ -502,8 +410,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 this.metroCmbStoreCode.SelectedIndex = -1;
             }
-
-
             this.load_search();
             this.checkIfAlreadyPrepared();
 
@@ -511,43 +417,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
 
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
-           
-
-
             this.Mode = "Search1";
             this.ConnectionInit();
-
-
             this.loadAreaDropdown(); //Puke
-
-
             if (this.metroCmbStoreCode.Text != String.Empty)
             {
                 this.metroCmbStoreCode.SelectedIndex = -1;
-
             }
 
             if (this.cmbArea.Text != String.Empty)
             {
-
-
                 this.cmbArea.SelectedIndex = -1;
             }
 
 
             this.load_search();
             this.checkIfAlreadyPrepared();
-
-
-
-
-
         }
 
         private void metroCmbStoreCode_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-          
+        {          
             this.Mode = "Search4";
             this.ConnectionInit();
             this.load_search();
