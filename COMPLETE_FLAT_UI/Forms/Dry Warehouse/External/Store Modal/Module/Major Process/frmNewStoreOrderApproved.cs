@@ -809,9 +809,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             else if (matRadioNotActive.Checked == true)
             {
                 this.Sp_bind_selected = "0";
-
                 this.LoadDataCancelledforPreparation();
-                //this.SearchMethodJarVarCallingSP();
             }
             else
             {
@@ -890,7 +888,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             
             }
     
-    
             else if(this.textBox1.Text == "Disconnect")
             {
                 if(num == 0)
@@ -938,7 +935,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             {
                 //IS For Preparation POPUP
                 this.sp_prepa_date_update = this.textBox2.Text;
-                //MessageBox.Show(this.sp_prepa_date_update);
                 this.UpdatePreparationDate();
 
                 this.num = 0;
@@ -997,34 +993,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
-            "",
-            this.bunifuPrepaDate.Text,
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            0,
-            this.matcmbCategory.Text, "", 
-            this.metroCmbStoreCode.Text,
-            0,
-            "check_if_already_prepared");
-
-            if (dSet.Tables[0].Rows.Count > 0)
-            {
-                this.GlobalStatePopup.UnabledToCancelItemAlreadyPrepared();
-            }
-            else
-            {
-                //MessageBox.Show("B");
-            }
-        }
 
         private void dgvStoreOrderApproval_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {

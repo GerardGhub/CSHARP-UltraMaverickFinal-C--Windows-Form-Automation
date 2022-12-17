@@ -1297,6 +1297,7 @@
             this.rMNearlyExpiryReportToolStripMenuItem.Name = "rMNearlyExpiryReportToolStripMenuItem";
             this.rMNearlyExpiryReportToolStripMenuItem.Size = new System.Drawing.Size(350, 24);
             this.rMNearlyExpiryReportToolStripMenuItem.Text = "RM Nearly Expiry Report";
+            this.rMNearlyExpiryReportToolStripMenuItem.Click += new System.EventHandler(this.rMNearlyExpiryReportToolStripMenuItem_Click);
             // 
             // rMMiscellaneousTransactionReportToolStripMenuItem
             // 

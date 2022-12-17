@@ -1,12 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -15,12 +9,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
     public partial class frmDryWarehouseNearlyExpiryItems : MaterialForm
     {
         myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
-
         int p_id = 0;
 
         DateTime dNow = DateTime.Now;
@@ -43,18 +33,17 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             if(this.lbltotalrecords.Text != "0")
             {
                 this.SearchMethodJarVarCallingSP();
-                this.matRadioActive.Checked = true;
+                this.matRadioLaboratory.Checked = true;
             }
         }
 
         private void ConnectionInitialization ()
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); 
         }
 
 
-        private void showRawMaterialsNearlyExpiry()    //method for loading available_menus
+        private void showRawMaterialsNearlyExpiry() 
         {
             try
             {
@@ -67,7 +56,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
         }
 
-        private void showRawMaterialsNearlyExpiryOnLaboratory()    //method for loading available_menus
+        private void showRawMaterialsNearlyExpiryOnLaboratory() 
         {
             try
             {
@@ -83,7 +72,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (this.matRadioActive.Checked == true)
+            if (this.matRadioLaboratory.Checked == true)
             {
                 this.ConnectionInitialization();
                 this.SearchMethodJarVarCallingSP();
@@ -112,15 +101,15 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         DataSet dset_emp_SearchEngines = new DataSet();
         private void SearchMethodJarVarCallingSP()
         {
-            if (this.matRadioActive.Checked == true)
+            if (this.matRadioLaboratory.Checked == true)
             {
                 this.dset_emp_SearchEngines.Clear();
-                this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor");
+                this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DryWarehouseNearlyExpiryMajor");
             }
             if (this.matRadioNearlyExpiry.Checked == true)
             {
                 this.dset_emp_SearchEngines.Clear();
-                this.dset_emp_SearchEngines = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryMajor_OnLaboratory");
+                this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DryWarehouseNearlyExpiryMajor_OnLaboratory");
             }
         }
 

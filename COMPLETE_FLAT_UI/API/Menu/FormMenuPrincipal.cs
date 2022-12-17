@@ -1699,6 +1699,16 @@ namespace COMPLETE_FLAT_UI
             frmMovereport.ShowDialog();
         }
 
+        private void rMNearlyExpiryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            myglobal.REPORT_NAME = "PrintNearlyExpired";
+
+            frmReport fr = new frmReport();
+            fr.WindowState = FormWindowState.Maximized;
+            fr.Show();
+        }
+
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
         {
 
