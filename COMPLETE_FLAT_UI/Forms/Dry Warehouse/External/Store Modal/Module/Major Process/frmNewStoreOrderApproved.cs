@@ -525,8 +525,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
         {
             try
             {
-            
-
                 bool isChecked = (bool)dgvStoreOrderApproval.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
                 CheckCount(isChecked);
                 if(num == 0)
@@ -632,10 +630,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
             try
             {
                 //Start of the code block
-
-
-
-
                 if (this.materialCheckboxSelectAll.Checked == true)
                 {
                    
@@ -657,13 +651,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                     
                 }
                 else
-               
-
-
                 {
                     this.materialCheckboxSelectAll.Text = "Select ALL";
-
-
                     for (int i = 0; i < dgvStoreOrderApproval.RowCount; i++) { dgvStoreOrderApproval.Rows[i].Cells[0].Value = false; }
                     this.labelSelectedSum.Text = "Selected Items: " + 0;
                     this.num = 0;
@@ -674,9 +663,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                         this.matbtnEdit.Visible = false;
                     }
                 }
-
-
-                //End of the code block
             }
             catch (Exception ex)
             {
@@ -684,7 +670,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal
                 MessageBox.Show(ex.Message);
             }
 
-
+           if (this.TotalPreparedItemsSummary != 0)
+            {
+                this.matbtnEdit.Visible = false;
+            }
         }
 
         private void matbtnCancel_Click(object sender, EventArgs e)
