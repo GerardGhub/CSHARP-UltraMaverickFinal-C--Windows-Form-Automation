@@ -225,10 +225,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         DataSet dset_emp_SearchEnginesReceivingInformationDset = new DataSet();
         private void SearchMethodJarVarCallingSPReceivingInformation()
         {
-
             this.dset_emp_SearchEnginesReceivingInformationDset.Clear();
             this.dset_emp_SearchEnginesReceivingInformationDset = g_objStoredProcCollection.sp_getMajorTables("searchorderForReceivinginDryWarehouse");
-
         }
 
 
@@ -241,7 +239,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 
@@ -249,19 +246,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
 
 
-
         private void LoadWindowsExecution()
         {
             this.dgvStoreOrderApproval.Enabled = false;
             this.Sp_AssigneD_Task_By = userinfo.user_id;
         }
-
-        private void matRadioNext_CheckedChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-
 
 
         private void NextDatainDryStorePreparationEntry()
@@ -293,8 +282,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             else
             {
                
-
-
                     int prev = this.dgvStoreOrderApproval.CurrentRow.Index - 1;
                     if (prev >= 0)
                     {
@@ -307,9 +294,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.mattxtScanTheBarcode.Focus();
 
                     }
-
-             
-              
+                     
                 this.mattxtScanTheBarcode.Focus();
             }
         }
@@ -658,26 +643,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.mattxtScanTheBarcode.Focus();
 
                         return;
-                    }
-
-
-            
+                    }         
                     this.FindTheExactItemCode();
-
-
-            
-
-
                 }
                 else
                 {
-
                     this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
-     
-                    //Buje Malakas
                     this.mattxtScanTheBarcode.Text = String.Empty;
                     this.mattxtScanTheBarcode.Focus();
-
                     return;
                 }
 
@@ -687,7 +660,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             else
             {
                 this.GlobalStatePopup.ReceivingBarcodeIdIsnotExist();
-                //Buje Malakas
                 this.mattxtScanTheBarcode.Text = String.Empty;
                 this.mattxtScanTheBarcode.Focus();
 
@@ -750,9 +722,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 //Cell na 0
                 else
                 {
-
-
-   
                     return;
                 }
                 this.FindTheExactItemCode();
@@ -799,8 +768,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
         private void doSearchInTextBoxCmbReceivingInformative()
         {
-
-            //MessageBox.Show(this.Sp_Receiving_ID_RecommendedFefo);
             try
             {
                 if (this.dset_emp_SearchEnginesReceivingInformationDset.Tables.Count > 0)
@@ -1045,10 +1012,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             else
             {
                 if (this.lbltotaldata.Text == "0")
-                {
-                   
-
-
+                {             
                     this.dset2.Clear();
                     this.dset2 = g_objStoredProcCollection.sp_Store_order_force_cancel_logs(
                     this.Sp_id,
@@ -1064,18 +1028,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.ConnectionInit();
                     this.loadCategoryDropdown();
                     this.matcmbCategory_SelectionChangeCommitted(sender, e);
-
-                    this.matbtnSave.Visible = false;
-          
-
-                }
-               
-
-
+                    this.matbtnSave.Visible = false;       
+                }     
             }
-
-
-       
         }
 
         private void matRadioNext_Click(object sender, EventArgs e)
@@ -1102,9 +1057,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
             else
             {
-              
-
-
                     int prev = this.dgvStoreOrderApproval.CurrentRow.Index - 1;
                     if (prev >= 0)
                     {
@@ -1182,11 +1134,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
            
         }
 
-        private void matcmbCategory_Click(object sender, EventArgs e)
-        {
 
-            this.loadCategoryDropdown();
-        }
 
         private void guna2DgvMaterialPreparation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1236,11 +1184,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                          this.Sp_Item_Code,
                         "force_prepared_dry_store_orders");
                     }
-
-
                     this.dgvStoreOrderApproval_CurrentCellChanged(sender, e);
-
-
                     this.GlobalStatePopup.CancelledSuccessfully();
                 }
                 else
@@ -1249,9 +1193,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 }
 
             }
-                    //back
-
-
             }
 
       

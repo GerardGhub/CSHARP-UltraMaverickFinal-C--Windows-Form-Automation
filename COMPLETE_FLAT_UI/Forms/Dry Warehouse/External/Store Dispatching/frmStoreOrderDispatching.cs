@@ -1090,26 +1090,21 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                     this.materialLabelRecentLogs.Text = "View Current Log(s)";
                     //Preparation Date Load
                     this.loadPreparationDateDropdownRecentLogs();
-                    //Load Fucking Category
-                    //this.loadCategoryDropdown_Recent_Logs();
+
 
                     this.materialLabelFrom.Visible = true;
                     this.materialLabelTo.Visible = true;
                     this.bunifuPrepaDateFrom.Visible = true;
                     this.bunifuDateTo.Visible = true;
-                matCmbPreparationDate.Enabled = false;
-
-
-
+                    this.matCmbPreparationDate.Enabled = false;
                     //Do Searching Method
                     this.RecentLogsSearch();
-
                     counterstrike = 1;
                 }
-
                 if (counterstrike == 2)
                 {
                 //Initial Page Print
+                num = 0;
                 this.metroCMbFilterPrintPages.Text = "1";
                 this.SelectAllDataFunctionality();
 
