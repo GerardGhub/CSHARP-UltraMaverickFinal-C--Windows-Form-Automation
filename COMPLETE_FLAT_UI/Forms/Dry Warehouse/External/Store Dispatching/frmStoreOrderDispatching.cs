@@ -14,12 +14,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         //Main Classs
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
-        //Variable Declaration
         int counterstrike = 0;
         string Rpt_Path = "";
         ReportDocument rpt = new ReportDocument();
@@ -416,19 +414,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                             string Prepadate = dt.ToString("yyyy-MM-dd");
 
                             dv.RowFilter = " is_wh_approved_date = '" + Prepadate + "' and   category = '" + this.MatcmbCategory.Text + "' and store_name ='" + this.MetroCmbStoreName.Text + "'  ";
-
                         }
-
-
                     }
-
-                  
-
                     this.dgvGunaMoveItems.DataSource = dv;
                     this.lbltotaldata.Text = dgvGunaMoveItems.RowCount.ToString();
-                    //this.ManualSetupHeaderName();
-                
-                    //gerard
                 }
             }
             catch (SyntaxErrorException)
@@ -455,13 +444,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             {
                 this.materialCheckboxSelectAll.Checked = false;
                 this.materialCheckboxSelectAll_CheckedChanged(sender, e);
-
             }
 
 
             if (this.counterstrike == 0)
             {
-
                 this.loadCategoryDropdown();
                 if (this.MatcmbCategory.Text != String.Empty)
                 {
@@ -472,18 +459,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
             if(this.counterstrike == 2)
             {
-
                 this.loadCategoryDropdownRecentLogs();
                 if (this.MatcmbCategory.Text != String.Empty)
                 {
-
                     this.loadPrepaDate_AND_CategoryRecentLogs();
                 }
-
-
             }
-        
-
         }
 
         private void matcmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
@@ -503,15 +484,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         }
 
-        private void CountAllQtyOrder()
-        {
-            int sum = 0;
-            for (int i = 0; i < this.dgvGunaMoveItems.Rows.Count; ++i)
-            {
-                sum += Convert.ToInt32(this.dgvGunaMoveItems.Rows[i].Cells["prepared_allocated_qty"].Value);
-            }
-            this.lbltotalOrderQty.Text = sum.ToString();
-        }
 
 
         private void SelectedTrue()
@@ -569,8 +541,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.matbtnEdit.Visible = false;
             }
             else
-            {
-               
+            {              
                 this.materialLabelNoPrintPages.Visible = true;
                 this.metroCMbFilterPrintPages.Visible = true;
                 this.materialButtonPrintPreview.Visible = true;
@@ -587,18 +558,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             try
             {
                 bool isChecked = (bool)dgvGunaMoveItems.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
-                CheckCount(isChecked);
-    
+                CheckCount(isChecked);  
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
-            }
-
-
-        
- 
+            } 
         }
 
         private void CheckCount(bool isChecked)
@@ -634,13 +599,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
         {
             if (this.num == 1)
             {
-                //this.matbtnCancel.Visible = true;
                 this.matbtnEdit.Visible = true;
             }
             else
             {
                 //this.matbtnEdit.Visible = false;
-
             }
         }
 
@@ -655,8 +618,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 if(this.MatcmbCategory.Text != String.Empty)
                 {
                     this.MetroCmbStoreName.Enabled = true;
-                }
-                
+                }                
             }
             else
             {
@@ -667,10 +629,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.dgvGunaMoveItems.Enabled = false;
             }
         }
-
-
-
-
 
 
         private void matbtnEdit_Click(object sender, EventArgs e)
@@ -873,12 +831,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
                     if (this.materialLabelRecentLogs.Text == "View Current Log(s)")
                     {
-                        //Buje
                         this.SelectedFalse();
                         num = 0;
                         this.bunifuPrepaDateFrom_ValueChanged(new object(), new System.EventArgs());
-                        this.bunifuDateTo_ValueChanged(new object(), new System.EventArgs());
-               
+                        this.bunifuDateTo_ValueChanged(new object(), new System.EventArgs());               
                         this.GlobalStatePopup.ReprintSuccessFully();
                         return;
                     }
@@ -1066,7 +1022,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
             this.dgvGunaMoveItems_CurrentCellChanged(new object(), new System.EventArgs());
             if (this.num == this.printpreview_num_count)
             {
-              //this.printpreview_num_count = 0;
                 return;
             }
             else
@@ -1077,21 +1032,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 }
                 this.printpreview_num_count++;
             }
-
             if (this.dgvGunaMoveItems.Rows.Count >= 1)
-                {
-                    int i = this.dgvGunaMoveItems.CurrentRow.Index + 1;
-                    if (i >= -1 && i < this.dgvGunaMoveItems.Rows.Count)
-                        this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[0];
+            {
+            int i = this.dgvGunaMoveItems.CurrentRow.Index + 1;
+            if (i >= -1 && i < this.dgvGunaMoveItems.Rows.Count)
+            this.dgvGunaMoveItems.CurrentCell = this.dgvGunaMoveItems.Rows[i].Cells[0];
             }
             else
                 {
                     return;
                 }
-
             this.Sp_Selected_Item = "";
-
-
             this.AutoPrintPreviewLooping();
         }
 
@@ -1182,9 +1133,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
                 this.RecentLogsSearch();
             }
         }
-
-
-
 
         private void materialLabelRecentLogs_Click(object sender, EventArgs e)
         {
