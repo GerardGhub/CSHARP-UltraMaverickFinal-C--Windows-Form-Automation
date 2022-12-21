@@ -54,14 +54,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             this.sp_added_by_userid = userinfo.user_id.ToString();
             this.Mattxtbarcode.Focus();
             this.Mattxtbarcode.Select();
-
         }
 
         private void ConnectionInit()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
-
 
         private void showLatestID()      
         {
@@ -71,14 +69,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
-
         }
-
-
 
         private void firstLoad()
         {
@@ -112,13 +105,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         DataSet dset_emp_SearchEnginesNearlyExpiry = new DataSet();
         private void SearchMethodJarVarCallingSPNearlyExpiry()
         {
-  
             myglobal.global_module = "Active"; // Mode for Searching
             dset_emp_SearchEnginesNearlyExpiry.Clear();
-
-
             dset_emp_SearchEnginesNearlyExpiry = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_NearlyExpiry");
-
         }
 
 
@@ -207,8 +196,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void scanBarcode()
         {
-
-            //Check the Item Code if exist on the fucking system
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 Mattxtbarcode.Text,
@@ -249,7 +236,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     "getRMforReceivingDryWH");
                 if (dSet_CheckGooDRM.Tables[0].Rows.Count > 0)
                 {
-        
+
+
                     //dset_emp_SearchEngines
                     //MessageBox.Show(dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString());
 
@@ -284,29 +272,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtReceived.Visible = true;
                         this.matbtnCancel.Visible = true;
 
-                        //Remove Some Data
                         this.mattxtqtyReceived.Text = String.Empty;
                         this.mattxtlotno.Text = String.Empty;
                         this.mattxtLotDescription.Text = String.Empty;
-                        //mattxtqtyreject.Text = String.Empty;
                         this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
                     }
                 }
          
                 else
                 {
-                    //MessageBox.Show("VBOBOB");
-                    //return;
-
                     this.scanBarcodeNearlyExpiry();
-
-                    this.Mattxtbarcode.Text = String.Empty;
-                    this.Mattxtbarcode.Focus();
-
-                    //this.GlobalStatePopup.RMNotExistReceiving();
-                    //this.mattxtbarcode.Text = String.Empty;
-                    //this.mattxtbarcode.Focus();
-                    //return;
                 }
 
 
@@ -326,6 +301,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void scanBarcodeNearlyExpiry()
         {
+         
 
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
@@ -347,8 +323,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                
-                    this.SearchMethodJarVarCallingSPNearlyExpiry();
+                //MessageBox.Show(this.Mattxtbarcode.Text);
+                //return;
+                this.SearchMethodJarVarCallingSPNearlyExpiry();
                     this.doSearchInTextBoxCmbNearlyExpiry();
 
     

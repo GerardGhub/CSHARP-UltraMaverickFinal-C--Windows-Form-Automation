@@ -1048,35 +1048,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Dispatching
 
         private void PrintPreview()
         {
-
             if (this.materialLabelRecentLogs.Text == "View Recent Log(s)")
             {
-
                 myglobal.REPORT_NAME = "StoreMoveOrderPickSlipPreview";
 
                 Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
 
                 rpt.Load(Rpt_Path + "\\StoreMoveOrderPickSlipPreview.rpt");
                 //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
-
                 rpt.Refresh();
-
                 //Date Conversion
                 this.DateConversion(this.Sp_PreparationDate);
-
                 myglobal.DATE_REPORT = this.ConvertedDateToString;
                 myglobal.DATE_REPORT2 = this.Sp_Category;
                 myglobal.DATE_REPORT3 = this.Sp_Fox;
                 myglobal.DATE_REPORT4 = this.Sp_UserName;
                 myglobal.DATE_REPORT5 = this.Sp_ParentId.ToString();
-
-
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
-
                 frmReport frmReport = new frmReport();
                 frmReport.ShowDialog();
-
             }
             else
             {
