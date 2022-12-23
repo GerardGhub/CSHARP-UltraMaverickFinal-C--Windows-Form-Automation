@@ -3,6 +3,7 @@ using MaterialSkin.Controls;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Allocation_Process;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module.Allocation_Process.Class;
@@ -56,15 +57,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
             try
             {
-                myClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
-               this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
+            myClass.fillDataGridView(this.dgvStoreOrderApproval, "Raw_Materials_Dry_Allocation", dSet);
+            this.lbltotaldata.Text = this.dgvStoreOrderApproval.RowCount.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+            MessageBox.Show(ex.Message);
             }
             this.DataGridVisibleFalseForDistinctItems();
 
+
+            //var vv = dgvStoreOrderApproval.Rows.Cast<DataGridViewRow>()
+            //               .Select(x => x.Cells["item_code"].Value.ToString())
+            //               .Distinct()
+            //               .ToList();
         }
 
         DataSet dset_emp_SearchForAllocation = new DataSet();
@@ -206,15 +212,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         private void txtItemCode_TextChanged(object sender, EventArgs e)
         {
             this.ConnectionInit();
-
             this.SearchMethodJarVarCallingSP();
-
             this.doSearchInTextBox();
             if(this.lbltotalStoreOrder.Text =="0")
             {
 
-            }
-            
+            }            
             else
             {
                 this.hideFindColumninDataGridViewer();
@@ -467,17 +470,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
                 else
                 {
                     this.showDataGridDataValueChangedFinder();
-
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
-      
-
         }
         private void showDataGridDataValueChangedFinder()
         {
@@ -655,14 +653,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
         {
             this.ConnectionInit();
             this.SenderTextChangedValue();
-
-
             if(this.lblqtyAllocatedFinal.Text !="0")
             {
                 this.matBtnSave.Enabled = false;
                 this.matbtnManualAllocation.Visible = true;
                 this.matbtnNewAllocate.Visible = true;
-
             }
             if(this.textBox2.Text == "Save")
             {
@@ -1076,9 +1071,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             this.user_identity.ToString(), 1, 0);
         }
         private void textBox2Cancel_TextChanged(object sender, EventArgs e)
-        {
-         
-         
+        {      
             if (textBox2Cancel.Text == String.Empty)
             {
         

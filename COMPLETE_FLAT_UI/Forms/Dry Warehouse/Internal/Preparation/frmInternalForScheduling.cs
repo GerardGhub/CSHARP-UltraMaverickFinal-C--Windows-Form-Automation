@@ -13,25 +13,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
     {
         myclasses myClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dSet = new DataSet();
         DataSet dSetCategoryPartialValidation = new DataSet();
-
-
-        //Variable Declaration
         int p_id = 0;
         int num = 0;
-
         string Rpt_Path = "";
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         frmNewStoreOrderApprovedClasses FormClass = new frmNewStoreOrderApprovedClasses();
         myglobal GlobalVariable = new myglobal();
         string selection_mode = "";
-        string modesplashScreenError = "";
-
-
         public string Sp_department_id { get; set; }
         public string Sp_mrs_req_desc { get; set; }
         public string Sp_mrs_requested_by { get; set; }
@@ -70,11 +62,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
         private void DropDownMethod()
@@ -113,14 +102,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                     this.dgvStoreOrderApproval.DataSource = dv;
                     this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-
-                    //gerard
                 }
             }
             catch (SyntaxErrorException)
             {
                 MessageBox.Show("Invalid character found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
             catch (EvaluateException)
@@ -129,7 +115,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                 return;
             }
-            //END
         }
 
    
@@ -152,71 +137,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             if (this.matRadioForApproval.Checked == true)
             {
                 this.dset_emp1.Clear();
-
                 this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchMRSMasterDataSync");
-
                 this.doSearch();
             }
             else if(this.matRadioForAllocation.Checked == true)
             {
-                this.dset_emp1.Clear();
-
-             
+                this.dset_emp1.Clear();        
                 this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchMRSMasterDataSyncForAllocation");
-
                 this.doSearch();
             }
-  
-
 
         }
-
-        private void ReturnFunctionality()
-        {
-
-            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-
-
-            this.DataRefresher();
-            myglobal.global_module = "Active";
-
-
-            //Functionality Viewing of the Data Binding Source
-            if (this.matRadioForApproval.Checked == true)
-            {
-                this.loadCategoryDropdown();
-            }
-            else if (this.matRadioForAllocation.Checked == true)
-            {
-                this.loadMRSDropdownForAllocation();
-            }
-            this.FormClass.mode = "";
-            this.dset_emp1.Clear();
-            this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
-            DataView dv = new DataView(this.dset_emp1.Tables[0]);
-            this.dgvStoreOrderApproval.DataSource = dv;
-            this.lbltotaldata.Text = dgvStoreOrderApproval.RowCount.ToString();
-            this.DataGridColumnDisabledEditing();
-
-        }
-
- 
-
-        private void DataGridColumnDisabledEditing()
-        {
-            if (this.dgvStoreOrderApproval.Rows.Count > 0)
-            {
-                this.dgvStoreOrderApproval.Columns["mrs_id"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["department_id"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_req_desc"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_requested_by"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["mrs_requested_date"].ReadOnly = true;
-                this.dgvStoreOrderApproval.Columns["TOTAL_ITEMS"].ReadOnly = true;
-            }
-        }
-
-
-      
 
 
         private void ValidatedItemforApproval()
@@ -233,16 +164,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 else
                 {
 
-
-
                     if (this.GlobalVariable.message_window_occur_for_approval_store_module != "1")
                     {
-                        //Start Enabled for Sir Visoy 3/17/2021  JP
                         if (MetroFramework.MetroMessageBox.Show(this, "You have " + this.GlobalStatePopup.Total_item_for_allocation + " item for Allocation? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-
-                            //this.modesplashScreenError = "1";
-
                             frmAllocationModule sistema = new frmAllocationModule();
                             sistema.MaximizeBox = false;
                             sistema.MinimizeBox = false;
@@ -251,17 +176,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         }
                         else
                         {
-                            //this.ReturnFunctionality();
-                            //return;
                             this.GlobalStatePopup.YouHaveItemForAllocation();
-                            //this.ReturnFunctionality();
                         }
-                    }
-
-
-                 
+                    }              
                     this.GlobalVariable.message_window_occur_for_approval_store_module = "1";
-                    //END
 
                 }
 
@@ -269,23 +187,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
 
-        private void showRawMaterialforApproval()    //method for loading available_menus
-        {
-            try
-            {
-
-                myClass.fillDataGridView(this.dgvFindDataForAlocation, "Raw_Materials_Dry_Allocation", dSet);
-
-                this.GlobalStatePopup.Total_item_for_allocation = this.dgvFindDataForAlocation.RowCount.ToString();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-
-        }
 
         public void loadCategoryDropdown()
         {
@@ -341,9 +242,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
 
-
-
-
         private void matRadioForAllocation_CheckedChanged(object sender, EventArgs e)
         {
             this.ConnectionOpen();
@@ -358,10 +256,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.matcmbCategory_SelectionChangeCommitted(sender, e);
         }
 
-        private void materialCheckboxSelectAll_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvStoreOrderApproval_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -429,8 +323,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //if (this.textBox1.Text == "TouchedScreen")
-
             if (this.textBox1.Text == "For Scheduling")
             {
                 this.dgvStoreOrderApproval.Enabled = true;
@@ -450,23 +342,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         }
 
-        private void matbtnPrint_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void labelSelectedSum_TextChanged(object sender, EventArgs e)
         {
-   
-
+  
         }
 
         private void dgvStoreOrderApproval_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-           
-
-
-
+      
         }
 
         private void matbtnCancel_Click(object sender, EventArgs e)
@@ -485,9 +370,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             //}
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

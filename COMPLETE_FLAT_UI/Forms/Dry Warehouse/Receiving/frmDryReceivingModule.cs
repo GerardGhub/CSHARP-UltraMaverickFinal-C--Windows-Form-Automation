@@ -251,10 +251,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                                 }
                 }
          
-                //else
-                //{
-                //    this.scanBarcodeNearlyExpiry();
-                //}
                 }
             else
             {
