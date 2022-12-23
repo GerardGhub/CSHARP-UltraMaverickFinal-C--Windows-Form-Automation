@@ -115,16 +115,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
-                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-                 
-
+                    DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);                
                         dv.RowFilter = "item_code = '" + Mattxtbarcode.Text + "'";
-             
-                 
                     this.dgvMajorCategory.DataSource = dv;
                     totalRecords = dgvMajorCategory.RowCount.ToString();
                 }
@@ -141,33 +135,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                 return;
             }
-
-
-
-
         }
 
         private void doSearchInTextBoxCmbNearlyExpiry()
         {
             try
             {
-
-
                 if (dset_emp_SearchEnginesNearlyExpiry.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEnginesNearlyExpiry.Tables[0]);
 
                     if (myglobal.global_module == "Active")
                     {
-
-
-                        //Gerard Singian Developer Man
-
-
-
-
                         dv.RowFilter = "item_code = '" + Mattxtbarcode.Text + "'";
-
                     }
 
                     this.dgvMajorCategory.DataSource = dv;
@@ -216,8 +196,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-                //RawMatsAlreadyExist();
-                //dSet.Clear();
                 dSet_CheckGooDRM = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                     Mattxtbarcode.Text,
                     "",
@@ -237,54 +215,46 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 if (dSet_CheckGooDRM.Tables[0].Rows.Count > 0)
                 {
 
-
-                    //dset_emp_SearchEngines
-                    //MessageBox.Show(dSet.Tables[0].Rows[0]["is_wh_reject_approval"].ToString());
-
                     if (dSet_CheckGooDRM.Tables[0].Rows[0]["is_wh_reject_approval"].ToString() == "1")
                     {
                         this.dset_emp_SearchEngines.Clear();
                         this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_WH_Rejection");
                     }
                     else
-                    {
-          
+                    {        
                         this.SearchMethodJarVarCallingSP();
                     }
+
                     this.doSearchInTextBoxCmb();
+                                if (this.dgvMajorCategory.RowCount == 0)
+                                {
+                                this.scanBarcodeNearlyExpiry();
+                                //this.GlobalStatePopup.RMNotExistReceiving();
+                                //this.Mattxtbarcode.Text = String.Empty;
+                                //this.Mattxtbarcode.Focus();
+                                //return;
+                                }
+                                else
+                                {
+                                this.Mattxtbarcode.Text = String.Empty;
+                                this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
+                                this.GlobalStatePopup.ItemFoundforReceiving();
+                                this.materialCard2.Visible = true;
+                                this.materialCard3.Visible = true;
+                                this.mattxtReceived.Visible = true;
+                                this.matbtnCancel.Visible = true;
 
-           
-                    if (this.dgvMajorCategory.RowCount == 0)
-                    {
-
-                        this.GlobalStatePopup.RMNotExistReceiving();
-                        this.Mattxtbarcode.Text = String.Empty;
-                        this.Mattxtbarcode.Focus();
-                        return;
-                    }
-                    else
-                    {
-                        this.Mattxtbarcode.Text = String.Empty;
-                        this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
-                       this.GlobalStatePopup.ItemFoundforReceiving();
-                        this.materialCard2.Visible = true;
-                        this.materialCard3.Visible = true;
-                        this.mattxtReceived.Visible = true;
-                        this.matbtnCancel.Visible = true;
-
-                        this.mattxtqtyReceived.Text = String.Empty;
-                        this.mattxtlotno.Text = String.Empty;
-                        this.mattxtLotDescription.Text = String.Empty;
-                        this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
-                    }
+                                this.mattxtqtyReceived.Text = String.Empty;
+                                this.mattxtlotno.Text = String.Empty;
+                                this.mattxtLotDescription.Text = String.Empty;
+                                this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
+                                }
                 }
          
-                else
-                {
-                    this.scanBarcodeNearlyExpiry();
-                }
-
-
+                //else
+                //{
+                //    this.scanBarcodeNearlyExpiry();
+                //}
                 }
             else
             {
@@ -301,8 +271,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void scanBarcodeNearlyExpiry()
         {
-         
-
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 Mattxtbarcode.Text,
@@ -325,6 +293,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 //MessageBox.Show(this.Mattxtbarcode.Text);
                 //return;
+            
                 this.SearchMethodJarVarCallingSPNearlyExpiry();
                     this.doSearchInTextBoxCmbNearlyExpiry();
 
@@ -419,12 +388,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         }
                         else
                         {
-                            //int sum = 0;
-                            //for (int i = 0; i < this.dgvMajorCategory.Rows.Count; ++i)
-                            //{
-                            //    sum += Convert.ToInt32(this.dgvMajorCategory.Rows[i].Cells["total_received"].Value);
-                            //}
-                            //this.mattxtsoh.Text = sum.ToString();
+
                         
                                 int sum2 = 0;
                                 for (int i = 0; i < this.dgvMajorCategory.Rows.Count; ++i)
@@ -958,8 +922,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     }
 
 
-
-
                     this.GlobalStatePopup.SuccessfullyReceived();
                     this.showLatestID();
                     //this.SummaryComputation();
@@ -1017,22 +979,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void SummaryComputation()
         {
-            //sp_final_id = (float.Parse(sp_final_id) + 1).ToString();
             double qtyReceiving;
             double rejected;
 
 
             qtyReceiving = double.Parse(mattxtactualdelivery.Text);
             rejected = double.Parse(mattxtqtyreject.Text);
-
-
             sp_receiving_qty = qtyReceiving - rejected;
         }
         private void PrintingProcess()
         {
             Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
-
-
 
             PrintDialog printDialog = new PrintDialog();
             rpt.Load(Rpt_Path + "\\DryReceivingBarcode.rpt");
@@ -1044,16 +1001,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             rpt.SetParameterValue("@mystringid", sp_final_id);
 
-
-
             crV1.ReportSource = rpt;
             crV1.Refresh();
 
-
-
             rpt.PrintOptions.PrinterName = printDialog.PrinterSettings.PrinterName;
-
-
             rpt.PrintToPrinter(printDialog.PrinterSettings.Copies, printDialog.PrinterSettings.Collate, printDialog.PrinterSettings.ToPage, printDialog.PrinterSettings.ToPage);
 
         }
@@ -1061,8 +1012,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void btnAddRejetModal_Click(object sender, EventArgs e)
         {
-
-            //Notify the User if the Transactioin already approve by QC Superviosr
             if (this.sp_warehouse_reject_approval == "1")
             {
                 this.GlobalStatePopup.QCReceiverAlreadyApproved();
@@ -1080,9 +1029,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                 {
                     if (dgvReceivedID.CurrentRow.Cells["id"].Value != null)
                     {
-
                         this.sp_final_id = dgvReceivedID.CurrentRow.Cells["id"].Value.ToString();
-
                     }
                 }
             }
@@ -1092,24 +1039,18 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
         {
             try
             {
-
-
                 this.mattxtupdatedstocks.Text = (float.Parse(mattxtsoh.Text) + float.Parse(mattxtqtyReceived.Text)).ToString();
             }
             catch (Exception)
             {
 
-
             }
             try
             {
-
-
                 this.mattxtqtyReceived.Text = (float.Parse(mattxtactualdelivery.Text) - float.Parse(mattxtqtyreject.Text)).ToString();
             }
             catch (Exception)
             {
-
 
             }
 
@@ -1118,45 +1059,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             {
                 try
                 {
-
-
                     this.mattxtupdatedstocks.Text = String.Empty;
                 }
                 catch (Exception)
                 {
 
-
                 }
             }
-
-
-
-
         }
-
-
-
 
 
         private void StateLoadofExpiryItemAcceptanceOnBarcoding()
         {
             if (this.SP_ExpirationSetPoint < Convert.ToInt32(this.matdaysExpiry.Text))
             {
-
-
                 this.pictureBoxExpiry.Visible = false;
-      
-
             }
             else
             {
-
                 this.pictureBoxExpiry.Visible = true;
-
             }
         }
-
-
 
 
         private void matbtnCancel_Click(object sender, EventArgs e)
