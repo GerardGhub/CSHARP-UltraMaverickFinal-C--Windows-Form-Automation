@@ -303,8 +303,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 return;
             }
 
+            if (this.mattxtQtyServe.Text == "0")
+            {
+                this.GlobalStatePopup.InvalidQuantity();
+                return;
+            }
 
-            //If the Transaction is Virgin hindi pa nakantot
             if(this.matTxtQtyRelease.Text == "0")
             {
                 double InputQtyServeUnused;

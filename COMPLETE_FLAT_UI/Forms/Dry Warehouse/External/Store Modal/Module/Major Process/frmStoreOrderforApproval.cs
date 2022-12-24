@@ -500,22 +500,16 @@ public void LoadCategoryDropdownForAllocation()
         DataSet dset_emp1 = new DataSet();
         private void Load_search()
         {
-
             this.dset_emp1.Clear();
             if (this.matRadioForAllocation.Checked == true)
             {
-
                 this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWHRadioAllocate");
             }
             else if (this.matRadioForApproval.Checked == true)
             {
                 this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH");
             }
-
-
             this.doSearch();
-
-
         }
 
         private void DataRefresher()
@@ -568,16 +562,6 @@ public void LoadCategoryDropdownForAllocation()
         private void matcmbPackaging_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.selection_mode = "1";
-
-
-            //if (this.materialCheckboxSelectAll.Checked == true)
-            //{
-            //    this.materialCheckboxSelectAll.Checked = false;
-            //    this.materialCheckboxSelectAll_CheckedChanged(sender, e);
-
-            //}
-
-
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
 
             this.Load_search();
@@ -590,11 +574,7 @@ public void LoadCategoryDropdownForAllocation()
             {
                 this.TaggingConflictCategoryValidation();
             }
-
-
-
             this.LoadAreaDropdown();
-
         }
 
 
