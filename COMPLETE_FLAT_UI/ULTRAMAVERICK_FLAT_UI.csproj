@@ -148,41 +148,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\Data\Available_MenuRepository.cs" />
-    <Compile Include="API\Data\Available_Menu_GrandChildRepository.cs" />
-    <Compile Include="API\Data\DepartmentUnitRepository.cs" />
-    <Compile Include="API\Data\DryWHReceiptRepository.cs" />
-    <Compile Include="API\Data\Dry_Wh_Order_Parent_Repository.cs" />
-    <Compile Include="API\Data\FormMenuPrincipalRepository.cs" />
-    <Compile Include="API\Data\Major_CategoryRepository.cs" />
-    <Compile Include="API\Data\ParentFormsRepository.cs" />
-    <Compile Include="API\Data\TblCustomersRepository.cs" />
-    <Compile Include="API\Entities\Available_Menu.cs" />
-    <Compile Include="API\Entities\Available_Menu_GrandChild.cs" />
-    <Compile Include="API\Entities\Avg_Order_Trend.cs" />
-    <Compile Include="API\Entities\Department.cs" />
-    <Compile Include="API\Entities\DepartmentUnit.cs" />
-    <Compile Include="API\Entities\DryWHIssue.cs" />
-    <Compile Include="API\Entities\DryWHReceipt.cs" />
-    <Compile Include="API\Entities\Dry_Wh_Order_Parent.cs" />
-    <Compile Include="API\Entities\Internal_Order_Activation_Remarks.cs" />
-    <Compile Include="API\Entities\Item_Class.cs" />
-    <Compile Include="API\Entities\Item_Type.cs" />
-    <Compile Include="API\Entities\Lot_Management.cs" />
-    <Compile Include="API\Entities\ParentForms.cs" />
-    <Compile Include="API\Entities\Position.cs" />
-    <Compile Include="API\Entities\Primary_Unit.cs" />
-    <Compile Include="API\Entities\Raw_Materials_Dry.cs" />
-    <Compile Include="API\Entities\Store_Order_Activation_Remarks.cs" />
-    <Compile Include="API\Entities\Sub_Category.cs" />
-    <Compile Include="API\Entities\TblArea.cs" />
-    <Compile Include="API\Entities\TblCustomers.cs" />
-    <Compile Include="API\Entities\TblRegion.cs" />
-    <Compile Include="API\Entities\TblRoute.cs" />
-    <Compile Include="API\Entities\TblStoreOrderManageSyncing.cs" />
-    <Compile Include="API\Entities\Major_Category.cs" />
-    <Compile Include="API\Entities\Tbl_Stores.cs" />
-    <Compile Include="API\Entities\UserFile.cs" />
+    <Compile Include="API\Repository\Available_MenuRepository.cs" />
+    <Compile Include="API\Repository\Available_Menu_GrandChildRepository.cs" />
+    <Compile Include="API\Repository\DepartmentUnitRepository.cs" />
+    <Compile Include="API\Repository\DryWHReceiptRepository.cs" />
+    <Compile Include="API\Repository\Dry_Wh_Order_Parent_Repository.cs" />
+    <Compile Include="API\Repository\FormMenuPrincipalRepository.cs" />
+    <Compile Include="API\Repository\Major_CategoryRepository.cs" />
+    <Compile Include="API\Repository\ParentFormsRepository.cs" />
+    <Compile Include="API\Repository\TblCustomersRepository.cs" />
+    <Compile Include="API\Models\Available_Menu.cs" />
+    <Compile Include="API\Models\Available_Menu_GrandChild.cs" />
+    <Compile Include="API\Models\Avg_Order_Trend.cs" />
+    <Compile Include="API\Models\Department.cs" />
+    <Compile Include="API\Models\DepartmentUnit.cs" />
+    <Compile Include="API\Models\DryWHIssue.cs" />
+    <Compile Include="API\Models\DryWHReceipt.cs" />
+    <Compile Include="API\Models\Dry_Wh_Order_Parent.cs" />
+    <Compile Include="API\Models\Internal_Order_Activation_Remarks.cs" />
+    <Compile Include="API\Models\Item_Class.cs" />
+    <Compile Include="API\Models\Item_Type.cs" />
+    <Compile Include="API\Models\Lot_Management.cs" />
+    <Compile Include="API\Models\ParentForms.cs" />
+    <Compile Include="API\Models\Position.cs" />
+    <Compile Include="API\Models\Primary_Unit.cs" />
+    <Compile Include="API\Models\Raw_Materials_Dry.cs" />
+    <Compile Include="API\Models\Store_Order_Activation_Remarks.cs" />
+    <Compile Include="API\Models\Sub_Category.cs" />
+    <Compile Include="API\Models\TblArea.cs" />
+    <Compile Include="API\Models\TblCustomers.cs" />
+    <Compile Include="API\Models\TblRegion.cs" />
+    <Compile Include="API\Models\TblRoute.cs" />
+    <Compile Include="API\Models\TblStoreOrderManageSyncing.cs" />
+    <Compile Include="API\Models\Major_Category.cs" />
+    <Compile Include="API\Models\Tbl_Stores.cs" />
+    <Compile Include="API\Models\UserFile.cs" />
     <Compile Include="API\Extensions\Modules.cs" />
     <Compile Include="API\Interfaces\IAvailable_MenuRepository.cs" />
     <Compile Include="API\Interfaces\IAvailable_Menu_GrandChildRepository.cs" />
@@ -895,13 +895,13 @@
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="API\Menu\View Models\MenuClasses.cs" />
-    <Compile Include="Domain\IStoredProcedures.cs" />
-    <Compile Include="Domain\myclasses.cs" />
-    <Compile Include="Domain\myglobal.cs" />
-    <Compile Include="Domain\PopupNotifierClass.cs" />
-    <Compile Include="Domain\StoredProcedures.cs" />
-    <Compile Include="Domain\userinfo.cs" />
-    <Compile Include="Domain\user_info.cs" />
+    <Compile Include="Classes\IStoredProcedures.cs" />
+    <Compile Include="Classes\myclasses.cs" />
+    <Compile Include="Classes\myglobal.cs" />
+    <Compile Include="Classes\PopupNotifierClass.cs" />
+    <Compile Include="Classes\StoredProcedures.cs" />
+    <Compile Include="Classes\userinfo.cs" />
+    <Compile Include="Classes\user_info.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Application\Report\frmReport.cs">
@@ -1391,10 +1391,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\Controllers\" />
-    <Folder Include="API\DTOs\" />
-    <Folder Include="API\Errors\" />
-    <Folder Include="API\Helpers\" />
-    <Folder Include="API\Middleware\" />
     <Folder Include="Forms\Login\" />
     <Folder Include="Forms\MasterList SetUP\" />
   </ItemGroup>
