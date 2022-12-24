@@ -1390,7 +1390,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="API\Controllers\" />
     <Folder Include="Application Form\Forms\Login\" />
     <Folder Include="Application Form\Forms\MasterList SetUP\" />
   </ItemGroup>

@@ -1,16 +1,8 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -43,14 +35,11 @@ namespace COMPLETE_FLAT_UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-     
-
             if (txtMaterialUsername.Text.Trim() == string.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
                 txtMaterialUsername.Focus();
                 return;
-
             }
 
             if (txtMaterialPassword.Text.Trim() == string.Empty)
@@ -58,14 +47,9 @@ namespace COMPLETE_FLAT_UI
                 this.GlobalStatePopup.FillRequiredFields();
                 txtMaterialPassword.Focus();
                 return;
-
             }
             dSet.Clear();
             dSet = objStorProc.sp_userfile(0, txtMaterialUsername.Text.Trim(), txtMaterialPassword.Text.Trim(), "", "dispossal");
-
-
-
-
 
             //User Stored Procedure Validate name & Password
             dSet.Clear();
@@ -73,8 +57,6 @@ namespace COMPLETE_FLAT_UI
                 txtMaterialUsername.Text.Trim(),
                 txtMaterialPassword.Text.Trim(), 
                 "", "validate");
-
-
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
@@ -92,50 +74,37 @@ namespace COMPLETE_FLAT_UI
 
                 //System.Diagnostics.Process.Start(@"C:\Program Files (x86)\DiniTools\WeighConsole.exe");//deploy
 
-           
-
+      
                 this.Hide();
                 FormMenuPrincipal sistema = new FormMenuPrincipal();
                 sistema.ShowDialog();
                 this.Close();
-
-                //end of form validation
             }
             else
             {
                 player.SoundLocation = @"C:\MaverickReports\Fedora_Voice\windows_error_msg.wav";
                 player.Play();
-                NotAllowToUsedTheSystem();
-           
+                NotAllowToUsedTheSystem();         
             }
         }
 
         public void NotAllowToUsedTheSystem()
-        {
-        
+        {   
             MetroFramework.MetroMessageBox.Show(this, "Sorry! You are not allowed to use this system invalid credentials! ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //Application.Exit();
-            txtMaterialUsername.Text = String.Empty;
-            txtMaterialPassword.Text = String.Empty;
-
-            txtMaterialUsername.Focus();
-
-
+           this. txtMaterialUsername.Text = String.Empty;
+            this.txtMaterialPassword.Text = String.Empty;
+            this.txtMaterialUsername.Focus();
         }
-
-
-
-
 
         private void frmLoginForm_Load(object sender, EventArgs e)
         {
-
-            //ThemeManager.ColorScheme = new ColorScheme(Primary.Black700, Primary.Blue900, Primary.Blue500, Accent.Blue400, TextShade.WHITE);
-
-            objStorProc = xClass.g_objStoredProc.GetCollections();
+            this.ConnectionInit();
             txtMaterialUsername.Select();
             this.RoundPictureAss();
-      
+        }
+        void ConnectionInit()
+        {
+            objStorProc = xClass.g_objStoredProc.GetCollections();
         }
 
         private void RoundPictureAss()
@@ -144,14 +113,6 @@ namespace COMPLETE_FLAT_UI
             //gp.AddEllipse(0, 0, pictureBox1.Width - 3, pictureBox1.Height - 3);
             //Region rg = new Region(gp);
             //pictureBox1.Region = rg;
-        }
-
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnLogin_Click(sender, e);
-            }
         }
 
         private void txtMaterialPassword_KeyDown(object sender, KeyEventArgs e)
@@ -168,8 +129,7 @@ namespace COMPLETE_FLAT_UI
         }
 
         private void txtMaterialUsername_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        
+        {    
             xClass.TextBoxToUpperCase(e);
         }
 
