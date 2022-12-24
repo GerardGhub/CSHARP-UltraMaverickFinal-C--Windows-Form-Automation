@@ -457,36 +457,18 @@ namespace COMPLETE_FLAT_UI
             {
                 this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
             }
-
-   
-
         }
 
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
-
-
             this.ConnectionInit();
-
             this.ToolStripBadges();
-
-
-
-            //this.Size = new Size(1300, 700); //Size of Windows
-
             this.RoundPictureAss();
-
             this.ShowReceivingData();
-
-
-
-
-            //btnUsers.Enabled = true;
             this.lblFirstName.Text = userinfo.emp_name.ToString().ToUpper() + new string(' ', 1) + userinfo.emp_lastname.ToString().ToUpper();// First Name Session
 
             this.lblPosition.Text = userinfo.position.ToUpperInvariant(); // Position of User
-            MostrarFormLogo();// loading logo
-                              //rights here
+            MostrarFormLogo();
             this.Menu.ImageParse = userinfo.image_employee;
             if(this.Menu.ImageParse == String.Empty)
             {
@@ -513,60 +495,6 @@ namespace COMPLETE_FLAT_UI
 
             //Start of Major Menu
             this.MajorMenuLoop();
-            //dset_rights.Clear();
-            //dset_rights = g_objStoredProcCollection.sp_getFilterTables("get_accessible_menu_parents", "", rights_id);
-
-            //if (dset_rights.Tables.Count > 0)
-            //{
-            //    for (int x = 0; x < dset_rights.Tables[0].Rows.Count; x++)
-            //    {
-            //        string parent_form_name = dset_rights.Tables[0].Rows[x][1].ToString();
-
-
-              
-            //        if (parent_form_name == "USERS")
-            //        {
-            //            btnUsers1.Visible = true;
-            //        }
-
-            //        else if (parent_form_name == "SETUP")
-            //        {
-            //           this.BtnSetUp.Visible = true;
-            //        }
-            //        else if (parent_form_name == "DASHBOARD")
-            //        {
-            //            btnDashBoard1.Visible = true;
-               
-            //          /*  MostrarFormLogo()*/;
-            //        }
-
-
-            //        else if (parent_form_name == "DRY WAREHOUSE")
-            //        {
-            //            this.btnDryWarehouse1.Visible = true;
-            //        }
-
-            //        //Phase 2 Muna ito
-            //        //else if (parent_form_name == "Production Planner")
-            //        //{
-            //        //    btnProductionPlanner1.Visible = true;
-            //        //}
-            //        //else if (parent_form_name == "Preparation Department")
-            //        //{
-            //        //    btnPreparationDepartment1.Visible = true;
-            //        //}
-            //        //else if (parent_form_name == "Research & Development")
-            //        //{
-            //        //    btnResearchAndDevelopment1.Visible = true;
-            //        //}
-
-            //    }
-            //}
-
-            //END
-
-
-
 
             //Start of Sub Menu
             SubMenu();
@@ -583,19 +511,10 @@ namespace COMPLETE_FLAT_UI
    
             this.showLabTestForReceiving();
             this.BadgeNotification();
-
-
-
-            //MessageBox.Show(this.TotalLabTestReceivingViewing);
-            //bool v = Adorner.AddBadgeTo(btnDashBoard1, "123");
-     
         }
 
         private void ToolStripDropDownMajorMenu(Boolean val)
-        {
-
-
-
+        { 
             if (val == false)
             {
                 this.btnUsers1.Visible = false;
@@ -1226,10 +1145,6 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(fm);
         }
 
-  
-
-
-
         private void timerSubMenuOut_Tick(object sender, EventArgs e)
         {
             if (panelMenuSelection.Width <= 0)
@@ -1256,12 +1171,9 @@ namespace COMPLETE_FLAT_UI
         }
 
 
-
         private void rMBarcodeModuleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             myglobal.REPORT_NAME = "MicroBook";
-            //rpt.Load(Rpt_Path + "\\MicroBook.rpt");
-            //this.NormalSizeofSideBar();
             frmReport fm = new frmReport();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
@@ -1274,10 +1186,6 @@ namespace COMPLETE_FLAT_UI
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
-
-
-
-
 
         private void rMBarcodeReprintingToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1297,15 +1205,10 @@ namespace COMPLETE_FLAT_UI
 
         }
 
-   
-   
-
+  
 
         private void btnDashBoard1_Click_1(object sender, EventArgs e)
         {
-
-   
-            //forApprovalToolStripMenuItem.Text = "Butp";
             this.NormalSizeofSideBar();
             this.panelMenuSelection.Visible = false;
             FormLogo fm = new FormLogo();
@@ -1363,10 +1266,6 @@ namespace COMPLETE_FLAT_UI
 
 
             this.timeSubMenuIn.Start();
-            //Miscellaneouse Receipt Module Process
-
-
-
         }
 
     
@@ -1374,12 +1273,10 @@ namespace COMPLETE_FLAT_UI
         {
             frmDashBoardFormMenu addNew = new frmDashBoardFormMenu(this);
             addNew.ShowDialog();
-     
         }
 
         private void btnResearchAndDevelopment1_Click(object sender, EventArgs e)
         {
-            //AbrirFormEnPanel(new Form1());
             this.panelMenuSelection.Visible = true;
             this.SubMenu();
             this.toolImportDry.Visible = false;
@@ -1456,25 +1353,16 @@ namespace COMPLETE_FLAT_UI
         private void btnSetUp_Click(object sender, EventArgs e)
         {
             this.panelMenuSelection.Visible = true;
-
             this.toolStripRawMaterials.Visible = false;
             this.SubMenu();
             this.toolDropdownMenu.Visible = false;
             this.toolDropdownUserManager.Visible = false;
-            //Research And Development
-            toolPreparation.Visible = false;
-
+            this.toolPreparation.Visible = false;
             this.toolImportDry.Visible = false;
-            //Store Collection
-            //this.toolStoreSetup.Visible = true;
-            //Miscellaneouse Receipt
-            //this.toolStripMoveOrderSetup.Visible = true;
             this.toolStripInventoryDry.Visible = false;
             this.toolReceiving.Visible = false;
             this.toolStripDropDownButtonLabTest.Visible = false;
             this.timeSubMenuIn.Start();
-
-            //RM RECEIPT PROCESS MODULE
             this.toolStripMoveOrderSetup.Visible = false;
         }
 
@@ -1572,8 +1460,6 @@ namespace COMPLETE_FLAT_UI
             ViewNotification.ShowDialog();
         }
 
-
-
         private void toolStripMenuItemRMNearlyExpiryMgmt_Click(object sender, EventArgs e)
         {
             this.NormalSizeofSideBar();
@@ -1614,12 +1500,9 @@ namespace COMPLETE_FLAT_UI
             AbrirFormEnPanel(SyncOrderForm);
         }
 
-   
-
  
         private void readyForSchedulingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
+        {        
             this.NormalSizeofSideBar();
             frmInternalForScheduling Scheduling = new frmInternalForScheduling();
             Scheduling.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
@@ -1698,7 +1581,6 @@ namespace COMPLETE_FLAT_UI
         private void toolStripMenuItemReceivingRpt_Click(object sender, EventArgs e)
         {
             frmRMReceivingReportDryWarehouse frmrpt = new frmRMReceivingReportDryWarehouse();
-
             frmrpt.ShowDialog();
         }
 
@@ -1710,9 +1592,7 @@ namespace COMPLETE_FLAT_UI
 
         private void rMNearlyExpiryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             myglobal.REPORT_NAME = "PrintNearlyExpired";
-
             frmReport fr = new frmReport();
             fr.WindowState = FormWindowState.Maximized;
             fr.Show();
