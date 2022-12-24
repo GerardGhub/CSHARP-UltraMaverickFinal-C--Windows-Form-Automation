@@ -167,10 +167,7 @@ namespace COMPLETE_FLAT_UI
       
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-    
-        }
+
 
         //METODOS PARA ANIMACION DE MENU SLIDING--
         private void btnMenu_Click(object sender, EventArgs e)
@@ -446,9 +443,16 @@ namespace COMPLETE_FLAT_UI
 
             //Recieving Dry
             int totalReceiving = 0;
+            int totalNearlyExipiry = 0;
+            int totalSummary = 0;
             this.parentFormsRepository.GetReceivingDataDry(this.dataGridView1);
-            this.listOfReceivingToolStripMenuItem.Text = "List of Receiving (" + this.parentFormsRepository.TotalRecords + ") ";
+   
             totalReceiving = this.parentFormsRepository.TotalRecords;
+            this.parentFormsRepository.GetReceivingDataDryReject(this.dataGridView1);
+            totalNearlyExipiry = this.parentFormsRepository.TotalRecords;
+            totalSummary = totalReceiving + totalNearlyExipiry;
+
+            this.listOfReceivingToolStripMenuItem.Text = "List of Receiving (" + totalSummary + ") ";
             if (this.parentFormsRepository.TotalRecords == 0)
             {
                 this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
