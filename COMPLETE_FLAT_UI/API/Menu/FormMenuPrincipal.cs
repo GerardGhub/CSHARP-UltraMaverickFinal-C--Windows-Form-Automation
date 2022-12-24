@@ -387,6 +387,7 @@ namespace COMPLETE_FLAT_UI
             {
                 this.preparationToolStripMenuItem.Text = "Preparation";
             }
+ 
             //Store Approval
             this.parentFormsRepository.GetStoreOrderForApproval(this.dataGridView1);
             this.forApprovalToolStripMenuItem.Text = "Ready For Scheduling (" + this.parentFormsRepository.TotalRecords + ") ";
@@ -394,6 +395,7 @@ namespace COMPLETE_FLAT_UI
             {
                 this.forApprovalToolStripMenuItem.Text = "Ready For Scheduling";
             }
+ 
             //Store Approved
             this.parentFormsRepository.GetStoreOrderApproved(this.dataGridView1);
             this.approvedOrderToolStripMenuItem.Text = "Approved Schedule (" + this.parentFormsRepository.TotalRecords + ") ";
@@ -411,6 +413,19 @@ namespace COMPLETE_FLAT_UI
             }
 
 
+
+
+            //Internal Order Preparation
+
+            this.parentFormsRepository.GetInternalPreparation(this.dataGridView1);
+            this.preparationToolStripMenuItem1.Text = "Preparation (" + this.parentFormsRepository.TotalRecords + ") ";
+            if (this.parentFormsRepository.TotalRecords == 0)
+            {
+                this.preparationToolStripMenuItem1.Text = "Preparation";
+            }
+
+
+
             //Internal Order Approved
             this.parentFormsRepository.GetInternalOrderApproved(this.dataGridView1);
             this.approvedScheduleToolStripMenuItem.Text = "Approved Schedule (" + this.parentFormsRepository.TotalRecords + ") ";
@@ -418,14 +433,8 @@ namespace COMPLETE_FLAT_UI
             {
                 this.approvedScheduleToolStripMenuItem.Text = "Approved Schedule";
             }
-
-            //Internal Order Preparation
-            this.parentFormsRepository.GetInternalPreparation(this.dataGridView1);
-            this.preparationToolStripMenuItem1.Text = "Preparation (" + this.parentFormsRepository.TotalRecords + ") ";
-            if (this.parentFormsRepository.TotalRecords == 0)
-            {
-                this.preparationToolStripMenuItem1.Text = "Preparation";
-            }
+   
+     
 
             //Dispatching Order
             this.parentFormsRepository.GetDispatchingData(this.dataGridView1);
@@ -445,15 +454,7 @@ namespace COMPLETE_FLAT_UI
                 this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
             }
 
-            //Recieving Dry Reject
-            this.parentFormsRepository.GetReceivingDataDryReject(this.dataGridView1);
-            this.parentFormsRepository.TotalRecords = totalReceiving + this.parentFormsRepository.TotalRecords;
-           this.listOfReceivingToolStripMenuItem.Text = "List of Receiving (" + this.parentFormsRepository.TotalRecords + ") ";
-
-            if (this.parentFormsRepository.TotalRecords == 0)
-            {
-                this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
-            }
+   
 
         }
 
@@ -988,6 +989,10 @@ namespace COMPLETE_FLAT_UI
 
             this.panelMenuSelection.Visible = false;
             this. MainMajorData.Visible = true;
+            MessageBox.Show("back");
+            preparationToolStripMenuItem.Text = "pwetan";
+            this.ToolStripBadges();
+
         }
     
 

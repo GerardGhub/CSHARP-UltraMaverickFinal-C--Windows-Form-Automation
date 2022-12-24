@@ -91,9 +91,7 @@ namespace ULTRAMAVERICK.API.Data
         {
             try
             {
-
                 this.xClass.fillDataGridViewMajorSp(DataGridViews, "searchMRSInternalPreparationDateSync", this.dSet);
-
                 this.TotalRecords = DataGridViews.RowCount;
             }
             catch (Exception ex)
@@ -103,18 +101,17 @@ namespace ULTRAMAVERICK.API.Data
             }
         }
 
+        //GenC
         public void GetInternalPreparation(DataGridView DataGridViews)
         {
+            this.dSet.Clear();
             try
             {
-
                 this.xClass.fillDataGridViewMajorSp(DataGridViews, "searchorderForApprovalinDryWH_isApprovedforPreparation_Internal", this.dSet);
-
                 this.TotalRecords = DataGridViews.RowCount;
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }

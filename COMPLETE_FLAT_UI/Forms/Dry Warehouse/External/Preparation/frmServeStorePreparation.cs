@@ -10,17 +10,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
     public partial class frmServeStorePreparation : MaterialForm
     {
         frmDryPreparationStore ths;
-
-
         readonly myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-
-        //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
-        //Variable Declaration
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmServeStorePreparation(frmDryPreparationStore frm,
@@ -100,31 +95,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
         }
         private void frmServeStorePreparation_Load(object sender, EventArgs e)
         {
-
             this.ConnectionInit();
-
             myglobal.global_module = "Active"; 
-
             this.StaticWindowState();
             this.SearchMethodJarVarCallingSP();
             this.doSearchInTextBoxCmb();
-
-
-     
             this.SearchMethodJarVarCallingSPReceivingIDInventory();
             this.doSearchInTextBoxCmbRecID();
-
             this.DataGridVisibilyFalse();
-
-
-            //MessageBox.Show(this.Sp_FK_dry_wh_orders_parent_id.ToString());
         }
 
         private void DataGridVisibilyFalse()
         {
             this.dgvStoreOrderApproval.Visible = false;
-            this.gunaDgvReceivedIDInventory.Visible = false;
-      
+            this.gunaDgvReceivedIDInventory.Visible = false;  
         }
 
 
@@ -294,8 +278,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
 
 
         private void matBtnSave_Click(object sender, EventArgs e)
-        {
-            
+        {            
             if (this.mattxtQtyServe.Text == String.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
@@ -306,6 +289,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             if (this.mattxtQtyServe.Text == "0")
             {
                 this.GlobalStatePopup.InvalidQuantity();
+                this.mattxtQtyServe.Text = String.Empty;
+                this.mattxtQtyServe.Select();
                 return;
             }
 
@@ -524,18 +509,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 dt = Convert.ToDateTime(lstrDate);
                 string lstrAdate = dt.ToString("yyyy-MM-dd");
                 this.Sp_Preparation_Date = lstrAdate;
-
-             
-
                 this.SearchMethodJarVarCallingSPSearchStoreItemPreparedWithCount();
-         
-            
-
+        
                 try
                 {
                     if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
                     {
-
                         DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
 
                         dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "' and fox = '" + this.sp_Fox + "'   ";
@@ -543,24 +522,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.dgvPreparedItemDistinct.DataSource = dv;
 
                         this.TotalRecordofPrepared = dgvPreparedItemDistinct.RowCount.ToString();
-
                     }
                 }
-
-
-
-
-
                 catch (SyntaxErrorException)
                 {
                     MessageBox.Show("Invalid character found Type 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     return;
                 }
                 catch (EvaluateException)
                 {
                     MessageBox.Show("Invalid character found Type 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     return;
                 }
 
@@ -637,28 +608,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.Sp_FK_dry_wh_orders_parent_id,
                     "update_dry_orders_total_state_repack");
                 }
-
-    
-            
+               
 
                 double ActualQuantityReleased;
-
                 double ActualQuantityServed;
-
                 double ActualQuantityOrder;
-
                 double TotalQuantityServeState;
-
 
                 ActualQuantityReleased = double.Parse(this.matTxtQtyRelease.Text);
                 ActualQuantityServed = double.Parse(this.mattxtQtyServe.Text);
                 ActualQuantityOrder = double.Parse(this.matTxtOrderQty.Text);
-
                 TotalQuantityServeState = ActualQuantityReleased + ActualQuantityServed;
-
                 if (ActualQuantityOrder == TotalQuantityServeState)
-                {
-                    
+                {                    
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
@@ -679,8 +641,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
           
 
                     if (ActualQuantityReleased == 0)
-                    {
-                       
+                    {                       
                         this.dSet.Clear();
                         this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
@@ -697,17 +658,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.sp_Area,
                         this.Sp_FK_dry_wh_orders_parent_id,
                         "bulk_produce_store_timestamp");
-
-
-
                         this.BulkSaveEntryIntoStoredProc();
                     }
                 }
-
-
                 else
-                {
-            
+                {           
                     this.dSet.Clear();
                     this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
                     this.Sp_Barcode_Id,
@@ -723,16 +678,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                     this.sp_Route,
                     this.sp_Area, 
                     this.Sp_FK_dry_wh_orders_parent_id,
-                    "start_dry_orders_store_timestamp");
-                
-    
+                    "start_dry_orders_store_timestamp");   
                     this.BulkSaveEntryIntoStoredProc();
-
                 }
-
-
-
-  
                 if (this.dgvStoreOrderApproval_Is_wh_checker_cancel == "1")
                 {
 
@@ -755,28 +703,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                         this.Sp_FK_dry_wh_orders_parent_id,
                         "update_StorePreparationLogsTBL_DataRefactoring");
                     }
-
                 }
-
-
-
                 this.Close();
             }
             else
             {
                 return;
             }
-
-
-
-   
-
-
         }
 
         private void BulkSaveEntryIntoStoredProc()
-        {
-            
+        {        
             this.dSet.Clear();
             this.dSet = g_objStoredProcCollection.sp_Store_Preparation_Logs(0,
             this.Sp_Barcode_Id,
@@ -795,22 +732,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             "start_dry_orders_store_timestamp_overall");
         }
 
-
-
-
-
-
-
-
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
         }
   
-
-
-
         private void frmServeStorePreparation_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(this.mattxtQtyServe.Text == String.Empty)
@@ -820,8 +746,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
             else
             {
                 this.textBox1.Text = "ItemServe";
-            }
-         
+            }     
         }
 
         private void mattxtQtyServe_KeyPress(object sender, KeyPressEventArgs e)
@@ -847,8 +772,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 if (this.gunaDgvReceivedIDInventory.CurrentRow != null)
                 {
                     if (this.gunaDgvReceivedIDInventory.CurrentRow.Cells["item_code"].Value != null)
-                    {
-      
+                    {  
                         this.matTxtQtyRemaining.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["qty_received"].Value.ToString();
                         this.matTxtExpDate.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["exp_date"].Value.ToString();
                         this.mattxttotalqtyreleased.Text = this.gunaDgvReceivedIDInventory.CurrentRow.Cells["TOTAL_QTY_PREPARED"].Value.ToString();
@@ -865,8 +789,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Preparation
                 if (this.dgvPreparedItemDistinct.CurrentRow != null)
                 {
                     if (this.dgvPreparedItemDistinct.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
-                    {
-                      
+                    {                     
                         this.TotalItemPreparedPerItemIncrementation = this.dgvPreparedItemDistinct.CurrentRow.Cells["TotalPreparedPerItem"].Value.ToString();
                     }
                 }
