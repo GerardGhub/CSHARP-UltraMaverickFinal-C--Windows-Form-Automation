@@ -31,14 +31,9 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             if (myClass.g_objStoredProc.getConnected() == true)
             {
                 g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
-
-
                 this.Rpt_Path = ULTRAMAVERICK.Properties.Settings.Default.fdg;
-
-                //Rpt_Path = ini.IniReadValue("PATH", "Report_Path");
                 this.dgvReprinting.Columns[0].Width = 50;// The id column
                 this.dgvReprinting.Columns[3].Width = 150;// The id column
-                //xClass.ActivitiesLogs(userinfo.emp_name + " Generated " + myglobal.REPORT_NAME + " Report");
             }
             else
             {
@@ -46,15 +41,11 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
                 this.Close();
             }
 
-
-
             this.DataRefresher();
-
             this.dset = g_objStoredProcCollection.sp_IDGenerator(1, "SearchRepacking", "All", mattxtReceivingID.Text, 1, 0);
            this.dgvReprinting.DataSource = dset.Tables[0];
 
-       
-
+      
             for (int i = 0; i <= dgvReprinting.RowCount; i++)
             {
                 try
@@ -62,20 +53,9 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
                     this.dgvReprinting.Rows[i].Cells["selected"].Value = false;
                 }
                 catch (Exception) { }
-            }
-
-        
-
-      
+            } 
            this.lbltotalrecords.Text = dgvReprinting.RowCount.ToString();
-
-
-
-
-
-
            g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
-
             myglobal.global_module = "Active";
             this.load_search();
         }
@@ -86,14 +66,9 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
         DataSet dset_emp1 = new DataSet();
         private void load_search()
         {
-
             dset_emp1.Clear();
-
             dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("searchreceivingreprintDry");
-
             this.doSearch();
-
-
         }
 
         private void doSearch()
@@ -116,12 +91,11 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
                     }
                     else if (myglobal.global_module == "VISITORS")
                     {
-                        //dv.RowFilter = "visitors_lastname like '%" + txtsearch.Text + "%' or visitors_firstname like '%" + txtsearch.Text + "%'";
+
                     }
                    this.dgvReprinting.DataSource = dv;
                    this.lbltotalrecords.Text = dgvReprinting.RowCount.ToString();
 
-                    //gerard
                 }
             }
             catch (SyntaxErrorException)
@@ -136,7 +110,7 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
 
                 return;
             }
-//END
+
         }
 
         private void bunifuDatepickerReceivingDate_onValueChanged(object sender, EventArgs e)
@@ -152,13 +126,9 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
         private void bunifuDatepickerReceivingDate_ValueChanged(object sender, EventArgs e)
         {
             this.doSearch();
-            //this.mattxtReceivingID.Visible = true;
+
         }
 
-        private void bunifuDatepickerReceivingDate_onValueChanged_1(object sender, EventArgs e)
-        {
-            this.doSearch();
-        }
         private void Print()
         {
    
@@ -186,20 +156,14 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
                             dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount2", "", "", 2, 0);
                             dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepackcount", "", "", 1, 0);
                         }
-                        else
-                        {
-                            //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
-
-                        }
+     
                     }
                 }
                 catch (Exception ex)
                 {
-
                     dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 0, 0);
                     MessageBox.Show(ex.Message);
                 }
-
             }
 
 
@@ -209,26 +173,11 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
             rpt.Load(Rpt_Path + "\\DryReceivingBarcodeReprint.rpt");
             //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
 
-
-
-            rpt.Refresh();
-            
-     
-
-
-
-
+            rpt.Refresh();      
                 crV1.ReportSource = rpt;
                 crV1.Refresh();
-
-
-
             frmReport frmReport = new frmReport();
             frmReport.ShowDialog();
-
-
-
-
         }
 
 
@@ -240,12 +189,9 @@ namespace ULTRAMAVERICK.Barcode_Reprinting
                 this.Print();
             }
             else
-            {
-     
+            {  
                 return;
             }
-
-
         }
     }
 
