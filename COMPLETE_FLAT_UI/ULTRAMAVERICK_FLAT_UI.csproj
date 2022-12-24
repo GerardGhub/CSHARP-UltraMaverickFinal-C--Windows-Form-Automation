@@ -193,321 +193,321 @@
     <Compile Include="API\Interfaces\IMajor_Category.cs" />
     <Compile Include="API\Interfaces\IParentFormsRepository.cs" />
     <Compile Include="API\Interfaces\ITblCustomersRepository.cs" />
-    <Compile Include="Application\Barcode Reprinting\frmBarcodeReprinting.cs">
+    <Compile Include="Application Form\Barcode Reprinting\frmBarcodeReprinting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application\Barcode Reprinting\frmBarcodeReprinting.Designer.cs">
+    <Compile Include="Application Form\Barcode Reprinting\frmBarcodeReprinting.Designer.cs">
       <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application\BaseWPFControls\frmViewAllNotifications.cs">
+    <Compile Include="Application Form\BaseWPFControls\frmViewAllNotifications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application\BaseWPFControls\frmViewAllNotifications.Designer.cs">
+    <Compile Include="Application Form\BaseWPFControls\frmViewAllNotifications.Designer.cs">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application\Adorner.cs" />
-    <Compile Include="Application\import_drywh_rawmats.cs" />
-    <Compile Include="Application\MenuColorTable.cs" />
-    <Compile Include="Application\MenuRenderer.cs" />
-    <Compile Include="Application\Report\frmMoveOrderReports.cs">
+    <Compile Include="Classes\Adorner.cs" />
+    <Compile Include="Classes\import_drywh_rawmats.cs" />
+    <Compile Include="Classes\MenuColorTable.cs" />
+    <Compile Include="Classes\MenuRenderer.cs" />
+    <Compile Include="Application Form\Report\frmMoveOrderReports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application\Report\frmMoveOrderReports.Designer.cs">
+    <Compile Include="Application Form\Report\frmMoveOrderReports.Designer.cs">
       <DependentUpon>frmMoveOrderReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application\Report\frmRMReceivingReportDryWarehouse.cs">
+    <Compile Include="Application Form\Report\frmRMReceivingReportDryWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application\Report\frmRMReceivingReportDryWarehouse.Designer.cs">
+    <Compile Include="Application Form\Report\frmRMReceivingReportDryWarehouse.Designer.cs">
       <DependentUpon>frmRMReceivingReportDryWarehouse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application\RJDropdownMenu.cs">
+    <Compile Include="Application Form\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Application\TabControlBagde.cs" />
-    <Compile Include="Application\Taskbar.cs" />
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.cs">
+    <Compile Include="Classes\TabControlBagde.cs" />
+    <Compile Include="Classes\Taskbar.cs" />
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmNewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmNewCustomer.Designer.cs">
       <DependentUpon>frmNewCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmCancelExternalApprovedOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmCancelExternalApprovedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmCancelExternalApprovedOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmCancelExternalApprovedOrder.Designer.cs">
       <DependentUpon>frmCancelExternalApprovedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.Designer.cs">
       <DependentUpon>frmCancelAllocationOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.Designer.cs">
       <DependentUpon>FrmAddNewOrderTrend.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.Designer.cs">
       <DependentUpon>FrmAddOrderActivationRemarks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.Designer.cs">
       <DependentUpon>FrmMrsActivationRemarks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\FrmImportMrsOrders.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\FrmImportMrsOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\FrmImportMrsOrders.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\FrmImportMrsOrders.Designer.cs">
       <DependentUpon>FrmImportMrsOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.Designer.cs">
       <DependentUpon>frmCancelInternalApprovedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.Designer.cs">
       <DependentUpon>frmDryPreparationInternal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalApprovedOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalApprovedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalApprovedOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalApprovedOrder.Designer.cs">
       <DependentUpon>frmInternalApprovedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.Designer.cs">
       <DependentUpon>frmInternalForScheduling.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.Designer.cs">
       <DependentUpon>frmInternalOrderActivationRemarks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.Designer.cs">
       <DependentUpon>frmServeInternalPreparation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.Designer.cs">
       <DependentUpon>frmViewInternalItemPrepared.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.Designer.cs">
       <DependentUpon>frmViewApprovedItemsInternalOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.Designer.cs">
       <DependentUpon>ViewItemsInternalOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.Designer.cs">
       <DependentUpon>frmDryMiscellanouseIssue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.Designer.cs">
       <DependentUpon>frmDryMiscellanouseReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousIssue.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousIssue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousIssue.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousIssue.Designer.cs">
       <DependentUpon>FrmAddNewMiscellaneousIssue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.Designer.cs">
       <DependentUpon>FrmAddNewMiscellaneousReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmChooseLotNumber.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmChooseLotNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmChooseLotNumber.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmChooseLotNumber.Designer.cs">
       <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.Designer.cs">
       <DependentUpon>FrmChooseLotNumberMoveOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmCustomers.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmCustomers.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmCustomers.Designer.cs">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmDryWarehouses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmDryWarehouses.Designer.cs">
       <DependentUpon>frmDryWarehouses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.Designer.cs">
       <DependentUpon>FrmDryWhMiscellaneouseIssue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.Designer.cs">
       <DependentUpon>frmDryWhMiscellaneousReceipts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.Designer.cs">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\AddNewConsolidatedOrderSync.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\AddNewConsolidatedOrderSync.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\AddNewConsolidatedOrderSync.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\AddNewConsolidatedOrderSync.Designer.cs">
       <DependentUpon>AddNewConsolidatedOrderSync.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRegion.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRegion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRegion.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRegion.Designer.cs">
       <DependentUpon>frmAddNewRegion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditStore.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditStore.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditStore.Designer.cs">
       <DependentUpon>frmEditStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\Class\frmAllocationModuleClasses.cs" />
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\Class\frmAllocationModuleClasses.cs" />
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.Designer.cs">
       <DependentUpon>FrmStoreRegion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.Designer.cs">
       <DependentUpon>frmSyncConsolidatedOrderSetUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\Class Form\frmNewStoreOrderApprovedClasses.cs" />
-    <Compile Include="Forms\Lab Test\DryWhLabTestRecentLogs.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Major Process\Class Form\frmNewStoreOrderApprovedClasses.cs" />
+    <Compile Include="Application Form\Forms\Lab Test\DryWhLabTestRecentLogs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Lab Test\DryWhLabTestRecentLogs.Designer.cs">
+    <Compile Include="Application Form\Forms\Lab Test\DryWhLabTestRecentLogs.Designer.cs">
       <DependentUpon>DryWhLabTestRecentLogs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Lab Test\frmDryWarehouseNearlyExpiryItems.cs">
+    <Compile Include="Application Form\Forms\Lab Test\frmDryWarehouseNearlyExpiryItems.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Lab Test\frmDryWarehouseNearlyExpiryItems.Designer.cs">
+    <Compile Include="Application Form\Forms\Lab Test\frmDryWarehouseNearlyExpiryItems.Designer.cs">
       <DependentUpon>frmDryWarehouseNearlyExpiryItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Lab Test\frmLabTestHistoricalPerReceivingID.cs">
+    <Compile Include="Application Form\Forms\Lab Test\frmLabTestHistoricalPerReceivingID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Lab Test\frmLabTestHistoricalPerReceivingID.Designer.cs">
+    <Compile Include="Application Form\Forms\Lab Test\frmLabTestHistoricalPerReceivingID.Designer.cs">
       <DependentUpon>frmLabTestHistoricalPerReceivingID.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Lab Test\frmLabTestModule.cs">
+    <Compile Include="Application Form\Forms\Lab Test\frmLabTestModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Lab Test\frmLabTestModule.Designer.cs">
+    <Compile Include="Application Form\Forms\Lab Test\frmLabTestModule.Designer.cs">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddNewCategory.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddNewCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddNewCategory.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddNewCategory.Designer.cs">
       <DependentUpon>FrmAddNewCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\AddPrimaryUnit.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\AddPrimaryUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\AddPrimaryUnit.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\AddPrimaryUnit.Designer.cs">
       <DependentUpon>AddPrimaryUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddBNewWarehouses.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddBNewWarehouses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddBNewWarehouses.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddBNewWarehouses.Designer.cs">
       <DependentUpon>FrmAddBNewWarehouses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddNewItemClass.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddNewItemClass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddNewItemClass.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddNewItemClass.Designer.cs">
       <DependentUpon>FrmAddNewItemClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddNewItemType.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddNewItemType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\Modal\FrmAddNewItemType.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\Modal\FrmAddNewItemType.Designer.cs">
       <DependentUpon>FrmAddNewItemType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.Designer.cs">
       <DependentUpon>FrmAddNewMajorAvailable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewModule.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewModule.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewModule.Designer.cs">
       <DependentUpon>FrmAddNewModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewSubMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewSubMenu.Designer.cs">
       <DependentUpon>FrmAddNewSubMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\FrmAddNewDepartment.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\FrmAddNewDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\FrmAddNewDepartment.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\FrmAddNewDepartment.Designer.cs">
       <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\FrmAddNewUnit.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\FrmAddNewUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\FrmAddNewUnit.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\FrmAddNewUnit.Designer.cs">
       <DependentUpon>FrmAddNewUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\FrmAddNewPosition.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\FrmAddNewPosition.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\FrmAddNewPosition.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\FrmAddNewPosition.Designer.cs">
       <DependentUpon>FrmAddNewPosition.cs</DependentUpon>
     </Compile>
     <Compile Include="API\Menu\frmDashboard.cs">
@@ -522,380 +522,380 @@
     <Compile Include="API\Menu\FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.Designer.cs">
       <DependentUpon>frmStoreOrderDispatching.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmDryPreparationStore.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmDryPreparationStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmDryPreparationStore.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmDryPreparationStore.Designer.cs">
       <DependentUpon>frmDryPreparationStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmServeStorePreparation.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmServeStorePreparation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmServeStorePreparation.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmServeStorePreparation.Designer.cs">
       <DependentUpon>frmServeStorePreparation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmViewStoreItemPrepared.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmViewStoreItemPrepared.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Preparation\frmViewStoreItemPrepared.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmViewStoreItemPrepared.Designer.cs">
       <DependentUpon>frmViewStoreItemPrepared.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.Designer.cs">
       <DependentUpon>frmActivationofPrimaryUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewItemModal.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewItemModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewItemModal.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewItemModal.Designer.cs">
       <DependentUpon>frmAddNewItemModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewLotModal.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewLotModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewLotModal.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewLotModal.Designer.cs">
       <DependentUpon>frmAddNewLotModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewPartialRejectReceiving.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewPartialRejectReceiving.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewPartialRejectReceiving.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewPartialRejectReceiving.Designer.cs">
       <DependentUpon>frmAddNewPartialRejectReceiving.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewUomConversion.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewUomConversion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Add Modal\frmAddNewUomConversion.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewUomConversion.Designer.cs">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\frmCancelApprovedOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmCancelApprovedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\frmCancelApprovedOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmCancelApprovedOrder.Designer.cs">
       <DependentUpon>frmCancelApprovedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmAllocationModule.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmAllocationModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmAllocationModule.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmAllocationModule.Designer.cs">
       <DependentUpon>frmAllocationModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmManualAllocationController.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmManualAllocationController.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmManualAllocationController.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmManualAllocationController.Designer.cs">
       <DependentUpon>frmManualAllocationController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.Designer.cs">
       <DependentUpon>frmNewStoreOrderApproved.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.Designer.cs">
       <DependentUpon>FrmStoreAreaManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmDryRawMaterials.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmDryRawMaterials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmDryRawMaterials.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmDryRawMaterials.Designer.cs">
       <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Receiving\frmDryReceivingModule.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Receiving\frmDryReceivingModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Receiving\frmDryReceivingModule.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Receiving\frmDryReceivingModule.Designer.cs">
       <DependentUpon>frmDryReceivingModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Inventory\frmDryWHInventory.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Inventory\frmDryWHInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Inventory\frmDryWHInventory.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Inventory\frmDryWHInventory.Designer.cs">
       <DependentUpon>frmDryWHInventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Edit Modal\frmEditItemModal.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Edit Modal\frmEditItemModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Edit Modal\frmEditItemModal.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Edit Modal\frmEditItemModal.Designer.cs">
       <DependentUpon>frmEditItemModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Receiving\frmListofReceiving.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Receiving\frmListofReceiving.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Receiving\frmListofReceiving.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Receiving\frmListofReceiving.Designer.cs">
       <DependentUpon>frmListofReceiving.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmLotManagement.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmLotManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmLotManagement.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmLotManagement.Designer.cs">
       <DependentUpon>frmLotManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\FrmRMConversion.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\FrmRMConversion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\FrmRMConversion.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\FrmRMConversion.Designer.cs">
       <DependentUpon>FrmRMConversion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Edit Modal\frmUpdateLotData.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Edit Modal\frmUpdateLotData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Edit Modal\frmUpdateLotData.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Edit Modal\frmUpdateLotData.Designer.cs">
       <DependentUpon>frmUpdateLotData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmWarehouseCrewMgmt.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmWarehouseCrewMgmt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Setup\frmWarehouseCrewMgmt.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Setup\frmWarehouseCrewMgmt.Designer.cs">
       <DependentUpon>frmWarehouseCrewMgmt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.Designer.cs">
       <DependentUpon>frmImportConsolidatedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportPoSummary.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportPoSummary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportPoSummary.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportPoSummary.Designer.cs">
       <DependentUpon>frmImportPoSummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportRawMatsExcel.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportRawMatsExcel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportRawMatsExcel.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportRawMatsExcel.Designer.cs">
       <DependentUpon>frmImportRawMatsExcel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportStore.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\Import\frmImportStore.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\Import\frmImportStore.Designer.cs">
       <DependentUpon>frmImportStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.Designer.cs">
       <DependentUpon>FrmAddNewStoreArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.Designer.cs">
       <DependentUpon>frmAddNewStoreRoute.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.Designer.cs">
       <DependentUpon>frmAddNewStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmAVGOrderTrendSetup.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmAVGOrderTrendSetup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmAVGOrderTrendSetup.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmAVGOrderTrendSetup.Designer.cs">
       <DependentUpon>frmAVGOrderTrendSetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditArea.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditArea.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditArea.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditArea.Designer.cs">
       <DependentUpon>frmEditArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditConsolidatedOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditConsolidatedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditConsolidatedOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditConsolidatedOrder.Designer.cs">
       <DependentUpon>frmEditConsolidatedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmListofStore.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmListofStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmListofStore.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmListofStore.Designer.cs">
       <DependentUpon>frmListofStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmPendingStoreOrder.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmPendingStoreOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmPendingStoreOrder.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmPendingStoreOrder.Designer.cs">
       <DependentUpon>frmPendingStoreOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmReturnApprovedOrderStatus.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmReturnApprovedOrderStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmReturnApprovedOrderStatus.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmReturnApprovedOrderStatus.Designer.cs">
       <DependentUpon>frmReturnApprovedOrderStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\frmStoreApprovedOrderUpdatePreparationDate.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmStoreApprovedOrderUpdatePreparationDate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\frmStoreApprovedOrderUpdatePreparationDate.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmStoreApprovedOrderUpdatePreparationDate.Designer.cs">
       <DependentUpon>frmStoreApprovedOrderUpdatePreparationDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\frmStoreOrderActivationRemarks.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmStoreOrderActivationRemarks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\frmStoreOrderActivationRemarks.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmStoreOrderActivationRemarks.Designer.cs">
       <DependentUpon>frmStoreOrderActivationRemarks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmStoreOrderforApproval.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmStoreOrderforApproval.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmStoreOrderforApproval.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmStoreOrderforApproval.Designer.cs">
       <DependentUpon>frmStoreOrderforApproval.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreOrderRestAPIcall.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmStoreOrderRestAPIcall.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreOrderRestAPIcall.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmStoreOrderRestAPIcall.Designer.cs">
       <DependentUpon>frmStoreOrderRestAPIcall.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.Designer.cs">
+    <Compile Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.Designer.cs">
       <DependentUpon>frmStoreRoute.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\FrmItemClass.cs">
+    <Compile Include="Application Form\Forms\Research And Development\FrmItemClass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\FrmItemClass.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\FrmItemClass.Designer.cs">
       <DependentUpon>FrmItemClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmItemType.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmItemType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmItemType.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmItemType.Designer.cs">
       <DependentUpon>frmItemType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmWarehouses.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmWarehouses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmWarehouses.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmWarehouses.Designer.cs">
       <DependentUpon>frmWarehouses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmPrimaryUnit.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmPrimaryUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmPrimaryUnit.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmPrimaryUnit.Designer.cs">
       <DependentUpon>frmPrimaryUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmCategory.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Research And Development\frmCategory.Designer.cs">
+    <Compile Include="Application Form\Forms\Research And Development\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Menus\frmSubMenusAvailableForms.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\frmSubMenusAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Menus\frmSubMenusAvailableForms.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\frmSubMenusAvailableForms.Designer.cs">
       <DependentUpon>frmSubMenusAvailableForms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmDashBoardFormMenu.cs">
+    <Compile Include="Application Form\Forms\Users\frmDashBoardFormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmDashBoardFormMenu.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmDashBoardFormMenu.Designer.cs">
       <DependentUpon>frmDashBoardFormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmDepartment.cs">
+    <Compile Include="Application Form\Forms\Users\frmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmDepartment.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmDepartment.Designer.cs">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmDepartmentUnit.cs">
+    <Compile Include="Application Form\Forms\Users\frmDepartmentUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmDepartmentUnit.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmDepartmentUnit.Designer.cs">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Menus\FrmGrandChildModulesAvailableForms.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\FrmGrandChildModulesAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Menus\FrmGrandChildModulesAvailableForms.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\FrmGrandChildModulesAvailableForms.Designer.cs">
       <DependentUpon>FrmGrandChildModulesAvailableForms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmLocation.cs">
+    <Compile Include="Application Form\Forms\Users\frmLocation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmLocation.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmLocation.Designer.cs">
       <DependentUpon>frmLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Menus\frmMajorMenuAvailableForms.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\frmMajorMenuAvailableForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Menus\frmMajorMenuAvailableForms.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Menus\frmMajorMenuAvailableForms.Designer.cs">
       <DependentUpon>frmMajorMenuAvailableForms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmPosition.cs">
+    <Compile Include="Application Form\Forms\Users\frmPosition.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmPosition.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmPosition.Designer.cs">
       <DependentUpon>frmPosition.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmTaggingofApprover.cs">
+    <Compile Include="Application Form\Forms\Users\frmTaggingofApprover.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmTaggingofApprover.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmTaggingofApprover.Designer.cs">
       <DependentUpon>frmTaggingofApprover.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmTypeofApprover.cs">
+    <Compile Include="Application Form\Forms\Users\frmTypeofApprover.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmTypeofApprover.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmTypeofApprover.Designer.cs">
       <DependentUpon>frmTypeofApprover.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmUserManagement2.cs">
+    <Compile Include="Application Form\Forms\Users\frmUserManagement2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmUserManagement2.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmUserManagement2.Designer.cs">
       <DependentUpon>frmUserManagement2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\frmUserRight.cs">
+    <Compile Include="Application Form\Forms\Users\frmUserRight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\frmUserRight.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\frmUserRight.Designer.cs">
       <DependentUpon>frmUserRight.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\frmAddnewUserModal.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\frmAddnewUserModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\frmAddnewUserModal.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\frmAddnewUserModal.Designer.cs">
       <DependentUpon>frmAddnewUserModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\Modal\frmEditUser.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\frmEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\Modal\frmEditUser.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\Modal\frmEditUser.Designer.cs">
       <DependentUpon>frmEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\UpdateUserPasswordModal.cs">
+    <Compile Include="Application Form\Forms\Users\UpdateUserPasswordModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Users\UpdateUserPasswordModal.Designer.cs">
+    <Compile Include="Application Form\Forms\Users\UpdateUserPasswordModal.Designer.cs">
       <DependentUpon>UpdateUserPasswordModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLoginForm.cs">
+    <Compile Include="API\Menu\Login\FrmLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLoginForm.Designer.cs">
+    <Compile Include="API\Menu\Login\FrmLoginForm.Designer.cs">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="API\Menu\View Models\MenuClasses.cs" />
-    <Compile Include="Classes\IStoredProcedures.cs" />
+    <Compile Include="API\Interfaces\IStoredProcedures.cs" />
     <Compile Include="Classes\myclasses.cs" />
     <Compile Include="Classes\myglobal.cs" />
     <Compile Include="Classes\PopupNotifierClass.cs" />
@@ -904,10 +904,10 @@
     <Compile Include="Classes\user_info.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Application\Report\frmReport.cs">
+    <Compile Include="Application Form\Report\frmReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application\Report\frmReport.Designer.cs">
+    <Compile Include="Application Form\Report\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UltraMaverickDBDataSet.cs">
@@ -918,158 +918,158 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UltraMaverickDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\Helpers\Step.cs" />
-    <EmbeddedResource Include="Application\Barcode Reprinting\frmBarcodeReprinting.resx">
+    <Compile Include="Application Form\Wizard\Helpers\Step.cs" />
+    <EmbeddedResource Include="Application Form\Barcode Reprinting\frmBarcodeReprinting.resx">
       <DependentUpon>frmBarcodeReprinting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Application\BaseWPFControls\frmViewAllNotifications.resx">
+    <EmbeddedResource Include="Application Form\BaseWPFControls\frmViewAllNotifications.resx">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Application\Report\frmMoveOrderReports.resx">
+    <EmbeddedResource Include="Application Form\Report\frmMoveOrderReports.resx">
       <DependentUpon>frmMoveOrderReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Application\Report\frmRMReceivingReportDryWarehouse.resx">
+    <EmbeddedResource Include="Application Form\Report\frmRMReceivingReportDryWarehouse.resx">
       <DependentUpon>frmRMReceivingReportDryWarehouse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Add Modal\frmNewCustomer.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Add Modal\frmNewCustomer.resx">
       <DependentUpon>frmNewCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Preparation\frmCancelExternalApprovedOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmCancelExternalApprovedOrder.resx">
       <DependentUpon>frmCancelExternalApprovedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmCancelAllocationOrder.resx">
       <DependentUpon>frmCancelAllocationOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddNewOrderTrend.resx">
       <DependentUpon>FrmAddNewOrderTrend.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmAddOrderActivationRemarks.resx">
       <DependentUpon>FrmAddOrderActivationRemarks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\Modal\FrmMrsActivationRemarks.resx">
       <DependentUpon>FrmMrsActivationRemarks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Import\FrmImportMrsOrders.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Import\FrmImportMrsOrders.resx">
       <DependentUpon>FrmImportMrsOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmCancelInternalApprovedOrder.resx">
       <DependentUpon>frmCancelInternalApprovedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmDryPreparationInternal.resx">
       <DependentUpon>frmDryPreparationInternal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalApprovedOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalApprovedOrder.resx">
       <DependentUpon>frmInternalApprovedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalForScheduling.resx">
       <DependentUpon>frmInternalForScheduling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmInternalOrderActivationRemarks.resx">
       <DependentUpon>frmInternalOrderActivationRemarks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmServeInternalPreparation.resx">
       <DependentUpon>frmServeInternalPreparation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmViewInternalItemPrepared.resx">
       <DependentUpon>frmViewInternalItemPrepared.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\frmViewApprovedItemsInternalOrder.resx">
       <DependentUpon>frmViewApprovedItemsInternalOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Internal\Preparation\ViewItemsInternalOrder.resx">
       <DependentUpon>ViewItemsInternalOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseIssue.resx">
       <DependentUpon>frmDryMiscellanouseIssue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Miscellaneous\frmDryMiscellanouseReceipt.resx">
       <DependentUpon>frmDryMiscellanouseReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousIssue.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousIssue.resx">
       <DependentUpon>FrmAddNewMiscellaneousIssue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\FrmAddNewMiscellaneousReceipt.resx">
       <DependentUpon>FrmAddNewMiscellaneousReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmChooseLotNumber.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\frmChooseLotNumber.resx">
       <DependentUpon>frmChooseLotNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\FrmChooseLotNumberMoveOrder.resx">
       <DependentUpon>FrmChooseLotNumberMoveOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmCustomers.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmDryWarehouses.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\frmDryWarehouses.resx">
       <DependentUpon>frmDryWarehouses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\FrmDryWhMiscellaneouseIssue.resx">
       <DependentUpon>FrmDryWhMiscellaneouseIssue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Move Order\frmDryWhMiscellaneousReceipts.resx">
       <DependentUpon>frmDryWhMiscellaneousReceipts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Setup\frmViewItemsInLotArea.resx">
       <DependentUpon>frmViewItemsInLotArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\AddNewConsolidatedOrderSync.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\AddNewConsolidatedOrderSync.resx">
       <DependentUpon>AddNewConsolidatedOrderSync.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRegion.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewRegion.resx">
       <DependentUpon>frmAddNewRegion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditStore.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditStore.resx">
       <DependentUpon>frmEditStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreRegion.resx">
       <DependentUpon>FrmStoreRegion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmSyncConsolidatedOrderSetUp.resx">
       <DependentUpon>frmSyncConsolidatedOrderSetUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Lab Test\DryWhLabTestRecentLogs.resx">
+    <EmbeddedResource Include="Application Form\Forms\Lab Test\DryWhLabTestRecentLogs.resx">
       <DependentUpon>DryWhLabTestRecentLogs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Lab Test\frmDryWarehouseNearlyExpiryItems.resx">
+    <EmbeddedResource Include="Application Form\Forms\Lab Test\frmDryWarehouseNearlyExpiryItems.resx">
       <DependentUpon>frmDryWarehouseNearlyExpiryItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Lab Test\frmLabTestHistoricalPerReceivingID.resx">
+    <EmbeddedResource Include="Application Form\Forms\Lab Test\frmLabTestHistoricalPerReceivingID.resx">
       <DependentUpon>frmLabTestHistoricalPerReceivingID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Lab Test\frmLabTestModule.resx">
+    <EmbeddedResource Include="Application Form\Forms\Lab Test\frmLabTestModule.resx">
       <DependentUpon>frmLabTestModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\Modal\FrmAddNewCategory.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\Modal\FrmAddNewCategory.resx">
       <DependentUpon>FrmAddNewCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\Modal\AddPrimaryUnit.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\Modal\AddPrimaryUnit.resx">
       <DependentUpon>AddPrimaryUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\Modal\FrmAddBNewWarehouses.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\Modal\FrmAddBNewWarehouses.resx">
       <DependentUpon>FrmAddBNewWarehouses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\Modal\FrmAddNewItemClass.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\Modal\FrmAddNewItemClass.resx">
       <DependentUpon>FrmAddNewItemClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\Modal\FrmAddNewItemType.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\Modal\FrmAddNewItemType.resx">
       <DependentUpon>FrmAddNewItemType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewMajorAvailable.resx">
       <DependentUpon>FrmAddNewMajorAvailable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewModule.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewModule.resx">
       <DependentUpon>FrmAddNewModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Menus\Modal\FrmAddNewSubMenu.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Menus\Modal\FrmAddNewSubMenu.resx">
       <DependentUpon>FrmAddNewSubMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewDepartment.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Modal\FrmAddNewDepartment.resx">
       <DependentUpon>FrmAddNewDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewUnit.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Modal\FrmAddNewUnit.resx">
       <DependentUpon>FrmAddNewUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\FrmAddNewPosition.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Modal\FrmAddNewPosition.resx">
       <DependentUpon>FrmAddNewPosition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="API\Menu\frmDashboard.resx">
@@ -1078,187 +1078,187 @@
     <EmbeddedResource Include="API\Menu\FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Dispatching\frmStoreOrderDispatching.resx">
       <DependentUpon>frmStoreOrderDispatching.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Preparation\frmDryPreparationStore.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmDryPreparationStore.resx">
       <DependentUpon>frmDryPreparationStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Preparation\frmServeStorePreparation.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmServeStorePreparation.resx">
       <DependentUpon>frmServeStorePreparation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Preparation\frmViewStoreItemPrepared.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Preparation\frmViewStoreItemPrepared.resx">
       <DependentUpon>frmViewStoreItemPrepared.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Setup\frmActivationofPrimaryUnit.resx">
       <DependentUpon>frmActivationofPrimaryUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Add Modal\frmAddNewItemModal.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewItemModal.resx">
       <DependentUpon>frmAddNewItemModal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Add Modal\frmAddNewLotModal.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewLotModal.resx">
       <DependentUpon>frmAddNewLotModal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Add Modal\frmAddNewPartialRejectReceiving.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewPartialRejectReceiving.resx">
       <DependentUpon>frmAddNewPartialRejectReceiving.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Add Modal\frmAddNewUomConversion.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Add Modal\frmAddNewUomConversion.resx">
       <DependentUpon>frmAddNewUomConversion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\frmCancelApprovedOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmCancelApprovedOrder.resx">
       <DependentUpon>frmCancelApprovedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmAllocationModule.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmAllocationModule.resx">
       <DependentUpon>frmAllocationModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmManualAllocationController.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Allocation Process\frmManualAllocationController.resx">
       <DependentUpon>frmManualAllocationController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmNewStoreOrderApproved.resx">
       <DependentUpon>frmNewStoreOrderApproved.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Setup\FrmStoreAreaManagement.resx">
       <DependentUpon>FrmStoreAreaManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmDryRawMaterials.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Setup\frmDryRawMaterials.resx">
       <DependentUpon>frmDryRawMaterials.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Receiving\frmDryReceivingModule.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Receiving\frmDryReceivingModule.resx">
       <DependentUpon>frmDryReceivingModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Inventory\frmDryWHInventory.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Inventory\frmDryWHInventory.resx">
       <DependentUpon>frmDryWHInventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Edit Modal\frmEditItemModal.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Edit Modal\frmEditItemModal.resx">
       <DependentUpon>frmEditItemModal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Receiving\frmListofReceiving.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Receiving\frmListofReceiving.resx">
       <DependentUpon>frmListofReceiving.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmLotManagement.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Setup\frmLotManagement.resx">
       <DependentUpon>frmLotManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\FrmRMConversion.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Setup\FrmRMConversion.resx">
       <DependentUpon>FrmRMConversion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Edit Modal\frmUpdateLotData.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Edit Modal\frmUpdateLotData.resx">
       <DependentUpon>frmUpdateLotData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Setup\frmWarehouseCrewMgmt.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Setup\frmWarehouseCrewMgmt.resx">
       <DependentUpon>frmWarehouseCrewMgmt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Import\frmImportConsolidatedOrder.resx">
       <DependentUpon>frmImportConsolidatedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportPoSummary.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Import\frmImportPoSummary.resx">
       <DependentUpon>frmImportPoSummary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportRawMatsExcel.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Import\frmImportRawMatsExcel.resx">
       <DependentUpon>frmImportRawMatsExcel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\Import\frmImportStore.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\Import\frmImportStore.resx">
       <DependentUpon>frmImportStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\FrmAddNewStoreArea.resx">
       <DependentUpon>FrmAddNewStoreArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStoreRoute.resx">
       <DependentUpon>frmAddNewStoreRoute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Add Modals\frmAddNewStore.resx">
       <DependentUpon>frmAddNewStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmAVGOrderTrendSetup.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmAVGOrderTrendSetup.resx">
       <DependentUpon>frmAVGOrderTrendSetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditConsolidatedOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Edit Modals\frmEditConsolidatedOrder.resx">
       <DependentUpon>frmEditConsolidatedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmListofStore.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmListofStore.resx">
       <DependentUpon>frmListofStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmPendingStoreOrder.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmPendingStoreOrder.resx">
       <DependentUpon>frmPendingStoreOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmReturnApprovedOrderStatus.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmReturnApprovedOrderStatus.resx">
       <DependentUpon>frmReturnApprovedOrderStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\frmStoreApprovedOrderUpdatePreparationDate.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmStoreApprovedOrderUpdatePreparationDate.resx">
       <DependentUpon>frmStoreApprovedOrderUpdatePreparationDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\frmStoreOrderActivationRemarks.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\frmStoreOrderActivationRemarks.resx">
       <DependentUpon>frmStoreOrderActivationRemarks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmStoreOrderforApproval.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\Major Process\frmStoreOrderforApproval.resx">
       <DependentUpon>frmStoreOrderforApproval.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreOrderRestAPIcall.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmStoreOrderRestAPIcall.resx">
       <DependentUpon>frmStoreOrderRestAPIcall.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.resx">
+    <EmbeddedResource Include="Application Form\Forms\Dry Warehouse\External\Store Modal\Module\frmStoreRoute.resx">
       <DependentUpon>frmStoreRoute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\FrmItemClass.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\FrmItemClass.resx">
       <DependentUpon>FrmItemClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\frmItemType.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\frmItemType.resx">
       <DependentUpon>frmItemType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\frmWarehouses.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\frmWarehouses.resx">
       <DependentUpon>frmWarehouses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\frmPrimaryUnit.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\frmPrimaryUnit.resx">
       <DependentUpon>frmPrimaryUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Research And Development\frmCategory.resx">
+    <EmbeddedResource Include="Application Form\Forms\Research And Development\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Menus\frmSubMenusAvailableForms.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Menus\frmSubMenusAvailableForms.resx">
       <DependentUpon>frmSubMenusAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmDashBoardFormMenu.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmDashBoardFormMenu.resx">
       <DependentUpon>frmDashBoardFormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmDepartment.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmDepartmentUnit.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmDepartmentUnit.resx">
       <DependentUpon>frmDepartmentUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Menus\FrmGrandChildModulesAvailableForms.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Menus\FrmGrandChildModulesAvailableForms.resx">
       <DependentUpon>FrmGrandChildModulesAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmLocation.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmLocation.resx">
       <DependentUpon>frmLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Menus\frmMajorMenuAvailableForms.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Menus\frmMajorMenuAvailableForms.resx">
       <DependentUpon>frmMajorMenuAvailableForms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmPosition.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmPosition.resx">
       <DependentUpon>frmPosition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmTaggingofApprover.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmTaggingofApprover.resx">
       <DependentUpon>frmTaggingofApprover.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmTypeofApprover.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmTypeofApprover.resx">
       <DependentUpon>frmTypeofApprover.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmUserManagement2.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmUserManagement2.resx">
       <DependentUpon>frmUserManagement2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\frmUserRight.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\frmUserRight.resx">
       <DependentUpon>frmUserRight.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\frmAddnewUserModal.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Modal\frmAddnewUserModal.resx">
       <DependentUpon>frmAddnewUserModal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\Modal\frmEditUser.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\Modal\frmEditUser.resx">
       <DependentUpon>frmEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Users\UpdateUserPasswordModal.resx">
+    <EmbeddedResource Include="Application Form\Forms\Users\UpdateUserPasswordModal.resx">
       <DependentUpon>UpdateUserPasswordModal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLoginForm.resx">
+    <EmbeddedResource Include="API\Menu\Login\FrmLoginForm.resx">
       <DependentUpon>FrmLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1271,7 +1271,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Application\Report\frmReport.resx">
+    <EmbeddedResource Include="Application Form\Report\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -1391,8 +1391,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\Controllers\" />
-    <Folder Include="Forms\Login\" />
-    <Folder Include="Forms\MasterList SetUP\" />
+    <Folder Include="Application Form\Forms\Login\" />
+    <Folder Include="Application Form\Forms\MasterList SetUP\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resumerdf.jpg" />

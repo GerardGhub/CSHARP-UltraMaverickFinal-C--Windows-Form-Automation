@@ -13,13 +13,11 @@ namespace COMPLETE_FLAT_UI.Models
     public static int USER_LOG = 0;
 
     public static int user_id;
-    //public static int employee_id;  1/14/2020
     public static string user_name;
     public static string password;
     public static string emp_name;
     public static string emp_lastname;
     public static int user_rights_id;
-    //public static string item_description; //microprofile
     public static string user_section;
     public static string receiving_status;
     public static string position;

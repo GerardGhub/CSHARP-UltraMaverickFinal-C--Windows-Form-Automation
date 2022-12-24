@@ -29,104 +29,8 @@ namespace ULTRAMAVERICK.Models
         DataSet sp_getMajorTables(string eTableName);
 
         DataSet sp_department(int department_id, string department_name, string mode);
-        DataSet rdf_sp_category(int category_id, string category_name, string mode);
-        DataSet rdf_sp_prod_type(int type_id, string type_name, string mode);
 
-        DataSet rdf_sp_supplier(int supplier_id, string supplier, string contact_no, string address, string email_address, string mode);
-        DataSet rdf_sp_prod_schedules(int prod_id, string p_feed_code, string p_bags, string p_nobatch, string proddate, string dateadded, string iscancelreason, string feed_type, string series_num, string bagorbin, string additional_bin, string corn_type, string planning_by, string mode);
-
-        //Move order
-
-        DataSet rdf_sp_move_order(int move_id, string order_no, string date_time, string warehouse, string account_title, string customer, string address, string feed_code, string feed_type, string sack_bin, string production_date, string qty, string uom, string qty_received, string available, string grand_total, string production, string added_by, string date_added, int bags, string cancel_by, string cancel_date, string myfg_id, string mode);
-
-        DataSet rdf_sp_transact_rdf_move_order(int move_id, string order_no, string date_time, string warehouse, string account_title, string customer, string address, string feed_code, string feed_type, string sack_bin, string production_date, float qty, string uom, string qty_received, float available, float grand_total, string production, string added_by, string date_added, int is_active, float bags, string platenumber, string mode);
-
-
-        DataSet sp_transaction_in(int transact_id, string item_code, string item_description, string category, string supplier, string qty, string time_stamp, string mfg_date, string expiry_date, string remarks, string date_added, string added_by, string expiry_days, string transact_number, string material_id, string mode);
-
-        DataSet sp_transaction_out(int transact_id, string item_code, string item_description, string category, string supplier, string qty, string time_stamp, string mfg_date, string expiry_date, string remarks, string date_added, string added_by, string expiry_days, string transact_number, string material_id, string counter_map, string last_stock, string warehouse, string account_title, string customer, string address, string reason, string descripto, string mode);
-
-
- 
-
-
-
-       
-
-        DataSet sp_employee_new(int employee_id,
-                          string employee_number,
-                          string lastname,
-                          string firstname,
-                          string middlename,
-                          string address,
-                          string gender,
-                          string contactno,
-                          DateTime birthdate,
-                          string sss_number,
-                          string tin_number,
-                          int civil_status_id,
-                          int tax_id,
-                          int department_id,
-                          int section_id,
-                          int position_id,
-                          int employment_status_id,
-                          DateTime date_hired,
-                          DateTime date_regularization,
-                          string PermanentAddress,
-                          string philhealth_number,
-                          string hdmf_number,
-                          string hdmf_rtn,
-                          string salary_rate,
-                          string salary_structure,
-                          int salary_type_id,
-                          int workers_id,
-                          string mode,
-                          string InCaseOfEmergencyName,
-                          string InCaseOfEmergencyNumber,
-                            string Ros_hrd,
-                            string remarks,
-                          Byte[] image_employee
-                          );
-
-
-
-        DataSet sp_micro_new(int item_id,
-                                int item_category,
-                                string item_code,
-                                int supplier,
-                                string item_description,
-                                string classification,
-                                string quantity,
-                                DateTime date_added,
-                                string expiration_details,
-                                string delivery_details,
-                                string added_by,
-                                string item_location,
-                                string item_remarks,
-                                string item_added_by,
-                                string per_bag,
-                                string mode,
-                     Byte[] raw_material_image
-                     );
-
-        DataSet sp_micro_new(int item_id, string item_code, string mode);
         DataSet sp_employee_new(int employee_id, string employee_number, string mode);
-        DataSet sp_employee_new(int employee_id, DateTime date_resigned, string mode);
-
-        DataSet sp_attendance_monitoring(int attendance_monitoring_id
-                                          , DateTime date_created
-                                          , int employee_id
-                                          , int leave_id
-                                          , string reason_cause
-                                          , int clinic_id
-                                          , bool with_leave
-                                          , bool with_medical
-                                          , int doctors_id
-                                          , int sickness_id
-                                          , int user_id
-                                          , string mode);
-
-
 
         DataSet sp_userfile(int userfile_id,
             int user_rights_id,
@@ -160,10 +64,6 @@ namespace ULTRAMAVERICK.Models
         DataSet sp_userfile(int userfile_id, string username, string password, string user_section, string mode);
 
 
-
-
-
-
         DataSet sp_position(
         int position_id,
         string position_name,
@@ -187,8 +87,6 @@ namespace ULTRAMAVERICK.Models
         string location_id,
         string mode);
 
-
-
         DataSet sp_ParentForms(
      int parent_id,
      string parent_form_name,
@@ -201,7 +99,6 @@ namespace ULTRAMAVERICK.Models
      string mode);
 
 
-
       DataSet sp_TypeofApprover(
      int approver_id,
      string type_of_approver,
@@ -210,8 +107,6 @@ namespace ULTRAMAVERICK.Models
      string updated_at,
      string updated_by,
      string mode);
-
-
 
 
         DataSet sp_available_menu(int menu_id,
@@ -752,16 +647,11 @@ namespace ULTRAMAVERICK.Models
             string mode);
 
 
-
-
-
         DataSet sp_user_rights_details(int user_rights_details_id, string mode);
 
         //show accessible menu for selected user
         DataSet sp_getMenu_by_user(string eTablename, int user_id, int userRightsId, int menuId);
         DataSet sp_getMenu_by_user_Menu_Name(string eTablename, int user_id, int userRightsId, string menuName);
-
-
 
 
         DataSet sp_IDGenerator(int ID, 
@@ -779,52 +669,6 @@ namespace ULTRAMAVERICK.Models
             string search,
             int selected,
             int FK_dry_wh_orders_parent_id);
-
-        DataSet sp_company_info(int company_id, string company_name, string company_address_number, string company_street_1, string company_street_2, string company_city, string company_state, string company_postal_code, string company_country, string company_phone_number, string company_email_address, string company_website, int last_user_id, string mode);
-
-        DataSet sp_emp_manager(int employee_id,
-                         string employee_number,
-                         string lastname,
-                         string firstname,
-                         string middlename,
-                         string address,
-                         string gender,
-                         string contactno,
-                         DateTime birthdate,
-                         string sss_number,
-                         string tin_number,
-                         int civil_status_id,
-                         int tax_id,
-                         int department_id,
-                         int section_id,
-                         int position_id,
-                         int employment_status_id,
-                         DateTime date_hired,
-                         DateTime date_regularization,
-                         string PermanentAddress,
-                         string philhealth_number,
-                         string hdmf_number,
-                         string hdmf_rtn,
-                         string salary_rate,
-                         string salary_structure,
-                         int salary_type_id,
-                         int workers_id,
-                         string mode,
-                         string InCaseOfEmergencyName,
-                         string InCaseOfEmergencyNumber,
-                           string Ros_hrd,
-                           string remarks,
-                         Byte[] image_employee
-                         );
-        DataSet sp_emp_manager(int employee_id, string employee_number, string mode);
-
-        DataSet sp_emp_manager(int employee_id, DateTime date_resigned, string mode);
-
-        DataSet sp_rdf_fg_feedcodetransaction(int fg_id, string prod_adv, string fg_feed_code, string fg_feed_type, string fg_options, string actual_weight, string printing_date, string proddate, string transaction_date, string transaction_type, string remarks, string added_by, string mode);
-
-
-        DataSet rdf_sp_platenumber(int pnid, string to_vehicle, string platenumber, string added_by, string date_added, string inactive_by, string date_inactive, string activated_by, string date_activated, string edit_by, string date_edit, string mode);
-
 
 
     }
