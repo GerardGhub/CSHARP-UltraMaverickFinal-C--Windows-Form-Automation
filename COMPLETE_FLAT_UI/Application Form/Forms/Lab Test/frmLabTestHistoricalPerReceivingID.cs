@@ -1,13 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
 namespace ULTRAMAVERICK.Forms.Lab_Test
@@ -16,34 +9,20 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
     {
         frmLabTestModule ths;
         myclasses xClass = new myclasses();
-        IStoredProcedures objStorProc = null;
         IStoredProcedures g_objStoredProcCollection = null;
-        myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
         DataSet dset = new DataSet();
-
         int p_id = 0;
-
         DateTime dNow = DateTime.Now;
-
         DataSet dSet_temp = new DataSet();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public string SpQAApprovalDate { get; set; }
-        public int SpUseridentity { get; set; }
         public string SpItemDescription { get; set; }
         public string SpLabResultReleasedDate { get; set; }
-        public string SpTransactionType { get; set; }
-        public string SpQuantity { get; set; }
         public string SpRemainingQuantity { get; set; }
-        public string SpMftgDate { get; set; }
-        public string SpExpiryDate { get; set; }
-        public string SpLotNumber { get; set; }
-        public string SpLotDescription { get; set; }
-        public string SpDateOfLastUsed { get; set; }
         public string SpLabResultReceivedDate { get; set; }
         public string SpLabResultReceivedBy { get; set; }
-        public string SpRemarks { get; set; }
         public string SpLabStatus { get; set; }
         public string SplblLabRequestDate { get; set; }
         public string SpHistorical { get; set; }
@@ -68,7 +47,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.SpReceivingIdentity = SpReceivingIdentity;
             this.HistoricalRecentLogsSearch();
             this.DataGridVisibilityFalse();
-            //MessageBox.Show(this.SpReceivingIdentity.ToString());
         }
 
         private void DataGridVisibilityFalse()
@@ -95,24 +73,17 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         private void ConnectionInitialization()
         {
-            this.g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-            this.objStorProc = xClass.g_objStoredProc.GetCollections(); //Call the StoreProcedure With Class
+            this.g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
         private void HistoricalRecentLogsSearch()
         {
-            //Show Only The Current Active Items
-
             this.dset.Clear();
 
-            this.dset = objStorProc.sp_getMajorTables("DryWarehouseNearlyExpiryLabTestViewingDryReceivingLogsMajor");
+            this.dset = g_objStoredProcCollection.sp_getMajorTables("DryWarehouseNearlyExpiryLabTestViewingDryReceivingLogsMajor");
 
             if (this.dset.Tables.Count > 0)
             {
                 DataView dv2 = new DataView(this.dset.Tables[0]);
-
-
-
-
                 dv2.RowFilter = " fk_receiving_id = '" + this.SpReceivingIdentity + "' and is_received_status='1' ";
                 //dv2.RowFilter = " is_approved_prepa_date >= #" + bunifuPrepaDateFrom.Text + "# AND is_approved_prepa_date <= #" + bunifuDateTo.Text + "# AND category = '" + this.matcmbCategory.Text + "' ";
                 //                dv2.RowFilter = " lab_result_received_date >= #" + bunifuPrepaDateFrom.Text + "# AND lab_result_received_date <= #" + bunifuDateTo.Text + "# ";
@@ -138,7 +109,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         p_id = Convert.ToInt32(this.dgvRawMats.CurrentRow.Cells["fk_receiving_id"].Value);
                         this.SpItemDescription = this.dgvRawMats.CurrentRow.Cells["item_desc"].Value.ToString();
                         this.SpRemainingQuantity = this.dgvRawMats.CurrentRow.Cells["remaining_qty"].Value.ToString();
-
                         this.SpLabStatus = this.dgvRawMats.CurrentRow.Cells["lab_status"].Value.ToString();
                         this.SplblLabRequestDate = this.dgvRawMats.CurrentRow.Cells["lab_request_date"].Value.ToString();
                         this.SpAging = this.dgvRawMats.CurrentRow.Cells["AGING"].Value.ToString();
@@ -150,8 +120,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                         this.SpLabResultReleasedDate = this.dgvRawMats.CurrentRow.Cells["lab_result_released_date"].Value.ToString();
                         this.SpLabResultReceivedBy = this.dgvRawMats.CurrentRow.Cells["lab_result_received_by"].Value.ToString();
                         this.SpLabResultReceivedDate = this.dgvRawMats.CurrentRow.Cells["lab_result_received_date"].Value.ToString();
-
-
                     }
                 }
             }
@@ -174,8 +142,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             }
             else
             {
-                //WizardBalloon1.Image = Properties.Resources.current;
-                //this.lblPattern1.Visible = false;
                 WizardBalloon1.Image = Properties.Resources.completed;
                 this.lblPattern1.Visible = true;
             }
@@ -204,11 +170,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.WizardBalloon3.Image = Properties.Resources.pending;
             }
 
-
-
-     
-
-            //3
             if (this.SpLabResultRemarks != "0")
             {
                 this.WizardBalloon3.Image = Properties.Resources.completed;
@@ -232,8 +193,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 this.lblPattern4.Visible = false;
 
             }
-
-         
 
         }
 

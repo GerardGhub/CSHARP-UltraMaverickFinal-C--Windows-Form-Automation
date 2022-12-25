@@ -29,17 +29,8 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpFirstName { get; set; }
         public string SpItemDescription { get; set; }
         public string SpLabResultReleasedDate { get; set; }
-        public string SpTransactionType { get; set; }
-        public string SpQuantity { get; set; }
         public string SpRemainingQuantity { get; set; }
-        public string SpMftgDate { get; set; }
-        public string SpExpiryDate { get; set; }
-        public string SpLotNumber { get; set; }
-        public string SpItemImage { get; set; }
-        public string SpDateOfLastUsed { get; set; }
-        public string SpExpiryDays { get; set; }
-        public string SpRMDateLastUsedPreparation { get; set; }
-        public string SpRemarks { get; set; }
+
         public string SpLabStatus { get; set; }
         public string SplblLabRequestDate { get; set; }
         public string SpHistorical { get; set; }
@@ -53,9 +44,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpLabResultReleasedBy { get; set; }
         public string SpLabSubRemarks { get; set; }
         public string SpLaboratoryProcedure { get; set; }
-        public string SpLabAccessCode { get; set; }
         public string SpLabRequestBy { get; set; }
-
         public bool Sp_Tsqa_Approval_Status { get; set; }
         public int SpPoNumber { get; set; }
         public int SpPrNumber { get; set; }
@@ -63,7 +52,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         public string SpPrDate { get; set; }
         public string SpLabCancelledRemarks { get; set; }
         public bool SpQASupervisorApprovalStatus { get; set; }
-        public int Year { get; }
         public string monthName { get; set; }
         public string SpTotalLabtestRecords { get; set; }
         public string SpTotalLabtestRecordsCount { get; set; }
@@ -73,9 +61,50 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
             this.ConnectionInitialization();
-            this.showRawMaterialsNearlyExpiry();
+            this.matRadioAvailable.Checked = true;
             this.WindowLoadState();
         }
+
+       public void  HideWizard()
+        {
+            this.WizardBalloon1.Visible = false;
+            this.lblPattern1.Visible = false;
+            this.siticoneHtmlLabel1.Visible = false;
+            this.siticoneSeparator1.Visible = false;
+
+            this.WizardBalloon2.Visible = false;
+            this.lblPattern2.Visible = false;
+            this.siticoneHtmlLabel2.Visible = false;
+
+            this.WizardBalloon3.Visible = false;
+            this.lblPattern3.Visible = false;
+            this.siticoneHtmlLabel3.Visible = false;
+
+            this.WizardBalloon4.Visible = false;
+            this.lblPattern4.Visible = false;
+            this.siticoneHtmlLabel4.Visible = false;
+        }
+
+        public void ShowWizard()
+        {
+            this.WizardBalloon1.Visible = true;
+            this.lblPattern1.Visible = true;
+            this.siticoneHtmlLabel1.Visible = true;
+            this.siticoneSeparator1.Visible = true;
+
+            this.WizardBalloon2.Visible = true;
+            this.lblPattern2.Visible = true;
+            this.siticoneHtmlLabel2.Visible = true;
+
+            this.WizardBalloon3.Visible = true;
+            this.lblPattern3.Visible = true;
+            this.siticoneHtmlLabel3.Visible = true;
+
+            this.WizardBalloon4.Visible = true;
+            this.lblPattern4.Visible = true;
+            this.siticoneHtmlLabel4.Visible = true;
+        }
+
         private void AutoGeneratingLabAccessCode()
         {
             return;
@@ -132,8 +161,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
                 monthName = "L";
             }
 
-
-            //string monthName = new DateTimeFormatInfo().GetMonthName(monthNumber);
             if(this.txtLabAccessCode.Text == String.Empty)
             {
                 if (this.matViewLabRecords.Visible == true)
@@ -241,6 +268,20 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         }
 
 
+        private void showRawMaterialsNearlyExpiryQue()
+        {
+            try
+            {
+                myClass.fillDataGridView(this.dgvRawMats, "DryWarehouseNearlyExpiryLabTestViewingQue", dSet);
+                this.lbltotalrecords.Text = this.dgvRawMats.RowCount.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.DataGridVisibilityFalse();
+        }
+
         private void DataGridVisibilityFalse()
         {
             this.dgvRawMats.Columns["mfg_date"].Visible = false;
@@ -270,21 +311,12 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.dgvRawMats.Columns["TotalLabtestRecordsCount"].Visible = false;
             this.dgvRawMats.Columns["expiration_prompting"].Visible = false;
             this.dgvRawMats.Columns["sample_qty"].Visible = false;
-
             this.dgvRawMats.Columns["tsqa_approval_status"].Visible = false;
             this.dgvRawMats.Columns["tsqa_approval_by"].Visible = false;
             this.dgvRawMats.Columns["tsqa_approval_date"].Visible = false;
-
             this.dgvRawMats.Columns["FileName"].Visible = false;
             this.dgvRawMats.Columns["FilePath"].Visible = false;
         }
-
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -295,9 +327,7 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
         }
 
-        
-   
-
+       
 
             private void doSearchInTextBoxCmb()
         {
@@ -979,6 +1009,18 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             {
                 e.Handled = true;
             }
+        }
+
+        private void matRadioAvailable_CheckedChanged(object sender, EventArgs e)
+        {
+            this.HideWizard();
+            this.showRawMaterialsNearlyExpiry();
+        }
+
+        private void matRadioQue_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ShowWizard();
+            this.showRawMaterialsNearlyExpiryQue();
         }
     }
 }
