@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using COMPLETE_FLAT_UI.Models;
-using MaterialSkin;
 using MaterialSkin.Controls;
+using ULTRAMAVERICK.API.Data;
 using ULTRAMAVERICK.Menu.View_Models;
 using ULTRAMAVERICK.Models;
 
@@ -29,7 +23,7 @@ namespace COMPLETE_FLAT_UI
         DataSet dset_rights = new DataSet();
         int rights_id = 0;
         DataSet dSet_temp = new DataSet();
- 
+        ParentFormsRepository ParentFormsRepository = new ParentFormsRepository(); 
         public FormLogo()
         {
             InitializeComponent();
@@ -80,8 +74,7 @@ namespace COMPLETE_FLAT_UI
 
         DataSet dset_emp1 = new DataSet();
         private void load_search()
-        {
-         
+        {      
             this.dset_emp1.Clear();
 
             this.dset_emp1 = g_objStoredProcCollection.sp_getMajorTables("StoreOrderDashboard");
@@ -90,10 +83,7 @@ namespace COMPLETE_FLAT_UI
             if(this.Menu.SPRowCountOfStoreDatagrid != "0")
             {
                 this.GetStoreOrder();
-                //this.bunifuPrepaDate_ValueChanged(this, new EventArgs());
-            }
-           
-
+            }       
         }
 
         private void doSearch()
@@ -147,8 +137,7 @@ namespace COMPLETE_FLAT_UI
         }
 
         private void GetStoreOrder()
-        {
-         
+        {     
             double Preparation;
             double MoveOrder;
             double MoveOrderApproval;
@@ -186,36 +175,28 @@ namespace COMPLETE_FLAT_UI
             Dispatching = double.Parse("1");
 
             this.chartTopLabTransaction.Series["Series1"].Points.Clear();
-
-
             this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Nearly Expiry", StoreOrder);
-
             this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Request", StoreOrderApproval);
-
             this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Approved", Preparation);
-
             this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Result", MoveOrder);
             this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Result Approval", MoveOrderApproval);
             this.chartTopLabTransaction.Series["Series1"].Points.AddXY("Lab Result Received", Dispatching);
-
         }
 
-        private void showReceivingData()      //method for loading available_menus
+        private void showReceivingData()      
         {
             try
-            {
-           
+            {    
                 this.myClass.fillDataGridView(this.dataGridView1, "Po_Receiving_Warehouse", dSet);
-          
-                this.lbltotalReceiving.Text = this.dataGridView1.RowCount.ToString();
+                int totalGoodItems = 0;
+                totalGoodItems = this.dataGridView1.RowCount;
+                this.ParentFormsRepository.GetReceivingDataDryReject(this.dataGridView1);
+                this.lbltotalReceiving.Text = (totalGoodItems + this.ParentFormsRepository.TotalRecords).ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
     
@@ -315,7 +296,6 @@ namespace COMPLETE_FLAT_UI
                         {
                             if (this.dataGridView1.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
                             {
-
                                 this.Menu.SpCategoryPreparation = this.dataGridView1.CurrentRow.Cells["Preparation"].Value.ToString();
                                 this.Menu.SpMoveOrder = this.dataGridView1.CurrentRow.Cells["MoveOrder"].Value.ToString();
                                 this.Menu.SpMoveOrderApproved = this.dataGridView1.CurrentRow.Cells["MoveOrderSlipCheckerApproved"].Value.ToString();

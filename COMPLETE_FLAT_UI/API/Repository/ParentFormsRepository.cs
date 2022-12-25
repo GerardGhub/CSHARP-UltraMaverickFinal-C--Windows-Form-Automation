@@ -154,10 +154,8 @@ namespace ULTRAMAVERICK.API.Data
 
         public void GetReceivingDataDryReject(DataGridView DataGridViews)
         {
-
             try
             {
-
                 this.xClass.fillDataGridView(DataGridViews, "Po_Receiving_Warehouse_Nearly_Expiry", this.dSet);
 
                 this.TotalRecords = DataGridViews.RowCount;
