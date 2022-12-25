@@ -659,8 +659,6 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
 
                 this.GlobalStatePopup.CommittedSuccessFully();
                 this.frmLabTestModule_Load(sender, e);
-
-
             }
             else
             {
