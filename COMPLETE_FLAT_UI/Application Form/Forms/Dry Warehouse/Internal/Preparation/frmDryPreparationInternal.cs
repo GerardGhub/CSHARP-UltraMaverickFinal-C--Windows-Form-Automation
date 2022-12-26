@@ -509,7 +509,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             else
             {
                 this.matViewItemPrepared.Visible = false;
-
+                if (this.lbltotaldata.Text == "0")
+                {
+                    this.matbtnSave.Visible = false;
+                }
             }
         }
 
@@ -864,14 +867,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     }
                 }
             }
-
-     
-
-            
-
-  
-    
-
 
         }
 

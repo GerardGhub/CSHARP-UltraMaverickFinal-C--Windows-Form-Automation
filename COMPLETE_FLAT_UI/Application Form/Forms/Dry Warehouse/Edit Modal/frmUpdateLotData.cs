@@ -1,17 +1,9 @@
 ﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 {
@@ -95,7 +87,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             //Start
 
-            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Are you sure that you want to update?  ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
 
