@@ -97,8 +97,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         DataSet dset_emp_SearchEnginesPreparationPerStaff = new DataSet();
         private void SearchMethodJarVarCallingSPPreparationPerStaffMigration()
-        {
-           
+        {        
             this.dset_emp_SearchEnginesPreparationPerStaff.Clear();
             this.dset_emp_SearchEnginesPreparationPerStaff 
           = g_objStoredProcCollection.sp_getMajorTables("searchorderForApprovalinDryWH_isApprovedforPreparation_Internal");
@@ -146,15 +145,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             try
             {
-
-
                 if (dset_emp_SearchEnginesPreparationPerStaff.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEnginesPreparationPerStaff.Tables[0]);
-
                     try
-                    {
-                      
+                    {                      
                             dv.RowFilter = "(start_by_user_id = '" + this.Sp_AssigneD_Task_By + "' or start_by_user_id = '0') and approved_preparation_date = '" + this.cmbPreparationDate.Text + "'     ";
                     
                         this.dgvStoreOrderApproval.DataSource = dv;
@@ -302,22 +297,16 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             else
             {
-
-
-
                 int prev = this.dgvStoreOrderApproval.CurrentRow.Index - 1;
                 if (prev >= 0)
                 {
-
                     this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[prev].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
                 }
                 else
                 {
                     this.GlobalStatePopup.FirstLineofPreparationSubject();
                     this.mattxtScanTheBarcode.Focus();
-
                 }
-
 
                 this.mattxtScanTheBarcode.Focus();
             }
@@ -404,8 +393,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
@@ -414,15 +401,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                     }
                     else if (myglobal.global_module == "Active")
-                    {
-                       
-                
-                        dv.RowFilter = "is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  ";
-
-
-                 
+                    {                         
+                        dv.RowFilter = "is_approved_preparation_date = '" + this.sp_approved_preparation_date + "'  ";      
                     }
-
                     this.guna2DgvMaterialPreparation.DataSource = dv;
                     this.lbltotaldata.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
                 }
@@ -536,8 +517,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void PreparationValidationRequiredToSave()
         {
-
-            //CheckIifAlreayHaveAnewRecord
             dset2.Clear();
             dset2 = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
             "",
@@ -556,9 +535,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             if (dset2.Tables[0].Rows.Count > 0)
             {
-
                 this.matbtnSave.Visible = false;
-
             }
             else
             {
@@ -992,7 +969,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             if (this.lbltotaldata.Text == "0")
             {
-
                 this.cmbPreparationDate_SelectionChangeCommitted(new object(), new System.EventArgs());
                 this.matbtnSave.Visible = false;
                 this.guna2DgvMaterialPreparation.Visible = false;
@@ -1002,8 +978,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     this.frmDryPreparationInternal_Load(new object(), new System.EventArgs());
                 }
-
-
             }
         }
 

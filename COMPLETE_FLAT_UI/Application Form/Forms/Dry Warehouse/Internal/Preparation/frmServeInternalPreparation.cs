@@ -1,13 +1,7 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -25,8 +19,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
         DataSet dSet = new DataSet();
-        //Variable Declaration
-        int p_id = 0;
+
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
 
         public frmServeInternalPreparation(frmDryPreparationInternal frm,
@@ -65,31 +58,19 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         public string Sp_Mris_ID { get; set; }
         public string sp_Route { get; set; }
         public string sp_Category { get; set; }
-
         public string Sp_Qty_Served { get; set; }
         public string Sp_Preparation_Date { get; set; }
         public string Sp_Converted_Qty { get; set; }
         public string Sp_Unit_Of_Measure { get; set; }
         public string Sp_Item_Desc { get; set; }
-        public string receiving_identity { get; set; }
-        public string sp_item_code { get; set; }
-        public string sp_item_description { get; set; }
-        public string sp_quantity_serve { get; set; }
-        public string sp_receiving_id { get; set; }
-        public string sp_qty_order { get; set; }
-        public string sp_uom { get; set; }
         public string Sp_Material_Id { get; set; }
         public string Sp_Barcode_Id { get; set; }
         public int Sp_User_ID { get; set; }
         public int Sp_RepackIncement { get; set; }
-
         public string TotalItemPreparedPerItemIncrementation { get; set; }
-
         public string TotalRecordofPrepared { get; set; }
-
         public string dgvStoreOrderApproval_Primary_ID { get; set; }
         public string dgvStoreOrderApproval_Is_wh_checker_cancel { get; set; }
-
         public int Sp_Department_id { get; set; }
         public string Sp_TotalRawMaterialPreparationActive { get; set; }
 
@@ -329,9 +310,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 this.mattxtQtyServe.Focus();
                 return;
             }
-
-
-            //If the Transaction is Virgin hindi pa nakantot
+            //If the Transaction is New
             if (this.matTxtQtyRelease.Text == "0")
             {
                 double InputQtyServeUnused;
@@ -347,8 +326,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     this.mattxtQtyServe.Focus();
                     return;
                 }
-
-
             }
 
 
@@ -370,8 +347,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 return;
             }
             else
-            {
-                
+            {                
                 //return;
             }
 
@@ -439,7 +415,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                     if (ActualQuantityOrderReturnType == TotalQuantityServeStateReturnType)
                     {
-                        //buje 1
+     
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(
                         Convert.ToInt32(this.dgvStoreOrderApproval_Primary_ID),
@@ -552,15 +528,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     if (SearchStoreItemPreparedWithCount.Tables.Count > 0)
                     {
-
-
-
                         DataView dv = new DataView(SearchStoreItemPreparedWithCount.Tables[0]);
 
-
                         dv.RowFilter = "is_approved_prepa_date = '" + lstrAdate + "' and mrs_id = '" + this.Sp_Mris_ID + "'   ";
-
-
 
                         this.dgvPreparedItemDistinct.DataSource = dv;
 
@@ -568,10 +538,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
                     }
                 }
-
-
-
-
 
                 catch (SyntaxErrorException)
                 {
@@ -713,7 +679,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                       this.Sp_Mris_ID,
                       this.sp_Route,
                       this.sp_Category,
-                    "get_mrs_repacked");
+                    "get_mrs_repacked"); // modified add is-active = true
 
                     if (dSet.Tables[0].Rows.Count > 0)
                     {
@@ -721,7 +687,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     }
                     else
                     {
-
                         dSet.Clear();
                         dSet = g_objStoredProcCollection.sp_Internal_Preparation_Logs(0,
                         this.Sp_Barcode_Id,
@@ -761,9 +726,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                         this.sp_Route,
                         this.sp_Category,
                         "bulk_produce_internal_timestamp");
-
-
-                        //Bulk Update Start Whole Store Repository //buje 2
                         this.BulkSaveEntryIntoStoredProc();
                     }
                 }
@@ -787,8 +749,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     this.sp_Route,
                     this.sp_Category,
                     "start_internal_orders_timestamp");
-
-                    //Bulk Update Start Whole Store Repository
                     this.BulkSaveEntryIntoStoredProc();
 
                 }
@@ -819,8 +779,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     }
 
                 }
-
-
 
                 this.Close();
             }
@@ -869,7 +827,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     if (this.dgvPreparedItemDistinct.CurrentRow.Cells["is_approved_prepa_date"].Value != null)
                     {
-
                         this.TotalItemPreparedPerItemIncrementation = this.dgvPreparedItemDistinct.CurrentRow.Cells["TotalPreparedPerItem"].Value.ToString();
                     }
                 }
