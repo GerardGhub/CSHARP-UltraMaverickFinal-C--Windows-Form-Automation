@@ -912,9 +912,9 @@ namespace COMPLETE_FLAT_UI
 
             this.panelMenuSelection.Visible = false;
             this. MainMajorData.Visible = true;
-            MessageBox.Show("back");
-            preparationToolStripMenuItem.Text = "pwetan";
-            this.ToolStripBadges();
+            //MessageBox.Show("back");
+            //preparationToolStripMenuItem.Text = "pwetan";
+            //this.ToolStripBadges();
 
         }
     

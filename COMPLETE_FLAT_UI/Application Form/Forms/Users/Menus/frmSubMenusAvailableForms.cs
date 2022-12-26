@@ -1,17 +1,8 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
-using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Forms.Users.Menus.Modal;
@@ -68,30 +59,24 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-   
         private void displayChildFormsData()    
         {
             try
-            {
-               
+            {             
                 this.myClass.fillDataGridView(this.dgvChildForms, "available_menu", dSet);
 
                 this.lbltotalrecords.Text = this.dgvChildForms.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
         private void displayChildFormsDataInActive()      //method for loading available_menus
         {
             try
             {
-
                 this.myClass.fillDataGridView(this.dgvChildForms, "available_menu_inactive", dSet);
 
                 this.lbltotalrecords.Text = this.dgvChildForms.RowCount.ToString();
@@ -101,13 +86,8 @@ namespace ULTRAMAVERICK.Forms.Users
 
                 MessageBox.Show(ex.Message);
             }
-
         }
 
-
-
-
-     
         private void btn_visible(Boolean val)
         {
             this.btnAddTool.Visible = val;
@@ -149,8 +129,6 @@ namespace ULTRAMAVERICK.Forms.Users
         }
 
 
-      
-
 
         private void dgvChildForms_CurrentCellChanged_1(object sender, EventArgs e)
         {
@@ -160,15 +138,10 @@ namespace ULTRAMAVERICK.Forms.Users
             }
             else
             {
-                this.dgvChildForms.Enabled = true;
-               
+                this.dgvChildForms.Enabled = true;       
             }
             this.ShowValue();
         }
-
-
-
-
 
 
         DataSet dset_emp = new DataSet();
@@ -183,16 +156,10 @@ namespace ULTRAMAVERICK.Forms.Users
                 this.dset_emp = this.g_objStoredProcCollection.sp_getMajorTables("available_menu_Major_InActive");
             }
 
-
             if (this.dset_emp.Tables.Count > 0)
             {
                 DataView dv = new DataView(this.dset_emp.Tables[0]);
-
-
                 dv.RowFilter = "menu_name = '" + this.MatTxtSearchBox.Text + "' or menu_form_name like '%" + this.MatTxtSearchBox.Text + "%' ";
-
-
-
                 this.dgvChildForms.DataSource = dv;
                 this.lbltotalrecords.Text = dgvChildForms.RowCount.ToString();
             }
@@ -203,8 +170,6 @@ namespace ULTRAMAVERICK.Forms.Users
            
             this.dgvChildForms.Enabled = false;
             btn_visible(false);
-
-
 
             FrmAddNewSubMenu addNew =
              new FrmAddNewSubMenu(
@@ -315,8 +280,6 @@ namespace ULTRAMAVERICK.Forms.Users
                     {
                         return;
                     }
-
-
                 }
 
             }
@@ -379,7 +342,6 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void materialTextBox1_TextChanged(object sender, EventArgs e)
         {
-   
             this.SearchSubMenuData();
         }
 

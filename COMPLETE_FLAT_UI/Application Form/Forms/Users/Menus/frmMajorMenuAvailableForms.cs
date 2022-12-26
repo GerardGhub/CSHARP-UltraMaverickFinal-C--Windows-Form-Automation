@@ -1,16 +1,8 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using ULTRAMAVERICK.Forms.Users.Menus.Modal;
@@ -26,9 +18,7 @@ namespace ULTRAMAVERICK.Forms.Users
         IStoredProcedures g_objStoredProcCollection = null;
         myglobal pointer_module = new myglobal();
         DateTime dNow = DateTime.Now;
-
         DataSet dSet = new DataSet();
-
         DataSet dSet_temp = new DataSet();
         readonly PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         readonly ParentForms ParentFormEntity = new ParentForms();
@@ -56,23 +46,19 @@ namespace ULTRAMAVERICK.Forms.Users
         private void GetRadionDataChanged()
         {
             this.matRadioActive.Checked = true;
-
         }
 
-   
-
+  
         private void  getAllParentMenu()
         {
             try
             {
-
                 this.myClass.fillDataGridView(this.DgvMajorMenu, "ParentForms", this.dSet);
 
                 this.lbltotalrecords.Text = this.DgvMajorMenu.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
@@ -256,9 +242,6 @@ namespace ULTRAMAVERICK.Forms.Users
             this.ParentFormEntity.Parent_Form_Name
             );
             addNew.ShowDialog();
-
-
-
         }
 
         private void btnCancelTool_Click_1(object sender, EventArgs e)
@@ -278,25 +261,17 @@ namespace ULTRAMAVERICK.Forms.Users
 
         private void btnUpdateTool_Click_1(object sender, EventArgs e)
         {
-
-   
-
         }
 
         private void btnEditTool_Click(object sender, EventArgs e)
-        {
-            
-  
-
+        {         
                 if (Convert.ToInt32(this.lbltotalrecords.Text) > 0)
-                {
-          
+                {   
                     this.matBtnEDit.Visible = false;
                     this.materialBtnNew.Visible = false;
                     this.matBtnCancel.Visible = true;
                     this.matBtnDelete.Visible = false;
                     this.matBtnSave.Visible = true;
-
 
                     FrmAddNewMajorAvailable addNew =
                     new FrmAddNewMajorAvailable(
@@ -307,8 +282,6 @@ namespace ULTRAMAVERICK.Forms.Users
                     this.ParentFormEntity.Parent_Form_Name
                     );
                     addNew.ShowDialog();
-
-
             }
             }
 
