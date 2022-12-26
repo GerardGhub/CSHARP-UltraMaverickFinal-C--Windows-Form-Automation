@@ -1,24 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin;
 using MaterialSkin.Controls;
-using Z.Dapper.Plus;
-using Tulpep.NotificationWindow;
 using ExcelDataReader;
 using ULTRAMAVERICK.Class;
 using ULTRAMAVERICK.Models;
-using ULTRAMAVERICK.Properties;
-using System.Data.SqlClient;
 using COMPLETE_FLAT_UI.Models;
-using Guna.UI2.WinForms;
 using System.Globalization;
 
 namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
@@ -26,7 +16,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
     public partial class frmImportRawMatsExcel : MaterialForm
     {
-
         DataSet dSet = new DataSet();
         DataSet dSet_temp = new DataSet();
         private IStoredProcedures g_objStoredProcCollection = null;
@@ -89,7 +78,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
         {
             try
             {
-
                 using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*.xls" })
                 {
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -109,37 +97,26 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                                     cbosheet.Items.Add(table.TableName); // add sheet into combo box
                             }
                         }
-
                     }
-
                 }
-
-
             }
             catch (Exception)
             {
-
                 this.GlobalStatePopup.DocumentAlreadyOpen();
             }
-
-
         }
 
         private void cbosheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-
-
                 DataTable dt = tableCollection[cbosheet.SelectedItem.ToString()];
-
                 if (dt != null)
                 {
                     List<Import_drywh_rawmats> Import_dry_rawMats = new List<Import_drywh_rawmats>();
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        Import_drywh_rawmats Import_dry_rawMat = new Import_drywh_rawmats();
-                   
+                        Import_drywh_rawmats Import_dry_rawMat = new Import_drywh_rawmats();                   
                         Import_dry_rawMat.Item_code = dt.Rows[i]["ITEM CODE"].ToString();
                         Import_dry_rawMat.Item_description = dt.Rows[i]["DESCRIPTION"].ToString();
                         Import_dry_rawMat.Primary_unit = dt.Rows[i]["PRIMARY UNIT"].ToString();
@@ -161,7 +138,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
             catch (Exception)
             {
-
                 this.GlobalStatePopup.InvalidDocumentTemplate();
             }
             CallOthers();
@@ -194,13 +170,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     {
 
                     }
-                        else
+                    else
                     {
                        this.mat_row_number = Convert.ToInt32(this.dgvRawMats.CurrentCell.RowIndex).ToString();
                     }
-
-
-
                 }
             }
 
@@ -209,9 +182,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void cbosheet_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.CallOthers();
-
-           
+            this.CallOthers();       
             this.matbtnUpload.Visible = true;
             this.mode = "";
             this.dgvRawMats_CurrentCellChanged(sender, e);
@@ -219,7 +190,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
         private void SaveMethod1()
         {
-
             //Start Department ID Binding
             dSet.Clear();
             dSet = g_objStoredProcCollection
@@ -231,9 +201,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             this.WarehouseIdentity = Convert.ToInt32(dSet.Tables[0].Rows[0]["major_category_id"]);
             //End Department ID Binding
-
-
-
             dSet.Clear();
             dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main,
@@ -253,12 +220,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 "getdetailsforBulkInsertItemCode");
 
             if (dSet.Tables[0].Rows.Count > 0)
-            {
-
-     
+            {   
                 mode = "error";
-
-   
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_code"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_code"].Style.BackColor = Color.DarkOrange;
             }
@@ -293,10 +256,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
             else
             {
-
-  
                 mode = "error";
-
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_type"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_type"].Style.SelectionBackColor = Color.DarkOrange;
             }
@@ -304,9 +264,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
 
             //Item Class
-
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
+                dSet.Clear();
+                dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 item_code_main, 
                 item_type_main, item_class_main,
                 major_category_main, sub_category_main, 
@@ -318,9 +277,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             }
             else
-            {
-
-     
+            { 
                 mode = "error";
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_class"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["item_class"].Style.BackColor = Color.DarkOrange;
@@ -350,14 +307,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
 
-
             }
             else
-            {
-
-      
+            {      
                 mode = "error";
-
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["major_category"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["major_category"].Style.SelectionBackColor = Color.DarkOrange;
             }
@@ -384,14 +337,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
             if (dSet.Tables[0].Rows.Count > 0)
             {
-          
-
+         
             }
             else
             {
-
                 mode = "error";
-
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["sub_category"].Style.BackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["sub_category"].Style.SelectionBackColor = Color.DarkOrange;
             }
@@ -419,12 +369,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             if (dSet.Tables[0].Rows.Count > 0)
             {
 
-
-
             }
             else
             {
-
                 mode = "error";
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.SelectionBackColor = Color.DarkOrange;
                 dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.BackColor = Color.DarkOrange;
@@ -486,8 +433,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
 
                 }
                 else
-                {
-                
+                {         
                     mode = "error";
                     dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.SelectionBackColor = Color.DarkOrange;
                     dgvRawMats.Rows[Convert.ToInt32(mat_row_number)].Cells["primary_unit"].Style.BackColor = Color.DarkOrange;
@@ -502,13 +448,10 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     dgvRawMats.CurrentCell = dgvRawMats.Rows[i].Cells[0];
                 else
                 {
-                   
-
+                  
                     if (mode == "error")
                     {
-                        this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);
-                        //this.dgvRawMats.ClearSelection();
-         
+                        this.GlobalStatePopup.ErrorNotify(this.ErrorDetails);        
                     }
                     else
                     {
@@ -572,7 +515,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     Convert.ToInt32(this.SpBufferStock), 
                     this.SpExpiryDay.ToString(),
                     "add");
-                   //Ends 
+ 
                 }
 
                 this.GlobalStatePopup.ImportSuccessFully();              
@@ -585,9 +528,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-   
 
 
         private void matbtnUpload_Click(object sender, EventArgs e)
@@ -603,8 +543,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
             }
             else
             {
-
-
                 this.dgvRawMats_CurrentCellChanged(sender, e);
                 this.matbtnUpload.Visible = false;
                 this.dgvRawMats.CurrentCell = this.dgvRawMats.Rows[0].Cells[this.dgvRawMats.CurrentCell.ColumnIndex];
@@ -619,22 +557,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Import
                     return;
                 }
 
-
             }
-
-
-
-
-
-
-
-
-
         }
-
-
-
- 
 
         private void dgvRawMats_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
