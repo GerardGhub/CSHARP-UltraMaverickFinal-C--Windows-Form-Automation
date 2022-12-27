@@ -453,7 +453,7 @@ namespace COMPLETE_FLAT_UI
             totalSummary = totalReceiving + totalNearlyExipiry;
 
             this.listOfReceivingToolStripMenuItem.Text = "List of Receiving (" + totalSummary + ") ";
-            if (this.parentFormsRepository.TotalRecords == 0)
+            if (totalSummary == 0)
             {
                 this.listOfReceivingToolStripMenuItem.Text = "List of Receiving";
             }
