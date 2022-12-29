@@ -169,6 +169,8 @@
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.timeSubMenuIn = new System.Windows.Forms.Timer(this.components);
+            this.receiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParseData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -1301,6 +1303,9 @@
             // 
             // rMMiscellaneousTransactionReportToolStripMenuItem
             // 
+            this.rMMiscellaneousTransactionReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.receiptToolStripMenuItem,
+            this.issueToolStripMenuItem});
             this.rMMiscellaneousTransactionReportToolStripMenuItem.Name = "rMMiscellaneousTransactionReportToolStripMenuItem";
             this.rMMiscellaneousTransactionReportToolStripMenuItem.Size = new System.Drawing.Size(350, 24);
             this.rMMiscellaneousTransactionReportToolStripMenuItem.Text = "RM Miscellaneous Transaction Report";
@@ -1787,6 +1792,19 @@
             this.timeSubMenuIn.Interval = 15;
             this.timeSubMenuIn.Tick += new System.EventHandler(this.timeSubMenuIn_Tick);
             // 
+            // receiptToolStripMenuItem
+            // 
+            this.receiptToolStripMenuItem.Name = "receiptToolStripMenuItem";
+            this.receiptToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.receiptToolStripMenuItem.Text = "Receipt";
+            this.receiptToolStripMenuItem.Click += new System.EventHandler(this.receiptToolStripMenuItem_Click);
+            // 
+            // issueToolStripMenuItem
+            // 
+            this.issueToolStripMenuItem.Name = "issueToolStripMenuItem";
+            this.issueToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.issueToolStripMenuItem.Text = "Issue";
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1963,6 +1981,8 @@
         private System.Windows.Forms.ToolStripMenuItem rawMaterialStatusReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemReceivingRpt;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAuditTrail;
+        private System.Windows.Forms.ToolStripMenuItem receiptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem issueToolStripMenuItem;
     }
 }
 

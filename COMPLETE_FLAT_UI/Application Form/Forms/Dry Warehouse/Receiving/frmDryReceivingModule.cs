@@ -176,8 +176,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
         private void scanBarcode()
         {
-            dSet.Clear();
-            dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
+            this.dSet.Clear();
+            this.dSet = g_objStoredProcCollection.sp_Raw_Materials_Dry(0,
                 Mattxtbarcode.Text,
                 "",
                 "",
@@ -221,18 +221,15 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("Po_Receiving_Warehouse_CheckingBinding_WH_Rejection");
                     }
                     else
-                    {        
+                    {
                         this.SearchMethodJarVarCallingSP();
-                    }
+                     }
 
-                    this.doSearchInTextBoxCmb();
+                this.doSearchInTextBoxCmb();
+  
                                 if (this.dgvMajorCategory.RowCount == 0)
                                 {
-                                this.scanBarcodeNearlyExpiry();
-                                //this.GlobalStatePopup.RMNotExistReceiving();
-                                //this.Mattxtbarcode.Text = String.Empty;
-                                //this.Mattxtbarcode.Focus();
-                                //return;
+                                    this.scanBarcodeNearlyExpiry();
                                 }
                                 else
                                 {
@@ -249,6 +246,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                                 this.mattxtLotDescription.Text = String.Empty;
                                 this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
                                 }
+
+
+                }
+                else
+                {
+                    this.scanBarcodeNearlyExpiry();
                 }
          
                 }

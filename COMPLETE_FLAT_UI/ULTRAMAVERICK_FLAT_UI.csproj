@@ -205,6 +205,12 @@
     <Compile Include="Application Form\BaseWPFControls\frmViewAllNotifications.Designer.cs">
       <DependentUpon>frmViewAllNotifications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Application Form\Report\frmReceiptReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application Form\Report\frmReceiptReports.Designer.cs">
+      <DependentUpon>frmReceiptReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Adorner.cs" />
     <Compile Include="Classes\import_drywh_rawmats.cs" />
     <Compile Include="Classes\MenuColorTable.cs" />
@@ -927,6 +933,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Application Form\Report\frmMoveOrderReports.resx">
       <DependentUpon>frmMoveOrderReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application Form\Report\frmReceiptReports.resx">
+      <DependentUpon>frmReceiptReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Application Form\Report\frmRMReceivingReportDryWarehouse.resx">
       <DependentUpon>frmRMReceivingReportDryWarehouse.cs</DependentUpon>

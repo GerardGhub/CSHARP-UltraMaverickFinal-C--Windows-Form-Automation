@@ -1,13 +1,7 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.API.Data;
 using ULTRAMAVERICK.API.Entities;
@@ -19,17 +13,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
     {
         myclasses xClass = new myclasses();
         frmDryWhMiscellaneousReceipts ths;
-
         TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
         DryWHReceipt DryWHReceiptEntity = new DryWHReceipt();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
         IStoredProcedures g_objStoredProcCollection = null;
         myclasses myClass = new myclasses();
         DataSet dSet = new DataSet();
-
-
         DateTime dNow = DateTime.Now;
-
         int Useridentity = 0;
         int p_id = 0;
         DataSet dSet_temp = new DataSet();
@@ -66,7 +56,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
         public void LoadParentReceiptCmb()
         {
-
             myClass.fillCmbTransactionNo(MatTxTTransactNo, "DryWHReceiptParents_dropdown", dSet, Useridentity);
             this.MatTxTTransactNo_SelectionChangeCommitted(new object(), new System.EventArgs());
         }
@@ -74,7 +63,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void ConnetionString()
         {
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections();
-
         }
 
         DataSet dset_emp_SearchEngines = new DataSet();
@@ -82,27 +70,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             myglobal.global_module = "Active";
             dset_emp_SearchEngines.Clear();
-
-
             dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("DryWHReceipt_Major");
-
         }
 
         private void doSearchInTextBox()
         {
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
-
                     if (myglobal.global_module == "Active")
                     {
                         dv.RowFilter = "AddedBy = '" + this.Useridentity + "' ";
                     }
-
                     this.guna2DgvMaterialPreparation.DataSource = dv;
                     LblTotalRecords.Text = this.guna2DgvMaterialPreparation.RowCount.ToString();
                 }
@@ -110,13 +91,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             catch (SyntaxErrorException)
             {
                 MessageBox.Show("Invalid Character Found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
             catch (EvaluateException)
             {
                 MessageBox.Show("Invalid Character Found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
 
@@ -128,15 +107,13 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         private void DataGridVisibilityHidden()
         {
             this.guna2DgvMaterialPreparation.Columns["ParentDescription"].Visible = false;
-            this.guna2DgvMaterialPreparation.Columns["TransactionNo"].Visible = false;
- 
+            this.guna2DgvMaterialPreparation.Columns["TransactionNo"].Visible = false; 
             this.guna2DgvMaterialPreparation.Columns["AddedBy"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["DateAdded"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["IsActive"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Supplier"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Id"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["Remarks"].Visible = false;
-
             this.guna2DgvMaterialPreparation.Columns["UnitOfMeasure"].Visible = false;
             this.guna2DgvMaterialPreparation.Columns["ExpiryDays"].Visible = false;
         }
@@ -151,7 +128,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             this.MatBtnNew.Enabled = false;
             FrmAddNewMiscellaneousReceipt AddReceipt = new FrmAddNewMiscellaneousReceipt(this);
             AddReceipt.ShowDialog();
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -190,13 +166,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         {
             int IndexOf = 0;
             this.MatTxtSupploer.Text = MatCmbSupplierCode.SelectedValue.ToString();
-
-
             IndexOf = MatCmbSupplierCode.SelectedIndex;
             xClass.DataSetRMMoverOrderReceipt = g_objStoredProcCollection.sp_getMinorTables("Suppliers_dropdown", null, null, null, null, null);
-            //this.MatTxtSupploer.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["SupplierName"].ToString();
-
-
         }
 
         private void lbltotalrecords_TextChanged(object sender, EventArgs e)
@@ -256,7 +227,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                         this.MatBtnNew.Enabled = true;
                         if (this.LblTotalRecords.Text == "0")
                         {
-                            this.MatBtnSave.Enabled = false;
+                        this.MatBtnSave.Enabled = false;
                         }
                     }
                 }
@@ -268,16 +239,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
 
             else
             {
-
                 if (this.MatTxTTransactNo.Text == String.Empty)
                 {
                     this.MatTxTTransactNo.Text = "0";
                 }
 
 
-                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MetroFramework.MetroMessageBox.Show(this, "Are you sure you want to save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
                     dSet.Clear();
                     dSet = g_objStoredProcCollection
                     .sp_DryWHReceiptParents(0,
@@ -300,14 +269,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     }
 
 
-
-
-
                     try
-                    {
-               
-
-
+                    {            
                         foreach (DataGridViewRow row in guna2DgvMaterialPreparation.Rows)
                         {
 
@@ -358,26 +321,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                                 "",
                                 "",
                                 "",
-                                1, //Expiry Bobo
+                                1, 
                                 "",
                                 "",
                                 "AddDryWhReceipt");
-
-
-
-           
-
-
-
                         }
                         this.GlobalStatePopup.SuccessfullyReceived();
                         this.ClearTextBox();
                         this.frmDryWhMiscellaneousReceipts_Load(sender, e);
-
                     }
                     catch (Exception ex)
                     {
-
                         MessageBox.Show(ex.Message);
                     }
 

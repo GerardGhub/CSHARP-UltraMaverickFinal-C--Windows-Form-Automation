@@ -29,6 +29,7 @@ using ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation;
 using ULTRAMAVERICK.API.Extensions;
 using ULTRAMAVERICK.API.Data;
 using ULTRAMAVERICK.Application.Report;
+using ULTRAMAVERICK.Application_Form.Report;
 
 namespace COMPLETE_FLAT_UI
 {
@@ -1596,6 +1597,12 @@ namespace COMPLETE_FLAT_UI
             frmReport fr = new frmReport();
             fr.WindowState = FormWindowState.Maximized;
             fr.Show();
+        }
+
+        private void receiptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReceiptReports frmrpt = new frmReceiptReports();
+            frmrpt.ShowDialog();
         }
 
         private void panelContenedorForm_Paint(object sender, PaintEventArgs e)
