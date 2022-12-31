@@ -1,13 +1,7 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -18,7 +12,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         frmInternalApprovedOrder ths;
         myclasses xClass = new myclasses();
         IStoredProcedures g_objStoredProcCollection = null;
-        //Data Set Initialization
         public DataSet dset = new DataSet();
         DataSet dset2 = new DataSet();
         DataSet dset3 = new DataSet();
@@ -72,14 +65,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             this.bunifuPrepaDate.ValueChanged += new System.EventHandler(bunifuPrepaDate_ValueChanged);
             if (this.ctrl_bind_is_active == false)
             {
-                //this.bunifuPrepaDate.Enabled = false;
                 this.matBtnAction.Text = "RETURN";
-
                 this.lblcancelby.Visible = true;
                 this.lblcanceltitle.Visible = true;
             }
             this.DataGridHideColumn();
-            //MessageBox.Show(this.ctrl_bind_is_prepared.ToString());
             this.CheckIfTheRequestIsAlreadyPrepared();
         }
 
@@ -141,33 +131,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void doSearchInTextBoxCmb()
         {
-
             try
             {
-
-
                 if (dset_emp_SearchEngines.Tables.Count > 0)
                 {
                     DataView dv = new DataView(dset_emp_SearchEngines.Tables[0]);
                     dv.RowFilter = "mrs_id = '" + this.ctrl_bind_mrs + "' ";
                     this.dgvStoreOrderApproval.DataSource = dv;
-
                 }
             }
             catch (SyntaxErrorException)
             {
                 MessageBox.Show("Invalid character found xxx!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
             catch (EvaluateException)
             {
                 MessageBox.Show("Invalid character found 2.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 return;
             }
-
-
         }
 
 
@@ -175,7 +157,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void ConnectionState()
         {
             g_objStoredProcCollection = xClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
-
         }
 
         private void InitiliazeDatePickerMinDate()
@@ -200,8 +181,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ths.textBox1.Text = textBox1.Text;
-
-
         }
 
         private void ViewApprovedItemsInternalOrder_FormClosing(object sender, FormClosingEventArgs e)
@@ -218,15 +197,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.textBox1.Text = "TouchedScreen";
             }
- 
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            //this.bunifuPrepaDate.Text = "2022-06-28";
-            MessageBox.Show(ctrl_bind_is_preparation_date);
-            this.bunifuPrepaDate.Value.ToString(ctrl_bind_is_preparation_date);
-        }
 
         private void bunifuPrepaDate_ValueChanged(object sender, EventArgs e)
         {
@@ -238,13 +210,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 //The date has been changed - do what I need to do
                 if(this.bunifuPrepaDate.Text == ctrl_bind_is_preparation_date)
                 {
-                    this.matBtnAction.Text = "CANCEL";
-                
+                    this.matBtnAction.Text = "CANCEL";     
                 }
                 else
                 {
-                    this.matBtnAction.Text = "UPDATE";
-              
+                    this.matBtnAction.Text = "UPDATE";       
                 }
 
             }
@@ -264,7 +234,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 {
                     if (dgvStoreOrderApproval.CurrentRow != null)
                     {
-
                         if (Convert.ToBoolean(dgvStoreOrderApproval.Rows[i].Cells["selected"].Value) == true)
                         {
                             this.dgvStoreOrderApproval.CurrentCell = this.dgvStoreOrderApproval.Rows[i].Cells[this.dgvStoreOrderApproval.CurrentCell.ColumnIndex];
@@ -272,25 +241,20 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                                 int.Parse(dgvStoreOrderApproval.Rows[i].Cells["mrs_id"].Value.ToString()),
                                 "DryWhSupervisorCancelInternalApprovedMRS", 
                                 this.textBox1.Text,
-                                userinfo.user_id.ToString(), 1, 0);
-
+                              userinfo.user_id.ToString(), 1, 0);
                         }
                         else
                         {
                             //dset = g_objStoredProcCollection.sp_IDGenerator(int.Parse(dgvReprinting.Rows[i].Cells["id"].Value.ToString()), "updaterepacking", "", "", 1);
-
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-
-
                     MessageBox.Show(ex.Message);
                 }
 
             }
-
             this.GlobalStatePopup.CancelledSuccessfully();
             this.Close();
         }
@@ -327,13 +291,9 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 }
                 catch (Exception ex)
                 {
-
-
                     MessageBox.Show(ex.Message);
                 }
-
             }
-
             this.GlobalStatePopup.UpdatedSuccessfully();
             this.Close();
         }
@@ -369,18 +329,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 }
                 catch (Exception ex)
                 {
-
-
                     MessageBox.Show(ex.Message);
                 }
 
             }
 
-            this.GlobalStatePopup.ApprovedSuccessfully();
-
-
-
-            
+            this.GlobalStatePopup.ApprovedSuccessfully();   
             this.Close();
         }
 
@@ -449,9 +403,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             }
 
-            this.textBox2.Text = String.Empty;
-            //this.ViewApprovedItemsInternalOrder_Load(sender, e);
-        
+            this.textBox2.Text = String.Empty;    
         }
 
         private void dgvStoreOrderApproval_CurrentCellChanged(object sender, EventArgs e)
@@ -466,13 +418,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                 if (this.dgvStoreOrderApproval.CurrentRow != null)
                 {
                     if (this.dgvStoreOrderApproval.CurrentRow.Cells["is_active"].Value != null)
-                    {
-                   
+                    {            
                         this.ctrl_bind_is_cancel_by = this.dgvStoreOrderApproval.CurrentRow.Cells["is_cancel_by"].Value.ToString();
                         this.lblcancelby.Text = this.ctrl_bind_is_cancel_by;
                         this.ctrl_bind_is_active = Convert.ToBoolean(this.dgvStoreOrderApproval.CurrentRow.Cells["is_active"].Value);
                         this.ctrl_bind_is_prepared = Convert.ToBoolean(this.dgvStoreOrderApproval.CurrentRow.Cells["is_prepared"].Value);
-
                     }
                 }
 
@@ -489,7 +439,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             {
                 this.matBtnAction_Click(sender, e);
             }
-
 
         }
     }

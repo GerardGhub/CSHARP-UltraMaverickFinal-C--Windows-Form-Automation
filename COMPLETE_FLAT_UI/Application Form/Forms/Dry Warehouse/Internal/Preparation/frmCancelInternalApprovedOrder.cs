@@ -1,12 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.Models;
 
@@ -47,12 +41,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         public void loadRemarksDropdownForCancel()
         {
-
             this.myClass.fillComboBoxDepartment(this.cboReason, 
             "internal_order_activation_remarks_activated_minor_typecancel", dSet);
-
-
-            //this.lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
         }
 
         public void loadRemarksDropdownForReturn()
@@ -60,9 +50,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
             this.myClass.fillComboBoxDepartment(this.cboReason,
             "internal_order_activation_remarks_activated_minor_typereturn", dSet);
-
-
-            //this.lblItemClassID.Text = cboItemClass.SelectedValue.ToString();
         }
 
         private void ConnectionInit()
@@ -70,13 +57,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             g_objStoredProcCollection = myClass.g_objStoredProc.GetCollections(); // Main Stored Procedure Collections
         }
 
-
-
-
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //ths.textBox2.Text = textBox1.Text;
             ths.textBox2.Text = this.SpButtonActions;
             ths.textBox1.Text = this.cboReason.Text;
         }

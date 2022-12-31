@@ -1,13 +1,7 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.API.Entities;
 using ULTRAMAVERICK.Forms.Dry_Warehouse.External.Store_Modal.Module.Setup.Modal;
@@ -52,14 +46,11 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             try
             {
-
                 myClass.fillDataGridView(this.dgvAVGOrderTrend, "internal_order_activation_remarks_activated_minor", dSet);
-
                 this.lbltotalrecords.Text = this.dgvAVGOrderTrend.RowCount.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 
@@ -230,12 +221,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         }
 
 
-
-
-
-
-
-
         private void matBtnCancel_Click(object sender, EventArgs e)
         {
             //Mode of System
@@ -342,12 +327,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
                     {
                         return;
                     }
-
-
-
-
-
-
                 }
             }
             //End
@@ -355,7 +334,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
 
         private void SearchMethodJarVarCallingSPInactive()
         {
-            myglobal.global_module = "Active"; // Mode for Searching
+            myglobal.global_module = "Active"; 
             this.dset_emp_SearchEngines.Clear();
 
 
@@ -405,13 +384,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
             else
             {
                 this.SearchMethodJarVarCallingSPInactive();
-            }
-
-     
-
-                    this.doSearchInTextBox();
-
-           
+            } 
+                    this.doSearchInTextBox();           
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
