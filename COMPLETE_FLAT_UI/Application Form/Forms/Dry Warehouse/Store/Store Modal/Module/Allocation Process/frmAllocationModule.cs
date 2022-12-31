@@ -109,8 +109,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             } 
         }
 

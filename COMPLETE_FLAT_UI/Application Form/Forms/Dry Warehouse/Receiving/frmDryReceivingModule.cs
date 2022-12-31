@@ -226,28 +226,25 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                      }
 
                 this.doSearchInTextBoxCmb();
-  
-                                if (this.dgvMajorCategory.RowCount == 0)
-                                {
-                                    this.scanBarcodeNearlyExpiry();
-                                }
-                                else
-                                {
-                                this.Mattxtbarcode.Text = String.Empty;
-                                this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
-                                this.GlobalStatePopup.ItemFoundforReceiving();
-                                this.materialCard2.Visible = true;
-                                this.materialCard3.Visible = true;
-                                this.mattxtReceived.Visible = true;
-                                this.matbtnCancel.Visible = true;
 
-                                this.mattxtqtyReceived.Text = String.Empty;
-                                this.mattxtlotno.Text = String.Empty;
-                                this.mattxtLotDescription.Text = String.Empty;
-                                this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
-                                }
-
-
+                    if (this.dgvMajorCategory.RowCount == 0)
+                    {
+                        this.scanBarcodeNearlyExpiry();
+                    }
+                    else
+                    {
+                        this.Mattxtbarcode.Text = String.Empty;
+                        this.GlobalStatePopup.ItemDescription = this.mattxtitemdesc.Text;
+                        this.GlobalStatePopup.ItemFoundforReceiving();
+                        this.materialCard2.Visible = true;
+                        this.materialCard3.Visible = true;
+                        this.mattxtReceived.Visible = true;
+                        this.matbtnCancel.Visible = true;
+                        this.mattxtqtyReceived.Text = String.Empty;
+                        this.mattxtlotno.Text = String.Empty;
+                        this.mattxtLotDescription.Text = String.Empty;
+                        this.mattxtqtyreject_TextChanged(new object(), new System.EventArgs());
+                    }
                 }
                 else
                 {
@@ -543,14 +540,12 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
             if (this.mattxtqtyReceived.Text.Trim() == string.Empty)
             {
                 this.GlobalStatePopup.FillRequiredFields();
-      
                 return;
             }
 
             if(this.mattxtqtyReceived.Text == "0")
             {
                 this.GlobalStatePopup.InvalidQuantity();
-
                 return;
             }
 
@@ -565,8 +560,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
             if (orderActual < currentrejectActual)
             {
-                // code
-
                 this.GlobalStatePopup.LessThanQtyReceived();
                 this.mattxtqtyReceived.Text = String.Empty;
                 this.mattxtqtyReceived.Focus();
@@ -693,19 +686,27 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
 
                     //Commit the Data on The Database Stored procedure
 
+          
                     this.dSet.Clear();
-                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
-                        p_id, mattxtitemcode.Text, 
+                    this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(
+                        0,
+                        p_id, 
+                        this.mattxtitemcode.Text, 
                         this.mattxtitemdesc.Text, 
-                        this.sp_receiving_qty.ToString(), "", 
-                        this.sp_added_by, sp_added_by, "", 
+                        this.sp_receiving_qty.ToString(), 
+                        "", 
+                        this.sp_added_by, 
+                        this.sp_added_by, 
+                        "", 
                         this.mattxtSupplier.Text,
                         this.mattxtlotno.Text, 
                         this.mattxtLotDescription.Text, 
-                        this.mattxtmfgdate.Text, mattxtexpirydate.Text, 
+                        this.mattxtmfgdate.Text, 
+                        this.mattxtexpirydate.Text, 
                         this.MajorCategoryNo.ToString(),
-                        mattxtqtyuom.Text, 
-                        this.mattxtqtyreject.Text, Convert.ToInt32(mattxtponumber.Text), 
+                        this.mattxtqtyuom.Text, 
+                        this.mattxtqtyreject.Text, 
+                        Convert.ToInt32(mattxtponumber.Text), 
                         Convert.ToInt32(sp_added_by_userid), 
                         this.numExpirableItems.ToString(),
                         this.SpPoDate, 
@@ -731,7 +732,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                     this.mattxtLotDescription.Text, 
                     this.mattxtmfgdate.Text,
                     this.mattxtexpirydate.Text,
-                    this.mattxtcategory.Text,
+                       //this.mattxtcategory.Text,
+                       this.MajorCategoryNo.ToString(),
                     this.mattxtqtyuom.Text,
                     this.mattxtqtyreject.Text, 
                     Convert.ToInt32(mattxtponumber.Text), 
@@ -758,7 +760,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                             this.mattxtLotDescription.Text,
                             this.mattxtmfgdate.Text,
                             this.mattxtexpirydate.Text,
-                            this.mattxtcategory.Text,
+                               //this.mattxtcategory.Text,
+                               this.MajorCategoryNo.ToString(),
                             this.mattxtqtyuom.Text,
                             this.mattxtqtyreject.Text, 
                             Convert.ToInt32(this.mattxtponumber.Text), 
@@ -873,7 +876,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse
                         this.mattxtLotDescription.Text, 
                         this.mattxtmfgdate.Text, 
                         this.mattxtexpirydate.Text, 
-                        this.mattxtcategory.Text, 
+                        //this.mattxtcategory.Text,
+                        this.MajorCategoryNo.ToString(),
                         this.mattxtqtyuom.Text, 
                         this.mattxtqtyreject.Text, 
                         Convert.ToInt32(mattxtponumber.Text), 

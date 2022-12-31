@@ -12,7 +12,7 @@ namespace ULTRAMAVERICK.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -46,8 +46,8 @@ namespace ULTRAMAVERICK.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
-            "PI;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KABAYONGPROGRAM\\MSSQLSERVERMIS;Initial Catalog=UltraMaverickDB;Integr" +
+            "ated Security=SSPI;")]
         public string hr_application_conn2 {
             get {
                 return ((string)(this["hr_application_conn2"]));
@@ -56,8 +56,8 @@ namespace ULTRAMAVERICK.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
-            "PI;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KABAYONGPROGRAM\\MSSQLSERVERMIS;Initial Catalog=UltraMaverickDB;Integr" +
+            "ated Security=SSPI;")]
         public string hr_application_conn {
             get {
                 return ((string)(this["hr_application_conn"]));
@@ -67,8 +67,8 @@ namespace ULTRAMAVERICK.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MIS-GSINGIAN-L;Initial Catalog=UltraMaverickDB;Integrated Security=SS" +
-            "PI;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KABAYONGPROGRAM\\MSSQLSERVERMIS;Initial Catalog=UltraMaverickDB;Integr" +
+            "ated Security=SSPI;")]
         public string UltraMaverickDBConnectionString {
             get {
                 return ((string)(this["UltraMaverickDBConnectionString"]));
