@@ -143,7 +143,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Internal.Preparation
         {
             this.dset_emp_SearchEngines.Clear();
             this.dset_emp_SearchEngines = g_objStoredProcCollection.sp_getMajorTables("SearchInternalPreparationLogs");
-
         }
 
         private void doSearchInTextBoxCmb()
