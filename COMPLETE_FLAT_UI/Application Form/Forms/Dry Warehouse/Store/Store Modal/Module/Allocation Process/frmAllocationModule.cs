@@ -83,13 +83,17 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Store_Modal.Module
 
         private void DataGridVisibleFalseForDistinctItems()
         {
-            this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["total_row"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["GRANDTOTAL_COL_QTY"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["COUNT_ORDER"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["p_nearly_expiry_desc"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["is_expirable"].Visible = false;
-            this.dgvStoreOrderApproval.Columns["DAYSTOEXPIRED"].Visible = false;
+            if (this.dgvStoreOrderApproval.Rows.Count > 0)//if ala laman
+            {
+                this.dgvStoreOrderApproval.Columns["selected"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["total_row"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["GRANDTOTAL_COL_QTY"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["COUNT_ORDER"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["p_nearly_expiry_desc"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["is_expirable"].Visible = false;
+                this.dgvStoreOrderApproval.Columns["DAYSTOEXPIRED"].Visible = false;
+
+            }
         }
 
 
