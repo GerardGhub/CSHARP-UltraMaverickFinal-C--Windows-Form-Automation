@@ -1,13 +1,7 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ULTRAMAVERICK.API.Data;
 using ULTRAMAVERICK.API.Entities;
@@ -18,8 +12,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
     public partial class FrmDryWhMiscellaneouseIssue : MaterialForm
     {
         myclasses xClass = new myclasses();
-        //frmDryWhMiscellaneousReceipts ths;
-
         TblCustomersRepository TblCustomerRepo = new TblCustomersRepository();
         DryWHReceipt DryWHIssueEntity = new DryWHReceipt();
         PopupNotifierClass GlobalStatePopup = new PopupNotifierClass();
@@ -368,40 +360,6 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                             0,
                             0,
                             "edit");
-
-
-                            //this.dSet.Clear();
-                            //this.dSet = g_objStoredProcCollection.sp_tblDryWHReceiving(0,
-                            //    p_id,
-                            //    row.Cells["ItemCode"].Value.ToString(),
-                            //    row.Cells["ItemDescription"].Value.ToString(),
-                            //    row.Cells["Quantity"].Value.ToString(),
-                            //    "",
-                            //    this.Useridentity.ToString(),
-                            //    user_info.firstname,
-                            //    "",
-                            //    row.Cells["Supplier"].Value.ToString(),
-                            //    row.Cells["LotNumber"].Value.ToString(),
-                            //    row.Cells["LotDescription"].Value.ToString(),
-                            //    row.Cells["ManufacturingDate"].Value.ToString(),
-                            //    row.Cells["ExpirationDate"].Value.ToString(),
-                            //    row.Cells["Category"].Value.ToString(),
-                            //    row.Cells["UnitOfMeasure"].Value.ToString(),
-                            //    "0",
-                            //    0,
-                            //    this.Useridentity,
-                            //    row.Cells["ExpiryDays"].Value.ToString(),
-                            //    "",
-                            //    "",
-                            //    "",
-                            //    "",
-                            //    1, //Expiry Bobo
-                            //    "",
-                            //    "",
-                            //    "AddDryWhIssue");
-
-
-
                         }
                         this.GlobalStatePopup.SuccessfullyReceived();
                         this.ClearTextBox();
