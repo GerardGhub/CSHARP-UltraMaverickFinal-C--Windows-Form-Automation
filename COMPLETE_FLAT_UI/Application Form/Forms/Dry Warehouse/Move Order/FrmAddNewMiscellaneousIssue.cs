@@ -155,6 +155,14 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                 return;
             }
 
+            if (this.MatTxtQtyOut.Text == "0")
+            {
+                this.GlobalStatePopup.InvalidQuantity();
+                this.MatTxtQtyOut.Text = String.Empty;
+                this.MatTxtQtyOut.Select();
+                return;
+            }
+
             double Reserved;
             double Order;
             Reserved = double.Parse(this.MatTxtAvailableStock.Text);
@@ -163,8 +171,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             if (Order > Reserved)
             {
                 this.GlobalStatePopup.GreaterThanActualRemainingQty();
-                this.MatTxtQuantity.Text = String.Empty;
-                this.MatTxtQuantity.Focus();
+                this.MatTxtQtyOut.Text = String.Empty;
+                this.MatTxtQtyOut.Select();
                 return;
             }
 
