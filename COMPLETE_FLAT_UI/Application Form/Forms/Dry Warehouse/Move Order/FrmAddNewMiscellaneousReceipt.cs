@@ -1,13 +1,8 @@
 ﻿using COMPLETE_FLAT_UI.Models;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlTypes;
 using System.Windows.Forms;
 using ULTRAMAVERICK.API.Data;
 using ULTRAMAVERICK.API.Entities;
@@ -33,6 +28,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
         int Useridentity = 0;
 
         DataSet dSet_temp = new DataSet();
+
+         public int CategoryId { get; set; }
 
         public FrmAddNewMiscellaneousReceipt(frmDryWhMiscellaneousReceipts frm)
         {
@@ -69,6 +66,7 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
             IndexOf = MatCmbItemCode.SelectedIndex;
             xClass.DataSetRMMoverOrderReceipt = g_objStoredProcCollection.sp_getMinorTables("Item_Code_dropdown", null, null, null, null, null);
             this.MatTxtCategory.Text = xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["major_category"].ToString();
+            this.CategoryId = Convert.ToInt32(xClass.DataSetRMMoverOrderReceipt.Tables[0].Rows[IndexOf]["sub_category_id"]);
             //this.MatTxtCategory.Text = xClass.SubCategory.ToString();
         }
 
@@ -156,7 +154,8 @@ namespace ULTRAMAVERICK.Forms.Dry_Warehouse.Move_Order
                     this.MatTxtExpiryDays.Text.Trim(),
                     this.MatCmbItemCode.Text.Trim(),
                     this.MatTxtItemDescription.Text.Trim(),
-                    this.MatTxtCategory.Text.Trim(),
+                    //this.MatTxtCategory.Text.Trim(),
+                    this.CategoryId.ToString(),
                     ths.MatCmbSupplierCode.Text.Trim(),
                     Convert.ToDouble(this.MatTxtQuantity.Text.Trim()),
                     ths.matCmbRemarks.Text.Trim(),
