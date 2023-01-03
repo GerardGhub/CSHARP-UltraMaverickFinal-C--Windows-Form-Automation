@@ -61,8 +61,9 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
         private void frmLabTestModule_Load(object sender, EventArgs e)
         {
             this.ConnectionInitialization();
-            this.matRadioAvailable.Checked = true;
-            this.WindowLoadState();
+            this.HideWizard();
+            //this.matRadioAvailable.Checked = true;
+            this.WindowLoadState();   
         }
 
        public void  HideWizard()
@@ -103,6 +104,19 @@ namespace ULTRAMAVERICK.Forms.Lab_Test
             this.WizardBalloon4.Visible = true;
             this.lblPattern4.Visible = true;
             this.siticoneHtmlLabel4.Visible = true;
+
+
+                if (this.SpQAApprovalStatus == "1" && this.SpLabResultRemarks != "0"
+                && this.SpQASupervisorApprovalStatus == true
+                && this.Sp_Tsqa_Approval_Status == true
+                && this.txtLabAccessCode.Text != String.Empty)
+                {
+                this.MatBtnReceived.Visible = true;
+                }
+                else
+                {
+                this.MatBtnReceived.Visible = false;
+                }
         }
 
         private void AutoGeneratingLabAccessCode()
